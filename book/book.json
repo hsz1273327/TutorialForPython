@@ -1,0 +1,12 @@
+{
+    "gitbook": ">=2.0.0",
+    "language": "zh",
+    "structure": {
+        "readme": "README.md"
+    },
+    "links" : {
+    "sidebar" : {
+        "Home" : "http://blog.hszofficial.site/"
+    }
+}
+}

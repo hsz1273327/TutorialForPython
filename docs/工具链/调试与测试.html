@@ -1,0 +1,2881 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>调试与测试 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="结语.html" />
+    
+    
+    <link rel="prev" href="代码风格.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../总章.html">
+            
+                <a href="../总章.html">
+            
+                    
+                    总章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    工具链
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="运行环境与部署分发.html">
+            
+                <a href="运行环境与部署分发.html">
+            
+                    
+                    运行环境与部署分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="代码风格.html">
+            
+                <a href="代码风格.html">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3" data-path="调试与测试.html">
+            
+                <a href="调试与测试.html">
+            
+                    
+                    调试与测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="结语.html">
+            
+                <a href="结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Python的数据模型/">
+            
+                <a href="../Python的数据模型/">
+            
+                    
+                    Python的数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Python的数据模型/数据模型.html">
+            
+                <a href="../Python的数据模型/数据模型.html">
+            
+                    
+                    运行环境与部署分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Python的数据模型/结语.html">
+            
+                <a href="../Python的数据模型/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Python的数据模型/">
+            
+                <a href="../Python的数据模型/">
+            
+                    
+                    元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Python的数据模型/数据模型.html">
+            
+                <a href="../Python的数据模型/数据模型.html">
+            
+                    
+                    import hook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../Python的数据模型/数据模型.html">
+            
+                <a href="../Python的数据模型/数据模型.html">
+            
+                    
+                    装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../Python的数据模型/数据模型.html">
+            
+                <a href="../Python的数据模型/数据模型.html">
+            
+                    
+                    属性描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../Python的数据模型/数据模型.html">
+            
+                <a href="../Python的数据模型/数据模型.html">
+            
+                    
+                    元类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../Python的数据模型/结语.html">
+            
+                <a href="../Python的数据模型/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >调试与测试</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4EE3;&#x7801;&#x8C03;&#x8BD5;">&#x4EE3;&#x7801;&#x8C03;&#x8BD5;</h1>
+<p>&#x4EE3;&#x7801;&#x8C03;&#x8BD5;&#x4E3B;&#x8981;&#x662F;debug,&#x4E5F;&#x5C31;&#x662F;&#x786E;&#x4FDD;&#x7A0B;&#x5E8F;&#x4E0D;&#x51FA;&#x9519;&#x8BEF;.&#x57FA;&#x672C;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x5982;&#x4E0B;&#x51E0;&#x4E2A;&#x65B9;&#x9762;:</p>
+<ul>
+<li>&#x5355;&#x6B65;&#x8C03;&#x8BD5;,&#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x7684;&#x67E5;&#x770B;&#x4EE3;&#x7801;&#x7684;&#x8FD0;&#x884C;&#x72B6;&#x6001;</li>
+<li>&#x8C03;&#x7528;&#x8FFD;&#x8E2A;,&#x67E5;&#x770B;&#x51FD;&#x6570;&#x62A5;&#x9519;&#x5728;&#x5806;&#x6808;&#x4E2D;&#x7684;&#x72B6;&#x51B5;</li>
+<li>&#x6BB5;&#x9519;&#x8BEF;&#x8FFD;&#x8E2A;,&#x4E00;&#x822C;&#x7528;&#x4E8E;C&#x5199;&#x6269;&#x5C55;&#x7684;&#x6A21;&#x5757;&#x8FFD;&#x8E2A;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x7B49;&#x9519;&#x8BEF;</li>
+</ul>
+<h2 id="&#x5355;&#x6B65;&#x8C03;&#x8BD5;&#x6A21;&#x5757;">&#x5355;&#x6B65;&#x8C03;&#x8BD5;&#x6A21;&#x5757;</h2>
+<p>pdb&#x662F;python&#x81EA;&#x5E26;&#x7684;&#x8C03;&#x8BD5;&#x6A21;&#x5757;,&#x5B83;&#x53EF;&#x4EE5;&#x5728;&#x4EA4;&#x4E92;&#x73AF;&#x5883;&#x4E2D;&#x4F7F;&#x7528;,&#x4E5F;&#x53EF;&#x4EE5;&#x5728;terminal&#x4E2D;&#x4F5C;&#x4E3A;python&#x7684;&#x4E00;&#x4E2A;&#x6A21;&#x5F0F;&#x4F7F;&#x7528;</p>
+<blockquote>
+<p>&#x8981;&#x8C03;&#x8BD5;&#x7684;&#x811A;&#x672C;:</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/env python3</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Counter</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;&#x4E00;&#x4E2A;&#x8BA1;&#x6570;&#x5668;
+    &#x7528;&#x6CD5;:
+    &gt;&gt;&gt; counter1 = Counter()
+    &gt;&gt;&gt; counter1()
+    1
+    &gt;&gt;&gt; counter1()
+    2
+    &gt;&gt;&gt; counter2 = Counter(lambda : 2,-3)
+    &gt;&gt;&gt; counter2()
+    -1
+    &gt;&gt;&gt; counter2()
+    1
+    &quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__str__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;state:&quot;</span>+str(self.value)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.__str__
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">count</span><span class="hljs-params">()</span>:</span>
+            self.value += self.func()
+            <span class="hljs-keyword">return</span> self.value
+        <span class="hljs-keyword">return</span> count()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,func=lambda : <span class="hljs-number">1</span>,start=<span class="hljs-number">0</span>)</span>:</span>
+        self.value = start
+        self.func = func
+test = Counter()
+test()
+test()
+print(test)
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
+    counter1 = Counter()
+    counter2 = Counter()
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>):
+        counter1()
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">8</span>):
+        counter2()
+    <span class="hljs-keyword">if</span> counter1.value == counter2.value:
+        print(<span class="hljs-string">&quot;not success&quot;</span>)
+    <span class="hljs-keyword">else</span>:
+        print(<span class="hljs-string">&quot;don&apos;t known&quot;</span>)
+
+
+    <span class="hljs-keyword">import</span> doctest
+    doctest.testmod(verbose=<span class="hljs-keyword">True</span>)
+</code></pre>
+<blockquote>
+<p>&#x547D;&#x4EE4;&#x884C;&#x8C03;&#x8BD5;</p>
+</blockquote>
+<pre><code class="lang-shell">python -m pdb counter.py
+</code></pre>
+<blockquote>
+<p>&#x5728;&#x4EA4;&#x4E92;shell&#x4E2D;&#x8C03;&#x8BD5;</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> pdb
+<span class="hljs-keyword">import</span> counter
+pdb.run(<span class="hljs-string">&apos;counter.test()&apos;</span>)
+</code></pre>
+<p>&#x5E38;&#x7528;&#x7684;&#x8C03;&#x8BD5;&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x5728;&#x8C03;&#x8BD5;&#x6A21;&#x5F0F;&#x4E0B;&#x7528;help&#x547D;&#x4EE4;&#x6765;&#x67E5;&#x770B;</p>
+<h2 id="&#x8C03;&#x7528;&#x8FFD;&#x8E2A;">&#x8C03;&#x7528;&#x8FFD;&#x8E2A;</h2>
+<p>&#x8C03;&#x8BD5;&#x7684;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x9664;&#x4E86;&#x60F3;&#x77E5;&#x9053;&#x54EA;&#x6761;&#x4EE3;&#x7801;&#x9519;&#x4E86;,&#x4E5F;&#x4F1A;&#x60F3;&#x77E5;&#x9053;&#x662F;&#x8C01;&#x8C03;&#x7528;&#x4E86;&#x8FD9;&#x6761;&#x9519;&#x8BEF;&#x7684;&#x4EE3;&#x7801;,,&#x53C8;&#x6216;&#x8005;&#x5E0C;&#x671B;&#x77E5;&#x9053;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x5806;&#x6808;&#x4FE1;&#x606F;.&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x8FFD;&#x8E2A;&#x6A21;&#x5757;&#x5C31;&#x6709;&#x7528;&#x4E86;</p>
+<blockquote>
+<p>&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> traceback
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">()</span>:</span>
+    s =  traceback.extract_stack()
+    print(<span class="hljs-string">&apos;%s Invoked me!&apos;</span>%s[<span class="hljs-number">-2</span>][<span class="hljs-number">2</span>])
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">a</span><span class="hljs-params">()</span>:</span>
+    func()
+b = <span class="hljs-keyword">lambda</span> :func()
+</code></pre>
+<pre><code class="lang-python">a()
+</code></pre>
+<pre><code>a Invoked me!
+</code></pre><pre><code class="lang-python">b()
+</code></pre>
+<pre><code>&lt;lambda&gt; Invoked me!
+</code></pre><p>traceback&#x7684;api&#x662F;&#x8FD9;&#x4E9B;&#xFF0C;&#x6211;&#x5C06;&#x5B83;&#x7FFB;&#x8BD1;&#x51FA;&#x6765;&#xFF0C;&#x82F1;&#x6587;&#x4E0D;&#x597D;&#x7684;&#x540C;&#x5B66;&#x4E5F;&#x53EF;&#x4EE5;&#x5BF9;&#x7167;&#x7740;&#x4F7F;&#x7528;:</p>
+<ul>
+<li><p><code>traceback.print_tb(tb, limit=None, file=None)</code></p>
+<p>  &#x5982;&#x679C;<code>limit</code>&#x53C2;&#x6570;&#x662F;&#x6B63;&#x6570;,&#x5219;&#x6253;&#x5370;limit&#x6761;&#x6570;&#x7684;(&#x4ECE;&#x8C03;&#x7528;&#x8005;&#x8FD9;&#x4E00;&#x5E27;&#x5F00;&#x59CB;&#x7684;)traceback&#x5BF9;&#x8C61;&#x7684;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x6761;&#x76EE;,&#x5426;&#x5219;&#x6253;&#x5370;&#x6700;&#x540E;&#x7684;abs(limit)&#x6761;&#x76EE;,&#x5982;&#x679C;<code>limit</code>&#x88AB;&#x7701;&#x7565;&#x6216;&#x4E3A;None&#xFF0C;&#x5219;&#x6253;&#x5370;&#x6240;&#x6709;&#x6761;&#x76EE;
+  &#x5982;&#x679C;&#x7701;&#x7565;<code>file</code>&#x6216;&#x8005;<code>None</code>&#xFF0C;&#x5219;&#x8F93;&#x51FA;&#x5230;<code>sys.stderr</code>,&#x5426;&#x5219;&#x5B83;&#x5E94;&#x8BE5;&#x662F;&#x4E00;&#x4E2A;&#x6253;&#x5F00;&#x7684;&#x6587;&#x4EF6;&#x6216;&#x7C7B;&#x4F3C;&#x6587;&#x4EF6;&#x7684;&#x5BF9;&#x8C61;&#x6765;&#x63A5;&#x6536;&#x8F93;&#x51FA;&#x3002;</p>
+</li>
+</ul>
+<pre><code>&#x6253;&#x5370;&#xFF0C;&#x4EE5;&#x9650;&#x5236;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x6761;&#x76EE;&#x4ECE;traceback&#x5BF9;&#x8C61;(&#x4ECE;&#x8C03;&#x7528;&#x8005;&#x8FD9;&#x5E27;&#x5F00;&#x59CB;)&#xFF0C;&#x5982;&#x679C;&#x9650;&#x5236;&#x662F;&#x79EF;&#x6781;&#x7684;&#x3002;&#x5426;&#x5219;&#xFF0C;&#x6253;&#x5370;&#x6700;&#x540E;&#x7684;ABS&#xFF08;&#x9650;&#x5236;&#xFF09;&#x6761;&#x76EE;&#x3002;&#x5982;&#x679C;&#x9650;&#x5236;&#x88AB;&#x7701;&#x7565;&#x6216;&#x6CA1;&#x6709;&#xFF0C;&#x6240;&#x6709;&#x6761;&#x76EE;&#x6253;&#x5370;&#x3002;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x88AB;&#x7701;&#x7565;&#x6216;&#x6CA1;&#x6709;&#xFF0C;&#x8F93;&#x51FA;&#x5230;`sys.stderr`&#xFF1B;&#x5426;&#x5219;&#x5E94;&#x6253;&#x5F00;&#x7684;&#x6587;&#x4EF6;&#x6216;&#x7C7B;&#x4F3C;&#x6587;&#x4EF6;&#x7684;&#x5BF9;&#x8C61;&#x6765;&#x63A5;&#x6536;&#x8F93;&#x51FA;&#x3002;
+</code></pre><ul>
+<li><p><code>traceback.print_exception(etype, value, tb, limit=None, file=None, chain=True)</code></p>
+<p>  &#x5C06;&#x5F02;&#x5E38;&#x4FE1;&#x606F;&#x548C;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x6761;&#x76EE;&#x4ECE;traceback&#x5BF9;&#x8C61;tb&#x6253;&#x5370;&#x5230;&#x6587;&#x4EF6;&#x3002;&#x8FD9;&#x4E0E;<code>print_tb()</code>&#x6709;&#x4EE5;&#x4E0B;&#x4E0D;&#x540C;:</p>
+<ul>
+<li>&#x5982;&#x679C;tb&#x4E0D;&#x662F;None&#xFF0C;&#x5B83;&#x4F1A;&#x6253;&#x5370;&#x4E00;&#x4E2A; header Traceback&#xFF08;&#x901A;&#x5E38;&#x662F;&#x6700;&#x8FD1;&#x4E00;&#x6B21;&#x8C03;&#x7528;&#xFF09;&#xFF1A;</li>
+<li>&#x5B83;&#x5728;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x4E4B;&#x540E;&#x6253;&#x5370;&#x5F02;&#x5E38;etype&#x548C;&#x503C;</li>
+<li>&#x5982;&#x679C;etype&#x662F;SyntaxError&#xFF0C;&#x5E76;&#x4E14;value&#x5177;&#x6709;&#x76F8;&#x5E94;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x5219;&#x4F1A;&#x6253;&#x5370;&#x51FA;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;&#x53D1;&#x751F;&#x7684;&#x884C;&#xFF0C;&#x5E76;&#x5E26;&#x6709;&#x6307;&#x793A;&#x9519;&#x8BEF;&#x5927;&#x81F4;&#x4F4D;&#x7F6E;&#x7684;&#x63D2;&#x5165;&#x7B26;&#x53F7;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<pre><code>&#x53EF;&#x9009;&#x7684;limit&#x53C2;&#x6570;&#x4E0E;`print_tb()`&#x7684;&#x542B;&#x4E49;&#x76F8;&#x540C;.&#x5982;&#x679C;chain&#x4E3A;true&#xFF08;&#x9ED8;&#x8BA4;&#x503C;&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x4E5F;&#x4F1A;&#x6253;&#x5370;&#x5F02;&#x5E38;&#x94FE;&#xFF08;`__cause__`&#x6216;`__context__`&#x5F02;&#x5E38;&#x7684;&#x5C5E;&#x6027;&#xFF09;&#xFF0C;&#x5C31;&#x50CF;&#x89E3;&#x91CA;&#x5668;&#x672C;&#x8EAB;&#x5728;&#x6253;&#x5370;&#x672A;&#x5904;&#x7406;&#x7684;&#x5F02;&#x5E38;&#x65F6;&#x4E00;&#x6837;&#x3002;
+</code></pre><ul>
+<li><p><code>traceback.print_exc(limit=None, file=None, chain=True)</code></p>
+<p>  <code>print_exception(*sys.exc_info(), limit, file, chain)</code>&#x7684;&#x7F29;&#x5199;</p>
+</li>
+<li><p><code>traceback.print_last(limit=None, file=None, chain=True)</code></p>
+<p>  &#x8FD9;&#x662F;<code>print_exception(sys.last_type&#xFF0C;sys.last_value&#xFF0C;sys.last_traceback&#xFF0C;limit&#xFF0C;file&#xFF0C;chain)</code>&#x7684;&#x7F29;&#x5199;&#x3002;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;&#x53EA;&#x6709;&#x5728;&#x5F02;&#x5E38;&#x5DF2;&#x7ECF;&#x8FBE;&#x5230;&#x4EA4;&#x4E92;&#x5F0F;&#x63D0;&#x793A;&#x4E4B;&#x540E;&#x624D;&#x4F1A;&#x6709;&#x6548;</p>
+</li>
+</ul>
+<ul>
+<li><p><code>traceback.print_stack(f=None, limit=None, file=None)</code></p>
+<p>  &#x5982;&#x679C;limit&#x4E3A;&#x6B63;&#x503C;&#x5219;&#x4EE5;limit&#x53C2;&#x6570;&#x4E3A;&#x6761;&#x6570;&#x6253;&#x5370;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x6761;&#x76EE;(&#x4ECE;&#x8C03;&#x7528;&#x70B9;&#x5F00;&#x59CB;)&#x5426;&#x5219;&#xFF0C;&#x6253;&#x5370;&#x6700;&#x540E;&#x4E00;&#x4E2A;abs(limit)&#x6761;&#x76EE;&#x3002;&#x5982;&#x679C;&#x7701;&#x7565;limit&#x6216;None&#xFF0C;&#x5219;&#x6253;&#x5370;&#x6240;&#x6709;&#x6761;&#x76EE;&#x3002;&#x53EF;&#x9009;&#x7684;f&#x53C2;&#x6570;&#x53EF;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x8981;&#x542F;&#x52A8;&#x7684;&#x5907;&#x7528;&#x5806;&#x6808;&#x5E27;&#x3002;&#x53EF;&#x9009;file&#x53C2;&#x6570;&#x4E0E;<code>print_tb()</code>&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x542B;&#x4E49;&#x3002;</p>
+</li>
+<li><p><code>traceback.extract_tb(tb, limit=None)</code></p>
+<p>  &#x8FD4;&#x56DE;&#x4ECE;traceback&#x5BF9;&#x8C61;tb&#x63D0;&#x53D6;&#x7684;&#x201C;&#x9884;&#x5904;&#x7406;&#x201D;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x6761;&#x76EE;&#x5217;&#x8868;&#x3002;&#x5B83;&#x5BF9;&#x4E8E;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x7684;&#x66FF;&#x4EE3;&#x683C;&#x5F0F;&#x5F88;&#x6709;&#x7528;&#x3002;&#x53EF;&#x9009;&#x7684;limit&#x53C2;&#x6570;&#x4E0E;print_tb()&#x7684;&#x542B;&#x4E49;&#x76F8;&#x540C;&#x3002; &#x201C;&#x9884;&#x5904;&#x7406;&#x201D;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x6761;&#x76EE;&#x662F;&#x8868;&#x793A;&#x901A;&#x5E38;&#x4E3A;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x6253;&#x5370;&#x7684;&#x4FE1;&#x606F;&#x7684;4&#x5143;&#x7EC4;(&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x884C;&#x53F7;&#xFF0C;&#x51FD;&#x6570;&#x540D;&#x79F0;&#xFF0C;&#x6587;&#x672C;)&#x3002;&#x6587;&#x672C;&#x662F;&#x5E26;&#x6709;&#x524D;&#x5BFC;&#x548C;&#x5C3E;&#x968F;&#x7A7A;&#x683C;&#x7684;&#x5B57;&#x7B26;&#x4E32;;&#x5982;&#x679C;&#x6E90;&#x4E0D;&#x53EF;&#x7528;&#xFF0C;&#x5219;&#x4E3A;None&#x3002;</p>
+</li>
+<li><p><code>traceback.extract_stack(f=None, limit=None)</code></p>
+<p>  &#x4ECE;&#x5F53;&#x524D;&#x5806;&#x6808;&#x5E27;&#x4E2D;&#x63D0;&#x53D6;&#x539F;&#x59CB;&#x7684;&#x8FFD;&#x6EAF;&#x3002;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x683C;&#x5F0F;&#x4E0E;<code>extract_tb()</code>&#x7684;&#x683C;&#x5F0F;&#x76F8;&#x540C;&#x3002;&#x53EF;&#x9009;&#x7684;f&#x548C;limit&#x53C2;&#x6570;&#x4E0E;<code>print_stack()</code>&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x542B;&#x4E49;&#x3002;</p>
+</li>
+<li><p><code>traceback.format_list(extracted_list)</code></p>
+<p>  &#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x7531;<code>extract_tb()</code>&#x6216;<code>extract_stack()</code>&#x8FD4;&#x56DE;&#x7684;&#x5143;&#x7EC4;&#x5217;&#x8868;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51C6;&#x5907;&#x6253;&#x5370;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5217;&#x8868;&#x3002;&#x7ED3;&#x679C;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5BF9;&#x5E94;&#x4E8E;&#x53C2;&#x6570;&#x5217;&#x8868;&#x4E2D;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7D22;&#x5F15;&#x7684;&#x9879;&#x3002;&#x6BCF;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x4EE5;&#x6362;&#x884C;&#x7B26;&#x7ED3;&#x5C3E;.&#x5BF9;&#x4E8E;&#x6E90;&#x6587;&#x672C;&#x884C;&#x4E0D;&#x4E3A;None&#x7684;&#x9879;&#x76EE;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x4E5F;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x5185;&#x90E8;&#x6362;&#x884C;&#x7B26;&#x3002;</p>
+</li>
+</ul>
+<ul>
+<li><p><code>traceback.format_exception_only(etype, value)</code></p>
+<p>  &#x683C;&#x5F0F;&#x5316;traceback&#x7684;&#x5F02;&#x5E38;&#x90E8;&#x5206;&#x3002;&#x53C2;&#x6570;&#x662F;&#x5F02;&#x5E38;&#x7C7B;&#x578B;&#x548C;&#x503C;&#xFF0C;&#x4F8B;&#x5982;&#x7531;<code>sys.last_type</code>&#x548C;<code>sys.last_value</code>&#x7ED9;&#x51FA;&#x7684;&#x3002;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5217;&#x8868;&#xFF0C;&#x6BCF;&#x4E2A;&#x90FD;&#x4EE5;&#x6362;&#x884C;&#x7B26;&#x7ED3;&#x5C3E;&#x3002;&#x901A;&#x5E38;&#xFF0C;&#x5217;&#x8868;&#x5305;&#x542B;&#x5355;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;;&#x4F46;&#x662F;&#xFF0C;&#x5BF9;&#x4E8E;<code>SyntaxError</code>&#x5F02;&#x5E38;&#xFF0C;&#x5B83;&#x5305;&#x542B;&#x51E0;&#x884C;(&#x6253;&#x5370;&#x65F6;)&#x663E;&#x793A;&#x6709;&#x5173;&#x53D1;&#x751F;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#x3002;&#x6307;&#x793A;&#x53D1;&#x751F;&#x54EA;&#x4E2A;&#x5F02;&#x5E38;&#x7684;&#x6D88;&#x606F;&#x662F;&#x5217;&#x8868;&#x4E2D;&#x59CB;&#x7EC8;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+</li>
+</ul>
+<ul>
+<li><p><code>traceback.format_exception(etype, value, tb, limit=None, chain=True)</code></p>
+<p>  &#x683C;&#x5F0F;&#x5316;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x548C;&#x5F02;&#x5E38;&#x4FE1;&#x606F;&#x3002;&#x53C2;&#x6570;&#x4E0E;<code>print_exception()</code>&#x7684;&#x76F8;&#x5E94;&#x53C2;&#x6570;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x542B;&#x4E49;&#x3002;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x5217;&#x8868;&#xFF0C;&#x6BCF;&#x4E2A;&#x90FD;&#x4EE5;&#x6362;&#x884C;&#x7B26;&#x7ED3;&#x5C3E;&#xFF0C;&#x4E00;&#x4E9B;&#x5305;&#x542B;&#x5185;&#x90E8;&#x6362;&#x884C;&#x7B26;&#x3002;&#x5F53;&#x8FD9;&#x4E9B;&#x884C;&#x8FDE;&#x63A5;&#x5E76;&#x6253;&#x5370;&#x65F6;&#xFF0C;&#x6253;&#x5370;&#x4E0E;<code>print_exception()</code>&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x7684;&#x6587;&#x672C;&#x3002;</p>
+</li>
+</ul>
+<ul>
+<li><p><code>traceback.format_exc(limit=None, chain=True)</code></p>
+<p>  &#x7C7B;&#x4F3C;<code>print_exc(limit)</code>&#xFF0C;&#x4F46;&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x800C;&#x4E0D;&#x662F;&#x6253;&#x5370;&#x5230;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;</p>
+</li>
+</ul>
+<ul>
+<li><p><code>traceback.format_tb(tb, limit=None)</code></p>
+<p>  <code>format_list(extract_tb(tb&#xFF0C;limit))</code>&#x7684;&#x7F29;&#x5199;</p>
+</li>
+<li><p><code>traceback.format_stack(f=None, limit=None)</code></p>
+<p>  <code>format_list(extract_stack(f, limit))</code>&#x7684;&#x7F29;&#x5199;</p>
+</li>
+<li><p><code>traceback.clear_frames(tb)</code></p>
+<p>  &#x901A;&#x8FC7;&#x8C03;&#x7528;&#x6BCF;&#x4E2A;&#x5E27;&#x5BF9;&#x8C61;&#x7684;<code>clear()</code>&#x65B9;&#x6CD5;&#x6765;&#x6E05;&#x9664;traceback&#x5BF9;&#x8C61;tb&#x4E2D;&#x6240;&#x6709;&#x5806;&#x6808;&#x5E27;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x3002;</p>
+</li>
+<li><p><code>traceback.walk_stack(f)</code></p>
+<p>  &#x4ECE;&#x7ED9;&#x5B9A;&#x5E27;&#x4E2D;&#x7684;<code>f.f_back</code>&#x540E;&#x9762;&#x79FB;&#x52A8;&#x4E00;&#x4E2A;&#x5806;&#x6808;&#xFF0C;&#x4EA7;&#x751F;&#x6BCF;&#x4E2A;&#x5E27;&#x7684;&#x5E27;&#x548C;&#x884C;&#x53F7;&#x3002;&#x5982;&#x679C;f&#x4E3A;None&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x5F53;&#x524D;&#x5806;&#x6808;&#x3002;&#x5B83;&#x5E38;&#x7528;&#x4E8E;&#x548C;<code>StackSummary.extract()</code>&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x3002;</p>
+</li>
+<li><p><code>traceback.walk_tb(tb)</code></p>
+<p>  &#x5728;tb_next&#x4E4B;&#x540E;&#x8D70;&#x4E00;&#x4E2A;&#x56DE;&#x6EAF;&#xFF0C;&#x4EA7;&#x751F;&#x6BCF;&#x4E2A;&#x5E27;&#x7684;&#x5E27;&#x548C;&#x884C;&#x53F7;&#x3002;&#x6B64;&#x5E2E;&#x52A9;&#x7A0B;&#x5E8F;&#x4E0E;<code>StackSummary.extract()</code>&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x3002;</p>
+</li>
+</ul>
+<ul>
+<li><p><code>class traceback.StackSummary</code></p>
+<p>  StackSummary&#x5BF9;&#x8C61;&#x8868;&#x793A;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;&#x7684;&#x8C03;&#x7528;&#x5806;&#x6808;,&#x5B83;&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;<code>extract</code> &#x5E38;&#x4E0E;<code>traceback.walk_stack</code>&#x6216;&#x8005;<code>traceback.walk_tb</code>&#x914D;&#x5408;&#x4F7F;&#x7528;</p>
+<ul>
+<li><p><code>classmethod extract(frame_gen, *, limit=None, lookup_lines=True, capture_locals=False)</code></p>
+<p>  &#x4ECE;&#x5E27;&#x751F;&#x6210;&#x5668;&#x6784;&#x9020;&#x4E00;&#x4E2A;<code>StackSummary</code>&#x5BF9;&#x8C61;(&#x4F8B;&#x5982;&#x7531;walk_stack()&#x6216;walk_tb()&#x7684;&#x8FD4;&#x56DE;).&#x5982;&#x679C;&#x6709;<code>limit</code>&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x53EA;&#x6709;&#x8FD9;&#x4E48;&#x591A;&#x5E27;&#x662F;&#x4ECE;frame_gen&#x4E2D;&#x83B7;&#x53D6;&#x7684;&#x3002;&#x5982;&#x679C;<code>lookup_lines</code>&#x4E3A;False&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x7684;FrameSummary&#x5BF9;&#x8C61;&#x5C06;&#x4E0D;&#x4F1A;&#x8BFB;&#x53D6;&#x5B83;&#x4EEC;&#x7684;&#x884C;&#xFF0C;&#x4ECE;&#x800C;&#x4F7F;&#x5F97;&#x521B;&#x5EFA;StackSummary&#x7684;&#x6210;&#x672C;&#x66F4;&#x4F4E;(&#x5982;&#x679C;&#x5B9E;&#x9645;&#x4E0A;&#x53EF;&#x80FD;&#x6CA1;&#x6709;&#x683C;&#x5F0F;&#x5316;&#xFF0C;&#x5219;&#x53EF;&#x80FD;&#x662F;&#x6709;&#x4EF7;&#x503C;&#x7684;).&#x5982;&#x679C;<code>capture_locals</code>&#x4E3A;True&#xFF0C;&#x5219;&#x6BCF;&#x4E2A;FrameSummary&#x4E2D;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x88AB;&#x6355;&#x83B7;&#x4E3A;&#x5BF9;&#x8C61;&#x8868;&#x793A;&#x3002;</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x6BB5;&#x9519;&#x8BEF;&#x8FFD;&#x8E2A;">&#x6BB5;&#x9519;&#x8BEF;&#x8FFD;&#x8E2A;</h2>
+<p>&#x6240;&#x8C13;&#x7684;&#x6BB5;&#x9519;&#x8BEF;&#x5C31;&#x662F;&#x6307;&#x8BBF;&#x95EE;&#x7684;&#x5185;&#x5B58;&#x8D85;&#x51FA;&#x4E86;&#x7CFB;&#x7EDF;&#x6240;&#x7ED9;&#x8FD9;&#x4E2A;&#x7A0B;&#x5E8F;&#x7684;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#xFF0C;&#x901A;&#x5E38;&#x8FD9;&#x4E2A;&#x503C;&#x662F;&#x7531;gd tr&#x6765;&#x4FDD;&#x5B58;&#x7684;&#xFF0C;&#x4ED6;&#x662F;&#x4E00;&#x4E2A;48&#x4F4D;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x5176;&#x4E2D;&#x7684;32&#x4F4D;&#x662F;&#x4FDD;&#x5B58;&#x7531;&#x5B83;&#x6307;&#x5411;&#x7684; gdt&#x8868;&#xFF0C;&#x540E;13&#x4F4D;&#x4FDD;&#x5B58; &#x76F8;&#x5E94;&#x4E8E;gdt&#x7684;&#x4E0B;&#x6807;&#xFF0C;&#x6700;&#x540E;3&#x4F4D;&#x5305;&#x62EC;&#x4E86;&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x4EE5;&#x53CA;&#x7A0B;&#x5E8F;&#x7684;&#x5728;cpu&#x4E2D;&#x7684;&#x8FD0;&#x884C;&#x7EA7;&#x522B;&#xFF0C;&#x6307;&#x5411; &#x7684;gdt&#x662F;&#x7531;&#x4EE5;64&#x4F4D;&#x4E3A;&#x4E00;&#x4E2A;&#x5355;&#x4F4D;&#x7684;&#x8868;&#xFF0C;&#x5728;&#x8FD9;&#x5F20;&#x8868;&#x4E2D;&#x5C31;&#x4FDD;&#x5B58;&#x7740;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x7684;&#x4EE3;&#x7801;&#x6BB5;&#x4EE5;&#x53CA;&#x6570;&#x636E;&#x6BB5;&#x7684;&#x8D77; &#x59CB;&#x5730;&#x5740;&#x4EE5;&#x53CA;&#x4E0E;&#x6B64;&#x76F8;&#x5E94;&#x7684;&#x6BB5;&#x9650;&#x548C;&#x9875;&#x9762;&#x4EA4;&#x6362;&#x8FD8;&#x6709;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x7EA7;&#x522B;&#x8FD8;&#x6709;&#x5185;&#x5B58;&#x7C92;&#x5EA6;&#x7B49;&#x7B49;&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x5728;&#x7F16;&#x7A0B;&#x4E2D;&#x4EE5;&#x4E0B;&#x51E0;&#x7C7B;&#x505A;&#x6CD5;&#x5BB9;&#x6613;&#x5BFC;&#x81F4;&#x6BB5;&#x9519;&#x8BEF;,&#x57FA;&#x672C;&#x4E0A;&#x662F;&#x9519;&#x8BEF;&#x5730;&#x4F7F;&#x7528;&#x6307;&#x9488;&#x5F15;&#x8D77;&#x7684;&#x3002;</p>
+<ol>
+<li>&#x8BBF;&#x95EE;&#x7CFB;&#x7EDF;&#x6570;&#x636E;&#x533A;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x5F80;&#x7CFB;&#x7EDF;&#x4FDD;&#x62A4;&#x7684;&#x5185;&#x5B58;&#x5730;&#x5740;&#x5199;&#x6570;&#x636E;&#x6700;&#x5E38;&#x89C1;&#x5C31;&#x662F;&#x7ED9;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#x4EE5;0&#x5730;&#x5740;&#x3002;</li>
+<li>&#x5185;&#x5B58;&#x8D8A;&#x754C;(&#x6570;&#x7EC4;&#x8D8A;&#x754C;&#xFF0C;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x4E0D;&#x4E00;&#x81F4;&#x7B49;)&#xFF1A; &#x8BBF;&#x95EE;&#x5230;&#x4E0D;&#x5C5E;&#x4E8E;&#x4F60;&#x7684;&#x5185;&#x5B58;&#x533A;&#x57DF;&#x3002;</li>
+</ol>
+<p>python&#x7531;&#x4E8E;&#x4E0E;C&#x6709;&#x7740;&#x5343;&#x4E1D;&#x4E07;&#x7F15;&#x7684;&#x8054;&#x7CFB;,&#x6240;&#x4EE5;&#x4F7F;&#x7528;ctypes&#x8FD9;&#x7C7B;&#x6A21;&#x5757;&#x7684;&#x65F6;&#x5019;&#x4E5F;&#x5F88;&#x5BB9;&#x6613;&#x51FA;&#x6BB5;&#x9519;&#x8BEF;&#x8FD9;&#x79CD;&#x95EE;&#x9898;.python3.5+&#x63D0;&#x4F9B;&#x4E86;<code>faulthandler</code>&#x5DE5;&#x5177;&#x6765;&#x505A;&#x6BB5;&#x9519;&#x8BEF;&#x8FFD;&#x8E2A;.</p>
+<pre><code class="lang-python">%%writefile src/C3/faulthandler_test.py
+
+<span class="hljs-keyword">import</span> ctypes
+ctypes.string_at(<span class="hljs-number">0</span>)
+</code></pre>
+<pre><code>Overwriting src/C1/faulthandler_test.py
+</code></pre><pre><code class="lang-python">!python3 src/C3/faulthandler_test.py
+</code></pre>
+<pre><code class="lang-python">!python3 -q -X faulthandler faulthandler_test.py
+</code></pre>
+<pre><code>/usr/local/Cellar/python3/3.5.2_3/Frameworks/Python.framework/Versions/3.5/Resources/Python.app/Contents/MacOS/Python: can&apos;t open file &apos;faulthandler_test.py&apos;: [Errno 2] No such file or directory
+</code></pre><p>&#x53E6;&#x4E00;&#x4E2D;&#x7528;&#x6CD5;&#x662F;&#x5728;&#x6587;&#x4EF6;&#x5185;&#x5199;&#x5165;faulthandler.enable()</p>
+<pre><code class="lang-python">%%writefile src/C3/faulthandler_test2.py
+
+<span class="hljs-keyword">import</span> ctypes
+<span class="hljs-keyword">import</span> faulthandler
+faulthandler.enable()
+ctypes.string_at(<span class="hljs-number">0</span>)
+</code></pre>
+<pre><code>Overwriting src/C1/faulthandler_test2.py
+</code></pre><pre><code class="lang-python">!python3 src/C3/faulthandler_test2.py
+</code></pre>
+<pre><code>Fatal Python error: Segmentation fault
+
+Current thread 0x00007fff7c6a6000 (most recent call first):
+  File &quot;/usr/local/Cellar/python3/3.5.2_3/Frameworks/Python.framework/Versions/3.5/lib/python3.5/ctypes/__init__.py&quot;, line 491 in string_at
+  File &quot;src/C1/faulthandler_test2.py&quot;, line 5 in &lt;module&gt;
+</code></pre><h1 id="&#x6027;&#x80FD;&#x8C03;&#x4F18;">&#x6027;&#x80FD;&#x8C03;&#x4F18;</h1>
+<p>&#x5728;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x529F;&#x80FD;&#x4E14;&#x5065;&#x58EE;&#x4E0D;&#x51FA;&#x9519;&#x7684;&#x524D;&#x63D0;&#x4E0B;,&#x6211;&#x4EEC;&#x5F80;&#x5F80;&#x4F1A;&#x6709;&#x4F18;&#x5316;&#x6027;&#x80FD;&#x7684;&#x9700;&#x6C42;</p>
+<p>&#x6027;&#x80FD;&#x8C03;&#x4F18;&#x5927;&#x7EA6;&#x53EF;&#x4EE5;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x548C;&#x8FD0;&#x884C;&#x5185;&#x5B58;&#x5360;&#x7528;&#x4E24;&#x65B9;&#x9762;&#x6765;&#x8003;&#x91CF;,&#x4E0B;&#x9762;&#x4ECB;&#x7ECD;&#x7684;&#x5DE5;&#x5177;&#x5B9A;&#x4F4D;&#x7CBE;&#x5EA6;&#x7531;&#x7C97;&#x5230;&#x7EC6;,&#x4E5F;&#x5206;&#x4E3A;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x9762;</p>
+<h2 id="&#x6D4B;&#x8BD5;&#x6574;&#x4F53;&#x8FD0;&#x884C;&#x65F6;&#x95F4;">&#x6D4B;&#x8BD5;&#x6574;&#x4F53;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</h2>
+<p>Python&#x4E2D;&#x7684;timeit&#x662F;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x6548;&#x7387;&#x7684;&#x5DE5;&#x5177;.&#x53EF;&#x4EE5;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x76F4;&#x63A5;&#x6D4B;&#x8BD5;&#x811A;&#x672C;,&#x4E5F;&#x53EF;&#x4EE5;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x6548;&#x7387;,&#x5F53;&#x7136;&#x6700;&#x7B80;&#x5355;&#x7684;&#x8FD8;&#x662F;&#x76F4;&#x63A5;&#x7528;ipython&#x7684;&#x5185;&#x7F6E;timeit&#x9B54;&#x6CD5;&#x547D;&#x4EE4;&#x6D4B;&#x67D0;&#x6BB5;&#x4EE3;&#x7801;&#x7684;&#x6548;&#x7387;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> timeit
+t = timeit.Timer(<span class="hljs-string">&apos;map(lambda x: x**2,range(1000))&apos;</span>)
+t.timeit()
+</code></pre>
+<pre><code>0.8133840359951137
+</code></pre><pre><code class="lang-python">!python -m timeit -s <span class="hljs-string">&quot;map(lambda x: x**2,range(1000))&quot;</span>
+</code></pre>
+<pre><code>10000000 loops, best of 3: 0.065 usec per loop
+</code></pre><h2 id="&#x51FD;&#x6570;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;">&#x51FD;&#x6570;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;</h2>
+<p>python&#x7684;&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;&#x7684;&#x6A21;&#x5757;&#x53EB;cprofile,&#x4ED6;&#x662F;&#x4E00;&#x4E2A;&#x5F00;&#x9500;&#x6781;&#x5C0F;&#x7684;C&#x6269;&#x5C55;.&#x7528;&#x5B83;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x51FD;&#x6570;&#x7EA7;&#x7684;&#x6027;&#x80FD;&#x5206;&#x6790;,&#x914D;&#x5408;<code>pstats</code>&#x6A21;&#x5757;&#x8FD8;&#x53EF;&#x4EE5;&#x8F93;&#x51FA;&#x5206;&#x6790;&#x62A5;&#x544A;</p>
+<blockquote>
+<p>&#x4F7F;&#x7528;&#x5355;&#x72EC;&#x6A21;&#x5757;&#x5206;&#x6790;</p>
+</blockquote>
+<pre><code class="lang-python">%%writefile src/C3/profile_test.py
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span>:</span>
+    sum = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10000</span>):
+        sum += i
+    <span class="hljs-keyword">return</span> sum
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
+    foo()
+</code></pre>
+<pre><code>Overwriting src/C1/profile_test.py
+</code></pre><pre><code class="lang-python">%%writefile src/C3/profile_test.py
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span>:</span>
+    sum = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10000</span>):
+        sum += i
+    <span class="hljs-keyword">return</span> sum
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
+    <span class="hljs-keyword">try</span> :
+        <span class="hljs-keyword">import</span> profile
+    <span class="hljs-keyword">except</span>:
+        <span class="hljs-keyword">import</span> cProfile <span class="hljs-keyword">as</span> profile
+
+    profile.run(<span class="hljs-string">&quot;foo()&quot;</span>)
+</code></pre>
+<pre><code>Overwriting src/C1/profile_test.py
+</code></pre><pre><code class="lang-python">!python src/C3/profile_test.py
+</code></pre>
+<pre><code>         5 function calls in 0.004 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 :0(range)
+        1    0.001    0.001    0.001    0.001 :0(setprofile)
+        1    0.000    0.000    0.003    0.003 &lt;string&gt;:1(&lt;module&gt;)
+        1    0.000    0.000    0.004    0.004 profile:0(foo())
+        0    0.000             0.000          profile:0(profiler)
+        1    0.002    0.002    0.003    0.003 profile_test.py:1(foo)
+</code></pre><blockquote>
+<p>&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x5206;&#x6790;</p>
+</blockquote>
+<pre><code class="lang-python">%%writefile src/C3/profile_test_foo.py
+<span class="hljs-comment">#coding:utf-8</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span>:</span>
+    sum = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10000</span>):
+        sum += i
+    <span class="hljs-keyword">return</span> sum
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
+    foo()
+</code></pre>
+<pre><code>Overwriting src/C1/profile_test_foo.py
+</code></pre><pre><code class="lang-python">!python -m cProfile src/C3/profile_test_foo.py
+</code></pre>
+<pre><code>         4 function calls in 0.002 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.002    0.002 profile_test_foo.py:2(&lt;module&gt;)
+        1    0.002    0.002    0.002    0.002 profile_test_foo.py:2(foo)
+        1    0.000    0.000    0.000    0.000 {method &apos;disable&apos; of &apos;_lsprof.Profiler&apos; objects}
+        1    0.000    0.000    0.000    0.000 {range}
+</code></pre><blockquote>
+<p>&#x7EDF;&#x8BA1;&#x9879;&#x8BF4;&#x660E;</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>&#x7EDF;&#x8BA1;&#x9879;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ncalls</td>
+<td>&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x6B21;&#x6570;</td>
+</tr>
+<tr>
+<td>tottime</td>
+<td>&#x51FD;&#x6570;&#x603B;&#x8BA1;&#x8FD0;&#x884C;&#x65F6;&#x95F4;,&#x4E0D;&#x542B;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td>cumtime</td>
+<td>&#x51FD;&#x6570;&#x603B;&#x8BA1;&#x8FD0;&#x884C;&#x65F6;&#x95F4;,&#x542B;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td>percall</td>
+<td>&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x4E00;&#x6B21;&#x5E73;&#x5747;&#x65F6;&#x95F4;,&#x7B49;&#x4E8E;tottime(cumtime)/ncalls</td>
+</tr>
+<tr>
+<td><code>filename:lineno</code></td>
+<td>&#x51FD;&#x6570;&#x6240;&#x5728;&#x6587;&#x4EF6;&#x540D;,&#x51FD;&#x6570;&#x7684;&#x884C;&#x53F7;,&#x51FD;&#x6570;&#x540D;</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>&#x4E0E;pstats&#x7ED3;&#x5408;&#x63D0;&#x4F9B;&#x591A;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x62A5;&#x8868;</p>
+</blockquote>
+<pre><code class="lang-python">%%writefile src/C3/profile_test_pstats.py
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span>:</span>
+    sum = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10000</span>):
+        sum += i
+    <span class="hljs-keyword">return</span> sum
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
+    <span class="hljs-keyword">try</span> :
+        <span class="hljs-keyword">import</span> profile
+    <span class="hljs-keyword">except</span>:
+        <span class="hljs-keyword">import</span> cProfile <span class="hljs-keyword">as</span> profile
+
+    profile.run(<span class="hljs-string">&quot;foo()&quot;</span>,<span class="hljs-string">&quot;foo.txt&quot;</span>)
+    <span class="hljs-keyword">import</span> pstats
+    p = pstats.Stats(<span class="hljs-string">&quot;foo.txt&quot;</span>)
+    p.sort_stats(<span class="hljs-string">&quot;time&quot;</span>).print_stats()
+</code></pre>
+<pre><code>Overwriting src/C1/profile_test_pstats.py
+</code></pre><pre><code class="lang-python">!python src/C3/profile_test_pstats.py
+</code></pre>
+<pre><code>Fri May 12 00:12:23 2017    foo.txt
+
+         5 function calls in 0.002 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.002    0.002    0.002    0.002 src/C1/profile_test_pstats.py:1(foo)
+        1    0.000    0.000    0.000    0.000 :0(range)
+        1    0.000    0.000    0.002    0.002 profile:0(foo())
+        1    0.000    0.000    0.000    0.000 :0(setprofile)
+        1    0.000    0.000    0.002    0.002 &lt;string&gt;:1(&lt;module&gt;)
+        0    0.000             0.000          profile:0(profiler)
+</code></pre><p>stats&#x6709;&#x8BB8;&#x591A;&#x51FD;&#x6570;,&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x4E0D;&#x540C;&#x7684;&#x62A5;&#x8868;</p>
+<ul>
+<li>stats&#x51FD;&#x6570;&#x8BF4;&#x660E;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>&#x51FD;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>strip_dirs()</td>
+<td>&#x9664;&#x53BB;&#x6587;&#x4EF6;&#x540D;&#x524D;&#x540D;&#x7684;&#x8DEF;&#x5F84;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>add(filename,[...])</td>
+<td>&#x628A;profile&#x8F93;&#x51FA;&#x7684;&#x6587;&#x4EF6;&#x52A0;&#x5165;stats&#x5B9E;&#x4F8B;&#x4E2D;&#x7EDF;&#x8BA1;</td>
+</tr>
+<tr>
+<td>dump_stats(filename)</td>
+<td>&#x628A;stats&#x7EDF;&#x8BA1;&#x7ED3;&#x679C;&#x4FDD;&#x5B58;&#x5230;&#x6587;&#x4EF6;</td>
+</tr>
+<tr>
+<td>sort_stats(key,[...])</td>
+<td>&#x6700;&#x91CD;&#x8981;&#x7684;,&#x53EF;&#x4EE5;&#x7ED9;profile&#x7EDF;&#x8BA1;&#x7ED3;&#x679C;&#x6392;&#x5E8F;</td>
+</tr>
+<tr>
+<td>reverse_order()</td>
+<td>&#x6570;&#x636E;&#x53CD;&#x6392;&#x5E8F;</td>
+</tr>
+<tr>
+<td>print_stats([restriction,...])</td>
+<td>&#x628A;&#x62A5;&#x8868;&#x8F93;&#x51FA;&#x5230;stdout</td>
+</tr>
+<tr>
+<td>print_callers([restriction,...])</td>
+<td>&#x8F93;&#x51FA;&#x8C03;&#x7528;&#x6307;&#x5B9A;&#x51FD;&#x6570;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>print_callees([restriction,...])</td>
+<td>&#x8F93;&#x51FA;&#x6307;&#x5B9A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x8FC7;&#x7684;&#x51FD;&#x6570;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>sort_stats&#x53EF;&#x63A5;&#x53D7;&#x7684;&#x53C2;&#x6570;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ncalls</td>
+<td>&#x88AB;&#x8C03;&#x6B21;&#x6570;</td>
+</tr>
+<tr>
+<td>cumulative</td>
+<td>&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x603B;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td>file</td>
+<td>&#x6587;&#x4EF6;&#x540D;</td>
+</tr>
+<tr>
+<td>module</td>
+<td>&#x6A21;&#x5757;&#x540D;</td>
+</tr>
+<tr>
+<td>pcalls</td>
+<td>&#x7B80;&#x5355;&#x7EDF;&#x8BA1;</td>
+</tr>
+<tr>
+<td>line</td>
+<td>&#x884C;&#x53F7;</td>
+</tr>
+<tr>
+<td>name</td>
+<td>&#x51FD;&#x6570;&#x540D;</td>
+</tr>
+<tr>
+<td>nfl</td>
+<td>name,file,line</td>
+</tr>
+<tr>
+<td>stdname</td>
+<td>&#x6807;&#x51C6;&#x51FD;&#x6570;&#x540D;</td>
+</tr>
+<tr>
+<td>time</td>
+<td>&#x51FD;&#x6570;&#x5185;&#x90E8;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x8BED;&#x53E5;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;">&#x8BED;&#x53E5;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;</h2>
+<p>cprofiler&#x53EA;&#x80FD;&#x8FFD;&#x8E2A;&#x5230;&#x54EA;&#x4E2A;&#x51FD;&#x6570;&#x662F;&#x6027;&#x80FD;&#x74F6;&#x9888;,&#x800C;&#x51FD;&#x6570;&#x4E2D;&#x54EA;&#x6761;&#x8BED;&#x53E5;&#x662F;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5C31;&#x8FFD;&#x8E2A;&#x4E0D;&#x5230;&#x4E86;,&#x5BF9;&#x4E8E;&#x8BED;&#x53E5;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;,python&#x5E76;&#x6CA1;&#x6709;&#x5B98;&#x65B9;&#x5DE5;&#x5177;,&#x4F46;github&#x4E0A;&#x6709;&#x4F4D;&#x5927;&#x795E;&#x5236;&#x4F5C;&#x4E86;<a href="https://github.com/rkern/line_profiler" target="_blank">line_profiler</a>,&#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x8FD9;&#x4E00;&#x529F;&#x80FD;,&#x5B83;&#x4E5F;&#x51E0;&#x4E4E;&#x53EF;&#x4EE5;&#x8BF4;&#x662F;python&#x7684;&#x534A;&#x6807;&#x51C6;&#x5DE5;&#x5177;&#x4E4B;&#x4E00;&#x4E86;.</p>
+<p>&#x56E0;&#x4E3A;&#x4E0D;&#x662F;&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x7684;&#x5185;&#x5BB9;,&#x6240;&#x4EE5;&#x9700;&#x8981;pip&#x5B89;&#x88C5;.</p>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x5341;&#x5206;&#x7B80;&#x5355;,&#x5728;&#x9700;&#x8981;&#x5206;&#x6790;&#x7684;&#x51FD;&#x6570;&#x4E0A;&#x9762;&#x52A0;&#x4E0A;&#x88C5;&#x9970;&#x5668;<code>@profile</code>&#x5373;&#x53EF;(&#x6CE8;&#x610F;&#x4E0D;&#x7528;import&#x4EFB;&#x4F55;&#x4E1C;&#x897F;,&#x8FD9;&#x6761;&#x88C5;&#x9970;&#x5668;&#x5728;&#x5B9A;&#x4F4D;&#x597D;&#x540E;&#x5E94;&#x8BE5;&#x5220;&#x9664;&#x4EE5;&#x4FDD;&#x8BC1;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;)</p>
+<pre><code class="lang-python">%%writefile src/C3/line_profile_test.py
+
+<span class="hljs-meta">@profile</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span>:</span>
+    sum = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10000</span>):
+        sum += i
+    <span class="hljs-keyword">return</span> sum
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
+    foo()
+</code></pre>
+<pre><code>Overwriting src/C1/line_profile_test.py
+</code></pre><pre><code class="lang-python">!python3 -m kernprof -l -v src/C3/line_profile_test.py
+</code></pre>
+<pre><code>Wrote profile results to line_profile_test.py.lprof
+Timer unit: 1e-06 s
+
+Total time: 0.01045 s
+File: src/C1/line_profile_test.py
+Function: foo at line 2
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+     2                                           @profile
+     3                                           def foo():
+     4         1            3      3.0      0.0      sum = 0
+     5     10001         4928      0.5     47.2      for i in range(10000):
+     6     10000         5518      0.6     52.8          sum += i
+     7         1            1      1.0      0.0      return sum
+</code></pre><h2 id="&#x5185;&#x5B58;&#x5206;&#x6790;">&#x5185;&#x5B58;&#x5206;&#x6790;</h2>
+<p><a href="https://pypi.python.org/pypi/memory_profiler/" target="_blank">memory_profiler</a>&#x662F;&#x7528;&#x6765;&#x5206;&#x6790;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x60C5;&#x51B5;&#x548C;&#x8FFD;&#x8E2A;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x7684;&#x5DE5;&#x5177;.&#x5B83;&#x7528;&#x6CD5;&#x6BD4;&#x8F83;&#x63A5;&#x8FD1;<code>line_profiler</code></p>
+<p>&#x7531;&#x4E8E;&#x4E0D;&#x662F;&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x7684;&#x6A21;&#x5757;,&#x5B83;&#x9700;&#x8981;pip&#x5B89;&#x88C5;.</p>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;windows&#x4E0B;&#x9700;&#x8981;&#x5728;script&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x5C06;<code>mprof</code>&#x6587;&#x4EF6;&#x6539;&#x540D;&#x4E3A;<code>mprof.py</code>&#x5E76;&#x5728;&#x540C;&#x4E00;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<code>mprof.bat</code>&#x6587;&#x4EF6;&#x7F16;&#x8F91;&#x4E3A;&#x5982;&#x4E0B;&#x5185;&#x5BB9;</p>
+<pre><code class="lang-shell">@echo off
+python &quot;%~dpn0.py&quot; %*
+</code></pre>
+<p>&#x5B83;&#x7684;&#x4F7F;&#x7528;&#x53CA;&#x5176;&#x7B80;&#x5355;:</p>
+<pre><code class="lang-python">%%writefile src/C3/memory_test.py
+<span class="hljs-keyword">from</span> memory_profiler <span class="hljs-keyword">import</span> profile
+<span class="hljs-meta">@profile</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span>:</span>
+    sum = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10000</span>):
+        sum += i
+    <span class="hljs-keyword">return</span> sum
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
+    <span class="hljs-keyword">try</span> :
+        <span class="hljs-keyword">import</span> profile <span class="hljs-keyword">as</span> cProfile
+    <span class="hljs-keyword">except</span>:
+        <span class="hljs-keyword">import</span> cProfile
+
+    cProfile.run(<span class="hljs-string">&quot;foo()&quot;</span>,<span class="hljs-string">&quot;foo.txt&quot;</span>)
+    <span class="hljs-keyword">import</span> pstats
+    p = pstats.Stats(<span class="hljs-string">&quot;foo.txt&quot;</span>)
+    p.sort_stats(<span class="hljs-string">&quot;time&quot;</span>).print_stats()
+</code></pre>
+<pre><code>Overwriting src/C1/memory_test.py
+</code></pre><p>&#x4E4B;&#x540E;&#x4F7F;&#x7528;</p>
+<pre><code class="lang-shell">python src/C3/memory_test.py
+</code></pre>
+<p>&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8BE6;&#x7EC6;&#x7ED3;&#x679C;&#x4E86;</p>
+<p>&#x6307;&#x5B9A;&#x7CBE;&#x5EA6;&#x53EF;&#x4EE5;&#x5728;profile&#x88C5;&#x9970;&#x5668;&#x540E;&#x9762;&#x52A0;&#x4E0A;&#x53C2;&#x6570; &#x5982;: @profile(precision=4)</p>
+<p>mprof&#x5DE5;&#x5177;&#x7C7B;&#x4F3C;<code>kernprof</code>,&#x7528;&#x5B83;&#x53EF;&#x4EE5;&#x8F93;&#x51FA;&#x66F4;&#x52A0;&#x53CB;&#x597D;&#x7684;&#x7EDF;&#x8BA1;&#x5206;&#x6790;&#x9875;&#x9762;</p>
+<pre><code class="lang-python">%%writefile src/C3/memory_test_round.py
+<span class="hljs-keyword">from</span> memory_profiler <span class="hljs-keyword">import</span> profile
+<span class="hljs-meta">@profile</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span>:</span>
+    sum = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10000</span>):
+        sum += i
+    <span class="hljs-keyword">return</span> sum
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
+    foo()
+</code></pre>
+<pre><code>Overwriting src/C1/memory_test_round.py
+</code></pre><pre><code class="lang-python">!mprof run src/C3/memory_test_round.py
+</code></pre>
+<pre><code>/bin/sh: mprof: command not found
+</code></pre><pre><code class="lang-python">!mprof plot
+</code></pre>
+<pre><code>/bin/sh: mprof: command not found
+</code></pre><h2 id="&#x5BF9;&#x8C61;&#x5206;&#x6790;&#x53CA;&#x8FFD;&#x8E2A;windows&#x4E0B;&#x4E0D;&#x80FD;&#x7528;">&#x5BF9;&#x8C61;&#x5206;&#x6790;&#x53CA;&#x8FFD;&#x8E2A;(windows&#x4E0B;&#x4E0D;&#x80FD;&#x7528;)</h2>
+<p><a href="http://mg.pov.lt/objgraph/" target="_blank">Objgraph</a>&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x5206;&#x6790;&#x548C;&#x8FFD;&#x8E2A;,&#x5B83;&#x4E5F;&#x662F;&#x7528;pip&#x5B89;&#x88C5;,&#x4E0D;&#x8FC7;&#x5B83;&#x4F9D;&#x8D56;xdot(pip &#x5B89;&#x88C5;)
+&#x548C;<a href="http://www.graphviz.org/" target="_blank">graphviz</a>(brew&#x5B89;&#x88C5;)</p>
+<p>&#x5B83;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x7684;&#x529F;&#x80FD;&#x6709;:</p>
+<ul>
+<li>&#x7EDF;&#x8BA1;</li>
+<li>&#x5B9A;&#x4E49;&#x8FC7;&#x6EE4;&#x5BF9;&#x8C61;</li>
+<li>&#x904D;&#x5386;&#x548C;&#x663E;&#x793A;&#x5BF9;&#x8C61;&#x56FE;</li>
+</ul>
+<pre><code class="lang-python">%%writefile src/C3/Obj_test.py
+<span class="hljs-comment">#encoding=utf-8  </span>
+<span class="hljs-keyword">import</span> objgraph  
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:  
+    x = []  
+    y = [x, [x], dict(x=x)]  
+    objgraph.show_refs([y], filename=<span class="hljs-string">&apos;sample-graph.png&apos;</span>) <span class="hljs-comment">#&#x628A;[y]&#x91CC;&#x9762;&#x6240;&#x6709;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x753B;&#x51FA;&#x6765;  </span>
+    objgraph.show_backrefs([x], filename=<span class="hljs-string">&apos;sample-backref-graph.png&apos;</span>) <span class="hljs-comment">#&#x628A;&#x5BF9;x&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x5168;&#x90E8;&#x753B;&#x51FA;&#x6765;  </span>
+    <span class="hljs-comment">#objgraph.show_most_common_types() #&#x6240;&#x6709;&#x5E38;&#x7528;&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x7EDF;&#x8BA1;&#xFF0C;&#x6570;&#x636E;&#x91CF;&#x592A;&#x5927;&#xFF0C;&#x610F;&#x4E49;&#x4E0D;&#x5927;  </span>
+    objgraph.show_growth(limit=<span class="hljs-number">4</span>) <span class="hljs-comment">#&#x6253;&#x5370;&#x4ECE;&#x7A0B;&#x5E8F;&#x5F00;&#x59CB;&#x6216;&#x8005;&#x4E0A;&#x6B21;show_growth&#x5230;&#x73B0;&#x5728;&#x589E;&#x52A0;&#x7684;&#x5BF9;&#x8C61;&#xFF08;&#x6309;&#x7167;&#x589E;&#x52A0;&#x91CF;&#x7684;&#x5927;&#x5C0F;&#x6392;&#x5E8F;&#xFF09;</span>
+</code></pre>
+<pre><code>Overwriting src/C1/Obj_test.py
+</code></pre><pre><code class="lang-python">!python src/C3/Obj_test.py
+</code></pre>
+<pre><code>Traceback (most recent call last):
+  File &quot;src/C1/Obj_test.py&quot;, line 2, in &lt;module&gt;
+    import objgraph  
+ImportError: No module named objgraph
+</code></pre><p>&#x4E8E;&#x662F;&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x56FE;&#x4E86;</p>
+<p><img src="source/C3/sample-graph.png" alt="">
+<img src="source/C3/sample-backref-graph.png" alt=""></p>
+<h1 id="&#x5F02;&#x5E38;&#x5904;&#x7406;">&#x5F02;&#x5E38;&#x5904;&#x7406;</h1>
+<p>&#x4EE3;&#x7801;&#x96BE;&#x514D;&#x4F1A;&#x51FA;&#x9519;,&#x5C24;&#x5176;&#x662F;python&#x8FD9;&#x6837;&#x7684;&#x52A8;&#x6001;&#x8BED;&#x8A00;.&#x5BF9;&#x4E8E;&#x53EF;&#x4EE5;&#x9884;&#x77E5;&#x7684;&#x5F02;&#x5E38;&#x53EF;&#x80FD;,python&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x81EA;&#x5E26;&#x7684;&#x5F02;&#x5E38;&#x5904;&#x7406;&#x8BED;&#x53E5;&#x89E3;&#x51B3;.</p>
+<p>python&#x6709;&#x5B8C;&#x5584;&#x7684;&#x5F02;&#x5E38;&#x5904;&#x7406;&#x89E3;&#x51B3;&#x65B9;&#x6848;</p>
+<h2 id="&#x5F02;&#x5E38;">&#x5F02;&#x5E38;</h2>
+<p>&#x5F02;&#x5E38;&#x5373;&#x662F;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF0C;&#x8BE5;&#x4E8B;&#x4EF6;&#x4F1A;&#x5728;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x53D1;&#x751F;&#xFF0C;&#x5F71;&#x54CD;&#x4E86;&#x7A0B;&#x5E8F;&#x7684;&#x6B63;&#x5E38;&#x6267;&#x884C;&#x3002; &#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5728;Python&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x65F6;&#x5C31;&#x4F1A;&#x53D1;&#x751F;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#x3002; &#x5F02;&#x5E38;&#x662F;Python&#x5BF9;&#x8C61;&#xFF0C;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x3002; &#x5F53;Python&#x811A;&#x672C;&#x53D1;&#x751F;&#x5F02;&#x5E38;&#x65F6;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x6355;&#x83B7;&#x5904;&#x7406;&#x5B83;&#xFF0C;&#x5426;&#x5219;&#x7A0B;&#x5E8F;&#x4F1A;&#x7EC8;&#x6B62;&#x6267;&#x884C;&#x3002;
+python&#x7684;&#x6807;&#x51C6;&#x5F02;&#x5E38;&#x53EF;&#x4EE5;&#x5728;<a href="https://docs.python.org/3/library/exceptions.html?highlight=exception" target="_blank">&#x5B98;&#x7F51;&#x6587;&#x6863;</a>&#x4E2D;&#x67E5;&#x770B;,&#x5E38;&#x7528;&#x7684;&#x5982;&#x4E0B;:</p>
+<table>
+<thead>
+<tr>
+<th>&#x5F02;&#x5E38;&#x540D;&#x79F0;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SystemExit</td>
+<td>&#x89E3;&#x91CA;&#x5668;&#x8BF7;&#x6C42;&#x9000;&#x51FA;</td>
+</tr>
+<tr>
+<td>KeyboardInterrupt</td>
+<td>&#x7528;&#x6237;&#x4E2D;&#x65AD;&#x6267;&#x884C;(&#x901A;&#x5E38;&#x662F;&#x8F93;&#x5165;^C)</td>
+</tr>
+<tr>
+<td>Exception</td>
+<td>&#x5E38;&#x89C4;&#x9519;&#x8BEF;&#x7684;&#x57FA;&#x7C7B;</td>
+</tr>
+<tr>
+<td>StopIteration</td>
+<td>&#x8FED;&#x4EE3;&#x5668;&#x6CA1;&#x6709;&#x66F4;&#x591A;&#x7684;&#x503C;</td>
+</tr>
+<tr>
+<td>GeneratorExit</td>
+<td>&#x751F;&#x6210;&#x5668;(generator)&#x53D1;&#x751F;&#x5F02;&#x5E38;&#x6765;&#x901A;&#x77E5;&#x9000;&#x51FA;</td>
+</tr>
+<tr>
+<td>StandardError</td>
+<td>&#x6240;&#x6709;&#x7684;&#x5185;&#x5EFA;&#x6807;&#x51C6;&#x5F02;&#x5E38;&#x7684;&#x57FA;&#x7C7B;</td>
+</tr>
+<tr>
+<td>ArithmeticError</td>
+<td>&#x6240;&#x6709;&#x6570;&#x503C;&#x8BA1;&#x7B97;&#x9519;&#x8BEF;&#x7684;&#x57FA;&#x7C7B;</td>
+</tr>
+<tr>
+<td>FloatingPointError</td>
+<td>&#x6D6E;&#x70B9;&#x8BA1;&#x7B97;&#x9519;&#x8BEF;</td>
+</tr>
+<tr>
+<td>OverflowError</td>
+<td>&#x6570;&#x503C;&#x8FD0;&#x7B97;&#x8D85;&#x51FA;&#x6700;&#x5927;&#x9650;&#x5236;</td>
+</tr>
+<tr>
+<td>ZeroDivisionError</td>
+<td>&#x9664;(&#x6216;&#x53D6;&#x6A21;)&#x96F6; (&#x6240;&#x6709;&#x6570;&#x636E;&#x7C7B;&#x578B;)</td>
+</tr>
+<tr>
+<td>AssertionError</td>
+<td>&#x65AD;&#x8A00;&#x8BED;&#x53E5;&#x5931;&#x8D25;</td>
+</tr>
+<tr>
+<td>AttributeError</td>
+<td>&#x5BF9;&#x8C61;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;</td>
+</tr>
+<tr>
+<td>EOFError</td>
+<td>&#x6CA1;&#x6709;&#x5185;&#x5EFA;&#x8F93;&#x5165;,&#x5230;&#x8FBE;EOF &#x6807;&#x8BB0;</td>
+</tr>
+<tr>
+<td>EnvironmentError</td>
+<td>&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x9519;&#x8BEF;&#x7684;&#x57FA;&#x7C7B;</td>
+</tr>
+<tr>
+<td>IOError</td>
+<td>&#x8F93;&#x5165;/&#x8F93;&#x51FA;&#x64CD;&#x4F5C;&#x5931;&#x8D25;</td>
+</tr>
+<tr>
+<td>OSError</td>
+<td>&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x9519;&#x8BEF;</td>
+</tr>
+<tr>
+<td>WindowsError</td>
+<td>&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x5931;&#x8D25;</td>
+</tr>
+<tr>
+<td>ImportError</td>
+<td>&#x5BFC;&#x5165;&#x6A21;&#x5757;/&#x5BF9;&#x8C61;&#x5931;&#x8D25;</td>
+</tr>
+<tr>
+<td>LookupError</td>
+<td>&#x65E0;&#x6548;&#x6570;&#x636E;&#x67E5;&#x8BE2;&#x7684;&#x57FA;&#x7C7B;</td>
+</tr>
+<tr>
+<td>IndexError</td>
+<td>&#x5E8F;&#x5217;&#x4E2D;&#x6CA1;&#x6709;&#x6B64;&#x7D22;&#x5F15;(index)</td>
+</tr>
+<tr>
+<td>KeyError</td>
+<td>&#x6620;&#x5C04;&#x4E2D;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x952E;</td>
+</tr>
+<tr>
+<td>MemoryError</td>
+<td>&#x5185;&#x5B58;&#x6EA2;&#x51FA;&#x9519;&#x8BEF;(&#x5BF9;&#x4E8E;Python &#x89E3;&#x91CA;&#x5668;&#x4E0D;&#x662F;&#x81F4;&#x547D;&#x7684;)</td>
+</tr>
+<tr>
+<td>NameError</td>
+<td>&#x672A;&#x58F0;&#x660E;/&#x521D;&#x59CB;&#x5316;&#x5BF9;&#x8C61; (&#x6CA1;&#x6709;&#x5C5E;&#x6027;)</td>
+</tr>
+<tr>
+<td>UnboundLocalError</td>
+<td>&#x8BBF;&#x95EE;&#x672A;&#x521D;&#x59CB;&#x5316;&#x7684;&#x672C;&#x5730;&#x53D8;&#x91CF;</td>
+</tr>
+<tr>
+<td>ReferenceError</td>
+<td>&#x5F31;&#x5F15;&#x7528;(Weak reference)&#x8BD5;&#x56FE;&#x8BBF;&#x95EE;&#x5DF2;&#x7ECF;&#x5783;&#x573E;&#x56DE;&#x6536;&#x4E86;&#x7684;&#x5BF9;&#x8C61;</td>
+</tr>
+<tr>
+<td>RuntimeError</td>
+<td>&#x4E00;&#x822C;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x9519;&#x8BEF;</td>
+</tr>
+<tr>
+<td>NotImplementedError</td>
+<td>&#x5C1A;&#x672A;&#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x6CD5;</td>
+</tr>
+<tr>
+<td>SyntaxError</td>
+<td>Python &#x8BED;&#x6CD5;&#x9519;&#x8BEF;</td>
+</tr>
+<tr>
+<td>IndentationError</td>
+<td>&#x7F29;&#x8FDB;&#x9519;&#x8BEF;</td>
+</tr>
+<tr>
+<td>TabError</td>
+<td>Tab &#x548C;&#x7A7A;&#x683C;&#x6DF7;&#x7528;</td>
+</tr>
+<tr>
+<td>SystemError</td>
+<td>&#x4E00;&#x822C;&#x7684;&#x89E3;&#x91CA;&#x5668;&#x7CFB;&#x7EDF;&#x9519;&#x8BEF;</td>
+</tr>
+<tr>
+<td>TypeError</td>
+<td>&#x5BF9;&#x7C7B;&#x578B;&#x65E0;&#x6548;&#x7684;&#x64CD;&#x4F5C;</td>
+</tr>
+<tr>
+<td>ValueError</td>
+<td>&#x4F20;&#x5165;&#x65E0;&#x6548;&#x7684;&#x53C2;&#x6570;</td>
+</tr>
+<tr>
+<td>UnicodeError</td>
+<td>Unicode &#x76F8;&#x5173;&#x7684;&#x9519;&#x8BEF;</td>
+</tr>
+<tr>
+<td>UnicodeDecodeError</td>
+<td>Unicode &#x89E3;&#x7801;&#x65F6;&#x7684;&#x9519;&#x8BEF;</td>
+</tr>
+<tr>
+<td>UnicodeEncodeError</td>
+<td>Unicode &#x7F16;&#x7801;&#x65F6;&#x9519;&#x8BEF;</td>
+</tr>
+<tr>
+<td>UnicodeTranslateError</td>
+<td>Unicode &#x8F6C;&#x6362;&#x65F6;&#x9519;&#x8BEF;</td>
+</tr>
+<tr>
+<td>Warning</td>
+<td>&#x8B66;&#x544A;&#x7684;&#x57FA;&#x7C7B;</td>
+</tr>
+<tr>
+<td>DeprecationWarning</td>
+<td>&#x5173;&#x4E8E;&#x88AB;&#x5F03;&#x7528;&#x7684;&#x7279;&#x5F81;&#x7684;&#x8B66;&#x544A;</td>
+</tr>
+<tr>
+<td>FutureWarning</td>
+<td>&#x5173;&#x4E8E;&#x6784;&#x9020;&#x5C06;&#x6765;&#x8BED;&#x4E49;&#x4F1A;&#x6709;&#x6539;&#x53D8;&#x7684;&#x8B66;&#x544A;</td>
+</tr>
+<tr>
+<td>OverflowWarning</td>
+<td>&#x65E7;&#x7684;&#x5173;&#x4E8E;&#x81EA;&#x52A8;&#x63D0;&#x5347;&#x4E3A;&#x957F;&#x6574;&#x578B;(long)&#x7684;&#x8B66;&#x544A;</td>
+</tr>
+<tr>
+<td>PendingDeprecationWarning</td>
+<td>&#x5173;&#x4E8E;&#x7279;&#x6027;&#x5C06;&#x4F1A;&#x88AB;&#x5E9F;&#x5F03;&#x7684;&#x8B66;&#x544A;</td>
+</tr>
+<tr>
+<td>RuntimeWarning</td>
+<td>&#x53EF;&#x7591;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x884C;&#x4E3A;(runtime behavior)&#x7684;&#x8B66;&#x544A;</td>
+</tr>
+<tr>
+<td>SyntaxWarning</td>
+<td>&#x53EF;&#x7591;&#x7684;&#x8BED;&#x6CD5;&#x7684;&#x8B66;&#x544A;</td>
+</tr>
+<tr>
+<td>UserWarning</td>
+<td>&#x7528;&#x6237;&#x4EE3;&#x7801;&#x751F;&#x6210;&#x7684;&#x8B66;&#x544A;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x5F02;&#x5E38;&#x6355;&#x83B7;&#x5904;&#x7406;">&#x5F02;&#x5E38;&#x6355;&#x83B7;&#x5904;&#x7406;</h2>
+<p><code>try/except</code>&#x8BED;&#x53E5;&#x7528;&#x6765;&#x68C0;&#x6D4B;<code>try</code>&#x8BED;&#x53E5;&#x5757;&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x4ECE;&#x800C;&#x8BA9;<code>except</code>&#x8BED;&#x53E5;&#x6355;&#x83B7;&#x5F02;&#x5E38;&#x4FE1;&#x606F;&#x5E76;&#x5904;&#x7406;&#x3002; &#x5982;&#x679C;&#x4F60;&#x4E0D;&#x60F3;&#x5728;&#x5F02;&#x5E38;&#x53D1;&#x751F;&#x65F6;&#x7ED3;&#x675F;&#x4F60;&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x53EA;&#x9700;&#x5728;<code>try</code>&#x91CC;&#x6355;&#x83B7;&#x5B83;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">try</span>:
+    &lt;&#x8BED;&#x53E5;&gt;        <span class="hljs-comment">#&#x8FD0;&#x884C;&#x522B;&#x7684;&#x4EE3;&#x7801;</span>
+<span class="hljs-keyword">except</span> &lt;&#x540D;&#x5B57;&gt;&#xFF1A;
+    &lt;&#x8BED;&#x53E5;&gt;        <span class="hljs-comment">#&#x5982;&#x679C;&#x5728;try&#x90E8;&#x4EFD;&#x5F15;&#x53D1;&#x4E86;&apos;name&apos;&#x5F02;&#x5E38;</span>
+<span class="hljs-keyword">except</span> &lt;&#x540D;&#x5B57;&gt;&#xFF0C;&lt;&#x6570;&#x636E;&gt;:
+    &lt;&#x8BED;&#x53E5;&gt;        <span class="hljs-comment">#&#x5982;&#x679C;&#x5F15;&#x53D1;&#x4E86;&apos;name&apos;&#x5F02;&#x5E38;&#xFF0C;&#x83B7;&#x5F97;&#x9644;&#x52A0;&#x7684;&#x6570;&#x636E;</span>
+<span class="hljs-keyword">else</span>:
+    &lt;&#x8BED;&#x53E5;&gt;        <span class="hljs-comment">#&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5F02;&#x5E38;&#x53D1;&#x751F;</span>
+<span class="hljs-keyword">finally</span>:
+    &lt;&#x8BED;&#x53E5;&gt;    <span class="hljs-comment">#&#x9000;&#x51FA;try&#x65F6;&#x603B;&#x4F1A;&#x6267;&#x884C;</span>
+</code></pre>
+<p>try&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x662F;&#xFF0C;&#x5F53;&#x5F00;&#x59CB;&#x4E00;&#x4E2A;try&#x8BED;&#x53E5;&#x540E;&#xFF0C;python&#x5C31;&#x5728;&#x5F53;&#x524D;&#x7A0B;&#x5E8F;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x4F5C;&#x6807;&#x8BB0;&#xFF0C;&#x8FD9;&#x6837;&#x5F53;&#x5F02;&#x5E38;&#x51FA;&#x73B0;&#x65F6;&#x5C31;&#x53EF;&#x4EE5;&#x56DE;&#x5230;&#x8FD9;&#x91CC;&#xFF0C;try&#x5B50;&#x53E5;&#x5148;&#x6267;&#x884C;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x4F1A;&#x53D1;&#x751F;&#x4EC0;&#x4E48;&#x4F9D;&#x8D56;&#x4E8E;&#x6267;&#x884C;&#x65F6;&#x662F;&#x5426;&#x51FA;&#x73B0;&#x5F02;&#x5E38;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5F53;try&#x540E;&#x7684;&#x8BED;&#x53E5;&#x6267;&#x884C;&#x65F6;&#x53D1;&#x751F;&#x5F02;&#x5E38;&#xFF0C;python&#x5C31;&#x8DF3;&#x56DE;&#x5230;try&#x5E76;&#x6267;&#x884C;&#x7B2C;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x8BE5;&#x5F02;&#x5E38;&#x7684;except&#x5B50;&#x53E5;&#xFF0C;&#x5F02;&#x5E38;&#x5904;&#x7406;&#x5B8C;&#x6BD5;&#xFF0C;&#x63A7;&#x5236;&#x6D41;&#x5C31;&#x901A;&#x8FC7;&#x6574;&#x4E2A;try&#x8BED;&#x53E5;&#xFF08;&#x9664;&#x975E;&#x5728;&#x5904;&#x7406;&#x5F02;&#x5E38;&#x65F6;&#x53C8;&#x5F15;&#x53D1;&#x65B0;&#x7684;&#x5F02;&#x5E38;&#xFF09;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5728;try&#x540E;&#x7684;&#x8BED;&#x53E5;&#x91CC;&#x53D1;&#x751F;&#x4E86;&#x5F02;&#x5E38;&#xFF0C;&#x5374;&#x6CA1;&#x6709;&#x5339;&#x914D;&#x7684;except&#x5B50;&#x53E5;&#xFF0C;&#x5F02;&#x5E38;&#x5C06;&#x88AB;&#x9012;&#x4EA4;&#x5230;&#x4E0A;&#x5C42;&#x7684;try&#xFF0C;&#x6216;&#x8005;&#x5230;&#x7A0B;&#x5E8F;&#x7684;&#x6700;&#x4E0A;&#x5C42;&#xFF08;&#x8FD9;&#x6837;&#x5C06;&#x7ED3;&#x675F;&#x7A0B;&#x5E8F;&#xFF0C;&#x5E76;&#x6253;&#x5370;&#x7F3A;&#x7701;&#x7684;&#x51FA;&#x9519;&#x4FE1;&#x606F;&#xFF09;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5728;try&#x5B50;&#x53E5;&#x6267;&#x884C;&#x65F6;&#x6CA1;&#x6709;&#x53D1;&#x751F;&#x5F02;&#x5E38;&#xFF0C;python&#x5C06;&#x6267;&#x884C;else&#x8BED;&#x53E5;&#x540E;&#x7684;&#x8BED;&#x53E5;&#xFF08;&#x5982;&#x679C;&#x6709;else&#x7684;&#x8BDD;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x63A7;&#x5236;&#x6D41;&#x901A;&#x8FC7;&#x6574;&#x4E2A;try&#x8BED;&#x53E5;&#x3002;</p>
+<p>&#x65E0;&#x8BBA;&#x662F;&#x5426;&#x6709;&#x5F02;&#x5E38;,finally&#x90FD;&#x5C06;&#x88AB;&#x6267;&#x884C;,&#x5B83;&#x4E00;&#x822C;&#x4F5C;&#x4E3A;&#x5B58;&#x653E;&#x6536;&#x5C3E;&#x52A8;&#x4F5C;&#x7684;&#x5730;&#x65B9;,&#x4F46;&#x662F;&#x6CE8;&#x610F;,finally&#x6709;&#x9677;&#x9631;: &#x5982;&#x679C;&#x4E3B;&#x5E72;&#x4E0A;&#x7684;&#x9519;&#x8BEF;&#x5206;&#x652F;&#x4E2D;&#x6CA1;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x6355;&#x6349;,&#x90A3;&#x4E48;&#x4ED6;&#x5C06;&#x88AB;&#x4FDD;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x7684;&#x4F4D;&#x7F6E;,&#x800C;&#x5982;&#x679C;&#x540C;&#x65F6;finally&#x4E2D;&#x6709;&#x9519;&#x8BEF;,&#x5219;&#x8FD9;&#x4E2A;&#x4E34;&#x65F6;&#x7684;&#x9519;&#x8BEF;&#x4F1A;&#x88AB;finally&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x7ED9;&#x66FF;&#x4EE3;.</p>
+<p>&#x4F7F;&#x7528;&#x5F02;&#x5E38;&#x6355;&#x83B7;&#x5904;&#x7406;&#x8BED;&#x53E5;&#x5E94;&#x8BE5;&#x5C3D;&#x91CF;&#x7CBE;&#x51C6;&#x5730;&#x5305;&#x88F9;&#x53EF;&#x80FD;&#x6709;&#x9519;&#x8BEF;&#x7684;&#x4EE3;&#x7801;.</p>
+<p>Python&#x9075;&#x5B88;<code>&#x5C3D;&#x65E9;&#x5931;&#x8D25;</code>&#x539F;&#x5219;,&#x8BA4;&#x4E3A;&#x7A0B;&#x5E8F;&#x5E94;&#x8BE5;&#x5C3D;&#x65E9;&#x62A5;&#x544A;&#x9519;&#x8BEF;&#x3002;&#x4F8B;&#x5982;,Python&#x4E2D;&#x6CA1;&#x6709;&#x201C;&#x672A;&#x5B9A;&#x4E49;&#x201D;&#x7684;&#x503C;:&#x5728;&#x521D;&#x59CB;&#x5316;&#x4E4B;&#x524D;&#x5F15;&#x7528;&#x53D8;&#x91CF;&#x4F1A;&#x62A5;&#x9519;;&#x5982;&#x679C;<code>k</code>&#x4E0D;&#x5B58;&#x5728;,<code>my_dict[k]</code> &#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;(JavaScript &#x5219;&#x4E0D;&#x7136;)&#x3002;&#x8FD8;&#x6709;&#x4E00;&#x4F8B;:&#x5728; Python &#x4E2D;&#x901A;&#x8FC7;&#x5143;&#x7EC4; &#x62C6;&#x5305;&#x505A;&#x5E76;&#x884C;&#x8D4B;&#x503C;,&#x5FC5;&#x987B;&#x663E;&#x5F0F;&#x5904;&#x7406;&#x5143;&#x7EC4;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x624D;&#x884C;;&#x800C;&#x5728; Ruby &#x4E2D;,&#x5982;&#x679C; = &#x4E24;&#x8FB9;&#x7684;&#x5143; &#x7D20;&#x6570;&#x91CF;&#x4E0D;&#x4E00;&#x81F4;,&#x53F3;&#x8FB9;&#x672A;&#x7528;&#x5230;&#x7684;&#x5143;&#x7D20;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;,&#x6216;&#x8005;&#x628A; nil &#x8D4B;&#x7ED9;&#x5DE6;&#x8FB9;&#x591A;&#x4F59;&#x7684;&#x53D8;&#x91CF;&#x3002;</p>
+<p>&#x56E0;&#x4E3A;<code>&#x5C3D;&#x65E9;&#x5931;&#x8D25;</code>&#x539F;&#x5219;,python&#x4EE3;&#x7801;&#x4E2D;try&#x8BED;&#x53E5;&#x4F1A;&#x6BD4;&#x8F83;&#x591A;,&#x4F46;&#x5373;&#x4FBF;&#x5982;&#x6B64;,&#x6211;&#x4EEC;&#x7684;&#x5355;&#x4E2A;<code>try</code>&#x7ED3;&#x6784;&#x5E94;&#x8BE5;&#x5C3D;&#x91CF;&#x7CBE;&#x51C6;&#x7684;&#x5305;&#x88F9;&#x53EF;&#x80FD;&#x51FA;&#x9519;&#x7684;&#x4EE3;&#x7801;.</p>
+<h2 id="&#x629B;&#x51FA;&#x5F02;&#x5E38;">&#x629B;&#x51FA;&#x5F02;&#x5E38;</h2>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;raise&#x8BED;&#x53E5;&#x81EA;&#x5DF1;&#x89E6;&#x53D1;&#x5F02;&#x5E38; raise&#x8BED;&#x6CD5;&#x683C;&#x5F0F;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">raise</span> [Exception [, args [, traceback]]]
+</code></pre>
+<h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x5F02;&#x5E38;">&#x81EA;&#x5B9A;&#x4E49;&#x5F02;&#x5E38;</h2>
+<p>&#x5982;&#x679C;&#x81EA;&#x5DF1;&#x5199;&#x6A21;&#x5757;,&#x6700;&#x597D;&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x5757;&#x7684;&#x5F02;&#x5E38;,&#x4E00;&#x65B9;&#x9762;&#x53EF;&#x4EE5;&#x66F4;&#x597D;&#x7684;&#x5206;&#x6790;&#x4EE3;&#x7801;,&#x53E6;&#x4E00;&#x65B9;&#x9762;&#x4E5F;&#x8BA9;&#x7528;&#x6A21;&#x5757;&#x7684;&#x7528;&#x6237;&#x66F4;&#x5BB9;&#x6613;&#x8FFD;&#x8E2A;&#x9519;&#x8BEF;.</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Networkerror</span><span class="hljs-params">(RuntimeError)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, arg)</span>:</span>
+        self.args = arg
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">try</span>:
+    <span class="hljs-keyword">raise</span> Networkerror(<span class="hljs-string">&quot;Bad hostname&quot;</span>)
+<span class="hljs-keyword">except</span> Networkerror <span class="hljs-keyword">as</span> e:
+    print(e.args)
+</code></pre>
+<pre><code>(&apos;B&apos;, &apos;a&apos;, &apos;d&apos;, &apos; &apos;, &apos;h&apos;, &apos;o&apos;, &apos;s&apos;, &apos;t&apos;, &apos;n&apos;, &apos;a&apos;, &apos;m&apos;, &apos;e&apos;)
+</code></pre><h1 id="&#x9879;&#x76EE;&#x6D4B;&#x8BD5;">&#x9879;&#x76EE;&#x6D4B;&#x8BD5;</h1>
+<p>&#x9879;&#x76EE;&#x5199;&#x5B8C;&#x540E;&#x5E94;&#x8BE5;&#x5199;&#x6D4B;&#x8BD5;&#x4EE5;&#x786E;&#x4FDD;&#x4EE3;&#x7801;&#x7A33;&#x5B9A;&#x53EF;&#x9760;.&#x7ECF;&#x8FC7;&#x6D4B;&#x8BD5;&#x7A33;&#x5B9A;&#x53EF;&#x9760;&#x7684;&#x4EE3;&#x7801;&#x624D;&#x80FD;&#x7ECF;&#x5F97;&#x4F4F;&#x65F6;&#x95F4;&#x7684;&#x8003;&#x9A8C;.&#x4F46;&#x5373;&#x4FBF;&#x6709;&#x6D4B;&#x8BD5;,&#x5982;&#x679C;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x4E0D;&#x591F;,&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x4E0D;&#x80FD;&#x8986;&#x76D6;&#x5168;&#x90E8;&#x60C5;&#x51B5;,&#x8FD9;&#x6837;&#x4E5F;&#x5E76;&#x4E0D;&#x80FD;&#x4FDD;&#x51C6;&#x9879;&#x76EE;&#x5C31;&#x4E00;&#x5B9A;&#x7A33;&#x5065;.&#x56E0;&#x6B64;&#x6761;&#x4EF6;&#x5141;&#x8BB8;&#x7684;&#x8BDD;&#x4E5F;&#x6700;&#x597D;&#x5C06;&#x7C7B;&#x578B;&#x6CE8;&#x91CA;&#x5199;&#x597D;,&#x5229;&#x7528;mypy&#x505A;&#x597D;&#x9759;&#x6001;&#x7C7B;&#x578B;&#x68C0;&#x9A8C;.</p>
+<h2 id="&#x5355;&#x5143;&#x6D4B;&#x8BD5;">&#x5355;&#x5143;&#x6D4B;&#x8BD5;</h2>
+<p>&#x5C06;&#x4EE3;&#x7801;&#x5206;&#x89E3;&#x4E3A;&#x72EC;&#x7ACB;&#x4E0D;&#x8026;&#x5408;&#x7684;&#x5C0F;&#x90E8;&#x4EF6;,&#x9488;&#x5BF9;&#x8FD9;&#x4E9B;&#x5C0F;&#x90E8;&#x4EF6;&#x7684;&#x6D4B;&#x8BD5;&#x5C31;&#x662F;&#x5355;&#x5143;&#x6D4B;&#x8BD5;.&#x6D4B;&#x8BD5;&#x5355;&#x5143;&#x5E94;&#x8BE5;&#x96C6;&#x4E2D;&#x4E8E;&#x5C0F;&#x90E8;&#x5206;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5E76;&#x4E14;&#x8BC1;&#x660E;&#x5728;&#x5404;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x5B83;&#x7684;&#x884C;&#x4E3A;&#x6B63;&#x786E;(&#x5305;&#x62EC;&#x9519;&#x8BEF;&#x884C;&#x4E3A;).</p>
+<p>&#x5E38;&#x5E38;&#x5C06;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x548C;&#x8FD0;&#x884C;&#x4EE3;&#x7801;&#x4E00;&#x8D77;&#x5199;&#x662F;&#x4E00;&#x79CD;&#x975E;&#x5E38;&#x597D;&#x7684;&#x4E60;&#x60EF;&#x3002;&#x806A;&#x660E;&#x5730;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x5C06;&#x4F1A;&#x5E2E;&#x52A9;&#x4F60;&#x66F4;&#x52A0;&#x7CBE;&#x786E;&#x5730;&#x5B9A;&#x4E49;&#x4EE3;&#x7801;&#x7684;&#x542B;&#x4E49;&#xFF0C;&#x5E76;&#x4E14;&#x4EE3;&#x7801;&#x7684;&#x8026;&#x5408;&#x6027;&#x66F4;&#x4F4E;&#x3002;</p>
+<p>&#x4E00;&#x822C;&#x6765;&#x8BF4;,&#x66F4;&#x52A0;&#x63A8;&#x5D07;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x5148;&#x5199;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x786E;&#x5B9A;&#x4EE3;&#x7801;&#x884C;&#x4E3A;,&#x518D;&#x5199;&#x4EE3;&#x7801;,&#x4E5F;&#x5C31;&#x662F;&#x6240;&#x8C13;&#x7684;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x7F16;&#x7A0B;.</p>
+<p><strong>&#x6D4B;&#x8BD5;&#x7684;&#x901A;&#x7528;&#x89C4;&#x5219;</strong>&#xFF1A;</p>
+<ul>
+<li>&#x6D4B;&#x8BD5;&#x5355;&#x5143;&#x5E94;&#x8BE5;&#x96C6;&#x4E2D;&#x4E8E;&#x5C0F;&#x90E8;&#x5206;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5E76;&#x4E14;&#x8BC1;&#x660E;&#x5B83;&#x662F;&#x5BF9;&#x7684;&#x3002;</li>
+<li>&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x5355;&#x5143;&#x5E94;&#x8BE5;&#x5B8C;&#x5168;&#x72EC;&#x7ACB;&#x3002;&#x6BCF;&#x4E2A;&#x90FD;&#x80FD;&#x591F;&#x5355;&#x72EC;&#x8FD0;&#x884C;&#xFF0C;&#x9664;&#x4E86;&#x8C03;&#x7528;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x90FD;&#x9700;&#x5728;&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x4E2D;&#x3002;&#x8981;&#x60F3;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x89C4;&#x5219;&#xFF0C;&#x6D4B;&#x8BD5;&#x5355;&#x5143;&#x5E94;&#x8BE5;&#x52A0;&#x8F7D;&#x6700;&#x65B0;&#x7684;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x4E4B;&#x540E;&#x518D;&#x505A;&#x4E00;&#x4E9B;&#x6E05;&#x7406;&#x3002;</li>
+<li>&#x5C3D;&#x91CF;&#x4F7F;&#x6D4B;&#x8BD5;&#x5355;&#x5143;&#x5FEB;&#x901F;&#x8FD0;&#x884C;&#x3002;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x6D4B;&#x8BD5;&#x5355;&#x5143;&#x9700;&#x8981;&#x8F83;&#x957F;&#x7684;&#x65F6;&#x95F4;&#x53BB;&#x8FD0;&#x884C;&#xFF0C;&#x5F00;&#x53D1;&#x8FDB;&#x5EA6;&#x5C06;&#x4F1A;&#x5EF6;&#x8FDF;&#xFF0C;&#x6D4B;&#x8BD5;&#x5355;&#x5143;&#x5C06;&#x4E0D;&#x80FD;&#x5982;&#x671F;&#x5E38;&#x6001;&#x6027;&#x8FD0;&#x884C;&#x3002;&#x6709;&#x65F6;&#x5019;&#xFF0C;&#x56E0;&#x4E3A;&#x6D4B;&#x8BD5;&#x5355;&#x5143;&#x9700;&#x8981;&#x590D;&#x6742;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5E76;&#x4E14;&#x5F53;&#x5B83;&#x8FD0;&#x884C;&#x65F6;&#x6BCF;&#x6B21;&#x90FD;&#x8981;&#x52A0;&#x8F7D;&#xFF0C;&#x6240;&#x4EE5;&#x5176;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x8F83;&#x957F;&#x3002;&#x628A;&#x8FD0;&#x884C;&#x5403;&#x529B;&#x7684;&#x6D4B;&#x8BD5;&#x5355;&#x5143;&#x653E;&#x5728;&#x5355;&#x72EC;&#x7684;&#x6D4B;&#x8BD5;&#x7EC4;&#x4EF6;&#x4E2D;&#xFF0C;&#x5E76;&#x4E14;&#x6309;&#x7167;&#x9700;&#x8981;&#x8FD0;&#x884C;&#x5176;&#x5B83;&#x6D4B;&#x8BD5;&#x5355;&#x5143;&#x3002;</li>
+<li>&#x5B66;&#x4E60;&#x4F7F;&#x7528;&#x5DE5;&#x5177;&#xFF0C;&#x5B66;&#x4E60;&#x5982;&#x4F55;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x3002;&#x7136;&#x540E;&#xFF0C;&#x5F53;&#x5728;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x4E2D;&#x5F00;&#x53D1;&#x4E86;&#x4E00;&#x4E2A;&#x529F;&#x80FD;&#x65F6;&#xFF0C;&#x7ECF;&#x5E38;&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#xFF0C;&#x7406;&#x60F3;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E00;&#x5207;&#x90FD;&#x5C06;&#x81EA;&#x52A8;&#x3002;</li>
+<li>&#x5728;&#x7F16;&#x7801;&#x4F1A;&#x8BDD;&#x524D;&#x540E;&#xFF0C;&#x8981;&#x5E38;&#x5E38;&#x8FD0;&#x884C;&#x5B8C;&#x6574;&#x7684;&#x6D4B;&#x8BD5;&#x7EC4;&#x4EF6;&#x3002;&#x53EA;&#x6709;&#x8FD9;&#x6837;&#xFF0C;&#x4F60;&#x624D;&#x4F1A;&#x575A;&#x4FE1;&#x5269;&#x4F59;&#x7684;&#x4EE3;&#x7801;&#x4E0D;&#x4F1A;&#x4E2D;&#x65AD;&#x3002;</li>
+<li>&#x5B9E;&#x73B0;&#x94A9;&#x5B50;&#xFF08;hook&#xFF09;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x597D;&#x7684;&#x4E3B;&#x610F;&#x3002;&#x56E0;&#x4E3A;&#x4E00;&#x65E6;&#x628A;&#x4EE3;&#x7801;&#x653E;&#x5165;&#x5206;&#x4EAB;&#x4ED3;&#x5E93;&#x4E2D;&#xFF0C;&#x8FD9;&#x4E2A;&#x94A9;&#x5B50;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#x6240;&#x6709;&#x7684;&#x6D4B;&#x8BD5;&#x5355;&#x5143;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x4F60;&#x5728;&#x5F00;&#x53D1;&#x671F;&#x95F4;&#x4E0D;&#x5F97;&#x4E0D;&#x6253;&#x65AD;&#x81EA;&#x5DF1;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x5199;&#x4E00;&#x4E2A;&#x88AB;&#x6253;&#x65AD;&#x7684;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#xFF0C;&#x5B83;&#x5173;&#x4E8E;&#x4E0B;&#x4E00;&#x6B65;&#x8981;&#x5F00;&#x53D1;&#x7684;&#x4E1C;&#x897F;&#x3002;&#x5F53;&#x56DE;&#x5230;&#x5DE5;&#x4F5C;&#x65F6;&#xFF0C;&#x4F60;&#x5C06;&#x66F4;&#x5FEB;&#x5730;&#x56DE;&#x5230;&#x539F;&#x5148;&#x88AB;&#x6253;&#x65AD;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x5E76;&#x4E14;&#x6B65;&#x5165;&#x6B63;&#x8F68;&#x3002;</li>
+<li>&#x5F53;&#x4F60;&#x8C03;&#x8BD5;&#x4EE3;&#x7801;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9996;&#x5148;&#x9700;&#x8981;&#x5199;&#x4E00;&#x4E2A;&#x7CBE;&#x786E;&#x5B9A;&#x4F4D;bug&#x7684;&#x6D4B;&#x8BD5;&#x5355;&#x5143;&#x3002;&#x5C3D;&#x7BA1;&#x8FD9;&#x6837;&#x505A;&#x5F88;&#x96BE;&#xFF0C;&#x4F46;&#x662F;&#x6355;&#x6349;bug&#x7684;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x5F88;&#x91CD;&#x8981;&#x3002;</li>
+<li>&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x4F7F;&#x7528;&#x957F;&#x4E14;&#x63CF;&#x8FF0;&#x6027;&#x7684;&#x540D;&#x5B57;&#x3002;&#x8FD9;&#x8FB9;&#x7684;&#x6837;&#x5F0F;&#x6307;&#x5BFC;&#x4E0E;&#x8FD0;&#x884C;&#x4EE3;&#x7801;&#x6709;&#x70B9;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x8FD0;&#x884C;&#x4EE3;&#x7801;&#x66F4;&#x503E;&#x5411;&#x4E8E;&#x4F7F;&#x7528;&#x77ED;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x800C;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x4E0D;&#x4F1A;&#x76F4;&#x63A5;&#x88AB;&#x8C03;&#x7528;&#x3002;&#x5728;&#x8FD0;&#x884C;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;<code>square()</code>&#x6216;&#x8005;&#x751A;&#x81F3;<code>sqr()</code>&#x8FD9;&#x6837;&#x7684;&#x547D;&#x540D;&#x90FD;&#x662F;&#x53EF;&#x4EE5;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x4F60;&#x5E94;&#x8BE5;&#x8FD9;&#x6837;&#x53D6;&#x540D;<code>test_square_of_number_2()</code>&#xFF0C;<code>test_square_negative_number()</code>&#x3002;&#x5F53;&#x6D4B;&#x8BD5;&#x5355;&#x5143;&#x5931;&#x8D25;&#x65F6;&#xFF0C;&#x51FD;&#x6570;&#x540D;&#x5E94;&#x8BE5;&#x663E;&#x793A;&#xFF0C;&#x800C;&#x4E14;&#x5C3D;&#x53EF;&#x80FD;&#x5177;&#x6709;&#x63CF;&#x8FF0;&#x6027;&#x3002;</li>
+<li>&#x5F53;&#x53D1;&#x751F;&#x4E86;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#xFF0C;&#x6216;&#x8005;&#x4E0D;&#x5F97;&#x4E0D;&#x6539;&#x53D8;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x4EE3;&#x7801;&#x4E2D;&#x6709;&#x4E00;&#x5957;&#x4E0D;&#x9519;&#x7684;&#x6D4B;&#x8BD5;&#x5355;&#x5143;&#xFF0C;&#x7EF4;&#x62A4;&#x5C06;&#x5F88;&#x5927;&#x4E00;&#x90E8;&#x5206;&#x4F9D;&#x9760;&#x6D4B;&#x8BD5;&#x7EC4;&#x4EF6;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#xFF0C;&#x6216;&#x8005;&#x4FEE;&#x6539;&#x786E;&#x5B9A;&#x7684;&#x884C;&#x4E3A;&#x3002;&#x56E0;&#x6B64;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x5E94;&#x8BE5;&#x5C3D;&#x53EF;&#x80FD;&#x591A;&#x8BFB;&#xFF0C;&#x751A;&#x81F3;&#x591A;&#x4E8E;&#x8FD0;&#x884C;&#x4EE3;&#x7801;&#x3002;&#x76EE;&#x7684;&#x4E0D;&#x660E;&#x786E;&#x7684;&#x6D4B;&#x8BD5;&#x5355;&#x5143;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x6CA1;&#x6709;&#x591A;&#x5C11;&#x7528;&#x5904;&#x3002;</li>
+<li>&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x7684;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x7528;&#x5904;&#x662F;&#x4F5C;&#x4E3A;&#x65B0;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x7684;&#x5165;&#x95E8;&#x3002;&#x5F53;&#x5DE5;&#x4F5C;&#x57FA;&#x4E8E;&#x4EE3;&#x7801;&#xFF0C;&#x8FD0;&#x884C;&#x5E76;&#x4E14;&#x9605;&#x8BFB;&#x76F8;&#x5173;&#x7684;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x597D;&#x7684;&#x505A;&#x6CD5;&#x3002;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x5C06;&#x4F1A;&#x6216;&#x8005;&#x5E94;&#x8BE5;&#x53D1;&#x73B0;&#x70ED;&#x70B9;&#xFF0C;&#x800C;&#x8FD9;&#x5C06;&#x5F15;&#x8D77;&#x56F0;&#x96BE;&#x548C;&#x5176;&#x5B83;&#x60C5;&#x51B5;&#xFF0C;&#x5982;&#x679C;&#x4ED6;&#x4EEC;&#x4E00;&#x5B9A;&#x8981;&#x52A0;&#x4E00;&#x4E9B;&#x529F;&#x80FD;&#xFF0C;&#x7B2C;&#x4E00;&#x6B65;&#x5E94;&#x8BE5;&#x662F;&#x8981;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x5355;&#x5143;&#xFF0C;&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x786E;&#x4FDD;&#x65B0;&#x529F;&#x80FD;&#x4E0D;&#x518D;&#x662F;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x88AB;&#x5D4C;&#x5165;&#x5230;&#x63A5;&#x53E3;&#x4E2D;&#x7684;&#x5DE5;&#x4F5C;&#x8DEF;&#x5F84;&#x3002;</li>
+</ul>
+<h3 id="unittest">unittest</h3>
+<p>python&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x81EA;&#x5E26;&#x4E86;unittest&#x6846;&#x67B6;&#x4EE5;&#x7528;&#x6765;&#x505A;&#x5355;&#x5143;&#x6D4B;&#x8BD5;.unittest&#x5DF2;&#x7ECF;&#x53EF;&#x4EE5;&#x6EE1;&#x8DB3;&#x4E00;&#x822C;&#x7684;&#x6D4B;&#x8BD5;&#x9700;&#x6C42;&#x4E86;.&#x5B83;&#x5305;&#x542B;&#x4E86;&#x6240;&#x6709;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;&#x9700;&#x8981;&#x7684;&#x90E8;&#x4EF6;.&#x76F8;&#x6BD4;&#x8F83;&#x4F7F;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;,unittest&#x76F8;&#x5BF9;&#x6765;&#x8BF4;&#x66F4;&#x52A0;&#x7A33;&#x5B9A;&#x53EF;&#x9760;,&#x800C;&#x4E14;&#x4F5C;&#x4E3A;&#x6807;&#x51C6;&#x5E93;,&#x4E5F;&#x907F;&#x514D;&#x4E86;&#x989D;&#x5916;&#x7684;&#x4F9D;&#x8D56;&#x5B89;&#x88C5;.</p>
+<p>&#x4F7F;&#x7528; unittest &#x7684;&#x6807;&#x51C6;&#x6D41;&#x7A0B;&#x4E3A;&#xFF1A;</p>
+<ul>
+<li>&#x4ECE; unittest.TestCase &#x6D3E;&#x751F;&#x4E00;&#x4E2A;&#x5B50;&#x7C7B;</li>
+<li>&#x5728;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x5404;&#x79CD;&#x4EE5; <code>&quot;test_&quot;</code> &#x6253;&#x5934;&#x7684;&#x65B9;&#x6CD5;</li>
+<li>&#x901A;&#x8FC7; unittest.main() &#x51FD;&#x6570;&#x6765;&#x542F;&#x52A8;&#x6D4B;&#x8BD5;</li>
+</ul>
+<p>unittest&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x6D4B;&#x8BD5;<strong>&#x6A21;&#x5757;</strong>&#x4F7F;&#x7528;</p>
+<p><code>unittest test.py</code>&#x6216;&#x8005;<code>unittest test</code>&#x6216;&#x8005;<code>unittest test.test</code></p>
+<p>&#x5B83;&#x53EF;&#x4EE5;&#x5E26;&#x4E0A;&#x4EE5;&#x4E0B;&#x53C2;&#x6570;</p>
+<ul>
+<li>-v &#x6D4B;&#x8BD5;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;</li>
+<li>-f &#x51FA;&#x9519;&#x5C31;&#x505C;</li>
+<li>-c &#x53EF;&#x4EE5;&#x7528;ctrol+c&#x505C;&#x6B62;,&#x5E76;&#x51FA;&#x7ED3;&#x679C;</li>
+<li>-b &#x8FD0;&#x884C;&#x65F6;&#x7ED3;&#x679C;&#x5B58;&#x5230;stderr&#x548C;stdout&#x91CC;</li>
+</ul>
+<p>unittest &#x652F;&#x6301;&#x81EA;&#x52A8;&#x641C;&#x7D22;,&#x8FD9;&#x9700;&#x8981;&#x5728;&#x540E;&#x9762;&#x52A0;&#x4E0A;&#x5B50;&#x9009;&#x9879;<code>discover</code>,
+<code>discover</code>&#x53EF;&#x4EE5;&#x6709;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;:</p>
+<ul>
+<li>-s &#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x5939;</li>
+<li>-t &#x6307;&#x5B9A;&#x6A21;&#x5757;</li>
+<li>-p &#x6A21;&#x5F0F;&#x5339;&#x914D;&#x8981;&#x6D4B;&#x8BD5;&#x7684;&#x6587;&#x4EF6;</li>
+</ul>
+<p>unittest &#x7684;&#x4E00;&#x4E2A;&#x5F88;&#x6709;&#x7528;&#x7684;&#x7279;&#x6027;&#x662F; TestCase &#x7684; setUp() &#x548C; tearDown() &#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x7EDF;&#x79F0;&quot;&#x94A9;&#x5B50;&quot;&#x5B83;&#x4EEC;&#x63D0;&#x4F9B;&#x4E86;&#x4E3A;&#x6D4B;&#x8BD5;&#x8FDB;&#x884C;&#x51C6;&#x5907;&#x548C;&#x626B;&#x5C3E;&#x5DE5;&#x4F5C;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x542C;&#x8D77;&#x6765;&#x5C31;&#x50CF;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x4E00;&#x6837;&#x3002;&#x8FD9;&#x79CD;&#x529F;&#x80FD;&#x5F88;&#x9002;&#x5408;&#x7528;&#x5728;&#x6D4B;&#x8BD5;&#x5BF9;&#x8C61;&#x9700;&#x8981;&#x590D;&#x6742;&#x6267;&#x884C;&#x73AF;&#x5883;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x3002;</p>
+<h2 id="&#x57FA;&#x672C;&#x7528;&#x6CD5;">&#x57FA;&#x672C;&#x7528;&#x6CD5;</h2>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x6D4B;&#x8BD5;&#x5982;&#x4E0B;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;</p>
+<pre><code class="lang-python">%%writefile src/C3/func_oper_unitest.py
+<span class="hljs-comment">#!/usr/bin/env python</span>
+
+<span class="hljs-string">&quot;&quot;&quot;\
+&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x5199;&#x7528;&#x5230;&#x591A;&#x4E2A;&#x51FD;&#x6570;&#x7684;
+
+&quot;&quot;&quot;</span>
+<span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> reduce
+<span class="hljs-keyword">from</span> operator <span class="hljs-keyword">import</span> mul,add
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">multiply</span><span class="hljs-params">(*args)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;\
+    &#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x5199;&#x5355;&#x5143;&#x6D4B;&#x8BD5;
+    &gt;&gt;&gt; multiply(2,3)
+    6
+    &gt;&gt;&gt; multiply(&apos;baka~&apos;,3)
+    &apos;baka~baka~baka~&apos;
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">return</span> reduce(mul,args)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">summing</span><span class="hljs-params">(*args)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;\
+    &#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x5199;&#x5355;&#x5143;&#x6D4B;&#x8BD5;
+    &gt;&gt;&gt; summing(2,3)
+    5
+    &gt;&gt;&gt; summing(2,3,4)
+    9
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">return</span> reduce(add,args)
+</code></pre>
+<pre><code>Overwriting src/C3/func_oper_unitest.py
+</code></pre><h3 id="&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;">&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;</h3>
+<p>&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x662F;&#x6307;&#x4E00;&#x7CFB;&#x5217;&#x76F8;&#x5173;&#x6D4B;&#x8BD5;&#x7684;&#x5B9E;&#x4F8B;.&#x5982;&#x4F55;&#x754C;&#x5B9A;&#x8FD9;&#x4E2A;&#x76F8;&#x5173;&#x7A0B;&#x5EA6;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x800C;&#x5B9A;,&#x6BD4;&#x5982;&#x7C97;&#x7565;&#x7684;&#x6D4B;&#x8BD5;&#x53EF;&#x4EE5;&#x4EE5;&#x6A21;&#x5757;&#x4E3A;&#x5355;&#x4F4D;,&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x6D4B;&#x8BD5;&#x90FD;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x4E2D;,&#x7EC6;&#x81F4;&#x7684;&#x5219;&#x53EF;&#x4EE5;&#x662F;&#x9488;&#x5BF9;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6216;&#x8005;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x7684;&#x6D4B;&#x8BD5;&#x90FD;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x4E2D;.</p>
+<p><code>unittest.TestCase</code>&#x662F;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x8D85;&#x7C7B;,&#x7F16;&#x5199;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x53EA;&#x8981;&#x7EE7;&#x627F;&#x5B83;&#x5373;&#x53EF;.</p>
+<pre><code class="lang-python">%%writefile src/C3/test_my.py
+
+<span class="hljs-keyword">import</span> unittest
+
+<span class="hljs-keyword">from</span> func_oper_unitest <span class="hljs-keyword">import</span> multiply,summing
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test_mul</span><span class="hljs-params">(unittest.TestCase)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setUp</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_number_3_4</span><span class="hljs-params">(self)</span>:</span>
+        self.assertEqual(multiply(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>),<span class="hljs-number">12</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_string_a_3</span><span class="hljs-params">(self)</span>:</span>
+        self.assertEqual(multiply(<span class="hljs-string">&apos;a&apos;</span>,<span class="hljs-number">3</span>),<span class="hljs-string">&apos;aaa&apos;</span>)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test_sum</span><span class="hljs-params">(unittest.TestCase)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setUp</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_number_3_4</span><span class="hljs-params">(self)</span>:</span>
+        self.assertEqual(summing(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>),<span class="hljs-number">7</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_number_3_4_5</span><span class="hljs-params">(self)</span>:</span>
+        self.assertEqual(summing(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>),<span class="hljs-number">12</span>)
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestCase1</span><span class="hljs-params">(unittest.TestCase)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setUp</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_sum_mul_2_3_mul_2_3</span><span class="hljs-params">(self)</span>:</span>
+        self.assertEqual(summing(multiply(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>),multiply(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)),<span class="hljs-number">12</span>)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    unittest.main()
+</code></pre>
+<pre><code>Overwriting src/C3/test_my.py
+</code></pre><pre><code class="lang-python">!python3 -m unittest discover -v -s ./src/C3
+</code></pre>
+<pre><code>test_almost_eq (test_assert_base.demoTest) ... ok
+test_eq (test_assert_base.demoTest) ... ok
+test_exc (test_assert_base.demoTest) ... ok
+test_not_almost_eq (test_assert_base.demoTest) ... FAIL
+test_not_eq (test_assert_base.demoTest) ... FAIL
+test_not_seq (test_assert_base.demoTest) ... FAIL
+test_seq (test_assert_base.demoTest) ... ok
+test_with_exc (test_assert_base.demoTest) ... ok
+test_eq (test_assert_skip.demoTest) ... skipped &apos;&#x8DF3;&#x8FC7;&apos;
+test_not_eq (test_assert_skip.demoTest) ... expected failure
+test_not_seq (test_assert_skip.demoTest) ... expected failure
+test_seq (test_assert_skip.demoTest) ... ok
+test_seq_2 (test_assert_skip.demoTest) ... skipped &apos;unless 1 ==0&apos;
+setUpModule
+setUpClass
+test_number_3_4 (test_hook.Test_mul) ... instance setUp
+t1
+instance tearDown
+ok
+test_string_a_3 (test_hook.Test_mul) ... instance setUp
+t2
+instance tearDown
+ok
+tearDownClass
+tearUpModule
+test_sum_mul_2_3_mul_2_3 (test_my.TestCase1) ... ok
+test_number_3_4 (test_my.Test_mul) ... ok
+test_string_a_3 (test_my.Test_mul) ... ok
+test_number_3_4 (test_my.Test_sum) ... ok
+test_number_3_4_5 (test_my.Test_sum) ... ok
+test_subtest (test_subtest.demoTest) ... test_eq (test_suite.ArithTest) ... ok
+test_not_eq (test_suite.ArithTest) ... FAIL
+test_not_seq (test_suite.ArithTest) ... FAIL
+test_seq (test_suite.ArithTest) ... ok
+
+======================================================================
+FAIL: test_not_almost_eq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 23, in test_not_almost_eq
+    self.assertAlmostEqual(1.003, 1.004, places = 4)
+AssertionError: 1.003 != 1.004 within 4 places
+
+======================================================================
+FAIL: test_not_eq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 7, in test_not_eq
+    self.assertNotEqual(5 * 2,10)
+AssertionError: 10 == 10
+
+======================================================================
+FAIL: test_not_seq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 17, in test_not_seq
+    self.assertSequenceEqual(a, b)
+AssertionError: Sequences differ: [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;] != (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+Second sequence contains 1 additional elements.
+First extra element 3:
+&apos;4&apos;
+
+- [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;]
++ (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_not_eq (test_suite.ArithTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_suite.py&quot;, line 7, in test_not_eq
+    self.assertNotEqual(5 * 2,10)
+AssertionError: 10 == 10
+
+======================================================================
+FAIL: test_not_seq (test_suite.ArithTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_suite.py&quot;, line 17, in test_not_seq
+    self.assertSequenceEqual(a, b)
+AssertionError: Sequences differ: [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;] != (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+Second sequence contains 1 additional elements.
+First extra element 3:
+&apos;4&apos;
+
+- [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;]
++ (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.009s
+
+FAILED (failures=8, skipped=2, expected failures=2)
+</code></pre><h3 id="&#x94A9;&#x5B50;">&#x94A9;&#x5B50;</h3>
+<p>&#x5982;&#x679C;&#x8981;&#x5BF9;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x90FD;&#x505A;&#x540C;&#x6837;&#x7684;&#x521D;&#x59CB;&#x5316;&#x64CD;&#x4F5C;&#x548C;&#x7ED3;&#x5C3E;&#x6E05;&#x9664;&#x7B49;&#x64CD;&#x4F5C;&#xFF0C;&#x90A3;&#x4E48;&#x521B;&#x5EFA;n&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x5C31;&#x5F97;&#x5199;n&#x904D;&#x4E00;&#x6837;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x4E3A;&#x4E86;&#x51CF;&#x5C11;&#x91CD;&#x590D;&#x7684;&#x4EE3;&#x7801;&#xFF0C;</p>
+<p>&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x5B9E;&#x4F8B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x5176;&#x4E2D;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x6837;&#x4F8B;&#x7684;&#x521D;&#x59CB;&#x5316;&#x548C;&#x6E05;&#x9664;&#x5DE5;&#x4F5C;&#xFF1A;</p>
+<ul>
+<li><p>setUp(self): &#x6BCF;&#x6B21;&#x6267;&#x884C;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x4E4B;&#x524D;&#x8C03;&#x7528;&#x3002;&#x65E0;&#x53C2;&#x6570;&#xFF0C;&#x65E0;&#x8FD4;&#x56DE;&#x503C;&#x3002;&#x8BE5;&#x65B9;&#x6CD5;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x90FD;&#x89C6;&#x4E3A;error&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6D4B;&#x8BD5;&#x4E0D;&#x901A;&#x8FC7;&#x3002;&#x6CA1;&#x6709;&#x9ED8;&#x8BA4;&#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
+</li>
+<li><p>tearDown(self): &#x6BCF;&#x6B21;&#x6267;&#x884C;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x4E4B;&#x540E;&#x8C03;&#x7528;&#x3002;&#x65E0;&#x53C2;&#x6570;&#xFF0C;&#x65E0;&#x8FD4;&#x56DE;&#x503C;&#x3002;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4E5F;&#x6B63;&#x5E38;&#x8C03;&#x7528;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x90FD;&#x89C6;&#x4E3A;error&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6D4B;&#x8BD5;&#x4E0D;&#x901A;&#x8FC7;&#x3002;&#x53EA;&#x7528;setUp()&#x8C03;&#x7528;&#x6210;&#x529F;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x624D;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;&#x6CA1;&#x6709;&#x9ED8;&#x8BA4;&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x901A;&#x8FC7;setup &#x548C; tesrDown&#x7EC4;&#x88C5;&#x4E00;&#x4E2A;module&#x6210;&#x4E3A;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x7684;&#x6D4B;&#x8BD5;&#x88C5;&#x7F6E;&#x3002;&#x6CE8;&#x610F;&#xFF1A;&#x5982;&#x679C;setup&#x8FD0;&#x884C;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#xFF0C;&#x5219;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x4EE3;&#x7801;&#x5219;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5982;&#x679C;setpu&#x6267;&#x884C;&#x6210;&#x529F;&#xFF0C;&#x4E0D;&#x7BA1;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x662F;&#x5426;&#x6267;&#x884C;&#x6210;&#x529F;&#x90FD;&#x4F1A;&#x6267;&#x884C;teardown&#x3002;</p>
+</li>
+</ul>
+<p>&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x4E5F;&#x6709;&#x4E00;&#x4E2A;&#x7C7B;&#x7EA7;&#x522B;&#x7684;&#x94A9;&#x5B50;,&#x5B83;&#x53EF;&#x4EE5;&#x5728;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7C7B;&#x5B9E;&#x4F8B;&#x5316;&#x4E4B;&#x524D;&#x548C;&#x7C7B;&#x5168;&#x90E8;&#x6D4B;&#x8BD5;&#x5B9E;&#x4F8B;&#x8FD0;&#x884C;&#x5B8C;&#x540E;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;</p>
+<pre><code class="lang-python"><span class="hljs-meta">@classmethod</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setUpClass</span><span class="hljs-params">(cls)</span>:</span>
+    cls._connection = createExpensiveConnectionObject()
+
+<span class="hljs-meta">@classmethod</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tearDownClass</span><span class="hljs-params">(cls)</span>:</span>
+    cls._connection.destroy()
+</code></pre>
+<p>&#x6D4B;&#x8BD5;&#x94A9;&#x5B50;&#x4E5F;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x6A21;&#x5757;&#x7EA7;&#x522B;&#x7684;&#x94A9;&#x5B50;,&#x5B83;&#x4F1A;&#x5728;&#x6A21;&#x5757;&#x88AB;&#x5F15;&#x7528;&#x548C;&#x6A21;&#x5757;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#x540E;&#x8FDB;&#x884C;&#x5DE5;&#x4F5C;</p>
+<pre><code>def setUpModule():
+   createConnection()
+def tearDownModule():
+   closeConnection()
+</code></pre><pre><code class="lang-python">%%writefile src/C3/test_hook.py
+
+<span class="hljs-keyword">import</span> unittest
+
+<span class="hljs-keyword">from</span> func_oper_unitest <span class="hljs-keyword">import</span> multiply,summing
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setUpModule</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">&quot;setUpModule&quot;</span>)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tearDownModule</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">&quot;tearUpModule&quot;</span>)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test_mul</span><span class="hljs-params">(unittest.TestCase)</span>:</span>
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setUpClass</span><span class="hljs-params">(cls)</span>:</span>
+        print(<span class="hljs-string">&quot;setUpClass&quot;</span>)
+
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tearDownClass</span><span class="hljs-params">(cls)</span>:</span>
+        print(<span class="hljs-string">&quot;tearDownClass&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setUp</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&quot;instance setUp&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tearDown</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&quot;instance tearDown&quot;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_number_3_4</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&quot;t1&quot;</span>)
+        self.assertEqual(multiply(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>),<span class="hljs-number">12</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_string_a_3</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&quot;t2&quot;</span>)
+        self.assertEqual(multiply(<span class="hljs-string">&apos;a&apos;</span>,<span class="hljs-number">3</span>),<span class="hljs-string">&apos;aaa&apos;</span>)
+
+
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    unittest.main()
+</code></pre>
+<pre><code>Overwriting src/C3/test_hook.py
+</code></pre><pre><code class="lang-python">!python3 -m unittest discover -v -s ./src/C3
+</code></pre>
+<pre><code>test_almost_eq (test_assert_base.demoTest) ... ok
+test_eq (test_assert_base.demoTest) ... ok
+test_exc (test_assert_base.demoTest) ... ok
+test_not_almost_eq (test_assert_base.demoTest) ... FAIL
+test_not_eq (test_assert_base.demoTest) ... FAIL
+test_not_seq (test_assert_base.demoTest) ... FAIL
+test_seq (test_assert_base.demoTest) ... ok
+test_with_exc (test_assert_base.demoTest) ... ok
+test_eq (test_assert_skip.demoTest) ... skipped &apos;&#x8DF3;&#x8FC7;&apos;
+test_not_eq (test_assert_skip.demoTest) ... expected failure
+test_not_seq (test_assert_skip.demoTest) ... expected failure
+test_seq (test_assert_skip.demoTest) ... ok
+test_seq_2 (test_assert_skip.demoTest) ... skipped &apos;unless 1 ==0&apos;
+setUpModule
+setUpClass
+test_number_3_4 (test_hook.Test_mul) ... instance setUp
+t1
+instance tearDown
+ok
+test_string_a_3 (test_hook.Test_mul) ... instance setUp
+t2
+instance tearDown
+ok
+tearDownClass
+tearUpModule
+test_sum_mul_2_3_mul_2_3 (test_my.TestCase1) ... ok
+test_number_3_4 (test_my.Test_mul) ... ok
+test_string_a_3 (test_my.Test_mul) ... ok
+test_number_3_4 (test_my.Test_sum) ... ok
+test_number_3_4_5 (test_my.Test_sum) ... ok
+test_subtest (test_subtest.demoTest) ... test_eq (test_suite.ArithTest) ... ok
+test_not_eq (test_suite.ArithTest) ... FAIL
+test_not_seq (test_suite.ArithTest) ... FAIL
+test_seq (test_suite.ArithTest) ... ok
+
+======================================================================
+FAIL: test_not_almost_eq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 23, in test_not_almost_eq
+    self.assertAlmostEqual(1.003, 1.004, places = 4)
+AssertionError: 1.003 != 1.004 within 4 places
+
+======================================================================
+FAIL: test_not_eq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 7, in test_not_eq
+    self.assertNotEqual(5 * 2,10)
+AssertionError: 10 == 10
+
+======================================================================
+FAIL: test_not_seq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 17, in test_not_seq
+    self.assertSequenceEqual(a, b)
+AssertionError: Sequences differ: [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;] != (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+Second sequence contains 1 additional elements.
+First extra element 3:
+&apos;4&apos;
+
+- [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;]
++ (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_not_eq (test_suite.ArithTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_suite.py&quot;, line 7, in test_not_eq
+    self.assertNotEqual(5 * 2,10)
+AssertionError: 10 == 10
+
+======================================================================
+FAIL: test_not_seq (test_suite.ArithTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_suite.py&quot;, line 17, in test_not_seq
+    self.assertSequenceEqual(a, b)
+AssertionError: Sequences differ: [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;] != (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+Second sequence contains 1 additional elements.
+First extra element 3:
+&apos;4&apos;
+
+- [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;]
++ (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.006s
+
+FAILED (failures=8, skipped=2, expected failures=2)
+</code></pre><p>&#x4E0A;&#x9762;&#x7684;&#x7ED3;&#x679C;&#x53EF;&#x4EE5;&#x5F88;&#x6E05;&#x6D17;&#x7684;&#x770B;&#x5230;&#x6D4B;&#x8BD5;&#x94A9;&#x5B50;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x8303;&#x56F4;.</p>
+<h3 id="&#x65AD;&#x8A00;">&#x65AD;&#x8A00;</h3>
+<p>&#x65AD;&#x8A00;&#x662F;&#x7528;&#x6765;&#x58F0;&#x660E;&#x7ED3;&#x679C;&#x72B6;&#x6001;&#x7684;&#x5DE5;&#x5177;,&#x5982;&#x679C;&#x7ED3;&#x679C;&#x7B26;&#x5408;&#x9884;&#x671F;,&#x90A3;&#x4E48;&#x65AD;&#x8A00;&#x5C31;&#x8BE5;&#x901A;&#x8FC7;,&#x5426;&#x5219;&#x65AD;&#x8A00;&#x5C31;&#x8BE5;&#x62A5;&#x65AD;&#x8A00;&#x9519;&#x8BEF;</p>
+<p>python&#x81EA;&#x5E26;&#x65AD;&#x8A00;&#x5173;&#x952E;&#x5B57;<code>assert</code></p>
+<pre><code class="lang-python"><span class="hljs-keyword">assert</span> <span class="hljs-number">1</span>==<span class="hljs-number">1</span>
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">assert</span> <span class="hljs-number">1</span>==<span class="hljs-number">0</span>
+</code></pre>
+<pre><code>---------------------------------------------------------------------------
+
+AssertionError                            Traceback (most recent call last)
+
+&lt;ipython-input-7-ab8cbedd7149&gt; in &lt;module&gt;()
+----&gt; 1 assert 1==0
+
+
+AssertionError:
+</code></pre><p>&#x81EA;&#x5E26;&#x7684;&#x65AD;&#x8A00;&#x5173;&#x952E;&#x5B57;&#x529F;&#x80FD;&#x5355;&#x4E00;,&#x5F80;&#x5F80;&#x4E0D;&#x80FD;&#x5B8C;&#x5168;&#x6EE1;&#x8DB3;&#x6D4B;&#x8BD5;&#x9700;&#x8981;,&#x6BD4;&#x5982;&#x8981;&#x6D4B;&#x62A5;&#x9519;&#x7684;&#x9519;&#x8BEF;&#x7C7B;&#x578B;&#x5C31;&#x5F88;&#x9EBB;&#x70E6;&#x4E86;,&#x56E0;&#x6B64;&#x9664;assert&#x5173;&#x952E;&#x5B57;&#x5916;,&#x5F6A;&#x608D;&#x5C0A;&#x54ED;unittest&#x6A21;&#x5757;&#x8FD8;&#x6709;&#x5176;&#x4ED6;&#x51E0;&#x4E2A;&#x65AD;&#x8A00;&#x5DE5;&#x5177;&#x5B9E;&#x73B0;&#x66F4;&#x52A0;&#x590D;&#x6742;&#x7684;&#x65AD;&#x8A00;.</p>
+<h4 id="&#x57FA;&#x672C;&#x65AD;&#x8A00;&#x65B9;&#x6CD5;">&#x57FA;&#x672C;&#x65AD;&#x8A00;&#x65B9;&#x6CD5;</h4>
+<p>&#x57FA;&#x672C;&#x7684;&#x65AD;&#x8A00;&#x65B9;&#x6CD5;&#x63D0;&#x4F9B;&#x4E86;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x662F;True&#x8FD8;&#x662F;False&#x3002;&#x6240;&#x6709;&#x7684;&#x65AD;&#x8A00;&#x65B9;&#x6CD5;&#x90FD;&#x6709;&#x4E00;&#x4E2A;msg&#x53C2;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x6307;&#x5B9A;msg&#x53C2;&#x6570;&#x7684;&#x503C;&#xFF0C;&#x5219;&#x5C06;&#x8BE5;&#x4FE1;&#x606F;&#x4F5C;&#x4E3A;&#x5931;&#x8D25;&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x8FD4;&#x56DE;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>&#x65AD;&#x8A00;&#x65B9;&#x6CD5;</th>
+<th>&#x65AD;&#x8A00;&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>assertEqual(arg1, arg2, msg=None)</td>
+<td>&#x9A8C;&#x8BC1;arg1=arg2&#xFF0C;&#x4E0D;&#x7B49;&#x5219;fail</td>
+</tr>
+<tr>
+<td>assertNotEqual(arg1, arg2, msg=None)</td>
+<td>&#x9A8C;&#x8BC1;arg1 != arg2, &#x76F8;&#x7B49;&#x5219;fail</td>
+</tr>
+<tr>
+<td>assertTrue(expr, msg=None)</td>
+<td>&#x9A8C;&#x8BC1;expr&#x662F;true&#xFF0C;&#x5982;&#x679C;&#x4E3A;false&#xFF0C;&#x5219;fail</td>
+</tr>
+<tr>
+<td>assertFalse(expr,msg=None)</td>
+<td>&#x9A8C;&#x8BC1;expr&#x662F;false&#xFF0C;&#x5982;&#x679C;&#x4E3A;true&#xFF0C;&#x5219;fail</td>
+</tr>
+<tr>
+<td>assertIs(arg1, arg2, msg=None)</td>
+<td>&#x9A8C;&#x8BC1;arg1&#x3001;arg2&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x4E0D;&#x662F;&#x5219;fail</td>
+</tr>
+<tr>
+<td>assertIsNot(arg1, arg2, msg=None)</td>
+<td>&#x9A8C;&#x8BC1;arg1&#x3001;arg2&#x4E0D;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x662F;&#x5219;fail</td>
+</tr>
+<tr>
+<td>assertIsNone(expr, msg=None)</td>
+<td>&#x9A8C;&#x8BC1;expr&#x662F;None&#xFF0C;&#x4E0D;&#x662F;&#x5219;fail</td>
+</tr>
+<tr>
+<td>assertIsNotNone(expr, msg=None)</td>
+<td>&#x9A8C;&#x8BC1;expr&#x4E0D;&#x662F;None&#xFF0C;&#x662F;&#x5219;fail</td>
+</tr>
+<tr>
+<td>assertIn(arg1, arg2, msg=None)</td>
+<td>&#x9A8C;&#x8BC1;arg1&#x662F;arg2&#x7684;&#x5B50;&#x4E32;&#xFF0C;&#x4E0D;&#x662F;&#x5219;fail</td>
+</tr>
+<tr>
+<td>assertNotIn(arg1, arg2, msg=None)</td>
+<td>&#x9A8C;&#x8BC1;arg1&#x4E0D;&#x662F;arg2&#x7684;&#x5B50;&#x4E32;&#xFF0C;&#x662F;&#x5219;fail</td>
+</tr>
+<tr>
+<td>assertIsInstance(obj, cls, msg=None)</td>
+<td>&#x9A8C;&#x8BC1;obj&#x662F;cls&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x4E0D;&#x662F;&#x5219;fail</td>
+</tr>
+<tr>
+<td>assertNotIsInstance(obj, cls, msg=None)</td>
+<td>&#x9A8C;&#x8BC1;obj&#x4E0D;&#x662F;cls&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x662F;&#x5219;fail</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x5BB9;&#x5668;&#x65AD;&#x8A00;">&#x5BB9;&#x5668;&#x65AD;&#x8A00;</h4>
+<p>&#x5224;&#x65AD;&#x4E24;&#x4E2A;&#x5BB9;&#x5668;&#x4E2D;&#x5185;&#x5BB9;&#x662F;&#x5426;&#x4E00;&#x6837;</p>
+<table>
+<thead>
+<tr>
+<th>&#x65AD;&#x8A00;&#x65B9;&#x6CD5;</th>
+<th>&#x9488;&#x5BF9;&#x5BB9;&#x5668;</th>
+<th>&#x65AD;&#x8A00;&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>assertMultiLineEqual(a, b)</td>
+<td>strings</td>
+<td>&#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x5426;&#x4E00;&#x6837;</td>
+</tr>
+<tr>
+<td>assertSequenceEqual(a, b)</td>
+<td>sequences</td>
+<td>&#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x5E8F;&#x5217;&#x662F;&#x5426;&#x4E00;&#x6837;</td>
+</tr>
+<tr>
+<td>assertListEqual(a, b)</td>
+<td>lists</td>
+<td>&#x6BD4;&#x8F83;&#x4E24;&#x4E2A;list&#x662F;&#x5426;&#x4E00;&#x6837;</td>
+</tr>
+<tr>
+<td>assertTupleEqual(a, b)</td>
+<td>tuples</td>
+<td>&#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x5143;&#x7EC4;&#x662F;&#x5426;&#x4E00;&#x6837;</td>
+</tr>
+<tr>
+<td>assertSetEqual(a, b)</td>
+<td>sets &#x6216;&#x8005; frozensets</td>
+<td>&#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x96C6;&#x5408;&#x662F;&#x5426;&#x4E00;&#x6837;</td>
+</tr>
+<tr>
+<td>assertDictEqual(a, b)</td>
+<td>dicts</td>
+<td>&#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x5B57;&#x5178;&#x662F;&#x5426;&#x4E00;&#x6837;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x6A21;&#x7CCA;&#x6BD4;&#x8F83;&#x65AD;&#x8A00;">&#x6A21;&#x7CCA;&#x6BD4;&#x8F83;&#x65AD;&#x8A00;</h4>
+<p>unittest&#x6846;&#x67B6;&#x63D0;&#x4F9B;&#x7684;&#x7B2C;&#x4E8C;&#x79CD;&#x65AD;&#x8A00;&#x7C7B;&#x578B;&#x5C31;&#x662F;&#x6BD4;&#x8F83;&#x65AD;&#x8A00;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x770B;&#x4E0B;&#x5404;&#x79CD;&#x6BD4;&#x8F83;&#x65AD;&#x8A00;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>&#x65AD;&#x8A00;&#x65B9;&#x6CD5;</th>
+<th>&#x65AD;&#x8A00;&#x63CF;&#x8FF0;</th>
+<th>&#x53C2;&#x6570;&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>assertAlmostEqual (first, second, places = 7, msg = None, delta = None)</td>
+<td>&#x9A8C;&#x8BC1;first&#x7EA6;&#x7B49;&#x4E8E;second.</td>
+<td>palces: &#x6307;&#x5B9A;&#x7CBE;&#x786E;&#x5230;&#x5C0F;&#x6570;&#x70B9;&#x540E;&#x591A;&#x5C11;&#x4F4D;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;7</td>
+</tr>
+<tr>
+<td>assertNotAlmostEqual (first, second, places, msg, delta)</td>
+<td>&#x9A8C;&#x8BC1;first&#x4E0D;&#x7EA6;&#x7B49;&#x4E8E;second&#x3002;</td>
+<td>palces: &#x6307;&#x5B9A;&#x7CBE;&#x786E;&#x5230;&#x5C0F;&#x6570;&#x70B9;&#x540E;&#x591A;&#x5C11;&#x4F4D;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;7,&#x6CE8;&#xFF1A; &#x5728;&#x4E0A;&#x8FF0;&#x7684;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x5982;&#x679C;delta&#x6307;&#x5B9A;&#x4E86;&#x503C;&#xFF0C;&#x5219;first&#x548C;second&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x503C;&#x5FC5;&#x987B;&#x2264;delta==</td>
+</tr>
+<tr>
+<td>assertGreater (first, second, msg = None)</td>
+<td>&#x9A8C;&#x8BC1;first &gt; second&#xFF0C;&#x5426;&#x5219;fail</td>
+<td>---</td>
+</tr>
+<tr>
+<td>assertGreaterEqual (first, second, msg = None)</td>
+<td>&#x9A8C;&#x8BC1;first &#x2265; second&#xFF0C;&#x5426;&#x5219;fail</td>
+<td>---</td>
+</tr>
+<tr>
+<td>assertLess (first, second, msg = None)</td>
+<td>&#x9A8C;&#x8BC1;first &lt; second&#xFF0C;&#x5426;&#x5219;fail</td>
+<td>---</td>
+</tr>
+<tr>
+<td>assertLessEqual (first, second, msg = None)</td>
+<td>&#x9A8C;&#x8BC1;first &#x2264; second&#xFF0C;&#x5426;&#x5219;fail</td>
+<td>---</td>
+</tr>
+<tr>
+<td>assertRegexpMatches (text, regexp, msg = None)</td>
+<td>&#x9A8C;&#x8BC1;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;regexp&#x641C;&#x7D22;==&#x5339;&#x914D;==&#x7684;&#x6587;&#x672C;text</td>
+<td>regexp&#xFF1A;&#x901A;&#x5E38;&#x4F7F;&#x7528;re.search()</td>
+</tr>
+<tr>
+<td>assertNotRegexpMatches (text, regexp, msg = None)</td>
+<td>&#x9A8C;&#x8BC1;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;regexp&#x641C;&#x7D22;==&#x4E0D;&#x5339;&#x914D;==&#x7684;&#x6587;&#x672C;text</td>
+<td>regexp&#xFF1A;&#x901A;&#x5E38;&#x4F7F;&#x7528;re.search()</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x5F02;&#x5E38;&#x65AD;&#x8A00;">&#x5F02;&#x5E38;&#x65AD;&#x8A00;</h4>
+<table>
+<thead>
+<tr>
+<th>&#x65AD;&#x8A00;&#x65B9;&#x6CD5;</th>
+<th>&#x65AD;&#x8A00;&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assertRaises(exc, fun, *args, **kwds)</code></td>
+<td>&#x9A8C;&#x8BC1;&#x5F02;&#x5E38;&#x6D4B;&#x8BD5;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x9884;&#x671F;&#x7684;&#x5F02;&#x5E38;,&#x7B2C;&#x4E8C;&#x4E2A;&#x5219;&#x662F;&#x5F85;&#x6D4B;&#x7684;&#x51FD;&#x6570;&#x540D;,&#x540E;&#x9762;&#x7684;&#x5219;&#x662F;&#x5F85;&#x6D4B;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;.&#x5F53;&#x8C03;&#x7528;&#x5F85;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x65F6;,&#x5728;&#x4F20;&#x5165;&#x76F8;&#x5E94;&#x7684;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x540E;&#xFF0C;&#x5982;&#x679C;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#xFF0C;&#x5219;&#x8868;&#x660E;&#x5F85;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x629B;&#x51FA;&#x4E86;&#x9884;&#x671F;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x5426;&#x5219;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;.</td>
+</tr>
+<tr>
+<td><code>assertRaisesRegex(exc, r, fun, *args, **kwds)</code></td>
+<td>&#x9A8C;&#x8BC1;&#x5F02;&#x5E38;&#x6D4B;&#x8BD5;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x9884;&#x671F;&#x7684;&#x5F02;&#x5E38;,&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x5219;&#x662F;&#x4E00;&#x4E2A;&#x7528;&#x6765;&#x5339;&#x914D;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x7684;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;,&#x7B2C;&#x4E09;&#x4E2A;&#x5219;&#x662F;&#x5F85;&#x6D4B;&#x7684;&#x51FD;&#x6570;&#x540D;,&#x540E;&#x9762;&#x7684;&#x5219;&#x662F;&#x5F85;&#x6D4B;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;.&#x5F53;&#x8C03;&#x7528;&#x5F85;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x65F6;,&#x5728;&#x4F20;&#x5165;&#x76F8;&#x5E94;&#x7684;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x540E;&#xFF0C;&#x5982;&#x679C;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#xFF0C;&#x5219;&#x8868;&#x660E;&#x5F85;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x629B;&#x51FA;&#x4E86;&#x9884;&#x671F;&#x7684;&#x5F02;&#x5E38;,&#x4E14;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x4E5F;&#x5339;&#x914D;&#xFF0C;&#x5426;&#x5219;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;.</td>
+</tr>
+<tr>
+<td><code>assertWarns(warn, fun, *args, **kwds)</code></td>
+<td>&#x9A8C;&#x8BC1;&#x8B66;&#x544A;&#x6D4B;&#x8BD5;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x9884;&#x671F;&#x7684;&#x8B66;&#x544A;,&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x5F85;&#x6D4B;&#x7684;&#x51FD;&#x6570;&#x540D;,&#x540E;&#x9762;&#x7684;&#x5219;&#x662F;&#x5F85;&#x6D4B;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;.&#x5F53;&#x8C03;&#x7528;&#x5F85;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x65F6;,&#x5728;&#x4F20;&#x5165;&#x76F8;&#x5E94;&#x7684;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x540E;&#xFF0C;&#x5982;&#x679C;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#xFF0C;&#x5219;&#x8868;&#x660E;&#x5F85;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x629B;&#x51FA;&#x4E86;&#x9884;&#x671F;&#x7684;&#x8B66;&#x544A;&#x5426;&#x5219;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;.</td>
+</tr>
+<tr>
+<td><code>assertWarnsRegex(warn, r, fun, *args, **kwds)</code></td>
+<td>&#x9A8C;&#x8BC1;&#x8B66;&#x544A;&#x6D4B;&#x8BD5;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x9884;&#x671F;&#x7684;&#x8B66;&#x544A;,&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x5219;&#x662F;&#x4E00;&#x4E2A;&#x7528;&#x6765;&#x5339;&#x914D;&#x8B66;&#x544A;&#x4FE1;&#x606F;&#x7684;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;,&#x7B2C;&#x4E09;&#x4E2A;&#x5219;&#x662F;&#x5F85;&#x6D4B;&#x7684;&#x51FD;&#x6570;&#x540D;,&#x540E;&#x9762;&#x7684;&#x5219;&#x662F;&#x5F85;&#x6D4B;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;.&#x5F53;&#x8C03;&#x7528;&#x5F85;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x65F6;,&#x5728;&#x4F20;&#x5165;&#x76F8;&#x5E94;&#x7684;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x540E;&#xFF0C;&#x5982;&#x679C;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#xFF0C;&#x5219;&#x8868;&#x660E;&#x5F85;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x629B;&#x51FA;&#x4E86;&#x9884;&#x671F;&#x7684;&#x8B66;&#x544A;&#xFF0C;&#x4E14;&#x8B66;&#x544A;&#x4FE1;&#x606F;&#x4E5F;&#x5339;&#x914D;&#x5426;&#x5219;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;.</td>
+</tr>
+<tr>
+<td><code>assertLogs(logger, level)</code></td>
+<td>&#x65AD;&#x8A00;log&#x4FE1;&#x606F;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5F02;&#x5E38;&#x65AD;&#x8A00;&#x4E0E;&#x5176;&#x4ED6;&#x4E0D;&#x592A;&#x4E00;&#x6837;,&#x5F80;&#x5F80;&#x7ED3;&#x5408;&#x4E0A;&#x4E0B;&#x6587;&#x4F7F;&#x7528;</p>
+<pre><code class="lang-python">%%writefile src/C3/test_assert_base.py
+<span class="hljs-keyword">import</span> unittest
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">demoTest</span><span class="hljs-params">(unittest.TestCase)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_eq</span><span class="hljs-params">(self)</span>:</span>
+        self.assertEqual(<span class="hljs-number">4</span> + <span class="hljs-number">5</span>,<span class="hljs-number">9</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_not_eq</span><span class="hljs-params">(self)</span>:</span>
+        self.assertNotEqual(<span class="hljs-number">5</span> * <span class="hljs-number">2</span>,<span class="hljs-number">10</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_seq</span><span class="hljs-params">(self)</span>:</span>
+        a=[<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;3&quot;</span>]
+        b = (<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;3&quot;</span>)
+        self.assertSequenceEqual(a, b)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_not_seq</span><span class="hljs-params">(self)</span>:</span>
+        a = [<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;3&quot;</span>]
+        b = (<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;3&quot;</span>,<span class="hljs-string">&quot;4&quot;</span>)
+        self.assertSequenceEqual(a, b)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_almost_eq</span><span class="hljs-params">(self)</span>:</span>
+        self.assertAlmostEqual(<span class="hljs-number">1.003</span>, <span class="hljs-number">1.004</span>, places = <span class="hljs-number">2</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_not_almost_eq</span><span class="hljs-params">(self)</span>:</span>
+        self.assertAlmostEqual(<span class="hljs-number">1.003</span>, <span class="hljs-number">1.004</span>, places = <span class="hljs-number">4</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_exc</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fun</span><span class="hljs-params">()</span>:</span>
+            <span class="hljs-keyword">assert</span> <span class="hljs-number">0</span>
+        self.assertRaises(AssertionError, fun)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_with_exc</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fun</span><span class="hljs-params">()</span>:</span>
+            <span class="hljs-keyword">assert</span> <span class="hljs-number">0</span>
+        <span class="hljs-keyword">with</span> self.assertRaises(AssertionError) <span class="hljs-keyword">as</span> a:
+            fun()
+</code></pre>
+<pre><code>Overwriting src/C3/test_assert_base.py
+</code></pre><pre><code class="lang-python">!python3 -m unittest discover -v -s ./src/C3
+</code></pre>
+<pre><code>test_almost_eq (test_assert_base.demoTest) ... ok
+test_eq (test_assert_base.demoTest) ... ok
+test_exc (test_assert_base.demoTest) ... ok
+test_not_almost_eq (test_assert_base.demoTest) ... FAIL
+test_not_eq (test_assert_base.demoTest) ... FAIL
+test_not_seq (test_assert_base.demoTest) ... FAIL
+test_seq (test_assert_base.demoTest) ... ok
+test_with_exc (test_assert_base.demoTest) ... ok
+test_eq (test_assert_skip.demoTest) ... skipped &apos;&#x8DF3;&#x8FC7;&apos;
+test_not_eq (test_assert_skip.demoTest) ... expected failure
+test_not_seq (test_assert_skip.demoTest) ... expected failure
+test_seq (test_assert_skip.demoTest) ... ok
+test_seq_2 (test_assert_skip.demoTest) ... skipped &apos;unless 1 ==0&apos;
+setUpModule
+setUpClass
+test_number_3_4 (test_hook.Test_mul) ... instance setUp
+t1
+instance tearDown
+ok
+test_string_a_3 (test_hook.Test_mul) ... instance setUp
+t2
+instance tearDown
+ok
+tearDownClass
+tearUpModule
+test_sum_mul_2_3_mul_2_3 (test_my.TestCase1) ... ok
+test_number_3_4 (test_my.Test_mul) ... ok
+test_string_a_3 (test_my.Test_mul) ... ok
+test_number_3_4 (test_my.Test_sum) ... ok
+test_number_3_4_5 (test_my.Test_sum) ... ok
+test_subtest (test_subtest.demoTest) ... test_eq (test_suite.ArithTest) ... ok
+test_not_eq (test_suite.ArithTest) ... FAIL
+test_not_seq (test_suite.ArithTest) ... FAIL
+test_seq (test_suite.ArithTest) ... ok
+
+======================================================================
+FAIL: test_not_almost_eq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 23, in test_not_almost_eq
+    self.assertAlmostEqual(1.003, 1.004, places = 4)
+AssertionError: 1.003 != 1.004 within 4 places
+
+======================================================================
+FAIL: test_not_eq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 7, in test_not_eq
+    self.assertNotEqual(5 * 2,10)
+AssertionError: 10 == 10
+
+======================================================================
+FAIL: test_not_seq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 17, in test_not_seq
+    self.assertSequenceEqual(a, b)
+AssertionError: Sequences differ: [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;] != (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+Second sequence contains 1 additional elements.
+First extra element 3:
+&apos;4&apos;
+
+- [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;]
++ (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_not_eq (test_suite.ArithTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_suite.py&quot;, line 7, in test_not_eq
+    self.assertNotEqual(5 * 2,10)
+AssertionError: 10 == 10
+
+======================================================================
+FAIL: test_not_seq (test_suite.ArithTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_suite.py&quot;, line 17, in test_not_seq
+    self.assertSequenceEqual(a, b)
+AssertionError: Sequences differ: [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;] != (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+Second sequence contains 1 additional elements.
+First extra element 3:
+&apos;4&apos;
+
+- [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;]
++ (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.005s
+
+FAILED (failures=8, skipped=2, expected failures=2)
+</code></pre><h3 id="&#x8DF3;&#x8FC7;&#x6D4B;&#x8BD5;&#x548C;&#x9884;&#x671F;&#x6D4B;&#x8BD5;&#x51FA;&#x9519;">&#x8DF3;&#x8FC7;&#x6D4B;&#x8BD5;&#x548C;&#x9884;&#x671F;&#x6D4B;&#x8BD5;&#x51FA;&#x9519;</h3>
+<p>unittest&#x63D0;&#x4F9B;&#x4E86;4&#x4E2A;&#x88C5;&#x9970;&#x5668;&#x6765;&#x63A7;&#x5236;&#x6D4B;&#x8BD5;&#x7684;&#x884C;&#x4E3A;</p>
+<ul>
+<li><p>@unittest.skip(reason)
+&#x8DF3;&#x8FC7;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x67D0;&#x6761;&#x6D4B;&#x8BD5;&#x9879;&#x76EE;</p>
+</li>
+<li><p>@unittest.skipIf(condition, reason)
+&#x5982;&#x679C;&#x6761;&#x4EF6;<code>condition</code>&#x6761;&#x4EF6;&#x6210;&#x7ACB;,&#x90A3;&#x5C31;&#x8DF3;&#x8FC7;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x67D0;&#x6761;&#x6D4B;&#x8BD5;&#x9879;&#x76EE;</p>
+</li>
+<li><p>@unittest.skipUnless(condition, reason)
+&#x5982;&#x679C;&#x6761;&#x4EF6;<code>condition</code>&#x6761;&#x4EF6;&#x4E0D;&#x6210;&#x7ACB;,&#x90A3;&#x5C31;&#x8DF3;&#x8FC7;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x67D0;&#x6761;&#x6D4B;&#x8BD5;&#x9879;&#x76EE;</p>
+</li>
+<li><p>@unittest.expectedFailure
+&#x65AD;&#x5B9A;&#x6D4B;&#x8BD5;&#x9879;&#x76EE;&#x4F1A;&#x5931;&#x8D25;</p>
+</li>
+</ul>
+<pre><code class="lang-python">%%writefile src/C3/test_assert_skip.py
+<span class="hljs-keyword">import</span> unittest
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">demoTest</span><span class="hljs-params">(unittest.TestCase)</span>:</span>
+<span class="hljs-meta">    @unittest.skip(&quot;&#x8DF3;&#x8FC7;&quot;)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_eq</span><span class="hljs-params">(self)</span>:</span>
+        self.assertEqual(<span class="hljs-number">4</span> + <span class="hljs-number">5</span>,<span class="hljs-number">9</span>)
+<span class="hljs-meta">    @unittest.expectedFailure</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_not_eq</span><span class="hljs-params">(self)</span>:</span>
+        self.assertNotEqual(<span class="hljs-number">5</span> * <span class="hljs-number">2</span>,<span class="hljs-number">10</span>)
+<span class="hljs-meta">    @unittest.skipIf(1==0, &quot;if 1 ==0&quot;)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_seq</span><span class="hljs-params">(self)</span>:</span>
+        a=[<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;3&quot;</span>]
+        b = (<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;3&quot;</span>)
+        self.assertSequenceEqual(a, b)
+<span class="hljs-meta">    @unittest.skipUnless(1==0, &quot;unless 1 ==0&quot;)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_seq_2</span><span class="hljs-params">(self)</span>:</span>
+        a=[<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;3&quot;</span>]
+        b = (<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;3&quot;</span>)
+        self.assertSequenceEqual(a, b)
+<span class="hljs-meta">    @unittest.expectedFailure</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_not_seq</span><span class="hljs-params">(self)</span>:</span>
+        a = [<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;3&quot;</span>]
+        b = (<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;3&quot;</span>,<span class="hljs-string">&quot;4&quot;</span>)
+        self.assertSequenceEqual(a, b)
+</code></pre>
+<pre><code>Overwriting src/C3/test_assert_skip.py
+</code></pre><pre><code class="lang-python">!python3 -m unittest discover -v -s ./src/C3
+</code></pre>
+<pre><code>test_almost_eq (test_assert_base.demoTest) ... ok
+test_eq (test_assert_base.demoTest) ... ok
+test_exc (test_assert_base.demoTest) ... ok
+test_not_almost_eq (test_assert_base.demoTest) ... FAIL
+test_not_eq (test_assert_base.demoTest) ... FAIL
+test_not_seq (test_assert_base.demoTest) ... FAIL
+test_seq (test_assert_base.demoTest) ... ok
+test_with_exc (test_assert_base.demoTest) ... ok
+test_eq (test_assert_skip.demoTest) ... skipped &apos;&#x8DF3;&#x8FC7;&apos;
+test_not_eq (test_assert_skip.demoTest) ... expected failure
+test_not_seq (test_assert_skip.demoTest) ... expected failure
+test_seq (test_assert_skip.demoTest) ... ok
+test_seq_2 (test_assert_skip.demoTest) ... skipped &apos;unless 1 ==0&apos;
+setUpModule
+setUpClass
+test_number_3_4 (test_hook.Test_mul) ... instance setUp
+t1
+instance tearDown
+ok
+test_string_a_3 (test_hook.Test_mul) ... instance setUp
+t2
+instance tearDown
+ok
+tearDownClass
+tearUpModule
+test_sum_mul_2_3_mul_2_3 (test_my.TestCase1) ... ok
+test_number_3_4 (test_my.Test_mul) ... ok
+test_string_a_3 (test_my.Test_mul) ... ok
+test_number_3_4 (test_my.Test_sum) ... ok
+test_number_3_4_5 (test_my.Test_sum) ... ok
+test_subtest (test_subtest.demoTest) ... test_eq (test_suite.ArithTest) ... ok
+test_not_eq (test_suite.ArithTest) ... FAIL
+test_not_seq (test_suite.ArithTest) ... FAIL
+test_seq (test_suite.ArithTest) ... ok
+
+======================================================================
+FAIL: test_not_almost_eq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 23, in test_not_almost_eq
+    self.assertAlmostEqual(1.003, 1.004, places = 4)
+AssertionError: 1.003 != 1.004 within 4 places
+
+======================================================================
+FAIL: test_not_eq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 7, in test_not_eq
+    self.assertNotEqual(5 * 2,10)
+AssertionError: 10 == 10
+
+======================================================================
+FAIL: test_not_seq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 17, in test_not_seq
+    self.assertSequenceEqual(a, b)
+AssertionError: Sequences differ: [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;] != (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+Second sequence contains 1 additional elements.
+First extra element 3:
+&apos;4&apos;
+
+- [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;]
++ (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_not_eq (test_suite.ArithTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_suite.py&quot;, line 7, in test_not_eq
+    self.assertNotEqual(5 * 2,10)
+AssertionError: 10 == 10
+
+======================================================================
+FAIL: test_not_seq (test_suite.ArithTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_suite.py&quot;, line 17, in test_not_seq
+    self.assertSequenceEqual(a, b)
+AssertionError: Sequences differ: [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;] != (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+Second sequence contains 1 additional elements.
+First extra element 3:
+&apos;4&apos;
+
+- [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;]
++ (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.005s
+
+FAILED (failures=8, skipped=2, expected failures=2)
+</code></pre><h3 id="&#x4F7F;&#x7528;&#x5B50;&#x6D4B;&#x9A8C;&#x8FDB;&#x884C;&#x8FED;&#x4EE3;&#x6D4B;&#x8BD5;">&#x4F7F;&#x7528;&#x5B50;&#x6D4B;&#x9A8C;&#x8FDB;&#x884C;&#x8FED;&#x4EE3;&#x6D4B;&#x8BD5;</h3>
+<p>&#x6709;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x5BF9;&#x4E00;&#x4E2A;&#x8FED;&#x4EE3;&#x5668;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5206;&#x522B;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;,&#x8FD9;&#x79CD;&#x65F6;&#x5019;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6D4B;&#x8BD5;&#x6837;&#x4F8B;&#x7684;<code>subTest</code>&#x4E0A;&#x4E0B;&#x6587;</p>
+<pre><code class="lang-python">%%writefile src/C3/test_subtest.py
+<span class="hljs-keyword">import</span> unittest
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">demoTest</span><span class="hljs-params">(unittest.TestCase)</span>:</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_subtest</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, <span class="hljs-number">6</span>):
+            <span class="hljs-keyword">with</span> self.subTest(i=i):
+                self.assertEqual(i % <span class="hljs-number">2</span>, <span class="hljs-number">0</span>)
+</code></pre>
+<pre><code>Overwriting src/C3/test_subtest.py
+</code></pre><pre><code class="lang-python">!python3 -m unittest discover -v -s ./src/C3
+</code></pre>
+<pre><code>test_almost_eq (test_assert_base.demoTest) ... ok
+test_eq (test_assert_base.demoTest) ... ok
+test_exc (test_assert_base.demoTest) ... ok
+test_not_almost_eq (test_assert_base.demoTest) ... FAIL
+test_not_eq (test_assert_base.demoTest) ... FAIL
+test_not_seq (test_assert_base.demoTest) ... FAIL
+test_seq (test_assert_base.demoTest) ... ok
+test_with_exc (test_assert_base.demoTest) ... ok
+test_eq (test_assert_skip.demoTest) ... skipped &apos;&#x8DF3;&#x8FC7;&apos;
+test_not_eq (test_assert_skip.demoTest) ... expected failure
+test_not_seq (test_assert_skip.demoTest) ... expected failure
+test_seq (test_assert_skip.demoTest) ... ok
+test_seq_2 (test_assert_skip.demoTest) ... skipped &apos;unless 1 ==0&apos;
+setUpModule
+setUpClass
+test_number_3_4 (test_hook.Test_mul) ... instance setUp
+t1
+instance tearDown
+ok
+test_string_a_3 (test_hook.Test_mul) ... instance setUp
+t2
+instance tearDown
+ok
+tearDownClass
+tearUpModule
+test_sum_mul_2_3_mul_2_3 (test_my.TestCase1) ... ok
+test_number_3_4 (test_my.Test_mul) ... ok
+test_string_a_3 (test_my.Test_mul) ... ok
+test_number_3_4 (test_my.Test_sum) ... ok
+test_number_3_4_5 (test_my.Test_sum) ... ok
+test_subtest (test_subtest.demoTest) ... test_eq (test_suite.ArithTest) ... ok
+test_not_eq (test_suite.ArithTest) ... FAIL
+test_not_seq (test_suite.ArithTest) ... FAIL
+test_seq (test_suite.ArithTest) ... ok
+
+======================================================================
+FAIL: test_not_almost_eq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 23, in test_not_almost_eq
+    self.assertAlmostEqual(1.003, 1.004, places = 4)
+AssertionError: 1.003 != 1.004 within 4 places
+
+======================================================================
+FAIL: test_not_eq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 7, in test_not_eq
+    self.assertNotEqual(5 * 2,10)
+AssertionError: 10 == 10
+
+======================================================================
+FAIL: test_not_seq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 17, in test_not_seq
+    self.assertSequenceEqual(a, b)
+AssertionError: Sequences differ: [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;] != (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+Second sequence contains 1 additional elements.
+First extra element 3:
+&apos;4&apos;
+
+- [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;]
++ (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_not_eq (test_suite.ArithTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_suite.py&quot;, line 7, in test_not_eq
+    self.assertNotEqual(5 * 2,10)
+AssertionError: 10 == 10
+
+======================================================================
+FAIL: test_not_seq (test_suite.ArithTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_suite.py&quot;, line 17, in test_not_seq
+    self.assertSequenceEqual(a, b)
+AssertionError: Sequences differ: [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;] != (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+Second sequence contains 1 additional elements.
+First extra element 3:
+&apos;4&apos;
+
+- [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;]
++ (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.006s
+
+FAILED (failures=8, skipped=2, expected failures=2)
+</code></pre><h3 id="&#x5206;&#x7EC4;&#x6D4B;&#x8BD5;">&#x5206;&#x7EC4;&#x6D4B;&#x8BD5;</h3>
+<p>&#x5F88;&#x591A;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x5C06;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7EC4;&#x7EC7;&#x8D77;&#x6765;&#x4E00;&#x90E8;&#x5206;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x6D4B;&#x8BD5;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x6B21;&#x5168;&#x6D4B;&#x4E86;,&#x8FD9;&#x79CD;&#x65F6;&#x5019;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>unittest.TestSuite</code>&#x7EC4;&#x7EC7;&#x9700;&#x8981;&#x7684;&#x6D4B;&#x8BD5;,&#x7EC6;&#x5316;&#x7684;&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;.</p>
+<p>&#x6CE8;&#x610F;&#x7EC6;&#x5206;&#x7684;&#x6D4B;&#x8BD5;&#x4E0D;&#x80FD;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;&#x6765;&#x8FD0;&#x884C;&#x4E86;,&#x800C;&#x662F;&#x5E94;&#x8BE5;&#x72EC;&#x7ACB;&#x8FD0;&#x884C;&#x811A;&#x672C;</p>
+<pre><code class="lang-python">%%writefile src/C3/test_suite.py
+<span class="hljs-keyword">import</span> unittest
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ArithTest</span><span class="hljs-params">(unittest.TestCase)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_eq</span><span class="hljs-params">(self)</span>:</span>
+        self.assertEqual(<span class="hljs-number">4</span> + <span class="hljs-number">5</span>,<span class="hljs-number">9</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_not_eq</span><span class="hljs-params">(self)</span>:</span>
+        self.assertNotEqual(<span class="hljs-number">5</span> * <span class="hljs-number">2</span>,<span class="hljs-number">10</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_seq</span><span class="hljs-params">(self)</span>:</span>
+        a=[<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;3&quot;</span>]
+        b = (<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;3&quot;</span>)
+        self.assertSequenceEqual(a, b)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_not_seq</span><span class="hljs-params">(self)</span>:</span>
+        a = [<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;3&quot;</span>]
+        b = (<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;3&quot;</span>,<span class="hljs-string">&quot;4&quot;</span>)
+        self.assertSequenceEqual(a, b)
+
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">suite</span><span class="hljs-params">()</span>:</span>
+    suite = unittest.TestSuite()
+    suite.addTest(ArithTest(<span class="hljs-string">&quot;test_eq&quot;</span>))
+    suite.addTest(ArithTest(<span class="hljs-string">&apos;test_seq&apos;</span>))
+    <span class="hljs-keyword">return</span> suite
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    runner = unittest.TextTestRunner(verbosity=<span class="hljs-number">2</span>)
+    test_suite = suite()
+    runner.run(test_suite)
+</code></pre>
+<pre><code>Overwriting src/C3/test_suite.py
+</code></pre><pre><code class="lang-python">!python3 src/C3/test_suite.py
+</code></pre>
+<pre><code>test_eq (__main__.ArithTest) ... ok
+test_seq (__main__.ArithTest) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
+</code></pre><h2 id="mock&#x6D4B;&#x8BD5;">mock&#x6D4B;&#x8BD5;</h2>
+<p>mock&#x6D4B;&#x8BD5;&#x5C31;&#x662F;&#x5728;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5BF9;&#x4E8E;&#x67D0;&#x4E9B;&#x4E0D;&#x5BB9;&#x6613;&#x6784;&#x9020;&#x6216;&#x8005;&#x4E0D;&#x5BB9;&#x6613;&#x83B7;&#x53D6;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x7528;&#x4E00;&#x4E2A;&#x865A;&#x62DF;&#x7684;&#x5BF9;&#x8C61;&#x6765;&#x521B;&#x5EFA;&#x4EE5;&#x4FBF;&#x6D4B;&#x8BD5;&#x7684;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>mock&#x6D4B;&#x8BD5;&#x901A;&#x5E38;&#x6709;&#x51E0;&#x4E2A;&#x4F7F;&#x7528;&#x573A;&#x666F;:</p>
+<ul>
+<li>&#x8C03;&#x7528;&#x5916;&#x90E8;&#x63A5;&#x53E3;</li>
+</ul>
+<p>&#x901A;&#x5E38;&#x6211;&#x7684;&#x8F6F;&#x4EF6;&#x90FD;&#x4F1A;&#x8C03;&#x7528;&#x4E00;&#x4E9B;&#x5DF2;&#x6709;&#x7684;&#x670D;&#x52A1;,&#x4E0E;&#x8FD9;&#x4E9B;&#x670D;&#x52A1;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#x6211;&#x4EEC;&#x624D;&#x80FD;&#x987A;&#x5229;&#x6267;&#x884C;&#x8F6F;&#x4EF6;.&#x8FD9;&#x5C31;&#x5F15;&#x5165;&#x4E86;&#x526F;&#x4F5C;&#x7528;&#x2014;&#x2014;&#x6211;&#x4EEC;&#x6D4B;&#x8BD5;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x5E0C;&#x671B;&#x771F;&#x7684;&#x4E3A;&#x4E86;&#x6D4B;&#x8BD5;&#x800C;&#x8FD9;&#x4E9B;&#x5916;&#x90E8;&#x670D;&#x52A1;,&#x4F46;&#x4E0D;&#x8C03;&#x7528;&#x5F80;&#x5F80;&#x6211;&#x4EEC;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x53C8;&#x8FDB;&#x5C55;&#x4E0D;&#x4E0B;&#x53BB;.&#x76F4;&#x89C2;&#x4E00;&#x70B9;,&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x6D4B;&#x8BD5;&#x4E00;&#x9879;&#x626B;&#x7801;&#x4ED8;&#x6B3E;&#x529F;&#x80FD;,&#x5B83;&#x9700;&#x8981;&#x8C03;&#x7528;&#x652F;&#x4ED8;&#x5B9D;&#x7684;&#x4ED8;&#x6B3E;&#x63A5;&#x53E3;,&#x6211;&#x4EEC;&#x6D4B;&#x8BD5;&#x7684;&#x65F6;&#x5019;&#x5F53;&#x7136;&#x5E76;&#x4E0D;&#x5E0C;&#x671B;&#x771F;&#x7684;&#x8C03;&#x7528;&#x652F;&#x4ED8;&#x5B9D;&#x4ED8;&#x6B3E;,&#x6BD5;&#x7ADF;&#x4F1A;&#x771F;&#x7684;&#x4EA7;&#x751F;&#x4EA4;&#x6613;,&#x8FD9;&#x79CD;&#x65F6;&#x5019;&#x5C31;&#x662F;mock&#x6D4B;&#x8BD5;&#x7684;&#x7528;&#x6B66;&#x4E4B;&#x5730;&#x4E86;.</p>
+<ul>
+<li>&#x6A21;&#x62DF;&#x8017;&#x65F6;&#x6B65;&#x9AA4;</li>
+</ul>
+<p>&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x8981;&#x5199;&#x4E00;&#x4E2A;&#x4EE3;&#x7801;,&#x5B83;&#x4F1A;&#x8FDB;&#x884C;&#x4E00;&#x6B65;&#x8017;&#x65F6;1&#x5C0F;&#x65F6;&#x7684;&#x8BA1;&#x7B97;(&#x53EF;&#x4EE5;&#x5047;&#x8BBE;&#x662F;&#x4F7F;&#x7528;<code>tensorflow</code>&#x8BAD;&#x7EC3;&#x4E00;&#x4E2A;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x6A21;&#x578B;).&#x800C;&#x6211;&#x4EEC;&#x7684;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x53EA;&#x662F;&#x5E0C;&#x671B;&#x6D4B;&#x8BD5;&#x51FA;&#x53BB;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#x5916;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x6709;&#x6CA1;&#x6709;&#x51FA;&#x9519;,&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;mock&#x6A21;&#x62DF;&#x4E00;&#x4E0B;&#x8FD9;&#x4E00;&#x6B65;&#x8017;&#x65F6;&#x7684;&#x8BA1;&#x7B97;,&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x5148;&#x8C03;&#x901A;&#x5176;&#x4ED6;&#x903B;&#x8F91;,&#x786E;&#x4FDD;&#x65E0;&#x8BEF;&#x540E;&#x518D;&#x6784;&#x5EFA;&#x5B8C;&#x6574;&#x7684;&#x4EE3;&#x7801;&#x4E86;</p>
+<ul>
+<li>&#x4E0D;&#x4FEE;&#x6539;&#x73AF;&#x5883;&#x7684;&#x6D4B;&#x8BD5;</li>
+</ul>
+<p>&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x7684;&#x6D4B;&#x8BD5;&#x8981;&#x5220;&#x9664;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x4E00;&#x6761;&#x6570;&#x636E;,&#x800C;&#x6211;&#x4EEC;&#x5E76;&#x4E0D;&#x662F;&#x771F;&#x7684;&#x8981;&#x5220;&#x6389;,&#x800C;&#x662F;&#x6D4B;&#x8BD5;&#x529F;&#x80FD;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;,&#x8FD9;&#x79CD;&#x65F6;&#x5019;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;mock&#x6D4B;&#x8BD5;&#x4E86;</p>
+<h3 id="&#x4E00;&#x4E2A;&#x771F;&#x5B9E;&#x7684;&#x4F8B;&#x5B50;">&#x4E00;&#x4E2A;&#x771F;&#x5B9E;&#x7684;&#x4F8B;&#x5B50;</h3>
+<p>unittest&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;<a href="https://docs.python.org/3.6/library/unittest.mock.html" target="_blank"><code>mock</code>&#x5B50;&#x6A21;&#x5757;</a>,</p>
+<p>&#x6211;&#x4EEC;&#x4EE5;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#x5220;&#x9664;&#x7684;&#x4F8B;&#x5B50;&#x6765;&#x770B;&#x770B;mock&#x600E;&#x4E48;&#x5DE5;&#x4F5C;&#x7684;</p>
+<p>&#x5F85;&#x6D4B;&#x811A;&#x672C;:</p>
+<p>&#x5F85;&#x6D4B;&#x811A;&#x672C;&#x53EF;&#x4EE5;&#x5224;&#x65AD;path&#x662F;&#x4E0D;&#x662F;&#x6587;&#x4EF6;,&#x5982;&#x679C;&#x662F;&#x5C31;&#x5220;&#x9664;</p>
+<pre><code class="lang-python">%%writefile rm.py
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> os.path
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rm</span><span class="hljs-params">(filename)</span>:</span>
+    <span class="hljs-keyword">if</span> os.path.isfile(filename):
+        os.remove(filename)
+</code></pre>
+<pre><code>Overwriting rm.py
+</code></pre><p>&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;:</p>
+<pre><code class="lang-python">%%writefile test/rm_test_1.py
+<span class="hljs-keyword">from</span> rm <span class="hljs-keyword">import</span> rm
+<span class="hljs-keyword">from</span> unittest <span class="hljs-keyword">import</span> mock
+<span class="hljs-keyword">from</span> unittest <span class="hljs-keyword">import</span> TestCase
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RmTestCase</span><span class="hljs-params">(TestCase)</span>:</span>
+
+<span class="hljs-meta">    @mock.patch(&apos;rm.os.path&apos;)</span>
+<span class="hljs-meta">    @mock.patch(&apos;rm.os&apos;)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_rm</span><span class="hljs-params">(self, mock_os, mock_path)</span>:</span>
+        <span class="hljs-comment"># mock_path&#x5C31;&#x662F;patch&#x8FC7;&#x540E;&#x7684;`os.path`,mock_os&#x5C31;&#x662F;patch&#x8FC7;&#x540E;&#x7684;`os`</span>
+        <span class="hljs-comment">#&#x9700;&#x8981;&#x6CE8;&#x610F;&#x987A;&#x5E8F;</span>
+        <span class="hljs-comment">#&#x6307;&#x5B9A;`mock_path.isfile`&#x7684;&#x8FD4;&#x56DE;&#x503C;False</span>
+        mock_path.isfile.return_value = <span class="hljs-keyword">False</span>
+
+        rm(<span class="hljs-string">&quot;any path&quot;</span>)        
+        <span class="hljs-comment">#&#x6D4B;&#x8BD5;mock_os.remove&#x6709;&#x6CA1;&#x6709;&#x88AB;&#x8C03;&#x7528;</span>
+        self.assertFalse(mock_os.remove.called, <span class="hljs-string">&quot;Failed to not remove the file if not present.&quot;</span>)        
+        <span class="hljs-comment"># &#x6307;&#x5B9A;`mock_path.isfile`&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;True</span>
+        mock_path.isfile.return_value = <span class="hljs-keyword">True</span>
+
+        rm(<span class="hljs-string">&quot;any path&quot;</span>)
+
+        mock_os.remove.assert_called_with(<span class="hljs-string">&quot;any path&quot;</span>)
+</code></pre>
+<pre><code>Overwriting test/rm_test_1.py
+</code></pre><pre><code class="lang-python">!python3 -m unittest -v test.rm_test_1
+</code></pre>
+<pre><code>test_rm (test.rm_test_1.RmTestCase) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+OK
+</code></pre><p><code>mock.patch</code>&#x88C5;&#x9970;&#x5668;&#x5C06;&#x6307;&#x5B9A;&#x7684;&#x5BF9;&#x8C61;&#x66FF;&#x6362;&#x4E3A;mock,&#x5176;&#x5B9E;&#x8D28;&#x5C31;&#x662F;&#x7334;&#x5B50;&#x8865;&#x4E01;.</p>
+<p>&#x5229;&#x7528;<code>patch</code>&#x88C5;&#x9970;&#x5668;&#x5C06;&#x539F;&#x59CB;&#x5BF9;&#x8C61;&#x66FF;&#x6362;&#x4E3A;<code>mock</code>&#x5BF9;&#x8C61;,&#x5E76;&#x5C06;&#x66FF;&#x6362;&#x540E;&#x7684;&#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x6D4B;&#x8BD5;&#x9879;&#x4E2D;</p>
+<h3 id="&#x6307;&#x5B9A;mock&#x884C;&#x4E3A;">&#x6307;&#x5B9A;mock&#x884C;&#x4E3A;</h3>
+<p>mock&#x5BF9;&#x8C61;&#x662F;&#x5047;&#x7684;,&#x4F46;&#x4ED6;&#x53EF;&#x4EE5;&#x6A21;&#x62DF;&#x771F;&#x5B9E;&#x884C;&#x4E3A;,&#x4EE5;&#x4E0B;&#x662F;&#x5B83;&#x7684;&#x63A5;&#x53E3;:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> unittest.mock <span class="hljs-keyword">import</span> Mock
+</code></pre>
+<pre><code class="lang-python">mock = Mock()
+</code></pre>
+<h3 id="&#x65AD;&#x8A00;&#x884C;&#x4E3A;">&#x65AD;&#x8A00;&#x884C;&#x4E3A;</h3>
+<ul>
+<li><h3 id="assertcalled">assert_called</h3>
+</li>
+</ul>
+<p>&#x65AD;&#x8A00;&#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;&#x8FC7;&#x81F3;&#x5C11;&#x4E00;&#x6B21;</p>
+<pre><code class="lang-python">mock.method.assert_called()
+</code></pre>
+<pre><code>---------------------------------------------------------------------------
+
+AssertionError                            Traceback (most recent call last)
+
+&lt;ipython-input-21-c539ecc85ad8&gt; in &lt;module&gt;()
+----&gt; 1 mock.method.assert_called()
+
+
+/Users/huangsizhe/LIB/CONDA/anaconda/envs/py3/lib/python3.6/unittest/mock.py in assert_called(_mock_self)
+    784             msg = (&quot;Expected &apos;%s&apos; to have been called.&quot; %
+    785                    self._mock_name or &apos;mock&apos;)
+--&gt; 786             raise AssertionError(msg)
+    787
+    788     def assert_called_once(_mock_self):
+
+
+AssertionError: Expected &apos;method&apos; to have been called.
+</code></pre><pre><code class="lang-python">mock.method()
+</code></pre>
+<pre><code>&lt;Mock name=&apos;mock.method()&apos; id=&apos;4343178128&apos;&gt;
+</code></pre><pre><code class="lang-python">mock.method.assert_called()
+</code></pre>
+<ul>
+<li><h3 id="assertcalledonce">assert_called_once</h3>
+</li>
+</ul>
+<p>&#x65AD;&#x8A00;&#x65B9;&#x6CD5;&#x53EA;&#x88AB;&#x8C03;&#x7528;&#x8FC7;&#x4E00;&#x6B21;(3.6)</p>
+<pre><code class="lang-python">mock.method.assert_called_once()
+</code></pre>
+<pre><code class="lang-python">mock.method()
+</code></pre>
+<pre><code>&lt;Mock name=&apos;mock.method()&apos; id=&apos;4343178128&apos;&gt;
+</code></pre><pre><code class="lang-python">mock.method.assert_called_once()
+</code></pre>
+<pre><code>---------------------------------------------------------------------------
+
+AssertionError                            Traceback (most recent call last)
+
+&lt;ipython-input-26-bf3dbaf4e8c8&gt; in &lt;module&gt;()
+----&gt; 1 mock.method.assert_called_once()
+
+
+/Users/huangsizhe/LIB/CONDA/anaconda/envs/py3/lib/python3.6/unittest/mock.py in assert_called_once(_mock_self)
+    793             msg = (&quot;Expected &apos;%s&apos; to have been called once. Called %s times.&quot; %
+    794                    (self._mock_name or &apos;mock&apos;, self.call_count))
+--&gt; 795             raise AssertionError(msg)
+    796
+    797     def assert_called_with(_mock_self, *args, **kwargs):
+
+
+AssertionError: Expected &apos;method&apos; to have been called once. Called 2 times.
+</code></pre><ul>
+<li><h3 id="assertcalledwithargs-kwargs"><code>assert_called_with(*args, **kwargs)</code></h3>
+</li>
+</ul>
+<p>&#x65AD;&#x8A00;&#x65B9;&#x6CD5;&#x88AB;&#x8C03;&#x7528;&#x8FC7;&#x4E14;&#x8C03;&#x7528;&#x65F6;&#x7684;&#x53C2;&#x6570;&#x4E3A;&#x586B;&#x5165;&#x7684;&#x53C2;&#x6570;</p>
+<pre><code class="lang-python">mock.method(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,k=<span class="hljs-number">4</span>)
+</code></pre>
+<pre><code>&lt;Mock name=&apos;mock.method()&apos; id=&apos;4343178128&apos;&gt;
+</code></pre><pre><code class="lang-python">mock.method.assert_called_with(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>,k=<span class="hljs-number">4</span>)
+</code></pre>
+<ul>
+<li><h3 id="assertcalledoncewithargs-kwargs"><code>assert_called_once_with(*args, **kwargs)</code></h3>
+</li>
+</ul>
+<p>&#x65AD;&#x8A00;&#x65B9;&#x6CD5;&#x53EA;&#x88AB;&#x8C03;&#x7528;&#x8FC7;&#x4E00;&#x6B21;&#x4E14;&#x8C03;&#x7528;&#x65F6;&#x7684;&#x53C2;&#x6570;&#x4E3A;&#x586B;&#x5165;&#x7684;&#x53C2;&#x6570;</p>
+<ul>
+<li><h3 id="assertanycallargs-kwargs"><code>assert_any_call(*args, **kwargs)</code></h3>
+</li>
+</ul>
+<p>&#x65AD;&#x8A00;&#x5BF9;&#x8C61;&#x6709;&#x65B9;&#x6CD5;&#x88AB;&#x7528;&#x53C2;&#x6570;&#x8C03;&#x7528;&#x8FC7;&#x8C03;&#x7528;&#x8FC7;</p>
+<ul>
+<li><h3 id="asserthascallscalls-anyorderfalse">assert_has_calls(calls, any_order=False)</h3>
+</li>
+</ul>
+<p>&#x65AD;&#x8A00;&#x67D0;&#x4E9B;&#x7ED3;&#x679C;&#x662F;&#x88AB;mock&#x5BF9;&#x8C61;&#x4EA7;&#x51FA;&#x7684;</p>
+<pre><code class="lang-python">mock = Mock(return_value=<span class="hljs-keyword">None</span>)
+call1 = mock(<span class="hljs-number">1</span>)
+call2 = mock(<span class="hljs-number">2</span>)
+call3 = mock(<span class="hljs-number">3</span>)
+call4 = mock(<span class="hljs-number">4</span>)
+mock.mock_calls<span class="hljs-comment"># &#x67E5;&#x770B;mock&#x5BF9;&#x8C61;&#x7684;call&#x5BF9;&#x8C61;</span>
+</code></pre>
+<pre><code>[call(1), call(2), call(3), call(4)]
+</code></pre><pre><code class="lang-python">call1 = mock.mock_calls[<span class="hljs-number">0</span>]
+</code></pre>
+<pre><code class="lang-python">call1
+</code></pre>
+<pre><code>call(1)
+</code></pre><pre><code class="lang-python">mock.assert_has_calls(mock.mock_calls[:<span class="hljs-number">2</span>])
+</code></pre>
+<pre><code class="lang-python">mock.assert_has_calls(mock.mock_calls, any_order=<span class="hljs-keyword">True</span>)
+</code></pre>
+<ul>
+<li><h3 id="assertnotcalled">assert_not_called()</h3>
+</li>
+</ul>
+<p>&#x65AD;&#x8A00;mock&#x5BF9;&#x8C61;&#x6CA1;&#x88AB;&#x8C03;&#x7528;&#x8FC7;</p>
+<h3 id="&#x8BBE;&#x7F6E;&#x884C;&#x4E3A;">&#x8BBE;&#x7F6E;&#x884C;&#x4E3A;</h3>
+<ul>
+<li><h3 id="resetmock-returnvaluefalse-sideeffectfalse"><code>reset_mock(*, return_value=False, side_effect=False)</code></h3>
+</li>
+</ul>
+<p>&#x91CD;&#x7F6E;mock&#x5BF9;&#x8C61;,<code>side_effect</code>&#x7FFB;&#x8BD1;&#x4E3A;&#x526F;&#x4F5C;&#x7528;,&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;</p>
+<ul>
+<li><h3 id="mockaddspecspec-specsetfalse">mock_add_spec(spec, spec_set=False)</h3>
+</li>
+</ul>
+<p>&#x4E3A;mock&#x8BBE;&#x7F6E;&#x89C4;&#x8303;,&#x6765;&#x5B9A;&#x4E49;mock&#x5BF9;&#x8C61;&#x5185;&#x90E8;&#x7684;&#x5C5E;&#x6027;(attribute)</p>
+<ul>
+<li><h3 id="attachmockmock-attribute">attach_mock(mock, attribute)</h3>
+</li>
+</ul>
+<p>&#x4E3A;mock&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;mock&#x5BF9;&#x8C61;&#x5728;&#x5B83;&#x4E0A;&#x9762;</p>
+<ul>
+<li><h3 id="configuremockkwargs"><code>configure_mock(**kwargs)</code></h3>
+</li>
+</ul>
+<p>&#x8BBE;&#x7F6E;mock</p>
+<pre><code class="lang-python">attrs = {<span class="hljs-string">&apos;method.return_value&apos;</span>: <span class="hljs-number">3</span>, <span class="hljs-string">&apos;other.side_effect&apos;</span>: KeyError}
+mock.configure_mock(**attrs)
+mock.method()
+</code></pre>
+<pre><code>3
+</code></pre><pre><code class="lang-python">mock.other()
+</code></pre>
+<pre><code>---------------------------------------------------------------------------
+
+KeyError                                  Traceback (most recent call last)
+
+&lt;ipython-input-35-dac67d941e37&gt; in &lt;module&gt;()
+----&gt; 1 mock.other()
+
+
+/Users/huangsizhe/LIB/CONDA/anaconda/envs/py3/lib/python3.6/unittest/mock.py in __call__(_mock_self, *args, **kwargs)
+    937         # in the signature
+    938         _mock_self._mock_check_sig(*args, **kwargs)
+--&gt; 939         return _mock_self._mock_call(*args, **kwargs)
+    940
+    941
+
+
+/Users/huangsizhe/LIB/CONDA/anaconda/envs/py3/lib/python3.6/unittest/mock.py in _mock_call(_mock_self, *args, **kwargs)
+    993         if effect is not None:
+    994             if _is_exception(effect):
+--&gt; 995                 raise effect
+    996
+    997             if not _callable(effect):
+
+
+KeyError:
+</code></pre><ul>
+<li><h3 id="returnvalue">return_value</h3>
+</li>
+</ul>
+<p>&#x8BBE;&#x7F6E;mock&#x7684;&#x8FD4;&#x56DE;&#x503C;</p>
+<pre><code class="lang-python">mock = Mock()
+mock.return_value = <span class="hljs-string">&apos;fish&apos;</span>
+mock()
+</code></pre>
+<pre><code>&apos;fish&apos;
+</code></pre><ul>
+<li><h3 id="sideeffect">side_effect</h3>
+</li>
+</ul>
+<p>&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x526F;&#x4F5C;&#x7528;,&#x4E5F;&#x5C31;&#x662F;&#x5F02;&#x5E38;</p>
+<pre><code class="lang-python">mock = Mock()
+mock.side_effect = Exception(<span class="hljs-string">&apos;Boom!&apos;</span>)
+
+
+mock()
+</code></pre>
+<pre><code>---------------------------------------------------------------------------
+
+Exception                                 Traceback (most recent call last)
+
+&lt;ipython-input-37-b1e24b329ea0&gt; in &lt;module&gt;()
+      1 mock = Mock()
+      2 mock.side_effect = Exception(&apos;Boom!&apos;)
+----&gt; 3 mock()
+
+
+/Users/huangsizhe/LIB/CONDA/anaconda/envs/py3/lib/python3.6/unittest/mock.py in __call__(_mock_self, *args, **kwargs)
+    937         # in the signature
+    938         _mock_self._mock_check_sig(*args, **kwargs)
+--&gt; 939         return _mock_self._mock_call(*args, **kwargs)
+    940
+    941
+
+
+/Users/huangsizhe/LIB/CONDA/anaconda/envs/py3/lib/python3.6/unittest/mock.py in _mock_call(_mock_self, *args, **kwargs)
+    993         if effect is not None:
+    994             if _is_exception(effect):
+--&gt; 995                 raise effect
+    996
+    997             if not _callable(effect):
+
+
+Exception: Boom!
+</code></pre><h3 id="mock&#x72B6;&#x6001;&#x76D1;&#x63A7;">mock&#x72B6;&#x6001;&#x76D1;&#x63A7;</h3>
+<ul>
+<li><h3 id="called">called</h3>
+</li>
+</ul>
+<p>&#x662F;&#x5426;&#x88AB;&#x8C03;&#x7528;&#x8FC7;</p>
+<ul>
+<li><h3 id="callcount">call_count</h3>
+</li>
+</ul>
+<p>&#x88AB;&#x8C03;&#x7528;&#x8BA1;&#x6570;</p>
+<ul>
+<li><h3 id="callargs">call_args</h3>
+</li>
+</ul>
+<p>mock&#x7684;&#x6700;&#x8FD1;&#x7684;call&#x5BF9;&#x8C61;</p>
+<pre><code class="lang-python">mock = Mock(return_value=<span class="hljs-keyword">None</span>)
+print(mock.call_args)
+</code></pre>
+<pre><code>None
+</code></pre><pre><code class="lang-python">mock()
+mock.call_args
+</code></pre>
+<pre><code>call()
+</code></pre><pre><code class="lang-python">mock.call_args == ()
+</code></pre>
+<pre><code>True
+</code></pre><pre><code class="lang-python">mock(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+mock.call_args
+</code></pre>
+<pre><code>call(3, 4)
+</code></pre><pre><code class="lang-python">mock.call_args == ((<span class="hljs-number">3</span>, <span class="hljs-number">4</span>),)
+</code></pre>
+<pre><code>True
+</code></pre><pre><code class="lang-python">mock(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, key=<span class="hljs-string">&apos;fish&apos;</span>, next=<span class="hljs-string">&apos;w00t!&apos;</span>)
+mock.call_args
+</code></pre>
+<pre><code>call(3, 4, 5, key=&apos;fish&apos;, next=&apos;w00t!&apos;)
+</code></pre><ul>
+<li><h3 id="callargslist">call_args_list</h3>
+</li>
+</ul>
+<p>mock&#x7684;call&#x5BF9;&#x8C61;&#x5217;&#x8868;</p>
+<pre><code class="lang-python">mock.call_args_list
+</code></pre>
+<pre><code>[call(), call(3, 4), call(3, 4, 5, key=&apos;fish&apos;, next=&apos;w00t!&apos;)]
+</code></pre><ul>
+<li><h3 id="methodcalls">method_calls</h3>
+</li>
+</ul>
+<p>mock&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x60C5;&#x51B5;</p>
+<pre><code class="lang-python">mock.method_calls
+</code></pre>
+<pre><code>[]
+</code></pre><pre><code class="lang-python">mock.method1()
+</code></pre>
+<pre><code>&lt;Mock name=&apos;mock.method1()&apos; id=&apos;4343568928&apos;&gt;
+</code></pre><pre><code class="lang-python">mock.method_calls
+</code></pre>
+<pre><code>[call.method1()]
+</code></pre><ul>
+<li><h3 id="mockcalls">mock_calls</h3>
+</li>
+</ul>
+<p>mock&#x81EA;&#x8EAB;&#x8C03;&#x7528;&#x548C;&#x5176;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x60C5;&#x51B5;</p>
+<pre><code class="lang-python">mock.mock_calls
+</code></pre>
+<pre><code>[call(), call(3, 4), call(3, 4, 5, key=&apos;fish&apos;, next=&apos;w00t!&apos;), call.method1()]
+</code></pre><h2 id="&#x6D4B;&#x8BD5;&#x8986;&#x76D6;&#x7387;">&#x6D4B;&#x8BD5;&#x8986;&#x76D6;&#x7387;</h2>
+<p>&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#x5F80;&#x5F80;&#x4E5F;&#x5E76;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x7A0B;&#x5E8F;&#x4E00;&#x5B9A;&#x7A33;&#x5065;&#x53EF;&#x9760;,&#x56E0;&#x4E3A;&#x6D4B;&#x8BD5;&#x5F88;&#x6709;&#x53EF;&#x80FD;&#x6CA1;&#x6709;&#x8986;&#x76D6;&#x5168;&#x9762;.&#x8FD9;&#x65F6;&#x5019;&#x6D4B;&#x8BD5;&#x8986;&#x76D6;&#x7387;&#x5C31;&#x6210;&#x4E86;&#x8BC4;&#x4EF7;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x53EF;&#x9760;&#x7A0B;&#x5EA6;&#x7684;&#x6807;&#x51C6;&#x4E4B;&#x4E00;&#x4E86;.</p>
+<p>python&#x6807;&#x51C6;&#x5E93;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x8986;&#x76D6;&#x7387;&#x7EDF;&#x8BA1;&#x5DE5;&#x5177;,&#x4F46;<a href="http://coverage.readthedocs.io/en/latest/cmd.html" target="_blank">coverage.py</a>&#x5DF2;&#x7ECF;&#x662F;&#x5B9E;&#x8D28;&#x4E0A;&#x7684;&#x8986;&#x76D6;&#x7387;&#x6807;&#x51C6;&#x5DE5;&#x5177;&#x4E86;.</p>
+<p>coverage&#x7684;&#x4F7F;&#x7528;&#x6709;&#x4E24;&#x6B65;:</p>
+<ul>
+<li>&#x4F7F;&#x7528;coverage&#x811A;&#x672C;&#x7684;<code>run</code>&#x547D;&#x4EE4;&#x6267;&#x884C;&#x811A;&#x672C;</li>
+</ul>
+<pre><code class="lang-python">!python3 -m coverage run src/C3/test_suite.py
+</code></pre>
+<pre><code>test_eq (__main__.ArithTest) ... ok
+test_seq (__main__.ArithTest) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK
+</code></pre><ul>
+<li>&#x4F7F;&#x7528;report/html&#x547D;&#x4EE4;&#x8F93;&#x51FA;&#x8986;&#x76D6;&#x7387;&#x7ED3;&#x679C;</li>
+</ul>
+<pre><code class="lang-python">!coverage report
+</code></pre>
+<pre><code>Name                   Stmts   Miss  Cover
+------------------------------------------
+src/C3/test_suite.py      23      4    83%
+</code></pre><p>&#x5982;&#x679C;&#x662F;&#x9488;&#x5BF9;&#x5168;&#x5C40;&#x7684;&#x6D4B;&#x8BD5;&#x8986;&#x76D6;&#x7387;,&#x90A3;&#x4E48;&#x8FD9;&#x6837;&#x7528;:</p>
+<pre><code class="lang-python">!python3 -m coverage run --source=src/C3 -m unittest discover -v -s ./src/C3
+</code></pre>
+<pre><code>test_almost_eq (test_assert_base.demoTest) ... ok
+test_eq (test_assert_base.demoTest) ... ok
+test_exc (test_assert_base.demoTest) ... ok
+test_not_almost_eq (test_assert_base.demoTest) ... FAIL
+test_not_eq (test_assert_base.demoTest) ... FAIL
+test_not_seq (test_assert_base.demoTest) ... FAIL
+test_seq (test_assert_base.demoTest) ... ok
+test_with_exc (test_assert_base.demoTest) ... ok
+test_eq (test_assert_skip.demoTest) ... skipped &apos;&#x8DF3;&#x8FC7;&apos;
+test_not_eq (test_assert_skip.demoTest) ... expected failure
+test_not_seq (test_assert_skip.demoTest) ... expected failure
+test_seq (test_assert_skip.demoTest) ... ok
+test_seq_2 (test_assert_skip.demoTest) ... skipped &apos;unless 1 ==0&apos;
+setUpModule
+setUpClass
+test_number_3_4 (test_hook.Test_mul) ... instance setUp
+t1
+instance tearDown
+ok
+test_string_a_3 (test_hook.Test_mul) ... instance setUp
+t2
+instance tearDown
+ok
+tearDownClass
+tearUpModule
+test_sum_mul_2_3_mul_2_3 (test_my.TestCase1) ... ok
+test_number_3_4 (test_my.Test_mul) ... ok
+test_string_a_3 (test_my.Test_mul) ... ok
+test_number_3_4 (test_my.Test_sum) ... ok
+test_number_3_4_5 (test_my.Test_sum) ... ok
+test_subtest (test_subtest.demoTest) ... test_eq (test_suite.ArithTest) ... ok
+test_not_eq (test_suite.ArithTest) ... FAIL
+test_not_seq (test_suite.ArithTest) ... FAIL
+test_seq (test_suite.ArithTest) ... ok
+
+======================================================================
+FAIL: test_not_almost_eq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 23, in test_not_almost_eq
+    self.assertAlmostEqual(1.003, 1.004, places = 4)
+AssertionError: 1.003 != 1.004 within 4 places
+
+======================================================================
+FAIL: test_not_eq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 7, in test_not_eq
+    self.assertNotEqual(5 * 2,10)
+AssertionError: 10 == 10
+
+======================================================================
+FAIL: test_not_seq (test_assert_base.demoTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_assert_base.py&quot;, line 17, in test_not_seq
+    self.assertSequenceEqual(a, b)
+AssertionError: Sequences differ: [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;] != (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+Second sequence contains 1 additional elements.
+First extra element 3:
+&apos;4&apos;
+
+- [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;]
++ (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_subtest (test_subtest.demoTest) (i=5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_subtest.py&quot;, line 7, in test_subtest
+    self.assertEqual(i % 2, 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_not_eq (test_suite.ArithTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_suite.py&quot;, line 7, in test_not_eq
+    self.assertNotEqual(5 * 2,10)
+AssertionError: 10 == 10
+
+======================================================================
+FAIL: test_not_seq (test_suite.ArithTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;/Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython3.5plus/ipynbs/src/C3/test_suite.py&quot;, line 17, in test_not_seq
+    self.assertSequenceEqual(a, b)
+AssertionError: Sequences differ: [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;] != (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+Second sequence contains 1 additional elements.
+First extra element 3:
+&apos;4&apos;
+
+- [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;]
++ (&apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;)
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.014s
+
+FAILED (failures=8, skipped=2, expected failures=2)
+</code></pre><p>&#x5176;&#x4E2D;<code>--source=</code>&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x8981;&#x6D4B;&#x8BD5;&#x8986;&#x76D6;&#x7387;&#x7684;&#x6587;&#x4EF6;&#x5939;</p>
+<pre><code class="lang-python">!python3 -m coverage report
+</code></pre>
+<pre><code>Name                            Stmts   Miss  Cover
+---------------------------------------------------
+src/C3/Obj_test.py                  7      7     0%
+src/C3/__init__.py                  0      0   100%
+src/C3/faulthandler_test.py         2      2     0%
+src/C3/faulthandler_test2.py        4      4     0%
+src/C3/func_oper_unitest.py         7      0   100%
+src/C3/line_profile_test.py         7      7     0%
+src/C3/memory_test.py              15     15     0%
+src/C3/memory_test_round.py         8      8     0%
+src/C3/profile_test.py             11     11     0%
+src/C3/profile_test_foo.py          7      7     0%
+src/C3/profile_test_pstats.py      14     14     0%
+src/C3/test_assert_base.py         27      0   100%
+src/C3/test_assert_skip.py         18      4    78%
+src/C3/test_hook.py                23      1    96%
+src/C3/test_my.py                  23      1    96%
+src/C3/test_subtest.py              6      0   100%
+src/C3/test_suite.py               23      7    70%
+---------------------------------------------------
+TOTAL                             202     88    56%
+</code></pre><p>&#x5F53;&#x7136;&#x4E86;&#x8FD8;&#x6709;&#x5176;&#x4ED6;&#x7684;&#x77E5;&#x540D;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;&#x6BD4;&#x5982;<code>nose</code>,<code>green</code>&#x7B49;,&#x90FD;&#x5F88;&#x503C;&#x5F97;&#x5C1D;&#x8BD5;.&#x4F46;&#x4E2A;&#x4EBA;&#x89C9;&#x5F97;&#x6807;&#x51C6;&#x5E93;&#x7684;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;&#x5DF2;&#x7ECF;&#x76F8;&#x5F53;&#x591F;&#x7528;,&#x7ED3;&#x5408;coverage.py,&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#x76F4;&#x63A5;.&#x5C11;&#x5373;&#x662F;&#x591A;,&#x6211;&#x4EEC;&#x7684;&#x9879;&#x76EE;&#x5E94;&#x8BE5;&#x5C3D;&#x91CF;&#x51CF;&#x5C11;&#x7B2C;&#x4E09;&#x65B9;&#x4F9D;&#x8D56;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="代码风格.html" class="navigation navigation-prev " aria-label="Previous page: 代码风格">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="结语.html" class="navigation navigation-next " aria-label="Next page: 结语">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"调试与测试","level":"1.3.3","depth":2,"next":{"title":"结语","level":"1.3.4","depth":2,"path":"工具链/结语.md","ref":"工具链/结语.md","articles":[]},"previous":{"title":"代码风格","level":"1.3.2","depth":2,"path":"工具链/代码风格.md","ref":"工具链/代码风格.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"工具链/调试与测试.md","mtime":"2017-05-16T06:23:25.523Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-18T10:13:17.640Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
