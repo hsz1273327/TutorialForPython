@@ -1,0 +1,947 @@
+
+<!DOCTYPE HTML>
+<html lang="zh" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>序列化 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="结语.html" />
+    
+    
+    <link rel="prev" href="文件与IO流.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://blog.hszofficial.site/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../总章.html">
+            
+                <a href="../总章.html">
+            
+                    
+                    总章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../工具链/">
+            
+                <a href="../工具链/">
+            
+                    
+                    工具链
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../工具链/运行环境与部署分发.html">
+            
+                <a href="../工具链/运行环境与部署分发.html">
+            
+                    
+                    运行环境与部署分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../工具链/代码风格.html">
+            
+                <a href="../工具链/代码风格.html">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../工具链/调试与测试.html">
+            
+                <a href="../工具链/调试与测试.html">
+            
+                    
+                    调试与测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../工具链/结语.html">
+            
+                <a href="../工具链/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Python的数据模型/">
+            
+                <a href="../Python的数据模型/">
+            
+                    
+                    Python的数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Python的数据模型/数据模型.html">
+            
+                <a href="../Python的数据模型/数据模型.html">
+            
+                    
+                    数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Python的数据模型/变量引用与垃圾回收.html">
+            
+                <a href="../Python的数据模型/变量引用与垃圾回收.html">
+            
+                    
+                    变量引用与垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Python的数据模型/结语.html">
+            
+                <a href="../Python的数据模型/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    文本,文件与字节序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="文本和编码.html">
+            
+                <a href="文本和编码.html">
+            
+                    
+                    文本和编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="字节序列与内存视图.html">
+            
+                <a href="字节序列与内存视图.html">
+            
+                    
+                    字节序列与内存视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="正则表达式.html">
+            
+                <a href="正则表达式.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="文件与IO流.html">
+            
+                <a href="文件与IO流.html">
+            
+                    
+                    文件与IO流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.5" data-path="序列化.html">
+            
+                <a href="序列化.html">
+            
+                    
+                    序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="结语.html">
+            
+                <a href="结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Python的数据模型/">
+            
+                <a href="../Python的数据模型/">
+            
+                    
+                    元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Python的数据模型/数据模型.html">
+            
+                <a href="../Python的数据模型/数据模型.html">
+            
+                    
+                    import hook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Python的数据模型/数据模型.html">
+            
+                <a href="../Python的数据模型/数据模型.html">
+            
+                    
+                    装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Python的数据模型/数据模型.html">
+            
+                <a href="../Python的数据模型/数据模型.html">
+            
+                    
+                    属性描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Python的数据模型/数据模型.html">
+            
+                <a href="../Python的数据模型/数据模型.html">
+            
+                    
+                    元类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Python的数据模型/结语.html">
+            
+                <a href="../Python的数据模型/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >序列化</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5E8F;&#x5217;&#x5316;">&#x5E8F;&#x5217;&#x5316;</h1>
+<p>&#x5E8F;&#x5217;&#x5316;&#x662F;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x5B57;&#x8282;&#x5E94;&#x7528;.&#x6240;&#x8C13;&#x5E8F;&#x5217;&#x5316;&#x5C31;&#x662F;&#x5C06;&#x7279;&#x5B9A;&#x5BF9;&#x8C61;&#x8F6C;&#x5316;&#x4E3A;&#x4E00;&#x4E32;&#x5B57;&#x8282;&#x5E8F;&#x5217;,&#x7528;&#x4EE5;&#x5B58;&#x50A8;&#x6216;&#x8005;&#x4F20;&#x8F93;.&#x5B83;&#x7684;&#x53CD;&#x5411;&#x64CD;&#x4F5C;&#x88AB;&#x79F0;&#x4E3A;&#x53CD;&#x5E8F;&#x5217;&#x5316;.</p>
+<p>python&#x6709;&#x4E30;&#x5BCC;&#x7684;&#x5E8F;&#x5217;&#x5316;&#x5DE5;&#x5177;&#x5982;&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x7684;base64,json,pickle,&#x53C8;&#x5982;&#x4E00;&#x4E9B;&#x5F00;&#x6E90;&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x5E8F;&#x5217;&#x5316;&#x5DE5;&#x5177;&#x5982;dill,msgpack&#x7B49;.
+&#x8FD9;&#x4E9B;&#x5DE5;&#x5177;&#x867D;&#x7136;&#x90FD;&#x662F;&#x5E8F;&#x5217;&#x5316;&#x5DE5;&#x5177;,&#x4F46;&#x8BBE;&#x8BA1;&#x76EE;&#x7684;&#x5E76;&#x4E0D;&#x76F8;&#x540C;,&#x672C;&#x6587;&#x5C06;&#x4F1A;&#x5BF9;&#x4ED6;&#x4EEC;&#x4E2D;&#x6709;&#x4EE3;&#x8868;&#x6027;&#x7684;&#x8FDB;&#x884C;&#x4ECB;&#x7ECD;</p>
+<h1 id="base64&#x7528;&#x4E8E;&#x5E8F;&#x5217;&#x5316;&#x6587;&#x4EF6;">base64&#x7528;&#x4E8E;&#x5E8F;&#x5217;&#x5316;&#x6587;&#x4EF6;</h1>
+<p>Base64&#x662F;&#x7F51;&#x7EDC;&#x4E0A;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x7528;&#x4E8E;&#x4F20;&#x8F93;8Bit&#x5B57;&#x8282;&#x4EE3;&#x7801;&#x7684;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#x4E4B;&#x4E00;,&#x5E38;&#x7528;&#x4E8E;&#x4F20;&#x8F93;&#x5C0F;&#x6587;&#x4EF6;,&#x7F51;&#x5740;&#x7B49;.&#x4E0B;&#x9762;&#x662F;&#x4F7F;&#x7528;base64&#x5E8F;&#x5217;&#x5316;&#x7F51;&#x5740;&#x7684;&#x4F8B;&#x5B50;(&#x6CE8;&#x610F;base64&#x7F16;&#x7801;&#x7684;&#x53C2;&#x6570;&#x53EA;&#x80FD;&#x662F;bytes)</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> base64
+</code></pre>
+<pre><code class="lang-python">url = <span class="hljs-string">b&quot;http://blog.hszofficial.site&quot;</span>
+</code></pre>
+<pre><code class="lang-python">url_b64 = base64.b64encode(url)<span class="hljs-comment">#&#x7F16;&#x7801;base64</span>
+</code></pre>
+<pre><code class="lang-python">url_b64
+</code></pre>
+<pre><code>b&apos;aHR0cDovL2Jsb2cuaHN6b2ZmaWNpYWwuc2l0ZQ==&apos;
+</code></pre><pre><code class="lang-python">base64.b64decode(url_b64)<span class="hljs-comment">#&#x89E3;&#x7801;base64</span>
+</code></pre>
+<pre><code>b&apos;http://blog.hszofficial.site&apos;
+</code></pre><p>&#x5F88;&#x591A;&#x65F6;&#x5019;base64&#x88AB;&#x4F5C;&#x4E3A;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#x505A;&#x7B80;&#x5355;&#x7684;&#x52A0;&#x5BC6;,&#x5F53;&#x7136;&#x8FD9;&#x6709;&#x70B9;&#x81EA;&#x6B3A;&#x6B3A;&#x4EBA;&#x7684;&#x610F;&#x601D;,&#x6240;&#x8C13;&#x7684;&#x52A0;&#x5BC6;&#x4E5F;&#x53EA;&#x662F;&#x8BA9;&#x4EBA;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x8BFB;&#x51FA;&#x800C;&#x5DF2;</p>
+<p>Base64&#x66F4;&#x5E38;&#x89C1;&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x4E4B;&#x4E00;&#x5C31;&#x662F;&#x5728;http&#x534F;&#x8BAE;&#x4E2D;&#x4F20;&#x8F93;&#x5C0F;&#x56FE;&#x7247;.&#x5B83;&#x7684;&#x6548;&#x679C;&#x662F;&#x5C06;&#x6574;&#x4E2A;&#x56FE;&#x7247;&#x7684;&#x4FE1;&#x606F;&#x90FD;&#x5E8F;&#x5217;&#x5316;&#x5230;&#x4E00;&#x4E32;&#x5B57;&#x8282;&#x5E8F;&#x4E2D;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">with</span> open(<span class="hljs-string">&quot;source/mysite.gif&quot;</span>,<span class="hljs-string">&quot;rb&quot;</span>) <span class="hljs-keyword">as</span> f:
+    pic = f.read()
+</code></pre>
+<pre><code class="lang-python">pic_64 = base64.b64encode(pic)
+</code></pre>
+<pre><code class="lang-python">pic_64[:<span class="hljs-number">5</span>]
+</code></pre>
+<pre><code>b&apos;R0lGO&apos;
+</code></pre><pre><code class="lang-python">isinstance(pic_64,bytes)
+</code></pre>
+<pre><code>True
+</code></pre><pre><code class="lang-python">len(pic_64)
+</code></pre>
+<pre><code>31092
+</code></pre><pre><code class="lang-python">pic_64.decode()[:<span class="hljs-number">5</span>]
+</code></pre>
+<pre><code>&apos;R0lGO&apos;
+</code></pre><p>&#x540C;&#x5B66;&#x4EEC;&#x53EF;&#x4EE5;&#x626B;&#x63CF;&#x4E0B;&#x9762;&#x7684;&#x4E8C;&#x7EF4;&#x7801;&#x6765;&#x8BBF;&#x95EE;&#x6211;&#x7684;&#x4E3B;&#x7AD9;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> IPython.display <span class="hljs-keyword">import</span> HTML
+HTML(<span class="hljs-string">&apos;&lt;img src=&quot;data:image/gif;base64,{value}&quot;/&gt;&apos;</span>.format(value=pic_64.decode()))
+</code></pre>
+<p><img src="data:image/gif;base64,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"></p>
+<p>&#x663E;&#x7136;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x4F20;&#x8F93;&#x5927;&#x6587;&#x4EF6;&#x5F88;&#x4E0D;&#x9760;&#x8C31;,&#x4F46;&#x5C0F;&#x56FE;&#x7247;&#x8FD8;&#x662F;&#x53EF;&#x4EE5;&#x7684;</p>
+<h1 id="pickle&#x7528;&#x4E8E;&#x6301;&#x7EED;&#x5316;python&#x7684;&#x5185;&#x7F6E;&#x7B80;&#x5355;&#x5BF9;&#x8C61;">pickle&#x7528;&#x4E8E;&#x6301;&#x7EED;&#x5316;python&#x7684;&#x5185;&#x7F6E;&#x7B80;&#x5355;&#x5BF9;&#x8C61;</h1>
+<p>&#x6709;&#x7684;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x60F3;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x4E0D;&#x5149;&#x662F;&#x6570;&#x636E;&#x548C;&#x6570;&#x636E;&#x7ED3;&#x6784;,&#x8FD8;&#x6709;&#x5BF9;&#x8C61;,&#x8FD9;&#x79CD;&#x65F6;&#x5019;&#x5C31;&#x9700;&#x8981;&#x5C06;&#x5BF9;&#x8C61;&#x4EE5;&#x4E00;&#x5B9A;&#x7684;&#x534F;&#x8BAE;&#x5E8F;&#x5217;&#x5316;&#x4E3A;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;.</p>
+<p>python&#x7684;pickle&#x6A21;&#x5757;&#x662F;&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x6700;&#x5E38;&#x7528;&#x7684;&#x5E8F;&#x5217;&#x5316;&#x6A21;&#x5757;,&#x5B83;&#x5B9E;&#x73B0;&#x4E86;&#x57FA;&#x672C;&#x7684;&#x6570;&#x636E;&#x5E8F;&#x5217;&#x548C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x3002;&#x901A;&#x8FC7;pickle&#x6A21;&#x5757;&#x7684;&#x5E8F;&#x5217;&#x5316;&#x64CD;&#x4F5C;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x5C06;&#x7A0B;&#x5E8F;&#x4E2D;&#x8FD0;&#x884C;&#x7684;&#x5BF9;&#x8C61;&#x4FE1;&#x606F;&#x4FDD;&#x5B58;&#x5230;&#x6587;&#x4EF6;&#x4E2D;&#x53BB;&#xFF0C;&#x6C38;&#x4E45;&#x5B58;&#x50A8;&#xFF1B;&#x901A;&#x8FC7;pickle&#x6A21;&#x5757;&#x7684;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x64CD;&#x4F5C;&#xFF0C;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x4ECE;&#x6587;&#x4EF6;&#x4E2D;&#x521B;&#x5EFA;&#x4E0A;&#x4E00;&#x6B21;&#x7A0B;&#x5E8F;&#x4FDD;&#x5B58;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;,pickel&#x7684;&#x6587;&#x4EF6;&#x5E76;&#x4E0D;&#x662F;&#x9ED8;&#x8BA4;&#x8DE8;&#x7248;&#x672C;&#x652F;&#x6301;&#x7684;,&#x53EF;&#x4EE5;&#x5BF9;&#x7167;&#x8FD9;&#x5F20;&#x8868;&#x8BBE;&#x5B9A;&#x9700;&#x8981;&#x7684;&#x53C2;&#x6570;</p>
+<p>pickel&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#x6709;5&#x79CD;&#x5E8F;&#x5217;&#x5316;&#x683C;&#x5F0F;:</p>
+<table>
+<thead>
+<tr>
+<th>&#x7248;&#x672C;</th>
+<th>&#x8BF4;&#x660E;</th>
+<th>&#x652F;&#x6301;python&#x7248;&#x672C;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>&#x4EBA;&#x7C7B;&#x53EF;&#x8BFB;&#x7684;&#x6587;&#x672C;,&#x7528;&#x4E8E;&#x6700;&#x65E9;&#x671F;</td>
+<td>&#x5168;&#x90E8;&#x7248;&#x672C;</td>
+</tr>
+<tr>
+<td>1</td>
+<td>&#x8001;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x7248;&#x672C;&#x6587;&#x672C;&#x540C;&#x6837;&#x7528;&#x4E8E;&#x65E9;&#x671F;</td>
+<td>&#x5168;&#x90E8;&#x7248;&#x672C;</td>
+</tr>
+<tr>
+<td>2</td>
+<td>&#x51FA;&#x73B0;&#x4E8E;2.3&#x7248;&#x672C;,&#x7528;&#x4EE5;&#x652F;&#x6301;&#x65B0;&#x7C7B;</td>
+<td>2.3+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>&#x51FA;&#x73B0;&#x4E8E;3.0&#x7248;&#x672C;,&#x7528;&#x4EE5;&#x652F;&#x6301;bytes&#x7C7B;&#x578B;</td>
+<td>3.0+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>&#x51FA;&#x73B0;&#x4E8E;Python 3.4.&#x7528;&#x4E8E;&#x6269;&#x5145;pickel&#x7684;&#x652F;&#x6301;&#x7C7B;&#x578B;&#x548C;&#x5927;&#x5BF9;&#x8C61;</td>
+<td>3.4+</td>
+</tr>
+</tbody>
+</table>
+<p>python3.5+&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x7248;&#x672C;4&#x7684;pickle&#x683C;&#x5F0F;</p>
+<p>&#x8981;&#x6307;&#x5B9A;&#x4F7F;&#x7528;&#x67D0;&#x4E00;&#x79CD;pickle&#x683C;&#x5F0F;,&#x53EF;&#x4EE5;&#x5728;&#x65B9;&#x6CD5;&#x4E2D;&#x4F7F;&#x7528;<code>protocol:int=n</code>&#x6765;&#x6307;&#x5B9A;</p>
+<h2 id="pickle&#x7684;&#x5C40;&#x9650;&#x6027;">pickle&#x7684;&#x5C40;&#x9650;&#x6027;</h2>
+<p>pickle&#x7684;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#x4E00;&#x76F4;&#x8BA9;&#x4EBA;&#x8BDF;&#x75C5;,&#x9664;&#x4E86;python&#x6CA1;&#x6709;&#x522B;&#x7684;&#x8BED;&#x8A00;&#x4F7F;&#x7528;pickle,&#x800C;&#x5982;&#x4E0A;&#x8868;&#x6240;&#x793A;,pickle&#x5728;&#x5404;&#x4E2A;&#x7248;&#x672C;&#x7684;python&#x4E2D;&#x4E5F;&#x4E0D;&#x662F;&#x9ED8;&#x8BA4;&#x901A;&#x7528;&#x7684;</p>
+<p>pickle&#x5B9E;&#x9645;&#x4E0A;&#x5E76;&#x4E0D;&#x80FD;&#x4F20;&#x9012;&#x51FD;&#x6570;&#x6216;&#x8005;&#x7C7B;,&#x800C;&#x662F;&#x53EA;&#x80FD;&#x8BB0;&#x5F55;&#x4E0B;&#x5B83;&#x7684;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#x800C;&#x5DF2;,&#x56E0;&#x6B64;&#x4E0D;&#x80FD;&#x8DE8;&#x6A21;&#x5757;&#x4F20;&#x9012;,&#x9664;&#x6B64;&#x4E4B;&#x5916;,&#x4E00;&#x4E9B;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x4E5F;&#x662F;&#x4E0D;&#x53EF; pickle &#x7684;&#x3002;&#x4F8B;&#x5982;&#xFF0C;Python &#x4E0D;&#x80FD; pickle &#x6587;&#x4EF6;&#x5BF9;&#x8C61;&#xFF08;&#x6216;&#x8005;&#x4EFB;&#x4F55;&#x5E26;&#x6709;&#x5BF9;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;&#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#xFF09;&#xFF0C;&#x56E0;&#x4E3A; Python &#x5728; unpickle &#x65F6;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x5B83;&#x53EF;&#x4EE5;&#x91CD;&#x5EFA;&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x72B6;&#x6001;&#x3002;</p>
+<h2 id="pickle&#x7684;&#x63A5;&#x53E3;">pickle&#x7684;&#x63A5;&#x53E3;</h2>
+<p>pickle&#x7684;&#x63A5;&#x53E3;&#x4E0E;json&#x7C7B;&#x4F3C;&#x5E26;s&#x4E3A;&#x5E8F;&#x5217;&#x5316;&#x6216;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;,&#x4E0D;&#x5E26;&#x7684;&#x5219;&#x662F;&#x5904;&#x7406;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> pickle
+</code></pre>
+<pre><code class="lang-python">exa_l=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]
+</code></pre>
+<pre><code class="lang-python">exa_b = pickle.dumps(exa_l)
+</code></pre>
+<pre><code class="lang-python">exa_b
+</code></pre>
+<pre><code>b&apos;\x80\x03]q\x00(K\x01K\x02K\x03K\x04K\x05e.&apos;
+</code></pre><pre><code class="lang-python">pickle.loads(exa_b)
+</code></pre>
+<pre><code>[1, 2, 3, 4, 5]
+</code></pre><pre><code class="lang-python"><span class="hljs-keyword">with</span> open(<span class="hljs-string">&quot;source/pickle_test.txt&quot;</span>,<span class="hljs-string">&quot;wb&quot;</span>) <span class="hljs-keyword">as</span> f:
+    pickle.dump(exa_l,f)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">with</span> open(<span class="hljs-string">&quot;source/pickle_test.txt&quot;</span>,<span class="hljs-string">&quot;rb&quot;</span>) <span class="hljs-keyword">as</span> f:
+    view_exam = pickle.load(f)
+view_exam
+</code></pre>
+<pre><code>[1, 2, 3, 4, 5]
+</code></pre><h2 id="&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;-pickletools">&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177; <code>pickletools</code></h2>
+<p>&#x5728;python3&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;&#x6765;&#x7BA1;&#x7406;pickle&#x6587;&#x4EF6;</p>
+<pre><code class="lang-python">!python -m pickle source/pickle_test.txt
+</code></pre>
+<pre><code>[1, 2, 3, 4, 5]
+</code></pre><pre><code class="lang-python">!python -m pickletools source/pickle_test.txt
+</code></pre>
+<pre><code>    0: \x80 PROTO      3
+    2: ]    EMPTY_LIST
+    3: q    BINPUT     0
+    5: (    MARK
+    6: K        BININT1    1
+    8: K        BININT1    2
+   10: K        BININT1    3
+   12: K        BININT1    4
+   14: K        BININT1    5
+   16: e        APPENDS    (MARK at 5)
+   17: .    STOP
+highest protocol among opcodes = 2
+</code></pre><p>&#x53EF;&#x7528;&#x7684;&#x53C2;&#x6570;:</p>
+<p>-a, &#x2013;annotate
+&#x7528;&#x7B80;&#x77ED;&#x7684;&#x64CD;&#x4F5C;&#x7801;&#x63CF;&#x8FF0;&#x6765;&#x6807;&#x6CE8;&#x6BCF;&#x4E00;&#x884C;&#x3002;</p>
+<p>-o, &#x2013;output=
+&#x5199;&#x5165;&#x8F93;&#x51FA;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;&#x3002;</p>
+<p>-l, &#x2013;indentlevel=
+&#x7528;&#x4E8E;&#x7F29;&#x8FDB;&#x65B0;&#x7684;MARK&#x7EA7;&#x522B;&#x7684;&#x7A7A;&#x767D;&#x6570;&#x3002;</p>
+<p>-m, &#x2013;memo
+&#x62C6;&#x5378;&#x591A;&#x4E2A;&#x7269;&#x4F53;&#x65F6;&#xFF0C;&#x8BF7;&#x5728;&#x62C6;&#x5378;&#x4E4B;&#x95F4;&#x4FDD;&#x7559;&#x5907;&#x6CE8;&#x3002;</p>
+<p>-p, &#x2013;preamble=
+&#x5F53;&#x6307;&#x5B9A;&#x591A;&#x4E8E;&#x4E00;&#x4E2A;pickle&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x5728;&#x6BCF;&#x6B21;&#x5206;&#x89E3;&#x4E4B;&#x524D;&#x6253;&#x5370;&#x7ED9;&#x5B9A;&#x7684;&#x524D;&#x5BFC;&#x7801;</p>
+<h1 id="dill&#x7528;&#x4E8E;&#x5E8F;&#x5217;&#x5316;python&#x5BF9;&#x8C61;"><code>*</code><a href="https://github.com/uqfoundation/dill" target="_blank">dill</a>&#x7528;&#x4E8E;&#x5E8F;&#x5217;&#x5316;python&#x5BF9;&#x8C61;</h1>
+<p>dill&#x652F;&#x6301;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x7684;python&#x6570;&#x636E;,&#x6309;github&#x4E0A;&#x7684;&#x8BF4;&#x6CD5;,&#x5B83;&#x652F;&#x6301;:</p>
+<p>none, type, bool, int, long, float, complex, str, unicode,
+tuple, list, dict, file, buffer, builtin,
+both old and new style classes,
+instances of old and new style classes,
+set, frozenset, array, functions, exceptions
+functions with yields, nested functions, lambdas
+cell, method, unboundmethod, module, code, methodwrapper,
+dictproxy, methoddescriptor, getsetdescriptor, memberdescriptor,
+wrapperdescriptor, xrange, slice,
+notimplemented, ellipsis, quit</p>
+<p>&#x8FD8;&#x4E0D;&#x652F;&#x6301;&#x7684;&#x6709;:</p>
+<p>frame(&#x5E27;), generator(&#x751F;&#x6210;&#x5668;&#x5BF9;&#x8C61;,&#x56E0;&#x4E3A;&#x5305;&#x542B;&#x5E27;&#x72B6;&#x6001;), traceback(&#x4F9D;&#x7136;&#x662F;&#x56E0;&#x4E3A;&#x65E0;&#x6CD5;&#x4FDD;&#x5B58;&#x5E27;&#x72B6;&#x6001;)</p>
+<p>&#x4E0E;pickle&#x4E0D;&#x540C;,dill&#x7684;&#x5E8F;&#x5217;&#x5316;&#x53EF;&#x4EE5;&#x8DE8;&#x6A21;&#x5757;&#x4F20;&#x9012;,&#x4E8B;&#x5B9E;&#x4E0A;dill&#x4E5F;&#x662F;&#x4E3A;&#x4E86;&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x4F20;&#x9012;python&#x5BF9;&#x8C61;&#x800C;&#x8BBE;&#x8BA1;&#x7684;.</p>
+<p>dill&#x5BF9;python3.5+&#x652F;&#x6301;&#x4E0D;&#x9519;,&#x5B83;&#x652F;&#x6301;&#x534F;&#x7A0B;,&#x4E5F;&#x652F;&#x6301;numpy&#x6570;&#x7EC4;,&#x53EA;&#x662F;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;typehint&#x4F1A;&#x88AB;&#x6D88;&#x9664;.</p>
+<p>dill&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;pip&#x5B89;&#x88C5;,&#x4F7F;&#x7528;&#x4E5F;&#x76F8;&#x5F53;&#x7B80;&#x5355;,&#x53EA;&#x8981;&#x66FF;&#x4EE3;pickle&#x5C31;&#x884C;&#x4E86;,&#x4ED6;&#x4EEC;&#x63A5;&#x53E3;&#x76F8;&#x540C;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> dill
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> asyncio <span class="hljs-keyword">import</span> sleep
+<span class="hljs-keyword">import</span> asyncio
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">asyng</span><span class="hljs-params">(n:int)</span>:</span>
+    print(<span class="hljs-string">&quot;n:&quot;</span>+str(n)+<span class="hljs-string">&quot; wait&quot;</span>)
+    <span class="hljs-keyword">await</span> sleep(<span class="hljs-number">1</span>)
+    print(<span class="hljs-string">&quot;n:&quot;</span>+str(n)+<span class="hljs-string">&quot;done&quot;</span>)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">with</span> open(<span class="hljs-string">&quot;source/dill_cor.txt&quot;</span>,<span class="hljs-string">&quot;wb&quot;</span>) <span class="hljs-keyword">as</span> f:
+    dill.dump(asyng,f)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">with</span> open(<span class="hljs-string">&quot;source/dill_cor.txt&quot;</span>,<span class="hljs-string">&quot;rb&quot;</span>) <span class="hljs-keyword">as</span> f:
+    s1 = dill.load(f)
+</code></pre>
+<pre><code class="lang-python">loop = asyncio.new_event_loop()
+</code></pre>
+<pre><code class="lang-python">loop.run_until_complete(asyncio.wait([s1(<span class="hljs-number">1</span>),s1(<span class="hljs-number">2</span>),s1(<span class="hljs-number">3</span>)]))
+</code></pre>
+<pre><code>n:3 wait
+n:1 wait
+n:2 wait
+n:3done
+n:1done
+n:2done
+
+
+
+
+
+({&lt;Task finished coro=&lt;asyng() done, defined at &lt;ipython-input-100-f623f9e24f2a&gt;:3&gt; result=None&gt;,
+  &lt;Task finished coro=&lt;asyng() done, defined at &lt;ipython-input-100-f623f9e24f2a&gt;:3&gt; result=None&gt;,
+  &lt;Task finished coro=&lt;asyng() done, defined at &lt;ipython-input-100-f623f9e24f2a&gt;:3&gt; result=None&gt;},
+ set())
+</code></pre><h1 id="json&#x7528;&#x4E8E;&#x6D88;&#x606F;&#x4F20;&#x8F93;">json&#x7528;&#x4E8E;&#x6D88;&#x606F;&#x4F20;&#x8F93;</h1>
+<p>json&#x662F;&#x5F53;&#x4ECA;&#x7F51;&#x7EDC;&#x6570;&#x636E;&#x4F20;&#x9012;&#x7684;&#x6807;&#x51C6;&#x683C;&#x5F0F;&#x4E4B;&#x4E00;,&#x76F8;&#x6BD4;&#x8F83;&#x4E8E;xml,&#x5B83;&#x66F4;&#x8F7B;&#x91CF;,&#x56E0;&#x6B64;&#x66F4;&#x52A0;&#x4FBF;&#x4E8E;&#x4F20;&#x8F93;,&#x800C;&#x4E14;&#x5176;&#x672C;&#x8EAB;&#x5C31;&#x53EF;&#x4EE5;&#x88AB;javascript&#x8BC6;&#x522B;&#x4E3A;js&#x5BF9;&#x8C61;,&#x66F4;&#x52A0;&#x4FBF;&#x4E8E;&#x524D;&#x7AEF;&#x5904;&#x7406;.</p>
+<p>python&#x7684;&#x6807;&#x51C6;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x4E0E;js&#x5341;&#x5206;&#x76F8;&#x50CF;&#x56E0;&#x6B64;&#x6709;&#x5929;&#x7136;&#x7684;Json&#x652F;&#x6301;,&#x4E5F;&#x5C31;&#x662F;&#x4ED6;&#x7684;json&#x6A21;&#x5757;&#x4E86;.</p>
+<p>python&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x6709;json&#x6A21;&#x5757;&#x4E13;&#x95E8;&#x7528;&#x4E8E;&#x5E8F;&#x5217;&#x5316;&#x548C;&#x53CD;&#x5E8F;&#x5217;&#x5316;json</p>
+<p>&#x4E0E;&#x5176;&#x4ED6;&#x5E8F;&#x5217;&#x5316;&#x4E0D;&#x592A;&#x4E00;&#x6837;&#x7684;&#x5730;&#x65B9;&#x5728;&#x4E8E;,python&#x4E2D;json&#x5E8F;&#x5217;&#x5316;&#x51FA;&#x6765;&#x5E76;&#x4E0D;&#x662F;bytes&#x800C;&#x662F;&#x5B57;&#x7B26;&#x4E32;.&#x5176;&#x5B9E;json&#x4F5C;&#x4E3A;&#x4E00;&#x79CD;&#x6807;&#x51C6;&#x683C;&#x5F0F;&#x5176;&#x5B9E;&#x5E94;&#x8BE5;&#x548C;html,xml&#x8FD9;&#x4E9B;&#x653E;&#x5728;&#x4E00;&#x8D77;&#x7C7B;&#x6BD4;&#x624D;&#x5BF9;,&#x4F46;&#x8FD9;&#x91CC;&#x4F5C;&#x4E3A;&#x5E8F;&#x5217;&#x5316;&#x5DE5;&#x5177;&#x4E3B;&#x8981;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5BF9;&#x5E94;python&#x4E2D;&#x7684;list&#x548C;dict</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> json
+</code></pre>
+<pre><code class="lang-python">d = dict(name=<span class="hljs-string">&apos;Bob&apos;</span>, age=<span class="hljs-number">20</span>, score=<span class="hljs-number">88</span>)
+json_str = json.dumps(d)
+</code></pre>
+<pre><code class="lang-python">json_str
+</code></pre>
+<pre><code>&apos;{&quot;name&quot;: &quot;Bob&quot;, &quot;age&quot;: 20, &quot;score&quot;: 88}&apos;
+</code></pre><pre><code class="lang-python">json.loads(json_str)
+</code></pre>
+<pre><code>{&apos;age&apos;: 20, &apos;name&apos;: &apos;Bob&apos;, &apos;score&apos;: 88}
+</code></pre><p>json&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5904;&#x7406;json&#x683C;&#x5F0F;&#x7684;&#x6587;&#x4EF6;,&#x4F7F;&#x7528;&#x7684;&#x63A5;&#x53E3;&#x4E0E;&#x5904;&#x7406;json&#x683C;&#x5F0F;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x4F3C;,&#x53EA;&#x662F;&#x65B9;&#x6CD5;&#x540D;&#x540E;&#x9762;&#x6CA1;&#x6709;<code>s</code></p>
+<pre><code class="lang-python"><span class="hljs-keyword">with</span> open(<span class="hljs-string">&apos;source/new.json&apos;</span>, <span class="hljs-string">&apos;w&apos;</span>) <span class="hljs-keyword">as</span> f:
+    cont = json.dump(d,f)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">with</span> open(<span class="hljs-string">&apos;source/new.json&apos;</span>, <span class="hljs-string">&apos;r&apos;</span>) <span class="hljs-keyword">as</span> f:
+    cont = json.load(f)
+print(cont)
+</code></pre>
+<pre><code>{&apos;name&apos;: &apos;Bob&apos;, &apos;age&apos;: 20, &apos;score&apos;: 88}
+</code></pre><h2 id="ujson">ujson</h2>
+<p>&#x867D;&#x7136;Python&#x81EA;&#x5E26;&#x8FD9;&#x4E2A;json&#x5E8F;&#x5217;&#x5316;&#x5DE5;&#x5177;,&#x4F46;&#x56E0;&#x4E3A;&#x5B83;&#x7684;&#x4EE3;&#x7801;&#x662F;&#x7EAF;&#x51C0;&#x7684;python&#x4EE3;&#x7801;,&#x56E0;&#x6B64;&#x6BD4;&#x8F83;&#x6162;,&#x5982;&#x679C;&#x60F3;&#x6709;&#x66F4;&#x5FEB;&#x7684;&#x5E8F;&#x5217;&#x5316;&#x548C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x901F;&#x5EA6;&#x7684;&#x8BDD;,&#x53EF;&#x4EE5;&#x4F7F;&#x7528;ujson,&#x8FD9;&#x4E2A;&#x5FEB;&#x5F88;&#x591A;&#x56E0;&#x4E3A;&#x662F;C&#x5199;&#x7684;&#x5E95;&#x5C42;.</p>
+<p>&#x4ED6;&#x4EEC;&#x63A5;&#x53E3;&#x5B8C;&#x5168;&#x76F8;&#x540C;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> ujson
+</code></pre>
+<pre><code class="lang-python">%timeit json.loads(json_str)
+</code></pre>
+<pre><code>The slowest run took 16.64 times longer than the fastest. This could mean that an intermediate result is being cached.
+100000 loops, best of 3: 2.81 &#xB5;s per loop
+</code></pre><pre><code class="lang-python">%timeit ujson.loads(json_str)
+</code></pre>
+<pre><code>The slowest run took 106.01 times longer than the fastest. This could mean that an intermediate result is being cached.
+1000000 loops, best of 3: 638 ns per loop
+</code></pre><pre><code class="lang-python">%timeit json.dumps(d)
+</code></pre>
+<pre><code>100000 loops, best of 3: 3.26 &#xB5;s per loop
+</code></pre><pre><code class="lang-python">%timeit ujson.dumps(d)
+</code></pre>
+<pre><code>The slowest run took 95.41 times longer than the fastest. This could mean that an intermediate result is being cached.
+1000000 loops, best of 3: 598 ns per loop
+</code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;ujson&#x65E0;&#x8BBA;&#x662F;&#x5E8F;&#x5217;&#x5316;&#x8FD8;&#x662F;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x90FD;&#x6BD4;&#x81EA;&#x5E26;&#x7684;json&#x6A21;&#x5757;&#x5FEB;&#x4E0A;&#x4E00;&#x4E2A;&#x6570;&#x91CF;&#x7EA7;</p>
+<h1 id="msgpack&#x7528;&#x4E8E;&#x66F4;&#x597D;&#x7684;&#x4F20;&#x9012;&#x6D88;&#x606F;"><code>*</code><a href="https://github.com/msgpack/msgpack-python" target="_blank">msgpack</a>&#x7528;&#x4E8E;&#x66F4;&#x597D;&#x7684;&#x4F20;&#x9012;&#x6D88;&#x606F;</h1>
+<p><code>msgpack</code>&#x662F;&#x73B0;&#x5728;&#x6700;&#x5FEB;&#x6700;&#x5C0F;&#x7684;&#x901A;&#x7528;&#x5E8F;&#x5217;&#x5316;&#x534F;&#x8BAE;,&#x5B98;&#x65B9;&#x7684;&#x8BF4;&#x6CD5;&#x662F;<code>It&apos;s like JSON.but fast and small.</code>&#x6709;&#x6D4B;&#x8BD5;&#x786E;&#x5B9E;&#x6548;&#x7387;&#x975E;&#x5E38;&#x9AD8;.</p>
+<p>&#x4F46;&#x5176;&#x5B9E;msgpack&#x548C;json&#x9002;&#x7528;&#x8303;&#x56F4;&#x5E76;&#x4E0D;&#x5B8C;&#x5168;&#x91CD;&#x53E0;,json&#x4F5C;&#x4E3A;&#x901A;&#x7528;&#x4F20;&#x8F93;&#x534F;&#x8BAE;&#x6D3B;&#x8DC3;&#x4E8E;web&#x5E94;&#x7528;,&#x5B83;&#x4F20;&#x9012;&#x7684;&#x662F;&#x5B57;&#x7B26;&#x4E32;,&#x800C;mspack&#x4F20;&#x9012;&#x7684;&#x66F4;&#x591A;&#x7684;&#x662F;bytes,&#x7528;&#x9014;&#x4E5F;&#x66F4;&#x52A0;&#x5E95;&#x5C42;,&#x5E38;&#x7528;&#x4E8E;&#x5206;&#x5E03;&#x5F0F;&#x670D;&#x52A1;&#x7684;&#x6D88;&#x606F;&#x4F20;&#x9012;,rpc&#x7B49;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> msgpack
+</code></pre>
+<h2 id="&#x5E8F;&#x5217;&#x5316;&#x4E3A;bytes">&#x5E8F;&#x5217;&#x5316;&#x4E3A;bytes</h2>
+<p>msgpack&#x53EF;&#x4EE5;&#x5E8F;&#x5217;&#x5316;list&#x548C;dict</p>
+<pre><code class="lang-python">pack = msgpack.packb([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+</code></pre>
+<pre><code class="lang-python">pack
+</code></pre>
+<pre><code>b&apos;\x93\x01\x02\x03&apos;
+</code></pre><pre><code class="lang-python">msgpack.unpackb(pack)
+</code></pre>
+<pre><code>[1, 2, 3]
+</code></pre><pre><code class="lang-python">msgpack.unpackb(pack,use_list=<span class="hljs-keyword">False</span>)<span class="hljs-comment"># &#x6307;&#x5B9A;use_list&#x4E3A;False&#x5219;&#x4F1A;&#x8FD4;&#x56DE;tuple</span>
+</code></pre>
+<pre><code>(1, 2, 3)
+</code></pre><pre><code class="lang-python">pack = msgpack.packb(dict(a=<span class="hljs-number">1</span>,b=<span class="hljs-number">2</span>,c=<span class="hljs-number">3</span>))
+</code></pre>
+<pre><code class="lang-python">pack
+</code></pre>
+<pre><code>b&apos;\x83\xa1a\x01\xa1b\x02\xa1c\x03&apos;
+</code></pre><pre><code class="lang-python">msgpack.unpackb(pack)
+</code></pre>
+<pre><code>{b&apos;a&apos;: 1, b&apos;b&apos;: 2, b&apos;c&apos;: 3}
+</code></pre><h3 id="&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;">&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;</h3>
+<pre><code class="lang-python">pack = msgpack.packb([<span class="hljs-string">&quot;&#x4F60;&quot;</span>, <span class="hljs-string">&quot;&#x6211;&quot;</span>, <span class="hljs-string">&quot;&#x4ED6;&quot;</span>])
+</code></pre>
+<pre><code class="lang-python">pack
+</code></pre>
+<pre><code>b&apos;\x93\xa3\xe4\xbd\xa0\xa3\xe6\x88\x91\xa3\xe4\xbb\x96&apos;
+</code></pre><pre><code class="lang-python">msgpack.unpackb(pack)
+</code></pre>
+<pre><code>[b&apos;\xe4\xbd\xa0&apos;, b&apos;\xe6\x88\x91&apos;, b&apos;\xe4\xbb\x96&apos;]
+</code></pre><pre><code class="lang-python">msgpack.unpackb(pack,encoding=<span class="hljs-string">&apos;utf-8&apos;</span>)
+</code></pre>
+<pre><code>[&apos;&#x4F60;&apos;, &apos;&#x6211;&apos;, &apos;&#x4ED6;&apos;]
+</code></pre><h2 id="&#x5E8F;&#x5217;&#x5316;&#x6D41;">&#x5E8F;&#x5217;&#x5316;&#x6D41;</h2>
+<p>unpacker&#x53EF;&#x4EE5;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x6D41;,&#x5B83;&#x53EF;&#x4EE5;&#x4ECE;&#x4E00;&#x4E2A;&#x6D41;&#xFF08;&#x6216;&#x4ECE;&#x901A;&#x8FC7;&#x5176;feed&#x65B9;&#x6CD5;&#x63D0;&#x4F9B;&#x7684;&#x5B57;&#x8282;&#xFF09;&#x4E2D;&#x5206;&#x79BB;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> msgpack
+<span class="hljs-keyword">from</span> io <span class="hljs-keyword">import</span> BytesIO
+
+buf = BytesIO()
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>):
+    buf.write(msgpack.packb(list(range(i))))
+
+buf.seek(<span class="hljs-number">0</span>)
+
+unpacker = msgpack.Unpacker(buf)
+<span class="hljs-keyword">for</span> unpacked <span class="hljs-keyword">in</span> unpacker:
+    print(unpacked)
+</code></pre>
+<pre><code>[]
+[0]
+[0, 1]
+[0, 1, 2]
+[0, 1, 2, 3]
+[0, 1, 2, 3, 4]
+[0, 1, 2, 3, 4, 5]
+[0, 1, 2, 3, 4, 5, 6]
+[0, 1, 2, 3, 4, 5, 6, 7]
+[0, 1, 2, 3, 4, 5, 6, 7, 8]
+</code></pre><h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x5E8F;&#x5217;&#x5316;">&#x81EA;&#x5B9A;&#x4E49;&#x5BF9;&#x8C61;&#x5E8F;&#x5217;&#x5316;</h2>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x5E8F;&#x5217;&#x5316;&#x81EA;&#x5B9A;&#x4E49;&#x6570;&#x636E;&#x7C7B;&#x578B;.&#x4EE5;&#x4E0B;&#x662F;datetime.datetime&#x7684;&#x793A;&#x4F8B;.</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;<code>default</code>&#x6765;&#x6307;&#x5B9A;&#x81EA;&#x5B9A;&#x4E49;&#x5E8F;&#x5217;&#x5316;&#x548C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x65B9;&#x6CD5;.</p>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x5E8F;&#x5217;&#x5316;&#x540E;&#x7684;&#x5BF9;&#x8C61;&#x5B57;&#x6BB5;&#x548C;&#x503C;&#x90FD;&#x4F1A;&#x88AB;&#x53D8;&#x6210;bytes,&#x56E0;&#x6B64;&#x9700;&#x8981;&#x9002;&#x5F53;&#x7684;decode</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> datetime
+<span class="hljs-keyword">import</span> msgpack
+
+useful_dict = {
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">&quot;created&quot;</span>: datetime.datetime.now(),
+}
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decode_datetime</span><span class="hljs-params">(obj)</span>:</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-string">b&apos;__datetime__&apos;</span> <span class="hljs-keyword">in</span> obj:
+        obj = datetime.datetime.strptime(obj[<span class="hljs-string">b&quot;as_str&quot;</span>].decode(), <span class="hljs-string">&quot;%Y%m%dT%H:%M:%S.%f&quot;</span>)
+    <span class="hljs-keyword">return</span> obj
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">encode_datetime</span><span class="hljs-params">(obj)</span>:</span>
+    <span class="hljs-keyword">if</span> isinstance(obj, datetime.datetime):
+        <span class="hljs-keyword">return</span> {<span class="hljs-string">b&apos;__datetime__&apos;</span>: <span class="hljs-keyword">True</span>, <span class="hljs-string">b&apos;as_str&apos;</span>: obj.strftime(<span class="hljs-string">&quot;%Y%m%dT%H:%M:%S.%f&quot;</span>)}
+    <span class="hljs-keyword">return</span> obj
+</code></pre>
+<pre><code class="lang-python">packed_dict = msgpack.packb(useful_dict, default=encode_datetime)
+</code></pre>
+<pre><code class="lang-python">packed_dict
+</code></pre>
+<pre><code>b&apos;\x82\xa2id\x01\xa7created\x82\xac__datetime__\xc3\xa6as_str\xb820170601T14:18:18.572902&apos;
+</code></pre><pre><code class="lang-python">this_dict_again = msgpack.unpackb(packed_dict, object_hook=decode_datetime)
+</code></pre>
+<pre><code class="lang-python">this_dict_again
+</code></pre>
+<pre><code>{b&apos;created&apos;: datetime.datetime(2017, 6, 1, 14, 18, 18, 572902), b&apos;id&apos;: 1}
+</code></pre><p>&#x5982;&#x4E0A;&#x9762;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;,&#x5E8F;&#x5217;&#x5316;&#x662F;&#x5C06;&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x627E;&#x51FA;&#x6765;,&#x4E00;&#x4E2A;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x5E8F;&#x5217;&#x5316;&#x65B9;&#x6CD5;,&#x56E0;&#x6B64;&#x9700;&#x8981;&#x7528;<code>isinstance</code>&#x65B9;&#x6CD5;&#x6765;&#x5224;&#x522B;&#x51FA;&#x7C7B;&#x578B;&#x6765;&#x518D;&#x505A;&#x7279;&#x6B8A;&#x5904;&#x7406;.
+&#x800C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x5219;&#x662F;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x6307;&#x5B9A;&#x7684;&#x5B57;&#x6BB5;&#x627E;&#x51FA;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x5185;&#x5BB9;,&#x518D;&#x6267;&#x884C;&#x53CD;&#x5E8F;&#x5217;&#x5316;</p>
+<h2 id="&#x7ED3;&#x5408;dill&#x4F20;&#x9012;&#x5BF9;&#x8C61;">&#x7ED3;&#x5408;dill&#x4F20;&#x9012;&#x5BF9;&#x8C61;</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> dill
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vector2D</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Vector2D&lt;{self.a},{self.b}&gt;&quot;</span>.format(self=self)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__dill__</span><span class="hljs-params">(self)</span>:</span> 
+        <span class="hljs-keyword">return</span> dill.dumps(self)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,a:int,b:int)</span>:</span>
+        self.a = a
+        self.b = b
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__add__</span><span class="hljs-params">(self,c)</span>:</span>
+        a = self.a+c.a
+        b = self.b+c.b
+        <span class="hljs-keyword">return</span> Vector2D(a,b)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">encode_v2d</span><span class="hljs-params">(obj)</span>:</span>
+    <span class="hljs-keyword">if</span> isinstance(obj, Vector2D):
+        <span class="hljs-keyword">return</span> {<span class="hljs-string">b&apos;__Vector2D__&apos;</span>: <span class="hljs-keyword">True</span>, <span class="hljs-string">b&apos;as_bytes&apos;</span>: obj.__dill__()}
+    <span class="hljs-keyword">return</span> obj
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decode_v2d</span><span class="hljs-params">(obj)</span>:</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-string">b&apos;__Vector2D__&apos;</span> <span class="hljs-keyword">in</span> obj:
+        obj = dill.loads(obj[<span class="hljs-string">b&quot;as_bytes&quot;</span>])
+    <span class="hljs-keyword">return</span> obj
+</code></pre>
+<pre><code class="lang-python">useful_dict = {
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">&quot;created&quot;</span>: Vector2D(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>),
+}
+</code></pre>
+<pre><code class="lang-python">packed_dict = msgpack.packb(useful_dict, default=encode_v2d)
+</code></pre>
+<pre><code class="lang-python">packed_dict
+</code></pre>
+<pre><code>b&apos;\x82\xa2id\x01\xa7created\x82\xac__Vector2D__\xc3\xa8as_bytes\xda\x03\x87\x80\x03cdill.dill\n_create_type\nq\x00(cdill.dill\n_load_type\nq\x01X\x04\x00\x00\x00typeq\x02\x85q\x03Rq\x04X\x08\x00\x00\x00Vector2Dq\x05h\x01X\x06\x00\x00\x00objectq\x06\x85q\x07Rq\x08\x85q\t}q\n(X\n\x00\x00\x00__module__q\x0bX\x08\x00\x00\x00__main__q\x0cX\x08\x00\x00\x00__repr__q\rcdill.dill\n_create_function\nq\x0e(h\x01X\x08\x00\x00\x00CodeTypeq\x0f\x85q\x10Rq\x11(K\x01K\x00K\x01K\x03KCC\x0cd\x01j\x00|\x00d\x02\x8d\x01S\x00q\x12NX\x1b\x00\x00\x00Vector2D&lt;{self.a},{self.b}&gt;q\x13X\x04\x00\x00\x00selfq\x14\x85q\x15\x87q\x16X\x06\x00\x00\x00formatq\x17\x85q\x18h\x14\x85q\x19X \x00\x00\x00&lt;ipython-input-191-da5ef92c102d&gt;q\x1ah\rK\x03C\x02\x00\x01q\x1b))tq\x1cRq\x1dc__builtin__\n__main__\nh\rNN}q\x1etq\x1fRq X\x08\x00\x00\x00__dill__q!h\x0e(h\x11(K\x01K\x00K\x01K\x02KCC\nt\x00j\x01|\x00\x83\x01S\x00q&quot;N\x85q#X\x04\x00\x00\x00dillq$X\x05\x00\x00\x00dumpsq%\x86q&amp;h\x14\x85q\&apos;h\x1ah!K\x05C\x02\x00\x01q())tq)Rq*c__builtin__\n__main__\nh!NN}q+tq,Rq-X\x08\x00\x00\x00__init__q.h\x0e(h\x11(K\x03K\x00K\x03K\x02KCC\x10|\x01|\x00_\x00|\x02|\x00_\x01d\x00S\x00q/N\x85q0X\x01\x00\x00\x00aq1X\x01\x00\x00\x00bq2\x86q3h\x14h1h2\x87q4h\x1ah.K\x07C\x04\x00\x01\x06\x01q5))tq6Rq7c__builtin__\n__main__\nh.NN}q8tq9Rq:X\x07\x00\x00\x00__add__q;h\x0e(h\x11(K\x02K\x00K\x04K\x03KCC&quot;|\x00j\x00|\x01j\x00\x17\x00}\x02|\x00j\x01|\x01j\x01\x17\x00}\x03t\x02|\x02|\x03\x83\x02S\x00q&lt;N\x85q=h1h2h\x05\x87q&gt;(h\x14X\x01\x00\x00\x00cq?h1h2tq@h\x1ah;K\nC\x06\x00\x01\x0c\x01\x0c\x01qA))tqBRqCc__builtin__\n__main__\nh;NN}qDtqERqFX\x07\x00\x00\x00__doc__qGNX\r\x00\x00\x00__slotnames__qH]qIutqJRqK)\x81qL}qM(h1K\x01h2K\x02ub.&apos;
+</code></pre><pre><code class="lang-python">this_dict_again = msgpack.unpackb(packed_dict, object_hook=decode_v2d)
+</code></pre>
+<pre><code class="lang-python">this_dict_again
+</code></pre>
+<pre><code>{b&apos;created&apos;: Vector2D&lt;1,2&gt;, b&apos;id&apos;: 1}
+</code></pre><pre><code class="lang-python">v1 = this_dict_again[<span class="hljs-string">b&quot;created&quot;</span>]
+</code></pre>
+<pre><code class="lang-python">v2 = Vector2D(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>)
+</code></pre>
+<pre><code class="lang-python">v1+v2
+</code></pre>
+<pre><code>Vector2D&lt;3,4&gt;
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="文件与IO流.html" class="navigation navigation-prev " aria-label="Previous page: 文件与IO流">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="结语.html" class="navigation navigation-next " aria-label="Next page: 结语">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"序列化","level":"1.5.5","depth":2,"next":{"title":"结语","level":"1.5.6","depth":2,"path":"文本_文件与字节序/结语.md","ref":"文本_文件与字节序/结语.md","articles":[]},"previous":{"title":"文件与IO流","level":"1.5.4","depth":2,"path":"文本_文件与字节序/文件与IO流.md","ref":"文本_文件与字节序/文件与IO流.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0"},"file":{"path":"文本_文件与字节序/序列化.md","mtime":"2017-06-07T12:50:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-07T16:25:44.261Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
