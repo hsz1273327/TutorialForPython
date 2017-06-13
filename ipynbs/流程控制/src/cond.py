@@ -3,7 +3,8 @@ import multiprocessing
 def consumer(cond):
     t = multiprocessing.current_process()
     with cond:
-        cond.wait()  # wait()方法创建了一个名为waiter的锁，并且设置锁的状态为locked。这个waiter锁用于线程间的通讯
+        cond.wait()  # wait()方法创建了一个名为waiter的锁，
+        #并且设置锁的状态为locked。这个waiter锁用于线程间的通讯
         print('{}: Resource is available to consumer'.format(t.name))
 def producer(cond):
     t = multiprocessing.current_process()

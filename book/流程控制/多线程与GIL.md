@@ -89,8 +89,8 @@ print('elapsed time: %.2fs' % (time() - t0))
 print('OK')
 ```
 
-    elapsed time: 1.71s
-    elapsed time: 3.60s
+    elapsed time: 0.86s
+    elapsed time: 1.73s
     OK
 
 
@@ -145,7 +145,7 @@ main(1)
     192.0 KB
     170.7 KB
     149.3 KB
-    1 workers, elapsed time: 27.53s
+    1 workers, elapsed time: 10.66s
 
 
 
@@ -155,8 +155,8 @@ main(2)
 
     362.7 KB
     384.0 KB
-    341.3 KB
     320.0 KB
+    341.3 KB
     277.3 KB
     298.7 KB
     234.7 KB
@@ -165,7 +165,7 @@ main(2)
     192.0 KB
     149.3 KB
     170.7 KB
-    2 workers, elapsed time: 21.81s
+    2 workers, elapsed time: 13.25s
 
 
 
@@ -174,8 +174,8 @@ main(4)
 ```
 
     320.0 KB
-    341.3 KB
     362.7 KB
+    341.3 KB
     384.0 KB
     256.0 KB
     298.7 KB
@@ -183,9 +183,9 @@ main(4)
     234.7 KB
     149.3 KB
     170.7 KB
-    192.0 KB
     213.3 KB
-    4 workers, elapsed time: 22.69s
+    192.0 KB
+    4 workers, elapsed time: 12.75s
 
 
 ### MapReduce模型
@@ -293,13 +293,19 @@ responses
 
 
 
-    [<tomorrow.tomorrow.Tomorrow at 0x103ce5898>,
-     <tomorrow.tomorrow.Tomorrow at 0x103cf3828>,
-     <tomorrow.tomorrow.Tomorrow at 0x103ce52e8>,
-     <tomorrow.tomorrow.Tomorrow at 0x103ce5ac8>,
-     <tomorrow.tomorrow.Tomorrow at 0x103cf3e80>,
-     <tomorrow.tomorrow.Tomorrow at 0x103cf3a90>]
+    [<tomorrow.tomorrow.Tomorrow at 0x10cf0e898>,
+     <tomorrow.tomorrow.Tomorrow at 0x10cf0edd8>,
+     <tomorrow.tomorrow.Tomorrow at 0x10cf0ed30>,
+     <tomorrow.tomorrow.Tomorrow at 0x10ca71198>,
+     <tomorrow.tomorrow.Tomorrow at 0x10ca71320>,
+     <tomorrow.tomorrow.Tomorrow at 0x10ca71400>]
 
+
+
+    112272535095293:end112582705942171:end
+    
+    115797848077099:start1099726899285419:start
+    
 
 
 ## 使用线程池进行相对底层的多进程操作
@@ -343,6 +349,11 @@ def long_time_task(name):
 
 ```
 
+    112272535095293:end115280095190773:end
+    
+    1099726899285419:end
+
+
 
 ```python
 print('父线程 %s.' % os.getpid())
@@ -355,27 +366,20 @@ p.join()
 print('所有子线程完成了.')
 ```
 
-    父线程 29010.
-    等待所有子线程完成...运行任务 2 (29010)...
-    
-    运行任务 3 (29010)...运行任务 0 (29010)...运行任务 1 (29010)...
-    
-    
-    任务 0 执行了 0.16 秒.
-    运行任务 4 (29010)...
-    任务 4 执行了 0.81 秒.
-    任务 1 执行了 1.11 秒.
-    任务 3 执行了 1.48 秒.
-    任务 2 执行了 2.40 秒.
-    所有子线程完成了.
-    112272535095293:end
-    115797848077099:start
-    112582705942171:end
-    1099726899285419:start
-    115280095190773:end
-    112272535095293:end
-    1099726899285419:end
+    父线程 1328.
     115797848077099:end
+    等待所有子线程完成...运行任务 1 (1328)...运行任务 0 (1328)...
+    运行任务 2 (1328)...
+    
+    
+    运行任务 3 (1328)...
+    任务 2 执行了 1.40 秒.
+    运行任务 4 (1328)...
+    任务 1 执行了 1.57 秒.
+    任务 3 执行了 1.97 秒.
+    任务 4 执行了 1.05 秒.
+    任务 0 执行了 2.83 秒.
+    所有子线程完成了.
 
 
 #### map_async
@@ -405,6 +409,43 @@ print(res.get(timeout=1))             # raises multiprocessing.TimeoutError
 
 ```
 
+    map:  [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+    imap:
+    0
+    1
+    4
+    9
+    16
+    25
+    36
+    49
+    64
+    81
+    apply: 100
+
+
+
+    ---------------------------------------------------------------------------
+
+    TimeoutError                              Traceback (most recent call last)
+
+    <ipython-input-17-21bbb913a07a> in <module>()
+         18 # make worker sleep for 10 secs
+         19 res = pool.apply_async(sleep, [10])
+    ---> 20 print(res.get(timeout=1))             # raises multiprocessing.TimeoutError
+    
+
+    ~/LIB/CONDA/anaconda/lib/python3.6/multiprocessing/pool.py in get(self, timeout)
+        602         self.wait(timeout)
+        603         if not self.ready():
+    --> 604             raise TimeoutError
+        605         if self._success:
+        606             return self._value
+
+
+    TimeoutError: 
+
+
 获取进程池中的运算结果
 
 
@@ -431,11 +472,11 @@ for res in result:
 print("Sub-process(es) done.")
 ```
 
-    msg:msg: msg:hello 0  
-    hello 2hello 1
+    msg:msg:msg:   hello 1hello 2hello 0
     
-    endendend
     
+    end
+    endend
     
     ::: done hello 0
     ::: done hello 1
@@ -464,14 +505,14 @@ for i in range(5):
 print("closed")
 ```
 
-    0123
+    102
     
     
+    3
+    4
+    closed
+    AWAKEAWAKEAWAKE
     
-    4closed
-    
-    AWAKE
-    AWAKEAWAKE
     
     AWAKE
     AWAKE
@@ -526,16 +567,16 @@ p.join()
 print(u"父线程结束啦")
 ```
 
-    父线程 29010.
+    父线程 1328.
     子线程要开始啦.
-    子线程 test (29010)...
-    父线程29010进行中...子线程 test (29010)...
+    父线程1328进行中...子线程 test (1328)...
     
-    父线程29010进行中...子线程 test (29010)...
+    父线程1328进行中...子线程 test (1328)...
     
-    父线程29010进行中...子线程结束.
+    父线程1328进行中...子线程 test (1328)...
     
-    父线程结束啦
+    父线程结束啦子线程结束.
+    
 
 
 ### 使用Thread作为父类自定义子线程
@@ -575,11 +616,11 @@ for proc in processes:
     print("RESULT: {}".format(q.get()))
 ```
 
-    RESULT: Thread idx=0 is called 'Thread-30'
-    RESULT: Thread idx=1 is called 'Thread-31'
-    RESULT: Thread idx=2 is called 'Thread-32'
-    RESULT: Thread idx=3 is called 'Thread-33'
-    RESULT: Thread idx=4 is called 'Thread-34'
+    RESULT: Thread idx=0 is called 'Thread-31'
+    RESULT: Thread idx=1 is called 'Thread-32'
+    RESULT: Thread idx=2 is called 'Thread-33'
+    RESULT: Thread idx=3 is called 'Thread-34'
+    RESULT: Thread idx=4 is called 'Thread-35'
 
 
 创建子线程时，只需要传入一个执行函数和函数的参数，创建一个Thread实例，用start()方法启动，这样创建进程比fork()简单。
@@ -671,78 +712,67 @@ c1 = Consumer(q,con,"C1")
 c1.start()
 ```
 
-    生产者P1产生了
-    P1把值P1:3放入了队列生产者P2产生了
+    生产者P1产生了P1把值P1:5放入了队列
     
-    P1把值P1:4放入了队列消费者C1产生了
+    P1把值P1:8放入了队列生产者P2产生了
     
-    P1把值P1:6放入了队列
-    P1把值P1:10放入了队列
-    P1把值P1:5放入了队列
-    队列满了,生产者等待P1把值P1:5放入了队列
-    C1从队列中获取了C1:P1:3
+    P1把值P1:8放入了队列消费者C1产生了
     
-    P1把值P1:7放入了队列C1从队列中获取了C1:P1:4
-    
-    P1把值P1:5放入了队列C1从队列中获取了C1:P1:6
     P1把值P1:7放入了队列
-    
-    C1从队列中获取了C1:P1:10P1把值P1:9放入了队列
-    
-    C1从队列中获取了C1:P1:5队列满了,生产者等待
-    
-    C1从队列中获取了C1:P1:5队列满了,生产者等待P1把值P1:5放入了队列
-    
-    C1从队列中获取了C1:P1:7
-    
-    P1把值P1:9放入了队列C1从队列中获取了C1:P1:5
-    
-    P1把值P1:0放入了队列C1从队列中获取了C1:P1:7
-    
-    P1把值P1:2放入了队列C1从队列中获取了C1:P1:9
-    
-    P1把值P1:0放入了队列队列空了,消费者等待P2把值P2:6放入了队列
+    队列满了,生产者等待C1从队列中获取了C1:P1:5P1把值P1:3放入了队列
+    C1从队列中获取了C1:P1:8
     
     
-    P1把值P1:8放入了队列C1从队列中获取了C1:P1:5P2把值P2:2放入了队列
+    P1把值P1:3放入了队列C1从队列中获取了C1:P1:8
+    
+    P1把值P1:6放入了队列C1从队列中获取了C1:P1:7
+    
+    P1把值P1:2放入了队列C1从队列中获取了C1:P1:3
+    
+    P1把值P1:10放入了队列C1从队列中获取了C1:P1:3
+    
+    P1把值P1:0放入了队列C1从队列中获取了C1:P1:6
+    
+    队列满了,生产者等待队列满了,生产者等待C1从队列中获取了C1:P1:2
     
     
-    P1把值P1:4放入了队列C1从队列中获取了C1:P1:9P2把值P2:10放入了队列
+    P1把值P1:8放入了队列C1从队列中获取了C1:P1:10
+    
+    P1把值P1:7放入了队列C1从队列中获取了C1:P1:0
+    
+    P1把值P1:0放入了队列队列空了,消费者等待
+    
+    P1把值P1:3放入了队列C1从队列中获取了C1:P1:8
+    
+    C1从队列中获取了C1:P1:7P1把值P1:4放入了队列
+    
+    C1从队列中获取了C1:P1:0P1把值P1:7放入了队列
+    
+    C1从队列中获取了C1:P1:3P1把值P1:2放入了队列P2把值P2:5放入了队列
     
     
-    P1把值P1:7放入了队列C1从队列中获取了C1:P1:0P2把值P2:6放入了队列
+    C1从队列中获取了C1:P1:4P1把值P1:6放入了队列P2把值P2:6放入了队列
     
     
-    P1把值P1:6放入了队列C1从队列中获取了C1:P1:2P2把值P2:4放入了队列
+    C1从队列中获取了C1:P1:7P1把值P1:10放入了队列P2把值P2:5放入了队列
     
     
-    P1把值P1:0放入了队列C1从队列中获取了C1:P1:0P2把值P2:3放入了队列
+    C1从队列中获取了C1:P1:2P1把值P1:4放入了队列P2把值P2:5放入了队列
     
     
-    队列满了,生产者等待C1从队列中获取了C1:P1:8P2把值P2:5放入了队列
+    C1从队列中获取了C1:P1:6队列满了,生产者等待P2把值P2:2放入了队列
     
     
-    队列满了,生产者等待C1从队列中获取了C1:P1:4P2把值P2:1放入了队列
+    C1从队列中获取了C1:P1:10队列满了,生产者等待P2把值P2:9放入了队列
     
     
-    P2把值P2:8放入了队列C1从队列中获取了C1:P1:7
+    C1从队列中获取了C1:P1:4P2把值P2:10放入了队列
     
-    P2把值P2:3放入了队列C1从队列中获取了C1:P1:6
+    队列空了,消费者等待P2把值P2:0放入了队列
     
-    队列满了,生产者等待C1从队列中获取了C1:P1:0
-    
-    队列空了,消费者等待
-    C1从队列中获取了C1:P2:6
-    C1从队列中获取了C1:P2:2
-    C1从队列中获取了C1:P2:10
-    C1从队列中获取了C1:P2:6
-    C1从队列中获取了C1:P2:4
-    C1从队列中获取了C1:P2:3
-    C1从队列中获取了C1:P2:5
-    C1从队列中获取了C1:P2:1
-    C1从队列中获取了C1:P2:8
-    C1从队列中获取了C1:P2:3
-    队列空了,消费者等待
+    P2把值P2:4放入了队列
+    P2把值P2:10放入了队列
+    队列满了,生产者等待
 
 
 ## queue模块说明
