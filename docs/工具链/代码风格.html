@@ -1,14 +1,14 @@
 
 <!DOCTYPE HTML>
-<html lang="zh" >
+<html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>代码风格 · GitBook</title>
+        <title>代码风格 · python攻略--消息队列</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
-        
+        <meta name="author" content="hsz">
         
         
     
@@ -17,11 +17,43 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -49,6 +81,7 @@
         
     
     
+    
     <meta name="HandheldFriendly" content="true"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -63,6 +96,17 @@
     <link rel="prev" href="运行环境与部署分发.html" />
     
 
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"hsz1273327/TutorialForPythonMessageQueue","types":["star","watch","fork"],"size":"small"};
+    </script>
+
     </head>
     <body>
         
@@ -71,7 +115,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="輸入並搜尋" />
+    <input type="text" placeholder="输入并搜索" />
 </div>
 
             
@@ -551,7 +595,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            本書使用 GitBook 釋出
+            本书使用 GitBook 发布
         </a>
     </li>
 </ul>
@@ -589,21 +633,21 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x4EE3;&#x7801;&#x98CE;&#x683C;&#x89C4;&#x5B9A;">&#x4EE3;&#x7801;&#x98CE;&#x683C;&#x89C4;&#x5B9A;</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x4EE3;&#x7801;&#x98CE;&#x683C;&#x89C4;&#x5B9A;"><b>1. </b>&#x4EE3;&#x7801;&#x98CE;&#x683C;&#x89C4;&#x5B9A;</a></li><ul><li><span class="title-icon "></span><a href="#&#x4EE3;&#x7801;&#x7F16;&#x6392;"><b>1.1. </b>&#x4EE3;&#x7801;&#x7F16;&#x6392;</a></li><li><span class="title-icon "></span><a href="#&#x6587;&#x6863;&#x7F16;&#x6392;"><b>1.2. </b>&#x6587;&#x6863;&#x7F16;&#x6392;</a></li><li><span class="title-icon "></span><a href="#&#x7A7A;&#x683C;&#x7684;&#x4F7F;&#x7528;"><b>1.3. </b>&#x7A7A;&#x683C;&#x7684;&#x4F7F;&#x7528;</a></li><li><span class="title-icon "></span><a href="#&#x6CE8;&#x91CA;"><b>1.4. </b>&#x6CE8;&#x91CA;</a></li><li><span class="title-icon "></span><a href="#&#x6587;&#x6863;&#x63CF;&#x8FF0;"><b>1.5. </b>&#x6587;&#x6863;&#x63CF;&#x8FF0;</a></li><li><span class="title-icon "></span><a href="#shebang"><b>1.6. </b>Shebang</a></li><li><span class="title-icon "></span><a href="#todo&#x6CE8;&#x91CA;"><b>1.7. </b>TODO&#x6CE8;&#x91CA;</a></li><li><span class="title-icon "></span><a href="#&#x547D;&#x540D;&#x89C4;&#x8303;"><b>1.8. </b>&#x547D;&#x540D;&#x89C4;&#x8303;</a></li><li><span class="title-icon "></span><a href="#&#x7F16;&#x7801;&#x5EFA;&#x8BAE;"><b>1.9. </b>&#x7F16;&#x7801;&#x5EFA;&#x8BAE;</a></li><li><span class="title-icon "></span><a href="#&#x5BFC;&#x5165;&#x683C;&#x5F0F;"><b>1.10. </b>&#x5BFC;&#x5165;&#x683C;&#x5F0F;</a></li><li><span class="title-icon "></span><a href="#main"><b>1.11. </b>Main</a></li><li><span class="title-icon "></span><a href="#docstrings&#x6CE8;&#x91CA;&#x98CE;&#x683C;"><b>1.12. </b>docstrings&#x6CE8;&#x91CA;&#x98CE;&#x683C;</a></li><ul><li><span class="title-icon "></span><a href="#&#x6A21;&#x5757;"><b>1.12.1. </b>&#x6A21;&#x5757;</a></li><li><span class="title-icon "></span><a href="#&#x51FD;&#x6570;"><b>1.12.2. </b>&#x51FD;&#x6570;</a></li><li><span class="title-icon "></span><a href="#&#x7C7B;"><b>1.12.3. </b>&#x7C7B;</a></li></ul></ul><li><span class="title-icon "></span><a href="#&#x4EE3;&#x7801;&#x7F8E;&#x5316;"><b>2. </b>&#x4EE3;&#x7801;&#x7F8E;&#x5316;</a></li><li><span class="title-icon "></span><a href="#&#x7C7B;&#x578B;&#x6CE8;&#x91CA;&#x548C;&#x68C0;&#x9A8C;"><b>3. </b>*&#x7C7B;&#x578B;&#x6CE8;&#x91CA;&#x548C;&#x68C0;&#x9A8C;</a></li><ul><li><span class="title-icon "></span><a href="#&#x81EA;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;&#x6CE8;&#x89E3;"><b>3.1. </b>*&#x81EA;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;&#x6CE8;&#x89E3;</a></li><ul><li><span class="title-icon "></span><a href="#&#x534F;&#x7A0B;&#x6CE8;&#x91CA;"><b>3.1.1. </b>&#x534F;&#x7A0B;&#x6CE8;&#x91CA;</a></li><li><span class="title-icon "></span><a href="#&#x7C7B;&#x578B;&#x522B;&#x540D;"><b>3.1.2. </b>&#x7C7B;&#x578B;&#x522B;&#x540D;</a></li><li><span class="title-icon "></span><a href="#&#x53EF;&#x8C03;&#x7528;&#x7C7B;&#x578B;"><b>3.1.3. </b>&#x53EF;&#x8C03;&#x7528;&#x7C7B;&#x578B;</a></li><li><span class="title-icon "></span><a href="#&#x751F;&#x6210;&#x5668;&#x7C7B;&#x578B;"><b>3.1.4. </b>&#x751F;&#x6210;&#x5668;&#x7C7B;&#x578B;</a></li><li><span class="title-icon "></span><a href="#&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x7C7B;&#x578B;"><b>3.1.5. </b>&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x7C7B;&#x578B;</a></li><li><span class="title-icon "></span><a href="#&#x6CDB;&#x578B;"><b>3.1.6. </b>&#x6CDB;&#x578B;</a></li><li><span class="title-icon "></span><a href="#&#x53D7;&#x9650;&#x6CDB;&#x578B;"><b>3.1.7. </b>&#x53D7;&#x9650;&#x6CDB;&#x578B;</a></li><li><span class="title-icon "></span><a href="#union&#x7C7B;&#x578B;"><b>3.1.8. </b>Union&#x7C7B;&#x578B;</a></li><li><span class="title-icon "></span><a href="#&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;"><b>3.1.9. </b>&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;</a></li><li><span class="title-icon "></span><a href="#any&#x7C7B;&#x578B;"><b>3.1.10. </b>any&#x7C7B;&#x578B;</a></li><li><span class="title-icon "></span><a href="#&#x65B9;&#x6CD5;&#x91CD;&#x8F7D;"><b>3.1.11. </b>&#x65B9;&#x6CD5;&#x91CD;&#x8F7D;</a></li></ul><li><span class="title-icon "></span><a href="#&#x9759;&#x6001;&#x7C7B;&#x578B;&#x68C0;&#x9A8C;"><b>3.2. </b>*&#x9759;&#x6001;&#x7C7B;&#x578B;&#x68C0;&#x9A8C;</a></li><li><span class="title-icon "></span><a href="#&#x53D8;&#x91CF;&#x6CE8;&#x89E3;36"><b>3.3. </b>*&#x53D8;&#x91CF;&#x6CE8;&#x89E3;(3.6)</a></li><li><span class="title-icon "></span><a href="#&#x6587;&#x6863;&#x751F;&#x6210;"><b>3.4. </b>&#x6587;&#x6863;&#x751F;&#x6210;</a></li><li><span class="title-icon "></span><a href="#sphinx-autodoc"><b>3.5. </b>*sphinx-autodoc</a></li></ul></ul></div><a href="#&#x4EE3;&#x7801;&#x98CE;&#x683C;&#x89C4;&#x5B9A;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x4EE3;&#x7801;&#x98CE;&#x683C;&#x89C4;&#x5B9A;"><a name="&#x4EE3;&#x7801;&#x98CE;&#x683C;&#x89C4;&#x5B9A;" class="anchor-navigation-ex-anchor" href="#&#x4EE3;&#x7801;&#x98CE;&#x683C;&#x89C4;&#x5B9A;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x4EE3;&#x7801;&#x98CE;&#x683C;&#x89C4;&#x5B9A;</h1>
 <p>python&#x793E;&#x533A;&#x6709;&#x4E00;&#x5957;&#x6210;&#x6587;&#x7684;&#x4EE3;&#x7801;&#x89C4;&#x8303;,&#x5C31;&#x662F;&#x6709;&#x540D;&#x7684;pep 8&#x89C4;&#x8303;.&#x800C;google&#x4E5F;&#x6709;&#x4E00;&#x5957;&#x6210;&#x6587;&#x7684;&#x98CE;&#x683C;&#x89C4;&#x8303;,&#x4ED6;&#x4EEC;&#x90FD;&#x5F88;&#x4E0D;&#x9519;,&#x4F46;&#x66F4;&#x52A0;&#x63A8;&#x8350;&#x4F7F;&#x7528;<code>pep8</code>&#x6807;&#x51C6;,&#x5E76;&#x4E14;&#x5728;&#x4E00;&#x4E9B;&#x7EC6;&#x8282;&#x4E0A;&#x4F7F;&#x7528;google&#x7684;&#x89C4;&#x8303;.&#x5F53;&#x7136;&#x4E86;,python&#x7684;&#x4EE3;&#x7801;&#x98CE;&#x683C;&#x5E76;&#x4E0D;&#x662F;&#x5F3A;&#x5236;&#x6027;&#x7684;,&#x53EA;&#x662F;&#x4F7F;&#x7528;&#x8FD9;&#x5957;&#x89C4;&#x5219;&#x4F1A;&#x66F4;&#x52A0;&#x4FBF;&#x4E8E;&#x56E2;&#x961F;&#x5408;&#x4F5C;.&#x662F;&#x5426;&#x4F7F;&#x7528;&#x8FD8;&#x662F;&#x770B;&#x4F7F;&#x7528;&#x8005;&#x4E2A;&#x4EBA;</p>
-<h2 id="&#x4EE3;&#x7801;&#x7F16;&#x6392;">&#x4EE3;&#x7801;&#x7F16;&#x6392;</h2>
+<h2 id="&#x4EE3;&#x7801;&#x7F16;&#x6392;"><a name="&#x4EE3;&#x7801;&#x7F16;&#x6392;" class="anchor-navigation-ex-anchor" href="#&#x4EE3;&#x7801;&#x7F16;&#x6392;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x4EE3;&#x7801;&#x7F16;&#x6392;</h2>
 <ol>
 <li>&#x7F29;&#x8FDB;&#x3002;4&#x4E2A;&#x7A7A;&#x683C;&#x7684;&#x7F29;&#x8FDB;&#xFF08;&#x7F16;&#x8F91;&#x5668;&#x90FD;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x6B64;&#x529F;&#x80FD;&#xFF09;&#xFF0C;&#x4E0D;&#x4F7F;&#x7528;Tap&#xFF0C;&#x66F4;&#x4E0D;&#x80FD;&#x6DF7;&#x5408;&#x4F7F;&#x7528;Tap&#x548C;&#x7A7A;&#x683C;&#x3002;</li>
 <li>&#x6BCF;&#x884C;&#x6700;&#x5927;&#x957F;&#x5EA6;79&#xFF0C;&#x6362;&#x884C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x53CD;&#x659C;&#x6760;&#xFF0C;&#x6700;&#x597D;&#x4F7F;&#x7528;&#x5706;&#x62EC;&#x53F7;&#x3002;&#x6362;&#x884C;&#x70B9;&#x8981;&#x5728;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x540E;&#x8FB9;&#x6572;&#x56DE;&#x8F66;&#x3002;</li>
 <li>&#x7C7B;&#x548C;top-level&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4E4B;&#x95F4;&#x7A7A;&#x4E24;&#x884C;&#xFF1B;&#x7C7B;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x5B9A;&#x4E49;&#x4E4B;&#x95F4;&#x7A7A;&#x4E00;&#x884C;&#xFF1B;&#x51FD;&#x6570;&#x5185;&#x903B;&#x8F91;&#x65E0;&#x5173;&#x6BB5;&#x843D;&#x4E4B;&#x95F4;&#x7A7A;&#x4E00;&#x884C;&#xFF1B;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x5C3D;&#x91CF;&#x4E0D;&#x8981;&#x518D;&#x7A7A;&#x884C;&#x3002;</li>
 </ol>
-<h2 id="&#x6587;&#x6863;&#x7F16;&#x6392;">&#x6587;&#x6863;&#x7F16;&#x6392;</h2>
+<h2 id="&#x6587;&#x6863;&#x7F16;&#x6392;"><a name="&#x6587;&#x6863;&#x7F16;&#x6392;" class="anchor-navigation-ex-anchor" href="#&#x6587;&#x6863;&#x7F16;&#x6392;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x6587;&#x6863;&#x7F16;&#x6392;</h2>
 <ol>
 <li>&#x6A21;&#x5757;&#x5185;&#x5BB9;&#x7684;&#x987A;&#x5E8F;&#xFF1A;&#x6A21;&#x5757;&#x8BF4;&#x660E;&#x548C;docstring&#x2014;import&#x2014;globals&amp;constants&#x2014;&#x5176;&#x4ED6;&#x5B9A;&#x4E49;&#x3002;&#x5176;&#x4E2D;import&#x90E8;&#x5206;&#xFF0C;&#x53C8;&#x6309;&#x6807;&#x51C6;&#x3001;&#x4E09;&#x65B9;&#x548C;&#x81EA;&#x5DF1;&#x7F16;&#x5199;&#x987A;&#x5E8F;&#x4F9D;&#x6B21;&#x6392;&#x653E;&#xFF0C;&#x4E4B;&#x95F4;&#x7A7A;&#x4E00;&#x884C;&#x3002;</li>
 <li>&#x4E0D;&#x8981;&#x5728;&#x4E00;&#x53E5;import&#x4E2D;&#x591A;&#x4E2A;&#x5E93;&#xFF0C;&#x6BD4;&#x5982;import os, sys&#x4E0D;&#x63A8;&#x8350;&#x3002;</li>
 <li>&#x5982;&#x679C;&#x91C7;&#x7528;from XX import XX&#x5F15;&#x7528;&#x5E93;&#xFF0C;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x2018;module.&#x2019;&#xFF0C;&#x90FD;&#x662F;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x547D;&#x540D;&#x51B2;&#x7A81;&#xFF0C;&#x8FD9;&#x65F6;&#x5C31;&#x8981;&#x91C7;&#x7528;import XX&#x3002;</li>
 </ol>
-<h2 id="&#x7A7A;&#x683C;&#x7684;&#x4F7F;&#x7528;">&#x7A7A;&#x683C;&#x7684;&#x4F7F;&#x7528;</h2>
+<h2 id="&#x7A7A;&#x683C;&#x7684;&#x4F7F;&#x7528;"><a name="&#x7A7A;&#x683C;&#x7684;&#x4F7F;&#x7528;" class="anchor-navigation-ex-anchor" href="#&#x7A7A;&#x683C;&#x7684;&#x4F7F;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x7A7A;&#x683C;&#x7684;&#x4F7F;&#x7528;</h2>
 <p>&#x603B;&#x4F53;&#x539F;&#x5219;&#xFF0C;&#x907F;&#x514D;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x7A7A;&#x683C;&#x3002;</p>
 <ol>
 <li>&#x5404;&#x79CD;&#x53F3;&#x62EC;&#x53F7;&#x524D;&#x4E0D;&#x8981;&#x52A0;&#x7A7A;&#x683C;&#x3002;</li>
@@ -615,7 +659,7 @@
 <li>&#x4E0D;&#x8981;&#x5C06;&#x591A;&#x53E5;&#x8BED;&#x53E5;&#x5199;&#x5728;&#x540C;&#x4E00;&#x884C;&#xFF0C;&#x5C3D;&#x7BA1;&#x4F7F;&#x7528;&#x2018;&#xFF1B;&#x2019;&#x5141;&#x8BB8;&#x3002;</li>
 <li>if/for/while&#x8BED;&#x53E5;&#x4E2D;&#xFF0C;&#x5373;&#x4F7F;&#x6267;&#x884C;&#x8BED;&#x53E5;&#x53EA;&#x6709;&#x4E00;&#x53E5;&#xFF0C;&#x4E5F;&#x5FC5;&#x987B;&#x53E6;&#x8D77;&#x4E00;&#x884C;&#x3002;</li>
 </ol>
-<h2 id="&#x6CE8;&#x91CA;">&#x6CE8;&#x91CA;</h2>
+<h2 id="&#x6CE8;&#x91CA;"><a name="&#x6CE8;&#x91CA;" class="anchor-navigation-ex-anchor" href="#&#x6CE8;&#x91CA;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. &#x6CE8;&#x91CA;</h2>
 <p>&#x603B;&#x4F53;&#x539F;&#x5219;&#xFF0C;&#x9519;&#x8BEF;&#x7684;&#x6CE8;&#x91CA;&#x4E0D;&#x5982;&#x6CA1;&#x6709;&#x6CE8;&#x91CA;&#x3002;&#x6240;&#x4EE5;&#x5F53;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x7B2C;&#x4E00;&#x4EF6;&#x4E8B;&#x5C31;&#x662F;&#x8981;&#x4FEE;&#x6539;&#x6CE8;&#x91CA;&#xFF01;</p>
 <p>&#x6CE8;&#x91CA;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x82F1;&#x6587;&#xFF0C;&#x6700;&#x597D;&#x662F;&#x5B8C;&#x6574;&#x7684;&#x53E5;&#x5B50;&#xFF0C;&#x9996;&#x5B57;&#x6BCD;&#x5927;&#x5199;&#xFF0C;&#x53E5;&#x540E;&#x8981;&#x6709;&#x7ED3;&#x675F;&#x7B26;&#xFF0C;&#x7ED3;&#x675F;&#x7B26;&#x540E;&#x8DDF;&#x4E24;&#x4E2A;&#x7A7A;&#x683C;&#xFF0C;&#x5F00;&#x59CB;&#x4E0B;&#x4E00;&#x53E5;&#x3002;&#x5982;&#x679C;&#x662F;&#x77ED;&#x8BED;&#xFF0C;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x7ED3;&#x675F;&#x7B26;&#x3002;</p>
 <ol>
@@ -633,7 +677,7 @@
 <li><p>&#x907F;&#x514D;&#x65E0;&#x8C13;&#x7684;&#x6CE8;&#x91CA;&#x3002;</p>
 </li>
 </ol>
-<h2 id="&#x6587;&#x6863;&#x63CF;&#x8FF0;">&#x6587;&#x6863;&#x63CF;&#x8FF0;</h2>
+<h2 id="&#x6587;&#x6863;&#x63CF;&#x8FF0;"><a name="&#x6587;&#x6863;&#x63CF;&#x8FF0;" class="anchor-navigation-ex-anchor" href="#&#x6587;&#x6863;&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. &#x6587;&#x6863;&#x63CF;&#x8FF0;</h2>
 <ol>
 <li>&#x4E3A;&#x6240;&#x6709;&#x7684;&#x5171;&#x6709;&#x6A21;&#x5757;&#x3001;&#x51FD;&#x6570;&#x3001;&#x7C7B;&#x3001;&#x65B9;&#x6CD5;&#x5199;docstrings&#xFF1B;&#x975E;&#x5171;&#x6709;&#x7684;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x5199;&#x6CE8;&#x91CA;&#xFF08;&#x5728;def&#x7684;&#x4E0B;&#x4E00;&#x884C;&#xFF09;&#x3002;</li>
 <li><p>&#x5982;&#x679C;docstring&#x8981;&#x6362;&#x884C;&#xFF0C;&#x53C2;&#x8003;&#x5982;&#x4E0B;&#x4F8B;&#x5B50;,&#x8BE6;&#x89C1;PEP 257</p>
@@ -645,18 +689,18 @@
 </code></pre>
 </li>
 </ol>
-<h2 id="shebang">Shebang</h2>
+<h2 id="shebang"><a name="shebang" class="anchor-navigation-ex-anchor" href="#shebang"><i class="fa fa-link" aria-hidden="true"></i></a>1.6. Shebang</h2>
 <p>&#x5927;&#x90E8;&#x5206;.py&#x6587;&#x4EF6;&#x4E0D;&#x5FC5;&#x4EE5;<code>#!</code>&#x4F5C;&#x4E3A;&#x6587;&#x4EF6;&#x7684;&#x5F00;&#x59CB;. &#x6839;&#x636E; PEP-394 , &#x7A0B;&#x5E8F;&#x7684;main&#x6587;&#x4EF6;&#x5E94;&#x8BE5;&#x4EE5;<code>#!/usr/bin/python2</code>&#x6216;&#x8005; <code>#!/usr/bin/python3</code>&#x5F00;&#x59CB;.&#x4F46;&#x5176;&#x5B9E;&#x66F4;&#x597D;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x4F7F;&#x7528;<code>#! /usr/bin/env/python2</code>&#x6216;&#x8005; <code>#!/usr/bin/env python3</code></p>
 <p>&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x79D1;&#x5B66;&#x4E2D;, Shebang (&#x4E5F;&#x79F0;&#x4E3A;Hashbang)&#x662F;&#x4E00;&#x4E2A;&#x7531;&#x4E95;&#x53F7;&#x548C;&#x53F9;&#x53F7;&#x6784;&#x6210;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x884C;(#!), &#x5176;&#x51FA;&#x73B0;&#x5728;&#x6587;&#x672C;&#x6587;&#x4EF6;&#x7684;&#x7B2C;&#x4E00;&#x884C;&#x7684;&#x524D;&#x4E24;&#x4E2A;&#x5B57;&#x7B26;. &#x5728;&#x6587;&#x4EF6;&#x4E2D;&#x5B58;&#x5728;Shebang&#x7684;&#x60C5;&#x51B5;&#x4E0B;, &#x7C7B;Unix&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x7A0B;&#x5E8F;&#x8F7D;&#x5165;&#x5668;&#x4F1A;&#x5206;&#x6790;Shebang&#x540E;&#x7684;&#x5185;&#x5BB9;, &#x5C06;&#x8FD9;&#x4E9B;&#x5185;&#x5BB9;&#x4F5C;&#x4E3A;&#x89E3;&#x91CA;&#x5668;&#x6307;&#x4EE4;, &#x5E76;&#x8C03;&#x7528;&#x8BE5;&#x6307;&#x4EE4;, &#x5E76;&#x5C06;&#x8F7D;&#x6709;Shebang&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4F5C;&#x4E3A;&#x8BE5;&#x89E3;&#x91CA;&#x5668;&#x7684;&#x53C2;&#x6570;. &#x4F8B;&#x5982;, &#x4EE5;&#x6307;&#x4EE4;<code>#!/bin/sh</code>&#x5F00;&#x5934;&#x7684;&#x6587;&#x4EF6;&#x5728;&#x6267;&#x884C;&#x65F6;&#x4F1A;&#x5B9E;&#x9645;&#x8C03;&#x7528;<code>/bin/sh</code>&#x7A0B;&#x5E8F;.</p>
 <p><code>#!</code>&#x5148;&#x7528;&#x4E8E;&#x5E2E;&#x52A9;&#x5185;&#x6838;&#x627E;&#x5230;Python&#x89E3;&#x91CA;&#x5668;, &#x4F46;&#x662F;&#x5728;&#x5BFC;&#x5165;&#x6A21;&#x5757;&#x65F6;, &#x5C06;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;. &#x56E0;&#x6B64;&#x53EA;&#x6709;&#x88AB;&#x76F4;&#x63A5;&#x6267;&#x884C;&#x7684;&#x6587;&#x4EF6;&#x4E2D;&#x624D;&#x6709;&#x5FC5;&#x8981;&#x52A0;&#x5165;<code>#!</code>.</p>
-<h2 id="todo&#x6CE8;&#x91CA;">TODO&#x6CE8;&#x91CA;</h2>
+<h2 id="todo&#x6CE8;&#x91CA;"><a name="todo&#x6CE8;&#x91CA;" class="anchor-navigation-ex-anchor" href="#todo&#x6CE8;&#x91CA;"><i class="fa fa-link" aria-hidden="true"></i></a>1.7. TODO&#x6CE8;&#x91CA;</h2>
 <p>&#x4E3A;&#x4E34;&#x65F6;&#x4EE3;&#x7801;&#x4F7F;&#x7528;TODO&#x6CE8;&#x91CA;, &#x5B83;&#x662F;&#x4E00;&#x79CD;&#x77ED;&#x671F;&#x89E3;&#x51B3;&#x65B9;&#x6848;. &#x4E0D;&#x7B97;&#x5B8C;&#x7F8E;, &#x4F46;&#x591F;&#x597D;&#x4E86;.</p>
 <p>TODO&#x6CE8;&#x91CA;&#x5E94;&#x8BE5;&#x5728;&#x6240;&#x6709;&#x5F00;&#x5934;&#x5904;&#x5305;&#x542B;<code>TODO</code>&#x5B57;&#x7B26;&#x4E32;, &#x7D27;&#x8DDF;&#x7740;&#x662F;&#x7528;&#x62EC;&#x53F7;&#x62EC;&#x8D77;&#x6765;&#x7684;&#x4F60;&#x7684;&#x540D;&#x5B57;, email&#x5730;&#x5740;&#x6216;&#x5176;&#x5B83;&#x6807;&#x8BC6;&#x7B26;. &#x7136;&#x540E;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;&#x5192;&#x53F7;. &#x63A5;&#x7740;&#x5FC5;&#x987B;&#x6709;&#x4E00;&#x884C;&#x6CE8;&#x91CA;, &#x89E3;&#x91CA;&#x8981;&#x505A;&#x4EC0;&#x4E48;. &#x4E3B;&#x8981;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x6709;&#x4E00;&#x4E2A;&#x7EDF;&#x4E00;&#x7684;TODO&#x683C;&#x5F0F;, &#x8FD9;&#x6837;&#x6DFB;&#x52A0;&#x6CE8;&#x91CA;&#x7684;&#x4EBA;&#x5C31;&#x53EF;&#x4EE5;&#x641C;&#x7D22;&#x5230;(&#x5E76;&#x53EF;&#x4EE5;&#x6309;&#x9700;&#x63D0;&#x4F9B;&#x66F4;&#x591A;&#x7EC6;&#x8282;). &#x5199;&#x4E86;TODO&#x6CE8;&#x91CA;&#x5E76;&#x4E0D;&#x4FDD;&#x8BC1;&#x5199;&#x7684;&#x4EBA;&#x4F1A;&#x4EB2;&#x81EA;&#x89E3;&#x51B3;&#x95EE;&#x9898;. &#x5F53;&#x4F60;&#x5199;&#x4E86;&#x4E00;&#x4E2A;<code>TODO</code>, &#x8BF7;&#x6CE8;&#x4E0A;&#x4F60;&#x7684;&#x540D;&#x5B57;.</p>
 <pre><code class="lang-python"><span class="hljs-comment"># TODO(kl@gmail.com): Use a &quot;*&quot; here for string repetition.</span>
 <span class="hljs-comment"># TODO(Zeke) Change this to use relations.</span>
 </code></pre>
 <p>&#x5982;&#x679C;&#x4F60;&#x7684;TODO&#x662F;&#x201D;&#x5C06;&#x6765;&#x505A;&#x67D0;&#x4E8B;&#x201D;&#x7684;&#x5F62;&#x5F0F;, &#x90A3;&#x4E48;&#x8BF7;&#x786E;&#x4FDD;&#x4F60;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x65E5;&#x671F;(&#x201C;2009&#x5E74;11&#x6708;&#x89E3;&#x51B3;&#x201D;)&#x6216;&#x8005;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x4E8B;&#x4EF6;(&#x201C;&#x7B49;&#x5230;&#x6240;&#x6709;&#x7684;&#x5BA2;&#x6237;&#x90FD;&#x53EF;&#x4EE5;&#x5904;&#x7406;XML&#x8BF7;&#x6C42;&#x5C31;&#x79FB;&#x9664;&#x8FD9;&#x4E9B;&#x4EE3;&#x7801;&#x201D;).</p>
-<h2 id="&#x547D;&#x540D;&#x89C4;&#x8303;">&#x547D;&#x540D;&#x89C4;&#x8303;</h2>
+<h2 id="&#x547D;&#x540D;&#x89C4;&#x8303;"><a name="&#x547D;&#x540D;&#x89C4;&#x8303;" class="anchor-navigation-ex-anchor" href="#&#x547D;&#x540D;&#x89C4;&#x8303;"><i class="fa fa-link" aria-hidden="true"></i></a>1.8. &#x547D;&#x540D;&#x89C4;&#x8303;</h2>
 <p>&#x603B;&#x4F53;&#x539F;&#x5219;&#xFF0C;&#x65B0;&#x7F16;&#x4EE3;&#x7801;&#x5FC5;&#x987B;&#x6309;&#x4E0B;&#x9762;&#x547D;&#x540D;&#x98CE;&#x683C;&#x8FDB;&#x884C;&#xFF0C;&#x73B0;&#x6709;&#x5E93;&#x7684;&#x7F16;&#x7801;&#x5C3D;&#x91CF;&#x4FDD;&#x6301;&#x98CE;&#x683C;&#x3002;</p>
 <ol>
 <li>&#x5C3D;&#x91CF;&#x5355;&#x72EC;&#x4F7F;&#x7528;&#x5C0F;&#x5199;&#x5B57;&#x6BCD;<code>l</code>&#xFF0C;&#x5927;&#x5199;&#x5B57;&#x6BCD;<code>O</code>&#x7B49;&#x5BB9;&#x6613;&#x6DF7;&#x6DC6;&#x7684;&#x5B57;&#x6BCD;&#x3002;</li>
@@ -673,7 +717,7 @@
 <li>&#x4E3A;&#x907F;&#x514D;&#x4E0E;&#x5B50;&#x7C7B;&#x5C5E;&#x6027;&#x547D;&#x540D;&#x51B2;&#x7A81;&#xFF0C;&#x5728;&#x7C7B;&#x7684;&#x4E00;&#x4E9B;&#x5C5E;&#x6027;&#x524D;&#xFF0C;&#x524D;&#x7F00;&#x4E24;&#x6761;&#x4E0B;&#x5212;&#x7EBF;&#x3002;&#x6BD4;&#x5982;&#xFF1A;&#x7C7B;Foo&#x4E2D;&#x58F0;&#x660E;<code>__a</code>,&#x8BBF;&#x95EE;&#x65F6;&#xFF0C;&#x53EA;&#x80FD;&#x901A;&#x8FC7;<code>Foo._Foo__a</code>&#xFF0C;&#x907F;&#x514D;&#x6B67;&#x4E49;&#x3002;&#x5982;&#x679C;&#x5B50;&#x7C7B;&#x4E5F;&#x53EB;<code>Foo</code>&#xFF0C;&#x90A3;&#x5C31;&#x65E0;&#x80FD;&#x4E3A;&#x529B;&#x4E86;&#x3002;</li>
 <li>&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x662F;<code>self</code>&#xFF0C;&#x800C;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x662F;<code>cls</code>&#x3002;</li>
 </ol>
-<h2 id="&#x7F16;&#x7801;&#x5EFA;&#x8BAE;">&#x7F16;&#x7801;&#x5EFA;&#x8BAE;</h2>
+<h2 id="&#x7F16;&#x7801;&#x5EFA;&#x8BAE;"><a name="&#x7F16;&#x7801;&#x5EFA;&#x8BAE;" class="anchor-navigation-ex-anchor" href="#&#x7F16;&#x7801;&#x5EFA;&#x8BAE;"><i class="fa fa-link" aria-hidden="true"></i></a>1.9. &#x7F16;&#x7801;&#x5EFA;&#x8BAE;</h2>
 <ol>
 <li>&#x7F16;&#x7801;&#x4E2D;&#x8003;&#x8651;&#x5230;&#x5176;&#x4ED6;python&#x5B9E;&#x73B0;&#x7684;&#x6548;&#x7387;&#x7B49;&#x95EE;&#x9898;&#xFF0C;&#x6BD4;&#x5982;&#x8FD0;&#x7B97;&#x7B26;&#x2018;+&#x2019;&#x5728;CPython&#xFF08;Python&#xFF09;&#x4E2D;&#x6548;&#x7387;&#x5F88;&#x9AD8;&#xFF0C;&#x4F46;&#x662F;Jython&#x4E2D;&#x5374;&#x975E;&#x5E38;&#x4F4E;&#xFF0C;&#x6240;&#x4EE5;&#x5E94;&#x8BE5;&#x91C7;&#x7528;.join()&#x7684;&#x65B9;&#x5F0F;&#x3002;</li>
 <li>&#x5C3D;&#x53EF;&#x80FD;&#x4F7F;&#x7528;<code>is</code>,<code>is not</code>&#x53D6;&#x4EE3;<code>==</code>&#xFF0C;&#x6BD4;&#x5982;<code>if x is not None</code> &#x8981;&#x4F18;&#x4E8E;<code>if x</code>&#x3002;</li>
@@ -729,7 +773,7 @@
 <li><p>&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#x5224;&#x65AD;&#x4F7F;&#x7528;<code>if boolvalue</code>&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
 </li>
 </ol>
-<h2 id="&#x5BFC;&#x5165;&#x683C;&#x5F0F;">&#x5BFC;&#x5165;&#x683C;&#x5F0F;</h2>
+<h2 id="&#x5BFC;&#x5165;&#x683C;&#x5F0F;"><a name="&#x5BFC;&#x5165;&#x683C;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x5BFC;&#x5165;&#x683C;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>1.10. &#x5BFC;&#x5165;&#x683C;&#x5F0F;</h2>
 <p>&#x6BCF;&#x4E2A;&#x5BFC;&#x5165;&#x5E94;&#x8BE5;&#x72EC;&#x5360;&#x4E00;&#x884C;
 Yes:</p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> os
@@ -751,7 +795,7 @@ Yes:</p>
 <span class="hljs-keyword">from</span> foo.bar <span class="hljs-keyword">import</span> Quux
 <span class="hljs-keyword">from</span> Foob <span class="hljs-keyword">import</span> ar
 </code></pre>
-<h2 id="main">Main</h2>
+<h2 id="main"><a name="main" class="anchor-navigation-ex-anchor" href="#main"><i class="fa fa-link" aria-hidden="true"></i></a>1.11. Main</h2>
 <p>&#x5373;&#x4F7F;&#x662F;&#x4E00;&#x4E2A;&#x6253;&#x7B97;&#x88AB;&#x7528;&#x4F5C;&#x811A;&#x672C;&#x7684;&#x6587;&#x4EF6;, &#x4E5F;&#x5E94;&#x8BE5;&#x662F;&#x53EF;&#x5BFC;&#x5165;&#x7684;. &#x5E76;&#x4E14;&#x7B80;&#x5355;&#x7684;&#x5BFC;&#x5165;&#x4E0D;&#x5E94;&#x8BE5;&#x5BFC;&#x81F4;&#x8FD9;&#x4E2A;&#x811A;&#x672C;&#x7684;&#x4E3B;&#x529F;&#x80FD;(main functionality)&#x88AB;&#x6267;&#x884C;, &#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x526F;&#x4F5C;&#x7528;. &#x4E3B;&#x529F;&#x80FD;&#x5E94;&#x8BE5;&#x653E;&#x5728;&#x4E00;&#x4E2A;<code>main()</code>&#x51FD;&#x6570;&#x4E2D;.
 &#x5728;Python&#x4E2D;, <code>pydoc</code>&#x4EE5;&#x53CA;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x8981;&#x6C42;&#x6A21;&#x5757;&#x5FC5;&#x987B;&#x662F;&#x53EF;&#x5BFC;&#x5165;&#x7684;. &#x4F60;&#x7684;&#x4EE3;&#x7801;&#x5E94;&#x8BE5;&#x5728;&#x6267;&#x884C;&#x4E3B;&#x7A0B;&#x5E8F;&#x524D;&#x603B;&#x662F;&#x68C0;&#x67E5; if<code>__name__ == &apos;__main__&apos;</code> , &#x8FD9;&#x6837;&#x5F53;&#x6A21;&#x5757;&#x88AB;&#x5BFC;&#x5165;&#x65F6;&#x4E3B;&#x7A0B;&#x5E8F;&#x5C31;&#x4E0D;&#x4F1A;&#x88AB;&#x6267;&#x884C;.</p>
 <pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
@@ -761,13 +805,13 @@ Yes:</p>
     main()
 </code></pre>
 <p>&#x6240;&#x6709;&#x7684;&#x9876;&#x7EA7;&#x4EE3;&#x7801;&#x5728;&#x6A21;&#x5757;&#x5BFC;&#x5165;&#x65F6;&#x90FD;&#x4F1A;&#x88AB;&#x6267;&#x884C;. &#x8981;&#x5C0F;&#x5FC3;&#x4E0D;&#x8981;&#x53BB;&#x8C03;&#x7528;&#x51FD;&#x6570;, &#x521B;&#x5EFA;&#x5BF9;&#x8C61;, &#x6216;&#x8005;&#x6267;&#x884C;&#x90A3;&#x4E9B;&#x4E0D;&#x5E94;&#x8BE5;&#x5728;&#x4F7F;&#x7528;pydoc&#x65F6;&#x6267;&#x884C;&#x7684;&#x64CD;&#x4F5C;.</p>
-<h2 id="docstrings&#x6CE8;&#x91CA;&#x98CE;&#x683C;">docstrings&#x6CE8;&#x91CA;&#x98CE;&#x683C;</h2>
+<h2 id="docstrings&#x6CE8;&#x91CA;&#x98CE;&#x683C;"><a name="docstrings&#x6CE8;&#x91CA;&#x98CE;&#x683C;" class="anchor-navigation-ex-anchor" href="#docstrings&#x6CE8;&#x91CA;&#x98CE;&#x683C;"><i class="fa fa-link" aria-hidden="true"></i></a>1.12. docstrings&#x6CE8;&#x91CA;&#x98CE;&#x683C;</h2>
 <p>python&#x6587;&#x4EF6;&#x4E2D;&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;(&#x6A21;&#x5757;,&#x51FD;&#x6570;,&#x65B9;&#x6CD5;,&#x7C7B;)&#x7684;&#x5F00;&#x5934;&#x90E8;&#x5206;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>&quot;&quot;&quot;</code>&#x6216;&#x8005;<code>&apos;&apos;&apos;</code>&#x5305;&#x88F9;&#x8D77;&#x6765;&#x4F5C;&#x4E3A;&#x6CE8;&#x91CA;,&#x8FD9;&#x79CD;&#x6CE8;&#x91CA;&#x88AB;&#x79F0;&#x4F5C;<code>docstrings</code>.python&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x5C06;&#x5668;&#x5B58;&#x653E;&#x5728;&#x5BF9;&#x5E94;&#x5BF9;&#x8C61;&#x7684;<code>__doc__</code>&#x5C5E;&#x6027;&#x4E0A;.</p>
 <p>docstrings&#x6CE8;&#x91CA;&#x662F;&#x53EF;&#x4EE5;&#x88AB;<code>help()</code>&#x5185;&#x7F6E;&#x51FD;&#x6570;&#x8BFB;&#x51FA;&#x6253;&#x5370;,&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;pydoc&#x8BFB;&#x51FA;&#x751F;&#x6210;&#x6587;&#x6863;&#x7684;&#x6CE8;&#x91CA;,&#x4F7F;&#x7528;&#x4E00;&#x5BF9;&#x8FDE;&#x7EED;3&#x4E2A;&#x5F15;&#x53F7;&#x6765;&#x6784;&#x5EFA;.</p>
 <p>&#x6211;&#x4EEC;&#x7684;docstrings&#x6CE8;&#x91CA;&#x8981;&#x7B80;&#x6D01;&#x660E;&#x4E86;,&#x5E76;&#x4E14;&#x6700;&#x597D;&#x7B26;&#x5408;&#x5927;&#x591A;&#x6570;&#x4EBA;&#x7684;&#x9605;&#x8BFB;&#x4E60;&#x60EF;,&#x8FD9;&#x6837;&#x624D;&#x4FBF;&#x4E8E;&#x7EF4;&#x62A4;,&#x8FD9;&#x8FB9;&#x63A8;&#x8350;&#x8C37;&#x6B4C;&#x98CE;&#x683C;&#x7684;&#x6CE8;&#x91CA;&#x89C4;&#x8303;.</p>
-<h3 id="&#x6A21;&#x5757;">&#x6A21;&#x5757;</h3>
+<h3 id="&#x6A21;&#x5757;"><a name="&#x6A21;&#x5757;" class="anchor-navigation-ex-anchor" href="#&#x6A21;&#x5757;"><i class="fa fa-link" aria-hidden="true"></i></a>1.12.1. &#x6A21;&#x5757;</h3>
 <p>&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x5E94;&#x8BE5;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x8BB8;&#x53EF;&#x6837;&#x677F;. &#x6839;&#x636E;&#x9879;&#x76EE;<a href="http://blog.hszofficial.site/blog/2016/06/11/%E5%85%B3%E4%BA%8E%E5%BC%80%E6%BA%90%E5%8D%8F%E8%AE%AE%E7%9A%84%E9%80%89%E6%8B%A9/" target="_blank">&#x4F7F;&#x7528;&#x7684;&#x8BB8;&#x53EF;</a>, &#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x6837;&#x677F;.</p>
-<h3 id="&#x51FD;&#x6570;">&#x51FD;&#x6570;</h3>
+<h3 id="&#x51FD;&#x6570;"><a name="&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>1.12.2. &#x51FD;&#x6570;</h3>
 <p>&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x8981;&#x6709;&#x6587;&#x6863;&#x5B57;&#x7B26;&#x4E32;, &#x9664;&#x975E;&#x5B83;&#x6EE1;&#x8DB3;&#x4EE5;&#x4E0B;&#x6761;&#x4EF6;:</p>
 <p>&#x5916;&#x90E8;&#x4E0D;&#x53EF;&#x89C1;
 &#x975E;&#x5E38;&#x77ED;&#x5C0F;
@@ -801,7 +845,7 @@ Yes:</p>
         <span class="hljs-keyword">else</span>:
             <span class="hljs-keyword">yield</span> item
 </code></pre>
-<h3 id="&#x7C7B;">&#x7C7B;</h3>
+<h3 id="&#x7C7B;"><a name="&#x7C7B;" class="anchor-navigation-ex-anchor" href="#&#x7C7B;"><i class="fa fa-link" aria-hidden="true"></i></a>1.12.3. &#x7C7B;</h3>
 <p>&#x7C7B;&#x5E94;&#x8BE5;&#x5728;&#x5176;&#x5B9A;&#x4E49;&#x4E0B;&#x6709;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x63CF;&#x8FF0;&#x8BE5;&#x7C7B;&#x7684;&#x6587;&#x6863;&#x5B57;&#x7B26;&#x4E32;. &#x5982;&#x679C;&#x4F60;&#x7684;&#x7C7B;&#x6709;&#x516C;&#x5171;&#x5C5E;&#x6027;(Attributes), &#x90A3;&#x4E48;&#x6587;&#x6863;&#x4E2D;&#x5E94;&#x8BE5;&#x6709;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;(Attributes)&#x6BB5;. &#x5E76;&#x4E14;&#x5E94;&#x8BE5;&#x9075;&#x5B88;&#x548C;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x76F8;&#x540C;&#x7684;&#x683C;&#x5F0F;.</p>
 <ul>
 <li>Attributes:
@@ -824,13 +868,13 @@ Yes:</p>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">public_method</span><span class="hljs-params">(self)</span>:</span>
         <span class="hljs-string">&quot;&quot;&quot;Performs operation blah.&quot;&quot;&quot;</span>
 </code></pre>
-<h1 id="&#x4EE3;&#x7801;&#x7F8E;&#x5316;">&#x4EE3;&#x7801;&#x7F8E;&#x5316;</h1>
+<h1 id="&#x4EE3;&#x7801;&#x7F8E;&#x5316;"><a name="&#x4EE3;&#x7801;&#x7F8E;&#x5316;" class="anchor-navigation-ex-anchor" href="#&#x4EE3;&#x7801;&#x7F8E;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x4EE3;&#x7801;&#x7F8E;&#x5316;</h1>
 <p>&#x8981;&#x5B8C;&#x5168;&#x7B26;&#x5408;&#x89C4;&#x8303;&#x662F;&#x5F88;&#x4F5C;&#x5B7D;&#x7E41;&#x7410;&#x7684;&#x4E00;&#x4EF6;&#x4E8B;,&#x6211;&#x4EEC;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5DE5;&#x5177;&#x7B80;&#x5316;&#x8FD9;&#x4E2A;&#x5DE5;&#x4F5C;,&#x8FD9;&#x5C31;&#x662F;<a href="https://github.com/hhatto/autopep8" target="_blank">autopep8</a>.</p>
 <p>&#x5B89;&#x88C5;:</p>
 <pre><code class="lang-shell">pip install --upgrade autopep8
 </code></pre>
 <p>&#x5982;&#x679C;&#x4F7F;&#x7528;atom&#x7684;&#x8BDD;&#x5219;&#x53EF;&#x4EE5;&#x5B89;&#x88C5;<a href="https://atom.io/packages/atom-beautify" target="_blank">Atom Beautify</a>&#x63D2;&#x4EF6;,&#x5B83;&#x7684;python&#x4EE3;&#x7801;&#x7F8E;&#x5316;&#x4E5F;&#x662F;&#x57FA;&#x4E8E;autopep8&#x7684;.</p>
-<h1 id="&#x7C7B;&#x578B;&#x6CE8;&#x91CA;&#x548C;&#x68C0;&#x9A8C;"><code>*</code>&#x7C7B;&#x578B;&#x6CE8;&#x91CA;&#x548C;&#x68C0;&#x9A8C;</h1>
+<h1 id="&#x7C7B;&#x578B;&#x6CE8;&#x91CA;&#x548C;&#x68C0;&#x9A8C;"><a name="&#x7C7B;&#x578B;&#x6CE8;&#x91CA;&#x548C;&#x68C0;&#x9A8C;" class="anchor-navigation-ex-anchor" href="#&#x7C7B;&#x578B;&#x6CE8;&#x91CA;&#x548C;&#x68C0;&#x9A8C;"><i class="fa fa-link" aria-hidden="true"></i></a>3. *&#x7C7B;&#x578B;&#x6CE8;&#x91CA;&#x548C;&#x68C0;&#x9A8C;</h1>
 <p>python3.5&#x8D77;&#x5C31;&#x652F;&#x6301;&#x51FD;&#x6570;&#x7684;&#x7C7B;&#x578B;&#x6CE8;&#x91CA;(pep 484),&#x5B83;&#x7684;&#x7ED3;&#x6784;&#x5982;&#x4E0B;:</p>
 <pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(arg:int)</span>-&gt;int:</span>
     <span class="hljs-keyword">pass</span>
@@ -840,22 +884,22 @@ Yes:</p>
 <pre><code class="lang-python">func.__annotations__
 </code></pre>
 <pre><code>{&apos;arg&apos;: int, &apos;return&apos;: int}
-</code></pre><h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;&#x6CE8;&#x89E3;"><code>*</code>&#x81EA;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;&#x6CE8;&#x89E3;</h2>
+</code></pre><h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;&#x6CE8;&#x89E3;"><a name="&#x81EA;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;&#x6CE8;&#x89E3;" class="anchor-navigation-ex-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;&#x6CE8;&#x89E3;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. *&#x81EA;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;&#x6CE8;&#x89E3;</h2>
 <p>&#x7C7B;&#x578B;&#x6CE8;&#x91CA;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;&#x81EA;&#x5E26;&#x7684;&#x7C7B;&#x548C;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#x7684;&#x7C7B;,&#x4F46;&#x5BF9;&#x4E8E;&#x6CDB;&#x578B;&#x6CE8;&#x89E3;&#x5C31;&#x529B;&#x4E0D;&#x4ECE;&#x5FC3;&#x4E86;,&#x5BF9;&#x4E8E;&#x8FD9;&#x79CD;&#x9700;&#x6C42;,python&#x5185;&#x7F6E;&#x4E86;typing&#x6A21;&#x5757;&#x6765;&#x5E2E;&#x52A9;&#x6CDB;&#x578B;&#x6CE8;&#x91CA;</p>
-<h3 id="&#x534F;&#x7A0B;&#x6CE8;&#x91CA;">&#x534F;&#x7A0B;&#x6CE8;&#x91CA;</h3>
+<h3 id="&#x534F;&#x7A0B;&#x6CE8;&#x91CA;"><a name="&#x534F;&#x7A0B;&#x6CE8;&#x91CA;" class="anchor-navigation-ex-anchor" href="#&#x534F;&#x7A0B;&#x6CE8;&#x91CA;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.1. &#x534F;&#x7A0B;&#x6CE8;&#x91CA;</h3>
 <pre><code class="lang-python"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">spam</span><span class="hljs-params">(ignored: int)</span> -&gt; str:</span>
     <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;spam&apos;</span>
 
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span> -&gt; <span class="hljs-keyword">None</span>:</span>
     bar = <span class="hljs-keyword">await</span> spam(<span class="hljs-number">42</span>)  <span class="hljs-comment"># type: str</span>
 </code></pre>
-<h3 id="&#x7C7B;&#x578B;&#x522B;&#x540D;">&#x7C7B;&#x578B;&#x522B;&#x540D;</h3>
+<h3 id="&#x7C7B;&#x578B;&#x522B;&#x540D;"><a name="&#x7C7B;&#x578B;&#x522B;&#x540D;" class="anchor-navigation-ex-anchor" href="#&#x7C7B;&#x578B;&#x522B;&#x540D;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.2. &#x7C7B;&#x578B;&#x522B;&#x540D;</h3>
 <pre><code class="lang-python">Url = str
 
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">retry</span><span class="hljs-params">(url: Url, retry_count: int)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
     <span class="hljs-keyword">pass</span>
 </code></pre>
-<h3 id="&#x53EF;&#x8C03;&#x7528;&#x7C7B;&#x578B;">&#x53EF;&#x8C03;&#x7528;&#x7C7B;&#x578B;</h3>
+<h3 id="&#x53EF;&#x8C03;&#x7528;&#x7C7B;&#x578B;"><a name="&#x53EF;&#x8C03;&#x7528;&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x53EF;&#x8C03;&#x7528;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.3. &#x53EF;&#x8C03;&#x7528;&#x7C7B;&#x578B;</h3>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> Callable
 
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">feeder</span><span class="hljs-params">(get_next_item: Callable[[], str])</span> -&gt; <span class="hljs-keyword">None</span>:</span>
@@ -865,7 +909,7 @@ Yes:</p>
                 on_error: Callable[[int, Exception], None])</span> -&gt; <span class="hljs-keyword">None</span>:</span>
     <span class="hljs-keyword">pass</span>
 </code></pre>
-<h3 id="&#x751F;&#x6210;&#x5668;&#x7C7B;&#x578B;">&#x751F;&#x6210;&#x5668;&#x7C7B;&#x578B;</h3>
+<h3 id="&#x751F;&#x6210;&#x5668;&#x7C7B;&#x578B;"><a name="&#x751F;&#x6210;&#x5668;&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x751F;&#x6210;&#x5668;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.4. &#x751F;&#x6210;&#x5668;&#x7C7B;&#x578B;</h3>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> Generator
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">echo_round</span><span class="hljs-params">()</span> -&gt; Generator[int, float, str]:</span>
     res = <span class="hljs-keyword">yield</span>
@@ -873,13 +917,13 @@ Yes:</p>
         res = <span class="hljs-keyword">yield</span> round(res)
     <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;OK&apos;</span>
 </code></pre>
-<h3 id="&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x7C7B;&#x578B;">&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x7C7B;&#x578B;</h3>
+<h3 id="&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x7C7B;&#x578B;"><a name="&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.5. &#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x7C7B;&#x578B;</h3>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> Mapping, Set
 
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">notify_by_email</span><span class="hljs-params">(employees: Set[int], overrides: Mapping[str, str])</span> -&gt; <span class="hljs-keyword">None</span>:</span>
     <span class="hljs-keyword">pass</span>
 </code></pre>
-<h3 id="&#x6CDB;&#x578B;">&#x6CDB;&#x578B;</h3>
+<h3 id="&#x6CDB;&#x578B;"><a name="&#x6CDB;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x6CDB;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.6. &#x6CDB;&#x578B;</h3>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> Sequence, TypeVar
 
 T = TypeVar(<span class="hljs-string">&apos;T&apos;</span>)      <span class="hljs-comment"># Declare type variable</span>
@@ -887,7 +931,7 @@ T = TypeVar(<span class="hljs-string">&apos;T&apos;</span>)      <span class="hl
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">first</span><span class="hljs-params">(l: Sequence[T])</span> -&gt; T:</span>   <span class="hljs-comment"># Generic function</span>
     <span class="hljs-keyword">return</span> l[<span class="hljs-number">0</span>]
 </code></pre>
-<h3 id="&#x53D7;&#x9650;&#x6CDB;&#x578B;">&#x53D7;&#x9650;&#x6CDB;&#x578B;</h3>
+<h3 id="&#x53D7;&#x9650;&#x6CDB;&#x578B;"><a name="&#x53D7;&#x9650;&#x6CDB;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x53D7;&#x9650;&#x6CDB;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.7. &#x53D7;&#x9650;&#x6CDB;&#x578B;</h3>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> TypeVar
 
 AnyStr = TypeVar(<span class="hljs-string">&apos;AnyStr&apos;</span>, str, bytes)<span class="hljs-comment">#&#x5FC5;&#x987B;&#x662F;str&#x6216;&#x8005;bytes</span>
@@ -895,7 +939,7 @@ AnyStr = TypeVar(<span class="hljs-string">&apos;AnyStr&apos;</span>, str, bytes
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">concat</span><span class="hljs-params">(x: AnyStr, y: AnyStr)</span> -&gt; AnyStr:</span>
     <span class="hljs-keyword">return</span> x + y
 </code></pre>
-<h3 id="union&#x7C7B;&#x578B;">Union&#x7C7B;&#x578B;</h3>
+<h3 id="union&#x7C7B;&#x578B;"><a name="union&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#union&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.8. Union&#x7C7B;&#x578B;</h3>
 <p>Union&#x7C7B;&#x578B;&#x5E38;&#x7528;&#x4E8E;&#x53EF;&#x9009;&#x7C7B;&#x578B;,&#x6700;&#x5E38;&#x89C1;&#x7684;&#x7528;&#x6CD5;&#x5C31;&#x662F;&#x548C;<code>None</code>&#x4E00;&#x8D77;&#x4F7F;&#x7528;</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> Union
 </code></pre>
@@ -903,7 +947,7 @@ AnyStr = TypeVar(<span class="hljs-string">&apos;AnyStr&apos;</span>, str, bytes
     <span class="hljs-keyword">if</span> isinstance(e, Employee):
         e = [e]
 </code></pre>
-<h3 id="&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;">&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;</h3>
+<h3 id="&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;"><a name="&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.9. &#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;</h3>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> TypeVar, Generic
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Logger</span>:</span>
     <span class="hljs-keyword">pass</span>
@@ -934,9 +978,9 @@ T = TypeVar(<span class="hljs-string">&apos;T&apos;</span>)
         var.set(<span class="hljs-number">0</span>)
 </code></pre>
 <p>&#x8001;&#x5B9E;&#x8BF4;&#x8FD9;&#x4E48;&#x6CE8;&#x91CA;&#x7C7B;&#x578B;&#x6709;&#x70B9;&#x753B;&#x86C7;&#x6DFB;&#x8DB3;</p>
-<h3 id="any&#x7C7B;&#x578B;">any&#x7C7B;&#x578B;</h3>
+<h3 id="any&#x7C7B;&#x578B;"><a name="any&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#any&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.10. any&#x7C7B;&#x578B;</h3>
 <p>any&#x7C7B;&#x578B;&#x548C;ts&#x4E2D;&#x4E00;&#x6837;,&#x4EE3;&#x8868;&#x4EFB;&#x610F;&#x7C7B;&#x578B;&#x90FD;&#x53EF;&#x4EE5;</p>
-<h3 id="&#x65B9;&#x6CD5;&#x91CD;&#x8F7D;">&#x65B9;&#x6CD5;&#x91CD;&#x8F7D;</h3>
+<h3 id="&#x65B9;&#x6CD5;&#x91CD;&#x8F7D;"><a name="&#x65B9;&#x6CD5;&#x91CD;&#x8F7D;" class="anchor-navigation-ex-anchor" href="#&#x65B9;&#x6CD5;&#x91CD;&#x8F7D;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1.11. &#x65B9;&#x6CD5;&#x91CD;&#x8F7D;</h3>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> overload
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">bytes</span>:</span>
@@ -945,7 +989,7 @@ T = TypeVar(<span class="hljs-string">&apos;T&apos;</span>)
 <span class="hljs-meta">    @overload</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getitem__</span><span class="hljs-params">(self, s: slice)</span> -&gt; bytes:</span> ...
 </code></pre>
-<h2 id="&#x9759;&#x6001;&#x7C7B;&#x578B;&#x68C0;&#x9A8C;"><code>*</code>&#x9759;&#x6001;&#x7C7B;&#x578B;&#x68C0;&#x9A8C;</h2>
+<h2 id="&#x9759;&#x6001;&#x7C7B;&#x578B;&#x68C0;&#x9A8C;"><a name="&#x9759;&#x6001;&#x7C7B;&#x578B;&#x68C0;&#x9A8C;" class="anchor-navigation-ex-anchor" href="#&#x9759;&#x6001;&#x7C7B;&#x578B;&#x68C0;&#x9A8C;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. *&#x9759;&#x6001;&#x7C7B;&#x578B;&#x68C0;&#x9A8C;</h2>
 <p>python&#x89E3;&#x91CA;&#x5668;&#x5E76;&#x4E0D;&#x4F1A;&#x505A;&#x9759;&#x6001;&#x7C7B;&#x578B;&#x68C0;&#x9A8C;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5229;&#x7528;<a href="http://mypy-lang.org/" target="_blank">mypy</a>&#x6765;&#x5B9E;&#x73B0;</p>
 <pre><code class="lang-python">%%writefile src/C2/mypytest.py
 
@@ -964,7 +1008,7 @@ print(twice(<span class="hljs-number">3</span>, add))   <span class="hljs-commen
 </code></pre>
 <pre><code>src/C2/mypytest.py:8: error: Incompatible return value type (got &quot;int&quot;, expected &quot;str&quot;)
 src/C2/mypytest.py:10: error: Argument 2 to &quot;twice&quot; has incompatible type Callable[[int], str]; expected Callable[[int], int]
-</code></pre><h2 id="&#x53D8;&#x91CF;&#x6CE8;&#x89E3;36"><code>*</code>&#x53D8;&#x91CF;&#x6CE8;&#x89E3;(3.6)</h2>
+</code></pre><h2 id="&#x53D8;&#x91CF;&#x6CE8;&#x89E3;36"><a name="&#x53D8;&#x91CF;&#x6CE8;&#x89E3;36" class="anchor-navigation-ex-anchor" href="#&#x53D8;&#x91CF;&#x6CE8;&#x89E3;36"><i class="fa fa-link" aria-hidden="true"></i></a>3.3. *&#x53D8;&#x91CF;&#x6CE8;&#x89E3;(3.6)</h2>
 <p>3.6&#x7248;&#x672C;&#x8D77;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x4E5F;&#x53EF;&#x4EE5;&#x6CE8;&#x91CA;&#x4E86;(pep 526),&#x8FD9;&#x770B;&#x8D77;&#x6765;&#x5C31;&#x50CF;c&#x8BED;&#x8A00;&#x4E00;&#x6837;,&#x7136;&#x800C;&#x5B83;&#x4F9D;&#x7136;&#x8FD8;&#x662F;&#x6CE8;&#x91CA;</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> Optional,List
 foo: Optional[int]
@@ -995,7 +1039,7 @@ C.y = <span class="hljs-number">0</span>  <span class="hljs-comment"># This is O
 </code></pre><pre><code class="lang-python">__annotations__
 </code></pre>
 <pre><code>{&apos;bar&apos;: typing.List[str], &apos;foo&apos;: typing.Union[int, NoneType]}
-</code></pre><h2 id="&#x6587;&#x6863;&#x751F;&#x6210;">&#x6587;&#x6863;&#x751F;&#x6210;</h2>
+</code></pre><h2 id="&#x6587;&#x6863;&#x751F;&#x6210;"><a name="&#x6587;&#x6863;&#x751F;&#x6210;" class="anchor-navigation-ex-anchor" href="#&#x6587;&#x6863;&#x751F;&#x6210;"><i class="fa fa-link" aria-hidden="true"></i></a>3.4. &#x6587;&#x6863;&#x751F;&#x6210;</h2>
 <p>&#x65E0;&#x8BBA;&#x4EE3;&#x7801;&#x5199;&#x7684;&#x5982;&#x4F55;,&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4E00;&#x4E2A;&#x8BE6;&#x7EC6;&#x6E05;&#x6670;&#x7684;&#x6587;&#x6863;&#x4F1A;&#x8BA9;&#x4F7F;&#x7528;&#x548C;&#x7EF4;&#x62A4;&#x53D8;&#x5F97;&#x975E;&#x5E38;&#x56F0;&#x96BE;,&#x8D1F;&#x8D23;&#x4EFB;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x5E94;&#x8BE5;&#x5C3D;&#x91CF;&#x4E3A;&#x81EA;&#x5DF1;&#x7684;&#x4EE3;&#x7801;&#x7EF4;&#x62A4;&#x4E00;&#x4EFD;&#x6587;&#x6863;.python&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x81EA;&#x5E26;&#x7684;&#x6587;&#x6863;&#x751F;&#x6210;&#x5668;pydoc,&#x5B83;&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x4EE3;&#x7801;&#x4E2D;&#x7684;docstring,&#x81EA;&#x52A8;&#x7684;&#x751F;&#x6210;&#x6587;&#x6863;.</p>
 <p>&#x5B83;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x975E;&#x5E38;&#x7B80;&#x5355;</p>
 <pre><code class="lang-shell">!python -m pydoc &lt;packagename&gt;
@@ -1006,9 +1050,11 @@ C.y = <span class="hljs-number">0</span>  <span class="hljs-comment"># This is O
 <li>-g GUI&#x7248;</li>
 <li>-w &#x751F;&#x6210;html&#x6587;&#x4EF6;</li>
 </ul>
-<h2 id="sphinx-autodoc"><code>*</code>sphinx-autodoc</h2>
+<h2 id="sphinx-autodoc"><a name="sphinx-autodoc" class="anchor-navigation-ex-anchor" href="#sphinx-autodoc"><i class="fa fa-link" aria-hidden="true"></i></a>3.5. *sphinx-autodoc</h2>
 <p>pydoc&#x867D;&#x7136;&#x65B9;&#x4FBF;,&#x4F46;&#x5B9E;&#x8BDD;&#x8BF4;&#x6837;&#x5F0F;&#x6BD4;&#x8F83;&#x8001;&#x65E7;,&#x800C;&#x4E14;&#x53EF;&#x5B9A;&#x5236;&#x6027;&#x4E0D;&#x5F3A;,&#x73B0;&#x5728;&#x7684;python&#x5305;&#x4E00;&#x822C;&#x90FD;&#x7528;sphinx&#x505A;&#x6587;&#x6863;,sphinx&#x5176;&#x5B9E;&#x4E5F;&#x662F;&#x5229;&#x7528;autodoc,&#x7ED3;&#x5408;docstring&#x548C;&#x89C4;&#x8303;&#x5316;&#x7684;&#x6587;&#x6863;&#x683C;&#x5F0F;,&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x975E;&#x5E38;&#x7F8E;&#x89C2;&#x7684;&#x9879;&#x76EE;&#x6587;&#x6863;.&#x5177;&#x4F53;&#x53EF;&#x4EE5;&#x770B;<a href="http://blog.hszofficial.site/blog/2016/11/29/%E4%BD%BF%E7%94%A8sphinx%E7%BB%93%E5%90%88markdown%E5%86%99%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/" target="_blank">&#x6211;&#x7684;&#x8FD9;&#x7BC7;&#x535A;&#x6587;</a></p>
-
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2017-06-13 20:50:38
+</span></footer>
                                 
                                 </section>
                             
@@ -1051,7 +1097,7 @@ C.y = <span class="hljs-number">0</span>  <span class="hljs-comment"># This is O
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"代码风格","level":"1.3.2","depth":2,"next":{"title":"调试与测试","level":"1.3.3","depth":2,"path":"工具链/调试与测试.md","ref":"工具链/调试与测试.md","articles":[]},"previous":{"title":"运行环境与部署分发","level":"1.3.1","depth":2,"path":"工具链/运行环境与部署分发.md","ref":"工具链/运行环境与部署分发.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0"},"file":{"path":"工具链/代码风格.md","mtime":"2017-06-07T12:50:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-13T15:04:42.252Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"代码风格","level":"1.3.2","depth":2,"next":{"title":"调试与测试","level":"1.3.3","depth":2,"path":"工具链/调试与测试.md","ref":"工具链/调试与测试.md","articles":[]},"previous":{"title":"运行环境与部署分发","level":"1.3.1","depth":2,"path":"工具链/运行环境与部署分发.md","ref":"工具链/运行环境与部署分发.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","katex","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/hsz1273327"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","wechatText":"微信打赏"},"sitemap-general":{"prefix":"http://gitbook.zhangjikai.com"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"isRewritePageTitle":true,"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","isShowTocTitleIcon":true,"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false}},"github-buttons":{"repo":"hsz1273327/TutorialForPythonMessageQueue","types":["star","watch","fork"],"size":"small"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略--消息队列","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍消息队列的原理和使用方法,介绍python常用的消息队列工具"},"file":{"path":"工具链/代码风格.md","mtime":"2017-06-13T12:50:38.511Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-17T04:13:36.617Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1061,27 +1107,31 @@ C.y = <span class="hljs-number">0</span>  <span class="hljs-comment"># This is O
     <script src="../gitbook/theme.js"></script>
     
         
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
         
     
         

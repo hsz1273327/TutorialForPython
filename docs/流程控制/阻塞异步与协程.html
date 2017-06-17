@@ -1,14 +1,14 @@
 
 <!DOCTYPE HTML>
-<html lang="zh" >
+<html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>阻塞异步与协程 · GitBook</title>
+        <title>阻塞异步与协程 · python攻略--消息队列</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
-        
+        <meta name="author" content="hsz">
         
         
     
@@ -17,11 +17,43 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -49,6 +81,7 @@
         
     
     
+    
     <meta name="HandheldFriendly" content="true"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -63,6 +96,17 @@
     <link rel="prev" href="单线程同步流程控制.html" />
     
 
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"hsz1273327/TutorialForPythonMessageQueue","types":["star","watch","fork"],"size":"small"};
+    </script>
+
     </head>
     <body>
         
@@ -71,7 +115,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="輸入並搜尋" />
+    <input type="text" placeholder="输入并搜索" />
 </div>
 
             
@@ -551,7 +595,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            本書使用 GitBook 釋出
+            本书使用 GitBook 发布
         </a>
     </li>
 </ul>
@@ -589,7 +633,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x4ECE;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x5230;&#x5E76;&#x884C;&#x6267;&#x884C;">&#x4ECE;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x5230;&#x5E76;&#x884C;&#x6267;&#x884C;</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x4ECE;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x5230;&#x5E76;&#x884C;&#x6267;&#x884C;"><b>1. </b>&#x4ECE;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x5230;&#x5E76;&#x884C;&#x6267;&#x884C;</a></li><li><span class="title-icon "></span><a href="#&#x963B;&#x585E;&#x4E0E;&#x975E;&#x963B;&#x585E;"><b>2. </b>&#x963B;&#x585E;&#x4E0E;&#x975E;&#x963B;&#x585E;</a></li><li><span class="title-icon "></span><a href="#&#x540C;&#x6B65;&#x4E0E;&#x5F02;&#x6B65;"><b>3. </b>&#x540C;&#x6B65;&#x4E0E;&#x5F02;&#x6B65;</a></li><li><span class="title-icon "></span><a href="#&#x534F;&#x7A0B;"><b>4. </b>&#x534F;&#x7A0B;</a></li><ul><li><span class="title-icon "></span><a href="#&#x534F;&#x7A0B;&#x53CA;&#x5176;&#x8BED;&#x6CD5;"><b>4.1. </b>&#x534F;&#x7A0B;&#x53CA;&#x5176;&#x8BED;&#x6CD5;</a></li><ul><li><span class="title-icon "></span><a href="#await&#x8BED;&#x6CD5;"><b>4.1.1. </b>await&#x8BED;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#async-&#x8BED;&#x6CD5;"><b>4.1.2. </b>async &#x8BED;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#&#x5F02;&#x6B65;&#x751F;&#x6210;&#x5668;36"><b>4.1.3. </b>&#x5F02;&#x6B65;&#x751F;&#x6210;&#x5668;(3.6)</a></li><li><span class="title-icon "></span><a href="#&#x534F;&#x7A0B;&#x7684;&#x72B6;&#x6001;"><b>4.1.4. </b>&#x534F;&#x7A0B;&#x7684;&#x72B6;&#x6001;</a></li><li><span class="title-icon "></span><a href="#&#x5B9E;&#x7528;&#x4F8B;&#x5B50;"><b>4.1.5. </b>&#x5B9E;&#x7528;&#x4F8B;&#x5B50;</a></li></ul><li><span class="title-icon "></span><a href="#&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;"><b>4.2. </b>&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</a></li><ul><li><span class="title-icon "></span><a href="#&#x4EA7;&#x751F;&#x8BBE;&#x7F6E;&#x548C;&#x7BA1;&#x7406;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;"><b>4.2.1. </b>&#x4EA7;&#x751F;,&#x8BBE;&#x7F6E;&#x548C;&#x7BA1;&#x7406;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</a></li><li><span class="title-icon "></span><a href="#&#x5F02;&#x6B65;&#x65F6;&#x95F4;&#x7BA1;&#x7406;"><b>4.2.2. </b>&#x5F02;&#x6B65;&#x65F6;&#x95F4;&#x7BA1;&#x7406;</a></li><li><span class="title-icon "></span><a href="#&#x5C06;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6CE8;&#x518C;&#x5230;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;"><b>4.2.3. </b>&#x5C06;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6CE8;&#x518C;&#x5230;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</a></li><li><span class="title-icon "></span><a href="#&#x671F;&#x7269;"><b>4.2.4. </b>&#x671F;&#x7269;</a></li><li><span class="title-icon "></span><a href="#&#x521B;&#x5EFA;&#x671F;&#x7269;"><b>4.2.5. </b>&#x521B;&#x5EFA;&#x671F;&#x7269;</a></li><li><span class="title-icon "></span><a href="#&#x7BA1;&#x7406;&#x534F;&#x7A0B;&#x7684;&#x6267;&#x884C;&#x5305;&#x62EC;&#x53D6;&#x6D88;&#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#x7B49;"><b>4.2.6. </b>&#x7BA1;&#x7406;&#x534F;&#x7A0B;&#x7684;&#x6267;&#x884C;,&#x5305;&#x62EC;&#x53D6;&#x6D88;,&#x5EF6;&#x8FDF;,&#x8C03;&#x7528;&#x7B49;</a></li><li><span class="title-icon "></span><a href="#&#x5C06;&#x8017;&#x65F6;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x59D4;&#x6258;&#x7ED9;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;"><b>4.2.7. </b>&#x5C06;&#x8017;&#x65F6;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x59D4;&#x6258;&#x7ED9;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;</a></li><li><span class="title-icon "></span><a href="#&#x534F;&#x7A0B;&#x9519;&#x8BEF;&#x5904;&#x7406;"><b>4.2.8. </b>&#x534F;&#x7A0B;&#x9519;&#x8BEF;&#x5904;&#x7406;</a></li><li><span class="title-icon "></span><a href="#&#x4F8B;&#x5B50;-&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x6A21;&#x578B;"><b>4.2.9. </b>&#x4F8B;&#x5B50;: &#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x6A21;&#x578B;</a></li></ul></ul></ul></div><a href="#&#x4ECE;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x5230;&#x5E76;&#x884C;&#x6267;&#x884C;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x4ECE;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x5230;&#x5E76;&#x884C;&#x6267;&#x884C;"><a name="&#x4ECE;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x5230;&#x5E76;&#x884C;&#x6267;&#x884C;" class="anchor-navigation-ex-anchor" href="#&#x4ECE;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x5230;&#x5E76;&#x884C;&#x6267;&#x884C;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x4ECE;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x5230;&#x5E76;&#x884C;&#x6267;&#x884C;</h1>
 <p>&#x524D;&#x51E0;&#x5929;&#x53BB;&#x5916;&#x5730;&#x53C2;&#x52A0;&#x670B;&#x53CB;&#x5A5A;&#x793C;,&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x5916;&#x5730;&#x4EBA;&#x6211;&#x662F;&#x4E0D;&#x8BA4;&#x8DEF;&#x7684;,&#x4F46;&#x6211;&#x88AB;&#x5B89;&#x6392;&#x4E86;&#x53BB;&#x63A5;&#x5176;&#x4ED6;&#x5BA2;&#x4EBA;,&#x4E8E;&#x662F;&#x6211;&#x4E0D;&#x5F97;&#x4E0D;&#x4F9D;&#x8D56;&#x5BFC;&#x822A;.&#x6211;&#x9700;&#x8981;&#x6253;&#x5F00;&#x5BFC;&#x822A;,&#x542C;&#x7740;&#x5B83;&#x7684;&#x6307;&#x6325;&#x5F00;&#x8F66;.</p>
 <p>&#x8FD9;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5178;&#x578B;&#x7684;&#x5E76;&#x884C;&#x6267;&#x884C;&#x7684;&#x8FC7;&#x7A0B;,&#x6211;&#x8981;&#x540C;&#x65F6;&#x5F00;&#x8F66;,&#x5E76;&#x4E14;&#x540C;&#x65F6;&#x76D1;&#x542C;&#x7740;&#x624B;&#x673A;&#x4E0A;&#x7684;&#x5BFC;&#x822A;&#x7684;&#x6307;&#x6325;.</p>
 <p>&#x4EBA;&#x4EEC;&#x5F80;&#x5F80;&#x662F;&#x540C;&#x65F6;&#x505A;&#x51E0;&#x4EF6;,&#x6BD4;&#x5982;&#x8FB9;&#x770B;&#x7535;&#x89C6;&#x8FB9;&#x5403;&#x996D;,&#x8FB9;&#x542C;&#x97F3;&#x4E50;&#x8FB9;&#x5DE5;&#x4F5C;,&#x8FB9;&#x6253;&#x7535;&#x8BDD;&#x8FB9;&#x5F00;&#x8F66;(&#x5343;&#x4E07;&#x4E0D;&#x8981;&#x8FD9;&#x4E48;&#x505A;).&#x5E76;&#x4E14;&#x5F88;&#x591A;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x4E0D;&#x5F97;&#x4E0D;&#x540C;&#x65F6;&#x505A;&#x51E0;&#x4EF6;&#x4E8B;,&#x800C;&#x4E00;&#x4EF6;&#x4E8B;&#x662F;&#x53E6;&#x4E00;&#x4EF6;&#x4E8B;&#x7684;&#x4F9D;&#x8D56;.</p>
@@ -601,7 +645,7 @@
 <li>&#x6CA1;&#x6709;&#x6307;&#x793A;&#x5C31;&#x6839;&#x636E;&#x8DEF;&#x51B5;&#x5F00;&#x4E00;&#x6BB5;</li>
 </ul>
 <p>&#x5F53;&#x7136;&#x4E86;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x770B;&#x8D77;&#x6765;&#x4F5C;&#x4E3A;&#x5E76;&#x53D1;&#x7684;&#x4F8B;&#x5B50;&#x66F4;&#x52A0;&#x5408;&#x9002;,&#x4F46;&#x9053;&#x7406;&#x662F;&#x4E00;&#x6837;&#x7684;.</p>
-<h1 id="&#x963B;&#x585E;&#x4E0E;&#x975E;&#x963B;&#x585E;">&#x963B;&#x585E;&#x4E0E;&#x975E;&#x963B;&#x585E;</h1>
+<h1 id="&#x963B;&#x585E;&#x4E0E;&#x975E;&#x963B;&#x585E;"><a name="&#x963B;&#x585E;&#x4E0E;&#x975E;&#x963B;&#x585E;" class="anchor-navigation-ex-anchor" href="#&#x963B;&#x585E;&#x4E0E;&#x975E;&#x963B;&#x585E;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x963B;&#x585E;&#x4E0E;&#x975E;&#x963B;&#x585E;</h1>
 <p>&#x963B;&#x585E;&#x548C;&#x975E;&#x963B;&#x585E;&#x5173;&#x6CE8;&#x7684;&#x662F;&#x7A0B;&#x5E8F;&#x5728;&#x7B49;&#x5F85;&#x8C03;&#x7528;&#x7ED3;&#x679C;(&#x6D88;&#x606F;,&#x8FD4;&#x56DE;&#x503C;)&#x65F6;&#x7684;&#x72B6;&#x6001;.</p>
 <ul>
 <li><p>&#x963B;&#x585E;&#x8C03;&#x7528;&#x662F;&#x6307;&#x8C03;&#x7528;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x4E4B;&#x524D;&#xFF0C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x4F1A;&#x88AB;&#x6302;&#x8D77;.&#x8C03;&#x7528;&#x7EBF;&#x7A0B;&#x53EA;&#x6709;&#x5728;&#x5F97;&#x5230;&#x7ED3;&#x679C;&#x4E4B;&#x540E;&#x624D;&#x4F1A;&#x8FD4;&#x56DE;.</p>
@@ -611,7 +655,7 @@
 </ul>
 <p>&#x5982;&#x679C;&#x5F00;&#x8F66;&#x7684;&#x65F6;&#x5019;&#x6211;&#x76D1;&#x542C;&#x5BFC;&#x822A;&#x662F;&#x963B;&#x585E;&#x7684;,&#x90A3;&#x5C31;&#x610F;&#x5473;&#x7740;&#x6211;&#x7684;&#x5173;&#x6CE8;&#x70B9;&#x8F6C;&#x79FB;&#x5230;&#x4E86;&#x5BFC;&#x822A;&#x4E0A;,&#x5FC5;&#x987B;&#x8981;&#x6709;&#x5B83;&#x7684;&#x6307;&#x5BFC;&#x6211;&#x624D;&#x4F1A;&#x6709;&#x52A8;&#x4F5C;,&#x8FD9;&#x4E48;&#x5F00;&#x8F66;&#x65E9;&#x5C31;&#x51FA;&#x4E8B;&#x6545;&#x4E86;.</p>
 <p>&#x63A8;&#x5E7F;&#x5230;&#x6211;&#x4EEC;&#x7684;&#x7A0B;&#x5E8F;,&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6211;&#x4EEC;&#x7684;&#x6D41;&#x7A0B;&#x9700;&#x8981;&#x53EF;&#x4EE5;&#x88AB;&#x4FDD;&#x5B58;&#x72B6;&#x6001;,&#x5C06;&#x7EBF;&#x7A0B;&#x7684;&#x63A7;&#x5236;&#x6743;&#x8F6C;&#x79FB;&#x5230;&#x5176;&#x4ED6;&#x6D41;&#x7A0B;&#x4E2D;.&#x540C;&#x65F6;&#x4E5F;&#x8981;&#x53EF;&#x4EE5;&#x4E0B;&#x6B21;&#x518D;&#x88AB;&#x8F6C;&#x79FB;&#x56DE;&#x6765;&#x63A5;&#x7740;&#x4E0A;&#x6B21;&#x7684;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;.</p>
-<h1 id="&#x540C;&#x6B65;&#x4E0E;&#x5F02;&#x6B65;">&#x540C;&#x6B65;&#x4E0E;&#x5F02;&#x6B65;</h1>
+<h1 id="&#x540C;&#x6B65;&#x4E0E;&#x5F02;&#x6B65;"><a name="&#x540C;&#x6B65;&#x4E0E;&#x5F02;&#x6B65;" class="anchor-navigation-ex-anchor" href="#&#x540C;&#x6B65;&#x4E0E;&#x5F02;&#x6B65;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x540C;&#x6B65;&#x4E0E;&#x5F02;&#x6B65;</h1>
 <p>&#x540C;&#x6B65;&#x4E0E;&#x5F02;&#x6B65;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;&#x5173;&#x6CE8;&#x7684;&#x662F;&#x6D88;&#x606F;&#x901A;&#x4FE1;&#x673A;&#x5236;(synchronous communication/ asynchronous communication).</p>
 <ul>
 <li><p>&#x6240;&#x8C13;&#x540C;&#x6B65;&#xFF0C;&#x5C31;&#x662F;&#x5728;&#x53D1;&#x51FA;&#x4E00;&#x4E2A;<code>*&#x8C03;&#x7528;*</code>&#x65F6;&#xFF0C;&#x5728;&#x6CA1;&#x6709;&#x5F97;&#x5230;&#x7ED3;&#x679C;&#x4E4B;&#x524D;&#xFF0C;&#x8BE5;<code>*&#x8C03;&#x7528;*</code>&#x5C31;&#x4E0D;&#x8FD4;&#x56DE;&#x3002;&#x4F46;&#x662F;&#x4E00;&#x65E6;&#x8C03;&#x7528;&#x8FD4;&#x56DE;&#xFF0C;&#x5C31;&#x5F97;&#x5230;&#x8FD4;&#x56DE;&#x503C;&#x4E86;&#x3002;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x5C31;&#x662F;&#x7531;<code>*&#x8C03;&#x7528;&#x8005;*</code>&#x4E3B;&#x52A8;&#x7B49;&#x5F85;&#x8FD9;&#x4E2A;<code>*&#x8C03;&#x7528;*</code>&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
@@ -621,7 +665,7 @@
 </ul>
 <p>&#x5F00;&#x8F66;&#x7684;&#x65F6;&#x5019;&#x5BFC;&#x822A;&#x5C31;&#x662F;&#x5F02;&#x6B65;&#x7684;,&#x5F53;&#x6253;&#x5F00;&#x5BFC;&#x822A;&#x540E;&#x5C31;&#x4F1A;&#x6709;&#x4E2A;&#x53CD;&#x9988;--&#x5730;&#x56FE;&#x4E0A;&#x6211;&#x4EEC;&#x7684;&#x4F4D;&#x7F6E;&#x4F1A;&#x88AB;&#x6807;&#x8BB0;&#x51FA;&#x6765;.&#x800C;&#x5B9E;&#x9645;&#x7684;&#x5BFC;&#x822A;&#x4FE1;&#x606F;&#x90FD;&#x662F;&#x7531;&#x5BFC;&#x822A;&#x81EA;&#x5DF1;&#x8BED;&#x97F3;&#x901A;&#x77E5;&#x6211;&#x4EEC;&#x7684;.</p>
 <p>&#x6709;&#x4E86;&#x4E0A;&#x9762;&#x7684;&#x6982;&#x5FF5;,&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x6765;&#x770B;&#x770B;python&#x4E2D;&#x5B98;&#x65B9;&#x7684;&#x5355;&#x7EBF;&#x7A0B;&#x5E76;&#x884C;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x4E86;</p>
-<h1 id="&#x534F;&#x7A0B;">&#x534F;&#x7A0B;</h1>
+<h1 id="&#x534F;&#x7A0B;"><a name="&#x534F;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#&#x534F;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x534F;&#x7A0B;</h1>
 <p>&#x534F;&#x7A0B;&#x662F;&#x4E00;&#x79CD;&#x5355;&#x7EBF;&#x7A0B;&#x901A;&#x8FC7;&#x8C03;&#x5EA6;&#x5668;&#x6216;&#x8005;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4ECE;&#x800C;&#x5B9E;&#x73B0;&#x7684;&#x5E76;&#x884C;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;.&#x5B83;&#x662F;&#x7531;&#x7528;&#x6237;&#x63A7;&#x5236;&#x7684;&quot;&#x5E76;&#x884C;&quot;,&#x56E0;&#x6B64;&#x53EA;&#x8981;&#x4EE3;&#x7801;&#x4E00;&#x6837;(&#x6CA1;&#x6709;&#x4F7F;&#x7528;random)&#x534F;&#x7A0B;&#x7684;&#x8FD0;&#x884C;&#x987A;&#x5E8F;&#x5C31;&#x662F;&#x4E00;&#x6837;&#x7684;.&#x5B9E;&#x9645;&#x4E0A;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x7B49;&#x4EF7;&#x7684;&#x7528;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5B9E;&#x73B0;.</p>
 <p>&#x534F;&#x7A0B;&#x662F;&#x5B9E;&#x73B0;&#x9AD8;&#x5E76;&#x53D1;&#x7684;&#x65B9;&#x6848;&#x4E2D;&#x5F00;&#x9500;&#x6700;&#x5C0F;&#x7684;&#x65B9;&#x6848;.&#x5728;io&#x5BC6;&#x96C6;&#x578B;&#x4EFB;&#x52A1;&#x4E2D;&#x5F80;&#x5F80;&#x662F;&#x6700;&#x9AD8;&#x6548;&#x7684;&#x65B9;&#x6848;.python3.5&#x4EE5;&#x540E;&#x534F;&#x7A0B;&#x8BED;&#x6CD5;&#x5DF2;&#x7ECF;&#x57FA;&#x672C;&#x5B9A;&#x578B;.</p>
 <p>python&#x7684;&#x534F;&#x7A0B;&#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x5982;&#x4E0B;&#x51E0;&#x4E2A;&#x90E8;&#x5206;:</p>
@@ -631,11 +675,11 @@
 <li><p>&#x8C03;&#x5EA6;&#x5668;/&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;(event_loop):&#x7528;&#x4E8E;&#x8C03;&#x5EA6;&#x534F;&#x7A0B;&#x8FD0;&#x884C;&#x7684;&#x987A;&#x5E8F;,&#x8C03;&#x5EA6;&#x5668;&#x7528;&#x4E8E;&#x8C03;&#x5EA6;&#x534F;&#x7A0B;&#x800C;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x5219;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x8C03;&#x5EA6;&#x5668;--&#x7A0B;&#x5E8F;&#x5F00;&#x542F;&#x4E00;&#x4E2A;&#x65E0;&#x9650;&#x7684;&#x5FAA;&#x73AF;,&#x7A0B;&#x5E8F;&#x5458;&#x4F1A;&#x628A;&#x4E00;&#x4E9B;&#x51FD;&#x6570;&#x6CE8;&#x518C;&#x5230;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E0A;.&#x5F53;&#x6EE1;&#x8DB3;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x7684;&#x65F6;&#x5019;,&#x8C03;&#x7528;&#x76F8;&#x5E94;&#x7684;&#x534F;&#x7A0B;&#x51FD;&#x6570;.</p>
 </li>
 </ul>
-<h2 id="&#x534F;&#x7A0B;&#x53CA;&#x5176;&#x8BED;&#x6CD5;">&#x534F;&#x7A0B;&#x53CA;&#x5176;&#x8BED;&#x6CD5;</h2>
+<h2 id="&#x534F;&#x7A0B;&#x53CA;&#x5176;&#x8BED;&#x6CD5;"><a name="&#x534F;&#x7A0B;&#x53CA;&#x5176;&#x8BED;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x534F;&#x7A0B;&#x53CA;&#x5176;&#x8BED;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1. &#x534F;&#x7A0B;&#x53CA;&#x5176;&#x8BED;&#x6CD5;</h2>
 <p>&#x534F;&#x7A0B;&#x8BED;&#x6CD5;&#x53EF;&#x4EE5;&#x8BF4;&#x662F;&#x51FD;&#x6570;&#x7684;&#x4E00;&#x4E2A;&#x8D85;&#x96C6;,&#x5B83;&#x7684;&#x7279;&#x5F81;&#x662F;&#x4F7F;&#x7528;<code>async def</code>&#x6765;&#x5B9A;&#x4E49;,&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x5728;&#x5176;&#x5185;&#x90E8;&#x4F7F;&#x7528;<code>await</code>&#x5173;&#x952E;&#x5B57;&#x7B49;&#x5F85;&#x53E6;&#x4E00;&#x4E2A;&#x534F;&#x7A0B;&#x5B8C;&#x6210;.&#x534F;&#x7A0B;&#x5BF9;&#x8C61;&#x7684;&#x62BD;&#x8C61;&#x57FA;&#x7C7B;&#x4E3A;<code>collections.abc.Coroutine</code>&#xFF0C;&#x5B9E;&#x73B0;<code>send(value)</code>&#xFF0C;<code>throw(type, exc, tb)</code>&#xFF0C;<code>close()</code>&#x548C;<code>__await__()</code>&#x63A5;&#x53E3;&#x3002;</p>
 <p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x534F;&#x7A0B;&#x4E0E;&#x751F;&#x6210;&#x5668;&#x63A5;&#x53E3;&#x76F8;&#x4F3C;,&#x5C31;&#x662F;&#x591A;&#x4E86;&#x4E2A;<code>__await__()</code>&#x5C11;&#x4E86;&#x8FED;&#x4EE3;&#x5668;&#x76F8;&#x5173;&#x7684;<code>__next__()&#x548C;__iter__()</code>&#x4E8B;&#x5B9E;&#x4E0A;,&#x5728;3.7&#x7248;&#x672C;&#x4E4B;&#x524D;,&#x534F;&#x7A0B;&#x90FD;&#x662F;&#x4F7F;&#x7528;&#x751F;&#x6210;&#x5668;&#x6765;&#x5B9E;&#x73B0;&#x7684;.</p>
 <p>&#x534F;&#x7A0B;&#x5BF9;&#x8C61;&#x5185;&#x90E8;&#x9700;&#x8981;&#x5B9E;&#x73B0;<code>Awaitable</code>&#x534F;&#x8BAE;,&#x4E5F;&#x5C31;&#x662F;&#x8981;&#x5B9E;&#x73B0;<code>__await__</code>&#x63A5;&#x53E3;,&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x5FC5;&#x987B;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8FED;&#x4EE3;&#x5668;,&#x5E26;&#x6709;&#x8FD9;&#x4E00;&#x63A5;&#x53E3;&#x7684;&#x5BF9;&#x8C61;&#x6211;&#x4EEC;&#x79F0;&#x4E4B;&#x4E3A;<code>Future-like</code>&#x5BF9;&#x8C61;,&#x6709;&#x5B83;&#x7684;&#x5C31;&#x53EF;&#x4EE5;&#x88AB;&#x7A0B;&#x5E8F;&#x7528;<code>await</code>&#x5173;&#x952E;&#x5B57;&#x6302;&#x8D77;&#x7B49;&#x5F85;,<code>Future-like</code>&#x7C7B;&#x7684;&#x62BD;&#x8C61;&#x57FA;&#x7C7B;&#x4E3A;<code>collections.abc.Awaitable</code></p>
-<h3 id="await&#x8BED;&#x6CD5;">await&#x8BED;&#x6CD5;</h3>
+<h3 id="await&#x8BED;&#x6CD5;"><a name="await&#x8BED;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#await&#x8BED;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1.1. await&#x8BED;&#x6CD5;</h3>
 <p>await&#x5C31;&#x662F;&#x7528;&#x6765;&#x6302;&#x8D77;&#x7B49;&#x5F85;&#x4EFB;&#x52A1;&#x7ED3;&#x675F;&#x7684;&#x5173;&#x952E;&#x5B57;&#x5B83;&#x53EA;&#x80FD;&#x5728;&#x534F;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528;.</p>
 <p>&#x6709;&#x6548;&#x7528;&#x6CD5;&#xFF1A;</p>
 <table>
@@ -708,9 +752,9 @@
 </tbody>
 </table>
 <p>&#x4E00;&#x822C;&#x6765;&#x8BF4;await&#x4F1A;&#x6302;&#x8D77;&#x76F4;&#x5230;&#x5B83;&#x4E0B;&#x9762;&#x7684;&#x4E00;&#x4E32;<code>Future-like</code>&#x5BF9;&#x8C61;&#x90FD;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#x624D;&#x4F1A;&#x7EE7;&#x7EED;&#x5411;&#x4E0B;.</p>
-<h3 id="async-&#x8BED;&#x6CD5;">async &#x8BED;&#x6CD5;</h3>
+<h3 id="async-&#x8BED;&#x6CD5;"><a name="async-&#x8BED;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#async-&#x8BED;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1.2. async &#x8BED;&#x6CD5;</h3>
 <p>&#x9664;&#x4E86;&#x7528;<code>async def</code>&#x521B;&#x5EFA;&#x534F;&#x7A0B;,<code>async</code>&#x8FD8;&#x6709;&#x5176;&#x4ED6;&#x51E0;&#x4E2A;&#x7528;&#x6CD5;</p>
-<h4 id="&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#x5668;&#x548C;async-for">&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#x5668;&#x548C;async for</h4>
+<h4 id="&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#x5668;&#x548C;async-for"><a name="&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#x5668;&#x548C;async-for" class="anchor-navigation-ex-anchor" href="#&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#x5668;&#x548C;async-for"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#x5668;&#x548C;async-for" class="plugin-anchor" href="#&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#x5668;&#x548C;async-for"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#x5668;&#x548C;async for</h4>
 <p>&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#x5668;&#x53EF;&#x4EE5;&#x5728;&#x5B83;&#x7684;iter&#x5B9E;&#x73B0;&#x91CC;&#x6302;&#x8D77;&#x3001;&#x8C03;&#x7528;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x5B83;&#x7684;<code>__next__</code>&#x65B9;&#x6CD5;&#x91CC;&#x6302;&#x8D77;&#x3001;&#x8C03;&#x7528;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x3002;&#x8981;&#x652F;&#x6301;&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#xFF0C;&#x9700;&#x8981;&#xFF1A;</p>
 <ul>
 <li>&#x5BF9;&#x8C61;&#x5FC5;&#x987B;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;<code>__aiter__</code>&#x63A5;&#x53E3;,&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#x5668;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E2A;&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#x5668;&#x5BF9;&#x8C61;&#x5728;&#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x65F6;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<code>Future-like</code>&#x5BF9;&#x8C61;</li>
@@ -754,7 +798,7 @@ loop.run_until_complete(main())
 2
 3
 4
-</code></pre><h4 id="&#x5F02;&#x6B65;&#x5217;&#x8868;&#x89E3;&#x6790;36">&#x5F02;&#x6B65;&#x5217;&#x8868;&#x89E3;&#x6790;(3.6)</h4>
+</code></pre><h4 id="&#x5F02;&#x6B65;&#x5217;&#x8868;&#x89E3;&#x6790;36"><a name="&#x5F02;&#x6B65;&#x5217;&#x8868;&#x89E3;&#x6790;36" class="anchor-navigation-ex-anchor" href="#&#x5F02;&#x6B65;&#x5217;&#x8868;&#x89E3;&#x6790;36"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5F02;&#x6B65;&#x5217;&#x8868;&#x89E3;&#x6790;36" class="plugin-anchor" href="#&#x5F02;&#x6B65;&#x5217;&#x8868;&#x89E3;&#x6790;36"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5F02;&#x6B65;&#x5217;&#x8868;&#x89E3;&#x6790;(3.6)</h4>
 <p>&#x5217;&#x8868;&#x89E3;&#x6790;&#x4E2D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>await</code>&#x6765;&#x7B49;&#x5F85;<code>Future-like</code>&#x5BF9;&#x8C61;&#x7684;&#x7ED3;&#x679C;,&#x5982;:</p>
 <p><code>result = [await fun() for fun in funcs if await condition()]</code></p>
 <p>&#x5728;&#x5217;&#x8868;&#x4E2D;&#x5141;&#x8BB8;&#x4F7F;&#x7528;<code>async for</code>&#x6765;&#x505A;&#x8FED;&#x4EE3;,&#x5B83;&#x7684;&#x5F62;&#x5F0F;&#x5982;&#x4E0B;:</p>
@@ -789,7 +833,7 @@ asyncio.set_event_loop(loop)
 loop.run_until_complete(main())
 </code></pre>
 <pre><code>[1, 3]
-</code></pre><h4 id="&#x5F02;&#x6B65;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x548C;async-with">&#x5F02;&#x6B65;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x548C;<code>async with</code></h4>
+</code></pre><h4 id="&#x5F02;&#x6B65;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x548C;async-with"><a name="&#x5F02;&#x6B65;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x548C;async-with" class="anchor-navigation-ex-anchor" href="#&#x5F02;&#x6B65;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x548C;async-with"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5F02;&#x6B65;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x548C;async-with" class="plugin-anchor" href="#&#x5F02;&#x6B65;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x548C;async-with"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5F02;&#x6B65;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x548C;<code>async with</code></h4>
 <p>&#x5F02;&#x6B65;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x7C7B;&#x4F3C;&#x666E;&#x901A;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x8BA9;&#x7A0B;&#x5E8F;&#x5728;&#x8FDB;&#x5165;&#x4E0A;&#x4E0B;&#x6587;&#x548C;&#x79BB;&#x5F00;&#x4E0A;&#x4E0B;&#x6587;&#x4E4B;&#x95F4;&#x6302;&#x8D77;&#x72B6;&#x6001;,&#x8C03;&#x7528;&#x5F02;&#x6B65;&#x4EE3;&#x7801;.</p>
 <p>&#x5F02;&#x6B65;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x5668;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x4E24;&#x4E2A;&#x63A5;&#x53E3;</p>
 <ul>
@@ -849,7 +893,7 @@ loop.run_until_complete(main())
 3
 4
 exit context
-</code></pre><h3 id="&#x5F02;&#x6B65;&#x751F;&#x6210;&#x5668;36">&#x5F02;&#x6B65;&#x751F;&#x6210;&#x5668;(3.6)</h3>
+</code></pre><h3 id="&#x5F02;&#x6B65;&#x751F;&#x6210;&#x5668;36"><a name="&#x5F02;&#x6B65;&#x751F;&#x6210;&#x5668;36" class="anchor-navigation-ex-anchor" href="#&#x5F02;&#x6B65;&#x751F;&#x6210;&#x5668;36"><i class="fa fa-link" aria-hidden="true"></i></a>4.1.3. &#x5F02;&#x6B65;&#x751F;&#x6210;&#x5668;(3.6)</h3>
 <p>&#x5E26;<code>yield</code>&#x5173;&#x952E;&#x5B57;&#x7684;&#x51FD;&#x6570;&#x662F;&#x751F;&#x6210;&#x5668;,&#x5E26;<code>yield</code>&#x5173;&#x952E;&#x5B57;&#x7684;&#x534F;&#x7A0B;&#x5C31;&#x662F;&#x5F02;&#x6B65;&#x751F;&#x6210;&#x5668;,&#x4ECE;&#x6548;&#x679C;&#x4E0A;&#x770B;&#x5F02;&#x6B65;&#x751F;&#x6210;&#x5668;&#x6548;&#x679C;&#x548C;&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#x5668;&#x6548;&#x679C;&#x5DEE;&#x4E0D;&#x591A;,&#x5B83;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x534F;&#x8BAE;:</p>
 <ul>
 <li>PyAsyncGenASend : <code>__anext__</code>&#x548C;<code>asend()</code>&#x63A5;&#x53E3; ,&#x5BF9;&#x5E94;&#x4E00;&#x822C;&#x751F;&#x6210;&#x5668;&#x4E2D;&#x7684;<code>__next__</code>&#x548C;<code>send()</code>,&#x7528;&#x4E8E;&#x5728;&#x5F02;&#x6B65;&#x751F;&#x6210;&#x5668;&#x95F4;&#x4EA4;&#x4E92;&#x4FE1;&#x606F;</li>
@@ -876,7 +920,7 @@ loop.run_until_complete(main())
 2
 3
 4
-</code></pre><h4 id="&#x5173;&#x4E8E;yield-from">&#x5173;&#x4E8E;<code>yield from</code></h4>
+</code></pre><h4 id="&#x5173;&#x4E8E;yield-from"><a name="&#x5173;&#x4E8E;yield-from" class="anchor-navigation-ex-anchor" href="#&#x5173;&#x4E8E;yield-from"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5173;&#x4E8E;yield-from" class="plugin-anchor" href="#&#x5173;&#x4E8E;yield-from"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5173;&#x4E8E;<code>yield from</code></h4>
 <p>&#x56E0;&#x4E3A;&#x5F02;&#x6B65;&#x6B65;&#x751F;&#x6210;&#x5668;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#x5668;&#x7684;&#x5B50;&#x7C7B;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x8FD9;&#x4E00;&#x70B9;&#x4F7F;&#x7528;<code>async for</code>&#x8BED;&#x53E5;&#x4EE3;&#x66FF;<code>yield from</code>&#x7684;&#x8BED;&#x4E49;.</p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> asyncio
 <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">g1</span><span class="hljs-params">(x)</span>:</span>
@@ -900,7 +944,7 @@ loop.run_until_complete(main())
 2
 3
 4
-</code></pre><h3 id="&#x534F;&#x7A0B;&#x7684;&#x72B6;&#x6001;">&#x534F;&#x7A0B;&#x7684;&#x72B6;&#x6001;</h3>
+</code></pre><h3 id="&#x534F;&#x7A0B;&#x7684;&#x72B6;&#x6001;"><a name="&#x534F;&#x7A0B;&#x7684;&#x72B6;&#x6001;" class="anchor-navigation-ex-anchor" href="#&#x534F;&#x7A0B;&#x7684;&#x72B6;&#x6001;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1.4. &#x534F;&#x7A0B;&#x7684;&#x72B6;&#x6001;</h3>
 <p>&#x534F;&#x7A0B;&#x53EF;&#x4EE5;&#x6709;4&#x79CD;&#x72B6;&#x6001;,&#x53EF;&#x4EE5;&#x662F;&#x7528;python&#x7684;&#x53CD;&#x5C04;&#x6A21;&#x5757;<code>inspect.getcoroutinestate(coroutine)</code>&#x6765;&#x67E5;&#x770B;</p>
 <ul>
 <li>CORO_CREATED: &#x7B49;&#x5F85;&#x88AB;&#x4F7F;&#x7528;</li>
@@ -908,7 +952,7 @@ loop.run_until_complete(main())
 <li>CORO_SUSPENDED: &#x76EE;&#x524D;&#x5728;<code>await</code>&#x5904;&#x6682;&#x505C;&#x7B49;&#x5F85;&#x4FE1;&#x53F7;&#x4E2D;</li>
 <li>CORO_CLOSED: &#x6267;&#x884C;&#x7ED3;&#x675F;</li>
 </ul>
-<h3 id="&#x5B9E;&#x7528;&#x4F8B;&#x5B50;">&#x5B9E;&#x7528;&#x4F8B;&#x5B50;</h3>
+<h3 id="&#x5B9E;&#x7528;&#x4F8B;&#x5B50;"><a name="&#x5B9E;&#x7528;&#x4F8B;&#x5B50;" class="anchor-navigation-ex-anchor" href="#&#x5B9E;&#x7528;&#x4F8B;&#x5B50;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1.5. &#x5B9E;&#x7528;&#x4F8B;&#x5B50;</h3>
 <p>&#x534F;&#x7A0B;&#x6709;&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x4EE3;&#x7801;&#x7F16;&#x5199;&#x98CE;&#x683C;:</p>
 <ul>
 <li><p>&#x62C9;&#x53D6;&#x5F0F;</p>
@@ -921,7 +965,7 @@ loop.run_until_complete(main())
 <p>  &#x6839;&#x636E;&#x72B6;&#x6001;&#x6765;&#x6392;&#x5B9A;&#x8FD0;&#x884C;&#x987A;&#x5E8F;</p>
 </li>
 </ul>
-<h4 id="&#x63A8;&#x9001;&#x5F0F;">&#x63A8;&#x9001;&#x5F0F;</h4>
+<h4 id="&#x63A8;&#x9001;&#x5F0F;"><a name="&#x63A8;&#x9001;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x63A8;&#x9001;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x63A8;&#x9001;&#x5F0F;" class="plugin-anchor" href="#&#x63A8;&#x9001;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63A8;&#x9001;&#x5F0F;</h4>
 <p>&#x6211;&#x4EEC;&#x7528;&#x4E00;&#x4E2A;&#x8BA1;&#x7B97;&#x79FB;&#x52A8;&#x5E73;&#x5747;&#x503C;&#x7684;&#x5F02;&#x6B65;&#x751F;&#x6210;&#x5668;&#x6765;&#x770B;&#x770B;&#x534F;&#x7A0B;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;.</p>
 <pre><code class="lang-python"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">averager</span><span class="hljs-params">()</span>:</span>
     total = <span class="hljs-number">0.0</span>
@@ -954,7 +998,7 @@ loop.run_until_complete(grouper())
 4.0
 4.5
 5.0
-</code></pre><h4 id="&#x4EFB;&#x52A1;&#x5F0F;">&#x4EFB;&#x52A1;&#x5F0F;</h4>
+</code></pre><h4 id="&#x4EFB;&#x52A1;&#x5F0F;"><a name="&#x4EFB;&#x52A1;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x4EFB;&#x52A1;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4EFB;&#x52A1;&#x5F0F;" class="plugin-anchor" href="#&#x4EFB;&#x52A1;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EFB;&#x52A1;&#x5F0F;</h4>
 <p>&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x79BB;&#x6563;&#x4E8B;&#x4EF6;&#x4EFF;&#x771F;&#x7C7B;--&#x51FA;&#x79DF;&#x8F66;&#x961F;&#x8FD0;&#x8425;&#x4EFF;&#x771F;</p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> random
 <span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> namedtuple
@@ -1063,7 +1107,7 @@ taxi: 2    Event(time=143, proc=2, action=&apos;going home&apos;)
 taxi: 1   Event(time=159, proc=1, action=&apos;drop off passenger&apos;)
 taxi: 1   Event(time=164, proc=1, action=&apos;going home&apos;)
 *** end of events ***
-</code></pre><h2 id="&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;">&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</h2>
+</code></pre><h2 id="&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;"><a name="&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;" class="anchor-navigation-ex-anchor" href="#&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2. &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</h2>
 <p>&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x662F;&#x4E00;&#x4E2A;&#x65E0;&#x9650;&#x7684;&#x7684;&#x5FAA;&#x73AF;,&#x7528;&#x6765;&#x76D1;&#x63A7;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;.&#x4E00;&#x822C;&#x6211;&#x4EEC;&#x7528;<code>loop = asyncio.new_event_loop()</code>&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7684;&#x5B9E;&#x4F8B;,&#x7136;&#x540E;&#x5C06;&#x5176;&#x4F7F;&#x7528;<code>asyncio.set_event_loop(loop)</code>&#x6765;&#x5C06;&#x5FAA;&#x73AF;&#x5B9E;&#x4F8B;&#x5B9A;&#x4E49;&#x4E3A;&#x5F53;&#x524D;&#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;.&#x5982;&#x679C;&#x7A0B;&#x5E8F;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x8003;&#x8651;&#x4F7F;&#x7528;&#x591A;&#x4E2A;&#x5FAA;&#x73AF;&#x7684;&#x8BDD;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;<code>asyncio.get_event_loop()</code>&#x6765;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7684;&#x5B9E;&#x4F8B;</p>
 <p>&#x4E8B;&#x5B9E;&#x4E0A;python&#x539F;&#x751F;&#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x5E76;&#x4E0D;&#x9AD8;&#x6548;,<a href="https://github.com/MagicStack/uvloop" target="_blank">uvloop</a>&#x662F;&#x4E00;&#x4E2A;&#x9AD8;&#x6548;&#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;,&#x5B83;&#x4F7F;&#x7528;cython&#x7F16;&#x5199;,&#x5E76;&#x4F7F;&#x7528;libuv,&#x5C31;&#x662F;node.js&#x7528;&#x7684;&#x90A3;&#x4E2A;&#x9AD8;&#x6027;&#x80FD;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#x7684;&#x7A0B;&#x5E8F;&#x5E93;.&#x6211;&#x4EEC;&#x5728;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5B83;&#x6765;&#x8FD0;&#x884C;&#x534F;&#x7A0B;.(windows&#x4E0B;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;)</p>
 <p>python&#x7684;&#x534F;&#x7A0B;&#x8FD0;&#x8F6C;&#x9700;&#x8981;&#x663E;&#x5F0F;&#x7684;&#x6307;&#x5B9A;&#x5FAA;&#x73AF;.asyncio&#x5219;&#x63D0;&#x4F9B;&#x4E86;&#x5982;&apos;&#x4E2D;&#x592E;&#x5904;&#x7406;&#x8BBE;&#x5907;&apos;&#x4E00;&#x822C;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x5B83;&#x652F;&#x6301;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;&#xFF1A;</p>
@@ -1080,7 +1124,7 @@ taxi: 1   Event(time=164, proc=1, action=&apos;going home&apos;)
 <li>&#x542F;&#x52A8;&#x8FDB;&#x7A0B;&#x4EE5;&#x53CA;&#x76F8;&#x5173;&#x7684;&#x548C;&#x5916;&#x90E8;&#x901A;&#x4FE1;&#x7A0B;&#x5E8F;&#x7684;Transports</li>
 </ul>
 <p>&#x540E;&#x4E24;&#x4E2A;&#x64CD;&#x4F5C;&#x5728;&#x7F51;&#x7EDC;&#x90E8;&#x5206;&#x518D;&#x8BA8;&#x8BBA;,&#x672C;&#x7BC7;&#x53EA;&#x8BA8;&#x8BBA;&#x524D;&#x9762;&#x7684;&#x529F;&#x80FD;</p>
-<h3 id="&#x4EA7;&#x751F;&#x8BBE;&#x7F6E;&#x548C;&#x7BA1;&#x7406;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;">&#x4EA7;&#x751F;,&#x8BBE;&#x7F6E;&#x548C;&#x7BA1;&#x7406;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</h3>
+<h3 id="&#x4EA7;&#x751F;&#x8BBE;&#x7F6E;&#x548C;&#x7BA1;&#x7406;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;"><a name="&#x4EA7;&#x751F;&#x8BBE;&#x7F6E;&#x548C;&#x7BA1;&#x7406;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;" class="anchor-navigation-ex-anchor" href="#&#x4EA7;&#x751F;&#x8BBE;&#x7F6E;&#x548C;&#x7BA1;&#x7406;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2.1. &#x4EA7;&#x751F;,&#x8BBE;&#x7F6E;&#x548C;&#x7BA1;&#x7406;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</h3>
 <p>&#x4E0A;&#x9762;&#x5DF2;&#x7ECF;&#x4ECB;&#x7ECD;&#x4E86;&#x5982;&#x4F55;&#x4EA7;&#x751F;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;,&#x4EE5;&#x4E0B;&#x662F;&#x5173;&#x4E8E;&#x8BBE;&#x7F6E;&#x7BA1;&#x7406;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7684;&#x63A5;&#x53E3;,&#x8FD9;&#x4E9B;&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x4F8B;&#x4E3A;<code>loop</code>:</p>
 <ul>
 <li>run_forever()</li>
@@ -1111,7 +1155,7 @@ taxi: 1   Event(time=164, proc=1, action=&apos;going home&apos;)
 <li><code>*</code>3.6 coroutine shutdown_asyncgens()</li>
 </ul>
 <p>&#x5B89;&#x6392;&#x6240;&#x6709;&#x5F53;&#x524D;&#x6253;&#x5F00;&#x7684;&#x5F02;&#x6B65;&#x751F;&#x6210;&#x5668;&#x5BF9;&#x8C61;&#xFF0C;&#x4EE5;aclose()&#x8C03;&#x7528;&#x3002;&#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x540E;&#xFF0C;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x5C06;&#x5728;&#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x65B0;&#x7684;&#x5F02;&#x6B65;&#x751F;&#x6210;&#x5668;&#x65F6;&#x53D1;&#x51FA;&#x8B66;&#x544A;&#x3002;&#x5E94;&#x8BE5;&#x7528;&#x4E8E;&#x53EF;&#x9760;&#x5730;&#x5B8C;&#x6210;&#x6240;&#x6709;&#x8C03;&#x5EA6;&#x7684;&#x5F02;&#x6B65;&#x751F;&#x6210;&#x5668;.</p>
-<h3 id="&#x5F02;&#x6B65;&#x65F6;&#x95F4;&#x7BA1;&#x7406;">&#x5F02;&#x6B65;&#x65F6;&#x95F4;&#x7BA1;&#x7406;</h3>
+<h3 id="&#x5F02;&#x6B65;&#x65F6;&#x95F4;&#x7BA1;&#x7406;"><a name="&#x5F02;&#x6B65;&#x65F6;&#x95F4;&#x7BA1;&#x7406;" class="anchor-navigation-ex-anchor" href="#&#x5F02;&#x6B65;&#x65F6;&#x95F4;&#x7BA1;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2.2. &#x5F02;&#x6B65;&#x65F6;&#x95F4;&#x7BA1;&#x7406;</h3>
 <ul>
 <li><p>asyncio.sleep(nbr)</p>
 <p>  &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x7684;&#x5EF6;&#x8FDF;&#x5DE5;&#x5177;,&#x5FC5;&#x987B;&#x5728;&#x534F;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528;<code>await</code>&#x8C03;&#x7528;</p>
@@ -1140,7 +1184,7 @@ loop.close()
 2017-06-13 21:54:36.383539
 2576.235886889
 2576.236275465
-</code></pre><h3 id="&#x5C06;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6CE8;&#x518C;&#x5230;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;">&#x5C06;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6CE8;&#x518C;&#x5230;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</h3>
+</code></pre><h3 id="&#x5C06;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6CE8;&#x518C;&#x5230;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;"><a name="&#x5C06;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6CE8;&#x518C;&#x5230;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;" class="anchor-navigation-ex-anchor" href="#&#x5C06;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6CE8;&#x518C;&#x5230;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2.3. &#x5C06;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6CE8;&#x518C;&#x5230;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</h3>
 <p>&#x5B83;&#x7684;&#x5DE5;&#x4F5C;&#x673A;&#x5236;&#x7C7B;&#x4F3C;&#x4E8E;&#x5148;&#x8FDB;&#x5148;&#x51FA;&#x961F;&#x5217;&#xFF0C;&#x6240;&#x4EE5;&#x5982;&#x679C;&#x4E00;&#x4E9B;&#x56DE;&#x8C03;&#x9700;&#x8981;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x6765;&#x5904;&#x7406;&#x4EFB;&#x52A1;&#xFF0C;&#x5176;&#x5B83;&#x7684;&#x56DE;&#x8C03;&#x5C31;&#x4F1A;&#x76F8;&#x5E94;&#x7684;&#x5EF6;&#x8FDF;&#xFF0C;&#x76F4;&#x5230;&#x5148;&#x524D;&#x7684;&#x56DE;&#x8C03;&#x7ED3;&#x675F;</p>
 <p>&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5904;&#x7406;&#x7684;&#x63A5;&#x53E3;&#x540C;&#x6837;&#x662F;<code>loop</code>,&#x4ED6;&#x4EEC;&#x6709;:</p>
 <ul>
@@ -1210,7 +1254,7 @@ More work 6
 
 &lt;Handle more_work(3) at &lt;ipython-input-18-23ef8a893eef&gt;:8&gt;
 </code></pre><p>&#x542F;&#x52A8;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#x4E4B;&#x540E;&#xFF0C;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x4E0D;&#x4F1A;&#x88AB;block&#xFF0C;&#x65B0;&#x7EBF;&#x7A0B;&#x4E2D;&#x4F1A;&#x6309;&#x7167;&#x987A;&#x5E8F;&#x6267;&#x884C;call_soon_threadsafe&#x65B9;&#x6CD5;&#x6CE8;&#x518C;&#x7684;more_work&#x65B9;&#x6CD5;&#xFF0C;&#x540E;&#x8005;&#x56E0;&#x4E3A;time.sleep&#x64CD;&#x4F5C;&#x662F;&#x540C;&#x6B65;&#x963B;&#x585E;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x8FD0;&#x884C;&#x5B8C;&#x6BD5;more_work&#x9700;&#x8981;&#x5927;&#x81F4;6 + 3</p>
-<h3 id="&#x671F;&#x7269;">&#x671F;&#x7269;</h3>
+<h3 id="&#x671F;&#x7269;"><a name="&#x671F;&#x7269;" class="anchor-navigation-ex-anchor" href="#&#x671F;&#x7269;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2.4. &#x671F;&#x7269;</h3>
 <p>asyncio&#x6A21;&#x5757;&#x7684;&#x5C06;&#x534F;&#x7A0B;&#x6CE8;&#x518C;&#x5230;&#x65F6;&#x95F4;&#x9700;&#x8981;&#x5148;&#x5C06;&#x5176;&#x5305;&#x88C5;&#x4E3A;&#x671F;&#x7269;,&#x4E5F;&#x5C31;&#x662F;Future&#x6216;&#x8005;Task.</p>
 <p>Task&#x7C7B;&#x7528;&#x6765;&#x7BA1;&#x7406;&#x534F;&#x540C;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x7684;&#x72B6;&#x6001;,&#x662F;Future&#x7684;&#x5B50;&#x7C7B;,Future&#x7684;&#x63A5;&#x53E3;&#x5982;&#x4E0B;:</p>
 <ul>
@@ -1275,7 +1319,7 @@ More work 6
 <li><code>print_stack(*, limit=None, file=None)</code>
 &#x6253;&#x5370;&#x6B64;&#x4EFB;&#x52A1;&#x7684;&#x534F;&#x7A0B;&#x7684;&#x5806;&#x6808;&#x6216;&#x8FFD;&#x6EAF;&#x3002;&#x5BF9;&#x4E8E;&#x7531;<code>get_stack()</code>&#x68C0;&#x7D22;&#x5230;&#x7684;&#x5E27;&#xFF0C;&#x5B83;&#x4F1A;&#x4EA7;&#x751F;&#x4E0E;&#x8FFD;&#x6EAF;&#x6A21;&#x5757;&#x7C7B;&#x4F3C;&#x7684;&#x8F93;&#x51FA;.<code>limit</code>&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;<code>get_stack()</code>.&#x6587;&#x4EF6;&#x53C2;&#x6570;&#x662F;&#x5199;&#x5165;&#x8F93;&#x51FA;&#x7684;I/O&#x6D41;;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8F93;&#x51FA;&#x5C06;&#x5199;&#x5165;sys.stderr&#x3002;</li>
 </ul>
-<h3 id="&#x521B;&#x5EFA;&#x671F;&#x7269;">&#x521B;&#x5EFA;&#x671F;&#x7269;</h3>
+<h3 id="&#x521B;&#x5EFA;&#x671F;&#x7269;"><a name="&#x521B;&#x5EFA;&#x671F;&#x7269;" class="anchor-navigation-ex-anchor" href="#&#x521B;&#x5EFA;&#x671F;&#x7269;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2.5. &#x521B;&#x5EFA;&#x671F;&#x7269;</h3>
 <p>&#x521B;&#x5EFA;&#x671F;&#x7269;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;<code>loop</code>,&#x63A5;&#x53E3;&#x4E3A;:</p>
 <ul>
 <li><p>create_future()</p>
@@ -1297,7 +1341,7 @@ More work 6
 <p>  &#x5C1D;&#x8BD5;&#x4EFB;&#x52A1;&#x5DE5;&#x5382;&#xFF0C;&#x5982;&#x679C;&#x9ED8;&#x8BA4;&#x5DE5;&#x4F5C;&#x6B63;&#x5728;&#x4F7F;&#x7528;&#xFF0C;&#x5219;&#x4E3A;&#x201C;&#x65E0;&#x201D;&#x3002;</p>
 </li>
 </ul>
-<h3 id="&#x7BA1;&#x7406;&#x534F;&#x7A0B;&#x7684;&#x6267;&#x884C;&#x5305;&#x62EC;&#x53D6;&#x6D88;&#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#x7B49;">&#x7BA1;&#x7406;&#x534F;&#x7A0B;&#x7684;&#x6267;&#x884C;,&#x5305;&#x62EC;&#x53D6;&#x6D88;,&#x5EF6;&#x8FDF;,&#x8C03;&#x7528;&#x7B49;</h3>
+<h3 id="&#x7BA1;&#x7406;&#x534F;&#x7A0B;&#x7684;&#x6267;&#x884C;&#x5305;&#x62EC;&#x53D6;&#x6D88;&#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#x7B49;"><a name="&#x7BA1;&#x7406;&#x534F;&#x7A0B;&#x7684;&#x6267;&#x884C;&#x5305;&#x62EC;&#x53D6;&#x6D88;&#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#x7B49;" class="anchor-navigation-ex-anchor" href="#&#x7BA1;&#x7406;&#x534F;&#x7A0B;&#x7684;&#x6267;&#x884C;&#x5305;&#x62EC;&#x53D6;&#x6D88;&#x5EF6;&#x8FDF;&#x8C03;&#x7528;&#x7B49;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2.6. &#x7BA1;&#x7406;&#x534F;&#x7A0B;&#x7684;&#x6267;&#x884C;,&#x5305;&#x62EC;&#x53D6;&#x6D88;,&#x5EF6;&#x8FDF;,&#x8C03;&#x7528;&#x7B49;</h3>
 <p>&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x5B9E;&#x9645;&#x4E0A;&#x4E0A;&#x9762;&#x53EA;&#x80FD;&#x6CE8;&#x518C;&#x671F;&#x7269;,&#x800C;asyncio&#x7684;&#x5F88;&#x591A;&#x63A5;&#x53E3;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x534F;&#x7A0B;,&#x5176;&#x539F;&#x56E0;&#x662F;&#x8FD9;&#x4E9B;&#x63A5;&#x53E3;&#x4F1A;&#x81EA;&#x52A8;&#x5C06;&#x534F;&#x7A0B;&#x5305;&#x88C5;&#x4E3A;&#x671F;&#x7269;task.</p>
 <ul>
 <li><code>loop.run_until_complete()</code>&#x662F;&#x6700;&#x7B80;&#x5355;&#x7684;&#x5C06;&#x534F;&#x7A0B;&#x6CE8;&#x518C;&#x8FDB;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E2D;&#x5E76;&#x8FD0;&#x884C;&#x7684;&#x65B9;&#x6CD5;.</li>
@@ -1467,7 +1511,7 @@ Task B: Compute factorial(3)...
 Task C: Compute factorial(4)...
 Task B: factorial(3) = 6
 Task C: factorial(4) = 24
-</code></pre><h3 id="&#x5C06;&#x8017;&#x65F6;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x59D4;&#x6258;&#x7ED9;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;">&#x5C06;&#x8017;&#x65F6;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x59D4;&#x6258;&#x7ED9;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;</h3>
+</code></pre><h3 id="&#x5C06;&#x8017;&#x65F6;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x59D4;&#x6258;&#x7ED9;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;"><a name="&#x5C06;&#x8017;&#x65F6;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x59D4;&#x6258;&#x7ED9;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;" class="anchor-navigation-ex-anchor" href="#&#x5C06;&#x8017;&#x65F6;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x59D4;&#x6258;&#x7ED9;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2.7. &#x5C06;&#x8017;&#x65F6;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x59D4;&#x6258;&#x7ED9;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;</h3>
 <ul>
 <li>coroutine <code>run_in_executor(executor, func, *args)</code></li>
 </ul>
@@ -1507,7 +1551,7 @@ Task A: factorial(2) = 2
 Task B: factorial(3) = 6
 Task C: Compute factorial(4)...
 Task C: factorial(4) = 24
-</code></pre><h3 id="&#x534F;&#x7A0B;&#x9519;&#x8BEF;&#x5904;&#x7406;">&#x534F;&#x7A0B;&#x9519;&#x8BEF;&#x5904;&#x7406;</h3>
+</code></pre><h3 id="&#x534F;&#x7A0B;&#x9519;&#x8BEF;&#x5904;&#x7406;"><a name="&#x534F;&#x7A0B;&#x9519;&#x8BEF;&#x5904;&#x7406;" class="anchor-navigation-ex-anchor" href="#&#x534F;&#x7A0B;&#x9519;&#x8BEF;&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2.8. &#x534F;&#x7A0B;&#x9519;&#x8BEF;&#x5904;&#x7406;</h3>
 <ul>
 <li>set_exception_handler(handler)</li>
 </ul>
@@ -1536,7 +1580,7 @@ Task C: factorial(4) = 24
 </ul>
 </li>
 </ul>
-<h3 id="&#x4F8B;&#x5B50;-&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x6A21;&#x578B;">&#x4F8B;&#x5B50;: &#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x6A21;&#x578B;</h3>
+<h3 id="&#x4F8B;&#x5B50;-&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x6A21;&#x578B;"><a name="&#x4F8B;&#x5B50;-&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x6A21;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x4F8B;&#x5B50;-&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x6A21;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2.9. &#x4F8B;&#x5B50;: &#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x6A21;&#x578B;</h3>
 <p>&#x4EE5;&#x4E0B;&#x662F;&#x4E00;&#x4E2A;&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x6A21;&#x5F0F;&#x7684;&#x4F8B;&#x5B50;</p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> asyncio
 <span class="hljs-keyword">import</span> random
@@ -1598,7 +1642,9 @@ consuming item 8...
 producing 10/10
 consuming item 9...
 consuming item 10...
-</code></pre>
+</code></pre><footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2017-06-13 23:21:52
+</span></footer>
                                 
                                 </section>
                             
@@ -1641,7 +1687,7 @@ consuming item 10...
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"阻塞异步与协程","level":"1.6.2","depth":2,"next":{"title":"多线程与GIL","level":"1.6.3","depth":2,"path":"流程控制/多线程与GIL.md","ref":"流程控制/多线程与GIL.md","articles":[]},"previous":{"title":"单线程同步流程控制","level":"1.6.1","depth":2,"path":"流程控制/单线程同步流程控制.md","ref":"流程控制/单线程同步流程控制.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0"},"file":{"path":"流程控制/阻塞异步与协程.md","mtime":"2017-06-13T13:56:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-13T15:04:42.252Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"阻塞异步与协程","level":"1.6.2","depth":2,"next":{"title":"多线程与GIL","level":"1.6.3","depth":2,"path":"流程控制/多线程与GIL.md","ref":"流程控制/多线程与GIL.md","articles":[]},"previous":{"title":"单线程同步流程控制","level":"1.6.1","depth":2,"path":"流程控制/单线程同步流程控制.md","ref":"流程控制/单线程同步流程控制.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","katex","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/hsz1273327"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","wechatText":"微信打赏"},"sitemap-general":{"prefix":"http://gitbook.zhangjikai.com"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"isRewritePageTitle":true,"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","isShowTocTitleIcon":true,"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false}},"github-buttons":{"repo":"hsz1273327/TutorialForPythonMessageQueue","types":["star","watch","fork"],"size":"small"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略--消息队列","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍消息队列的原理和使用方法,介绍python常用的消息队列工具"},"file":{"path":"流程控制/阻塞异步与协程.md","mtime":"2017-06-13T15:21:52.686Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-17T04:13:36.617Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1651,27 +1697,31 @@ consuming item 10...
     <script src="../gitbook/theme.js"></script>
     
         
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
         
     
         

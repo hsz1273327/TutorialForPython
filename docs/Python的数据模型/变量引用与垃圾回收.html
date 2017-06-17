@@ -1,14 +1,14 @@
 
 <!DOCTYPE HTML>
-<html lang="zh" >
+<html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>变量引用与垃圾回收 · GitBook</title>
+        <title>变量引用与垃圾回收 · python攻略--消息队列</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
-        
+        <meta name="author" content="hsz">
         
         
     
@@ -17,11 +17,43 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -49,6 +81,7 @@
         
     
     
+    
     <meta name="HandheldFriendly" content="true"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -63,6 +96,17 @@
     <link rel="prev" href="数据模型.html" />
     
 
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"hsz1273327/TutorialForPythonMessageQueue","types":["star","watch","fork"],"size":"small"};
+    </script>
+
     </head>
     <body>
         
@@ -71,7 +115,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="輸入並搜尋" />
+    <input type="text" placeholder="输入并搜索" />
 </div>
 
             
@@ -551,7 +595,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            本書使用 GitBook 釋出
+            本书使用 GitBook 发布
         </a>
     </li>
 </ul>
@@ -589,12 +633,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x53D8;&#x91CF;&#x5F15;&#x7528;">&#x53D8;&#x91CF;&#x5F15;&#x7528;</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x53D8;&#x91CF;&#x5F15;&#x7528;"><b>1. </b>&#x53D8;&#x91CF;&#x5F15;&#x7528;</a></li><ul><li><span class="title-icon "></span><a href="#&#x6807;&#x8BC6;&#x76F8;&#x7B49;&#x6027;&#x548C;&#x522B;&#x540D;"><b>1.1. </b>&#x6807;&#x8BC6;,&#x76F8;&#x7B49;&#x6027;&#x548C;&#x522B;&#x540D;</a></li><ul><li><span class="title-icon "></span><a href="#is&#x548C;"><b>1.1.1. </b>is&#x548C;==</a></li></ul><li><span class="title-icon "></span><a href="#&#x53EF;&#x53D8;&#x5BF9;&#x8C61;&#x4E0E;&#x4E0D;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;"><b>1.2. </b>&#x53EF;&#x53D8;&#x5BF9;&#x8C61;&#x4E0E;&#x4E0D;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;</a></li><li><span class="title-icon "></span><a href="#&#x5143;&#x7EC4;"><b>1.3. </b>&#x5143;&#x7EC4;</a></li></ul><li><span class="title-icon "></span><a href="#&#x5BF9;&#x8C61;&#x590D;&#x5236;"><b>2. </b>&#x5BF9;&#x8C61;&#x590D;&#x5236;</a></li><ul><li><span class="title-icon "></span><a href="#&#x6D45;&#x590D;&#x5236;&#x548C;&#x6DF1;&#x590D;&#x5236;"><b>2.1. </b>&#x6D45;&#x590D;&#x5236;&#x548C;&#x6DF1;&#x590D;&#x5236;</a></li></ul><li><span class="title-icon "></span><a href="#&#x51FD;&#x6570;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x5F15;&#x7528;&#x65F6;"><b>3. </b>&#x51FD;&#x6570;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x5F15;&#x7528;&#x65F6;</a></li><ul><li><span class="title-icon "></span><a href="#&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x503C;"><b>3.1. </b>&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x503C;</a></li><li><span class="title-icon "></span><a href="#&#x9632;&#x5FA1;&#x53EF;&#x53D8;&#x53C2;&#x6570;"><b>3.2. </b>&#x9632;&#x5FA1;&#x53EF;&#x53D8;&#x53C2;&#x6570;</a></li></ul><li><span class="title-icon "></span><a href="#&#x5185;&#x7F6E;&#x65B9;&#x6CD5;del&#x548C;&#x5783;&#x573E;&#x56DE;&#x6536;"><b>4. </b>&#x5185;&#x7F6E;&#x65B9;&#x6CD5;del&#x548C;&#x5783;&#x573E;&#x56DE;&#x6536;</a></li><ul><li><span class="title-icon "></span><a href="#del&#x8BED;&#x53E5;"><b>4.1. </b>del&#x8BED;&#x53E5;</a></li><li><span class="title-icon "></span><a href="#&#x5783;&#x573E;&#x56DE;&#x6536;"><b>4.2. </b>&#x5783;&#x573E;&#x56DE;&#x6536;</a></li></ul><li><span class="title-icon "></span><a href="#&#x5F31;&#x5F15;&#x7528;"><b>5. </b>&#x5F31;&#x5F15;&#x7528;</a></li></ul></div><a href="#&#x53D8;&#x91CF;&#x5F15;&#x7528;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x53D8;&#x91CF;&#x5F15;&#x7528;"><a name="&#x53D8;&#x91CF;&#x5F15;&#x7528;" class="anchor-navigation-ex-anchor" href="#&#x53D8;&#x91CF;&#x5F15;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x53D8;&#x91CF;&#x5F15;&#x7528;</h1>
 <p>&#x4E2D;&#x6587;&#x4E2D;&#x592A;&#x9633;&#x53EB;&quot;&#x592A;&#x9633;&quot;,&#x82F1;&#x8BED;&#x4E2D;&#x592A;&#x9633;&#x53EB;&quot;sun&quot;,&#x6CD5;&#x8BED;&#x4E2D;&#x592A;&#x9633;&#x53EB;&quot;soleil&quot;,&#x65E5;&#x8BED;&#x4E2D;&#x592A;&#x9633;&#x53EB;&quot;&#x305F;&#x3044;&#x3088;&#x3046;&quot;,&#x4E0D;&#x540C;&#x7684;&#x53EB;&#x6CD5;&#x5176;&#x5B9E;&#x6307;&#x7684;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;.</p>
 <p>python&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x5C31;&#x6709;&#x70B9;&#x50CF;&#x5404;&#x79CD;&#x8BED;&#x8A00;&#x4E2D;&#x7684;&#x540D;&#x8BCD;,&#x5B83;&#x53EA;&#x662F;&#x4EE3;&#x8868;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x800C;&#x5DF2;.</p>
 <p>&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x5C06;&#x53D8;&#x91CF;&#x4E0E;&#x5BF9;&#x8C61;&#x7684;&#x5173;&#x7CFB;&#x79F0;&#x4F5C;&#x6253;&#x6807;&#x7B7E;,&#x53D8;&#x91CF;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x7684;&#x6807;&#x7B7E;,&#x800C;&#x5BF9;&#x8C61;&#x5C31;&#x662F;&#x8981;&#x88AB;&#x6253;&#x6807;&#x7B7E;&#x7684;&#x4E1C;&#x897F;.</p>
 <p>python&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x4E0E;&#x5BF9;&#x8C61;&#x7684;&#x5173;&#x7CFB;&#x6BD4;&#x8F83;&#x7C7B;&#x4F3C;java&#x4E2D;&#x7684;&#x5F15;&#x7528;,&#x6216;&#x8005;&#x8BF4;&#x662F;C&#x4E2D;&#x7684;&#x6307;&#x9488;&#x53D8;&#x91CF;.</p>
-<h2 id="&#x6807;&#x8BC6;&#x76F8;&#x7B49;&#x6027;&#x548C;&#x522B;&#x540D;">&#x6807;&#x8BC6;,&#x76F8;&#x7B49;&#x6027;&#x548C;&#x522B;&#x540D;</h2>
+<h2 id="&#x6807;&#x8BC6;&#x76F8;&#x7B49;&#x6027;&#x548C;&#x522B;&#x540D;"><a name="&#x6807;&#x8BC6;&#x76F8;&#x7B49;&#x6027;&#x548C;&#x522B;&#x540D;" class="anchor-navigation-ex-anchor" href="#&#x6807;&#x8BC6;&#x76F8;&#x7B49;&#x6027;&#x548C;&#x522B;&#x540D;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x6807;&#x8BC6;,&#x76F8;&#x7B49;&#x6027;&#x548C;&#x522B;&#x540D;</h2>
 <p>&#x6211;&#x4EEC;&#x8FD8;&#x662F;&#x7528;&#x4E4B;&#x524D;&#x7684;&#x6251;&#x514B;&#x724C;&#x6765;&#x505A;&#x4F8B;&#x5B50;</p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> namedtuple
 Card = namedtuple(<span class="hljs-string">&apos;&#x6251;&#x514B;&#x724C;&apos;</span>, [<span class="hljs-string">&apos;&#x5927;&#x5C0F;&apos;</span>, <span class="hljs-string">&apos;&#x82B1;&#x8272;&apos;</span>])
@@ -615,7 +659,7 @@ Card = namedtuple(<span class="hljs-string">&apos;&#x6251;&#x514B;&#x724C;&apos;
 <pre><code>(4545207392, 4545207392)
 </code></pre><p>&#x5185;&#x7F6E;&#x65B9;&#x6CD5;<code>id()</code>&#x53EF;&#x4EE5;&#x68C0;&#x67E5;&#x5BF9;&#x8C61;<code>identity</code>,&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x5728;&#x751F;&#x6210;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;<code>identity</code>,&#x540C;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x4E2D;&#x540C;&#x4E00;&#x65F6;&#x95F4;&#x4E0D;&#x4F1A;&#x5B58;&#x5728;&#x4E0D;&#x540C;&#x7684;<code>identity</code>&#x5728;&#x865A;&#x62DF;&#x673A;&#x4E2D;,cpython&#x4E2D;&#x5BF9;&#x8C61;&#x7684;<code>identity</code>&#x662F;&#x5176;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x7A7A;&#x95F4;.</p>
 <p><code>is</code>&#x8FD0;&#x7B97;&#x7B26;&#x4E13;&#x95E8;&#x7528;&#x6765;&#x5224;&#x522B;&#x53D8;&#x91CF;&#x6307;&#x5411;&#x7684;&#x5BF9;&#x8C61;&#x7684;<code>identity</code>&#x662F;&#x5426;&#x4E00;&#x6837;.&#x4E5F;&#x5C31;&#x662F;&#x662F;&#x4E0D;&#x662F;&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;.</p>
-<h3 id="is&#x548C;">is&#x548C;<code>==</code></h3>
+<h3 id="is&#x548C;"><a name="is&#x548C;" class="anchor-navigation-ex-anchor" href="#is&#x548C;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1. is&#x548C;==</h3>
 <p>python&#x4E2D;&#x4E5F;&#x5E38;&#x4F1A;&#x6709;&#x8981;&#x5224;&#x522B;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x76F8;&#x7B49;&#x7684;&#x60C5;&#x51B5;</p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> copy
 </code></pre>
@@ -647,7 +691,7 @@ AttributeError                            Traceback (most recent call last)
 
 
 AttributeError: &apos;list&apos; object attribute &apos;__eq__&apos; is read-only
-</code></pre><h2 id="&#x53EF;&#x53D8;&#x5BF9;&#x8C61;&#x4E0E;&#x4E0D;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;">&#x53EF;&#x53D8;&#x5BF9;&#x8C61;&#x4E0E;&#x4E0D;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;</h2>
+</code></pre><h2 id="&#x53EF;&#x53D8;&#x5BF9;&#x8C61;&#x4E0E;&#x4E0D;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;"><a name="&#x53EF;&#x53D8;&#x5BF9;&#x8C61;&#x4E0E;&#x4E0D;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;" class="anchor-navigation-ex-anchor" href="#&#x53EF;&#x53D8;&#x5BF9;&#x8C61;&#x4E0E;&#x4E0D;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x53EF;&#x53D8;&#x5BF9;&#x8C61;&#x4E0E;&#x4E0D;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;</h2>
 <p>&#x4E00;&#x822C;&#x6765;&#x8BF4;python&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x5206;&#x4E3A;&#x4E24;&#x7C7B;</p>
 <ol>
 <li>&#x4E0D;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;</li>
@@ -655,8 +699,8 @@ AttributeError: &apos;list&apos; object attribute &apos;__eq__&apos; is read-onl
 </ol>
 <p>&#x4E0D;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;&#x5305;&#x62EC;<code>str</code>,<code>bytes</code>&#x548C;&#x6570;&#x5B57;&#x7C7B;&#x578B;,&#x4ED6;&#x4EEC;&#x7279;&#x70B9;&#x5C31;&#x662F;&#x5B58;&#x5728;&#x5185;&#x5B58;&#x4E2D;,&#x5BF9;&#x8C61;&#x7684;&#x5185;&#x5BB9;&#x662F;&#x4E0D;&#x53EF;&#x53D8;&#x7684;.</p>
 <p>&#x53EF;&#x53D8;&#x5BF9;&#x8C61;&#x5305;&#x62EC;<code>list</code>,<code>dict</code>,<code>set</code>,&#x4EE5;&#x53CA;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x578B;&#x7684;&#x5B9E;&#x4F8B;&#x7B49;.</p>
-<h2 id="&#x5143;&#x7EC4;">&#x5143;&#x7EC4;</h2>
-<h1 id="&#x5BF9;&#x8C61;&#x590D;&#x5236;">&#x5BF9;&#x8C61;&#x590D;&#x5236;</h1>
+<h2 id="&#x5143;&#x7EC4;"><a name="&#x5143;&#x7EC4;" class="anchor-navigation-ex-anchor" href="#&#x5143;&#x7EC4;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x5143;&#x7EC4;</h2>
+<h1 id="&#x5BF9;&#x8C61;&#x590D;&#x5236;"><a name="&#x5BF9;&#x8C61;&#x590D;&#x5236;" class="anchor-navigation-ex-anchor" href="#&#x5BF9;&#x8C61;&#x590D;&#x5236;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x5BF9;&#x8C61;&#x590D;&#x5236;</h1>
 <p>python&#x6807;&#x51C6;&#x5E93;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x590D;&#x5236;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;&#x7684;&#x5DE5;&#x5177;<code>copy</code></p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> copy
 </code></pre>
@@ -688,7 +732,7 @@ AttributeError: &apos;list&apos; object attribute &apos;__eq__&apos; is read-onl
 <pre><code class="lang-python">id(aaa)
 </code></pre>
 <pre><code>4380145480
-</code></pre><h2 id="&#x6D45;&#x590D;&#x5236;&#x548C;&#x6DF1;&#x590D;&#x5236;">&#x6D45;&#x590D;&#x5236;&#x548C;&#x6DF1;&#x590D;&#x5236;</h2>
+</code></pre><h2 id="&#x6D45;&#x590D;&#x5236;&#x548C;&#x6DF1;&#x590D;&#x5236;"><a name="&#x6D45;&#x590D;&#x5236;&#x548C;&#x6DF1;&#x590D;&#x5236;" class="anchor-navigation-ex-anchor" href="#&#x6D45;&#x590D;&#x5236;&#x548C;&#x6DF1;&#x590D;&#x5236;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. &#x6D45;&#x590D;&#x5236;&#x548C;&#x6DF1;&#x590D;&#x5236;</h2>
 <p>&#x6D45;&#x590D;&#x5236;&#x662F;&#x6307;&#x590D;&#x5236;&#x4E86;&#x6700;&#x5916;&#x5C42;&#x5BB9;&#x5668;,&#x526F;&#x672C;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x662F;&#x6E90;&#x5BB9;&#x5668;&#x4E2D;&#x5143;&#x7D20;&#x7684;&#x5F15;&#x7528;.&#x800C;&#x6DF1;&#x590D;&#x5236;&#x5219;&#x662F;&#x5B8C;&#x5168;&#x590D;&#x5236;.<strong>python&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x6D45;&#x590D;&#x5236;</strong>.</p>
 <p>&#x5BF9;&#x4E8E;&#x6D45;&#x590D;&#x5236;,&#x5982;&#x679C;&#x6240;&#x6709;&#x5143;&#x7D20;&#x90FD;&#x662F;&#x4E0D;&#x53EF;&#x53D8;&#x7684;,&#x90A3;&#x4E48;&#x8FD9;&#x6837;&#x6CA1;&#x6709;&#x95EE;&#x9898;,&#x8FD8;&#x80FD;&#x8282;&#x7701;&#x5185;&#x5B58;&#x3002;&#x4F46;&#x662F;,&#x5982;&#x679C;&#x6709;&#x53EF;&#x53D8;&#x7684;&#x5143;&#x7D20;,&#x53EF;&#x80FD;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x610F;&#x60F3;&#x4E0D;&#x5230;&#x7684;&#x95EE;&#x9898;.</p>
 <p>python&#x4E2D;&#x6D45;&#x590D;&#x5236;&#x548C;&#x6DF1;&#x590D;&#x5236;&#x53EF;&#x4EE5;&#x5206;&#x522B;&#x4F7F;&#x7528;<code>copy.copy(object)</code>&#x548C;<code>copy.deepcopy(object)</code>&#x6765;&#x5B9E;&#x73B0;,&#x800C;&#x5BF9;&#x8C61;&#x590D;&#x5236;&#x64CD;&#x4F5C;&#x5BF9;&#x5E94;&#x7684;&#x63A5;&#x53E3;&#x4E3A;<code>__copy__()</code> &#x548C; <code>__deepcopy__()</code></p>
@@ -730,7 +774,7 @@ AttributeError: &apos;list&apos; object attribute &apos;__eq__&apos; is read-onl
 </code></pre>
 <pre><code>[&apos;Alice&apos;, &apos;Bill&apos;, &apos;Claire&apos;, &apos;David&apos;]
 </code></pre><p>bus1 &#x548C; bus2 &#x5171;&#x4EAB;&#x540C;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#x5BF9;&#x8C61;,&#x56E0;&#x4E3A; bus2 &#x662F; bus1 &#x7684;&#x6D45;&#x590D;&#x5236;&#x526F;&#x672C;&#x3002;</p>
-<h1 id="&#x51FD;&#x6570;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x5F15;&#x7528;&#x65F6;">&#x51FD;&#x6570;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x5F15;&#x7528;&#x65F6;</h1>
+<h1 id="&#x51FD;&#x6570;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x5F15;&#x7528;&#x65F6;"><a name="&#x51FD;&#x6570;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x5F15;&#x7528;&#x65F6;" class="anchor-navigation-ex-anchor" href="#&#x51FD;&#x6570;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x5F15;&#x7528;&#x65F6;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x51FD;&#x6570;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x5F15;&#x7528;&#x65F6;</h1>
 <p>Python &#x552F;&#x4E00;&#x652F;&#x6301;&#x7684;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x6A21;&#x5F0F;&#x662F;&#x5171;&#x4EAB;&#x4F20;&#x53C2;(call by sharing)&#x3002;&#x591A;&#x6570;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x8BED;&#x8A00;&#x90FD;&#x91C7;&#x7528;&#x8FD9;&#x4E00;&#x6A21;&#x5F0F;,&#x5305;&#x62EC; Ruby&#x3001;Smalltalk &#x548C; Java(Java &#x7684;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x662F;&#x8FD9;&#x6837;,&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x6309;&#x503C;&#x4F20;&#x53C2;)&#x3002;&#x5171;&#x4EAB;&#x4F20;&#x53C2;&#x6307;&#x51FD;&#x6570;&#x7684;&#x5404;&#x4E2A;&#x5F62;&#x5F0F;&#x53C2;&#x6570;&#x83B7;&#x5F97;&#x5B9E;&#x53C2;&#x4E2D;&#x5404;&#x4E2A;&#x5F15;&#x7528;&#x7684;&#x526F;&#x672C;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;,&#x51FD;&#x6570;&#x5185;&#x90E8;&#x7684;&#x5F62;&#x53C2; &#x662F;&#x5B9E;&#x53C2;&#x7684;&#x522B;&#x540D;&#x3002;</p>
 <p>&#x8FD9;&#x79CD;&#x65B9;&#x6848;&#x7684;&#x7ED3;&#x679C;&#x662F;,&#x51FD;&#x6570;&#x53EF;&#x80FD;&#x4F1A;&#x4FEE;&#x6539;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x7684;&#x53EF;&#x53D8;&#x5BF9;&#x8C61;,&#x4F46;&#x662F;&#x65E0;&#x6CD5;&#x4FEE;&#x6539;&#x90A3;&#x4E9B;&#x5BF9;&#x8C61;&#x7684;&#x6807;&#x8BC6;(&#x5373;&#x4E0D;&#x80FD;&#x628A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x66FF;&#x6362;&#x6210;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;).&#x4E0B;&#x4F8B;&#x4E2D;&#x6709;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x51FD;&#x6570;,&#x5B83;&#x5728;&#x53C2;&#x6570;&#x4E0A; &#x8C03;&#x7528; += &#x8FD0;&#x7B97;&#x7B26;&#x3002;&#x5206;&#x522B;&#x628A;&#x6570;&#x5B57;&#x3001;&#x5217;&#x8868;&#x548C;&#x5143;&#x7EC4;&#x4F20;&#x7ED9;&#x90A3;&#x4E2A;&#x51FD;&#x6570;,&#x5B9E;&#x9645;&#x4F20;&#x5165;&#x7684;&#x5B9E;&#x53C2;&#x4F1A;&#x4EE5;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x53D7;&#x5230;&#x5F71;&#x54CD;&#x3002;</p>
 <pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span><span class="hljs-params">(a, b)</span>:</span>
@@ -758,7 +802,7 @@ f(t, u)
 </code></pre><pre><code class="lang-python">t, u
 </code></pre>
 <pre><code>((10, 20), (30, 40))
-</code></pre><h2 id="&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x503C;">&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x503C;</h2>
+</code></pre><h2 id="&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x503C;"><a name="&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x503C;" class="anchor-navigation-ex-anchor" href="#&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x503C;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. &#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x503C;</h2>
 <p>&#x53EF;&#x9009;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x6709;&#x9ED8;&#x8BA4;&#x503C;,&#x8FD9;&#x662F;<code>Python</code>&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x7684;&#x4E00;&#x4E2A;&#x5F88;&#x68D2;&#x7684;&#x7279;&#x6027;,&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x7684;<code>API</code>&#x5728;&#x8FDB;&#x5316;&#x7684;&#x540C;&#x65F6;&#x80FD;&#x4FDD;&#x8BC1;&#x5411;&#x540E;&#x517C;&#x5BB9;&#x3002;&#x7136;&#x800C;,&#x6211;&#x4EEC;&#x5E94;&#x8BE5;&#x907F;&#x514D;&#x4F7F;&#x7528;&#x53EF;&#x53D8;&#x7684;&#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x3002;</p>
 <p>&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#x6211;&#x4EEC;&#x7528;&#x4E4B;&#x524D;&#x7684;<code>Bus</code>&#x7C7B;&#x4E3A;&#x57FA;&#x7840;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65B0;&#x7C7B;,<code>HauntedBus</code>,&#x7136;&#x540E;&#x4FEE;&#x6539; <code>__init__</code> &#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x4E00;&#x6B21;,<code>passengers</code>&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x4E0D;&#x662F;<code>None</code>,&#x800C;&#x662F;<code>[]</code>, &#x8FD9;&#x6837;&#x5C31;&#x4E0D;&#x7528;&#x50CF;&#x4E4B;&#x524D;&#x90A3;&#x6837;&#x4F7F;&#x7528;<code>if</code>&#x5224;&#x65AD;&#x4E86;&#x3002;&#x8FD9;&#x4E2A;&apos;&#x806A;&#x660E;&#x7684;&#x4E3E;&#x52A8;&apos;&#x4F1A;&#x8BA9;&#x6211;&#x4EEC;&#x9677;&#x5165;&#x9EBB;&#x70E6;</p>
 <pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HauntedBus</span>:</span> 
@@ -808,7 +852,7 @@ bus3.passengers
 <pre><code>([&apos;Carrie&apos;, &apos;Dave&apos;],)
 </code></pre><p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x9A8C;&#x8BC1;<code>bus2.passengers</code>&#x662F;&#x4E00;&#x4E2A;&#x522B;&#x540D;,&#x5B83;&#x7ED1;&#x5B9A;&#x5230;<code>HauntedBus.__init__.__ defaults__</code> &#x5C5E;&#x6027;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4E0A;</p>
 <p>&#x53EF;&#x53D8;&#x9ED8;&#x8BA4;&#x503C;&#x5BFC;&#x81F4;&#x7684;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x8BF4;&#x660E;&#x4E86;&#x4E3A;&#x4EC0;&#x4E48;&#x901A;&#x5E38;&#x4F7F;&#x7528;<code>None</code>&#x4F5C;&#x4E3A;&#x63A5;&#x6536;&#x53EF;&#x53D8;&#x503C;&#x7684;&#x53C2;&#x6570;&#x7684;&#x9ED8;&#x8BA4;&#x503C;</p>
-<h2 id="&#x9632;&#x5FA1;&#x53EF;&#x53D8;&#x53C2;&#x6570;">&#x9632;&#x5FA1;&#x53EF;&#x53D8;&#x53C2;&#x6570;</h2>
+<h2 id="&#x9632;&#x5FA1;&#x53EF;&#x53D8;&#x53C2;&#x6570;"><a name="&#x9632;&#x5FA1;&#x53EF;&#x53D8;&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x9632;&#x5FA1;&#x53EF;&#x53D8;&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. &#x9632;&#x5FA1;&#x53EF;&#x53D8;&#x53C2;&#x6570;</h2>
 <p>&#x5982;&#x679C;&#x5B9A;&#x4E49;&#x7684;&#x51FD;&#x6570;&#x63A5;&#x6536;&#x53EF;&#x53D8;&#x53C2;&#x6570;,&#x5E94;&#x8BE5;&#x8C28;&#x614E;&#x8003;&#x8651;&#x8C03;&#x7528;&#x65B9;&#x662F;&#x5426;&#x671F;&#x671B;&#x4FEE;&#x6539;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;.</p>
 <p>&#x4F8B;&#x5982;,&#x5982;&#x679C;&#x51FD;&#x6570;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x5B57;&#x5178;,&#x800C;&#x4E14;&#x5728;&#x5904;&#x7406;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x8981;&#x4FEE;&#x6539;&#x5B83;,&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x526F;&#x4F5C;&#x7528;&#x8981;&#x4E0D;&#x8981;&#x4F53;&#x73B0;&#x5230;&#x51FD;&#x6570;&#x5916;&#x90E8;?</p>
 <p>&#x5177;&#x4F53;&#x60C5;&#x51B5;&#x5177;&#x4F53;&#x5206;&#x6790;&#x3002;&#x8FD9;&#x5176;&#x5B9E;&#x9700;&#x8981;&#x51FD;&#x6570;&#x7684;&#x7F16;&#x5199;&#x8005;&#x548C;&#x8C03;&#x7528;&#x65B9;&#x8FBE;&#x6210;&#x5171;&#x8BC6;.</p>
@@ -856,13 +900,13 @@ basketball_team
 </code></pre><pre><code class="lang-python">bus.passengers
 </code></pre>
 <pre><code>[&apos;Sue&apos;, &apos;Maya&apos;, &apos;Diana&apos;]
-</code></pre><h1 id="&#x5185;&#x7F6E;&#x65B9;&#x6CD5;del&#x548C;&#x5783;&#x573E;&#x56DE;&#x6536;">&#x5185;&#x7F6E;&#x65B9;&#x6CD5;<code>del</code>&#x548C;&#x5783;&#x573E;&#x56DE;&#x6536;</h1>
+</code></pre><h1 id="&#x5185;&#x7F6E;&#x65B9;&#x6CD5;del&#x548C;&#x5783;&#x573E;&#x56DE;&#x6536;"><a name="&#x5185;&#x7F6E;&#x65B9;&#x6CD5;del&#x548C;&#x5783;&#x573E;&#x56DE;&#x6536;" class="anchor-navigation-ex-anchor" href="#&#x5185;&#x7F6E;&#x65B9;&#x6CD5;del&#x548C;&#x5783;&#x573E;&#x56DE;&#x6536;"><i class="fa fa-link" aria-hidden="true"></i></a>4. &#x5185;&#x7F6E;&#x65B9;&#x6CD5;del&#x548C;&#x5783;&#x573E;&#x56DE;&#x6536;</h1>
 <p>&#x5BF9;&#x8C61;&#x7EDD;&#x4E0D;&#x4F1A;&#x81EA;&#x884C;&#x9500;&#x6BC1;;&#x7136;&#x800C;,&#x65E0;&#x6CD5;&#x5F97;&#x5230;&#x5BF9;&#x8C61;&#x65F6;,&#x53EF;&#x80FD;&#x4F1A;&#x88AB;&#x5F53;&#x4F5C;&#x5783;&#x573E;&#x56DE;&#x6536;.</p>
-<h2 id="del&#x8BED;&#x53E5;">del&#x8BED;&#x53E5;</h2>
+<h2 id="del&#x8BED;&#x53E5;"><a name="del&#x8BED;&#x53E5;" class="anchor-navigation-ex-anchor" href="#del&#x8BED;&#x53E5;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1. del&#x8BED;&#x53E5;</h2>
 <p><code>del</code>&#x8BED;&#x53E5;&#x5220;&#x9664;&#x540D;&#x79F0;,&#x800C;&#x4E0D;&#x662F;&#x5BF9;&#x8C61;.<code>del</code>&#x547D;&#x4EE4;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x5BF9;&#x8C61;&#x88AB;&#x5F53;&#x4F5C;&#x5783;&#x573E;&#x56DE;&#x6536;,&#x4F46;&#x662F;&#x90A3;&#x4EC5;&#x662F;&#x5F53;&#x5220;&#x9664;&#x7684;&#x53D8;&#x91CF;&#x4FDD;&#x5B58;&#x7684;&#x662F;&#x5BF9;&#x8C61;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5F15;&#x7528;,&#x6216;&#x8005;&#x65E0;&#x6CD5;&#x5F97;&#x5230;&#x5BF9;&#x8C61;&#x65F6;&#x7684;&#x60C5;&#x51B5;.&#x91CD;&#x65B0;&#x7ED1;&#x5B9A;&#x540D;&#x5B57;&#x5230;&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x5982;<code>None</code>&#x4E5F;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x6570;&#x91CF;&#x5F52;&#x96F6;,&#x5BFC;&#x81F4;&#x5BF9;&#x8C61;&#x88AB;&#x9500;&#x6BC1;.</p>
 <p>&#x6709;&#x4E2A;<code>__del__</code>&#x7279;&#x6B8A;&#x65B9;&#x6CD5;,&#x4F46;&#x662F;&#x5B83;&#x4E0D;&#x4F1A;&#x9500;&#x6BC1;&#x5B9E;&#x4F8B;&#x800C;&#x662F;&#x5728;&#x5373;&#x5C06;&#x9500;&#x6BC1;&#x5B9E;&#x4F8B;&#x4E4B;&#x524D;&#x89E6;&#x53D1;,&#x5B83;&#x4E0D;&#x5E94;&#x8BE5;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x8C03;&#x7528;.</p>
 <p>&#x5373;&#x5C06;&#x9500;&#x6BC1;&#x5B9E;&#x4F8B;&#x65F6;,Python&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x8C03;&#x7528;<code>__del__</code>&#x65B9;&#x6CD5;,&#x7ED9;&#x5B9E;&#x4F8B;&#x6700;&#x540E;&#x7684;&#x673A;&#x4F1A;,&#x91CA;&#x653E;&#x5916;&#x90E8;&#x8D44;&#x6E90;.&#x81EA;&#x5DF1;&#x7F16;&#x5199;&#x7684;&#x4EE3;&#x7801;&#x5F88;&#x5C11;&#x9700;&#x8981;&#x5B9E;&#x73B0; <code>__del__</code>&#x4EE3;&#x7801;,&#x6709;&#x4E9B;python &#x65B0;&#x624B;&#x4F1A;&#x82B1;&#x65F6;&#x95F4;&#x5B9E;&#x73B0;,&#x4F46;&#x5374;&#x5403;&#x529B;&#x4E0D;&#x8BA8;&#x597D;,&#x56E0;&#x4E3A;<code>__del__</code>&#x5F88;&#x96BE;&#x7528;&#x5BF9;.&#x5177;&#x4F53;&#x7684;&#x53EF;&#x4EE5;&#x770B;<a href="https://docs.python. org/3/reference/datamodel.html#object.__del__" target="_blank">Python &#x8BED;&#x8A00;&#x53C2; &#x8003;&#x624B;&#x518C;&#x4E2D;&apos;Data Model&apos;&#x4E00;&#x7AE0;&#x4E2D;<code>__del__</code>&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#x7684;&#x6587;&#x6863;</a></p>
-<h2 id="&#x5783;&#x573E;&#x56DE;&#x6536;">&#x5783;&#x573E;&#x56DE;&#x6536;</h2>
+<h2 id="&#x5783;&#x573E;&#x56DE;&#x6536;"><a name="&#x5783;&#x573E;&#x56DE;&#x6536;" class="anchor-navigation-ex-anchor" href="#&#x5783;&#x573E;&#x56DE;&#x6536;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2. &#x5783;&#x573E;&#x56DE;&#x6536;</h2>
 <p>&#x5728; CPython &#x4E2D;,&#x5783;&#x573E;&#x56DE;&#x6536;&#x4F7F;&#x7528;&#x7684;&#x4E3B;&#x8981;&#x7B97;&#x6CD5;&#x662F;&#x5F15;&#x7528;&#x8BA1;&#x6570;.&#x5B9E;&#x9645;&#x4E0A;,&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x90FD;&#x4F1A;&#x7EDF;&#x8BA1;&#x6709;&#x591A;&#x5C11;&#x5F15;&#x7528;&#x6307;&#x5411;&#x81EA;&#x5DF1;.&#x5F53;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x5F52;&#x96F6;&#x65F6;,&#x5BF9;&#x8C61;&#x7ACB;&#x5373;&#x5C31;&#x88AB;&#x9500;&#x6BC1;:</p>
 <ol>
 <li>CPython &#x4F1A;&#x5728;&#x5BF9;&#x8C61;&#x4E0A;&#x8C03;&#x7528;<code>__del__</code>&#x65B9;&#x6CD5;(&#x5982;&#x679C;&#x5B9A;&#x4E49;&#x4E86;),</li>
@@ -896,7 +940,7 @@ Python&#x7684;&#x5176;&#x4ED6;&#x5B9E;&#x73B0;&#x6709;&#x66F4;&#x590D;&#x6742;&#
 </code></pre>
 <pre><code>False
 </code></pre><p>&#x4F60;&#x53EF;&#x80FD;&#x89C9;&#x5F97;&#x5947;&#x602A;,&#x4E3A;&#x4EC0;&#x4E48;&#x4E0A;&#x4F8B;&#x4E2D;&#x7684;<code>{1, 2, 3}</code>&#x5BF9;&#x8C61;&#x88AB;&#x9500;&#x6BC1;&#x4E86;?&#x6BD5;&#x7ADF;,&#x6211;&#x4EEC;&#x628A;s1&#x5F15;&#x7528;&#x4F20;&#x7ED9;<code>finalize</code>&#x51FD;&#x6570;&#x4E86;,&#x800C;&#x4E3A;&#x4E86;&#x76D1;&#x63A7;&#x5BF9;&#x8C61;&#x548C;&#x8C03;&#x7528;&#x56DE;&#x8C03;,&#x5FC5;&#x987B;&#x8981;&#x6709;&#x5F15;&#x7528;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;,<code>finalize</code>&#x6301;&#x6709;<code>{1, 2, 3}</code>&#x7684;&#x5F31;&#x5F15;&#x7528;</p>
-<h1 id="&#x5F31;&#x5F15;&#x7528;">&#x5F31;&#x5F15;&#x7528;</h1>
+<h1 id="&#x5F31;&#x5F15;&#x7528;"><a name="&#x5F31;&#x5F15;&#x7528;" class="anchor-navigation-ex-anchor" href="#&#x5F31;&#x5F15;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x5F31;&#x5F15;&#x7528;</h1>
 <p>&#x6B63;&#x662F;&#x56E0;&#x4E3A;&#x6709;&#x5F15;&#x7528;,&#x5BF9;&#x8C61;&#x624D;&#x4F1A;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x5B58;&#x5728;.&#x5F53;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x6570;&#x91CF;&#x5F52;&#x96F6;&#x540E;,&#x5783;&#x573E;&#x56DE;&#x6536;&#x7A0B;&#x5E8F;&#x4F1A;&#x628A;&#x5BF9;&#x8C61;&#x9500;&#x6BC1;.&#x4F46;&#x662F;,&#x6709;&#x65F6;&#x9700;&#x8981;&#x5F15;&#x7528;&#x5BF9;&#x8C61;,&#x800C;&#x4E0D;&#x8BA9;&#x5BF9;&#x8C61;&#x5B58;&#x5728;&#x7684;&#x65F6;&#x95F4;&#x8D85;&#x8FC7;&#x6240;&#x9700;&#x65F6;&#x95F4;.&#x8FD9;&#x7ECF;&#x5E38;&#x7528;&#x5728;&#x7F13;&#x5B58;&#x4E2D;.</p>
 <p>&#x5F31;&#x5F15;&#x7528;&#x4E0D;&#x4F1A;&#x589E;&#x52A0;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x6570;&#x91CF;.&#x5F15;&#x7528;&#x7684;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x79F0;&#x4E3A;&#x6240;&#x6307;&#x5BF9;&#x8C61;(referent).&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x8BF4;,&#x5F31;&#x5F15;&#x7528;&#x4E0D;&#x4F1A;&#x59A8;&#x788D;&#x6240;&#x6307;&#x5BF9;&#x8C61;&#x88AB;&#x5F53;&#x4F5C;&#x5783;&#x573E;&#x56DE;&#x6536;.</p>
 <p>&#x5F31;&#x5F15;&#x7528;&#x5728;&#x7F13;&#x5B58;&#x5E94;&#x7528;&#x4E2D;&#x5F88;&#x6709;&#x7528;,&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x4E0D;&#x60F3;&#x4EC5;&#x56E0;&#x4E3A;&#x88AB;&#x7F13;&#x5B58;&#x5F15;&#x7528;&#x7740;&#x800C;&#x59CB;&#x7EC8;&#x4FDD;&#x5B58;&#x7F13;&#x5B58;&#x5BF9;&#x8C61;.</p>
@@ -923,7 +967,7 @@ r(): {2, 3}
 deleting obj
 callback( &lt;weakref at 0x10eb9ef48; dead&gt; )
 r(): None
-</code></pre><h3 id="&#x4EE3;&#x7406;proxy">&#x4EE3;&#x7406;Proxy</h3>
+</code></pre><h3 id="&#x4EE3;&#x7406;proxy"><a name="&#x4EE3;&#x7406;proxy" class="anchor-navigation-ex-anchor" href="#&#x4EE3;&#x7406;proxy"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4EE3;&#x7406;proxy" class="plugin-anchor" href="#&#x4EE3;&#x7406;proxy"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EE3;&#x7406;Proxy</h3>
 <p>&#x4F7F;&#x7528;<code>weakref.proxy</code>&#x548C;&#x4F7F;&#x7528;&#x666E;&#x901A;<code>weakref</code>&#x7684;&#x533A;&#x522B;&#x5C31;&#x662F;&#x4E0D;&#x9700;&#x8981;<code>()</code>&#xFF0C;&#x53EF;&#x4EE5;&#x50CF;&#x539F;&#x5BF9;&#x8C61;&#x4E00;&#x6837;&#x5730;&#x4F7F;&#x7528;proxy&#x8BBF;&#x95EE;&#x539F;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x3002;</p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> weakref  
 
@@ -990,9 +1034,11 @@ wref_to_a_list = weakref.ref(a_list)
 </code></pre>
 <p><code>set</code>&#x5B9E;&#x4F8B;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x6240;&#x6307;&#x5BF9;&#x8C61;,&#x56E0;&#x6B64;&#x4E0A;&#x4F8B;&#x624D;&#x4F7F;&#x7528;<code>set</code>&#x5B9E;&#x4F8B;.&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x7C7B;&#x578B;&#x4E5F;&#x6CA1;&#x95EE;&#x9898;,&#x4F46;&#x662F;<code>int</code>&#x548C;<code>tuple</code>&#x5B9E;&#x4F8B;&#x4E0D;&#x80FD;&#x4F5C;&#x4E3A;&#x5F31;&#x5F15;&#x7528;&#x7684;&#x76EE;&#x6807;,&#x751A;&#x81F3;&#x5B83;&#x4EEC;&#x7684;&#x5B50;&#x7C7B;&#x4E5F;&#x4E0D;&#x884C;&#x3002;
 &#x8FD9;&#x4E9B;&#x5C40;&#x9650;&#x57FA;&#x672C;&#x4E0A;&#x662F;<code>CPython</code>&#x7684;&#x5B9E;&#x73B0;&#x7EC6;&#x8282;,&#x5728;&#x5176;&#x4ED6;<code>Python</code>&#x89E3;&#x91CA;&#x5668;&#x4E2D;&#x60C5;&#x51B5;&#x53EF;&#x80FD;&#x4E0D;&#x4E00;&#x6837;.&#x8FD9;&#x4E9B;&#x5C40;&#x9650;&#x662F;&#x5185;&#x90E8;&#x4F18;&#x5316;&#x5BFC;&#x81F4;&#x7684;&#x7ED3;&#x679C;.</p>
-<h3 id="python&#x5BF9;&#x4E0D;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x65BD;&#x52A0;&#x7684;&#x628A;&#x620F;">Python&#x5BF9;&#x4E0D;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x65BD;&#x52A0;&#x7684;&#x628A;&#x620F;</h3>
+<h3 id="python&#x5BF9;&#x4E0D;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x65BD;&#x52A0;&#x7684;&#x628A;&#x620F;"><a name="python&#x5BF9;&#x4E0D;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x65BD;&#x52A0;&#x7684;&#x628A;&#x620F;" class="anchor-navigation-ex-anchor" href="#python&#x5BF9;&#x4E0D;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x65BD;&#x52A0;&#x7684;&#x628A;&#x620F;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="python&#x5BF9;&#x4E0D;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x65BD;&#x52A0;&#x7684;&#x628A;&#x620F;" class="plugin-anchor" href="#python&#x5BF9;&#x4E0D;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x65BD;&#x52A0;&#x7684;&#x628A;&#x620F;"><i class="fa fa-link" aria-hidden="true"></i></a>Python&#x5BF9;&#x4E0D;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x65BD;&#x52A0;&#x7684;&#x628A;&#x620F;</h3>
 <p>python&#x7684;&#x5185;&#x90E8;&#x6709;&#x4E00;&#x79CD;&#x4F18;&#x5316;&#x63AA;&#x65BD;&#x8F83;<code>&#x9A7B;&#x7559;(interning)</code>.&#x4ED6;&#x7684;&#x7ED3;&#x679C;&#x4E4B;&#x4E00;&#x5C31;&#x662F;&#x5171;&#x4EAB;&#x5B57;&#x7B26;&#x4E32;&#x5B57;&#x9762;&#x91CF;,&#x4EE5;&#x53CA;&#x5728;&#x5C0F;&#x7684;&#x6574;&#x6570;&#x9632;&#x6B62;&#x91CD;&#x590D;&#x521B;&#x5EFA;&apos;&#x70ED;&#x95E8;&apos;&#x6570;&#x5B57;,&#x5982; 0&#x3001;&#x2014;1 &#x548C; 42&#x3002;&#x6CE8;&#x610F;,<code>CPython</code>&#x4E0D;&#x4F1A;&#x9A7B;&#x7559; &#x6240;&#x6709;&#x5B57;&#x7B26;&#x4E32;&#x548C;&#x6574;&#x6570;,&#x9A7B;&#x7559;&#x7684;&#x6761;&#x4EF6;&#x662F;&#x5B9E;&#x73B0;&#x7EC6;&#x8282;,&#x800C;&#x4E14;&#x6CA1;&#x6709;&#x6587;&#x6863;&#x8BF4;&#x660E;.&#x8FD9;&#x4E00;&#x4F18;&#x5316;&#x63AA;&#x65BD;&#x53EF;&#x4EE5;&#x8282;&#x7701;&#x5185;&#x5B58;,&#x63D0;&#x5347;&#x89E3;&#x91CA;&#x5668;&#x7684;&#x901F;&#x5EA6;.&#x4F46;&#x53EA;&#x6709;&#x4E0D;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x4F1A;&#x53D7;&#x5230;&#x5F71;&#x54CD;.&#x8FD9;&#x4E5F;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x5F31;&#x5F15;&#x7528;&#x5728;int,tuple&#x8FD9;&#x7C7B;&#x4E0D;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x4E2D;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x7684;&#x539F;&#x56E0;</p>
-
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2017-06-13 20:50:38
+</span></footer>
                                 
                                 </section>
                             
@@ -1035,7 +1081,7 @@ wref_to_a_list = weakref.ref(a_list)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"变量引用与垃圾回收","level":"1.4.2","depth":2,"next":{"title":"结语","level":"1.4.3","depth":2,"path":"Python的数据模型/结语.md","ref":"Python的数据模型/结语.md","articles":[]},"previous":{"title":"数据模型","level":"1.4.1","depth":2,"path":"Python的数据模型/数据模型.md","ref":"Python的数据模型/数据模型.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0"},"file":{"path":"Python的数据模型/变量引用与垃圾回收.md","mtime":"2017-06-07T16:05:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-13T15:04:42.252Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"变量引用与垃圾回收","level":"1.4.2","depth":2,"next":{"title":"结语","level":"1.4.3","depth":2,"path":"Python的数据模型/结语.md","ref":"Python的数据模型/结语.md","articles":[]},"previous":{"title":"数据模型","level":"1.4.1","depth":2,"path":"Python的数据模型/数据模型.md","ref":"Python的数据模型/数据模型.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","katex","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/hsz1273327"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","wechatText":"微信打赏"},"sitemap-general":{"prefix":"http://gitbook.zhangjikai.com"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"isRewritePageTitle":true,"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","isShowTocTitleIcon":true,"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false}},"github-buttons":{"repo":"hsz1273327/TutorialForPythonMessageQueue","types":["star","watch","fork"],"size":"small"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略--消息队列","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍消息队列的原理和使用方法,介绍python常用的消息队列工具"},"file":{"path":"Python的数据模型/变量引用与垃圾回收.md","mtime":"2017-06-13T12:50:38.489Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-17T04:13:36.617Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1045,27 +1091,31 @@ wref_to_a_list = weakref.ref(a_list)
     <script src="../gitbook/theme.js"></script>
     
         
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
         
     
         

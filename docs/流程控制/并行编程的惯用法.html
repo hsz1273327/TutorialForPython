@@ -1,14 +1,14 @@
 
 <!DOCTYPE HTML>
-<html lang="zh" >
+<html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>并行编程的惯用法 · GitBook</title>
+        <title>并行编程的惯用法 · python攻略--消息队列</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
-        
+        <meta name="author" content="hsz">
         
         
     
@@ -17,11 +17,43 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -49,6 +81,7 @@
         
     
     
+    
     <meta name="HandheldFriendly" content="true"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -63,6 +96,17 @@
     <link rel="prev" href="多进程.html" />
     
 
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"hsz1273327/TutorialForPythonMessageQueue","types":["star","watch","fork"],"size":"small"};
+    </script>
+
     </head>
     <body>
         
@@ -71,7 +115,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="輸入並搜尋" />
+    <input type="text" placeholder="输入并搜索" />
 </div>
 
             
@@ -551,7 +595,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            本書使用 GitBook 釋出
+            本书使用 GitBook 发布
         </a>
     </li>
 </ul>
@@ -589,7 +633,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x5E76;&#x884C;&#x65B9;&#x5F0F;&#x5982;&#x4F55;&#x9009;&#x62E9;">&#x5E76;&#x884C;&#x65B9;&#x5F0F;&#x5982;&#x4F55;&#x9009;&#x62E9;</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#&#x5E76;&#x884C;&#x65B9;&#x5F0F;&#x5982;&#x4F55;&#x9009;&#x62E9;"><b>1. </b>&#x5E76;&#x884C;&#x65B9;&#x5F0F;&#x5982;&#x4F55;&#x9009;&#x62E9;</a></li><li><span class="title-icon "></span><a href="#&#x5E76;&#x884C;&#x7F16;&#x7A0B;&#x7684;&#x5E38;&#x7528;&#x540C;&#x6B65;&#x673A;&#x5236;&#x539F;&#x8BED;"><b>2. </b>&#x5E76;&#x884C;&#x7F16;&#x7A0B;&#x7684;&#x5E38;&#x7528;&#x540C;&#x6B65;&#x673A;&#x5236;(&#x539F;&#x8BED;)</a></li><ul><li><span class="title-icon "></span><a href="#&#x4FE1;&#x53F7;&#x91CF;-semaphore"><b>2.1. </b>&#x4FE1;&#x53F7;&#x91CF; Semaphore</a></li><li><span class="title-icon "></span><a href="#&#x9501;lock"><b>2.2. </b>&#x9501;Lock</a></li><li><span class="title-icon "></span><a href="#&#x4E8B;&#x4EF6;"><b>2.3. </b>&#x4E8B;&#x4EF6;</a></li><li><span class="title-icon "></span><a href="#&#x6761;&#x4EF6;condition"><b>2.4. </b>&#x6761;&#x4EF6;Condition</a></li><li><span class="title-icon "></span><a href="#&#x961F;&#x5217;"><b>2.5. </b>&#x961F;&#x5217;</a></li></ul></ul></div><a href="#&#x5E76;&#x884C;&#x65B9;&#x5F0F;&#x5982;&#x4F55;&#x9009;&#x62E9;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x5E76;&#x884C;&#x65B9;&#x5F0F;&#x5982;&#x4F55;&#x9009;&#x62E9;"><a name="&#x5E76;&#x884C;&#x65B9;&#x5F0F;&#x5982;&#x4F55;&#x9009;&#x62E9;" class="anchor-navigation-ex-anchor" href="#&#x5E76;&#x884C;&#x65B9;&#x5F0F;&#x5982;&#x4F55;&#x9009;&#x62E9;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x5E76;&#x884C;&#x65B9;&#x5F0F;&#x5982;&#x4F55;&#x9009;&#x62E9;</h1>
 <p>&#x770B;&#x8D77;&#x6765;&#x591A;&#x8FDB;&#x7A0B;,&#x591A;&#x7EBF;&#x7A0B;,&#x534F;&#x7A0B;&#x90FD;&#x662F;&#x4EE5;&#x5E76;&#x884C;&#x7684;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#x7684;,&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x8BE5;&#x5982;&#x4F55;&#x9009;&#x62E9;&#x4F7F;&#x7528;&#x4EC0;&#x4E48;&#x6280;&#x672F;&#x5462;?</p>
 <ul>
 <li><p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x7684;&#x901A;&#x8FC7;&#x5206;&#x6790;&#x76EE;&#x6807;&#x529F;&#x80FD;&#x6765;&#x9009;&#x62E9;,&#x5982;&#x679C;&#x6211;&#x4EEC;&#x7684;&#x9879;&#x76EE;&#x4E3B;&#x8981;&#x662F;&#x8BA1;&#x7B97;&#x5BC6;&#x96C6;&#x578B;&#x7684;,&#x6BD4;&#x5982;&#x662F;&#x5E76;&#x884C;&#x8BA1;&#x7B97;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x662F;&#x5426;&#x662F;&#x8D28;&#x6570;&#x8FD9;&#x7C7B;,&#x90A3;&#x4E48;&#x6CA1;&#x5F97;&#x9009;,&#x53EA;&#x6709;&#x591A;&#x8FDB;&#x7A0B;&#x624D;&#x53EF;&#x4EE5;&#x505A;&#x5230;&#x6700;&#x5927;&#x5316;&#x5229;&#x7528;cpu&#x8D44;&#x6E90;,&#x53E6;&#x5916;&#x4E24;&#x4E2A;&#x90FD;&#x53EA;&#x80FD;&#x8DD1;&#x6EE1;&#x4E00;&#x4E2A;cpu&#x6838;&#x5FC3;.</p>
@@ -599,9 +643,9 @@
 </ul>
 <p>&#x534F;&#x7A0B;&#x548C;&#x591A;&#x7EBF;&#x7A0B;&#x90FD;&#x6700;&#x591A;&#x8DD1;&#x6EE1;&#x4E00;&#x4E2A;&#x6838;&#x5FC3;,&#x4F46;&#x5176;&#x673A;&#x5236;&#x662F;&#x5B8C;&#x5168;&#x4E0D;&#x4E00;&#x6837;&#x7684;,&#x534F;&#x7A0B;&#x662F;&#x7528;&#x6237;&#x7EC4;&#x7EC7;&#x4EE3;&#x7801;,&#x56E0;&#x6B64;&#x662F;&#x5199;&#x6210;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x7684;&#x5F02;&#x6B65;&#x6267;&#x884C;,&#x8BF4;&#x767D;&#x4E86;&#x8FD8;&#x662F;&#x5728;&#x987A;&#x5E8F;&#x6267;&#x884C;,&#x53EA;&#x662F;&#x7EBF;&#x7A0B;&#x8FD0;&#x884C;&#x54EA;&#x6BB5;&#x4EE3;&#x7801;&#x4F1A;&#x5728;&#x534F;&#x7A0B;&#x95F4;&#x8DF3;&#x8F6C;&#x6267;&#x884C;,&#x6253;&#x4E2A;&#x6BD4;&#x65B9;&#x6709;&#x70B9;&#x50CF;&#x62C9;&#x94FE;,&#x53EA;&#x8981;&#x6709;&#x4E00;&#x4E2A;&#x9F7F;&#x574F;&#x4E86;,&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x5C31;&#x4F1A;&#x5361;&#x4F4F;.
 &#x4F46;&#x591A;&#x7EBF;&#x7A0B;&#x5219;&#x5B8C;&#x5168;&#x4E0D;&#x540C;,&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5361;&#x6B7B;&#x4E86;&#x5E76;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;.</p>
-<h1 id="&#x5E76;&#x884C;&#x7F16;&#x7A0B;&#x7684;&#x5E38;&#x7528;&#x540C;&#x6B65;&#x673A;&#x5236;&#x539F;&#x8BED;">&#x5E76;&#x884C;&#x7F16;&#x7A0B;&#x7684;&#x5E38;&#x7528;&#x540C;&#x6B65;&#x673A;&#x5236;(&#x539F;&#x8BED;)</h1>
+<h1 id="&#x5E76;&#x884C;&#x7F16;&#x7A0B;&#x7684;&#x5E38;&#x7528;&#x540C;&#x6B65;&#x673A;&#x5236;&#x539F;&#x8BED;"><a name="&#x5E76;&#x884C;&#x7F16;&#x7A0B;&#x7684;&#x5E38;&#x7528;&#x540C;&#x6B65;&#x673A;&#x5236;&#x539F;&#x8BED;" class="anchor-navigation-ex-anchor" href="#&#x5E76;&#x884C;&#x7F16;&#x7A0B;&#x7684;&#x5E38;&#x7528;&#x540C;&#x6B65;&#x673A;&#x5236;&#x539F;&#x8BED;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x5E76;&#x884C;&#x7F16;&#x7A0B;&#x7684;&#x5E38;&#x7528;&#x540C;&#x6B65;&#x673A;&#x5236;(&#x539F;&#x8BED;)</h1>
 <p>python&#x5305;&#x542B;&#x591A;&#x79CD;&#x540C;&#x6B65;&#x673A;&#x5236;,&#x8FD9;&#x4E9B;&#x5DE5;&#x5177;&#x4F7F;&#x7528;&#x601D;&#x8DEF;&#x4E0A;&#x662F;&#x4E00;&#x81F4;&#x7684;,&#x56E0;&#x6B64;&#x65E0;&#x8BBA;&#x662F;&#x534F;&#x7A0B;,&#x7EBF;&#x7A0B;&#x8FD8;&#x662F;&#x8FDB;&#x7A0B;&#x90FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;,&#x53EA;&#x662F;&#x4F7F;&#x7528;&#x7684;&#x6A21;&#x5757;&#x4F1A;&#x6709;&#x4E9B;&#x8BB8;&#x4E0D;&#x540C;,&#x7528;&#x9014;&#x4E5F;&#x4F1A;&#x6709;&#x5199;&#x4E0D;&#x540C;</p>
-<h2 id="&#x4FE1;&#x53F7;&#x91CF;-semaphore">&#x4FE1;&#x53F7;&#x91CF; Semaphore</h2>
+<h2 id="&#x4FE1;&#x53F7;&#x91CF;-semaphore"><a name="&#x4FE1;&#x53F7;&#x91CF;-semaphore" class="anchor-navigation-ex-anchor" href="#&#x4FE1;&#x53F7;&#x91CF;-semaphore"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. &#x4FE1;&#x53F7;&#x91CF; Semaphore</h2>
 <p>&#x5728;&#x5E76;&#x884C;&#x7F16;&#x7A0B;&#x4E2D;&#xFF0C;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x4E0D;&#x540C;&#x7684;&#x8FC7;&#x7A0B;(&#x7EBF;&#x7A0B;/&#x8FDB;&#x7A0B;/&#x534F;&#x7A0B;)&#x540C;&#x65F6;&#x5BF9;&#x4E00;&#x4E2A;&#x516C;&#x7528;&#x7684;&#x8D44;&#x6E90;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x540C;&#x65F6;&#x8BBF;&#x95EE;&#x7684;&#x6570;&#x91CF;&#xFF08;&#x901A;&#x5E38;&#x662F;1&#xFF09;&#x3002;&#x4FE1;&#x53F7;&#x91CF;&#x540C;&#x6B65;&#x57FA;&#x4E8E;&#x5185;&#x90E8;&#x8BA1;&#x6570;&#x5668;&#xFF0C;&#x6BCF;&#x8C03;&#x7528;&#x4E00;&#x6B21;acquire()&#xFF0C;&#x8BA1;&#x6570;&#x5668;&#x51CF;1&#xFF1B;&#x6BCF;&#x8C03;&#x7528;&#x4E00;&#x6B21;release()&#xFF0C;&#x8BA1;&#x6570;&#x5668;&#x52A0;1.&#x8BA1;&#x6570;&#x5668;&#x7684;&#x503C;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x5C0F;&#x4E8E; 0.&#x5F53;&#x8BA1;&#x6570;&#x5668;&#x4E3A;0&#x65F6;&#xFF0C;acquire()&#x8C03;&#x7528;&#x88AB;&#x963B;&#x585E;,&#x76F4;&#x5230;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x6765;&#x8C03;&#x7528;release(). Semaphore&#x652F;&#x6301;&#x4E0A;&#x4E0B;&#x6587;&#x7BA1;&#x7406;&#x534F;&#x8BAE;</p>
 <p>Semaphore&#x7684;&#x63A5;&#x53E3;&#x6709;&#x4E24;&#x4E2A;:</p>
 <ul>
@@ -746,7 +790,7 @@ threads = []
 4 release sema
 3 release sema
 0 release sema
-</code></pre><h2 id="&#x9501;lock">&#x9501;Lock</h2>
+</code></pre><h2 id="&#x9501;lock"><a name="&#x9501;lock" class="anchor-navigation-ex-anchor" href="#&#x9501;lock"><i class="fa fa-link" aria-hidden="true"></i></a>2.2. &#x9501;Lock</h2>
 <p>Lock&#x4E5F;&#x53EF;&#x4EE5;&#x53EB;&#x505A;&#x4E92;&#x65A5;&#x9501;&#xFF0C;&#x5176;&#x5B9E;&#x76F8;&#x5F53;&#x4E8E;&#x4FE1;&#x53F7;&#x91CF;&#x4E3A;1&#x3002;</p>
 <p>&#x5728;&#x591A;&#x7EBF;&#x7A0B;&#x4E2D;&#x9501;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x7528;&#x4E8E;&#x9501;&#x5B9A;&#x8BFB;&#x5199;,&#x4EE5;&#x786E;&#x8BA4;&#x540C;&#x4E00;&#x4E2A;&#x8D44;&#x6E90;&#x540C;&#x4E00;&#x65F6;&#x95F4;&#x53EA;&#x80FD;&#x88AB;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x8BBF;&#x95EE;.</p>
 <p>python&#x4E2D;&#x9501;&#x6709;&#x4E24;&#x79CD;</p>
@@ -856,7 +900,7 @@ l2 released lock
 <pre><code>Writing src/lock.py
 </code></pre><pre><code class="lang-python">!python src/lock.py
 </code></pre>
-<h2 id="&#x4E8B;&#x4EF6;">&#x4E8B;&#x4EF6;</h2>
+<h2 id="&#x4E8B;&#x4EF6;"><a name="&#x4E8B;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#&#x4E8B;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3. &#x4E8B;&#x4EF6;</h2>
 <p>&#x4E00;&#x4E2A;&#x8FC7;&#x7A0B;&#x53D1;&#x9001;/&#x4F20;&#x9012;&#x4E8B;&#x4EF6;&#xFF0C;&#x6240;&#x8C13;&#x4E8B;&#x4EF6;&#x662F;&#x6307;&#x7684;&#x4E00;&#x4E2A;&#x4FDD;&#x5B58;&#x6807;&#x8BB0;&#x72B6;&#x6001;&#x7684;&#x5BF9;&#x8C61;,&#x5982;&#x679C;&#x5185;&#x90E8;&#x6807;&#x8BB0;&#x4E3A;True&#x5219;&#x8868;&#x793A;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x4E86;,&#x53CD;&#x4E4B;&#x5C31;&#x662F;&#x6CA1;&#x53D1;&#x751F;</p>
 <p>&#x4E8B;&#x4EF6;&#x7684;&#x63A5;&#x53E3;&#x5305;&#x62EC;:</p>
 <ul>
@@ -1112,7 +1156,7 @@ threads.append(p)
 20 popped from list by consumer1
 15 appended to list by producer1
 15 popped from list by consumer2
-</code></pre><h2 id="&#x6761;&#x4EF6;condition">&#x6761;&#x4EF6;Condition</h2>
+</code></pre><h2 id="&#x6761;&#x4EF6;condition"><a name="&#x6761;&#x4EF6;condition" class="anchor-navigation-ex-anchor" href="#&#x6761;&#x4EF6;condition"><i class="fa fa-link" aria-hidden="true"></i></a>2.4. &#x6761;&#x4EF6;Condition</h2>
 <p>&#x6761;&#x4EF6;&#x7528;&#x4E8E;&#x4FE1;&#x53F7;&#x901A;&#x4FE1;,&#x5B83;&#x7684;&#x9664;&#x4E86;&#x62E5;&#x6709;&#x9501;&#x7684;&#x6240;&#x6709;&#x63A5;&#x53E3;&#x5916;,&#x8FD8;&#x6709;&#x63A5;&#x53E3;:</p>
 <ul>
 <li><p>notify(n=1)</p>
@@ -1226,7 +1270,7 @@ c2: Resource is available to consumer
 <pre><code>p: Making resource available
 c1: Resource is available to consumer
 c2: Resource is available to consumer
-</code></pre><h2 id="&#x961F;&#x5217;">&#x961F;&#x5217;</h2>
+</code></pre><h2 id="&#x961F;&#x5217;"><a name="&#x961F;&#x5217;" class="anchor-navigation-ex-anchor" href="#&#x961F;&#x5217;"><i class="fa fa-link" aria-hidden="true"></i></a>2.5. &#x961F;&#x5217;</h2>
 <p>&#x4F7F;&#x7528;&#x961F;&#x5217;&#x662F;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x540C;&#x6B65;&#x65B9;&#x5F0F;.&#x4E5F;&#x662F;&#x751F;&#x4EA7;&#x8005;&#x6D88;&#x8D39;&#x8005;&#x6A21;&#x5F0F;&#x6700;&#x5E38;&#x89C1;&#x4F7F;&#x7528;&#x7684;&#x5DE5;&#x5177;</p>
 <p>&#x961F;&#x5217;&#x7684;&#x63A5;&#x53E3;&#x6709;:</p>
 <ul>
@@ -1436,7 +1480,9 @@ put :16
 [PRI:96] 96 * 2 = 192
 [PRI:86] 86 * 2 = 172
 [PRI:16] 16 * 2 = 32
-</code></pre>
+</code></pre><footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2017-06-13 23:21:52
+</span></footer>
                                 
                                 </section>
                             
@@ -1479,7 +1525,7 @@ put :16
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"并行编程的惯用法","level":"1.6.5","depth":2,"next":{"title":"并发模型","level":"1.6.6","depth":2,"path":"流程控制/并行编程的惯用法.md","ref":"流程控制/并行编程的惯用法.md","articles":[]},"previous":{"title":"多进程","level":"1.6.4","depth":2,"path":"流程控制/多进程.md","ref":"流程控制/多进程.md","articles":[]},"dir":"ltr"},"config":{"plugins":["livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0"},"file":{"path":"流程控制/并行编程的惯用法.md","mtime":"2017-06-13T13:53:25.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-13T15:04:42.252Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"并行编程的惯用法","level":"1.6.5","depth":2,"next":{"title":"并发模型","level":"1.6.6","depth":2,"path":"流程控制/并行编程的惯用法.md","ref":"流程控制/并行编程的惯用法.md","articles":[]},"previous":{"title":"多进程","level":"1.6.4","depth":2,"path":"流程控制/多进程.md","ref":"流程控制/多进程.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","katex","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/hsz1273327"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","wechatText":"微信打赏"},"sitemap-general":{"prefix":"http://gitbook.zhangjikai.com"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"mode":"float","pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"isRewritePageTitle":true,"showLevel":true,"tocLevel1Icon":"fa fa-hand-o-right","tocLevel2Icon":"fa fa-hand-o-right","tocLevel3Icon":"fa fa-hand-o-right","isShowTocTitleIcon":true,"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false}},"github-buttons":{"repo":"hsz1273327/TutorialForPythonMessageQueue","types":["star","watch","fork"],"size":"small"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略--消息队列","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍消息队列的原理和使用方法,介绍python常用的消息队列工具"},"file":{"path":"流程控制/并行编程的惯用法.md","mtime":"2017-06-13T15:21:52.672Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-17T04:13:36.617Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1489,27 +1535,31 @@ put :16
     <script src="../gitbook/theme.js"></script>
     
         
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
         
     
         
-        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
         
     
         
