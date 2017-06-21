@@ -25,4 +25,8 @@
 <url> <loc>http://gitbook.zhangjikai.com/流程控制/多进程.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://gitbook.zhangjikai.com/流程控制/并行编程的惯用法.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://gitbook.zhangjikai.com/流程控制/结语.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://gitbook.zhangjikai.com/数据结构与算法/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://gitbook.zhangjikai.com/数据结构与算法/序列对象.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://gitbook.zhangjikai.com/数据结构与算法/映射对象.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://gitbook.zhangjikai.com/数据结构与算法/可迭代对象与生成器.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 </urlset>
