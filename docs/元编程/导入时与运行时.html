@@ -1,0 +1,1045 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>导入时与运行时 · python攻略--消息队列</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="hsz">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="动态编译.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"hsz1273327/TutorialForPythonMessageQueue","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://blog.hszofficial.site/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../总章.html">
+            
+                <a href="../总章.html">
+            
+                    
+                    总章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../工具链/">
+            
+                <a href="../工具链/">
+            
+                    
+                    工具链
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../工具链/运行环境与部署分发.html">
+            
+                <a href="../工具链/运行环境与部署分发.html">
+            
+                    
+                    运行环境与部署分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../工具链/代码风格.html">
+            
+                <a href="../工具链/代码风格.html">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../工具链/调试与测试.html">
+            
+                <a href="../工具链/调试与测试.html">
+            
+                    
+                    调试与测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../工具链/结语.html">
+            
+                <a href="../工具链/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Python的数据模型/">
+            
+                <a href="../Python的数据模型/">
+            
+                    
+                    Python的数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Python的数据模型/数据模型.html">
+            
+                <a href="../Python的数据模型/数据模型.html">
+            
+                    
+                    数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Python的数据模型/变量引用与垃圾回收.html">
+            
+                <a href="../Python的数据模型/变量引用与垃圾回收.html">
+            
+                    
+                    变量引用与垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Python的数据模型/结语.html">
+            
+                <a href="../Python的数据模型/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../文本_文件与字节序/">
+            
+                <a href="../文本_文件与字节序/">
+            
+                    
+                    文本,文件与字节序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../文本_文件与字节序/文本和编码.html">
+            
+                <a href="../文本_文件与字节序/文本和编码.html">
+            
+                    
+                    文本和编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../文本_文件与字节序/字节序列与内存视图.html">
+            
+                <a href="../文本_文件与字节序/字节序列与内存视图.html">
+            
+                    
+                    字节序列与内存视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../文本_文件与字节序/正则表达式.html">
+            
+                <a href="../文本_文件与字节序/正则表达式.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../文本_文件与字节序/文件与IO流.html">
+            
+                <a href="../文本_文件与字节序/文件与IO流.html">
+            
+                    
+                    文件与IO流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../文本_文件与字节序/序列化.html">
+            
+                <a href="../文本_文件与字节序/序列化.html">
+            
+                    
+                    序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../文本_文件与字节序/结语.html">
+            
+                <a href="../文本_文件与字节序/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../流程控制/">
+            
+                <a href="../流程控制/">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../流程控制/单线程同步流程控制.html">
+            
+                <a href="../流程控制/单线程同步流程控制.html">
+            
+                    
+                    单线程同步流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../流程控制/阻塞异步与协程.html">
+            
+                <a href="../流程控制/阻塞异步与协程.html">
+            
+                    
+                    阻塞异步与协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../流程控制/多线程与GIL.html">
+            
+                <a href="../流程控制/多线程与GIL.html">
+            
+                    
+                    多线程与GIL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../流程控制/多进程.html">
+            
+                <a href="../流程控制/多进程.html">
+            
+                    
+                    多进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../流程控制/并行编程的惯用法.html">
+            
+                <a href="../流程控制/并行编程的惯用法.html">
+            
+                    
+                    并行编程的惯用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../流程控制/并行编程的惯用法.html">
+            
+                <a href="../流程控制/并行编程的惯用法.html">
+            
+                    
+                    并发模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../流程控制/结语.html">
+            
+                <a href="../流程控制/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../数据结构与算法/">
+            
+                <a href="../数据结构与算法/">
+            
+                    
+                    数据结构与算法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../数据结构与算法/序列对象.html">
+            
+                <a href="../数据结构与算法/序列对象.html">
+            
+                    
+                    序列对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../数据结构与算法/映射对象.html">
+            
+                <a href="../数据结构与算法/映射对象.html">
+            
+                    
+                    映射对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../数据结构与算法/可迭代对象与生成器.html">
+            
+                <a href="../数据结构与算法/可迭代对象与生成器.html">
+            
+                    
+                    可迭代对象与生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../数据结构与算法/结语.md">
+            
+                <span>
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../函数/">
+            
+                <a href="../函数/">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../函数/函数是一等对象.html">
+            
+                <a href="../函数/函数是一等对象.html">
+            
+                    
+                    函数是一等对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../函数/变量作用域与闭包.html">
+            
+                <a href="../函数/变量作用域与闭包.html">
+            
+                    
+                    变量作用域与闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../函数/结语.html">
+            
+                <a href="../函数/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.9.1" data-path="导入时与运行时.html">
+            
+                <a href="导入时与运行时.html">
+            
+                    
+                    导入时与运行时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="动态编译.html">
+            
+                <a href="动态编译.html">
+            
+                    
+                    动态编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="运算符重载.html">
+            
+                <a href="运算符重载.html">
+            
+                    
+                    运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="动态属性%2C特性与描述符.html">
+            
+                <a href="动态属性%2C特性与描述符.html">
+            
+                    
+                    动态属性,特性与描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="数据模型.md">
+            
+                <span>
+            
+                    
+                    装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="元类编程.html">
+            
+                <a href="元类编程.html">
+            
+                    
+                    元类编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="结语.html">
+            
+                <a href="结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../设计模式/">
+            
+                <a href="../设计模式/">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../设计模式/策略模式.html">
+            
+                <a href="../设计模式/策略模式.html">
+            
+                    
+                    策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../设计模式/命令模式.html">
+            
+                <a href="../设计模式/命令模式.html">
+            
+                    
+                    命令模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../设计模式/结语.html">
+            
+                <a href="../设计模式/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >导入时与运行时</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5BFC;&#x5165;&#x65F6;&#x4E0E;&#x8FD0;&#x884C;&#x65F6;"><b>1. </b>&#x5BFC;&#x5165;&#x65F6;&#x4E0E;&#x8FD0;&#x884C;&#x65F6;</a></li></ul></div><a href="#&#x5BFC;&#x5165;&#x65F6;&#x4E0E;&#x8FD0;&#x884C;&#x65F6;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x5BFC;&#x5165;&#x65F6;&#x4E0E;&#x8FD0;&#x884C;&#x65F6;"><a name="&#x5BFC;&#x5165;&#x65F6;&#x4E0E;&#x8FD0;&#x884C;&#x65F6;" class="anchor-navigation-ex-anchor" href="#&#x5BFC;&#x5165;&#x65F6;&#x4E0E;&#x8FD0;&#x884C;&#x65F6;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x5BFC;&#x5165;&#x65F6;&#x4E0E;&#x8FD0;&#x884C;&#x65F6;</h1>
+<p>&#x4E3A;&#x4E86;&#x6B63;&#x786E;&#x5730;&#x505A;&#x5143;&#x7F16;&#x7A0B;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x77E5;&#x9053;Python&#x89E3;&#x91CA;&#x5668;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x8BA1;&#x7B97;&#x5404;&#x4E2A;&#x4EE3;&#x7801;&#x5757;.Python &#x7A0B;&#x5E8F;&#x5458;&#x4F1A;&#x533A;&#x5206;&#x201C;&#x5BFC;&#x5165;&#x65F6;&#x201D;&#x548C;&#x201C;&#x8FD0;&#x884C;&#x65F6;&#x201D;&#xFF0C;&#x4E0D;&#x8FC7;&#x8FD9;&#x4E24;&#x4E2A;&#x672F;&#x8BED;&#x6CA1;&#x6709;&#x4E25;&#x683C;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x800C;&#x4E14;&#x4E8C;&#x8005;&#x4E4B;&#x95F4;&#x5B58;&#x5728;&#x7740;&#x7070;&#x8272;&#x5730;&#x5E26;.</p>
+<p>&#x5728;&#x5BFC;&#x5165;&#x65F6;&#xFF0C;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#x4E00;&#x6B21;&#x6027;&#x89E3;&#x6790;&#x5B8C;.py &#x6A21;&#x5757;&#x7684;&#x6E90;&#x7801;&#xFF0C;&#x7136;&#x540E;&#x751F;&#x6210;&#x7528;&#x4E8E;&#x6267;&#x884C;&#x7684;&#x5B57;&#x8282;&#x7801;&#x3002;&#x5982;&#x679C;&#x53E5;&#x6CD5;&#x6709;&#x9519;&#x8BEF;&#xFF0C;&#x5C31;&#x5728;&#x6B64;&#x65F6;&#x62A5;&#x544A;&#x3002;&#x5982;&#x679C;&#x672C;&#x5730;&#x7684;<code>__pycache__</code>&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x6709;&#x6700;&#x65B0;&#x7684;<code>.pyc</code> &#x6587;&#x4EF6;&#xFF0C;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x8DF3;&#x8FC7;&#x4E0A;&#x8FF0;&#x6B65;&#x9AA4;&#xFF0C;&#x56E0;&#x4E3A;&#x5DF2;&#x7ECF;&#x6709;&#x8FD0;&#x884C;&#x6240;&#x9700;&#x7684;&#x5B57;&#x8282;&#x7801;&#x4E86;.</p>
+<p>&#x7F16;&#x8BD1;&#x80AF;&#x5B9A;&#x662F;&#x5BFC;&#x5165;&#x65F6;&#x7684;&#x6D3B;&#x52A8;&#xFF0C;&#x4E0D;&#x8FC7;&#x90A3;&#x4E2A;&#x65F6;&#x671F;&#x8FD8;&#x4F1A;&#x505A;&#x4E9B;&#x5176;&#x4ED6;&#x4E8B;&#xFF0C;&#x56E0;&#x4E3A;Python &#x4E2D;&#x7684;&#x8BED;&#x53E5;&#x51E0;&#x4E4E;&#x90FD;&#x662F;&#x53EF;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x8BED;&#x53E5;&#x53EF;&#x80FD;&#x4F1A;&#x8FD0;&#x884C;&#x7528;&#x6237;&#x4EE3;&#x7801;&#xFF0C;&#x4FEE;&#x6539;&#x7528;&#x6237;&#x7A0B;&#x5E8F;&#x7684;&#x72B6;&#x6001;&#x3002;&#x5C24;&#x5176;&#x662F;<code>import</code>&#x8BED;&#x53E5;&#xFF0C;&#x5B83;&#x4E0D;&#x53EA;&#x662F;&#x58F0;&#x660E;&#xFF0C;&#x5728;&#x8FDB;&#x7A0B;&#x4E2D;&#x9996;&#x6B21;&#x5BFC;&#x5165;&#x6A21;&#x5757;&#x65F6;&#xFF0C;&#x8FD8;&#x4F1A;&#x8FD0;&#x884C;&#x6240;&#x5BFC;&#x5165;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x5168;&#x90E8;&#x9876;&#x5C42;&#x4EE3;&#x7801;&#x2014;&#x2014;&#x4EE5;&#x540E;&#x5BFC;&#x5165;&#x76F8;&#x540C;&#x7684;&#x6A21;&#x5757;&#x5219;&#x4F7F;&#x7528;&#x7F13;&#x5B58;&#xFF0C;&#x53EA;&#x505A;&#x540D;&#x79F0;&#x7ED1;&#x5B9A;&#x3002;&#x90A3;&#x4E9B;&#x9876;&#x5C42;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x505A;&#x4EFB;&#x4F55;&#x4E8B;&#xFF0C;&#x5305;&#x62EC;&#x901A;&#x5E38;&#x5728;&#x201C;&#x8FD0;&#x884C;&#x65F6;&#x201D;&#x505A;&#x7684;&#x4E8B;&#xFF0C;&#x4F8B;&#x5982;&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;. &#x56E0;&#x6B64;&#xFF0C;&#x201C;&#x5BFC;&#x5165;&#x65F6;&#x201D;&#x4E0E;&#x201C;&#x8FD0;&#x884C;&#x65F6;&#x201D;&#x4E4B;&#x95F4;&#x7684;&#x754C;&#x7EBF;&#x662F;&#x6A21;&#x7CCA;&#x7684;&#xFF1A;
+<code>import</code> &#x8BED;&#x53E5;&#x53EF;&#x4EE5;&#x89E6;&#x53D1;&#x4EFB;&#x4F55;&#x201C;&#x8FD0;&#x884C;&#x65F6;&#x201D;&#x884C;&#x4E3A;&#x3002;</p>
+<p>&#x5BFC;&#x5165;&#x6A21;&#x5757;&#x65F6;&#xFF0C;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x6267;&#x884C;&#x9876;&#x5C42;&#x7684;<code>def</code>&#x8BED;&#x53E5;&#xFF0C;&#x53EF;&#x662F;&#x8FD9;&#x4E48;&#x505A;&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;&#x5462;&#xFF1F;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x7F16;&#x8BD1;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x4F53;(&#x9996;&#x6B21;&#x5BFC;&#x5165;&#x6A21;&#x5757;&#x65F6;)&#xFF0C;&#x628A;&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x7ED1;&#x5B9A;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x5168;&#x5C40;&#x540D;&#x79F0;&#x4E0A;&#xFF0C;&#x4F46;&#x662F;&#x663E;&#x7136;&#x89E3;&#x91CA;&#x5668;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x4F53;&#x3002;&#x901A;&#x5E38;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x89E3;&#x91CA;&#x5668;&#x5728;&#x5BFC;&#x5165;&#x65F6;&#x5B9A;&#x4E49;&#x9876;&#x5C42;&#x51FD;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x4EC5;&#x5F53;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x65F6;&#x624D;&#x4F1A;&#x6267;&#x884C;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x4F53;&#x3002;</p>
+<p>&#x5BF9;&#x7C7B;&#x6765;&#x8BF4;&#xFF0C;&#x60C5;&#x51B5;&#x5C31;&#x4E0D;&#x540C;&#x4E86;&#xFF1A;&#x5728;&#x5BFC;&#x5165;&#x65F6;&#xFF0C;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x6267;&#x884C;&#x6BCF;&#x4E2A;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#x4F53;&#xFF0C;&#x751A;&#x81F3;&#x4F1A;&#x6267;&#x884C;&#x5D4C;&#x5957;&#x7C7B;
+&#x7684;&#x5B9A;&#x4E49;&#x4F53;&#x3002;&#x6267;&#x884C;&#x7C7B;&#x5B9A;&#x4E49;&#x4F53;&#x7684;&#x7ED3;&#x679C;&#x662F;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;&#x7C7B;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x6784;&#x5EFA;&#x4E86;&#x7C7B;&#x5BF9;&#x8C61;&#x3002;&#x4ECE;&#x8FD9;&#x4E2A;&#x610F;
+&#x4E49;&#x4E0A;&#x7406;&#x89E3;&#xFF0C;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#x4F53;&#x5C5E;&#x4E8E;&#x201C;&#x9876;&#x5C42;&#x4EE3;&#x7801;&#x201D;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5728;&#x5BFC;&#x5165;&#x65F6;&#x8FD0;&#x884C;&#x3002;</p>
+<p>&#x4E0A;&#x8FF0;&#x8BF4;&#x660E;&#x6A21;&#x7CCA;&#x53C8;&#x62BD;&#x8C61;&#xFF0C;&#x4E0B;&#x9762;&#x901A;&#x8FC7;&#x7EC3;&#x4E60;&#x7406;&#x89E3;&#x5404;&#x4E2A;&#x65F6;&#x671F;&#x6240;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#x3002;</p>
+<pre><code class="lang-python">%%writefile evalsupport.py
+print(<span class="hljs-string">&apos;&lt;[100]&gt; evalsupport module start&apos;</span>)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">deco_alpha</span><span class="hljs-params">(cls)</span>:</span>
+    print(<span class="hljs-string">&apos;&lt;[200]&gt; deco_alpha&apos;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inner_1</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&apos;&lt;[300]&gt; deco_alpha:inner_1&apos;</span>)
+    cls.method_y = inner_1
+    <span class="hljs-keyword">return</span> cls
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MetaAleph</span><span class="hljs-params">(type)</span>:</span>
+    print(<span class="hljs-string">&apos;&lt;[400]&gt; MetaAleph body&apos;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(cls, name, bases, dic)</span>:</span>
+        print(<span class="hljs-string">&apos;&lt;[500]&gt; MetaAleph.__init__&apos;</span>)
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inner_2</span><span class="hljs-params">(self)</span>:</span>
+            print(<span class="hljs-string">&apos;&lt;[600]&gt; MetaAleph.__init__:inner_2&apos;</span>)
+        cls.method_z = inner_2
+    print(<span class="hljs-string">&apos;&lt;[700]&gt; evalsupport module end&apos;</span>)
+</code></pre>
+<pre><code>Overwriting evalsupport.py
+</code></pre><pre><code class="lang-python">%%writefile evaltime.py
+<span class="hljs-keyword">from</span> evalsupport <span class="hljs-keyword">import</span> deco_alpha
+print(<span class="hljs-string">&apos;&lt;[1]&gt; evaltime module start&apos;</span>)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassOne</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">&apos;&lt;[2]&gt; ClassOne body&apos;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&apos;&lt;[3]&gt; ClassOne.__init__&apos;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__del__</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&apos;&lt;[4]&gt; ClassOne.__del__&apos;</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">method_x</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&apos;&lt;[5]&gt; ClassOne.method_x&apos;</span>)
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassTwo</span><span class="hljs-params">(object)</span>:</span>
+        print(<span class="hljs-string">&apos;&lt;[6]&gt; ClassTwo body&apos;</span>)
+<span class="hljs-meta">@deco_alpha</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassThree</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">&apos;&lt;[7]&gt; ClassThree body&apos;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">method_y</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&apos;&lt;[8]&gt; ClassThree.method_y&apos;</span>)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassFour</span><span class="hljs-params">(ClassThree)</span>:</span>
+    print(<span class="hljs-string">&apos;&lt;[9]&gt; ClassFour body&apos;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">method_y</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&apos;&lt;[10]&gt; ClassFour.method_y&apos;</span>)
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    print(<span class="hljs-string">&apos;&lt;[11]&gt; ClassOne tests&apos;</span>, <span class="hljs-number">30</span> * <span class="hljs-string">&apos;.&apos;</span>)
+    one = ClassOne()
+    one.method_x()
+    print(<span class="hljs-string">&apos;&lt;[12]&gt; ClassThree tests&apos;</span>, <span class="hljs-number">30</span> * <span class="hljs-string">&apos;.&apos;</span>)
+    three = ClassThree()
+    three.method_y()
+    print(<span class="hljs-string">&apos;&lt;[13]&gt; ClassFour tests&apos;</span>, <span class="hljs-number">30</span> * <span class="hljs-string">&apos;.&apos;</span>)
+    four = ClassFour()
+    four.method_y()
+print(<span class="hljs-string">&apos;&lt;[14]&gt; evaltime module end&apos;</span>)
+</code></pre>
+<pre><code>Overwriting evaltime.py
+</code></pre><p>&#x573A;&#x666F;1: &#x5BFC;&#x5165;&#x6A21;&#x5757;</p>
+<ul>
+<li>&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x6267;&#x884C;&#x6240;&#x5BFC;&#x5165;&#x6A21;&#x5757;&#x53CA;&#x5176;&#x4F9D;&#x8D56;&#xFF08;evalsupport&#xFF09;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x7C7B;&#x5B9A;&#x4E49;&#x4F53;&#x3002;</li>
+<li>&#x89E3;&#x91CA;&#x5668;&#x5148;&#x8BA1;&#x7B97;&#x7C7B;&#x7684;&#x5B9A;&#x4E49;&#x4F53;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;&#x4F9D;&#x9644;&#x5728;&#x7C7B;&#x4E0A;&#x7684;&#x88C5;&#x9970;&#x5668;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x662F;&#x5408;&#x7406;&#x7684;&#x884C;&#x4E3A;&#xFF0C;&#x56E0;&#x4E3A;&#x5FC5;&#x987B;&#x5148;&#x6784;&#x5EFA;&#x7C7B;&#x5BF9;&#x8C61;&#xFF0C;&#x88C5;&#x9970;&#x5668;&#x624D;&#x6709;&#x7C7B;&#x5BF9;&#x8C61;&#x53EF;&#x5904;&#x7406;&#x3002;</li>
+<li>&#x5728;&#x8FD9;&#x4E2A;&#x573A;&#x666F;&#x4E2D;&#xFF0C;&#x53EA;&#x8FD0;&#x884C;&#x4E86;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x51FD;&#x6570;&#x6216;&#x65B9;&#x6CD5;&#x2014;&#x2014;<code>deco_alpha</code>&#x88C5;&#x9970;&#x5668;&#x3002;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> evaltime
+</code></pre>
+<pre><code>&lt;[100]&gt; evalsupport module start
+&lt;[400]&gt; MetaAleph body
+&lt;[700]&gt; evalsupport module end
+&lt;[1]&gt; evaltime module start
+&lt;[2]&gt; ClassOne body
+&lt;[6]&gt; ClassTwo body
+&lt;[7]&gt; ClassThree body
+&lt;[200]&gt; deco_alpha
+&lt;[9]&gt; ClassFour body
+&lt;[14]&gt; evaltime module end
+</code></pre><p>&#x573A;&#x666F;2:&#x6267;&#x884C;<code>evaltime.py</code></p>
+<p>&#x573A;&#x666F;2 &#x4E3B;&#x8981;&#x60F3;&#x8BF4;&#x660E;&#x7684;&#x662F;&#xFF0C;&#x7C7B;&#x88C5;&#x9970;&#x5668;&#x53EF;&#x80FD;&#x5BF9;&#x5B50;&#x7C7B;&#x6CA1;&#x6709;&#x5F71;&#x54CD;.&#x5728;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C; &#x6211;&#x4EEC;&#x628A;<code>ClassFour</code>&#x5B9A;&#x4E49;&#x4E3A;<code>ClassThree</code>&#x7684;&#x5B50;&#x7C7B;.<code>ClassThree</code>&#x7C7B;&#x4E0A;&#x4F9D;&#x9644;&#x7684;<code>@deco_alpha</code>&#x88C5;&#x9970;&#x5668;&#x628A;<code>method_y</code>&#x65B9;&#x6CD5;&#x66FF;&#x6362;&#x6389;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x5BF9;<code>ClassFour</code>&#x7C7B;&#x6839;&#x672C;&#x6CA1;&#x6709;&#x5F71;&#x54CD;.
+&#x5F53;&#x7136;&#xFF0C;&#x5982;&#x679C;<code>ClassFour.method_y</code>&#x65B9;&#x6CD5;&#x4F7F;&#x7528;<code>super(...)</code>&#x8C03;&#x7528;<code>ClassThree.method_y</code>&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x4FBF;&#x4F1A;&#x770B;&#x5230;&#x88C5;&#x9970;&#x5668;&#x8D77;&#x4F5C;&#x7528;&#xFF0C;&#x6267;&#x884C;<code>inner_1</code>&#x51FD;&#x6570;.</p>
+<pre><code class="lang-python">!python evaltime.py
+</code></pre>
+<pre><code>&lt;[100]&gt; evalsupport module start
+&lt;[400]&gt; MetaAleph body
+&lt;[700]&gt; evalsupport module end
+&lt;[1]&gt; evaltime module start
+&lt;[2]&gt; ClassOne body
+&lt;[6]&gt; ClassTwo body
+&lt;[7]&gt; ClassThree body
+&lt;[200]&gt; deco_alpha
+&lt;[9]&gt; ClassFour body
+&lt;[11]&gt; ClassOne tests ..............................
+&lt;[3]&gt; ClassOne.__init__
+&lt;[5]&gt; ClassOne.method_x
+&lt;[12]&gt; ClassThree tests ..............................
+&lt;[300]&gt; deco_alpha:inner_1
+&lt;[13]&gt; ClassFour tests ..............................
+&lt;[10]&gt; ClassFour.method_y
+&lt;[14]&gt; evaltime module end
+&lt;[4]&gt; ClassOne.__del__
+</code></pre><footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2017-06-28 01:01:04
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 元编程">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="动态编译.html" class="navigation navigation-next " aria-label="Next page: 动态编译">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"导入时与运行时","level":"1.9.1","depth":2,"next":{"title":"动态编译","level":"1.9.2","depth":2,"path":"元编程/动态编译.md","ref":"元编程/动态编译.md","articles":[]},"previous":{"title":"元编程","level":"1.9","depth":1,"path":"元编程/README.md","ref":"元编程/README.md","articles":[{"title":"导入时与运行时","level":"1.9.1","depth":2,"path":"元编程/导入时与运行时.md","ref":"元编程/导入时与运行时.md","articles":[]},{"title":"动态编译","level":"1.9.2","depth":2,"path":"元编程/动态编译.md","ref":"元编程/动态编译.md","articles":[]},{"title":"运算符重载","level":"1.9.3","depth":2,"path":"元编程/运算符重载.md","ref":"元编程/运算符重载.md","articles":[]},{"title":"动态属性,特性与描述符","level":"1.9.4","depth":2,"path":"元编程/动态属性%2C特性与描述符.md","ref":"元编程/动态属性%2C特性与描述符.md","articles":[]},{"title":"装饰器","level":"1.9.5","depth":2,"path":"元编程/数据模型.md","ref":"元编程/数据模型.md","articles":[]},{"title":"元类编程","level":"1.9.6","depth":2,"path":"元编程/元类编程.md","ref":"元编程/元类编程.md","articles":[]},{"title":"结语","level":"1.9.7","depth":2,"path":"元编程/结语.md","ref":"元编程/结语.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","katex","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/hsz1273327"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","wechatText":"微信打赏"},"sitemap-general":{"prefix":"http://gitbook.zhangjikai.com"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":true},"mode":"float","pageTop":{"showLevelIcon":false,"mode":"float","pageTop":{"showLevelIcon":false,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"},"level1Icon":"","showLevel":true,"level2Icon":"","level3Icon":"","associatedWithSummary":true,"float":{"showLevelIcon":true,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"}},"showLevel":true},"github-buttons":{"repo":"hsz1273327/TutorialForPythonMessageQueue","types":["star","watch","fork"],"size":"small"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略--消息队列","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍消息队列的原理和使用方法,介绍python常用的消息队列工具"},"file":{"path":"元编程/导入时与运行时.md","mtime":"2017-06-27T17:01:04.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-27T17:34:48.866Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
