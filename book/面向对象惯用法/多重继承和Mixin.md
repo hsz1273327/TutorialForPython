@@ -258,7 +258,11 @@ d = D()
 d.sp()
 ```
 
-    pong: <__main__.D object at 0x10cc6ce80>
+
+
+
+    <super: __main__.D, <__main__.D at 0x4cbcdd8>>
+
 
 
 
@@ -266,16 +270,16 @@ d.sp()
 d.pong()# 直接调用 d.pong() 运行的是 B 类中的版本。
 ```
 
-    pong: <__main__.D object at 0x10cb85080>
-
+    pong: <__main__.D object at 0x0000000004CBCDD8>
+    
 
 
 ```python
 C.pong(d) #超类中的方法都可以直接调用,此时要把实例作为显式参数传入
 ```
 
-    PONG: <__main__.D object at 0x10cb85080>
-
+    PONG: <__main__.D object at 0x0000000004CBCDD8>
+    
 
 Python能区分`d.pong()`调用的是哪个方法,是因为`Python`会按照特定的顺序遍历继承图.这个顺序叫方法解析顺序(Method Resolution Order,MRO)。类都有一个名为` __mro__ `的 属性,它的值是一个元组,按照方法解析顺序列出各个超类,从当前类一直向上,直到`object`类.`D` 类的`__mro__` 属性如下:
 
@@ -318,9 +322,9 @@ d = D()
 d.ping()
 ```
 
-    ping: <__main__.D object at 0x10cb62400>
-    post-ping: <__main__.D object at 0x10cb62400>
-
+    ping: <__main__.D object at 0x0000000004CB45C0>
+    post-ping: <__main__.D object at 0x0000000004CB45C0>
+    
 
 ## 使用`super()`处理父类引用
 
@@ -355,7 +359,7 @@ mtv = Mtv('name', 'author')
 
     init Song
     init Singer
-
+    
 
 
 ```python
@@ -446,13 +450,126 @@ tree.to_dict()
 
 
 
-Mixin最大的优势是使用者可以随时安插这些功能,并且可以在必要的时候覆写他们,比如二叉树中节点也要求有指向父节点的引用,那么上面的树就会陷入死循环,可以在其中覆写`_traverse`方法以避免这个问题
+Mixin最大的优势是使用者可以随时安插这些功能,并且可以在必要的时候覆写他们,比如二叉树中节点也要求有指向父节点的引用,那么上面的树就会陷入死循环,解决办法是可以在其中覆写`_traverse`方法以避免这个问题.
+
 
 
 ```python
 class BinaryTreeWithParent(BinaryTree):
-    def __init__(self,value,left,right,partent = )
+    def __init__(self,value,left=None,right=None,parent = None):
+        super().__init__(value,left=left,right=right)
+        self.parent = parent
+    def _traverse(self,key,value):
+        if isinstance(value,BinaryTreeWithParent) and key == 'parent':
+            return value.value
+        else:
+            return super()._traverse(key,value)
 ```
+
+
+```python
+root = BinaryTreeWithParent(10)
+```
+
+
+```python
+root.left = BinaryTreeWithParent(7,parent = root)
+```
+
+
+```python
+root.left.right = BinaryTreeWithParent(9,parent = root.left)
+```
+
+
+```python
+root.to_dict()
+```
+
+
+
+
+    {'left': {'left': None,
+      'parent': 10,
+      'right': {'left': None, 'parent': 7, 'right': None, 'value': 9},
+      'value': 7},
+     'parent': None,
+     'right': None,
+     'value': 10}
+
+
+
+并且如果其他类的某个属性也是`BinaryTreeWithParent`,那么`ToDictMixin`也会自动处理好这些属性
+
+
+```python
+class NamedSubTree(ToDictMixin):
+    def __init__(self,name,tree_with_parent):
+        self.name = name
+        self.tree_with_parent = tree_with_parent
+```
+
+
+```python
+mytree = NamedSubTree("foobar",root.left.right)
+```
+
+
+```python
+mytree.to_dict()
+```
+
+
+
+
+    {'name': 'foobar',
+     'tree_with_parent': {'left': None, 'parent': 7, 'right': None, 'value': 9}}
+
+
+
+多个Mixin之间也可以相互转化组合,例如可以编写一个这样的Mixin,可以将任意类提供通用的JSON序列化功能.我们这个Mixin要求宿主类提供`to_dict`接口.
+
+
+```python
+from typing import Callable,Dict
+import json
+class JsonMixin:
+    to_dict:Callable[...,Dict]
+    @classmethod
+    def from_json(cls,data):
+        kwargs = json.loads(data)
+        return cls(**kwargs)
+    def to_json(self):
+        return json.dumps(self.to_dict())
+        
+```
+
+有了这样的Mixin后,我们只需要极少的代码既可以通过继承体系轻松创建相关工具类.
+
+
+```python
+class NamedSubTree(ToDictMixin,JsonMixin):
+    def __init__(self,name,tree_with_parent):
+        self.name = name
+        self.tree_with_parent = tree_with_parent
+```
+
+
+```python
+mytree = NamedSubTree("foobar",root.left.right)
+```
+
+
+```python
+mytree.to_json()
+```
+
+
+
+
+    '{"name": "foobar", "tree_with_parent": {"value": 9, "left": null, "right": null, "parent": 7}}'
+
+
 
 # 处理多重继承的原则
 
