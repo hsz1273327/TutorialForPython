@@ -1,6 +1,6 @@
 {
-    "title": "python攻略--消息队列",
-    "description": "介绍消息队列的原理和使用方法,介绍python常用的消息队列工具",
+    "title": "python攻略",
+    "description": "介绍python3.5+的语法与编程惯用法",
     "gitbook": ">=2.0.0",
     "author" : "hsz",
     "language": "zh-hans",
@@ -29,7 +29,7 @@
             "url": "https://github.com/hsz1273327"
         },
         "github-buttons": {
-            "repo": "hsz1273327/TutorialForPythonMessageQueue",
+            "repo": "hsz1273327/TutorialForPython",
             "types": ["star","watch","fork"],
             "size": "small"
         },

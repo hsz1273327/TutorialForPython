@@ -1,0 +1,2099 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>伪造信息生成器 · python攻略</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="hsz">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../摘要加密与数字签名/" />
+    
+    
+    <link rel="prev" href="随机时间生成器.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://blog.hszofficial.site/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../总章.html">
+            
+                <a href="../总章.html">
+            
+                    
+                    总章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../工具链/">
+            
+                <a href="../工具链/">
+            
+                    
+                    工具链
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../工具链/运行环境与部署分发.html">
+            
+                <a href="../工具链/运行环境与部署分发.html">
+            
+                    
+                    运行环境与部署分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../工具链/代码风格.html">
+            
+                <a href="../工具链/代码风格.html">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../工具链/调试与测试.html">
+            
+                <a href="../工具链/调试与测试.html">
+            
+                    
+                    调试与测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../工具链/结语.html">
+            
+                <a href="../工具链/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Python的数据模型/">
+            
+                <a href="../Python的数据模型/">
+            
+                    
+                    Python的数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Python的数据模型/数据模型.html">
+            
+                <a href="../Python的数据模型/数据模型.html">
+            
+                    
+                    数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Python的数据模型/变量引用与垃圾回收.html">
+            
+                <a href="../Python的数据模型/变量引用与垃圾回收.html">
+            
+                    
+                    变量引用与垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Python的数据模型/结语.html">
+            
+                <a href="../Python的数据模型/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../文本_文件与字节序/">
+            
+                <a href="../文本_文件与字节序/">
+            
+                    
+                    文本,文件与字节序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../文本_文件与字节序/文本和编码.html">
+            
+                <a href="../文本_文件与字节序/文本和编码.html">
+            
+                    
+                    文本和编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../文本_文件与字节序/字节序列与内存视图.html">
+            
+                <a href="../文本_文件与字节序/字节序列与内存视图.html">
+            
+                    
+                    字节序列与内存视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../文本_文件与字节序/正则表达式.html">
+            
+                <a href="../文本_文件与字节序/正则表达式.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../文本_文件与字节序/文件与IO流.html">
+            
+                <a href="../文本_文件与字节序/文件与IO流.html">
+            
+                    
+                    文件与IO流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../文本_文件与字节序/序列化.html">
+            
+                <a href="../文本_文件与字节序/序列化.html">
+            
+                    
+                    序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../文本_文件与字节序/结语.html">
+            
+                <a href="../文本_文件与字节序/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../流程控制/">
+            
+                <a href="../流程控制/">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../流程控制/单线程同步流程控制.html">
+            
+                <a href="../流程控制/单线程同步流程控制.html">
+            
+                    
+                    单线程同步流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../流程控制/阻塞异步与协程.html">
+            
+                <a href="../流程控制/阻塞异步与协程.html">
+            
+                    
+                    阻塞异步与协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../流程控制/多线程与GIL.html">
+            
+                <a href="../流程控制/多线程与GIL.html">
+            
+                    
+                    多线程与GIL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../流程控制/多进程.html">
+            
+                <a href="../流程控制/多进程.html">
+            
+                    
+                    多进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../流程控制/并行编程的惯用法.html">
+            
+                <a href="../流程控制/并行编程的惯用法.html">
+            
+                    
+                    并行编程的惯用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../流程控制/并行编程的惯用法.html">
+            
+                <a href="../流程控制/并行编程的惯用法.html">
+            
+                    
+                    并发模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../流程控制/结语.html">
+            
+                <a href="../流程控制/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../数据结构与算法/">
+            
+                <a href="../数据结构与算法/">
+            
+                    
+                    数据结构与算法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../数据结构与算法/序列对象.html">
+            
+                <a href="../数据结构与算法/序列对象.html">
+            
+                    
+                    序列对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../数据结构与算法/映射对象.html">
+            
+                <a href="../数据结构与算法/映射对象.html">
+            
+                    
+                    映射对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../数据结构与算法/可迭代对象与生成器.html">
+            
+                <a href="../数据结构与算法/可迭代对象与生成器.html">
+            
+                    
+                    可迭代对象与生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../数据结构与算法/结语.html">
+            
+                <a href="../数据结构与算法/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../函数/">
+            
+                <a href="../函数/">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../函数/函数是一等对象.html">
+            
+                <a href="../函数/函数是一等对象.html">
+            
+                    
+                    函数是一等对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../函数/变量作用域与闭包.html">
+            
+                <a href="../函数/变量作用域与闭包.html">
+            
+                    
+                    变量作用域与闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../函数/结语.html">
+            
+                <a href="../函数/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../面向对象惯用法/">
+            
+                <a href="../面向对象惯用法/">
+            
+                    
+                    面向对象惯用法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../面向对象惯用法/python中的对象.html">
+            
+                <a href="../面向对象惯用法/python中的对象.html">
+            
+                    
+                    python中的对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../面向对象惯用法/协议与接口与抽象基类.html">
+            
+                <a href="../面向对象惯用法/协议与接口与抽象基类.html">
+            
+                    
+                    协议,接口与抽象基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../面向对象惯用法/多重继承和Mixin.html">
+            
+                <a href="../面向对象惯用法/多重继承和Mixin.html">
+            
+                    
+                    多重继承和Mixin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../面向对象惯用法/自定义序列Vector.html">
+            
+                <a href="../面向对象惯用法/自定义序列Vector.html">
+            
+                    
+                    自定义序列Vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../面向对象惯用法/结语.html">
+            
+                <a href="../面向对象惯用法/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../元编程/">
+            
+                <a href="../元编程/">
+            
+                    
+                    元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../元编程/导入时与运行时.html">
+            
+                <a href="../元编程/导入时与运行时.html">
+            
+                    
+                    导入时与运行时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../元编程/猴子补丁和热更新.html">
+            
+                <a href="../元编程/猴子补丁和热更新.html">
+            
+                    
+                    猴子补丁和热更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../元编程/动态编译.html">
+            
+                <a href="../元编程/动态编译.html">
+            
+                    
+                    动态编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../元编程/运算符重载.html">
+            
+                <a href="../元编程/运算符重载.html">
+            
+                    
+                    运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../元编程/动态属性与特性与描述符.html">
+            
+                <a href="../元编程/动态属性与特性与描述符.html">
+            
+                    
+                    动态属性,特性与描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../元编程/装饰器.html">
+            
+                <a href="../元编程/装饰器.html">
+            
+                    
+                    装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="../元编程/元类编程.html">
+            
+                <a href="../元编程/元类编程.html">
+            
+                    
+                    元类编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="../元编程/结语.html">
+            
+                <a href="../元编程/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../设计模式/">
+            
+                <a href="../设计模式/">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../设计模式/策略模式.html">
+            
+                <a href="../设计模式/策略模式.html">
+            
+                    
+                    策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../设计模式/命令模式.html">
+            
+                <a href="../设计模式/命令模式.html">
+            
+                    
+                    命令模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../设计模式/结语.html">
+            
+                <a href="../设计模式/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../标准库中的数学工具/">
+            
+                <a href="../标准库中的数学工具/">
+            
+                    
+                    标准库中的数学工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../标准库中的数学工具/数学运算模块.html">
+            
+                <a href="../标准库中的数学工具/数学运算模块.html">
+            
+                    
+                    数学运算模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../标准库中的数学工具/统计模块.html">
+            
+                <a href="../标准库中的数学工具/统计模块.html">
+            
+                    
+                    统计模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../标准库中的数学工具/高精度计算.html">
+            
+                <a href="../标准库中的数学工具/高精度计算.html">
+            
+                    
+                    高精度计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../标准库中的数学工具/有理数.html">
+            
+                <a href="../标准库中的数学工具/有理数.html">
+            
+                    
+                    有理数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../标准库中的数学工具/复数运算.html">
+            
+                <a href="../标准库中的数学工具/复数运算.html">
+            
+                    
+                    复数运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    随机数据生成工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="随机模块/随机模块.html">
+            
+                <a href="随机模块/随机模块.html">
+            
+                    
+                    随机模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="随机时间生成器.html">
+            
+                <a href="随机时间生成器.html">
+            
+                    
+                    随机时间生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.13.3" data-path="伪造信息生成器.html">
+            
+                <a href="伪造信息生成器.html">
+            
+                    
+                    伪造信息生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../摘要加密与数字签名/">
+            
+                <a href="../摘要加密与数字签名/">
+            
+                    
+                    摘要加密与数字签名
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../摘要加密与数字签名/摘要算法.html">
+            
+                <a href="../摘要加密与数字签名/摘要算法.html">
+            
+                    
+                    摘要算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../摘要加密与数字签名/加密算法.html">
+            
+                <a href="../摘要加密与数字签名/加密算法.html">
+            
+                    
+                    加密算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../摘要加密与数字签名/数字签名.html">
+            
+                <a href="../摘要加密与数字签名/数字签名.html">
+            
+                    
+                    数字签名
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../数据压缩/">
+            
+                <a href="../数据压缩/">
+            
+                    
+                    数据压缩
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../数据压缩/数据压缩解压.html">
+            
+                <a href="../数据压缩/数据压缩解压.html">
+            
+                    
+                    数据压缩解压
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../数据压缩/压缩归档.html">
+            
+                <a href="../数据压缩/压缩归档.html">
+            
+                    
+                    压缩归档
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../国际化工具/">
+            
+                <a href="../国际化工具/">
+            
+                    
+                    国际化工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../国际化工具/时间日期处理.html">
+            
+                <a href="../国际化工具/时间日期处理.html">
+            
+                    
+                    时间日期处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" data-path="../国际化工具/货币处理模块.html">
+            
+                <a href="../国际化工具/货币处理模块.html">
+            
+                    
+                    货币处理模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3" data-path="../国际化工具/字符编码判断.html">
+            
+                <a href="../国际化工具/字符编码判断.html">
+            
+                    
+                    字符编码判断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4" data-path="../国际化工具/国际化文本翻译.html">
+            
+                <a href="../国际化工具/国际化文本翻译.html">
+            
+                    
+                    国际化文本翻译
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >伪造信息生成器</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x968F;&#x673A;&#x540D;&#x5B57;&#x548C;&#x540D;&#x5B57;&#x76F8;&#x5173;&#x5B57;&#x7B26;&#x4E32;&#x751F;&#x6210;&#x5668;--forgerypy"><b>1. </b>&#x968F;&#x673A;&#x540D;&#x5B57;&#x548C;&#x540D;&#x5B57;&#x76F8;&#x5173;&#x5B57;&#x7B26;&#x4E32;&#x751F;&#x6210;&#x5668;--ForgeryPy</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5B89;&#x88C5;"><b>1.1. </b>&#x5B89;&#x88C5;:</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;"><b>1.2. </b>&#x4F7F;&#x7528;:</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5047;&#x6570;&#x636E;&#x5236;&#x9020;&#x5DE5;&#x5177;faker"><b>2. </b>&#x5047;&#x6570;&#x636E;&#x5236;&#x9020;&#x5DE5;&#x5177;Faker</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;_1"><b>2.1. </b>&#x4F7F;&#x7528;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x968F;&#x673A;&#x9009;&#x62E9;"><b>2.2. </b>&#x968F;&#x673A;&#x9009;&#x62E9;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#address-&#x5730;&#x5740;"><b>2.3. </b>address &#x5730;&#x5740;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#barcode-&#x6761;&#x7801;"><b>2.4. </b>barcode &#x6761;&#x7801;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#color-&#x989C;&#x8272;"><b>2.5. </b>color &#x989C;&#x8272;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#company-&#x516C;&#x53F8;"><b>2.6. </b>company &#x516C;&#x53F8;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#creditcard-&#x94F6;&#x884C;&#x4FE1;&#x7528;&#x5361;"><b>2.7. </b>credit_card &#x94F6;&#x884C;&#x4FE1;&#x7528;&#x5361;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#currency-&#x8D27;&#x5E01;"><b>2.8. </b>currency &#x8D27;&#x5E01;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#datetime-&#x65F6;&#x95F4;&#x65E5;&#x671F;"><b>2.9. </b>date_time &#x65F6;&#x95F4;&#x65E5;&#x671F;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#file-&#x6587;&#x4EF6;"><b>2.10. </b>file &#x6587;&#x4EF6;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#internet-&#x4E92;&#x8054;&#x7F51;"><b>2.11. </b>internet &#x4E92;&#x8054;&#x7F51;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#job-&#x5DE5;&#x4F5C;"><b>2.12. </b>job &#x5DE5;&#x4F5C;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#lorem-&#x4E71;&#x6570;&#x5047;&#x6587;"><b>2.13. </b>lorem &#x4E71;&#x6570;&#x5047;&#x6587;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#misc-&#x6742;&#x9879;"><b>2.14. </b>misc &#x6742;&#x9879;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#person-&#x4EBA;&#x7269;"><b>2.15. </b>person &#x4EBA;&#x7269;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#phonenumber-&#x7535;&#x8BDD;&#x53F7;&#x7801;"><b>2.16. </b>phone_number &#x7535;&#x8BDD;&#x53F7;&#x7801;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#profile-&#x4EBA;&#x7269;profile&#x4FE1;&#x606F;"><b>2.17. </b>profile &#x4EBA;&#x7269;profile&#x4FE1;&#x606F;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#python-python&#x6570;&#x636E;"><b>2.18. </b>python python&#x6570;&#x636E;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#ssn-&#x793E;&#x4F1A;&#x5B89;&#x5168;&#x7801;&#x8EAB;&#x4EFD;&#x8BC1;"><b>2.19. </b>ssn &#x793E;&#x4F1A;&#x5B89;&#x5168;&#x7801;(&#x8EAB;&#x4EFD;&#x8BC1;)</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#useragent-&#x7528;&#x6237;&#x4EE3;&#x7406;"><b>2.20. </b>user_agent &#x7528;&#x6237;&#x4EE3;&#x7406;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x81EA;&#x5B9A;&#x4E49;&#x6269;&#x5C55;"><b>2.21. </b>&#x81EA;&#x5B9A;&#x4E49;&#x6269;&#x5C55;</a></li></ul></ul></div><a href="#&#x968F;&#x673A;&#x540D;&#x5B57;&#x548C;&#x540D;&#x5B57;&#x76F8;&#x5173;&#x5B57;&#x7B26;&#x4E32;&#x751F;&#x6210;&#x5668;--forgerypy" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x968F;&#x673A;&#x540D;&#x5B57;&#x548C;&#x540D;&#x5B57;&#x76F8;&#x5173;&#x5B57;&#x7B26;&#x4E32;&#x751F;&#x6210;&#x5668;--forgerypy"><a name="&#x968F;&#x673A;&#x540D;&#x5B57;&#x548C;&#x540D;&#x5B57;&#x76F8;&#x5173;&#x5B57;&#x7B26;&#x4E32;&#x751F;&#x6210;&#x5668;--forgerypy" class="anchor-navigation-ex-anchor" href="#&#x968F;&#x673A;&#x540D;&#x5B57;&#x548C;&#x540D;&#x5B57;&#x76F8;&#x5173;&#x5B57;&#x7B26;&#x4E32;&#x751F;&#x6210;&#x5668;--forgerypy"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x968F;&#x673A;&#x540D;&#x5B57;&#x548C;&#x540D;&#x5B57;&#x76F8;&#x5173;&#x5B57;&#x7B26;&#x4E32;&#x751F;&#x6210;&#x5668;--ForgeryPy</h1>
+<p>&#x8FD9;&#x4E2A;&#x5C0F;&#x5DE5;&#x5177;&#x53EF;&#x4EE5;&#x751F;&#x6210;&#x4E0E;&#x540D;&#x5B57;&#x76F8;&#x5173;&#x7684;&#x5404;&#x79CD;&#x503C;,&#x7528;&#x6765;&#x505A;&#x6570;&#x636E;&#x5E93;&#x76F8;&#x5173;&#x7684;&#x6D4B;&#x8BD5;&#x975E;&#x5E38;&#x5408;&#x9002;,&#x5B98;&#x7F51;api&#x5728;<a href="http://tomekwojcik.github.io/ForgeryPy/name.html" target="_blank">&#x8FD9;&#x8FB9;</a>.</p>
+<h2 id="&#x5B89;&#x88C5;"><a name="&#x5B89;&#x88C5;" class="anchor-navigation-ex-anchor" href="#&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x5B89;&#x88C5;:</h2>
+<pre><code>pip install forgerypy
+</code></pre><h2 id="&#x4F7F;&#x7528;"><a name="&#x4F7F;&#x7528;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x4F7F;&#x7528;:</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> forgery_py <span class="hljs-keyword">import</span> name
+</code></pre>
+<pre><code class="lang-python">name.first_name() <span class="hljs-comment"># &#x540D;</span>
+</code></pre>
+<pre><code>&apos;Richard&apos;
+</code></pre><pre><code class="lang-python">name.last_name() <span class="hljs-comment"># &#x59D3;</span>
+</code></pre>
+<pre><code>&apos;Kim&apos;
+</code></pre><pre><code class="lang-python">name.full_name() <span class="hljs-comment">#&#x5168;&#x540D;</span>
+</code></pre>
+<pre><code>&apos;Kathryn Schmidt&apos;
+</code></pre><pre><code class="lang-python">name.male_first_name() <span class="hljs-comment"># &#x7537;&#x6027;&#x540D;</span>
+</code></pre>
+<pre><code>&apos;Kathleen&apos;
+</code></pre><pre><code class="lang-python">name.female_first_name() <span class="hljs-comment"># &#x5973;&#x6027;&#x540D;</span>
+</code></pre>
+<pre><code>&apos;Sandra&apos;
+</code></pre><pre><code class="lang-python">name.company_name() <span class="hljs-comment"># &#x516C;&#x53F8;&#x540D;</span>
+</code></pre>
+<pre><code>&apos;Lazzy&apos;
+</code></pre><pre><code class="lang-python">name.job_title() <span class="hljs-comment"># &#x804C;&#x4F4D;&#x5934;&#x8854;</span>
+</code></pre>
+<pre><code>&apos;Programmer Analyst IV&apos;
+</code></pre><pre><code class="lang-python">name.job_title_suffix() <span class="hljs-comment"># &#x804C;&#x4F4D;&#x5934;&#x8854;&#x540E;&#x7F00;</span>
+</code></pre>
+<pre><code>&apos;II&apos;
+</code></pre><pre><code class="lang-python">name.title() <span class="hljs-comment"># &#x5934;&#x8854;</span>
+</code></pre>
+<pre><code>&apos;Ms&apos;
+</code></pre><pre><code class="lang-python">name.suffix() <span class="hljs-comment">#&#x540E;&#x7F00;</span>
+</code></pre>
+<pre><code>&apos;Jr&apos;
+</code></pre><pre><code class="lang-python">name.location() <span class="hljs-comment">#&#x5730;&#x5740;</span>
+</code></pre>
+<pre><code>&apos;Shell Cottage&apos;
+</code></pre><pre><code class="lang-python">name.industry() <span class="hljs-comment">#&#x4EA7;&#x4E1A;</span>
+</code></pre>
+<pre><code>&apos;Farm &amp; Construction Machinery&apos;
+</code></pre><h1 id="&#x5047;&#x6570;&#x636E;&#x5236;&#x9020;&#x5DE5;&#x5177;faker"><a name="&#x5047;&#x6570;&#x636E;&#x5236;&#x9020;&#x5DE5;&#x5177;faker" class="anchor-navigation-ex-anchor" href="#&#x5047;&#x6570;&#x636E;&#x5236;&#x9020;&#x5DE5;&#x5177;faker"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x5047;&#x6570;&#x636E;&#x5236;&#x9020;&#x5DE5;&#x5177;Faker</h1>
+<p>&#x6211;&#x4EEC;&#x5E38;&#x5E38;&#x9700;&#x8981;&#x5229;&#x7528;&#x4E00;&#x4E9B;&#x5047;&#x6570;&#x636E;&#x6765;&#x505A;&#x6D4B;&#x8BD5;,&#x8FD9;&#x79CD;&#x65F6;&#x5019;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<a href="http://faker.readthedocs.io/en/master/" target="_blank">Faker</a>&#x6765;&#x4F2A;&#x9020;&#x6570;&#x636E;&#x4ECE;&#x800C;&#x7528;&#x6765;&#x6D4B;&#x8BD5;.</p>
+<p>&#x5B89;&#x88C5;<code>pip install Faker</code></p>
+<h2 id="&#x4F7F;&#x7528;_1"><a name="&#x4F7F;&#x7528;_1" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;_1"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. &#x4F7F;&#x7528;</h2>
+<p>faker&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x5DE5;&#x5382;&#x51FD;&#x6570;,&#x7528;&#x6765;&#x521B;&#x5EFA;&#x6570;&#x636E;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> faker <span class="hljs-keyword">import</span> Factory
+fake1 = Factory.create()
+</code></pre>
+<p>&#x5F53;&#x7136;&#x4E86;&#x4E5F;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;Faker&#x7C7B;&#x6765;&#x521B;&#x5EFA;fake&#x5B9E;&#x4F8B;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> faker <span class="hljs-keyword">import</span> Faker
+fake2 = Faker()
+</code></pre>
+<pre><code class="lang-python">fake1.name()
+</code></pre>
+<pre><code>&apos;Anna Stewart&apos;
+</code></pre><pre><code class="lang-python">fake2.name()
+</code></pre>
+<pre><code>&apos;Michelle Beltran&apos;
+</code></pre><p>&#x53EF;&#x4EE5;&#x4E3A;&#x5BF9;&#x8C61;&#x8BBE;&#x7F6E;&#x672C;&#x5730;&#x5316;&#x4FE1;&#x606F;,&#x53EA;&#x9700;&#x8981;&#x5728;&#x5176;&#x4E2D;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x53C2;&#x6570;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5373;&#x53EF;:</p>
+<ul>
+<li>bg_BG - Bulgarian</li>
+<li>cs_CZ - Czech</li>
+<li>de_DE - German</li>
+<li>dk_DK - Danish</li>
+<li>el_GR - Greek</li>
+<li>en_AU - English (Australia)</li>
+<li>en_CA - English (Canada)</li>
+<li>en_GB - English (Great Britain)</li>
+<li>en_US - English (United States)</li>
+<li>es_ES - Spanish (Spain)</li>
+<li>es_MX - Spanish (Mexico)</li>
+<li>fa_IR - Persian (Iran)</li>
+<li>fi_FI - Finnish</li>
+<li>fr_FR - French</li>
+<li>hi_IN - Hindi</li>
+<li>hr_HR - Croatian</li>
+<li>it_IT - Italian</li>
+<li>ja_JP - Japanese</li>
+<li>ko_KR - Korean</li>
+<li>lt_LT - Lithuanian</li>
+<li>lv_LV - Latvian</li>
+<li>ne_NP - Nepali</li>
+<li>nl_NL - Dutch (Netherlands)</li>
+<li>no_NO - Norwegian</li>
+<li>pl_PL - Polish</li>
+<li>pt_BR - Portuguese (Brazil)</li>
+<li>pt_PT - Portuguese (Portugal)</li>
+<li>ru_RU - Russian</li>
+<li>sl_SI - Slovene</li>
+<li>sv_SE - Swedish</li>
+<li>tr_TR - Turkish</li>
+<li>uk_UA - Ukrainian</li>
+<li>zh_CN - Chinese (China)</li>
+<li>zh_TW - Chinese (Taiwan)</li>
+</ul>
+<pre><code class="lang-python">fake = Faker(<span class="hljs-string">&quot;zh_CN&quot;</span>)
+</code></pre>
+<p>&#x6BCF;&#x6B21;&#x8C03;&#x7528;fake&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x6BD4;&#x5982;name(),&#x90FD;&#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x968F;&#x673A;&#x5185;&#x5BB9;.&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x5305;&#x62EC;:</p>
+<ul>
+<li>address &#x5730;&#x5740;</li>
+<li>barcode &#x6761;&#x7801;</li>
+<li>color &#x989C;&#x8272;</li>
+<li>company &#x516C;&#x53F8;</li>
+<li>credit_card &#x94F6;&#x884C;&#x5361;&#x53F7;</li>
+<li>currency &#x8D27;&#x5E01;</li>
+<li>date_time &#x65E5;&#x671F;</li>
+<li>file &#x6587;&#x4EF6;</li>
+<li>internet &#x4E92;&#x8054;&#x7F51;</li>
+<li>job &#x5DE5;&#x4F5C;</li>
+<li>lorem &#x4E71;&#x6570;&#x5047;&#x6587;</li>
+<li>misc &#x6742;&#x9879;</li>
+<li>person &#x4EBA;&#x7269;</li>
+<li>phone_number &#x7535;&#x8BDD;&#x53F7;&#x7801;</li>
+<li>profile &#x4EBA;&#x7269;profile&#x4FE1;&#x606F;</li>
+<li>python python&#x6570;&#x636E;</li>
+<li>ssn &#x793E;&#x4F1A;&#x5B89;&#x5168;&#x7801;(&#x8EAB;&#x4EFD;&#x8BC1;&#x53F7;&#x7801;)</li>
+<li>user_agent &#x7528;&#x6237;&#x4EE3;&#x7406;</li>
+</ul>
+<p>&#x540C;&#x65F6;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;fake&#x7684;seed&#x65B9;&#x6CD5;&#x8BBE;&#x5B9A;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x79CD;&#x5B50;</p>
+<pre><code class="lang-python">fake.seed(<span class="hljs-number">4321</span>)
+</code></pre>
+<h2 id="&#x968F;&#x673A;&#x9009;&#x62E9;"><a name="&#x968F;&#x673A;&#x9009;&#x62E9;" class="anchor-navigation-ex-anchor" href="#&#x968F;&#x673A;&#x9009;&#x62E9;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2. &#x968F;&#x673A;&#x9009;&#x62E9;</h2>
+<pre><code class="lang-python">fake.random_element(elements=(<span class="hljs-string">u&apos;&#x53F0;&#x6E7E;&apos;</span>, <span class="hljs-string">u&apos;&#x9999;&#x6E2F;&apos;</span>, <span class="hljs-string">u&apos;&#x6FB3;&#x95E8;&apos;</span>))<span class="hljs-comment"># &#x4ECE;&#x51E0;&#x4E2A;&#x5143;&#x7D20;&#x4E2D;&#x9009;&#x62E9;</span>
+</code></pre>
+<pre><code>&apos;&#x9999;&#x6E2F;&apos;
+</code></pre><pre><code class="lang-python">fake.random_digit()<span class="hljs-comment"># &#x968F;&#x673A;&#x6570;&#x5B57;</span>
+</code></pre>
+<pre><code>0
+</code></pre><pre><code class="lang-python">fake.random_digit_or_empty()<span class="hljs-comment"># &#x968F;&#x673A;&#x6570;&#x5B57;&#x6216;&#x8005;&#x7A7A;</span>
+</code></pre>
+<pre><code>1
+</code></pre><pre><code class="lang-python">fake.random_digit_not_null()<span class="hljs-comment">#&#x968F;&#x673A;&#x975E;null&#x6570;&#x5B57;</span>
+</code></pre>
+<pre><code>3
+</code></pre><pre><code class="lang-python">fake.random_digit_not_null_or_empty()<span class="hljs-comment"># &#x968F;&#x673A;&#x975E;null&#x6570;&#x5B57;&#x6216;&#x8005;&#x7A7A;</span>
+</code></pre>
+<pre><code>2
+</code></pre><pre><code class="lang-python">fake.random_int(min=<span class="hljs-number">0</span>, max=<span class="hljs-number">9999</span>) <span class="hljs-comment"># &#x968F;&#x673A;&#x6574;&#x6570;</span>
+</code></pre>
+<pre><code>694
+</code></pre><pre><code class="lang-python">fake.randomize_nb_elements(number=<span class="hljs-number">10</span>, le=<span class="hljs-keyword">False</span>, ge=<span class="hljs-keyword">False</span>)<span class="hljs-comment">#&#x67D0;&#x6570;&#x9644;&#x8FD1;&#x7684;&#x6570;</span>
+</code></pre>
+<pre><code>9
+</code></pre><pre><code class="lang-python">fake.random_sample(elements=(<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;b&apos;</span>, <span class="hljs-string">&apos;c&apos;</span>), length=<span class="hljs-keyword">None</span>)<span class="hljs-comment"># &#x968F;&#x673A;&#x53EF;&#x91CD;&#x590D;&#x5143;&#x7D20;&#x7EC4;&#x5408;</span>
+</code></pre>
+<pre><code>[&apos;a&apos;, &apos;b&apos;, &apos;b&apos;]
+</code></pre><pre><code class="lang-python">fake.random_sample_unique(elements=(<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;b&apos;</span>, <span class="hljs-string">&apos;c&apos;</span>), length=<span class="hljs-keyword">None</span>)<span class="hljs-comment"># &#x968F;&#x673A;&#x975E;&#x91CD;&#x590D;&#x5143;&#x7D20;&#x7EC4;&#x5408;</span>
+</code></pre>
+<pre><code>{&apos;a&apos;, &apos;c&apos;}
+</code></pre><pre><code class="lang-python">fake.random_number(digits=<span class="hljs-keyword">None</span>) <span class="hljs-comment"># &#x968F;&#x673A;&#x6570;</span>
+</code></pre>
+<pre><code>688833
+</code></pre><pre><code class="lang-python">fake.random_letter() <span class="hljs-comment">#&#x968F;&#x673A;&#x5B57;&#x6BCD;</span>
+</code></pre>
+<pre><code>&apos;B&apos;
+</code></pre><pre><code class="lang-python">fake.numerify(text=<span class="hljs-string">&quot;###&quot;</span>)<span class="hljs-comment"># &#x6570;&#x5B57;&#x5B57;&#x7B26;&#x4E32;</span>
+</code></pre>
+<pre><code>&apos;727&apos;
+</code></pre><pre><code class="lang-python">fake.lexify(text=<span class="hljs-string">&quot;????&quot;</span>)<span class="hljs-comment"># &#x968F;&#x673A;&#x5B57;&#x6BCD;&#x4E32;</span>
+</code></pre>
+<pre><code>&apos;ahIj&apos;
+</code></pre><pre><code class="lang-python">fake.bothify(text=<span class="hljs-string">&quot;## ??&quot;</span>)<span class="hljs-comment">#&#x7528;&#x5360;&#x4F4D;&#x7B26;&#x8868;&#x793A;&#x5B57;&#x6BCD;&#x6216;&#x6570;&#x5B57;,&#x968F;&#x673A;&#x751F;&#x6210;&#x5B57;&#x7B26;&#x4E32;</span>
+</code></pre>
+<pre><code>&apos;73 VP&apos;
+</code></pre><h2 id="address-&#x5730;&#x5740;"><a name="address-&#x5730;&#x5740;" class="anchor-navigation-ex-anchor" href="#address-&#x5730;&#x5740;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3. address &#x5730;&#x5740;</h2>
+<pre><code class="lang-python">fake.country()<span class="hljs-comment">#&#x56FD;&#x5BB6;</span>
+</code></pre>
+<pre><code>&apos;&#x6CD5;&#x56FD;&apos;
+</code></pre><pre><code class="lang-python">fake.city()<span class="hljs-comment">#&#x57CE;&#x5E02;</span>
+</code></pre>
+<pre><code>&apos;&#x6842;&#x73CD;&#x5E02;&apos;
+</code></pre><pre><code class="lang-python">fake.latitude()<span class="hljs-comment">#&#x7EAC;&#x5EA6;</span>
+</code></pre>
+<pre><code>Decimal(&apos;82.427230&apos;)
+</code></pre><pre><code class="lang-python">fake.longitude() <span class="hljs-comment">#&#x7ECF;&#x5EA6;</span>
+</code></pre>
+<pre><code>Decimal(&apos;-62.090808&apos;)
+</code></pre><pre><code class="lang-python">fake.city_suffix()<span class="hljs-comment">#&#x57CE;&#x5E02;&#x7684;&#x540E;&#x7F00;,&#x4E2D;&#x6587;&#x5C31;&#x662F;&#x5E02;&#x4E86;</span>
+</code></pre>
+<pre><code>&apos;&#x5E02;&apos;
+</code></pre><pre><code class="lang-python">fake.state()<span class="hljs-comment">#&#x533A;</span>
+</code></pre>
+<pre><code>&apos;&#x4E1C;&#x4E3D;&#x533A;&apos;
+</code></pre><pre><code class="lang-python">fake.street_address()<span class="hljs-comment">#&#x8857;&#x9053;</span>
+</code></pre>
+<pre><code>&apos;&#x9619;&#x8DEF;g&#x5EA7;&apos;
+</code></pre><pre><code class="lang-python">fake.address()<span class="hljs-comment">#&#x5730;&#x5740;</span>
+</code></pre>
+<pre><code>&apos;&#x9633;&#x5E02;&#x7B26;&#x8857;z&#x5EA7; 956147&apos;
+</code></pre><pre><code class="lang-python">fake.country_code()<span class="hljs-comment">#&#x56FD;&#x5BB6;&#x7F16;&#x7801;</span>
+</code></pre>
+<pre><code>&apos;BY&apos;
+</code></pre><pre><code class="lang-python">fake.building_number() <span class="hljs-comment"># &#x697C;&#x53F7;</span>
+</code></pre>
+<pre><code>&apos;O&#x5EA7;&apos;
+</code></pre><pre><code class="lang-python">fake.geo_coordinate(center=<span class="hljs-keyword">None</span>, radius=<span class="hljs-number">0.001</span>)<span class="hljs-comment"># &#x5730;&#x7406;&#x5750;&#x6807;</span>
+</code></pre>
+<pre><code>Decimal(&apos;-14.279606&apos;)
+</code></pre><pre><code class="lang-python">fake.street_suffix()<span class="hljs-comment">#&#x8857;&#x9053;&#x540E;&#x7F00;,&#x4E2D;&#x6587;&#x5C31;&#x662F;&#x8DEF;&#x6216;&#x8005;&#x8857;&#x8FD9;&#x7C7B;&#x4E86;</span>
+</code></pre>
+<pre><code>&apos;&#x8857;&apos;
+</code></pre><pre><code class="lang-python">fake.street_name()<span class="hljs-comment">#&#x8857;&#x9053;&#x540D;</span>
+</code></pre>
+<pre><code>&apos;&#x5C01;&#x8DEF;&apos;
+</code></pre><pre><code class="lang-python">fake.postcode()<span class="hljs-comment"># &#x90AE;&#x7F16;</span>
+</code></pre>
+<pre><code>&apos;789068&apos;
+</code></pre><h2 id="barcode-&#x6761;&#x7801;"><a name="barcode-&#x6761;&#x7801;" class="anchor-navigation-ex-anchor" href="#barcode-&#x6761;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>2.4. barcode &#x6761;&#x7801;</h2>
+<pre><code class="lang-python">fake.ean8()<span class="hljs-comment">#8&#x4F4D;&#x6761;&#x7801;</span>
+</code></pre>
+<pre><code>&apos;58133842&apos;
+</code></pre><pre><code class="lang-python">fake.ean13()<span class="hljs-comment">#13&#x4F4D;&#x6761;&#x7801;</span>
+</code></pre>
+<pre><code>&apos;1198769812909&apos;
+</code></pre><pre><code class="lang-python">fake.ean(length=<span class="hljs-number">8</span>)<span class="hljs-comment">#&#x81EA;&#x5B9A;&#x4E49;&#x4F4D;&#x6570;&#x6761;&#x7801;,&#x53EF;&#x9009;8&#x6216;&#x8005;13</span>
+</code></pre>
+<pre><code>&apos;46438294&apos;
+</code></pre><h2 id="color-&#x989C;&#x8272;"><a name="color-&#x989C;&#x8272;" class="anchor-navigation-ex-anchor" href="#color-&#x989C;&#x8272;"><i class="fa fa-link" aria-hidden="true"></i></a>2.5. color &#x989C;&#x8272;</h2>
+<pre><code class="lang-python">fake.hex_color()<span class="hljs-comment">#16&#x8FDB;&#x5236;&#x8868;&#x793A;&#x7684;&#x989C;&#x8272;</span>
+</code></pre>
+<pre><code>&apos;#7bf862&apos;
+</code></pre><pre><code class="lang-python">fake.rgb_css_color()<span class="hljs-comment"># css&#x7528;&#x7684;rgb&#x8272;</span>
+</code></pre>
+<pre><code>&apos;rgb(96,156,84)&apos;
+</code></pre><pre><code class="lang-python">fake.color_name()<span class="hljs-comment">#&#x989C;&#x8272;&#x540D;&#x5B57;</span>
+</code></pre>
+<pre><code>&apos;Lime&apos;
+</code></pre><pre><code class="lang-python">fake.safe_hex_color()<span class="hljs-comment">#&#x5B89;&#x5168;16&#x8FDB;&#x5236;&#x8272;</span>
+</code></pre>
+<pre><code>&apos;#aa8800&apos;
+</code></pre><pre><code class="lang-python">fake.rgb_color()<span class="hljs-comment">#rgb&#x8272;&#x5B57;&#x7B26;&#x4E32;</span>
+</code></pre>
+<pre><code>&apos;167,202,48&apos;
+</code></pre><pre><code class="lang-python">fake.safe_color_name()<span class="hljs-comment">#&#x5B89;&#x5168;&#x989C;&#x8272;&#x540D;&#x5B57;</span>
+</code></pre>
+<pre><code>&apos;aqua&apos;
+</code></pre><pre><code class="lang-python">fake.rgb_color_list()<span class="hljs-comment">#rgb&#x8272;&#x5143;&#x7956;</span>
+</code></pre>
+<pre><code>(167, 79, 112)
+</code></pre><h2 id="company-&#x516C;&#x53F8;"><a name="company-&#x516C;&#x53F8;" class="anchor-navigation-ex-anchor" href="#company-&#x516C;&#x53F8;"><i class="fa fa-link" aria-hidden="true"></i></a>2.6. company &#x516C;&#x53F8;</h2>
+<pre><code class="lang-python">fake.company() <span class="hljs-comment">#&#x516C;&#x53F8;&#x540D;</span>
+</code></pre>
+<pre><code>&apos;&#x5546;&#x8F6F;&#x51A0;&#x8054;&#x4FE1;&#x606F;&#x6709;&#x9650;&#x516C;&#x53F8;&apos;
+</code></pre><pre><code class="lang-python">fake.company_suffix() <span class="hljs-comment">#&#x516C;&#x53F8;&#x540D;&#x540E;&#x7F00;</span>
+</code></pre>
+<pre><code>&apos;&#x4FE1;&#x606F;&#x6709;&#x9650;&#x516C;&#x53F8;&apos;
+</code></pre><h2 id="creditcard-&#x94F6;&#x884C;&#x4FE1;&#x7528;&#x5361;"><a name="creditcard-&#x94F6;&#x884C;&#x4FE1;&#x7528;&#x5361;" class="anchor-navigation-ex-anchor" href="#creditcard-&#x94F6;&#x884C;&#x4FE1;&#x7528;&#x5361;"><i class="fa fa-link" aria-hidden="true"></i></a>2.7. credit_card &#x94F6;&#x884C;&#x4FE1;&#x7528;&#x5361;</h2>
+<pre><code class="lang-python">fake.credit_card_number(card_type=<span class="hljs-keyword">None</span>)<span class="hljs-comment">#&#x5361;&#x53F7;</span>
+</code></pre>
+<pre><code>&apos;3096904640103331&apos;
+</code></pre><pre><code class="lang-python">fake.credit_card_provider(card_type=<span class="hljs-keyword">None</span>)<span class="hljs-comment"># &#x5361;&#x63D0;&#x4F9B;&#x8005;</span>
+</code></pre>
+<pre><code>&apos;Discover&apos;
+</code></pre><pre><code class="lang-python">fake.credit_card_security_code(card_type=<span class="hljs-keyword">None</span>)<span class="hljs-comment">#&#x5361;&#x5BC6;&#x7801;</span>
+</code></pre>
+<pre><code>&apos;197&apos;
+</code></pre><pre><code class="lang-python">fake.credit_card_full(card_type=<span class="hljs-keyword">None</span>) <span class="hljs-comment">#&#x5B8C;&#x6574;&#x5361;&#x4FE1;&#x606F;</span>
+</code></pre>
+<pre><code>&apos;Diners Club / Carte Blanche\n&#x51AC;&#x6885; &#x5434;\n30532991312113 12/18\nCVC: 434\n&apos;
+</code></pre><h2 id="currency-&#x8D27;&#x5E01;"><a name="currency-&#x8D27;&#x5E01;" class="anchor-navigation-ex-anchor" href="#currency-&#x8D27;&#x5E01;"><i class="fa fa-link" aria-hidden="true"></i></a>2.8. currency &#x8D27;&#x5E01;</h2>
+<pre><code class="lang-python">fake.currency_code()<span class="hljs-comment">#&#x8D27;&#x5E01;</span>
+</code></pre>
+<pre><code>&apos;BND&apos;
+</code></pre><h2 id="datetime-&#x65F6;&#x95F4;&#x65E5;&#x671F;"><a name="datetime-&#x65F6;&#x95F4;&#x65E5;&#x671F;" class="anchor-navigation-ex-anchor" href="#datetime-&#x65F6;&#x95F4;&#x65E5;&#x671F;"><i class="fa fa-link" aria-hidden="true"></i></a>2.9. date_time &#x65F6;&#x95F4;&#x65E5;&#x671F;</h2>
+<pre><code class="lang-python">fake.date_time(tzinfo=<span class="hljs-keyword">None</span>)<span class="hljs-comment">#&#x968F;&#x673A;&#x65E5;&#x671F;&#x65F6;&#x95F4;</span>
+</code></pre>
+<pre><code>datetime(1981, 6, 12, 18, 51, 21)
+</code></pre><pre><code class="lang-python">fake.iso8601(tzinfo=<span class="hljs-keyword">None</span>)<span class="hljs-comment">#&#x4EE5;iso8601&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x7684;&#x65E5;&#x671F;</span>
+</code></pre>
+<pre><code>&apos;1999-06-20T20:45:00&apos;
+</code></pre><pre><code class="lang-python">fake.date_time_this_month(before_now=<span class="hljs-keyword">True</span>, after_now=<span class="hljs-keyword">False</span>, tzinfo=<span class="hljs-keyword">None</span>)<span class="hljs-comment">#&#x672C;&#x6708;&#x7684;&#x67D0;&#x4E2A;&#x65E5;&#x671F;</span>
+</code></pre>
+<pre><code>datetime.datetime(2017, 6, 23, 20, 46, 30)
+</code></pre><pre><code class="lang-python">fake.date_time_this_year(before_now=<span class="hljs-keyword">True</span>, after_now=<span class="hljs-keyword">False</span>, tzinfo=<span class="hljs-keyword">None</span>)<span class="hljs-comment">#&#x672C;&#x5E74;&#x7684;&#x67D0;&#x4E2A;&#x65E5;&#x671F;</span>
+</code></pre>
+<pre><code>datetime.datetime(2017, 1, 30, 7, 6, 12)
+</code></pre><pre><code class="lang-python">fake.date_time_this_decade(before_now=<span class="hljs-keyword">True</span>, after_now=<span class="hljs-keyword">False</span>, tzinfo=<span class="hljs-keyword">None</span>)<span class="hljs-comment">#&#x672C;&#x5E74;&#x4EE3;&#x5185;&#x7684;&#x4E00;&#x4E2A;&#x65E5;&#x671F;</span>
+</code></pre>
+<pre><code>datetime.datetime(2014, 8, 18, 8, 40, 42)
+</code></pre><pre><code class="lang-python">fake.date_time_this_century(before_now=<span class="hljs-keyword">True</span>, after_now=<span class="hljs-keyword">False</span>, tzinfo=<span class="hljs-keyword">None</span>)<span class="hljs-comment">#&#x672C;&#x4E16;&#x7EAA;&#x4E00;&#x4E2A;&#x65E5;&#x671F;</span>
+</code></pre>
+<pre><code>datetime.datetime(2016, 9, 25, 18, 1, 39)
+</code></pre><pre><code class="lang-python">fake.date_time_between_dates(datetime_start=<span class="hljs-keyword">None</span>, datetime_end=<span class="hljs-keyword">None</span>, tzinfo=<span class="hljs-keyword">None</span>)<span class="hljs-comment">#&#x4E24;&#x4E2A;&#x65F6;&#x95F4;&#x95F4;&#x7684;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x65F6;&#x95F4;</span>
+</code></pre>
+<pre><code>datetime.datetime(2017, 6, 30, 23, 31, 21)
+</code></pre><pre><code class="lang-python">fake.date_time_between(start_date=<span class="hljs-string">&quot;-30y&quot;</span>, end_date=<span class="hljs-string">&quot;now&quot;</span>, tzinfo=<span class="hljs-keyword">None</span>)<span class="hljs-comment">#&#x4E24;&#x4E2A;&#x65F6;&#x95F4;&#x95F4;&#x7684;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x65F6;&#x95F4;</span>
+</code></pre>
+<pre><code>datetime(1993, 3, 5, 13, 3, 30)
+</code></pre><pre><code class="lang-python">fake.timezone()<span class="hljs-comment">#&#x65F6;&#x533A;</span>
+</code></pre>
+<pre><code>&apos;Pacific/Tongatapu&apos;
+</code></pre><pre><code class="lang-python">fake.time(pattern=<span class="hljs-string">&quot;%H:%M:%S&quot;</span>)<span class="hljs-comment">#&#x65F6;&#x95F4;</span>
+</code></pre>
+<pre><code>&apos;21:58:56&apos;
+</code></pre><pre><code class="lang-python">fake.am_pm()<span class="hljs-comment">#&#x968F;&#x673A;&#x4E0A;&#x5348;&#x4E0B;&#x5348;</span>
+</code></pre>
+<pre><code>&apos;AM&apos;
+</code></pre><pre><code class="lang-python">fake.month()<span class="hljs-comment">#&#x968F;&#x673A;&#x6708;&#x4EFD;</span>
+</code></pre>
+<pre><code>&apos;07&apos;
+</code></pre><pre><code class="lang-python">fake.month_name()<span class="hljs-comment">#&#x968F;&#x673A;&#x6708;&#x4EFD;&#x540D;&#x5B57;</span>
+</code></pre>
+<pre><code>&apos;March&apos;
+</code></pre><pre><code class="lang-python">fake.century()<span class="hljs-comment">#&#x968F;&#x673A;&#x4E16;&#x7EAA;</span>
+</code></pre>
+<pre><code>&apos;XVIII&apos;
+</code></pre><pre><code class="lang-python">fake.year()<span class="hljs-comment">#&#x968F;&#x673A;&#x5E74;</span>
+</code></pre>
+<pre><code>&apos;1976&apos;
+</code></pre><pre><code class="lang-python">fake.day_of_week()<span class="hljs-comment">#&#x968F;&#x673A;&#x661F;&#x671F;&#x51E0;</span>
+</code></pre>
+<pre><code>&apos;Saturday&apos;
+</code></pre><pre><code class="lang-python">fake.day_of_month()<span class="hljs-comment">#&#x968F;&#x673A;&#x6708;&#x4E2D;&#x67D0;&#x4E00;&#x5929;</span>
+</code></pre>
+<pre><code>&apos;28&apos;
+</code></pre><pre><code class="lang-python">fake.time_delta()<span class="hljs-comment">#&#x968F;&#x673A;&#x65F6;&#x95F4;&#x5EF6;&#x8FDF;</span>
+</code></pre>
+<pre><code>datetime.timedelta(12792, 56895)
+</code></pre><pre><code class="lang-python">fake.date_object()<span class="hljs-comment">#&#x968F;&#x673A;&#x65E5;&#x671F;&#x5BF9;&#x8C61;</span>
+</code></pre>
+<pre><code>date(1976, 12, 15)
+</code></pre><pre><code class="lang-python">fake.time_object()<span class="hljs-comment">#&#x968F;&#x673A;&#x65F6;&#x95F4;&#x5BF9;&#x8C61;</span>
+</code></pre>
+<pre><code>datetime.time(10, 16, 53)
+</code></pre><pre><code class="lang-python">fake.unix_time()<span class="hljs-comment">#&#x968F;&#x673A;unix&#x65F6;&#x95F4;</span>
+</code></pre>
+<pre><code>183659036
+</code></pre><pre><code class="lang-python">fake.date(pattern=<span class="hljs-string">&quot;%Y-%m-%d&quot;</span>)<span class="hljs-comment">#&#x968F;&#x673A;&#x65E5;&#x671F;</span>
+</code></pre>
+<pre><code>&apos;2014-01-10&apos;
+</code></pre><pre><code class="lang-python">fake.date_time_ad(tzinfo=<span class="hljs-keyword">None</span>)<span class="hljs-comment">#&#x516C;&#x5143;&#x540E;&#x968F;&#x673A;&#x65E5;&#x671F;</span>
+</code></pre>
+<pre><code>datetime.datetime(673, 4, 13, 22, 3, 39)
+</code></pre><h2 id="file-&#x6587;&#x4EF6;"><a name="file-&#x6587;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#file-&#x6587;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>2.10. file &#x6587;&#x4EF6;</h2>
+<pre><code class="lang-python">help(fake.file_name)
+</code></pre>
+<pre><code>Help on method file_name in module faker.providers.file:
+
+file_name(category=None, extension=None) method of builtins.type instance
+    :param category: audio|image|office|text|video
+    :param extension: file extension
+</code></pre><pre><code class="lang-python">fake.file_name(category=<span class="hljs-string">&quot;image&quot;</span>, extension=<span class="hljs-string">&quot;png&quot;</span>)<span class="hljs-comment"># &#x6587;&#x4EF6;&#x540D;</span>
+</code></pre>
+<pre><code>&apos;accusamus.png&apos;
+</code></pre><pre><code class="lang-python">fake.file_extension(category=<span class="hljs-keyword">None</span>)<span class="hljs-comment">#&#x6587;&#x4EF6;&#x540E;&#x7F00;</span>
+</code></pre>
+<pre><code>&apos;png&apos;
+</code></pre><pre><code class="lang-python">fake.mime_type(category=<span class="hljs-keyword">None</span>)<span class="hljs-comment">#mime-type</span>
+</code></pre>
+<pre><code>&apos;multipart/form-data&apos;
+</code></pre><h2 id="internet-&#x4E92;&#x8054;&#x7F51;"><a name="internet-&#x4E92;&#x8054;&#x7F51;" class="anchor-navigation-ex-anchor" href="#internet-&#x4E92;&#x8054;&#x7F51;"><i class="fa fa-link" aria-hidden="true"></i></a>2.11. internet &#x4E92;&#x8054;&#x7F51;</h2>
+<pre><code class="lang-python">fake.image_url(width=<span class="hljs-keyword">None</span>, height=<span class="hljs-keyword">None</span>)<span class="hljs-comment">#&#x56FE;&#x7247;url</span>
+</code></pre>
+<pre><code>&apos;http://www.lorempixel.com/751/49&apos;
+</code></pre><pre><code class="lang-python">fake.ipv4(network=<span class="hljs-keyword">False</span>)<span class="hljs-comment">#ipv4&#x5730;&#x5740;</span>
+</code></pre>
+<pre><code>&apos;78.254.118.129&apos;
+</code></pre><pre><code class="lang-python">fake.ipv6(network=<span class="hljs-keyword">False</span>)<span class="hljs-comment">#ipv6&#x5730;&#x5740;</span>
+</code></pre>
+<pre><code>&apos;fb8:76ba:29b5:31d1:6db4:9167:5db5:31c4&apos;
+</code></pre><pre><code class="lang-python">fake.domain_word()<span class="hljs-comment">#&#x57DF;&#x540D;&#x4E3B;&#x4F53;</span>
+</code></pre>
+<pre><code>&apos;xu&apos;
+</code></pre><pre><code class="lang-python">fake.domain_name()<span class="hljs-comment">#&#x57DF;&#x540D;</span>
+</code></pre>
+<pre><code>&apos;yang.cn&apos;
+</code></pre><pre><code class="lang-python">fake.uri_path(deep=<span class="hljs-keyword">None</span>)<span class="hljs-comment">#uri&#x5730;&#x5740;</span>
+</code></pre>
+<pre><code>&apos;categories/search/explore&apos;
+</code></pre><pre><code class="lang-python">fake.tld()<span class="hljs-comment">#&#x57DF;&#x540D;&#x540E;&#x7F00;</span>
+</code></pre>
+<pre><code>&apos;cn&apos;
+</code></pre><pre><code class="lang-python">fake.user_name()<span class="hljs-comment">#&#x7528;&#x6237;&#x540D;</span>
+</code></pre>
+<pre><code>&apos;dlei&apos;
+</code></pre><pre><code class="lang-python">fake.mac_address()<span class="hljs-comment">#MAC&#x5730;&#x5740;</span>
+</code></pre>
+<pre><code>&apos;7b:0b:3f:b7:bc:5b&apos;
+</code></pre><pre><code class="lang-python">fake.url()<span class="hljs-comment">#url</span>
+</code></pre>
+<pre><code>&apos;http://www.qin.cn/&apos;
+</code></pre><pre><code class="lang-python">fake.safe_email()<span class="hljs-comment">#&#x5B89;&#x5168;&#x90AE;&#x7BB1;</span>
+</code></pre>
+<pre><code>&apos;napan@example.net&apos;
+</code></pre><pre><code class="lang-python">fake.free_email()<span class="hljs-comment">#&#x514D;&#x8D39;&#x90AE;&#x7BB1;</span>
+</code></pre>
+<pre><code>&apos;qianglei@gmail.com&apos;
+</code></pre><pre><code class="lang-python">fake.free_email_domain()<span class="hljs-comment">#&#x514D;&#x8D39;&#x90AE;&#x7BB1;&#x57DF;&#x540D;</span>
+</code></pre>
+<pre><code>&apos;yahoo.com&apos;
+</code></pre><pre><code class="lang-python">fake.company_email()<span class="hljs-comment">#&#x516C;&#x53F8;&#x90AE;&#x7BB1;</span>
+</code></pre>
+<pre><code>&apos;jingwu@qin.cn&apos;
+</code></pre><pre><code class="lang-python">fake.email()<span class="hljs-comment">#&#x90AE;&#x7BB1;</span>
+</code></pre>
+<pre><code>&apos;liyan@kong.com&apos;
+</code></pre><pre><code class="lang-python">fake.uri_extension()<span class="hljs-comment">#uri&#x6269;&#x5C55;&#x540D;</span>
+</code></pre>
+<pre><code>&apos;.html&apos;
+</code></pre><pre><code class="lang-python">fake.uri_page()<span class="hljs-comment">#uri&#x9875;&#x9762;</span>
+</code></pre>
+<pre><code>&apos;faq&apos;
+</code></pre><pre><code class="lang-python">fake.uri()<span class="hljs-comment">#uri</span>
+</code></pre>
+<pre><code>&apos;https://jiang.com/categories/wp-content/categories/main.html&apos;
+</code></pre><pre><code class="lang-python">fake.slug()<span class="hljs-comment">#slug</span>
+</code></pre>
+<pre><code>&apos;totam-impedit-harum&apos;
+</code></pre><h2 id="job-&#x5DE5;&#x4F5C;"><a name="job-&#x5DE5;&#x4F5C;" class="anchor-navigation-ex-anchor" href="#job-&#x5DE5;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>2.12. job &#x5DE5;&#x4F5C;</h2>
+<pre><code class="lang-python">fake.job()<span class="hljs-comment">#&#x5DE5;&#x4F5C;&#x804C;&#x4F4D;</span>
+</code></pre>
+<pre><code>&apos;Animal nutritionist&apos;
+</code></pre><h2 id="lorem-&#x4E71;&#x6570;&#x5047;&#x6587;"><a name="lorem-&#x4E71;&#x6570;&#x5047;&#x6587;" class="anchor-navigation-ex-anchor" href="#lorem-&#x4E71;&#x6570;&#x5047;&#x6587;"><i class="fa fa-link" aria-hidden="true"></i></a>2.13. lorem &#x4E71;&#x6570;&#x5047;&#x6587;</h2>
+<pre><code class="lang-python">fake.text(max_nb_chars=<span class="hljs-number">200</span>)<span class="hljs-comment">#&#x968F;&#x673A;&#x751F;&#x6210;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;</span>
+</code></pre>
+<pre><code>&apos;&#x53D1;&#x751F;&#x6700;&#x540E;&#x56DE;&#x590D;&#x8D28;&#x91CF;&#x56DE;&#x590D;&#x53D1;&#x8868;&#x6E38;&#x620F;&#x4EE5;&#x540E;.&#x5F71;&#x54CD;&#x4F5C;&#x8005;&#x6709;&#x4E9B;&#x51C6;&#x5907;&#x5168;&#x56FD;&#x4E0D;&#x540C;&#x8FD8;&#x662F;&#x624B;&#x673A;&#x516C;&#x53F8;.&#x5408;&#x4F5C;&#x7ECF;&#x6D4E;&#x4E0D;&#x80FD;&#x8FD9;&#x79CD;.\n&#x53EF;&#x4EE5;&#x5408;&#x4F5C;&#x6211;&#x4EEC;&#x4E0D;&#x8FC7;&#x4EF7;&#x683C;&#x5B66;&#x751F;&#x4E00;&#x6B21;&#x662F;&#x5426;.&#x4E3B;&#x9898;&#x53C2;&#x52A0;&#x4ECB;&#x7ECD;&#x5E0C;&#x671B;&#x53EF;&#x80FD;&#x4E00;&#x76F4;.&#x600E;&#x4E48;&#x54C1;&#x724C;&#x91CD;&#x8981;&#x624B;&#x673A;&#x66F4;&#x591A;.&#x53D1;&#x5C55;&#x5979;&#x7684;&#x5176;&#x4E2D;&#x6210;&#x4E3A;&#x4E3A;&#x4EC0;&#x662F;&#x4E00;&#x90A3;&#x4E9B;&#x57FA;&#x672C;.&#x65E0;&#x6CD5;&#x60C5;&#x51B5;&#x52A0;&#x5165;&#x5FC5;&#x987B;&#x4E4B;&#x540E;&#x95EE;&#x9898;&#x5FC5;&#x987B;&#x7A7A;&#x95F4;.\n&#x529F;&#x80FD;&#x76F8;&#x5173;&#x8868;&#x793A;&#x51B3;&#x5B9A;&#x6C7D;&#x8F66;&#x90E8;&#x5206;.&#x5E0C;&#x671B;&#x7F51;&#x4E0A;&#x5730;&#x65B9;&#x79EF;&#x5206;&#x65B0;&#x95FB;.&#x5A01;&#x671B;&#x5B66;&#x4E60;&#x53D1;&#x5E03;&#x6709;&#x4E9B;&#x5185;&#x5BB9;&#x65B0;&#x95FB;.&apos;
+</code></pre><pre><code class="lang-python">fake.word()<span class="hljs-comment">#&#x968F;&#x673A;&#x5355;&#x8BCD;</span>
+</code></pre>
+<pre><code>&apos;&#x5927;&#x5BB6;&apos;
+</code></pre><pre><code class="lang-python">fake.words(nb=<span class="hljs-number">3</span>)<span class="hljs-comment">#&#x968F;&#x673A;&#x751F;&#x6210;&#x51E0;&#x4E2A;&#x5B57;</span>
+</code></pre>
+<pre><code>[&apos;&#x8F6F;&#x4EF6;&apos;, &apos;&#x51C6;&#x5907;&apos;, &apos;&#x589E;&#x52A0;&apos;]
+</code></pre><pre><code class="lang-python">fake.sentence(nb_words=<span class="hljs-number">6</span>, variable_nb_words=<span class="hljs-keyword">True</span>)<span class="hljs-comment">#&#x968F;&#x673A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x53E5;&#x5B50;</span>
+</code></pre>
+<pre><code>&apos;&#x6CD5;&#x5F8B;&#x7814;&#x7A76;&#x9500;&#x552E;&#x81EA;&#x5DF1;&#x8FD8;&#x6709;&#x6211;&#x7684;.&apos;
+</code></pre><pre><code class="lang-python">fake.sentences(nb=<span class="hljs-number">3</span>)<span class="hljs-comment">#&#x968F;&#x673A;&#x751F;&#x6210;&#x51E0;&#x4E2A;&#x53E5;&#x5B50;</span>
+</code></pre>
+<pre><code>[&apos;&#x652F;&#x6301;&#x4EF7;&#x683C;&#x7CFB;&#x5217;&#x6BD4;&#x8F83;&#x516C;&#x53F8;.&apos;, &apos;&#x4E1C;&#x897F;&#x793E;&#x533A;&#x53D1;&#x5E03;&#x73AF;&#x5883;&#x793E;&#x4F1A;&#x7684;&#x4EBA;.&apos;, &apos;&#x867D;&#x7136;&#x6D4F;&#x89C8;&#x8FDB;&#x5165;&#x6211;&#x4EEC;&#x56FD;&#x5185;&#x8D77;&#x6765;.&apos;]
+</code></pre><pre><code class="lang-python">fake.paragraph(nb_sentences=<span class="hljs-number">3</span>, variable_nb_sentences=<span class="hljs-keyword">True</span>)<span class="hljs-comment">#&#x968F;&#x673A;&#x6210;&#x4E00;&#x6BB5;&#x6587;&#x5B57;</span>
+</code></pre>
+<pre><code>&apos;&#x4EE5;&#x4E0B;&#x6E38;&#x620F;&#x5730;&#x5740;&#x4E00;&#x8D77;&#x8BED;&#x8A00;.&#x8FC7;&#x7A0B;&#x6E38;&#x620F;&#x6CE8;&#x518C;&#x670B;&#x53CB;&#x516C;&#x53F8;&#x8868;&#x793A;.&#x6807;&#x51C6;&#x9500;&#x552E;&#x8868;&#x793A;&#x4E2A;&#x4EBA;&#x4E1A;&#x52A1;.&apos;
+</code></pre><pre><code class="lang-python">fake.paragraphs(nb=<span class="hljs-number">3</span>)<span class="hljs-comment">#&#x968F;&#x673A;&#x6210;&#x51E0;&#x6BB5;&#x6587;&#x5B57;</span>
+</code></pre>
+<pre><code>[&apos;&#x91CD;&#x8981;&#x8BF4;&#x660E;&#x9009;&#x62E9;&#x7ECF;&#x8425;.&#x6D4F;&#x89C8;&#x5305;&#x62EC;&#x5927;&#x5C0F;&#x867D;&#x7136;&#x529F;&#x80FD;.&#x89C9;&#x5F97;&#x8BC4;&#x8BBA;&#x5BF9;&#x4E8E;&#x7F51;&#x7AD9;&#x5DE5;&#x4F5C;.&#x5982;&#x4F55;&#x65E0;&#x6CD5;&#x6807;&#x51C6;&#x6E38;&#x620F;&#x8BC4;&#x8BBA;&#x8FDB;&#x884C;&#x4E00;&#x6B21;.&apos;,
+ &apos;&#x4ECB;&#x7ECD;&#x6B21;&#x6570;&#x5173;&#x4E8E;&#x5E94;&#x8BE5;&#x6700;&#x65B0;&#x4EF7;&#x683C;.&#x5EFA;&#x8BBE;&#x5305;&#x62EC;&#x5176;&#x5B9E;&#x5305;&#x62EC;&#x7B49;&#x7EA7;&#x4F5C;&#x4E3A;&#x8FD9;&#x4E9B;.&#x51FA;&#x73B0;&#x73B0;&#x5728;&#x62A5;&#x544A;&#x8FD8;&#x6709;&#x5730;&#x65B9;&#x73B0;&#x5728;.&#x9500;&#x552E;&#x8D23;&#x4EFB;&#x4EC0;&#x4E48;&#x8FDB;&#x884C;.&apos;,
+ &apos;&#x516C;&#x53F8;&#x7EC4;&#x7EC7;&#x4E0A;&#x6D77;&#x5B69;&#x5B50;.&#x653F;&#x5E9C;&#x56FD;&#x5BB6;&#x65B0;&#x95FB;&#x90A3;&#x4E48;&#x51C6;&#x5907;.&#x8D77;&#x6765;&#x5173;&#x4E8E;&#x76EE;&#x524D;&#x5A01;&#x671B;&#x8981;&#x6C42;&#x7535;&#x5F71;.&apos;]
+</code></pre><h2 id="misc-&#x6742;&#x9879;"><a name="misc-&#x6742;&#x9879;" class="anchor-navigation-ex-anchor" href="#misc-&#x6742;&#x9879;"><i class="fa fa-link" aria-hidden="true"></i></a>2.14. misc &#x6742;&#x9879;</h2>
+<pre><code class="lang-python">fake.binary(length=<span class="hljs-number">10</span>)<span class="hljs-comment">#&#x968F;&#x673A;&#x4E8C;&#x8FDB;&#x5236;&#x5B57;&#x7B26;&#x4E32;</span>
+</code></pre>
+<pre><code>b&apos;\x1b\xc1\xf5mM~\x1ch\x89\xa2&apos;
+</code></pre><pre><code class="lang-python">fake.language_code()<span class="hljs-comment">#&#x968F;&#x673A;&#x8BED;&#x8A00;&#x4EE3;&#x7801;</span>
+</code></pre>
+<pre><code>&apos;et&apos;
+</code></pre><pre><code class="lang-python">fake.md5(raw_output=<span class="hljs-keyword">False</span>)<span class="hljs-comment">#&#x968F;&#x673A;md5 16&#x8FDB;&#x5236;&#x5B57;&#x7B26;&#x4E32;</span>
+</code></pre>
+<pre><code>&apos;adccdc57d1d80d4ff1394f9b64e8b55d&apos;
+</code></pre><pre><code class="lang-python">fake.sha1(raw_output=<span class="hljs-keyword">False</span>)<span class="hljs-comment">#&#x968F;&#x673A;sha1 16&#x8FDB;&#x5236;&#x5B57;&#x7B26;&#x4E32;</span>
+</code></pre>
+<pre><code>&apos;1c160e8b39d8c614dba5e14d74dd29861b5fe9ce&apos;
+</code></pre><pre><code class="lang-python">fake.sha256(raw_output=<span class="hljs-keyword">False</span>)<span class="hljs-comment">#&#x968F;&#x673A;sha256 16&#x8FDB;&#x5236;&#x5B57;&#x7B26;&#x4E32;</span>
+</code></pre>
+<pre><code>&apos;11ed42b55f926f7caf08f9c5953c0d565e9f1b86d9fb12c7bfdd343f0748c8e5&apos;
+</code></pre><pre><code class="lang-python">fake.boolean(chance_of_getting_true=<span class="hljs-number">50</span>)<span class="hljs-comment">#&#x968F;&#x673A;&#x771F;&#x5047;&#x503C;</span>
+</code></pre>
+<pre><code>False
+</code></pre><pre><code class="lang-python">fake.null_boolean()<span class="hljs-comment">#&#x968F;&#x673A;&#x771F;&#x5047;&#x503C;&#x548C;null</span>
+</code></pre>
+<pre><code>True
+</code></pre><pre><code class="lang-python">fake.password(length=<span class="hljs-number">10</span>, special_chars=<span class="hljs-keyword">True</span>, digits=<span class="hljs-keyword">True</span>, upper_case=<span class="hljs-keyword">True</span>, lower_case=<span class="hljs-keyword">True</span>)<span class="hljs-comment">#&#x968F;&#x673A;&#x5BC6;&#x7801;</span>
+</code></pre>
+<pre><code>&apos;^8$xwRzkaY&apos;
+</code></pre><pre><code class="lang-python">fake.locale()<span class="hljs-comment">#&#x968F;&#x673A;&#x672C;&#x5730;&#x4EE3;&#x7801;</span>
+</code></pre>
+<pre><code>&apos;fur_IT&apos;
+</code></pre><pre><code class="lang-python">fake.uuid4()<span class="hljs-comment">#&#x968F;&#x673A;uuid</span>
+</code></pre>
+<pre><code>&apos;f0af08fd-cccc-524e-0e95-7b3b7569ee31&apos;
+</code></pre><h2 id="person-&#x4EBA;&#x7269;"><a name="person-&#x4EBA;&#x7269;" class="anchor-navigation-ex-anchor" href="#person-&#x4EBA;&#x7269;"><i class="fa fa-link" aria-hidden="true"></i></a>2.15. person &#x4EBA;&#x7269;</h2>
+<pre><code class="lang-python">fake.name_female()<span class="hljs-comment">#&#x5973;&#x6027;&#x59D3;&#x540D;</span>
+</code></pre>
+<pre><code>&apos;&#x534E;&#x6842;&#x829D;&apos;
+</code></pre><pre><code class="lang-python">fake.last_name_female() <span class="hljs-comment">#&#x5973;&#x6027;&#x59D3;</span>
+</code></pre>
+<pre><code>&apos;&#x6276;&apos;
+</code></pre><pre><code class="lang-python">fake.first_name_female() <span class="hljs-comment">#&#x5973;&#x6027;&#x540D;</span>
+</code></pre>
+<pre><code>&apos;&#x6B22;&apos;
+</code></pre><pre><code class="lang-python">fake.name_male() <span class="hljs-comment">#&#x7537;&#x6027;&#x59D3;&#x540D;</span>
+</code></pre>
+<pre><code>&apos;&#x6BDB;&#x4E39;&apos;
+</code></pre><pre><code class="lang-python">fake.last_name_male() <span class="hljs-comment">#&#x7537;&#x6027;&#x59D3;</span>
+</code></pre>
+<pre><code>&apos;&#x90FD;&apos;
+</code></pre><pre><code class="lang-python">fake.first_name_male() <span class="hljs-comment">#&#x7537;&#x6027;&#x540D;</span>
+</code></pre>
+<pre><code>&apos;&#x6D0B;&apos;
+</code></pre><pre><code class="lang-python">fake.name() <span class="hljs-comment">#&#x59D3;&#x540D;</span>
+</code></pre>
+<pre><code>&apos;&#x73ED;&#x6167;&apos;
+</code></pre><pre><code class="lang-python">fake.last_name() <span class="hljs-comment">#&#x59D3;</span>
+</code></pre>
+<pre><code>&apos;&#x902F;&apos;
+</code></pre><pre><code class="lang-python">fake.first_name() <span class="hljs-comment">#&#x540D;</span>
+</code></pre>
+<pre><code>&apos;&#x7389;&#x6885;&apos;
+</code></pre><h2 id="phonenumber-&#x7535;&#x8BDD;&#x53F7;&#x7801;"><a name="phonenumber-&#x7535;&#x8BDD;&#x53F7;&#x7801;" class="anchor-navigation-ex-anchor" href="#phonenumber-&#x7535;&#x8BDD;&#x53F7;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>2.16. phone_number &#x7535;&#x8BDD;&#x53F7;&#x7801;</h2>
+<pre><code class="lang-python">fake.phone_number()
+</code></pre>
+<pre><code>&apos;13027346509&apos;
+</code></pre><h2 id="profile-&#x4EBA;&#x7269;profile&#x4FE1;&#x606F;"><a name="profile-&#x4EBA;&#x7269;profile&#x4FE1;&#x606F;" class="anchor-navigation-ex-anchor" href="#profile-&#x4EBA;&#x7269;profile&#x4FE1;&#x606F;"><i class="fa fa-link" aria-hidden="true"></i></a>2.17. profile &#x4EBA;&#x7269;profile&#x4FE1;&#x606F;</h2>
+<pre><code class="lang-python">fake.profile(fields=<span class="hljs-keyword">None</span>, sex=<span class="hljs-keyword">None</span>)
+</code></pre>
+<pre><code>{&apos;address&apos;: &apos;&#x9759;&#x5E02;&#x5BAB;&#x8857;h&#x5EA7; 913593&apos;,
+ &apos;birthdate&apos;: &apos;1993-09-21&apos;,
+ &apos;blood_group&apos;: &apos;B-&apos;,
+ &apos;company&apos;: &apos;&#x4E2D;&#x5EFA;&#x521B;&#x4E1A;&#x79D1;&#x6280;&#x6709;&#x9650;&#x516C;&#x53F8;&apos;,
+ &apos;current_location&apos;: (Decimal(&apos;19.9751845&apos;), Decimal(&apos;57.471984&apos;)),
+ &apos;job&apos;: &apos;Social worker&apos;,
+ &apos;mail&apos;: &apos;juan54@hotmail.com&apos;,
+ &apos;name&apos;: &apos;&#x5546;&#x534E;&apos;,
+ &apos;residence&apos;: &apos;&#x4EAE;&#x5E02;&#x96F7;&#x8DEF;V&#x5EA7; 732657&apos;,
+ &apos;sex&apos;: &apos;F&apos;,
+ &apos;ssn&apos;: &apos;51060019870428913X&apos;,
+ &apos;username&apos;: &apos;yantang&apos;,
+ &apos;website&apos;: [&apos;http://wen.cn/&apos;, &apos;https://www.jia.cn/&apos;]}
+</code></pre><pre><code class="lang-python">s = fake.simple_profile(sex=<span class="hljs-string">&quot;m&quot;</span>)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">for</span> i,v <span class="hljs-keyword">in</span> s.items():
+    print(i,v)
+</code></pre>
+<pre><code>username jingzhong
+name &#x5E78;&#x6D9B;
+sex M
+address &#x521A;&#x5E02;&#x675C;&#x8857;q&#x5EA7; 385733
+mail ifan@gmail.com
+birthdate 1985-04-24
+</code></pre><h2 id="python-python&#x6570;&#x636E;"><a name="python-python&#x6570;&#x636E;" class="anchor-navigation-ex-anchor" href="#python-python&#x6570;&#x636E;"><i class="fa fa-link" aria-hidden="true"></i></a>2.18. python python&#x6570;&#x636E;</h2>
+<pre><code class="lang-python">fake.pyint()<span class="hljs-comment">#&#x968F;&#x673A;int</span>
+</code></pre>
+<pre><code>9605
+</code></pre><pre><code class="lang-python">fake.pyfloat(left_digits=<span class="hljs-keyword">None</span>, right_digits=<span class="hljs-keyword">None</span>, positive=<span class="hljs-keyword">False</span>)<span class="hljs-comment">#&#x6D6E;&#x70B9;&#x6570;</span>
+</code></pre>
+<pre><code>98.414137273
+</code></pre><pre><code class="lang-python">fake.pydecimal(left_digits=<span class="hljs-keyword">None</span>, right_digits=<span class="hljs-keyword">None</span>, positive=<span class="hljs-keyword">False</span>)<span class="hljs-comment">#&#x968F;&#x673A;&#x9AD8;&#x7CBE;&#x5EA6;&#x6570;</span>
+</code></pre>
+<pre><code>Decimal(&apos;-67970964279026.8&apos;)
+</code></pre><pre><code class="lang-python">fake.pystr(min_chars=<span class="hljs-keyword">None</span>, max_chars=<span class="hljs-number">20</span>)<span class="hljs-comment">#&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;</span>
+</code></pre>
+<pre><code>&apos;VCKwOANLGiMriwgAwmto&apos;
+</code></pre><pre><code class="lang-python">fake.pybool()<span class="hljs-comment">#&#x968F;&#x673A;bool&#x503C;</span>
+</code></pre>
+<pre><code>False
+</code></pre><pre><code class="lang-python">fake.pystruct()<span class="hljs-comment">#&#x968F;&#x673A;&#x751F;&#x6210;3&#x4E2A;&#x6709;10&#x4E2A;&#x5143;&#x7D20;&#x7684;python&#x6570;&#x636E;&#x7ED3;&#x6784;</span>
+</code></pre>
+<pre><code>([1759,
+  1706,
+  &apos;lipeng@hu.com&apos;,
+  &apos;OmnHjHhupbflepPEMqLU&apos;,
+  &apos;oDsaYbnYBnHlzlvHlJUG&apos;,
+  &apos;http://xia.com/wp-content/terms/&apos;,
+  5000,
+  246407354130820.0,
+  &apos;KiwNbWEnpddmHRHWTZei&apos;,
+  &apos;LKhKyMSzPpyjWAakEIMx&apos;],
+ {&apos;amet&apos;: 4660,
+  &apos;at&apos;: 444063.58774113,
+  &apos;consequatur&apos;: &apos;hanyan@hotmail.com&apos;,
+  &apos;enim&apos;: datetime(2010, 12, 6, 13, 40, 1),
+  &apos;id&apos;: 9999,
+  &apos;nam&apos;: 1640,
+  &apos;nesciunt&apos;: 1970,
+  &apos;occaecati&apos;: -17.18496,
+  &apos;quia&apos;: 352,
+  &apos;tenetur&apos;: &apos;yanxiang@yahoo.com&apos;},
+ {&apos;blanditiis&apos;: {1: &apos;mWyRHwssTCPwHQwlbRzw&apos;,
+   2: [&apos;BDwCyYaRAuNaMRhsXCeN&apos;, 923, &apos;https://www.ren.cn/tag/author.jsp&apos;],
+   3: {1: &apos;mingdu@gmail.com&apos;, 2: 7541, 3: [2502, Decimal(&apos;4225.8690732473&apos;)]}},
+  &apos;deserunt&apos;: {4: &apos;bHiwxuBWgjBCwXZsvWcl&apos;,
+   5: [9229, &apos;http://www.feng.cn/post/&apos;, Decimal(&apos;12017301176.414&apos;)],
+   6: {4: &apos;xFnjrUljdmUiIqHZWcrp&apos;,
+    5: datetime(1979, 11, 8, 4, 18, 36),
+    6: [datetime(2002, 9, 26, 15, 54, 31), 3695]}},
+  &apos;dicta&apos;: {3: &apos;tjVPhHslCvnNoUPfFrOZ&apos;,
+   4: [&apos;rUybmzdXGMVEtEoPOvdc&apos;, 1428, 573],
+   5: {3: &apos;lutNKFIyegfcHPrjzxrX&apos;,
+    4: &apos;weizhou@wei.cn&apos;,
+    5: [&apos;iyEYRlQuCBOdHOampimU&apos;, Decimal(&apos;-5223025.3455904&apos;)]}},
+  &apos;excepturi&apos;: {8: &apos;AgJsYutllJVQCPZkZwaF&apos;,
+   9: [&apos;xMdaczaQDtVYJKPhoBcY&apos;,
+    datetime(1993, 1, 2, 9, 27, 41),
+    &apos;flai@hotmail.com&apos;],
+   10: {8: 6686,
+    9: &apos;YbjuvGQzGkgApSprKZNq&apos;,
+    10: [2466, Decimal(&apos;2956.220391&apos;)]}},
+  &apos;mollitia&apos;: {2: &apos;zIBluugPYuwLSFslgGGj&apos;,
+   3: [&apos;https://xue.com/index.htm&apos;, 738, &apos;OVPpwXBcxERhUPmknczr&apos;],
+   4: {2: &apos;laMntQJKkyQzZDQJikvi&apos;,
+    3: &apos;sVCRRLzXqcmMbIzEhDxL&apos;,
+    4: [&apos;http://wei.org/register.html&apos;, 6814]}},
+  &apos;numquam&apos;: {6: 340,
+   7: [6460, &apos;xiazhang@gmail.com&apos;, &apos;uCTMfthfYKXdGOhlfLRU&apos;],
+   8: {6: &apos;YbdQMpbkYXQgIEgzIgZk&apos;,
+    7: &apos;hegang@hotmail.com&apos;,
+    8: [&apos;sIjaymFwtLXjgQGSRvRc&apos;, Decimal(&apos;-5619186808.8&apos;)]}},
+  &apos;odio&apos;: {5: Decimal(&apos;-4626.3872120135&apos;),
+   6: [&apos;DrngdnwMJEQpvbZxLSIG&apos;, 3152, -5400.25],
+   7: {5: &apos;OfAQLtOhbWqUyWLnIQCs&apos;,
+    6: &apos;HaVgeZEsHlKeZJiwymUm&apos;,
+    7: [&apos;KOxygkQYcxWIrkrNjzkq&apos;, &apos;xjVacjmWNUlaUbmzHvQC&apos;]}},
+  &apos;recusandae&apos;: {0: -89.0,
+   1: [-753077.8, -637.46273670173, &apos;HSzleFXjcVfkEbTqZRct&apos;],
+   2: {0: 691,
+    1: &apos;SnWyxNVCnlprPReTsYSZ&apos;,
+    2: [&apos;http://wan.com/home.html&apos;, &apos;bMoABxGYLDjOCDtODJQB&apos;]}},
+  &apos;rerum&apos;: {7: 6444,
+   8: [&apos;https://www.xiang.com/main/categories/terms.php&apos;,
+    datetime(1979, 9, 26, 15, 0, 54),
+    &apos;SWbhlyUYrEwBthwLJONb&apos;],
+   9: {7: 879.399476,
+    8: -91270660024375.4,
+    9: [3687, &apos;jejvHnOGMMceoaSwVqZq&apos;]}},
+  &apos;ullam&apos;: {9: &apos;gObmdFSKQZoLyKyZfgtX&apos;,
+   10: [7566, &apos;huangming@sun.org&apos;, &apos;FMpbuiFHMssUBfLxZLeX&apos;],
+   11: {9: &apos;wWWrQNCmcnoOvlnOVdFy&apos;,
+    10: &apos;sCkiwZjCYrpwvNDKfpVL&apos;,
+    11: [&apos;xiuying11@yahoo.com&apos;, 3191]}}})
+</code></pre><pre><code class="lang-python">fake.pyiterable(nb_elements=<span class="hljs-number">10</span>, variable_nb_elements=<span class="hljs-keyword">True</span>)<span class="hljs-comment">#&#x968F;&#x673A;iterable</span>
+</code></pre>
+<pre><code>{&apos;http://www.xu.cn/privacy.html&apos;,
+ &apos;TOVsPtJcjILECDejxxoU&apos;,
+ 872,
+ Decimal(&apos;1489.77792874&apos;),
+ &apos;eCeIwAvOVwrBCJiUwMCu&apos;,
+ &apos;ping17@cheng.com&apos;,
+ &apos;gDrxRLWpVlZvFvOivCqY&apos;,
+ &apos;ZYkLQRYwPKdDkJPfGSJv&apos;,
+ &apos;HnpQtNSgJrlzLrigKdWq&apos;,
+ 5849,
+ &apos;VWcOVUUccZBwsWsoMsNb&apos;}
+</code></pre><pre><code class="lang-python">fake.pylist(nb_elements=<span class="hljs-number">10</span>, variable_nb_elements=<span class="hljs-keyword">True</span> )<span class="hljs-comment">#&#x968F;&#x673A;&#x751F;&#x6210;&#x4E00;&#x4E2A;list</span>
+</code></pre>
+<pre><code>[&apos;dvrVimRltqhiaBkQeIeg&apos;,
+ datetime(2012, 6, 3, 10, 23, 54),
+ &apos;https://www.tan.com/&apos;,
+ 6628,
+ &apos;SSqNvBwFwYuJHlvBwIdr&apos;,
+ &apos;http://www.zhao.cn/category.html&apos;,
+ 9616,
+ 6752,
+ &apos;http://www.xu.com/posts/search/index/&apos;]
+</code></pre><pre><code class="lang-python">fake.pydict(nb_elements=<span class="hljs-number">10</span>, variable_nb_elements=<span class="hljs-keyword">True</span>)<span class="hljs-comment">#&#x968F;&#x673A;&#x5B57;&#x5178;</span>
+</code></pre>
+<pre><code>{&apos;aut&apos;: &apos;jing85@tian.com&apos;,
+ &apos;commodi&apos;: &apos;cAVNTIrUzrepqUBPHxBi&apos;,
+ &apos;error&apos;: Decimal(&apos;-165608.34516033&apos;),
+ &apos;impedit&apos;: &apos;wFNIOlIlspfIUnkMqgPN&apos;,
+ &apos;inventore&apos;: 1153,
+ &apos;iusto&apos;: &apos;fGEIdTQgCsjXDZkxzCri&apos;,
+ &apos;maxime&apos;: &apos;TxGcrNBPhxKvbdLhARwj&apos;,
+ &apos;numquam&apos;: 684,
+ &apos;officia&apos;: &apos;dengxiulan@hotmail.com&apos;,
+ &apos;pariatur&apos;: &apos;YMZzSOyxWRZuLFGaXjDK&apos;,
+ &apos;sunt&apos;: &apos;thlWfUrVBZPtgeqRBJup&apos;,
+ &apos;tempora&apos;: Decimal(&apos;383395040926944.0&apos;),
+ &apos;vitae&apos;: 203143.28604879}
+</code></pre><pre><code class="lang-python">fake.pyset(nb_elements=<span class="hljs-number">10</span>, variable_nb_elements=<span class="hljs-keyword">True</span>)<span class="hljs-comment">#&#x968F;&#x673A;set</span>
+</code></pre>
+<pre><code>{&apos;eQEeODfeVvcbAjPDBGwz&apos;,
+ datetime(1978, 9, 24, 2, 26, 7),
+ &apos;https://www.wan.org/home.php&apos;,
+ &apos;http://song.com/&apos;,
+ &apos;qZufoiUXLQTZDrVcPLHk&apos;,
+ &apos;uBMhSlVZHMgDHFnFKxTh&apos;,
+ &apos;JEssftPjCKHxYHodydTG&apos;,
+ &apos;jQwNKwDIwzQswxiYQlrs&apos;,
+ &apos;http://www.xiong.cn/explore/category.htm&apos;,
+ Decimal(&apos;-71.399733&apos;)}
+</code></pre><pre><code class="lang-python">fake.pytuple(nb_elements=<span class="hljs-number">10</span>, variable_nb_elements=<span class="hljs-keyword">True</span>)<span class="hljs-comment">#&#x968F;&#x673A;tuple</span>
+</code></pre>
+<pre><code>(&apos;KyXucKXQMXAkcEMSLfnI&apos;,
+ 7240,
+ 8264,
+ 4494.5490267,
+ &apos;https://www.wei.org/main/blog/about.html&apos;,
+ datetime(1976, 6, 29, 13, 12, 3),
+ &apos;https://jia.cn/posts/list/wp-content/search.jsp&apos;)
+</code></pre><h2 id="ssn-&#x793E;&#x4F1A;&#x5B89;&#x5168;&#x7801;&#x8EAB;&#x4EFD;&#x8BC1;"><a name="ssn-&#x793E;&#x4F1A;&#x5B89;&#x5168;&#x7801;&#x8EAB;&#x4EFD;&#x8BC1;" class="anchor-navigation-ex-anchor" href="#ssn-&#x793E;&#x4F1A;&#x5B89;&#x5168;&#x7801;&#x8EAB;&#x4EFD;&#x8BC1;"><i class="fa fa-link" aria-hidden="true"></i></a>2.19. ssn &#x793E;&#x4F1A;&#x5B89;&#x5168;&#x7801;(&#x8EAB;&#x4EFD;&#x8BC1;)</h2>
+<pre><code class="lang-python">len(fake.ssn())
+</code></pre>
+<pre><code>18
+</code></pre><pre><code class="lang-python">len(<span class="hljs-string">&quot;320611198812242615&quot;</span>)
+</code></pre>
+<pre><code>18
+</code></pre><h2 id="useragent-&#x7528;&#x6237;&#x4EE3;&#x7406;"><a name="useragent-&#x7528;&#x6237;&#x4EE3;&#x7406;" class="anchor-navigation-ex-anchor" href="#useragent-&#x7528;&#x6237;&#x4EE3;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>2.20. user_agent &#x7528;&#x6237;&#x4EE3;&#x7406;</h2>
+<p>&#x5E38;&#x7528;&#x5728;&#x4F2A;&#x9020;&#x6D4F;&#x89C8;&#x5668;&#x4FE1;&#x606F;</p>
+<pre><code class="lang-python">fake.user_agent()
+</code></pre>
+<pre><code>&apos;Opera/9.79.(Windows CE; li-BE) Presto/2.9.181 Version/11.00&apos;
+</code></pre><blockquote>
+<p>&#x5E73;&#x53F0;&#x4FE1;&#x606F;&#x4F2A;&#x9020;</p>
+</blockquote>
+<pre><code class="lang-python">fake.linux_platform_token()
+</code></pre>
+<pre><code>&apos;X11; Linux x86_64&apos;
+</code></pre><pre><code class="lang-python">fake.linux_processor()
+</code></pre>
+<pre><code>&apos;x86_64&apos;
+</code></pre><pre><code class="lang-python">fake.windows_platform_token()
+</code></pre>
+<pre><code>&apos;Windows NT 5.01&apos;
+</code></pre><pre><code class="lang-python">fake.mac_platform_token()
+</code></pre>
+<pre><code>&apos;Macintosh; PPC Mac OS X 10_5_4&apos;
+</code></pre><pre><code class="lang-python">fake.mac_processor()
+</code></pre>
+<pre><code>&apos;U; PPC&apos;
+</code></pre><blockquote>
+<p>&#x6D4F;&#x89C8;&#x5668;&#x4F2A;&#x9020;</p>
+</blockquote>
+<pre><code class="lang-python">fake.internet_explorer()
+</code></pre>
+<pre><code>&apos;Mozilla/5.0 (compatible; MSIE 7.0; Windows NT 6.2; Trident/3.1)&apos;
+</code></pre><pre><code class="lang-python">fake.opera()
+</code></pre>
+<pre><code>&apos;Opera/8.71.(Windows NT 6.0; dv-MV) Presto/2.9.169 Version/10.00&apos;
+</code></pre><pre><code class="lang-python">fake.firefox()
+</code></pre>
+<pre><code>&apos;Mozilla/5.0 (Macintosh; PPC Mac OS X 10_6_9; rv:1.9.3.20) Gecko/2013-03-13 06:43:32 Firefox/12.0&apos;
+</code></pre><pre><code class="lang-python">fake.safari()
+</code></pre>
+<pre><code>&apos;Mozilla/5.0 (Windows; U; Windows 98) AppleWebKit/532.21.1 (KHTML, like Gecko) Version/5.0 Safari/532.21.1&apos;
+</code></pre><pre><code class="lang-python">fake.chrome()
+</code></pre>
+<pre><code>&apos;Mozilla/5.0 (Windows NT 5.1) AppleWebKit/5331 (KHTML, like Gecko) Chrome/14.0.830.0 Safari/5331&apos;
+</code></pre><h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x6269;&#x5C55;"><a name="&#x81EA;&#x5B9A;&#x4E49;&#x6269;&#x5C55;" class="anchor-navigation-ex-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;&#x6269;&#x5C55;"><i class="fa fa-link" aria-hidden="true"></i></a>2.21. &#x81EA;&#x5B9A;&#x4E49;&#x6269;&#x5C55;</h2>
+<p>faker&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>add_provider</code>&#x65B9;&#x6CD5;&#x5C06;&#x81EA;&#x5B9A;&#x4E49;&#x7684;<code>Provider</code>&#x6DFB;&#x52A0;&#x5230;&#x5BF9;&#x8C61;&#x4E2D;,&#x81EA;&#x5B9A;&#x4E49;&#x7684;Provider&#x9700;&#x8981;&#x7EE7;&#x627F;&#x81EA;BaseProvider</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> faker.providers <span class="hljs-keyword">import</span> BaseProvider
+<span class="hljs-keyword">from</span> enum <span class="hljs-keyword">import</span> Enum
+<span class="hljs-comment"># create new provider class</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyProvider</span><span class="hljs-params">(BaseProvider)</span>:</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">cn_day_of_week</span><span class="hljs-params">(self)</span>:</span>
+        WEEKDAYS = Enum(<span class="hljs-string">&apos;WEEKDAYS&apos;</span>, [<span class="hljs-string">&apos;&#x5468;&#x4E00;&apos;</span>,<span class="hljs-string">&apos;&#x5468;&#x4E8C;&apos;</span>,<span class="hljs-string">&apos;&#x5468;&#x4E09;&apos;</span>,<span class="hljs-string">&apos;&#x5468;&#x56DB;&apos;</span>,<span class="hljs-string">&apos;&#x5468;&#x4E94;&apos;</span>,<span class="hljs-string">&apos;&#x5468;&#x516D;&apos;</span>,<span class="hljs-string">&apos;&#x5468;&#x65E5;&apos;</span>])  
+        <span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> choice
+        <span class="hljs-keyword">return</span> choice(list(WEEKDAYS)).name
+
+<span class="hljs-comment"># then add new provider to faker instance</span>
+fake.add_provider(MyProvider)
+</code></pre>
+<pre><code class="lang-python">print(fake.cn_day_of_week())
+</code></pre>
+<pre><code>&#x5468;&#x4E94;
+</code></pre><pre><code class="lang-python">
+
+</code></pre>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2017-07-01 10:00:02
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="随机时间生成器.html" class="navigation navigation-prev " aria-label="Previous page: 随机时间生成器">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../摘要加密与数字签名/" class="navigation navigation-next " aria-label="Next page: 摘要加密与数字签名">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"伪造信息生成器","level":"1.13.3","depth":2,"next":{"title":"摘要加密与数字签名","level":"1.14","depth":1,"path":"摘要加密与数字签名/README.md","ref":"摘要加密与数字签名/README.md","articles":[{"title":"摘要算法","level":"1.14.1","depth":2,"path":"摘要加密与数字签名/摘要算法.md","ref":"摘要加密与数字签名/摘要算法.md","articles":[]},{"title":"加密算法","level":"1.14.2","depth":2,"path":"摘要加密与数字签名/加密算法.md","ref":"摘要加密与数字签名/加密算法.md","articles":[]},{"title":"数字签名","level":"1.14.3","depth":2,"path":"摘要加密与数字签名/数字签名.md","ref":"摘要加密与数字签名/数字签名.md","articles":[]}]},"previous":{"title":"随机时间生成器","level":"1.13.2","depth":2,"path":"随机数据生成工具/随机时间生成器.md","ref":"随机数据生成工具/随机时间生成器.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","katex","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/hsz1273327"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","wechatText":"微信打赏"},"sitemap-general":{"prefix":"http://gitbook.zhangjikai.com"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":true},"mode":"float","pageTop":{"showLevelIcon":false,"mode":"float","pageTop":{"showLevelIcon":false,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"},"level1Icon":"","showLevel":true,"level2Icon":"","level3Icon":"","associatedWithSummary":true,"float":{"showLevelIcon":true,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"}},"showLevel":true},"github-buttons":{"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍python3.5+的语法与编程惯用法"},"file":{"path":"随机数据生成工具/伪造信息生成器.md","mtime":"2017-07-01T02:00:02.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-01T11:53:12.543Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
