@@ -1,0 +1,1349 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>数据压缩解压 · python攻略--消息队列</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="hsz">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="压缩归档.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"hsz1273327/TutorialForPythonMessageQueue","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://blog.hszofficial.site/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../总章.html">
+            
+                <a href="../总章.html">
+            
+                    
+                    总章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../工具链/">
+            
+                <a href="../工具链/">
+            
+                    
+                    工具链
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../工具链/运行环境与部署分发.html">
+            
+                <a href="../工具链/运行环境与部署分发.html">
+            
+                    
+                    运行环境与部署分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../工具链/代码风格.html">
+            
+                <a href="../工具链/代码风格.html">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../工具链/调试与测试.html">
+            
+                <a href="../工具链/调试与测试.html">
+            
+                    
+                    调试与测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../工具链/结语.html">
+            
+                <a href="../工具链/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Python的数据模型/">
+            
+                <a href="../Python的数据模型/">
+            
+                    
+                    Python的数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Python的数据模型/数据模型.html">
+            
+                <a href="../Python的数据模型/数据模型.html">
+            
+                    
+                    数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Python的数据模型/变量引用与垃圾回收.html">
+            
+                <a href="../Python的数据模型/变量引用与垃圾回收.html">
+            
+                    
+                    变量引用与垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Python的数据模型/结语.html">
+            
+                <a href="../Python的数据模型/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../文本_文件与字节序/">
+            
+                <a href="../文本_文件与字节序/">
+            
+                    
+                    文本,文件与字节序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../文本_文件与字节序/文本和编码.html">
+            
+                <a href="../文本_文件与字节序/文本和编码.html">
+            
+                    
+                    文本和编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../文本_文件与字节序/字节序列与内存视图.html">
+            
+                <a href="../文本_文件与字节序/字节序列与内存视图.html">
+            
+                    
+                    字节序列与内存视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../文本_文件与字节序/正则表达式.html">
+            
+                <a href="../文本_文件与字节序/正则表达式.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../文本_文件与字节序/文件与IO流.html">
+            
+                <a href="../文本_文件与字节序/文件与IO流.html">
+            
+                    
+                    文件与IO流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../文本_文件与字节序/序列化.html">
+            
+                <a href="../文本_文件与字节序/序列化.html">
+            
+                    
+                    序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../文本_文件与字节序/结语.html">
+            
+                <a href="../文本_文件与字节序/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../流程控制/">
+            
+                <a href="../流程控制/">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../流程控制/单线程同步流程控制.html">
+            
+                <a href="../流程控制/单线程同步流程控制.html">
+            
+                    
+                    单线程同步流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../流程控制/阻塞异步与协程.html">
+            
+                <a href="../流程控制/阻塞异步与协程.html">
+            
+                    
+                    阻塞异步与协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../流程控制/多线程与GIL.html">
+            
+                <a href="../流程控制/多线程与GIL.html">
+            
+                    
+                    多线程与GIL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../流程控制/多进程.html">
+            
+                <a href="../流程控制/多进程.html">
+            
+                    
+                    多进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../流程控制/并行编程的惯用法.html">
+            
+                <a href="../流程控制/并行编程的惯用法.html">
+            
+                    
+                    并行编程的惯用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../流程控制/并行编程的惯用法.html">
+            
+                <a href="../流程控制/并行编程的惯用法.html">
+            
+                    
+                    并发模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../流程控制/结语.html">
+            
+                <a href="../流程控制/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../数据结构与算法/">
+            
+                <a href="../数据结构与算法/">
+            
+                    
+                    数据结构与算法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../数据结构与算法/序列对象.html">
+            
+                <a href="../数据结构与算法/序列对象.html">
+            
+                    
+                    序列对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../数据结构与算法/映射对象.html">
+            
+                <a href="../数据结构与算法/映射对象.html">
+            
+                    
+                    映射对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../数据结构与算法/可迭代对象与生成器.html">
+            
+                <a href="../数据结构与算法/可迭代对象与生成器.html">
+            
+                    
+                    可迭代对象与生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../数据结构与算法/结语.html">
+            
+                <a href="../数据结构与算法/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../函数/">
+            
+                <a href="../函数/">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../函数/函数是一等对象.html">
+            
+                <a href="../函数/函数是一等对象.html">
+            
+                    
+                    函数是一等对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../函数/变量作用域与闭包.html">
+            
+                <a href="../函数/变量作用域与闭包.html">
+            
+                    
+                    变量作用域与闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../函数/结语.html">
+            
+                <a href="../函数/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../面向对象惯用法/">
+            
+                <a href="../面向对象惯用法/">
+            
+                    
+                    面向对象惯用法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../面向对象惯用法/python中的对象.html">
+            
+                <a href="../面向对象惯用法/python中的对象.html">
+            
+                    
+                    python中的对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../面向对象惯用法/协议与接口与抽象基类.html">
+            
+                <a href="../面向对象惯用法/协议与接口与抽象基类.html">
+            
+                    
+                    协议,接口与抽象基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../面向对象惯用法/多重继承和Mixin.html">
+            
+                <a href="../面向对象惯用法/多重继承和Mixin.html">
+            
+                    
+                    多重继承和Mixin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../面向对象惯用法/自定义序列Vector.html">
+            
+                <a href="../面向对象惯用法/自定义序列Vector.html">
+            
+                    
+                    自定义序列Vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../面向对象惯用法/结语.html">
+            
+                <a href="../面向对象惯用法/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../元编程/">
+            
+                <a href="../元编程/">
+            
+                    
+                    元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../元编程/导入时与运行时.html">
+            
+                <a href="../元编程/导入时与运行时.html">
+            
+                    
+                    导入时与运行时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../元编程/猴子补丁和热更新.html">
+            
+                <a href="../元编程/猴子补丁和热更新.html">
+            
+                    
+                    猴子补丁和热更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../元编程/动态编译.html">
+            
+                <a href="../元编程/动态编译.html">
+            
+                    
+                    动态编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../元编程/运算符重载.html">
+            
+                <a href="../元编程/运算符重载.html">
+            
+                    
+                    运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../元编程/动态属性与特性与描述符.html">
+            
+                <a href="../元编程/动态属性与特性与描述符.html">
+            
+                    
+                    动态属性,特性与描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../元编程/装饰器.html">
+            
+                <a href="../元编程/装饰器.html">
+            
+                    
+                    装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="../元编程/元类编程.html">
+            
+                <a href="../元编程/元类编程.html">
+            
+                    
+                    元类编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="../元编程/结语.html">
+            
+                <a href="../元编程/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../设计模式/">
+            
+                <a href="../设计模式/">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../设计模式/策略模式.html">
+            
+                <a href="../设计模式/策略模式.html">
+            
+                    
+                    策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../设计模式/命令模式.html">
+            
+                <a href="../设计模式/命令模式.html">
+            
+                    
+                    命令模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../设计模式/结语.html">
+            
+                <a href="../设计模式/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../标准库中的数学工具/">
+            
+                <a href="../标准库中的数学工具/">
+            
+                    
+                    标准库中的数学工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../标准库中的数学工具/数学运算模块.html">
+            
+                <a href="../标准库中的数学工具/数学运算模块.html">
+            
+                    
+                    数学运算模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../标准库中的数学工具/统计模块.html">
+            
+                <a href="../标准库中的数学工具/统计模块.html">
+            
+                    
+                    统计模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../标准库中的数学工具/高精度计算.html">
+            
+                <a href="../标准库中的数学工具/高精度计算.html">
+            
+                    
+                    高精度计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../标准库中的数学工具/有理数.html">
+            
+                <a href="../标准库中的数学工具/有理数.html">
+            
+                    
+                    有理数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../标准库中的数学工具/复数运算.html">
+            
+                <a href="../标准库中的数学工具/复数运算.html">
+            
+                    
+                    复数运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    数据压缩
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.13.1" data-path="数据压缩解压.html">
+            
+                <a href="数据压缩解压.html">
+            
+                    
+                    数据压缩解压
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="压缩归档.html">
+            
+                <a href="压缩归档.html">
+            
+                    
+                    压缩归档
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../摘要加密与数字签名/">
+            
+                <a href="../摘要加密与数字签名/">
+            
+                    
+                    摘要加密与数字签名
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../摘要加密与数字签名/摘要算法.html">
+            
+                <a href="../摘要加密与数字签名/摘要算法.html">
+            
+                    
+                    摘要算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../摘要加密与数字签名/加密算法.html">
+            
+                <a href="../摘要加密与数字签名/加密算法.html">
+            
+                    
+                    加密算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../摘要加密与数字签名/数字签名.html">
+            
+                <a href="../摘要加密与数字签名/数字签名.html">
+            
+                    
+                    数字签名
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../国际化工具/">
+            
+                <a href="../国际化工具/">
+            
+                    
+                    国际化工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../国际化工具/时间日期处理.html">
+            
+                <a href="../国际化工具/时间日期处理.html">
+            
+                    
+                    时间日期处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../国际化工具/货币处理模块.html">
+            
+                <a href="../国际化工具/货币处理模块.html">
+            
+                    
+                    货币处理模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../国际化工具/字符编码判断.html">
+            
+                <a href="../国际化工具/字符编码判断.html">
+            
+                    
+                    字符编码判断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../国际化工具/国际化文本翻译.html">
+            
+                <a href="../国际化工具/国际化文本翻译.html">
+            
+                    
+                    国际化文本翻译
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >数据压缩解压</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x6570;&#x636E;&#x538B;&#x7F29;&#x89E3;&#x538B;"><b>1. </b>&#x6570;&#x636E;&#x538B;&#x7F29;&#x89E3;&#x538B;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#zlib"><b>1.1. </b>zlib</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x538B;&#x7F29;compressdata-level"><b>1.1.1. </b>&#x538B;&#x7F29;compress(data[, level])</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x89E3;&#x538B;"><b>1.1.2. </b>&#x89E3;&#x538B;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x81EA;&#x5B9A;&#x4E49;&#x538B;&#x7F29;&#x548C;&#x89E3;&#x538B;&#x5668;"><b>1.1.3. </b>&#x81EA;&#x5B9A;&#x4E49;&#x538B;&#x7F29;&#x548C;&#x89E3;&#x538B;&#x5668;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#bz2"><b>1.2. </b>bz2</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x538B;&#x7F29;compressdata-level_1"><b>1.2.1. </b>&#x538B;&#x7F29;compress(data[, level])</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x89E3;&#x538B;decompressdata"><b>1.2.2. </b>&#x89E3;&#x538B;decompress(data)</a></li></ul></ul></ul></div><a href="#&#x6570;&#x636E;&#x538B;&#x7F29;&#x89E3;&#x538B;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x6570;&#x636E;&#x538B;&#x7F29;&#x89E3;&#x538B;"><a name="&#x6570;&#x636E;&#x538B;&#x7F29;&#x89E3;&#x538B;" class="anchor-navigation-ex-anchor" href="#&#x6570;&#x636E;&#x538B;&#x7F29;&#x89E3;&#x538B;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x6570;&#x636E;&#x538B;&#x7F29;&#x89E3;&#x538B;</h1>
+<p>&#x538B;&#x7F29;&#x548C;&#x89E3;&#x538B;&#x8BF4;&#x767D;&#x4E86;&#x5C31;&#x662F;&#x65F6;&#x95F4;&#x6362;&#x7A7A;&#x95F4;,&#x8FD0;&#x7B97;&#x6362;&#x5B58;&#x50A8;&#x7684;&#x4E00;&#x79CD;&#x89E3;&#x51B3;&#x65B9;&#x6848;,&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x7684;zlib&#x548C;bz2&#x6A21;&#x5757;&#x90FD;&#x662F;&#x6570;&#x636E;&#x538B;&#x7F29;&#x89E3;&#x538B;&#x5DE5;&#x5177;,&#x4ED6;&#x4EEC;&#x7684;&#x4E3B;&#x8981;&#x5E94;&#x7528;&#x573A;&#x666F;&#x662F;&#x6570;&#x636E;&#x4F20;&#x8F93;.</p>
+<p>&#x6CE8;&#x610F;&#x538B;&#x7F29;&#x53EA;&#x80FD;&#x662F;bytes&#x7C7B;&#x578B;</p>
+<h2 id="zlib"><a name="zlib" class="anchor-navigation-ex-anchor" href="#zlib"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. zlib</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> zlib
+</code></pre>
+<pre><code class="lang-python">exa_str=<span class="hljs-string">u&quot;&quot;&quot;\
+&#x7F51;&#x6613;&#x4F53;&#x80B2;1&#x6708;5&#x65E5;&#x62A5;&#x9053;&#xFF1A;
+
+&#x56FD;&#x9645;&#x8DB3;&#x7403;&#x5386;&#x53F2;&#x548C;&#x7EDF;&#x8BA1;&#x8054;&#x5408;&#x4F1A;&#xFF08;IFFHS&#xFF09;&#x4ECA;&#x65E5;&#x51CC;&#x6668;&#x5728;&#x5176;&#x5B98;&#x7F51;&#x4E0A;&#x516C;&#x5E03;&#x4E86;2015&#x5E74;&#x5EA6;&#x4E16;&#x754C;&#x6700;&#x4F73;&#x7EC4;&#x7EC7;&#x8005;&#x7684;&#x8BC4;&#x9009;&#x7ED3;&#x679C;&#xFF0C;\
+&#x5DF4;&#x585E;&#x7F57;&#x90A3;&#x524D;&#x950B;&#x6885;&#x897F;&#x95EE;&#x9F0E;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x963F;&#x6839;&#x5EF7;&#x4EBA;&#x804C;&#x4E1A;&#x751F;&#x6DAF;&#x9996;&#x6B21;&#x5F53;&#x9009;&#x5E74;&#x5EA6;&#x6700;&#x4F73;&#x7EC4;&#x7EC7;&#x6838;&#x5FC3;&#x7684;&#x8363;&#x8A89;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x6885;&#x897F;&#x5728;&#x5DF4;&#x8428;&#x7684;&#x961F;&#x53CB;\
+&#x201C;&#x5C0F;&#x767D;&#x201D;&#x4F0A;&#x6D85;&#x65AF;&#x5854;&#x6392;&#x5728;&#x7B2C;&#x4E8C;&#x4F4D;&#xFF0C;&#x610F;&#x5927;&#x5229;&#x7403;&#x661F;&#x76AE;&#x5C14;&#x6D1B;&#x529B;&#x538B;&#x5207;&#x5C14;&#x897F;&#x738B;&#x724C;&#x963F;&#x624E;&#x5C14;&#x5360;&#x636E;&#x7B2C;&#x4E09;&#x540D;&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x503C;&#x5F97;&#x4E00;&#x63D0;&#x7684;&#x662F;&#xFF0C;\
+&#x6392;&#x540D;&#x524D;&#x5341;&#x7684;&#x7403;&#x5458;&#x4E2D;&#x6709;3&#x4E2A;&#x6765;&#x81EA;&#x4E8E;&#x7687;&#x9A6C;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x8FD8;&#x4E00;&#x540C;&#x516C;&#x5E03;&#x4E86;&#x6700;&#x4F73;&#x6559;&#x7EC3;&#x7684;&#x8BC4;&#x9009;&#xFF0C;&#x5DF4;&#x8428;&#x4E3B;&#x5E05;&#x6069;&#x91CC;&#x514B;&#x529B;&#x538B;&#x74DC;&#x8FEA;&#x5965;&#x62C9;&#x3001;&#x963F;&#x83B1;&#x683C;&#x91CC;&#x7B49;&#x540D;&#x5E05;&#x5F53;&#x9009;&#x3002;
+&quot;&quot;&quot;</span>
+</code></pre>
+<h3 id="&#x538B;&#x7F29;compressdata-level"><a name="&#x538B;&#x7F29;compressdata-level" class="anchor-navigation-ex-anchor" href="#&#x538B;&#x7F29;compressdata-level"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1. &#x538B;&#x7F29;compress(data[, level])</h3>
+<p>level&#x662F;&#x538B;&#x7F29;&#x7B49;&#x7EA7;(&#x8303;&#x56F4;0~9),&#x9ED8;&#x8BA4;&#x662F;6,1&#x662F;&#x6700;&#x5FEB;&#x5355;&#x538B;&#x7F29;&#x6700;&#x5C11;&#x7684;,9&#x662F;&#x6700;&#x6162;&#x4F46;&#x538B;&#x7F29;&#x6700;&#x591A;&#x5F97;,0&#x8868;&#x793A;&#x4E0D;&#x538B;&#x7F29;</p>
+<pre><code class="lang-python">z_str=zlib.compress(exa_str.encode())
+</code></pre>
+<pre><code class="lang-python">len(z_str)/len(exa_str.encode())
+</code></pre>
+<pre><code>0.7527910685805422
+</code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x9ED8;&#x8BA4;level&#x65F6;&#x538B;&#x7F29;&#x7387;&#x5728;75%&#x7684;&#x6837;&#x5B50;</p>
+<h3 id="&#x89E3;&#x538B;"><a name="&#x89E3;&#x538B;" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x538B;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.2. &#x89E3;&#x538B;</h3>
+<pre><code class="lang-python">zlib.decompress(z_str).decode(<span class="hljs-string">&quot;utf-8&quot;</span>)
+</code></pre>
+<pre><code>&apos;&#x7F51;&#x6613;&#x4F53;&#x80B2;1&#x6708;5&#x65E5;&#x62A5;&#x9053;&#xFF1A;\n\n&#x56FD;&#x9645;&#x8DB3;&#x7403;&#x5386;&#x53F2;&#x548C;&#x7EDF;&#x8BA1;&#x8054;&#x5408;&#x4F1A;&#xFF08;IFFHS&#xFF09;&#x4ECA;&#x65E5;&#x51CC;&#x6668;&#x5728;&#x5176;&#x5B98;&#x7F51;&#x4E0A;&#x516C;&#x5E03;&#x4E86;2015&#x5E74;&#x5EA6;&#x4E16;&#x754C;&#x6700;&#x4F73;&#x7EC4;&#x7EC7;&#x8005;&#x7684;&#x8BC4;&#x9009;&#x7ED3;&#x679C;&#xFF0C;&#x5DF4;&#x585E;&#x7F57;&#x90A3;&#x524D;&#x950B;&#x6885;&#x897F;&#x95EE;&#x9F0E;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x963F;&#x6839;&#x5EF7;&#x4EBA;&#x804C;&#x4E1A;&#x751F;&#x6DAF;&#x9996;&#x6B21;&#x5F53;&#x9009;&#x5E74;&#x5EA6;&#x6700;&#x4F73;&#x7EC4;&#x7EC7;&#x6838;&#x5FC3;&#x7684;&#x8363;&#x8A89;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x6885;&#x897F;&#x5728;&#x5DF4;&#x8428;&#x7684;&#x961F;&#x53CB;&#x201C;&#x5C0F;&#x767D;&#x201D;&#x4F0A;&#x6D85;&#x65AF;&#x5854;&#x6392;&#x5728;&#x7B2C;&#x4E8C;&#x4F4D;&#xFF0C;&#x610F;&#x5927;&#x5229;&#x7403;&#x661F;&#x76AE;&#x5C14;&#x6D1B;&#x529B;&#x538B;&#x5207;&#x5C14;&#x897F;&#x738B;&#x724C;&#x963F;&#x624E;&#x5C14;&#x5360;&#x636E;&#x7B2C;&#x4E09;&#x540D;&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x503C;&#x5F97;&#x4E00;&#x63D0;&#x7684;&#x662F;&#xFF0C;&#x6392;&#x540D;&#x524D;&#x5341;&#x7684;&#x7403;&#x5458;&#x4E2D;&#x6709;3&#x4E2A;&#x6765;&#x81EA;&#x4E8E;&#x7687;&#x9A6C;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x8FD8;&#x4E00;&#x540C;&#x516C;&#x5E03;&#x4E86;&#x6700;&#x4F73;&#x6559;&#x7EC3;&#x7684;&#x8BC4;&#x9009;&#xFF0C;&#x5DF4;&#x8428;&#x4E3B;&#x5E05;&#x6069;&#x91CC;&#x514B;&#x529B;&#x538B;&#x74DC;&#x8FEA;&#x5965;&#x62C9;&#x3001;&#x963F;&#x83B1;&#x683C;&#x91CC;&#x7B49;&#x540D;&#x5E05;&#x5F53;&#x9009;&#x3002;\n&apos;
+</code></pre><h3 id="&#x81EA;&#x5B9A;&#x4E49;&#x538B;&#x7F29;&#x548C;&#x89E3;&#x538B;&#x5668;"><a name="&#x81EA;&#x5B9A;&#x4E49;&#x538B;&#x7F29;&#x548C;&#x89E3;&#x538B;&#x5668;" class="anchor-navigation-ex-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;&#x538B;&#x7F29;&#x548C;&#x89E3;&#x538B;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.3. &#x81EA;&#x5B9A;&#x4E49;&#x538B;&#x7F29;&#x548C;&#x89E3;&#x538B;&#x5668;</h3>
+<blockquote>
+<p>&#x538B;&#x7F29;&#x5668;compressobj([level[, method[, wbits[, memLevel[, strategy]]]]])</p>
+</blockquote>
+<ul>
+<li>level &#x538B;&#x7F29;&#x7B49;&#x7EA7;,&#x8303;&#x56F4;1~9,&#x9ED8;&#x8BA4;6</li>
+<li>method &#x538B;&#x7F29;&#x65B9;&#x6CD5;,&#x76EE;&#x524D;&#x53EA;&#x652F;&#x6301;&#x9ED8;&#x8BA4;&#x65B9;&#x6CD5;</li>
+<li>wbits  &#x786E;&#x5B9A;&#x7A97;&#x53E3;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5927;&#x5C0F;,&#x8303;&#x56F4;&#x662F;8~15,&#x8D8A;&#x9AD8;&#x6548;&#x679C;&#x8D8A;&#x597D;,&#x4F46;&#x5360;&#x7528;&#x5185;&#x5B58;&#x8D8A;&#x591A;</li>
+<li>memLevel &#x5185;&#x90E8;&#x538B;&#x7F29;&#x72B6;&#x6001;&#x5B58;&#x50A8;&#x7B49;&#x7EA7;,&#x8303;&#x56F4;1~9,&#x6570;&#x503C;&#x8D8A;&#x5927;&#x6D88;&#x8017;&#x5185;&#x5B58;&#x8D8A;&#x591A;,&#x4F46;&#x66F4;&#x5FEB;&#x538B;&#x7F29;&#x7387;&#x66F4;&#x9AD8;</li>
+<li>strategy &#x538B;&#x7F29;&#x7B97;&#x6CD5;&#x76F8;&#x5173;,&#x53EF;&#x9009;&#x503C;&#x6709;<code>Z_DEFAULT_STRATEGY</code>, <code>Z_FILTERED</code>,<code>Z_HUFFMAN_ONLY</code></li>
+</ul>
+<blockquote>
+<p>&#x89E3;&#x538B;&#x5668;decompressobj(wbits=15)</p>
+</blockquote>
+<h2 id="bz2"><a name="bz2" class="anchor-navigation-ex-anchor" href="#bz2"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. bz2</h2>
+<p>bz2&#x548C;zlib&#x63A5;&#x53E3;&#x5DEE;&#x4E0D;&#x591A;,&#x53EA;&#x662F;&#x4F7F;&#x7528;&#x7684;&#x4E0D;&#x540C;&#x7684;&#x7B97;&#x6CD5;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> bz2
+</code></pre>
+<h3 id="&#x538B;&#x7F29;compressdata-level_1"><a name="&#x538B;&#x7F29;compressdata-level_1" class="anchor-navigation-ex-anchor" href="#&#x538B;&#x7F29;compressdata-level_1"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.1. &#x538B;&#x7F29;compress(data[, level])</h3>
+<p>level&#x662F;&#x538B;&#x7F29;&#x7B49;&#x7EA7;(&#x8303;&#x56F4;1~9),&#x9ED8;&#x8BA4;&#x662F;9,1&#x662F;&#x6700;&#x5FEB;&#x5355;&#x538B;&#x7F29;&#x6700;&#x5C11;&#x7684;,9&#x662F;&#x6700;&#x6162;&#x4F46;&#x538B;&#x7F29;&#x6700;&#x591A;&#x5F97;</p>
+<pre><code class="lang-python">b_str = bz2.compress(exa_str.encode())
+</code></pre>
+<pre><code class="lang-python">len(b_str)/len(exa_str.encode())
+</code></pre>
+<pre><code>0.8309409888357256
+</code></pre><h3 id="&#x89E3;&#x538B;decompressdata"><a name="&#x89E3;&#x538B;decompressdata" class="anchor-navigation-ex-anchor" href="#&#x89E3;&#x538B;decompressdata"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2. &#x89E3;&#x538B;decompress(data)</h3>
+<pre><code class="lang-python">bz2.decompress(b_str).decode(<span class="hljs-string">&quot;utf-8&quot;</span>)
+</code></pre>
+<pre><code>&apos;&#x7F51;&#x6613;&#x4F53;&#x80B2;1&#x6708;5&#x65E5;&#x62A5;&#x9053;&#xFF1A;\n\n&#x56FD;&#x9645;&#x8DB3;&#x7403;&#x5386;&#x53F2;&#x548C;&#x7EDF;&#x8BA1;&#x8054;&#x5408;&#x4F1A;&#xFF08;IFFHS&#xFF09;&#x4ECA;&#x65E5;&#x51CC;&#x6668;&#x5728;&#x5176;&#x5B98;&#x7F51;&#x4E0A;&#x516C;&#x5E03;&#x4E86;2015&#x5E74;&#x5EA6;&#x4E16;&#x754C;&#x6700;&#x4F73;&#x7EC4;&#x7EC7;&#x8005;&#x7684;&#x8BC4;&#x9009;&#x7ED3;&#x679C;&#xFF0C;&#x5DF4;&#x585E;&#x7F57;&#x90A3;&#x524D;&#x950B;&#x6885;&#x897F;&#x95EE;&#x9F0E;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x963F;&#x6839;&#x5EF7;&#x4EBA;&#x804C;&#x4E1A;&#x751F;&#x6DAF;&#x9996;&#x6B21;&#x5F53;&#x9009;&#x5E74;&#x5EA6;&#x6700;&#x4F73;&#x7EC4;&#x7EC7;&#x6838;&#x5FC3;&#x7684;&#x8363;&#x8A89;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x6885;&#x897F;&#x5728;&#x5DF4;&#x8428;&#x7684;&#x961F;&#x53CB;&#x201C;&#x5C0F;&#x767D;&#x201D;&#x4F0A;&#x6D85;&#x65AF;&#x5854;&#x6392;&#x5728;&#x7B2C;&#x4E8C;&#x4F4D;&#xFF0C;&#x610F;&#x5927;&#x5229;&#x7403;&#x661F;&#x76AE;&#x5C14;&#x6D1B;&#x529B;&#x538B;&#x5207;&#x5C14;&#x897F;&#x738B;&#x724C;&#x963F;&#x624E;&#x5C14;&#x5360;&#x636E;&#x7B2C;&#x4E09;&#x540D;&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x503C;&#x5F97;&#x4E00;&#x63D0;&#x7684;&#x662F;&#xFF0C;&#x6392;&#x540D;&#x524D;&#x5341;&#x7684;&#x7403;&#x5458;&#x4E2D;&#x6709;3&#x4E2A;&#x6765;&#x81EA;&#x4E8E;&#x7687;&#x9A6C;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x8FD8;&#x4E00;&#x540C;&#x516C;&#x5E03;&#x4E86;&#x6700;&#x4F73;&#x6559;&#x7EC3;&#x7684;&#x8BC4;&#x9009;&#xFF0C;&#x5DF4;&#x8428;&#x4E3B;&#x5E05;&#x6069;&#x91CC;&#x514B;&#x529B;&#x538B;&#x74DC;&#x8FEA;&#x5965;&#x62C9;&#x3001;&#x963F;&#x83B1;&#x683C;&#x91CC;&#x7B49;&#x540D;&#x5E05;&#x5F53;&#x9009;&#x3002;\n&apos;
+</code></pre><footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2017-06-30 21:32:10
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 数据压缩">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="压缩归档.html" class="navigation navigation-next " aria-label="Next page: 压缩归档">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"数据压缩解压","level":"1.13.1","depth":2,"next":{"title":"压缩归档","level":"1.13.2","depth":2,"path":"数据压缩/压缩归档.md","ref":"数据压缩/压缩归档.md","articles":[]},"previous":{"title":"数据压缩","level":"1.13","depth":1,"path":"数据压缩/README.md","ref":"数据压缩/README.md","articles":[{"title":"数据压缩解压","level":"1.13.1","depth":2,"path":"数据压缩/数据压缩解压.md","ref":"数据压缩/数据压缩解压.md","articles":[]},{"title":"压缩归档","level":"1.13.2","depth":2,"path":"数据压缩/压缩归档.md","ref":"数据压缩/压缩归档.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","katex","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/hsz1273327"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","wechatText":"微信打赏"},"sitemap-general":{"prefix":"http://gitbook.zhangjikai.com"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":true},"mode":"float","pageTop":{"showLevelIcon":false,"mode":"float","pageTop":{"showLevelIcon":false,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"},"level1Icon":"","showLevel":true,"level2Icon":"","level3Icon":"","associatedWithSummary":true,"float":{"showLevelIcon":true,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"}},"showLevel":true},"github-buttons":{"repo":"hsz1273327/TutorialForPythonMessageQueue","types":["star","watch","fork"],"size":"small"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略--消息队列","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍消息队列的原理和使用方法,介绍python常用的消息队列工具"},"file":{"path":"数据压缩/数据压缩解压.md","mtime":"2017-06-30T13:32:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-01T01:03:26.942Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
