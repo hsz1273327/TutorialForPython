@@ -1,0 +1,2439 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>GUI · python攻略</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="hsz">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="使用python编写命令行工具.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://blog.hszofficial.site/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../总章.html">
+            
+                <a href="../总章.html">
+            
+                    
+                    总章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../工具链/">
+            
+                <a href="../工具链/">
+            
+                    
+                    工具链
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../工具链/运行环境与部署分发.html">
+            
+                <a href="../工具链/运行环境与部署分发.html">
+            
+                    
+                    运行环境与部署分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../工具链/代码风格.html">
+            
+                <a href="../工具链/代码风格.html">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../工具链/调试与测试.html">
+            
+                <a href="../工具链/调试与测试.html">
+            
+                    
+                    调试与测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../工具链/结语.html">
+            
+                <a href="../工具链/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Python的数据模型/">
+            
+                <a href="../Python的数据模型/">
+            
+                    
+                    Python的数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Python的数据模型/数据模型.html">
+            
+                <a href="../Python的数据模型/数据模型.html">
+            
+                    
+                    数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Python的数据模型/变量引用与垃圾回收.html">
+            
+                <a href="../Python的数据模型/变量引用与垃圾回收.html">
+            
+                    
+                    变量引用与垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Python的数据模型/结语.html">
+            
+                <a href="../Python的数据模型/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../文本_文件与字节序/">
+            
+                <a href="../文本_文件与字节序/">
+            
+                    
+                    文本,文件与字节序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../文本_文件与字节序/文本和编码.html">
+            
+                <a href="../文本_文件与字节序/文本和编码.html">
+            
+                    
+                    文本和编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../文本_文件与字节序/字节序列与内存视图.html">
+            
+                <a href="../文本_文件与字节序/字节序列与内存视图.html">
+            
+                    
+                    字节序列与内存视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../文本_文件与字节序/正则表达式.html">
+            
+                <a href="../文本_文件与字节序/正则表达式.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../文本_文件与字节序/文件与IO流.html">
+            
+                <a href="../文本_文件与字节序/文件与IO流.html">
+            
+                    
+                    文件与IO流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../文本_文件与字节序/序列化.html">
+            
+                <a href="../文本_文件与字节序/序列化.html">
+            
+                    
+                    序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../文本_文件与字节序/结语.html">
+            
+                <a href="../文本_文件与字节序/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../流程控制/">
+            
+                <a href="../流程控制/">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../流程控制/单线程同步流程控制.html">
+            
+                <a href="../流程控制/单线程同步流程控制.html">
+            
+                    
+                    单线程同步流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../流程控制/阻塞异步与协程.html">
+            
+                <a href="../流程控制/阻塞异步与协程.html">
+            
+                    
+                    阻塞异步与协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../流程控制/多线程与GIL.html">
+            
+                <a href="../流程控制/多线程与GIL.html">
+            
+                    
+                    多线程与GIL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../流程控制/多进程.html">
+            
+                <a href="../流程控制/多进程.html">
+            
+                    
+                    多进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../流程控制/并行编程的惯用法.html">
+            
+                <a href="../流程控制/并行编程的惯用法.html">
+            
+                    
+                    并行编程的惯用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../流程控制/并行编程的惯用法.html">
+            
+                <a href="../流程控制/并行编程的惯用法.html">
+            
+                    
+                    并发模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../流程控制/结语.html">
+            
+                <a href="../流程控制/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../数据结构与算法/">
+            
+                <a href="../数据结构与算法/">
+            
+                    
+                    数据结构与算法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../数据结构与算法/序列对象.html">
+            
+                <a href="../数据结构与算法/序列对象.html">
+            
+                    
+                    序列对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../数据结构与算法/映射对象.html">
+            
+                <a href="../数据结构与算法/映射对象.html">
+            
+                    
+                    映射对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../数据结构与算法/可迭代对象与生成器.html">
+            
+                <a href="../数据结构与算法/可迭代对象与生成器.html">
+            
+                    
+                    可迭代对象与生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../数据结构与算法/结语.html">
+            
+                <a href="../数据结构与算法/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../函数/">
+            
+                <a href="../函数/">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../函数/函数是一等对象.html">
+            
+                <a href="../函数/函数是一等对象.html">
+            
+                    
+                    函数是一等对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../函数/变量作用域与闭包.html">
+            
+                <a href="../函数/变量作用域与闭包.html">
+            
+                    
+                    变量作用域与闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../函数/结语.html">
+            
+                <a href="../函数/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../面向对象惯用法/">
+            
+                <a href="../面向对象惯用法/">
+            
+                    
+                    面向对象惯用法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../面向对象惯用法/python中的对象.html">
+            
+                <a href="../面向对象惯用法/python中的对象.html">
+            
+                    
+                    python中的对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../面向对象惯用法/协议与接口与抽象基类.html">
+            
+                <a href="../面向对象惯用法/协议与接口与抽象基类.html">
+            
+                    
+                    协议,接口与抽象基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../面向对象惯用法/多重继承和Mixin.html">
+            
+                <a href="../面向对象惯用法/多重继承和Mixin.html">
+            
+                    
+                    多重继承和Mixin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../面向对象惯用法/自定义序列Vector.html">
+            
+                <a href="../面向对象惯用法/自定义序列Vector.html">
+            
+                    
+                    自定义序列Vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../面向对象惯用法/结语.html">
+            
+                <a href="../面向对象惯用法/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../元编程/">
+            
+                <a href="../元编程/">
+            
+                    
+                    元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../元编程/导入时与运行时.html">
+            
+                <a href="../元编程/导入时与运行时.html">
+            
+                    
+                    导入时与运行时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../元编程/猴子补丁和热更新.html">
+            
+                <a href="../元编程/猴子补丁和热更新.html">
+            
+                    
+                    猴子补丁和热更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../元编程/动态编译.html">
+            
+                <a href="../元编程/动态编译.html">
+            
+                    
+                    动态编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../元编程/运算符重载.html">
+            
+                <a href="../元编程/运算符重载.html">
+            
+                    
+                    运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../元编程/动态属性与特性与描述符.html">
+            
+                <a href="../元编程/动态属性与特性与描述符.html">
+            
+                    
+                    动态属性,特性与描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../元编程/装饰器.html">
+            
+                <a href="../元编程/装饰器.html">
+            
+                    
+                    装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="../元编程/元类编程.html">
+            
+                <a href="../元编程/元类编程.html">
+            
+                    
+                    元类编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="../元编程/结语.html">
+            
+                <a href="../元编程/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../设计模式/">
+            
+                <a href="../设计模式/">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../设计模式/策略模式.html">
+            
+                <a href="../设计模式/策略模式.html">
+            
+                    
+                    策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../设计模式/命令模式.html">
+            
+                <a href="../设计模式/命令模式.html">
+            
+                    
+                    命令模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../设计模式/结语.html">
+            
+                <a href="../设计模式/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../标准库中的数学工具/">
+            
+                <a href="../标准库中的数学工具/">
+            
+                    
+                    标准库中的数学工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../标准库中的数学工具/数学运算模块.html">
+            
+                <a href="../标准库中的数学工具/数学运算模块.html">
+            
+                    
+                    数学运算模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../标准库中的数学工具/统计模块.html">
+            
+                <a href="../标准库中的数学工具/统计模块.html">
+            
+                    
+                    统计模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../标准库中的数学工具/高精度计算.html">
+            
+                <a href="../标准库中的数学工具/高精度计算.html">
+            
+                    
+                    高精度计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../标准库中的数学工具/有理数.html">
+            
+                <a href="../标准库中的数学工具/有理数.html">
+            
+                    
+                    有理数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../标准库中的数学工具/复数运算.html">
+            
+                <a href="../标准库中的数学工具/复数运算.html">
+            
+                    
+                    复数运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../随机数据生成工具/">
+            
+                <a href="../随机数据生成工具/">
+            
+                    
+                    随机数据生成工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../随机数据生成工具/随机模块/随机模块.html">
+            
+                <a href="../随机数据生成工具/随机模块/随机模块.html">
+            
+                    
+                    随机模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../随机数据生成工具/随机时间生成器.html">
+            
+                <a href="../随机数据生成工具/随机时间生成器.html">
+            
+                    
+                    随机时间生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../随机数据生成工具/伪造信息生成器.html">
+            
+                <a href="../随机数据生成工具/伪造信息生成器.html">
+            
+                    
+                    伪造信息生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../摘要加密与数字签名/">
+            
+                <a href="../摘要加密与数字签名/">
+            
+                    
+                    摘要加密与数字签名
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../摘要加密与数字签名/摘要算法.html">
+            
+                <a href="../摘要加密与数字签名/摘要算法.html">
+            
+                    
+                    摘要算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../摘要加密与数字签名/加密算法.html">
+            
+                <a href="../摘要加密与数字签名/加密算法.html">
+            
+                    
+                    加密算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../摘要加密与数字签名/数字签名.html">
+            
+                <a href="../摘要加密与数字签名/数字签名.html">
+            
+                    
+                    数字签名
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../数据压缩/">
+            
+                <a href="../数据压缩/">
+            
+                    
+                    数据压缩
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../数据压缩/数据压缩解压.html">
+            
+                <a href="../数据压缩/数据压缩解压.html">
+            
+                    
+                    数据压缩解压
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../数据压缩/压缩归档.html">
+            
+                <a href="../数据压缩/压缩归档.html">
+            
+                    
+                    压缩归档
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../国际化工具/">
+            
+                <a href="../国际化工具/">
+            
+                    
+                    国际化工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../国际化工具/时间日期处理.html">
+            
+                <a href="../国际化工具/时间日期处理.html">
+            
+                    
+                    时间日期处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" data-path="../国际化工具/货币处理模块.html">
+            
+                <a href="../国际化工具/货币处理模块.html">
+            
+                    
+                    货币处理模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3" data-path="../国际化工具/字符编码判断.html">
+            
+                <a href="../国际化工具/字符编码判断.html">
+            
+                    
+                    字符编码判断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4" data-path="../国际化工具/国际化文本翻译.html">
+            
+                <a href="../国际化工具/国际化文本翻译.html">
+            
+                    
+                    国际化文本翻译
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    人机交互
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.17.1" data-path="使用python编写命令行工具.html">
+            
+                <a href="使用python编写命令行工具.html">
+            
+                    
+                    使用python编写命令行工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.17.2" data-path="GUI.html">
+            
+                <a href="GUI.html">
+            
+                    
+                    GUI
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >GUI</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#gui"><b>1. </b>GUI</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#gui&#x7684;&#x8BBE;&#x8BA1;&#x539F;&#x5219;"><b>2. </b>GUI&#x7684;&#x8BBE;&#x8BA1;&#x539F;&#x5219;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#python&#x7684;gui&#x7F16;&#x7A0B;tk"><b>3. </b>python&#x7684;GUI&#x7F16;&#x7A0B;(Tk)</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7B2C;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;"><b>3.1. </b>&#x7B2C;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7B2C;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;-"><b>3.2. </b>&#x7B2C;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50; +</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7EC4;&#x4EF6;"><b>3.3. </b>&#x7EC4;&#x4EF6;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5927;&#x5C0F;&#x548C;&#x4F4D;&#x7F6E;"><b>3.4. </b>&#x5927;&#x5C0F;&#x548C;&#x4F4D;&#x7F6E;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x63A7;&#x4EF6;&#x5E03;&#x5C40;"><b>3.5. </b>&#x63A7;&#x4EF6;&#x5E03;&#x5C40;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4E8B;&#x4EF6;"><b>3.6. </b>&#x4E8B;&#x4EF6;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#ttk"><b>3.7. </b>ttk</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#gui-&#x754C;&#x7684;-helloworld-&#x4E00;&#x4E2A;&#x8BB0;&#x4E8B;&#x672C;"><b>3.8. </b>gui &#x754C;&#x7684; helloworld, &#x4E00;&#x4E2A;&#x8BB0;&#x4E8B;&#x672C;</a></li></ul></ul></div><a href="#gui" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="gui"><a name="gui" class="anchor-navigation-ex-anchor" href="#gui"><i class="fa fa-link" aria-hidden="true"></i></a>1. GUI</h1>
+<p>&#x9F20;&#x6807;&#x548C;&#x5FAE;&#x8F6F;&#x82F9;&#x5E26;&#x6765;&#x4E86;GUI&#x8FD9;&#x79CD;&#x4EA4;&#x4E92;&#x65B9;&#x5F0F;,&#x5B83;&#x7684;&#x6700;&#x5927;&#x7279;&#x70B9;&#x662F;&#x56FE;&#x50CF;&#x5316;,&#x4F9D;&#x9760;&#x70B9;&#x51FB;&#x6765;&#x9009;&#x62E9;&#x6307;&#x4EE4;,&#x800C;&#x4E14;&#x4E00;&#x822C;&#x9664;&#x4E86;&#x4E3B;&#x9875;&#x9762;&#x5916;,&#x8FD8;&#x4F1A;&#x6709;&#x591A;&#x5C42;&#x7684;&#x5B50;&#x9875;&#x9762;.&#x4EA4;&#x4E92;&#x6A21;&#x5F0F;&#x5F00;&#x59CB;&#x590D;&#x6742;&#x4E86;&#x8D77;&#x6765;.</p>
+<p>&#x4ECE;GUI&#x8BDE;&#x751F;&#x5F00;&#x59CB;,&#x8BBE;&#x8BA1;&#x548C;&#x7F8E;&#x5B66;&#x5F00;&#x59CB;&#x8FDB;&#x5165;&#x8FD9;&#x4E2A;&#x9886;&#x57DF;,&#x800C;&#x5BF9;&#x7528;&#x6237;&#x7684;&#x53CB;&#x597D;&#x7A0B;&#x5EA6;&#x6210;&#x4E3A;&#x4E86;&#x4E00;&#x4E2A;&#x8F6F;&#x4EF6;&#x7684;&#x8861;&#x91CF;&#x6807;&#x51C6;&#x4E4B;&#x4E00;.</p>
+<h1 id="gui&#x7684;&#x8BBE;&#x8BA1;&#x539F;&#x5219;"><a name="gui&#x7684;&#x8BBE;&#x8BA1;&#x539F;&#x5219;" class="anchor-navigation-ex-anchor" href="#gui&#x7684;&#x8BBE;&#x8BA1;&#x539F;&#x5219;"><i class="fa fa-link" aria-hidden="true"></i></a>2. GUI&#x7684;&#x8BBE;&#x8BA1;&#x539F;&#x5219;</h1>
+<p>GUI&#x7684;&#x56FE;&#x5F62;&#x5316;&#x7279;&#x70B9;&#x5E26;&#x4E86;&#x4E86;&#x7528;&#x6237;&#x5B66;&#x4E60;&#x96BE;&#x5EA6;&#x7684;&#x964D;&#x4F4E;,&#x56E0;&#x6B64;GUI&#x5305;&#x62EC;&#x540E;&#x6765;&#x7684;&#x5404;&#x79CD;&#x4EA4;&#x4E92;&#x6A21;&#x5F0F;&#x7684;&#x8BBE;&#x8BA1;&#x6700;&#x91CD;&#x8981;&#x7684;&#x5C31;&#x662F;&#x4EE5;&#x4EBA;&#x4E3A;&#x672C;,&#x5173;&#x6CE8;&#x7528;&#x6237;&#x4F53;&#x9A8C;</p>
+<ul>
+<li><p>&#x5FC5;&#x987B;&#x8003;&#x8651;&#x76EE;&#x6807;&#x7528;&#x6237;&#x7FA4;&#x4F53;&#x662F;&#x4E2A;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x7FA4;&#x50CF;</p>
+</li>
+<li><p>&#x5FC5;&#x987B;&#x8003;&#x8651;&#x7528;&#x6237;&#x7684;&#x5B66;&#x4E60;&#x6210;&#x672C;,&#x7A81;&#x51FA;&#x7B80;&#x5316;&#x6700;&#x4E3B;&#x8981;&#x7684;&#x9700;&#x6C42;&#x7684;&#x64CD;&#x4F5C;,&#x5E76;&#x5C3D;&#x91CF;&#x8BA9;&#x7528;&#x6237;&#x7528;&#x66F4;&#x5C11;&#x7684;&#x6B65;&#x9AA4;&#x5B8C;&#x6210;&#x9700;&#x6C42;</p>
+</li>
+<li><p>&#x8BBE;&#x8BA1;&#x5E94;&#x8BE5;&#x7B26;&#x5408;&#x5E38;&#x8BC6;&#x4E60;&#x60EF;</p>
+</li>
+<li><p>&#x907F;&#x514D;&#x9891;&#x7E41;&#x7684;&#x5207;&#x6362;&#x754C;&#x9762;,&#x754C;&#x9762;&#x95F4;&#x5E94;&#x8BE5;&#x98CE;&#x683C;&#x7EDF;&#x4E00;&#x548C;&#x8C10;</p>
+</li>
+</ul>
+<h1 id="python&#x7684;gui&#x7F16;&#x7A0B;tk"><a name="python&#x7684;gui&#x7F16;&#x7A0B;tk" class="anchor-navigation-ex-anchor" href="#python&#x7684;gui&#x7F16;&#x7A0B;tk"><i class="fa fa-link" aria-hidden="true"></i></a>3. python&#x7684;GUI&#x7F16;&#x7A0B;(Tk)</h1>
+<p>GUI&#x4E5F;&#x5C31;&#x662F;&#x56FE;&#x5F62;&#x754C;&#x9762;&#x5566;,Python&#x6709;&#x4E0D;&#x5C11;GUI&#x6846;&#x67B6;,&#x800C;tkinter&#x662F;&#x81EA;&#x5E26;&#x7684;,&#x4E3A;&#x5565;&#x9009;&#x8FD9;&#x4E2A;&#x5462;,&#x56E0;&#x4E3A;&#x4E00;&#x822C;&#x7528;Python&#x5199;GUI&#x90FD;&#x4E0D;&#x4F1A;&#x5199;&#x591A;&#x590D;&#x6742;,&#x4E5F;&#x5C31;&#x662F;&#x591F;&#x7528;&#x5C31;&#x597D;.&#x6700;&#x7B26;&#x5408;&#x8FD9;&#x4E00;&#x8981;&#x6C42;&#x7684;&#x5C31;&#x662F;tkinter&#x4E86;,Python&#x81EA;&#x5E26;,&#x903B;&#x8F91;&#x7B80;&#x5355;,&#x6A21;&#x5757;&#x5C11;&#x800C;&#x591F;&#x7528;.</p>
+<h2 id="&#x7B2C;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;"><a name="&#x7B2C;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;" class="anchor-navigation-ex-anchor" href="#&#x7B2C;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. &#x7B2C;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;</h2>
+<pre><code class="lang-python">%%writefile src/first.py
+<span class="hljs-keyword">import</span> tkinter
+
+tkinter._test()
+</code></pre>
+<pre><code>Overwriting src/first.py
+</code></pre><p>&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x811A;&#x672C;,&#x662F;&#x4E0D;&#x662F;&#x8DF3;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x5C0F;&#x6846;&#x6846;.&#x8FD9;&#x662F;tk&#x7684;&#x81EA;&#x5E26;&#x4F8B;&#x5B50;</p>
+<pre><code class="lang-python">%exec_py3 src/first.py
+</code></pre>
+<h2 id="&#x7B2C;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;-"><a name="&#x7B2C;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;-" class="anchor-navigation-ex-anchor" href="#&#x7B2C;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;-"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. &#x7B2C;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50; +</h2>
+<p>&#x6211;&#x4EEC;&#x6765;&#x81EA;&#x5DF1;&#x5199;&#x4E2A;&#x4F8B;&#x5B50;,&#x4F53;&#x4F1A;&#x4E0B;tk&#x7684;&#x903B;&#x8F91;</p>
+<pre><code class="lang-python">%%writefile src/firstGUI.py
+
+<span class="hljs-comment">#coding:utf-8</span>
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> Frame,Label,Button
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span><span class="hljs-params">(Frame)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, master=None)</span>:</span>
+        Frame.__init__(self, master)
+        <span class="hljs-comment">#&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x4F4D;&#x7F6E;</span>
+        self.master.geometry(<span class="hljs-string">&quot;600x400+100+400&quot;</span>)<span class="hljs-comment">#&#x957F;x&#x5BBD;+x+y</span>
+        self.pack()
+        self.createWidgets()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createWidgets</span><span class="hljs-params">(self)</span>:</span>
+        self.helloLabel = Label(self, text=<span class="hljs-string">&apos;Hello, world!&apos;</span>)
+
+        self.helloLabel.pack()
+        self.quitButton = Button(self, text=<span class="hljs-string">&apos;Quit&apos;</span>,fg=<span class="hljs-string">&quot;red&quot;</span>, command=self.quit)
+        self.quitButton.pack()
+
+<span class="hljs-keyword">if</span> __name__ ==<span class="hljs-string">&quot;__main__&quot;</span>:
+    app = Application()
+    <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x6807;&#x9898;:</span>
+    app.master.title(<span class="hljs-string">&apos;Hello World&apos;</span>)
+
+    app.master.geometry(<span class="hljs-string">&quot;600x400+100+400&quot;</span>)<span class="hljs-comment">#&#x957F;x&#x5BBD;+x+y</span>
+    <span class="hljs-comment"># &#x4E3B;&#x6D88;&#x606F;&#x5FAA;&#x73AF;:</span>
+    app.mainloop()
+</code></pre>
+<pre><code>Overwriting src/firstGUI.py
+</code></pre><pre><code class="lang-python">%exec_py3 src/firstGUI.py
+</code></pre>
+<p>&#x8FD0;&#x884C;&#x540E;&#x51FA;&#x73B0;&#x5982;&#x56FE;&#x5C0F;&#x5BF9;&#x8BDD;&#x6846;</p>
+<p><img src="." alt=""></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;,&#x4E3B;&#x7C7B;&#x7EE7;&#x627F;&#x81EA;Frame&#x57FA;&#x7C7B;</p>
+<p>&#x6BCF;&#x4E2A;Button&#x3001;Label&#x3001;&#x8F93;&#x5165;&#x6846;&#x7B49;&#xFF0C;&#x90FD;&#x662F;&#x4E00;&#x4E2A;Widget&#x3002;Frame&#x5219;&#x662F;&#x53EF;&#x4EE5;&#x5BB9;&#x7EB3;&#x5176;&#x4ED6;Widget&#x7684;Widget&#xFF0C;&#x6240;&#x6709;&#x7684;Widget&#x7EC4;&#x5408;&#x8D77;&#x6765;&#x5C31;&#x662F;&#x4E00;&#x68F5;&#x6811;&#x3002;</p>
+<p>pack()&#x65B9;&#x6CD5;&#x628A;Widget&#x52A0;&#x5165;&#x5230;&#x7236;&#x5BB9;&#x5668;&#x4E2D;&#xFF0C;&#x5E76;&#x5B9E;&#x73B0;&#x5E03;&#x5C40;&#x3002;pack()&#x662F;&#x6700;&#x7B80;&#x5355;&#x7684;&#x5E03;&#x5C40;&#xFF0C;grid()&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x66F4;&#x590D;&#x6742;&#x7684;&#x5E03;&#x5C40;&#x3002;</p>
+<p>&#x5728;createWidgets()&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Label&#x548C;&#x4E00;&#x4E2A;Button&#xFF0C;&#x5F53;Button&#x88AB;&#x70B9;&#x51FB;&#x65F6;&#xFF0C;&#x89E6;&#x53D1;self.quit()&#x4F7F;&#x7A0B;&#x5E8F;&#x9000;&#x51FA;</p>
+<h2 id="&#x7EC4;&#x4EF6;"><a name="&#x7EC4;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#&#x7EC4;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3. &#x7EC4;&#x4EF6;</h2>
+<p>tkinter&#x7684;&#x63A7;&#x4EF6;&#x4E3B;&#x8981;&#x6709;&#x8FD9;&#x4E9B;:</p>
+<ul>
+<li>Label &#x6807;&#x7B7E;</li>
+<li>Button &#x6309;&#x94AE;</li>
+<li>Toplevel</li>
+<li>Canvas</li>
+<li>Checkbutton</li>
+<li>Entry</li>
+<li>Frame</li>
+<li>LabelFrame</li>
+<li>Listbox</li>
+<li>Menu </li>
+<li>Menubutton</li>
+<li>Message</li>
+<li>OptionMenu</li>
+<li>PaneWindow </li>
+<li>Radiobutton </li>
+<li>Scale </li>
+<li>Scrollbar </li>
+<li>Spinbox </li>
+<li>Text </li>
+<li>Bitmap</li>
+<li>Image</li>
+<li>ScrolledText.frame</li>
+<li>ScrolledText.vbar</li>
+</ul>
+<blockquote>
+<p>&#x6807;&#x7B7E; Label</p>
+</blockquote>
+<p>&#x6807;&#x7B7E;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x7684;&#x5C5E;&#x6027;&#x4E3B;&#x8981;&#x6709;:</p>
+<ul>
+<li><p>text &#x6807;&#x7B7E;&#x7684;&#x5185;&#x5BB9;,&#x6587;&#x672C;&#x4FE1;&#x606F;</p>
+</li>
+<li><p>font &#x5B57;&#x4F53;</p>
+</li>
+<li><p>background &#x80CC;&#x666F;&#x8272;</p>
+</li>
+</ul>
+<blockquote>
+<p>&#x6309;&#x94AE; Button</p>
+</blockquote>
+<p>&#x6309;&#x94AE;&#x7B97;&#x662F;&#x6700;&#x5E38;&#x7528;&#x7684;&#x63A7;&#x4EF6;&#x4E4B;&#x4E00;&#x4E86;,&#x5B83;&#x7684;&#x5C5E;&#x6027;&#x4E3B;&#x8981;&#x6709;:</p>
+<ul>
+<li>&#x5BBD;&#x5EA6; width</li>
+<li>&#x9AD8;&#x5EA6; height</li>
+<li>&#x80CC;&#x666F;&#x8272; background</li>
+<li>&#x663E;&#x793A;&#x6587;&#x5B57; text </li>
+</ul>
+<p>&#x4F46;&#x662F;&#x8BF4;&#x5230;&#x6309;&#x94AE;&#x5F53;&#x7136;&#x6700;&#x91CD;&#x8981;&#x7684;&#x662F;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x4E86;</p>
+<ul>
+<li>&#x547D;&#x4EE4; command &#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x540D;,&#x6CE8;&#x610F;&#x662F;&#x51FD;&#x6570;&#x540D;,&#x6CA1;&#x6709;&#x62EC;&#x5F27;</li>
+</ul>
+<blockquote>
+<p>&#x8F93;&#x5165;&#x6846; Entry</p>
+</blockquote>
+<p>&#x5C5E;&#x6027;:</p>
+<ul>
+<li>get() &#x83B7;&#x53D6;&#x8F93;&#x5165;(&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;str)</li>
+</ul>
+<p>&#x4F8B;:&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x767B;&#x5F55;&#x754C;&#x9762;</p>
+<pre><code class="lang-python">%%writefile src/entry.py
+
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> Frame,Label,Button,Entry
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span><span class="hljs-params">(Frame)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, master=None)</span>:</span>
+        Frame.__init__(self, master)
+        self.pack()
+        self.createWidgets()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createWidgets</span><span class="hljs-params">(self)</span>:</span>
+        self.userLabel = Label(self, text=<span class="hljs-string">&apos;&#x7528;&#x6237;&#x540D;:&apos;</span>)
+        self.userLabel.grid(row = <span class="hljs-number">0</span>,column = <span class="hljs-number">0</span>,sticky=<span class="hljs-string">&quot;w&quot;</span>)
+        self.userEntry = Entry(self)
+        self.userEntry.grid(row = <span class="hljs-number">0</span>,column = <span class="hljs-number">1</span>,sticky=<span class="hljs-string">&quot;e&quot;</span>)
+        self.pwLabel = Label(self, text=<span class="hljs-string">&apos;&#x5BC6;&#x7801;:&apos;</span>)
+        self.pwLabel.grid(row = <span class="hljs-number">1</span>,column = <span class="hljs-number">0</span>,sticky=<span class="hljs-string">&quot;w&quot;</span>)
+        self.pwEntry = Entry(self)
+        self.pwEntry.grid(row = <span class="hljs-number">1</span>,column = <span class="hljs-number">1</span>,sticky=<span class="hljs-string">&quot;e&quot;</span>)
+
+        self.enterButton = Button(self,text = <span class="hljs-string">&quot;&#x767B;&#x5F55;&quot;</span>,command = self.reg)
+        self.enterButton.grid(row = <span class="hljs-number">2</span>,column = <span class="hljs-number">1</span>,sticky = <span class="hljs-string">&quot;e&quot;</span>)
+
+        self.logLabel = Label(self, text=<span class="hljs-string">&apos;&apos;</span>)
+        self.logLabel.grid(row = <span class="hljs-number">3</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reg</span><span class="hljs-params">(self)</span>:</span>
+        s1 = self.userEntry.get()
+        s2 = self.pwEntry.get()
+        <span class="hljs-keyword">if</span> s1 == <span class="hljs-string">&quot;www.google.com&quot;</span> <span class="hljs-keyword">and</span> s2 == <span class="hljs-string">&quot;www.bing.com&quot;</span>:
+            self.logLabel[<span class="hljs-string">&quot;text&quot;</span>]=<span class="hljs-string">&quot;&#x767B;&#x5F55;&#x6210;&#x529F;&quot;</span>
+        <span class="hljs-keyword">else</span>:
+            self.logLabel[<span class="hljs-string">&quot;text&quot;</span>]=<span class="hljs-string">&quot;&#x7528;&#x6237;&#x540D;&#x6216;&#x5BC6;&#x7801;&#x9519;&#x8BEF;&quot;</span>
+            self.userEntry.delete(<span class="hljs-number">0</span>,len(s1))
+            self.pwEntry.delete(<span class="hljs-number">0</span>,len(s1))
+
+<span class="hljs-keyword">if</span> __name__ ==<span class="hljs-string">&quot;__main__&quot;</span>:
+    app = Application()
+    <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x6807;&#x9898;:</span>
+    app.master.title(<span class="hljs-string">&apos;&#x767B;&#x5F55;&#x754C;&#x9762;&apos;</span>)
+    <span class="hljs-comment">#&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x4F4D;&#x7F6E;</span>
+    <span class="hljs-comment">#app.master.geometry(&quot;600x400+100+400&quot;)#&#x957F;x&#x5BBD;+x+y</span>
+    <span class="hljs-comment"># &#x4E3B;&#x6D88;&#x606F;&#x5FAA;&#x73AF;:</span>
+    app.mainloop()
+</code></pre>
+<pre><code>Overwriting src/entry.py
+</code></pre><pre><code class="lang-python">%exec_py3 src/entry.py
+</code></pre>
+<blockquote>
+<p>&#x5355;&#x9009;&#x6309;&#x94AE; Radiobutton</p>
+</blockquote>
+<p>&#x4E00;&#x822C;&#x662F;&#x51E0;&#x4E2A;&#x91CC;&#x9762;&#x9009;&#x4E00;&#x4E2A;&#x7528;</p>
+<p>&#x76F4;&#x63A5;&#x770B;&#x4EE3;&#x7801;:</p>
+<pre><code class="lang-python">%%writefile src/radiobutton.py
+
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> Frame,Label,Button,Radiobutton
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span><span class="hljs-params">(Frame)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, master=None)</span>:</span>
+        Frame.__init__(self, master)
+        <span class="hljs-comment">#&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x4F4D;&#x7F6E;</span>
+        self.master.geometry(<span class="hljs-string">&quot;600x400+100+400&quot;</span>)<span class="hljs-comment">#&#x957F;x&#x5BBD;+x+y</span>
+        self.pack()
+        self.createWidgets()
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createWidgets</span><span class="hljs-params">(self)</span>:</span>
+        self.helloLabel = Label(self, text=<span class="hljs-string">&apos;Hello, world!\n&apos;</span>)
+        self.helloLabel.pack()
+
+        self.c1 = Radiobutton(self,text = <span class="hljs-string">&quot;1&quot;</span>,command = <span class="hljs-keyword">lambda</span> : self.helloLabel.config(
+                                                                text = <span class="hljs-string">&quot;1&#x88AB;&#x9009;&#x4E2D;&#x4E86;&#x5947;&#x6570;&#x6B21;\n&quot;</span>) )
+        self.c1.pack()
+        self.c2 = Radiobutton(self,text = <span class="hljs-string">&quot;2&quot;</span>,command = <span class="hljs-keyword">lambda</span> : self.helloLabel.config(
+                                                                text = <span class="hljs-string">&quot;2&#x88AB;&#x9009;&#x4E2D;&#x4E86;&#x5947;&#x6570;&#x6B21;\n&quot;</span>) )
+        self.c2.pack()
+        self.quitButton = Button(self, text=<span class="hljs-string">&apos;Quit&apos;</span>,fg=<span class="hljs-string">&quot;red&quot;</span>, command=self.quit)
+        self.quitButton.pack()
+
+<span class="hljs-keyword">if</span> __name__ ==<span class="hljs-string">&quot;__main__&quot;</span>:
+    app = Application()
+    <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x6807;&#x9898;:</span>
+    app.master.title(<span class="hljs-string">&apos;Hello World&apos;</span>)
+
+    app.master.geometry(<span class="hljs-string">&quot;600x400+100+400&quot;</span>)<span class="hljs-comment">#&#x957F;x&#x5BBD;+x+y</span>
+    <span class="hljs-comment"># &#x4E3B;&#x6D88;&#x606F;&#x5FAA;&#x73AF;:</span>
+    app.mainloop()
+</code></pre>
+<pre><code>Overwriting src/radiobutton.py
+</code></pre><pre><code class="lang-python">%exec_py3 src/radiobutton.py
+</code></pre>
+<blockquote>
+<p>&#x590D;&#x9009;&#x6846; Checkbutton </p>
+</blockquote>
+<p>&#x590D;&#x9009;&#x6846;&#x901A;&#x5E38;&#x662F;&#x7528;&#x6765;&#x9009;&#x62E9;&#x4FE1;&#x606F;&#x7684;&#x65F6;&#x5019;&#x7684;&#x4E00;&#x79CD;&#x9009;&#x62E9;,&#x5B83;&#x524D;&#x9762; &#x6709;&#x4E2A;&#x5C0F;&#x6B63;&#x65B9;&#x5F62;&#x7684;&#x65B9;&#x5757;,&#x5982;&#x679C;&#x9009;&#x4E2D;&#x5219;&#x6709;&#x4E00;&#x4E2A;&#x5BF9;&#x53F7;,&#x4E5F;&#x53EF;&#x4EE5;&#x518D; &#x6B21;&#x70B9;&#x51FB;&#x4EE5;&#x53D6;&#x6D88;&#x8BE5;&#x5BF9;&#x53F7;&#x6765;&#x53D6;&#x6D88;&#x9009;&#x4E2D;&#x3002;</p>
+<p>&#x770B;&#x4E2A;&#x4F8B;&#x5B50;</p>
+<pre><code class="lang-python">%%writefile src/checkbutton.py
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> Frame,Label,Button,Checkbutton
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span><span class="hljs-params">(Frame)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, master=None)</span>:</span>
+        Frame.__init__(self, master)
+        <span class="hljs-comment">#&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x4F4D;&#x7F6E;</span>
+        self.master.geometry(<span class="hljs-string">&quot;600x400+100+400&quot;</span>)<span class="hljs-comment">#&#x957F;x&#x5BBD;+x+y</span>
+        self.pack()
+        self.createWidgets()
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createWidgets</span><span class="hljs-params">(self)</span>:</span>
+        self.helloLabel = Label(self, text=<span class="hljs-string">&apos;Hello, world!\n&apos;</span>)
+        self.helloLabel.pack()
+
+        self.c1 = Checkbutton(self,
+                              text = <span class="hljs-string">&quot;1&quot;</span>,
+                              command = <span class="hljs-keyword">lambda</span> : self.helloLabel.config(
+                                  text = self.helloLabel[<span class="hljs-string">&quot;text&quot;</span>]+<span class="hljs-string">&quot;1&#x88AB;&#x9009;&#x4E2D;&#x4E86;&#x5947;&#x6570;&#x6B21;\n&quot;</span>))
+        self.c1.pack()
+        self.c2 = Checkbutton(self,
+                              text = <span class="hljs-string">&quot;2&quot;</span>,
+                              command = <span class="hljs-keyword">lambda</span> : self.helloLabel.config(
+                                  text = self.helloLabel[<span class="hljs-string">&quot;text&quot;</span>]+<span class="hljs-string">&quot;2&#x88AB;&#x9009;&#x4E2D;&#x4E86;&#x5947;&#x6570;&#x6B21;\n&quot;</span>))
+        self.c2.pack()
+        self.quitButton = Button(self, text=<span class="hljs-string">&apos;Quit&apos;</span>,fg=<span class="hljs-string">&quot;red&quot;</span>, command=self.quit)
+        self.quitButton.pack()
+
+<span class="hljs-keyword">if</span> __name__ ==<span class="hljs-string">&quot;__main__&quot;</span>:
+    app = Application()
+    <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x6807;&#x9898;:</span>
+    app.master.title(<span class="hljs-string">&apos;Hello World&apos;</span>)
+
+    app.master.geometry(<span class="hljs-string">&quot;600x400+100+400&quot;</span>)<span class="hljs-comment">#&#x957F;x&#x5BBD;+x+y</span>
+    <span class="hljs-comment"># &#x4E3B;&#x6D88;&#x606F;&#x5FAA;&#x73AF;:</span>
+    app.mainloop()
+</code></pre>
+<pre><code>Overwriting src/checkbutton.py
+</code></pre><pre><code class="lang-python">%exec_py3 src/checkbutton.py
+</code></pre>
+<blockquote>
+<p>&#x6587;&#x672C;&#x57DF; Text</p>
+</blockquote>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x7528;&#x6765;&#x5B58;&#x653E;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5927;&#x7A7A;&#x95F4;</p>
+<p>&#x57FA;&#x672C;&#x7684;&#x5B9A;&#x4E49;&#x4E5F;&#x5C31;&#x662F;&#x5BBD;&#x5EA6;width&#x548C;&#x9AD8;&#x5EA6;height&#x4E86;</p>
+<pre><code class="lang-python">%%writefile src/text.py
+
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> *
+
+
+root = Tk()
+
+text = Text(root)
+text.pack()
+
+<span class="hljs-comment"># INSERT &#x7D22;&#x5F15;&#x8868;&#x793A;&#x63D2;&#x5165;&#x5149;&#x6807;&#x5F53;&#x524D;&#x7684;&#x4F4D;&#x7F6E;</span>
+text.insert(INSERT, <span class="hljs-string">&quot;I love &quot;</span>)
+text.insert(END, <span class="hljs-string">&quot;Python!&quot;</span>)
+
+mainloop()
+</code></pre>
+<pre><code>Overwriting src/text.py
+</code></pre><pre><code class="lang-python">%exec_py3 src/text.py
+</code></pre>
+<blockquote>
+<p>&#x753B;&#x5E03; Canvas</p>
+</blockquote>
+<p>&#x548C;html5&#x4E2D;&#x7684;&#x753B;&#x5E03;&#x4E00;&#x6837;,tk&#x4E2D;&#x7684;&#x753B;&#x5E03;&#x4E5F;&#x662F;&#x7528;&#x6765;&#x7ED8;&#x56FE;&#x7684;,&#x76F4;&#x63A5;&#x770B;&#x4EE3;&#x7801;&#x5427;:</p>
+<pre><code class="lang-python">%%writefile src/canvas.py
+
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> Frame,Canvas
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span><span class="hljs-params">(Frame)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, master=None)</span>:</span>
+        Frame.__init__(self, master)
+        self.pack()
+        self.createWidgets()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createWidgets</span><span class="hljs-params">(self)</span>:</span>
+        self.can = Canvas(self,width = <span class="hljs-number">400</span>,height=<span class="hljs-number">300</span>,bg = <span class="hljs-string">&quot;#233333&quot;</span>)
+        self.can.create_line((<span class="hljs-number">0</span>,<span class="hljs-number">0</span>),(<span class="hljs-number">200</span>,<span class="hljs-number">200</span>),width = <span class="hljs-number">8</span>)
+        self.can.create_text(<span class="hljs-number">300</span>,<span class="hljs-number">30</span>,text = <span class="hljs-string">&quot;&#x4E00;&#x4E2A;&#x753B;&#x677F;&quot;</span>)
+        self.can.pack()
+<span class="hljs-keyword">if</span> __name__ ==<span class="hljs-string">&quot;__main__&quot;</span>:
+    app = Application()
+    <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x6807;&#x9898;:</span>
+    app.master.title(<span class="hljs-string">&apos;Hello World&apos;</span>)
+    <span class="hljs-comment"># &#x4E3B;&#x6D88;&#x606F;&#x5FAA;&#x73AF;:</span>
+    app.mainloop()
+</code></pre>
+<pre><code>Overwriting src/canvas.py
+</code></pre><pre><code class="lang-python">%exec_py3 src/canvas.py
+</code></pre>
+<blockquote>
+<p>&#x591A;&#x7A97;&#x53E3; Toplevel</p>
+</blockquote>
+<pre><code class="lang-python">%%writefile src/toplevel.py
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> Frame,Label,Button,Toplevel
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span><span class="hljs-params">(Frame)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, master=None)</span>:</span>
+        Frame.__init__(self, master)
+        <span class="hljs-comment">#&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x4F4D;&#x7F6E;</span>
+        self.pack()
+        self.createWidgets()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createWidgets</span><span class="hljs-params">(self)</span>:</span>
+        self.helloLabel = Label(self, text=<span class="hljs-string">&apos;Hello, world1!&apos;</span>)
+
+        self.helloLabel.pack()
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App2</span><span class="hljs-params">(Toplevel)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, master=None)</span>:</span>
+        Toplevel.__init__(self, master)
+        self.createWidgets()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createWidgets</span><span class="hljs-params">(self)</span>:</span>
+        self.helloLabel = Label(self, text=<span class="hljs-string">&apos;Hello, world2!&apos;</span>)
+        self.helloLabel.pack()
+
+<span class="hljs-keyword">if</span> __name__ ==<span class="hljs-string">&quot;__main__&quot;</span>:
+    app1 = Application()
+    <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x6807;&#x9898;:</span>
+    app1.master.title(<span class="hljs-string">&apos;Hello World1&apos;</span>)
+    app1.master.geometry(<span class="hljs-string">&quot;600x400+100+400&quot;</span>)<span class="hljs-comment">#&#x957F;x&#x5BBD;+x+y</span>
+    <span class="hljs-comment"># &#x4E3B;&#x6D88;&#x606F;&#x5FAA;&#x73AF;:</span>
+    app2 = App2()
+    app2.title(<span class="hljs-string">&quot;helloword2&quot;</span>)
+    app1.mainloop()
+</code></pre>
+<pre><code>Overwriting src/toplevel.py
+</code></pre><pre><code class="lang-python">%exec_py3 src/toplevel.py
+</code></pre>
+<blockquote>
+<p>&#x83DC;&#x5355; Menu</p>
+</blockquote>
+<p>Menu &#x548C;&#x5176;&#x4ED6;&#x7684;&#x7EC4;&#x4EF6;&#x4E00;&#x6837;,&#x7B2C;&#x4E00;&#x4E2A;&#x662F; parent,&#x8FD9;&#x91CC;&#x901A;&#x5E38;&#x53EF;&#x4EE5;&#x4E3A;&#x7A97;&#x53E3;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528; add_commmand &#x65B9;&#x6CD5;&#x6765;&#x4E3A;&#x5B83;&#x6DFB;&#x52A0;&#x83DC;&#x5355;&#x9879;, &#x5982;&#x679C;&#x8BE5;&#x83DC;&#x5355;&#x662F;&#x9876;&#x5C42;&#x83DC;&#x5355;,&#x5219;&#x6DFB;&#x52A0;&#x7684;&#x83DC;&#x5355;&#x9879;&#x4F9D;&#x6B21;&#x5411;&#x53F3;&#x6DFB;&#x52A0;&#x3002; &#x5982;&#x679C;&#x8BE5;&#x83DC;&#x5355;&#x65F6;&#x9876;&#x5C42;&#x83DC;&#x5355;&#x7684;&#x4E00;&#x4E2A;&#x83DC;&#x5355;&#x9879;,&#x5219;&#x5B83;&#x6DFB;&#x52A0;&#x7684;&#x662F;&#x4E0B;&#x62C9;&#x83DC;&#x5355;&#x7684;&#x83DC;&#x5355;&#x9879;&#x3002;
+add_command &#x4E2D;&#x7684;&#x53C2;&#x6570;&#x5E38;&#x7528;&#x7684;&#x6709;:</p>
+<ul>
+<li>label &#x5C5E;&#x6027;,&#x7528;&#x6765;&#x6307;&#x5B9A;&#x7684;&#x662F;&#x83DC;&#x5355;&#x9879;&#x7684;&#x540D;&#x79F0;</li>
+<li>command &#x5C5E;&#x6027;&#x7528;&#x6765;&#x6307;&#x5B9A;&#x88AB;&#x70B9;&#x51FB;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;</li>
+<li>acceletor &#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x7684;&#x662F;&#x5FEB;&#x6377;&#x952E; </li>
+<li>underline &#x5C5E;&#x6027; &#x662F;&#x662F;&#x5426;&#x62E5;&#x6709;&#x4E0B;&#x5212;&#x7EBF;&#x3002;</li>
+</ul>
+<p>&#x6700;&#x540E;&#x53EF;&#x4EE5;&#x7528;&#x7A97;&#x53E3;&#x7684; menu &#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x54EA;&#x4E00;&#x4E2A;&#x4F5C;&#x4E3A;&#x5B83; &#x7684;&#x9876;&#x5C42;&#x83DC;&#x5355;.</p>
+<blockquote>
+<blockquote>
+<p>&#x5B50;&#x83DC;&#x5355;</p>
+</blockquote>
+</blockquote>
+<p>&#x5982;&#x679C;&#x6709;&#x5B50;&#x83DC;&#x5355;,&#x6211;&#x4EEC;&#x9700;&#x5219;&#x9700;&#x8981;&#x4F7F;&#x7528; add_cascade</p>
+<p>cascade &#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x201C;&#x7EA7;&#x8054;&#x201D;,&#x5373;&#x5B83; &#x7684;&#x4F5C;&#x7528;&#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x5F15;&#x51FA;&#x540E;&#x9762;&#x7684;&#x83DC;&#x5355;&#x3002;</p>
+<p>add_cascade&#x5C5E;&#x6027;:</p>
+<ul>
+<li>menu &#x5C5E;&#x6027;,&#x5B83;&#x6307;&#x660E;&#x4E86;&#x8981;&#x628A;&#x90A3;&#x4E2A;&#x83DC;&#x5355;&#x7EA7;&#x8054;&#x5230;&#x8BE5;&#x83DC;&#x5355;&#x9879;&#x4E0A;</li>
+<li>label &#x5C5E;&#x6027;,&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x8BE5;&#x83DC;&#x5355;&#x9879;&#x7684;&#x540D;&#x79F0;&#x3002;</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>&#x5F39;&#x51FA;&#x83DC;&#x5355;</p>
+</blockquote>
+</blockquote>
+<p>&#x4E00;&#x822C;&#x5F39;&#x51FA;&#x83DC;&#x5355;&#x662F;&#x53F3;&#x952E;&#x70B9;&#x51FB;&#x540E;&#x51FA;&#x73B0;&#x7684;&#x83DC;&#x5355;,tk&#x4E2D;&#x7684;&#x5F39;&#x51FA;&#x83DC;&#x5355;&#x6BD4;&#x8F83;&#x539F;&#x59CB;&#x7684;,&#x5177;&#x4F53;&#x601D;&#x8DEF;&#x662F;&#x8FD9;&#x6837;:</p>
+<ul>
+<li>&#x6211;&#x4EEC;&#x5148;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x83DC;&#x5355;,</li>
+<li>&#x7136;&#x540E;&#x5411;&#x83DC;&#x5355;&#x9879;&#x4E2D;&#x6DFB;&#x52A0;&#x5404;&#x79CD;&#x529F;&#x80FD;,</li>
+<li>&#x6700;&#x540E;&#x6211;&#x4EEC;&#x76D1;&#x542C;&#x9F20;&#x6807;&#x53F3;&#x952E;&#x6D88;&#x606F;,&#x5982;&#x679C;&#x662F;&#x9F20;&#x6807; &#x53F3;&#x952E;&#x88AB;&#x5355;&#x51FB;,</li>
+<li>&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x9700;&#x8981;&#x5224;&#x65AD;&#x4E0B;&#x9F20;&#x6807;&#x4F4D;&#x7F6E;&#x6765;&#x786E;&#x5B9A;&#x662F;&#x54EA;&#x4E2A;&#x5F39;&#x51FA;&#x83DC;&#x5355;&#x88AB;&#x5F39;&#x51FA;,</li>
+<li>&#x7136;&#x540E;&#x4F7F;&#x7528; Menu &#x7C7B;&#x7684; pop &#x65B9;&#x6CD5;&#x6765;&#x5F39;&#x51FA; &#x83DC;&#x5355;&#x3002;</li>
+</ul>
+<p>Menu &#x7C7B;&#x91CC;&#x9762;&#x6709;&#x4E00;&#x4E2A;post&#x65B9;&#x6CD5;,&#x5B83;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x53C2;&#x6570;,&#x5373; x &#x548C; y &#x5750;&#x6807;,&#x5B83;&#x4F1A;&#x5728;&#x76F8;&#x5E94;&#x7684;&#x4F4D;&#x7F6E;&#x5F39;&#x51FA;&#x83DC;&#x5355;&#x3002;</p>
+<blockquote>
+<blockquote>
+<p>&#x63D2;&#x5165;&#x5206;&#x5272;&#x7EBF;</p>
+</blockquote>
+</blockquote>
+<pre><code>.add_separator()
+</code></pre><blockquote>
+<blockquote>
+<p>&#x63D2;&#x5165;&#x5355;&#x9009;&#x83DC;&#x5355;&#x548C;&#x590D;&#x9009;&#x83DC;&#x5355;</p>
+</blockquote>
+</blockquote>
+<p>&#x5355;&#x9009;&#x83DC;&#x5355;:</p>
+<pre><code>.add_radiobutton() 
+</code></pre><p>&#x590D;&#x9009;&#x83DC;&#x5355;:</p>
+<pre><code>.add_checkbutton()
+</code></pre><p>&#x4F8B;&#x5B50;: &#x4E00;&#x4E2A;&#x83DC;&#x5355;&#x680F;</p>
+<pre><code class="lang-python">%%writefile src/menu.py
+
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> Frame,Label,Button,Menu
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span><span class="hljs-params">(Frame)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, master=None,)</span>:</span>
+        Frame.__init__(self, master)
+        <span class="hljs-comment">#&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x4F4D;&#x7F6E;</span>
+        self.pack()
+        self.createWidgets()
+        self.creatMenu()
+
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">creatMenu</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-comment">#&#x4E3B;&#x83DC;&#x5355;</span>
+        menubar = Menu(self)
+        <span class="hljs-comment">#&#x5B50;&#x83DC;&#x5355;</span>
+        menufile = Menu(menubar)
+        <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> [<span class="hljs-string">&quot;&#x65B0;&#x5EFA;&quot;</span>,<span class="hljs-string">&quot;&#x6253;&#x5F00;&quot;</span>,<span class="hljs-string">&quot;&#x4FDD;&#x5B58;&quot;</span>,<span class="hljs-string">&quot;&#x53E6;&#x5B58;&#x4E3A;&quot;</span>]:
+            menufile.add_radiobutton(label = item)
+        menuedit = Menu(menubar)
+        <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> [<span class="hljs-string">&quot;&#x590D;&#x5236;&quot;</span>,<span class="hljs-string">&quot;&#x9ECF;&#x8D34;&quot;</span>,<span class="hljs-string">&quot;&#x526A;&#x5207;&quot;</span>]:
+            menuedit.add_checkbutton(label = item)
+        <span class="hljs-comment">#&#x5B50;&#x83DC;&#x5355;&#x4E0E;&#x4E3B;&#x83DC;&#x5355;&#x5173;&#x8054;</span>
+        <span class="hljs-keyword">for</span> name,submenu <span class="hljs-keyword">in</span> zip([<span class="hljs-string">&quot;&#x6587;&#x4EF6;&quot;</span>,<span class="hljs-string">&quot;&#x7F16;&#x8F91;&quot;</span>],[menufile,menuedit]):
+            menubar.add_cascade(label=name,menu=submenu)
+        <span class="hljs-comment">#&#x6700;&#x5173;&#x952E;&#x7684;&#x4E00;&#x6B65;,&#x4E3B;&#x83DC;&#x5355;&#x4E0E;app&#x5173;&#x8054;</span>
+        self.master.config(menu=menubar)
+        <span class="hljs-comment">#&#x53F3;&#x952E;&#x83DC;&#x5355;</span>
+        menu = Menu(self.master)
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> (<span class="hljs-string">&apos;One&apos;</span>, <span class="hljs-string">&apos;Two&apos;</span>, <span class="hljs-string">&apos;Three&apos;</span>):
+            menu.add_command(label=i)
+        <span class="hljs-comment">#&#x63D2;&#x5165;&#x5206;&#x5272;&#x7EBF;</span>
+        menu.add_separator()
+
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> (<span class="hljs-string">&apos;1&apos;</span>, <span class="hljs-string">&apos;2&apos;</span>, <span class="hljs-string">&apos;3&apos;</span>):
+            menu.add_command(label=i)
+        <span class="hljs-comment">#&#x7ED1;&#x5B9A;&#x9F20;&#x6807;&#x53F3;&#x952E;&#x547C;&#x51FA;</span>
+        <span class="hljs-keyword">if</span> (self.master.tk.call(<span class="hljs-string">&apos;tk&apos;</span>, <span class="hljs-string">&apos;windowingsystem&apos;</span>)==<span class="hljs-string">&apos;aqua&apos;</span>):
+            self.master.bind(<span class="hljs-string">&apos;&lt;2&gt;&apos;</span>, <span class="hljs-keyword">lambda</span> e: menu.post(e.x_root, e.y_root))
+            self.master.bind(<span class="hljs-string">&apos;&lt;Control-1&gt;&apos;</span>, <span class="hljs-keyword">lambda</span> e: menu.post(e.x_root, e.y_root))
+        <span class="hljs-keyword">else</span>:
+            self.master.bind(<span class="hljs-string">&apos;&lt;3&gt;&apos;</span>, <span class="hljs-keyword">lambda</span> e: menu.post(e.x_root, e.y_root))
+
+
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createWidgets</span><span class="hljs-params">(self)</span>:</span>
+        self.helloLabel = Label(self, text=<span class="hljs-string">&apos;Hello, world!&apos;</span>)
+        self.helloLabel[<span class="hljs-string">&quot;background&quot;</span>] =<span class="hljs-string">&quot;green&quot;</span>
+        self.helloLabel.pack()
+        self.quitButton = Button(self, text=<span class="hljs-string">&apos;Quit&apos;</span>,fg=<span class="hljs-string">&quot;red&quot;</span>, command=self.quit)
+        self.quitButton.pack()
+
+
+
+
+<span class="hljs-keyword">if</span> __name__ ==<span class="hljs-string">&quot;__main__&quot;</span>:
+    app = Application()
+    <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x6807;&#x9898;:</span>
+    app.master.title(<span class="hljs-string">&apos;Hello World&apos;</span>)
+    <span class="hljs-comment">#app.master.geometry(&quot;600x400+100+400&quot;)#&#x957F;x&#x5BBD;+x+y</span>
+    <span class="hljs-comment"># &#x4E3B;&#x6D88;&#x606F;&#x5FAA;&#x73AF;:</span>
+    app.mainloop()
+</code></pre>
+<pre><code>Overwriting src/menu.py
+</code></pre><pre><code class="lang-python">%exec_py3 src/menu.py
+</code></pre>
+<blockquote>
+<p>&#x5BF9;&#x8BDD;&#x6846; Dialog &#x548C;&#x6D88;&#x606F;&#x76D2;&#x5B50; messagebox</p>
+<blockquote>
+<p>&#x5BF9;&#x8BDD;&#x6846;</p>
+</blockquote>
+</blockquote>
+<p>&#x5BF9;&#x8BDD;&#x6846;&#x5C31;&#x662F;&#x90A3;&#x4E2A;&#x70B9;&#x51FB;&#x4EE5;&#x540E;&#x8DF3;&#x51FA;&#x6765;&#x7684;&#x6846;&#x6846;,&#x8BA9;&#x4F60;&#x9009;&#x51E0;&#x4E2A;&#x9009;&#x9879;,&#x9009;&#x5B8C;&#x7ED9;&#x7A0B;&#x5E8F;&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;&#x503C;,&#x4E00;&#x822C;&#x7528;&#x6765;&#x505A;&#x95EE;&#x5377;&#x8C03;&#x67E5;&#x5440;&#x5565;&#x7684;,&#x6211;&#x4EEC;&#x62FF;&#x539F;&#x6765;&#x767B;&#x5F55;&#x754C;&#x9762;&#x505A;&#x505A;&#x4FEE;&#x6539;,&#x628A;&#x8D26;&#x53F7;&#x5BC6;&#x7801;&#x9519;&#x8BEF;&#x63D0;&#x793A;&#x5F04;&#x6210;&#x5BF9;&#x8BDD;&#x6846;</p>
+<pre><code class="lang-python">%%writefile src/dialog.py
+
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> Frame,Label,Button,Entry
+<span class="hljs-keyword">from</span> tkinter.dialog <span class="hljs-keyword">import</span> Dialog
+
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span><span class="hljs-params">(Frame)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, master=None)</span>:</span>
+        Frame.__init__(self, master)
+        self.pack()
+        self.createWidgets()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createWidgets</span><span class="hljs-params">(self)</span>:</span>
+        self.userLabel = Label(self, text=<span class="hljs-string">&apos;&#x7528;&#x6237;&#x540D;:&apos;</span>)
+        self.userLabel.grid(row = <span class="hljs-number">0</span>,column = <span class="hljs-number">0</span>,sticky=<span class="hljs-string">&quot;w&quot;</span>)
+        self.userEntry = Entry(self)
+        self.userEntry.grid(row = <span class="hljs-number">0</span>,column = <span class="hljs-number">1</span>,sticky=<span class="hljs-string">&quot;e&quot;</span>)
+        self.pwLabel = Label(self, text=<span class="hljs-string">&apos;&#x5BC6;&#x7801;:&apos;</span>)
+        self.pwLabel.grid(row = <span class="hljs-number">1</span>,column = <span class="hljs-number">0</span>,sticky=<span class="hljs-string">&quot;w&quot;</span>)
+        self.pwEntry = Entry(self)
+        self.pwEntry.grid(row = <span class="hljs-number">1</span>,column = <span class="hljs-number">1</span>,sticky=<span class="hljs-string">&quot;e&quot;</span>)
+
+        self.enterButton = Button(self,text = <span class="hljs-string">&quot;&#x767B;&#x5F55;&quot;</span>,command = self.reg)
+        self.enterButton.grid(row = <span class="hljs-number">2</span>,column = <span class="hljs-number">1</span>,sticky = <span class="hljs-string">&quot;e&quot;</span>)
+
+        self.logLabel = Label(self, text=<span class="hljs-string">&apos;&apos;</span>)
+        self.logLabel.grid(row = <span class="hljs-number">3</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reg</span><span class="hljs-params">(self)</span>:</span>
+        s1 = self.userEntry.get()
+        s2 = self.pwEntry.get()
+        <span class="hljs-keyword">if</span> s1 == <span class="hljs-string">&quot;www.google.com&quot;</span> <span class="hljs-keyword">and</span> s2 == <span class="hljs-string">&quot;www.bing.com&quot;</span>:
+            self.logLabel[<span class="hljs-string">&quot;text&quot;</span>]=<span class="hljs-string">&quot;&#x767B;&#x5F55;&#x6210;&#x529F;&quot;</span>
+        <span class="hljs-keyword">else</span>:
+            self.logLabel[<span class="hljs-string">&quot;text&quot;</span>]=<span class="hljs-string">&quot;&#x7528;&#x6237;&#x540D;&#x6216;&#x5BC6;&#x7801;&#x9519;&#x8BEF;&quot;</span>
+            self.userEntry.delete(<span class="hljs-number">0</span>,len(s1))
+            self.pwEntry.delete(<span class="hljs-number">0</span>,len(s1))
+            d = Dialog(<span class="hljs-keyword">None</span>,title = <span class="hljs-string">&quot;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&quot;</span>,text = <span class="hljs-string">&quot;&#x7528;&#x6237;&#x540D;&#x6216;&#x5BC6;&#x7801;&#x9519;&#x8BEF;&quot;</span>,
+                default=<span class="hljs-number">0</span>,strings = (<span class="hljs-string">&quot;&#x91CD;&#x6765;&quot;</span>,<span class="hljs-string">&quot;&#x653E;&#x5F03;&quot;</span>))
+
+<span class="hljs-keyword">if</span> __name__ ==<span class="hljs-string">&quot;__main__&quot;</span>:
+    app = Application()
+    <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x6807;&#x9898;:</span>
+    app.master.title(<span class="hljs-string">&apos;&#x767B;&#x5F55;&#x754C;&#x9762;&apos;</span>)
+    <span class="hljs-comment">#&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x4F4D;&#x7F6E;</span>
+    <span class="hljs-comment">#app.master.geometry(&quot;600x400+100+400&quot;)#&#x957F;x&#x5BBD;+x+y</span>
+    <span class="hljs-comment"># &#x4E3B;&#x6D88;&#x606F;&#x5FAA;&#x73AF;:</span>
+    app.mainloop()
+</code></pre>
+<pre><code>Overwriting src/dialog.py
+</code></pre><pre><code class="lang-python">%exec_py3 src/dialog.py
+</code></pre>
+<blockquote>
+<blockquote>
+<p>&#x6D88;&#x606F;&#x76D2;&#x5B50;</p>
+</blockquote>
+</blockquote>
+<p>&#x6D88;&#x606F;&#x76D2;&#x5B50;&#x5C31;&#x662F;&#x63D0;&#x793A;&#x9519;&#x8BEF;&#x7684;&#x90A3;&#x79CD;&#x5F39;&#x7A97;,&#x540C;&#x6837;&#x7684;&#x8FD8;&#x62FF;&#x90A3;&#x4E2A;&#x6539;</p>
+<pre><code class="lang-python">%%writefile src/messagebox.py
+
+
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> Frame,Label,Button,Entry
+<span class="hljs-keyword">from</span> tkinter.messagebox <span class="hljs-keyword">import</span> showinfo
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span><span class="hljs-params">(Frame)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, master=None)</span>:</span>
+        Frame.__init__(self, master)
+        self.pack()
+        self.createWidgets()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createWidgets</span><span class="hljs-params">(self)</span>:</span>
+        self.userLabel = Label(self, text=<span class="hljs-string">&apos;&#x7528;&#x6237;&#x540D;:&apos;</span>)
+        self.userLabel.grid(row = <span class="hljs-number">0</span>,column = <span class="hljs-number">0</span>,sticky=<span class="hljs-string">&quot;w&quot;</span>)
+        self.userEntry = Entry(self)
+        self.userEntry.grid(row = <span class="hljs-number">0</span>,column = <span class="hljs-number">1</span>,sticky=<span class="hljs-string">&quot;e&quot;</span>)
+        self.pwLabel = Label(self, text=<span class="hljs-string">&apos;&#x5BC6;&#x7801;:&apos;</span>)
+        self.pwLabel.grid(row = <span class="hljs-number">1</span>,column = <span class="hljs-number">0</span>,sticky=<span class="hljs-string">&quot;w&quot;</span>)
+        self.pwEntry = Entry(self)
+        self.pwEntry.grid(row = <span class="hljs-number">1</span>,column = <span class="hljs-number">1</span>,sticky=<span class="hljs-string">&quot;e&quot;</span>)
+
+        self.enterButton = Button(self,text = <span class="hljs-string">&quot;&#x767B;&#x5F55;&quot;</span>,command = self.reg)
+        self.enterButton.grid(row = <span class="hljs-number">2</span>,column = <span class="hljs-number">1</span>,sticky = <span class="hljs-string">&quot;e&quot;</span>)
+
+        self.logLabel = Label(self, text=<span class="hljs-string">&apos;&apos;</span>)
+        self.logLabel.grid(row = <span class="hljs-number">3</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reg</span><span class="hljs-params">(self)</span>:</span>
+        s1 = self.userEntry.get()
+        s2 = self.pwEntry.get()
+        <span class="hljs-keyword">if</span> s1 == <span class="hljs-string">&quot;www.google.com&quot;</span> <span class="hljs-keyword">and</span> s2 == <span class="hljs-string">&quot;www.bing.com&quot;</span>:
+            self.logLabel[<span class="hljs-string">&quot;text&quot;</span>]=<span class="hljs-string">&quot;&#x767B;&#x5F55;&#x6210;&#x529F;&quot;</span>
+        <span class="hljs-keyword">else</span>:
+            self.logLabel[<span class="hljs-string">&quot;text&quot;</span>]=<span class="hljs-string">&quot;&#x7528;&#x6237;&#x540D;&#x6216;&#x5BC6;&#x7801;&#x9519;&#x8BEF;&quot;</span>
+            self.userEntry.delete(<span class="hljs-number">0</span>,len(s1))
+            self.pwEntry.delete(<span class="hljs-number">0</span>,len(s1))
+            showinfo(title = <span class="hljs-string">&quot;&#x9519;&#x8BEF;&quot;</span>,message=<span class="hljs-string">&quot;&#x7528;&#x6237;&#x540D;&#x6216;&#x5BC6;&#x7801;&#x9519;&#x8BEF;&quot;</span>)
+
+<span class="hljs-keyword">if</span> __name__ ==<span class="hljs-string">&quot;__main__&quot;</span>:
+    app = Application()
+    <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x6807;&#x9898;:</span>
+    app.master.title(<span class="hljs-string">&apos;&#x767B;&#x5F55;&#x754C;&#x9762;&apos;</span>)
+    <span class="hljs-comment">#&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x4F4D;&#x7F6E;</span>
+    <span class="hljs-comment">#app.master.geometry(&quot;600x400+100+400&quot;)#&#x957F;x&#x5BBD;+x+y</span>
+    <span class="hljs-comment"># &#x4E3B;&#x6D88;&#x606F;&#x5FAA;&#x73AF;:</span>
+    app.mainloop()
+</code></pre>
+<pre><code>Overwriting src/messagebox.py
+</code></pre><pre><code class="lang-python">%exec_py3 src/messagebox.py
+</code></pre>
+<h2 id="&#x5927;&#x5C0F;&#x548C;&#x4F4D;&#x7F6E;"><a name="&#x5927;&#x5C0F;&#x548C;&#x4F4D;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#&#x5927;&#x5C0F;&#x548C;&#x4F4D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>3.4. &#x5927;&#x5C0F;&#x548C;&#x4F4D;&#x7F6E;</h2>
+<p>&#x5BF9;&#x4E8E;&#x7A97;&#x53E3;,&#x5927;&#x5C0F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;geometry&#x51FD;&#x6570;&#x6765;&#x63A7;&#x5236;</p>
+<pre><code>&apos;width x height + xoffset + yoffset&apos;
+</code></pre><h2 id="&#x63A7;&#x4EF6;&#x5E03;&#x5C40;"><a name="&#x63A7;&#x4EF6;&#x5E03;&#x5C40;" class="anchor-navigation-ex-anchor" href="#&#x63A7;&#x4EF6;&#x5E03;&#x5C40;"><i class="fa fa-link" aria-hidden="true"></i></a>3.5. &#x63A7;&#x4EF6;&#x5E03;&#x5C40;</h2>
+<p>&#x6709;3&#x79CD;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x4E3A;&#x63A7;&#x4EF6;&#x5E03;&#x5C40;:</p>
+<ul>
+<li>pack()</li>
+<li>grid()</li>
+<li>place()</li>
+</ul>
+<blockquote>
+<p>pack()
+pack()&#x9ED8;&#x8BA4;&#x4F1A;&#x4E00;&#x4E2A;&#x4E00;&#x4E2A;&#x4ECE;&#x4E0A;&#x5F80;&#x4E0B;&#x5806;&#x53E0;,&#x4F46;&#x540C;&#x6837;&#x4E5F;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x51E0;&#x4E2A;&#x53C2;&#x6570;</p>
+</blockquote>
+<ul>
+<li>side (left,top,right,bottom)</li>
+<li>fill ( X,Y,BOTH &#x548C; NONE)&#x6C34;&#x5E73;&#x65B9;&#x5411;&#x586B;&#x5145;,&#x7AD6;&#x76F4;&#x65B9;&#x5411;&#x586B;&#x5145;,&#x6C34;&#x5E73;&#x548C;&#x7AD6;&#x76F4;&#x65B9;&#x5411;&#x586B;&#x5145;&#x548C;&#x4E0D;&#x586B;&#x5145;&#x3002;</li>
+<li>expand &#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F; YES &#x548C; NO</li>
+<li>anchor (n, ne, e, se, s, sw, w, nw, or center)NESW &#x8868;&#x793A;&#x4E0A;&#x53F3;&#x4E0B;&#x5DE6;&#x4EE5;&#x53CA;&#x4ED6;&#x4EEC;&#x7684;&#x7EC4;&#x5408;&#x6216;&#x8005;&#x662F; CENTER(&#x8868;&#x793A;&#x4E2D; &#x95F4;)&#x3002;</li>
+<li>ipadx &#x8868;&#x793A;&#x7684;&#x662F;&#x5185;&#x8FB9;&#x8DDD;&#x7684; x &#x65B9;&#x5411;</li>
+<li>ipady &#x8868;&#x793A; &#x7684;&#x662F;&#x5185;&#x8FB9;&#x8DDD;&#x7684; y &#x65B9;&#x5411;</li>
+<li>padx &#x8868;&#x793A;&#x7684;&#x662F;&#x5916;&#x8FB9;&#x8DDD;&#x7684; x &#x65B9;&#x5411;</li>
+<li>pady &#x8868;&#x793A;&#x7684;&#x662F;&#x5916;&#x8FB9;&#x8DDD;&#x7684; y &#x65B9;&#x5411;&#x3002;</li>
+</ul>
+<pre><code class="lang-python">%%writefile src/pack.py
+
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> Frame,Label,Button
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span><span class="hljs-params">(Frame)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, master=None)</span>:</span>
+        Frame.__init__(self, master)
+        self.pack()
+        self.createWidgets()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createWidgets</span><span class="hljs-params">(self)</span>:</span>
+        self.LabelL = Label(self, text=<span class="hljs-string">&apos;&#x5DE6;&#x8FB9;&apos;</span>)
+        self.LabelL.pack(side=<span class="hljs-string">&quot;left&quot;</span>)
+        self.LabelR = Label(self, text=<span class="hljs-string">&apos;&#x53F3;&#x8FB9;&apos;</span>)
+        self.LabelR.pack(side=<span class="hljs-string">&quot;right&quot;</span>)
+        self.LabelT = Label(self, text=<span class="hljs-string">&apos;&#x9876;&apos;</span>)
+        self.LabelT.pack(side=<span class="hljs-string">&quot;top&quot;</span>)
+        self.LabelB = Label(self, text=<span class="hljs-string">&apos;&#x5E95;&apos;</span>)
+        self.LabelB.pack(side=<span class="hljs-string">&quot;bottom&quot;</span>)
+
+        self.LabelN = Label(self, text=<span class="hljs-string">&apos;N&apos;</span>)
+        self.LabelN.pack(anchor=<span class="hljs-string">&quot;n&quot;</span>)
+        self.LabelE = Label(self, text=<span class="hljs-string">&apos;E&apos;</span>)
+        self.LabelE.pack(anchor=<span class="hljs-string">&quot;e&quot;</span>)
+        self.LabelS = Label(self, text=<span class="hljs-string">&apos;S&apos;</span>)
+        self.LabelS.pack(anchor=<span class="hljs-string">&quot;s&quot;</span>)
+        self.LabelW= Label(self, text=<span class="hljs-string">&apos;W&apos;</span>)
+        self.LabelW.pack(anchor=<span class="hljs-string">&quot;w&quot;</span>)
+        self.LabelCENTER= Label(self, text=<span class="hljs-string">&apos;CENTER&apos;</span>)
+        self.LabelCENTER.pack(anchor=<span class="hljs-string">&quot;center&quot;</span>)
+
+
+        self.quitButton = Button(self, text=<span class="hljs-string">&apos;Quit&apos;</span>,background=<span class="hljs-string">&quot;red&quot;</span>, command=self.quit)
+        self.quitButton.pack(side=<span class="hljs-string">&quot;bottom&quot;</span>)
+
+<span class="hljs-keyword">if</span> __name__ ==<span class="hljs-string">&quot;__main__&quot;</span>:
+    app = Application()
+    <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x6807;&#x9898;:</span>
+    app.master.title(<span class="hljs-string">&apos;pack&#x5E03;&#x5C40;&#x6D4B;&#x8BD5;&apos;</span>)
+    <span class="hljs-comment">#&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x4F4D;&#x7F6E;</span>
+    <span class="hljs-comment">#app.master.geometry(&quot;600x400+100+400&quot;)#&#x957F;x&#x5BBD;+x+y</span>
+    <span class="hljs-comment"># &#x4E3B;&#x6D88;&#x606F;&#x5FAA;&#x73AF;:</span>
+    app.mainloop()
+</code></pre>
+<pre><code>Overwriting src/pack.py
+</code></pre><pre><code class="lang-python">%exec_py3 src/pack.py
+</code></pre>
+<blockquote>
+<p>grid() &#x6700;&#x5E38;&#x7528;&#x5E03;&#x5C40;</p>
+</blockquote>
+<p>grid()&#x91CC;&#x7684;&#x53C2;&#x6570;:</p>
+<ul>
+<li>row &#x8868;&#x793A;&#x884C;(&#x4ECE;0&#x5F00;&#x59CB;)</li>
+<li>column &#x8868;&#x793A;&#x5217;(&#x4ECE;0&#x5F00;&#x59CB;)</li>
+<li>sticky  (N,E,S,W) &#x8868; &#x793A;&#x4E0A;&#x53F3;&#x4E0B;&#x5DE6;,&#x5B83;&#x51B3;&#x5B9A;&#x4E86;&#x8FD9;&#x4E2A;&#x7EC4;&#x4EF6;&#x662F;&#x4ECE;&#x54EA;&#x4E2A;&#x65B9;&#x5411;&#x5F00;&#x59CB;&#x7684;</li>
+<li>ipadx,ipady,padx,pady,&#x5B83;&#x4EEC; &#x7684;&#x610F;&#x601D;&#x548C; pack &#x51FD;&#x6570;&#x662F;&#x4E00;&#x6837;&#x7684;,&#x9ED8;&#x8BA4;&#x8FB9;&#x8DDD;&#x662F; 0&#x3002;</li>
+<li>rowspan &#x8868;&#x793A;&#x8DE8;&#x8D8A;&#x7684;&#x884C;&#x6570; columnspan &#x8868;&#x793A;&#x8DE8;&#x8D8A;&#x7684;&#x5217;&#x6570;&#x3002;</li>
+</ul>
+<pre><code class="lang-python">%%writefile src/grid.py
+
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> Frame,Label,Button
+
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span><span class="hljs-params">(Frame)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, master=None)</span>:</span>
+        Frame.__init__(self, master)
+        self.pack()
+        self.createWidgets()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createWidgets</span><span class="hljs-params">(self)</span>:</span>
+        self.Label00 = Label(self, text=<span class="hljs-string">&apos;00&apos;</span>)
+        self.Label00.grid(row=<span class="hljs-number">0</span>,column=<span class="hljs-number">0</span>)
+        self.Label10 = Label(self, text=<span class="hljs-string">&apos;10&apos;</span>)
+        self.Label10.grid(row=<span class="hljs-number">1</span>,column=<span class="hljs-number">0</span>)
+        self.Label11 = Label(self, text=<span class="hljs-string">&apos;11&apos;</span>)
+        self.Label11.grid(row=<span class="hljs-number">1</span>,column=<span class="hljs-number">1</span>)
+        self.Label30 = Label(self, text=<span class="hljs-string">&apos;30&apos;</span>)
+        self.Label30.grid(row=<span class="hljs-number">3</span>,column=<span class="hljs-number">0</span>)
+
+
+        self.quitButton = Button(self, text=<span class="hljs-string">&apos;Quit&apos;</span>,background=<span class="hljs-string">&quot;red&quot;</span>, command=self.quit)
+        self.quitButton.grid(row=<span class="hljs-number">2</span>,column=<span class="hljs-number">2</span>)
+
+<span class="hljs-keyword">if</span> __name__ ==<span class="hljs-string">&quot;__main__&quot;</span>:
+    app = Application()
+    <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x6807;&#x9898;:</span>
+    app.master.title(<span class="hljs-string">&apos;pack&#x5E03;&#x5C40;&#x6D4B;&#x8BD5;&apos;</span>)
+    <span class="hljs-comment">#&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x4F4D;&#x7F6E;</span>
+    <span class="hljs-comment">#app.master.geometry(&quot;600x400+100+400&quot;)#&#x957F;x&#x5BBD;+x+y</span>
+    <span class="hljs-comment"># &#x4E3B;&#x6D88;&#x606F;&#x5FAA;&#x73AF;:</span>
+    app.mainloop()
+</code></pre>
+<pre><code>Overwriting src/grid.py
+</code></pre><pre><code class="lang-python">%exec_py3 src/grid.py
+</code></pre>
+<blockquote>
+<p>place() &#x6700;&#x597D;&#x4E0D;&#x8981;&#x7528;....&#x4E0D;&#x4F18;&#x96C5;</p>
+</blockquote>
+<h2 id="&#x4E8B;&#x4EF6;"><a name="&#x4E8B;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#&#x4E8B;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>3.6. &#x4E8B;&#x4EF6;</h2>
+<blockquote>
+<p>&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x548C;&#x89E3;&#x7ED1; bind() unbind()</p>
+<blockquote>
+<p>&#x7ED1;&#x5B9A;bind()</p>
+</blockquote>
+</blockquote>
+<p>bind &#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x89C4;&#x5219;: </p>
+<pre><code>&#x7A97;&#x4F53;&#x5BF9;&#x8C61;.bind(&#x4E8B;&#x4EF6;&#x7C7B;&#x578B;,&#x56DE;&#x8C03;&#x51FD;&#x6570;)
+</code></pre><p>&#x4E8B;&#x4EF6;&#x7C7B;&#x578B;:</p>
+<p>&#x4E8B;&#x4EF6;&#x7C7B;&#x578B;&#x662F;&#x4E00;&#x7EC4;&#x5B57;&#x7B26;&#x4E32;,&#x5B83;&#x91C7;&#x7528;&#x7684;&#x63CF;&#x8FF0;&#x65B9;&#x5F0F;&#x662F;&#x8FD9; &#x6837;&#x7684;:</p>
+<pre><code>&lt;MODIFIER-MODIFIER-TYPE-DETAIL&gt;
+</code></pre><ul>
+<li>MODIFIER &#x5373;&#x4FEE;&#x9970;&#x7B26;,&#x5B83;&#x7684;&#x5168;&#x90E8;&#x53D6;&#x503C;&#x5982;&#x4E0B;:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Mod1, M1, Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alt</td>
+<td>Mod2, M2, Option</td>
+</tr>
+<tr>
+<td>Shift</td>
+<td>Mod3, M3</td>
+</tr>
+<tr>
+<td>Lock</td>
+<td>Mod4, M4</td>
+</tr>
+<tr>
+<td>Extended</td>
+<td>Mod5, M5</td>
+</tr>
+<tr>
+<td>Button1, B1</td>
+<td>Meta, M</td>
+</tr>
+<tr>
+<td>Button2, B2</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>Button3, B3</td>
+<td>Triple</td>
+</tr>
+<tr>
+<td>Button4, B4</td>
+<td>Quadruple</td>
+</tr>
+<tr>
+<td>Button5, B5</td>
+<td>---</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>TYPE &#x8868;&#x793A;&#x7C7B;&#x578B;,&#x5B83;&#x7684;&#x5168;&#x90E8;&#x53D6;&#x503C;&#x5982;&#x4E0B;:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Activate</th>
+<th>Destroy</th>
+<th>Map</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ButtonPress, Button</td>
+<td>Enter</td>
+<td>MapRequest</td>
+</tr>
+<tr>
+<td>ButtonRelease</td>
+<td>Expose</td>
+<td>Motion</td>
+</tr>
+<tr>
+<td>Circulate</td>
+<td>FocusIn</td>
+<td>MouseWheel</td>
+</tr>
+<tr>
+<td>CirculateRequest</td>
+<td>FocusOut</td>
+<td>Property</td>
+</tr>
+<tr>
+<td>Colormap</td>
+<td>Gravity</td>
+<td>Reparent</td>
+</tr>
+<tr>
+<td>Configure</td>
+<td>KeyPress, Key</td>
+<td>ResizeRequest</td>
+</tr>
+<tr>
+<td>ConfigureRequest</td>
+<td>KeyRelease</td>
+<td>Unmap</td>
+</tr>
+<tr>
+<td>Create</td>
+<td>Leave</td>
+<td>Visibility</td>
+</tr>
+<tr>
+<td>Deactivate</td>
+<td>---</td>
+<td>---</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>DETAIL &#x8868;&#x793A;&#x7EC6;&#x8282;,&#x5176;&#x5B9E;&#x4E5F;&#x5C31;&#x662F;&#x5BF9;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x4E00;&#x4E9B;&#x8F85;&#x52A9;&#x8BF4;&#x660E;&#x3002;</li>
+</ul>
+<p>&#x5E38;&#x7528;&#x4E8B;&#x4EF6;&#x7C7B;&#x578B;:</p>
+<ul>
+<li><code>&lt;Button-1&gt;</code> &#x8868;&#x793A;&#x9F20;&#x6807;&#x5DE6;&#x952E;&#x5355;&#x51FB;,&#x5176;&#x4E2D;&#x7684; 1 &#x6362;&#x6210; 3 &#x8868;&#x793A;&#x53F3; &#x952E;&#x88AB;&#x5355;&#x51FB;,&#x4E3A; 2 &#x7684;&#x65F6;&#x5019;&#x8868;&#x793A;&#x9F20;&#x6807;&#x4E2D;&#x952E;</li>
+<li><code>&lt;KeyPress-A&gt;</code> &#x8868;&#x793A; A &#x952E;&#x88AB;&#x6309;&#x4E0B;,&#x5176;&#x4E2D;&#x7684; A &#x53EF;&#x4EE5;&#x6362;&#x6210;&#x5176;&#x4ED6;&#x7684;&#x952E;&#x4F4D;&#x3002;</li>
+<li><code>&lt;Control-V&gt;</code> &#x8868;&#x793A;&#x6309;&#x4E0B;&#x7684;&#x662F; Ctrl &#x548C; V &#x952E;,V &#x53EF;&#x4EE5;&#x6362;&#x6210;&#x5176;&#x4ED6; &#x952E;&#x4F4D;&#x3002;</li>
+<li><code>&lt;F1&gt;</code>&#x8868;&#x793A;&#x6309;&#x4E0B;&#x7684;&#x662F; F1 &#x952E;,&#x5BF9;&#x4E8E; Fn &#x7CFB;&#x5217;&#x7684;,&#x90FD;&#x53EF;&#x4EE5;&#x968F;&#x4FBF; &#x6362;&#x3002;</li>
+</ul>
+<p>&#x66F4;&#x52A0;&#x5177;&#x4F53;&#x7684;&#x53EF;&#x4EE5;&#x770B;<a href="http://www.tcl.tk/man/tcl8.5/TkCmd/bind.htm#M23" target="_blank">http://www.tcl.tk/man/tcl8.5/TkCmd/bind.htm#M23</a></p>
+<p>bind()&#x53EF;&#x4EE5;&#x7ED1;&#x5B9A;&#x6240;&#x6709;&#x7EE7;&#x627F;&#x81EA;Misc&#x7C7B;&#x7684;&#x7EC4;&#x4EF6;,&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5373;&#x4FBF;&#x662F;&#x6807;&#x7B7E;&#x4E5F;&#x53EF;&#x4EE5;&#x7ED1;&#x5B9A;&#x52A8;&#x4F5C;.</p>
+<p>bind()&#x6709;&#x4E24;&#x4E2A;&#x6269;&#x5C55;</p>
+<ul>
+<li><p>&#x7A97;&#x4F53;&#x5BF9;&#x8C61;.bind_all(&#x4E8B;&#x4EF6;&#x7C7B;&#x578B;,&#x56DE;&#x8C03;&#x51FD;&#x6570;)&#x5168;&#x7A0B;&#x5E8F;&#x7EA7;&#x522B;&#x7ED1;&#x5B9A;&#x4E8B;&#x4EF6;</p>
+</li>
+<li><p>&#x7A97;&#x4F53;&#x5BF9;&#x8C61;.bind_class(&#x7C7B;&#x540D;,&#x4E8B;&#x4EF6;&#x7C7B;&#x578B;,&#x56DE;&#x8C03;&#x51FD;&#x6570;)&#x7C7B;&#x7EA7;&#x522B;&#x7ED1;&#x5B9A;&#x4E8B;&#x4EF6;,&#x6BD4;&#x5982;&#x6240;&#x6709;&#x6807;&#x7B7E;&#x8FD9;&#x6837;</p>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>&#x89E3;&#x7ED1; unbind()</p>
+</blockquote>
+</blockquote>
+<p>&#x7A97;&#x4F53;&#x5BF9;&#x8C61;.unbind(&#x4E8B;&#x4EF6;&#x7C7B;&#x578B;)</p>
+<h2 id="ttk"><a name="ttk" class="anchor-navigation-ex-anchor" href="#ttk"><i class="fa fa-link" aria-hidden="true"></i></a>3.7. ttk</h2>
+<p>ttk&#x662F;tk&#x7684;&#x6269;&#x5C55;,&#x4E3B;&#x8981;&#x662F;&#x7F8E;&#x5316;&#x548C;&#x65B0;&#x589E;&#x4E86;&#x51E0;&#x4E2A;&#x63A7;&#x4EF6;</p>
+<p>&#x8FD8;&#x662F;&#x770B;&#x4F8B;&#x5B50;:</p>
+<pre><code class="lang-python">%%writefile src/ttk.py
+
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">from</span> tkinter.ttk <span class="hljs-keyword">import</span> *
+
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span><span class="hljs-params">(Frame)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, master=None)</span>:</span>
+        Frame.__init__(self, master)
+        <span class="hljs-comment">#&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x4F4D;&#x7F6E;</span>
+        self.master.geometry(<span class="hljs-string">&quot;600x400+100+400&quot;</span>)<span class="hljs-comment">#&#x957F;x&#x5BBD;+x+y</span>
+        self.pack()
+        self.createWidgets()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createWidgets</span><span class="hljs-params">(self)</span>:</span>
+        self.helloLabel = Label(self, text=<span class="hljs-string">&apos;Hello, world!&apos;</span>)
+
+        self.helloLabel.pack()
+        self.quitButton = Button(self, text=<span class="hljs-string">&apos;Quit&apos;</span>, command=self.quit)
+        self.quitButton.pack()
+
+<span class="hljs-keyword">if</span> __name__ ==<span class="hljs-string">&quot;__main__&quot;</span>:
+    app = Application()
+    <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x6807;&#x9898;:</span>
+    app.master.title(<span class="hljs-string">&apos;Hello World&apos;</span>)
+
+    app.master.geometry(<span class="hljs-string">&quot;600x400+100+400&quot;</span>)<span class="hljs-comment">#&#x957F;x&#x5BBD;+x+y</span>
+    <span class="hljs-comment"># &#x4E3B;&#x6D88;&#x606F;&#x5FAA;&#x73AF;:</span>
+    app.mainloop()
+</code></pre>
+<pre><code>Overwriting src/ttk.py
+</code></pre><pre><code class="lang-python">%exec_py3 src/ttk.py
+</code></pre>
+<h2 id="gui-&#x754C;&#x7684;-helloworld-&#x4E00;&#x4E2A;&#x8BB0;&#x4E8B;&#x672C;"><a name="gui-&#x754C;&#x7684;-helloworld-&#x4E00;&#x4E2A;&#x8BB0;&#x4E8B;&#x672C;" class="anchor-navigation-ex-anchor" href="#gui-&#x754C;&#x7684;-helloworld-&#x4E00;&#x4E2A;&#x8BB0;&#x4E8B;&#x672C;"><i class="fa fa-link" aria-hidden="true"></i></a>3.8. gui &#x754C;&#x7684; helloworld, &#x4E00;&#x4E2A;&#x8BB0;&#x4E8B;&#x672C;</h2>
+<pre><code class="lang-python">%%writefile src/editer.py
+
+<span class="hljs-keyword">import</span> os
+
+<span class="hljs-keyword">from</span> tkinter <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">from</span> tkinter.messagebox <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">from</span> tkinter.filedialog <span class="hljs-keyword">import</span> *
+
+
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span><span class="hljs-params">(Frame)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, master=None)</span>:</span>
+        Frame.__init__(self, master)
+        <span class="hljs-comment">#&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x4F4D;&#x7F6E;</span>
+        self.master.geometry(<span class="hljs-string">&quot;600x400+100+400&quot;</span>)<span class="hljs-comment">#&#x957F;x&#x5BBD;+x+y</span>
+        self.pack()
+        self.filename = <span class="hljs-string">&quot;&quot;</span>
+        self.creatMenu()
+        self.createWidgets()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">creatMenu</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-comment">#&#x4E3B;&#x83DC;&#x5355;</span>
+        menubar = Menu(self)
+        <span class="hljs-comment">#&#x5B50;&#x83DC;&#x5355;</span>
+        menufile = Menu(menubar)
+        menufile.add_command(label = <span class="hljs-string">&quot;&#x6253;&#x5F00;&quot;</span>,accelerator = <span class="hljs-string">&quot;Ctrl + O&quot;</span>,command = self.myopen)
+        menufile.add_command(label = <span class="hljs-string">&quot;&#x65B0;&#x5EFA;&quot;</span>,accelerator = <span class="hljs-string">&quot;Ctrl + N&quot;</span>,command = self.new)
+        menufile.add_command(label = <span class="hljs-string">&quot;&#x4FDD;&#x5B58;&quot;</span>,accelerator = <span class="hljs-string">&quot;Ctrl + S&quot;</span>,command = self.save)
+        menufile.add_command(label = <span class="hljs-string">&quot;&#x53E6;&#x5B58;&#x4E3A;&quot;</span>,accelerator = <span class="hljs-string">&quot;Ctrl + Shift + S&quot;</span>,command = self.saveas)
+
+        menuedit = Menu(menubar)
+        menuedit.add_command(label = <span class="hljs-string">&quot;&#x526A;&#x5207;&quot;</span>,accelerator = <span class="hljs-string">&quot;Ctrl + X&quot;</span>,command = self.cut)
+        menuedit.add_command(label = <span class="hljs-string">&quot;&#x590D;&#x5236;&quot;</span>,accelerator = <span class="hljs-string">&quot;Ctrl + C&quot;</span>,command = self.copy)
+        menuedit.add_command(label = <span class="hljs-string">&quot;&#x9ECF;&#x8D34;&quot;</span>,accelerator = <span class="hljs-string">&quot;Ctrl + V&quot;</span>,command = self.paste)
+        menuedit.add_separator()
+        menuedit.add_command(label = <span class="hljs-string">&quot;&#x5168;&#x9009;&quot;</span>,accelerator = <span class="hljs-string">&quot;Ctrl + A&quot;</span>,
+                             command = <span class="hljs-keyword">lambda</span> :self.textPad.tag_add(<span class="hljs-string">&apos;sel&apos;</span>,<span class="hljs-number">1.0</span>,<span class="hljs-string">&quot;end&quot;</span>))
+
+        menuaboutme = Menu(menubar)
+        menuaboutme.add_command(label = <span class="hljs-string">&quot;&#x4F5C;&#x8005;&quot;</span>,command = self.author)
+        menuaboutme.add_command(label = <span class="hljs-string">&quot;&#x7248;&#x6743;&quot;</span>,command = self.power)
+
+        <span class="hljs-comment">#&#x5B50;&#x83DC;&#x5355;&#x4E0E;&#x4E3B;&#x83DC;&#x5355;&#x5173;&#x8054;</span>
+        <span class="hljs-keyword">for</span> name,submenu <span class="hljs-keyword">in</span> zip([<span class="hljs-string">&quot;&#x6587;&#x4EF6;&quot;</span>,<span class="hljs-string">&quot;&#x7F16;&#x8F91;&quot;</span>,<span class="hljs-string">&quot;&#x5173;&#x4E8E;&quot;</span>],[menufile,menuedit,menuaboutme]):
+            menubar.add_cascade(label=name,menu=submenu)
+        <span class="hljs-comment">#&#x6700;&#x5173;&#x952E;&#x7684;&#x4E00;&#x6B65;,&#x4E3B;&#x83DC;&#x5355;&#x4E0E;app&#x5173;&#x8054;</span>
+        self.master.config(menu=menubar)
+        <span class="hljs-comment">#&#x53F3;&#x952E;&#x83DC;&#x5355;</span>
+        menu = Menu(self.master)
+        menu.add_command(label = <span class="hljs-string">&quot;&#x526A;&#x5207;&quot;</span>,command = self.cut)
+        menu.add_command(label = <span class="hljs-string">&quot;&#x590D;&#x5236;&quot;</span>,command = self.copy)
+        menu.add_command(label = <span class="hljs-string">&quot;&#x9ECF;&#x8D34;&quot;</span>,command = self.paste)
+        <span class="hljs-comment">#&#x7ED1;&#x5B9A;&#x9F20;&#x6807;&#x53F3;&#x952E;&#x547C;&#x51FA;</span>
+        <span class="hljs-keyword">if</span> (self.master.tk.call(<span class="hljs-string">&apos;tk&apos;</span>, <span class="hljs-string">&apos;windowingsystem&apos;</span>)==<span class="hljs-string">&apos;aqua&apos;</span>):
+            self.master.bind(<span class="hljs-string">&apos;&lt;2&gt;&apos;</span>, <span class="hljs-keyword">lambda</span> e: menu.post(e.x_root, e.y_root))
+            self.master.bind(<span class="hljs-string">&apos;&lt;Control-1&gt;&apos;</span>, <span class="hljs-keyword">lambda</span> e: menu.post(e.x_root, e.y_root))
+        <span class="hljs-keyword">else</span>:
+            self.master.bind(<span class="hljs-string">&apos;&lt;3&gt;&apos;</span>, <span class="hljs-keyword">lambda</span> e: menu.post(e.x_root, e.y_root))
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">createWidgets</span><span class="hljs-params">(self)</span>:</span>
+
+        self.shortcutbar = Frame(self,height = <span class="hljs-number">25</span>,bg = <span class="hljs-string">&quot;light sea green&quot;</span>)
+        self.shortcutbar.pack(expand = NO,fill =X)
+
+        self.lnlabel = Label(self,width = <span class="hljs-number">2</span>,bg = <span class="hljs-string">&quot;antique white&quot;</span>)
+        self.lnlabel.pack(side = LEFT,anchor = <span class="hljs-string">&apos;nw&apos;</span>,fill = Y)
+
+        self.textPad = Text(self,bg = <span class="hljs-string">&quot;antique white&quot;</span>)
+        self.textPad.pack()
+        self.textPad.insert(INSERT,<span class="hljs-string">&quot;Hello&quot;</span>)
+        self.textPad.insert(END,<span class="hljs-string">&quot;world&quot;</span>)
+
+
+        self.textPad.bind(<span class="hljs-string">&quot;&lt;Control-N&gt;&quot;</span>,self.new)
+        self.textPad.bind(<span class="hljs-string">&quot;&lt;Control-n&gt;&quot;</span>,self.new)
+        self.textPad.bind(<span class="hljs-string">&quot;&lt;Control-O&gt;&quot;</span>,self.myopen)
+        self.textPad.bind(<span class="hljs-string">&quot;&lt;Control-o&gt;&quot;</span>,self.myopen)
+        self.textPad.bind(<span class="hljs-string">&quot;&lt;Control-S&gt;&quot;</span>,self.save)
+        self.textPad.bind(<span class="hljs-string">&quot;&lt;Control-s&gt;&quot;</span>,self.save)
+        self.textPad.bind(<span class="hljs-string">&quot;&lt;Control-A&gt;&quot;</span>,<span class="hljs-keyword">lambda</span> : self.textPad.tag_add(<span class="hljs-string">&apos;sel&apos;</span>,<span class="hljs-number">1.0</span>,<span class="hljs-string">&quot;end&quot;</span>))
+        self.textPad.bind(<span class="hljs-string">&quot;&lt;Control-a&gt;&quot;</span>,<span class="hljs-keyword">lambda</span> : self.textPad.tag_add(<span class="hljs-string">&apos;sel&apos;</span>,<span class="hljs-number">1.0</span>,<span class="hljs-string">&quot;end&quot;</span>))
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span>  <span class="hljs-title">myopen</span><span class="hljs-params">(self)</span>:</span>
+        self.filename = askopenfilename(defaultextension = <span class="hljs-string">&quot;.txt&quot;</span>)
+        <span class="hljs-keyword">if</span> self.filename == <span class="hljs-string">&quot;&quot;</span>:
+            self.filename = <span class="hljs-keyword">None</span>
+        <span class="hljs-keyword">else</span>:
+            self.master.title(<span class="hljs-string">&quot;&#x4E00;&#x4E2A;&#x8BB0;&#x4E8B;&#x672C;&quot;</span>+os.path.basename(self.filename))
+            self.textPad.delete(<span class="hljs-string">&quot;1.0&quot;</span>,<span class="hljs-string">&quot;end&quot;</span>)
+            <span class="hljs-keyword">with</span> open(self.filename,<span class="hljs-string">&quot;r&quot;</span>) <span class="hljs-keyword">as</span> f:
+                s = f.read()
+                self.textPad.insert(<span class="hljs-string">&quot;1.0&quot;</span>,s)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">new</span><span class="hljs-params">(self)</span>:</span>
+        self.master.title(<span class="hljs-string">&quot;&#x672A;&#x547D;&#x540D;&#x6587;&#x4EF6;&quot;</span>)
+        self.filename = <span class="hljs-keyword">None</span>
+        self.textPad.delete(<span class="hljs-string">&quot;1.0&quot;</span>,END)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">save</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-keyword">with</span> open(self.filename,<span class="hljs-string">&quot;w&quot;</span>) <span class="hljs-keyword">as</span> f:
+                msg = self.textPad.get(<span class="hljs-number">1.0</span>,<span class="hljs-string">&quot;end&quot;</span>)
+                f.write(msg)
+        <span class="hljs-keyword">except</span> :
+            self.saveas()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">saveas</span><span class="hljs-params">(self)</span>:</span>
+        f = asksaveasfilename(initialfile = <span class="hljs-string">&quot;&#x672A;&#x547D;&#x540D;. txt&quot;</span>,defaultextension = <span class="hljs-string">&quot;.txt&quot;</span>)
+        self.filename = f
+        <span class="hljs-keyword">with</span> open(f,<span class="hljs-string">&quot;w&quot;</span>) <span class="hljs-keyword">as</span> fh:
+            msg = self.textPad.get(<span class="hljs-number">1.0</span>,<span class="hljs-string">&quot;end&quot;</span>)
+            fh.write(msg)
+        self.master.title(<span class="hljs-string">&quot;&#x4E00;&#x4E2A;&#x8BB0;&#x4E8B;&#x672C;&quot;</span>+os.path.basename(f))
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">cut</span><span class="hljs-params">(self)</span>:</span>
+        self.textPad.event_generate(<span class="hljs-string">&quot;&lt;&lt;Cut&gt;&gt;&quot;</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">copy</span><span class="hljs-params">(self)</span>:</span>
+        self.textPad.event_generate(<span class="hljs-string">&quot;&lt;&lt;Copy&gt;&gt;&quot;</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">paste</span><span class="hljs-params">(self)</span>:</span>
+        self.textPad.event_generate(<span class="hljs-string">&quot;&lt;&lt;Paste&gt;&gt;&quot;</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">author</span><span class="hljs-params">(self)</span>:</span>
+        self.shouinfo(<span class="hljs-string">&quot;&#x4F5C;&#x8005;&#x9EC4;&#x601D;&#x5586;&quot;</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">power</span><span class="hljs-params">(self)</span>:</span>
+        self.showinfo(<span class="hljs-string">&quot;&#x672C;&#x8F6F;&#x4EF6;&#x4F7F;&#x7528;BSD&#x8BB8;&#x53EF;&#x8BC1;&quot;</span>)
+
+
+<span class="hljs-keyword">if</span> __name__ ==<span class="hljs-string">&quot;__main__&quot;</span>:
+    app = Application()
+    <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x6807;&#x9898;:</span>
+    app.master.title(<span class="hljs-string">&apos;&#x4E00;&#x4E2A;&#x8BB0;&#x4E8B;&#x672C;&apos;</span>)
+
+    <span class="hljs-comment">#app.master.geometry(&quot;300x300+100+100&quot;)#&#x957F;x&#x5BBD;+x+y</span>
+    <span class="hljs-comment"># &#x4E3B;&#x6D88;&#x606F;&#x5FAA;&#x73AF;:</span>
+    app.mainloop()
+</code></pre>
+<pre><code>Overwriting src/editer.py
+</code></pre><pre><code class="lang-python">%exec_py3 src/editer.py
+</code></pre>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2017-07-01 21:31:57
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="使用python编写命令行工具.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 使用python编写命令行工具">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"GUI","level":"1.17.2","depth":2,"previous":{"title":"使用python编写命令行工具","level":"1.17.1","depth":2,"path":"人机交互/使用python编写命令行工具.md","ref":"人机交互/使用python编写命令行工具.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","katex","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/hsz1273327"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","wechatText":"微信打赏"},"sitemap-general":{"prefix":"http://gitbook.zhangjikai.com"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":true},"mode":"float","pageTop":{"showLevelIcon":false,"mode":"float","pageTop":{"showLevelIcon":false,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"},"level1Icon":"","showLevel":true,"level2Icon":"","level3Icon":"","associatedWithSummary":true,"float":{"showLevelIcon":true,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"}},"showLevel":true},"github-buttons":{"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍python3.5+的语法与编程惯用法"},"file":{"path":"人机交互/GUI.md","mtime":"2017-07-01T13:31:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-01T13:50:14.047Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

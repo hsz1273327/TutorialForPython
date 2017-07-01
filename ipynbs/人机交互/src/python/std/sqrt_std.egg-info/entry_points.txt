@@ -1,0 +1,3 @@
+[console_scripts]
+sqrt_std = lib.sqrt_std:main
+

@@ -75,4 +75,7 @@
 <url> <loc>http://gitbook.zhangjikai.com/国际化工具/货币处理模块.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://gitbook.zhangjikai.com/国际化工具/字符编码判断.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://gitbook.zhangjikai.com/国际化工具/国际化文本翻译.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://gitbook.zhangjikai.com/人机交互/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://gitbook.zhangjikai.com/人机交互/使用python编写命令行工具.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://gitbook.zhangjikai.com/人机交互/GUI.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 </urlset>
