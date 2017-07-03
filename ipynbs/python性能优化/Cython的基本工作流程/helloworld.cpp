@@ -2,7 +2,9 @@
 
 /* BEGIN: Cython Metadata
 {
-    "distutils": {},
+    "distutils": {
+        "language": "c++"
+    },
     "module_name": "helloworld"
 }
 END: Cython Metadata */
@@ -379,19 +381,33 @@ END: Cython Metadata */
 #endif
 #define __Pyx_void_to_None(void_result) ((void)(void_result), Py_INCREF(Py_None), Py_None)
 
+#ifndef __cplusplus
+  #error "Cython files generated with the C++ option must be compiled with a C++ compiler."
+#endif
 #ifndef CYTHON_INLINE
   #if defined(__clang__)
     #define CYTHON_INLINE __inline__ __attribute__ ((__unused__))
-  #elif defined(__GNUC__)
-    #define CYTHON_INLINE __inline__
-  #elif defined(_MSC_VER)
-    #define CYTHON_INLINE __inline
-  #elif defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
-    #define CYTHON_INLINE inline
   #else
-    #define CYTHON_INLINE
+    #define CYTHON_INLINE inline
   #endif
 #endif
+template<typename T>
+void __Pyx_call_destructor(T& x) {
+    x.~T();
+}
+template<typename T>
+class __Pyx_FakeReference {
+  public:
+    __Pyx_FakeReference() : ptr(NULL) { }
+    __Pyx_FakeReference(const T& ref) : ptr(const_cast<T*>(&ref)) { }
+    T *operator->() { return ptr; }
+    T *operator&() { return ptr; }
+    operator T&() { return *ptr; }
+    template<typename U> bool operator ==(U other) { return *ptr == other; }
+    template<typename U> bool operator !=(U other) { return *ptr != other; }
+  private:
+    T *ptr;
+};
 
 #if defined(WIN32) || defined(MS_WINDOWS)
   #define _USE_MATH_DEFINES
@@ -758,7 +774,7 @@ static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_print[] = "print";
 static const char __pyx_k_helloworld[] = "helloworld";
 static const char __pyx_k_Hello_World[] = "Hello World";
-static const char __pyx_k_C_Users_87_Documents_GitHub_my_T[] = "C:\\Users\\87\\Documents\\GitHub\\my\\TutorialForPython\\ipynbs\\\344\275\277\347\224\250Cython\344\274\230\345\214\226python\\Cython\347\232\204\345\237\272\346\234\254\345\267\245\344\275\234\346\265\201\347\250\213\\helloworld.pyx";
+static const char __pyx_k_C_Users_87_Documents_GitHub_my_T[] = "C:\\Users\\87\\Documents\\GitHub\\my\\TutorialForPython\\ipynbs\\python\346\200\247\350\203\275\344\274\230\345\214\226\\Cython\347\232\204\345\237\272\346\234\254\345\267\245\344\275\234\346\265\201\347\250\213\\helloworld.pyx";
 static PyObject *__pyx_kp_s_C_Users_87_Documents_GitHub_my_T;
 static PyObject *__pyx_kp_s_Hello_World;
 static PyObject *__pyx_n_s_end;
