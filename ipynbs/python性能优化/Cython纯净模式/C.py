@@ -5,6 +5,7 @@ if cython.compiled:
     print("Yep, I'm compiled.")
 else:
     print("Just a lowly interpreted script.")
+    from math import sin
     
 @cython.boundscheck(False)
 @cython.ccall
@@ -19,6 +20,11 @@ def myfunction(x, y=2):
 @cython.locals(a = cython.double)
 def _helper(a):
     return a + 1
+
+@cython.returns(cython.double)
+@cython.locals(x=cython.double)
+def echo_sin(x):
+    return sin(x)
 
 @cython.cclass
 class A:

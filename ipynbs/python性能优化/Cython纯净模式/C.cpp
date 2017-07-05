@@ -5,7 +5,7 @@
     "distutils": {
         "language": "c++"
     },
-    "module_name": "A"
+    "module_name": "C"
 }
 END: Cython Metadata */
 
@@ -450,8 +450,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__A
-#define __PYX_HAVE_API__A
+#define __PYX_HAVE__C
+#define __PYX_HAVE_API__C
 #include "math.h"
 #ifdef _OPENMP
 #include <omp.h>
@@ -648,38 +648,38 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "A.py",
-  "A.pxd",
+  "C.py",
   "stringsource",
+  "C.pxd",
 };
 
 /*--- Type declarations ---*/
-struct __pyx_obj_1A_A;
+struct __pyx_obj_1C_A;
 struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_double____double___to_py;
-struct __pyx_opt_args_1A_myfunction;
+struct __pyx_opt_args_1C_myfunction;
 
-/* "A.pxd":5
- *     cpdef double sin(double x)
- * 
- * cpdef int myfunction(int x, int y=*)             # <<<<<<<<<<<<<<
- * 
- * cdef double _helper(double a)
+/* "C.py":14
+ * @cython.returns(cython.int)
+ * @cython.locals(x=cython.int, y=cython.int,a = cython.int)
+ * def myfunction(x, y=2):             # <<<<<<<<<<<<<<
+ *     a = x-y
+ *     return a + x * y
  */
-struct __pyx_opt_args_1A_myfunction {
+struct __pyx_opt_args_1C_myfunction {
   int __pyx_n;
   int y;
 };
 
-/* "A.pxd":9
- * cdef double _helper(double a)
+/* "C.py":30
  * 
- * cdef class A:             # <<<<<<<<<<<<<<
- *     cdef public int a,b
- *     cpdef foo(self, double x)
+ * @cython.cclass
+ * class A:             # <<<<<<<<<<<<<<
+ *     cython.declare(a=cython.int, b=cython.int)
+ *     def __init__(self, b=0):
  */
-struct __pyx_obj_1A_A {
+struct __pyx_obj_1C_A {
   PyObject_HEAD
-  struct __pyx_vtabstruct_1A_A *__pyx_vtab;
+  struct __pyx_vtabstruct_1C_A *__pyx_vtab;
   int a;
   int b;
 };
@@ -699,18 +699,18 @@ struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_double____double___to_py {
 
 
 
-/* "A.py":21
- *     return a + 1
+/* "C.py":30
  * 
+ * @cython.cclass
  * class A:             # <<<<<<<<<<<<<<
+ *     cython.declare(a=cython.int, b=cython.int)
  *     def __init__(self, b=0):
- *         self.a = 3
  */
 
-struct __pyx_vtabstruct_1A_A {
-  PyObject *(*foo)(struct __pyx_obj_1A_A *, double, int __pyx_skip_dispatch);
+struct __pyx_vtabstruct_1C_A {
+  PyObject *(*foo)(struct __pyx_obj_1C_A *, double, int __pyx_skip_dispatch);
 };
-static struct __pyx_vtabstruct_1A_A *__pyx_vtabptr_1A_A;
+static struct __pyx_vtabstruct_1C_A *__pyx_vtabptr_1C_A;
 
 /* --- Runtime support code (head) --- */
 /* Refnanny.proto */
@@ -794,35 +794,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject
 
 /* GetBuiltinName.proto */
 static PyObject *__Pyx_GetBuiltinName(PyObject *name);
-
-/* PyThreadStateGet.proto */
-#if CYTHON_FAST_THREAD_STATE
-#define __Pyx_PyThreadState_declare  PyThreadState *__pyx_tstate;
-#define __Pyx_PyThreadState_assign  __pyx_tstate = PyThreadState_GET();
-#else
-#define __Pyx_PyThreadState_declare
-#define __Pyx_PyThreadState_assign
-#endif
-
-/* PyErrFetchRestore.proto */
-#if CYTHON_FAST_THREAD_STATE
-#define __Pyx_ErrRestoreWithState(type, value, tb)  __Pyx_ErrRestoreInState(PyThreadState_GET(), type, value, tb)
-#define __Pyx_ErrFetchWithState(type, value, tb)    __Pyx_ErrFetchInState(PyThreadState_GET(), type, value, tb)
-#define __Pyx_ErrRestore(type, value, tb)  __Pyx_ErrRestoreInState(__pyx_tstate, type, value, tb)
-#define __Pyx_ErrFetch(type, value, tb)    __Pyx_ErrFetchInState(__pyx_tstate, type, value, tb)
-static CYTHON_INLINE void __Pyx_ErrRestoreInState(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb);
-static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb);
-#else
-#define __Pyx_ErrRestoreWithState(type, value, tb)  PyErr_Restore(type, value, tb)
-#define __Pyx_ErrFetchWithState(type, value, tb)  PyErr_Fetch(type, value, tb)
-#define __Pyx_ErrRestore(type, value, tb)  PyErr_Restore(type, value, tb)
-#define __Pyx_ErrFetch(type, value, tb)  PyErr_Fetch(type, value, tb)
-#endif
-
-/* WriteUnraisableException.proto */
-static void __Pyx_WriteUnraisable(const char *name, int clineno,
-                                  int lineno, const char *filename,
-                                  int full_traceback, int nogil);
 
 /* RaiseDoubleKeywords.proto */
 static void __Pyx_RaiseDoubleKeywordsError(const char* func_name, PyObject* kw_name);
@@ -972,28 +943,26 @@ static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *);
 /* CheckBinaryVersion.proto */
 static int __Pyx_check_binary_version(void);
 
-/* FunctionExport.proto */
-static int __Pyx_ExportFunction(const char *name, void (*f)(void), const char *sig);
-
 /* InitStrings.proto */
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
-static PyObject *__pyx_f_1A_1A_foo(CYTHON_UNUSED struct __pyx_obj_1A_A *__pyx_v_self, double __pyx_v_x, int __pyx_skip_dispatch); /* proto*/
+static PyObject *__pyx_f_1C_1A_foo(CYTHON_UNUSED struct __pyx_obj_1C_A *__pyx_v_self, double __pyx_v_x, int __pyx_skip_dispatch); /* proto*/
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'A' */
-static PyTypeObject *__pyx_ptype_1A_A = 0;
+/* Module declarations from 'C' */
+static PyTypeObject *__pyx_ptype_1C_A = 0;
 static PyTypeObject *__pyx_ptype___pyx_scope_struct____Pyx_CFunc_double____double___to_py = 0;
-static int __pyx_f_1A_myfunction(int, int __pyx_skip_dispatch, struct __pyx_opt_args_1A_myfunction *__pyx_optional_args); /*proto*/
-static double __pyx_f_1A__helper(double); /*proto*/
+static int __pyx_f_1C_myfunction(int, int __pyx_skip_dispatch, struct __pyx_opt_args_1C_myfunction *__pyx_optional_args); /*proto*/
+static double __pyx_f_1C__helper(double); /*proto*/
 static PyObject *__Pyx_CFunc_double____double___to_py(double (*)(double)); /*proto*/
-#define __Pyx_MODULE_NAME "A"
-int __pyx_module_is_main_A = 0;
+#define __Pyx_MODULE_NAME "C"
+int __pyx_module_is_main_C = 0;
 
-/* Implementation of 'A' */
+/* Implementation of 'C' */
 static PyObject *__pyx_builtin_print;
-static const char __pyx_k_A[] = "A";
+static const char __pyx_k_C[] = "C";
+static const char __pyx_k_a[] = "a";
 static const char __pyx_k_b[] = "b";
 static const char __pyx_k_x[] = "x";
 static const char __pyx_k_y[] = "y";
@@ -1015,13 +984,14 @@ static const char __pyx_k_stringsource[] = "stringsource";
 static const char __pyx_k_Yep_I_m_compiled[] = "Yep, I'm compiled.";
 static const char __pyx_k_Pyx_CFunc_double____double___t[] = "__Pyx_CFunc_double____double___to_py.<locals>.wrap";
 static const char __pyx_k_Just_a_lowly_interpreted_script[] = "Just a lowly interpreted script.";
-static const char __pyx_k_C_Users_87_Documents_GitHub_my_T[] = "C:\\Users\\87\\Documents\\GitHub\\my\\TutorialForPython\\ipynbs\\python\346\200\247\350\203\275\344\274\230\345\214\226\\Cython\347\272\257\345\207\200\346\250\241\345\274\217\\A.py";
-static PyObject *__pyx_n_s_A;
+static const char __pyx_k_C_Users_87_Documents_GitHub_my_T[] = "C:\\Users\\87\\Documents\\GitHub\\my\\TutorialForPython\\ipynbs\\python\346\200\247\350\203\275\344\274\230\345\214\226\\Cython\347\272\257\345\207\200\346\250\241\345\274\217\\C.py";
 static PyObject *__pyx_n_s_A_foo;
+static PyObject *__pyx_n_s_C;
 static PyObject *__pyx_kp_s_C_Users_87_Documents_GitHub_my_T;
 static PyObject *__pyx_kp_u_Just_a_lowly_interpreted_script;
 static PyObject *__pyx_n_s_Pyx_CFunc_double____double___t;
 static PyObject *__pyx_kp_u_Yep_I_m_compiled;
+static PyObject *__pyx_n_s_a;
 static PyObject *__pyx_n_s_b;
 static PyObject *__pyx_n_s_cfunc_to_py;
 static PyObject *__pyx_n_s_echo_sin;
@@ -1039,16 +1009,12 @@ static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_wrap;
 static PyObject *__pyx_n_s_x;
 static PyObject *__pyx_n_s_y;
-static PyObject *__pyx_pf_1A_myfunction(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_x, int __pyx_v_y); /* proto */
-static PyObject *__pyx_pf_1A_2echo_sin(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_x); /* proto */
-static int __pyx_pf_1A_1A___init__(struct __pyx_obj_1A_A *__pyx_v_self, PyObject *__pyx_v_b); /* proto */
-static PyObject *__pyx_pf_1A_1A_2foo(struct __pyx_obj_1A_A *__pyx_v_self, double __pyx_v_x); /* proto */
-static PyObject *__pyx_pf_1A_1A_1a___get__(struct __pyx_obj_1A_A *__pyx_v_self); /* proto */
-static int __pyx_pf_1A_1A_1a_2__set__(struct __pyx_obj_1A_A *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static PyObject *__pyx_pf_1A_1A_1b___get__(struct __pyx_obj_1A_A *__pyx_v_self); /* proto */
-static int __pyx_pf_1A_1A_1b_2__set__(struct __pyx_obj_1A_A *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static PyObject *__pyx_pf_1C_myfunction(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_x, int __pyx_v_y); /* proto */
+static PyObject *__pyx_pf_1C_2echo_sin(CYTHON_UNUSED PyObject *__pyx_self, double __pyx_v_x); /* proto */
+static int __pyx_pf_1C_1A___init__(struct __pyx_obj_1C_A *__pyx_v_self, PyObject *__pyx_v_b); /* proto */
+static PyObject *__pyx_pf_1C_1A_2foo(struct __pyx_obj_1C_A *__pyx_v_self, double __pyx_v_x); /* proto */
 static PyObject *__pyx_pf_11cfunc_dot_to_py_36__Pyx_CFunc_double____double___to_py_wrap(PyObject *__pyx_self, double __pyx_v_x); /* proto */
-static PyObject *__pyx_tp_new_1A_A(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_1C_A(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new___pyx_scope_struct____Pyx_CFunc_double____double___to_py(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_int_0;
 static PyObject *__pyx_tuple_;
@@ -1062,23 +1028,20 @@ static PyObject *__pyx_codeobj__6;
 static PyObject *__pyx_codeobj__8;
 static PyObject *__pyx_codeobj__10;
 
-/* "A.py":11
- * 
- * 
+/* "C.py":14
+ * @cython.returns(cython.int)
+ * @cython.locals(x=cython.int, y=cython.int,a = cython.int)
  * def myfunction(x, y=2):             # <<<<<<<<<<<<<<
  *     a = x-y
  *     return a + x * y
  */
 
-static PyObject *__pyx_pw_1A_1myfunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_f_1A_myfunction(int __pyx_v_x, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_1A_myfunction *__pyx_optional_args) {
+static PyObject *__pyx_pw_1C_1myfunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_f_1C_myfunction(int __pyx_v_x, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_1C_myfunction *__pyx_optional_args) {
   int __pyx_v_y = ((int)2);
-  PyObject *__pyx_v_a = NULL;
+  int __pyx_v_a;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  int __pyx_t_3;
   __Pyx_RefNannySetupContext("myfunction", 0);
   if (__pyx_optional_args) {
     if (__pyx_optional_args->__pyx_n > 0) {
@@ -1086,59 +1049,43 @@ static int __pyx_f_1A_myfunction(int __pyx_v_x, CYTHON_UNUSED int __pyx_skip_dis
     }
   }
 
-  /* "A.py":12
- * 
+  /* "C.py":15
+ * @cython.locals(x=cython.int, y=cython.int,a = cython.int)
  * def myfunction(x, y=2):
  *     a = x-y             # <<<<<<<<<<<<<<
  *     return a + x * y
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_x - __pyx_v_y)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_a = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __pyx_v_a = (__pyx_v_x - __pyx_v_y);
 
-  /* "A.py":13
+  /* "C.py":16
  * def myfunction(x, y=2):
  *     a = x-y
  *     return a + x * y             # <<<<<<<<<<<<<<
  * 
- * def echo_sin(x):
+ * @cython.cfunc
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_x * __pyx_v_y)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyNumber_Add(__pyx_v_a, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 13, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_r = __pyx_t_3;
+  __pyx_r = (__pyx_v_a + (__pyx_v_x * __pyx_v_y));
   goto __pyx_L0;
 
-  /* "A.py":11
- * 
- * 
+  /* "C.py":14
+ * @cython.returns(cython.int)
+ * @cython.locals(x=cython.int, y=cython.int,a = cython.int)
  * def myfunction(x, y=2):             # <<<<<<<<<<<<<<
  *     a = x-y
  *     return a + x * y
  */
 
   /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_WriteUnraisable("A.myfunction", __pyx_clineno, __pyx_lineno, __pyx_filename, 0, 0);
-  __pyx_r = 0;
   __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_a);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_1A_1myfunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_1A_1myfunction = {"myfunction", (PyCFunction)__pyx_pw_1A_1myfunction, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_1A_1myfunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_1C_1myfunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_1C_1myfunction = {"myfunction", (PyCFunction)__pyx_pw_1C_1myfunction, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_1C_1myfunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_v_x;
   int __pyx_v_y;
   PyObject *__pyx_r = 0;
@@ -1168,7 +1115,7 @@ static PyObject *__pyx_pw_1A_1myfunction(PyObject *__pyx_self, PyObject *__pyx_a
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "myfunction") < 0)) __PYX_ERR(0, 11, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "myfunction") < 0)) __PYX_ERR(0, 14, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -1178,40 +1125,40 @@ static PyObject *__pyx_pw_1A_1myfunction(PyObject *__pyx_self, PyObject *__pyx_a
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_x = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_x == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_x == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 14, __pyx_L3_error)
     if (values[1]) {
-      __pyx_v_y = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_y == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L3_error)
+      __pyx_v_y = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_y == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 14, __pyx_L3_error)
     } else {
       __pyx_v_y = ((int)2);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("myfunction", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 11, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("myfunction", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 14, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("A.myfunction", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("C.myfunction", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_1A_myfunction(__pyx_self, __pyx_v_x, __pyx_v_y);
+  __pyx_r = __pyx_pf_1C_myfunction(__pyx_self, __pyx_v_x, __pyx_v_y);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_1A_myfunction(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_x, int __pyx_v_y) {
+static PyObject *__pyx_pf_1C_myfunction(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_x, int __pyx_v_y) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  struct __pyx_opt_args_1A_myfunction __pyx_t_2;
+  struct __pyx_opt_args_1C_myfunction __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("myfunction", 0);
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.y = __pyx_v_y;
-  __pyx_t_1 = __pyx_f_1A_myfunction(__pyx_v_x, 0, &__pyx_t_2); 
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_1C_myfunction(__pyx_v_x, 0, &__pyx_t_2); 
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
@@ -1220,7 +1167,7 @@ static PyObject *__pyx_pf_1A_myfunction(CYTHON_UNUSED PyObject *__pyx_self, int 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("A.myfunction", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("C.myfunction", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -1228,53 +1175,98 @@ static PyObject *__pyx_pf_1A_myfunction(CYTHON_UNUSED PyObject *__pyx_self, int 
   return __pyx_r;
 }
 
-/* "A.py":15
- *     return a + x * y
+/* "C.py":21
+ * @cython.returns(cython.double)
+ * @cython.locals(a = cython.double)
+ * def _helper(a):             # <<<<<<<<<<<<<<
+ *     return a + 1
  * 
+ */
+
+static double __pyx_f_1C__helper(double __pyx_v_a) {
+  double __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("_helper", 0);
+
+  /* "C.py":22
+ * @cython.locals(a = cython.double)
+ * def _helper(a):
+ *     return a + 1             # <<<<<<<<<<<<<<
+ * 
+ * @cython.returns(cython.double)
+ */
+  __pyx_r = (__pyx_v_a + 1.0);
+  goto __pyx_L0;
+
+  /* "C.py":21
+ * @cython.returns(cython.double)
+ * @cython.locals(a = cython.double)
+ * def _helper(a):             # <<<<<<<<<<<<<<
+ *     return a + 1
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "C.py":26
+ * @cython.returns(cython.double)
+ * @cython.locals(x=cython.double)
  * def echo_sin(x):             # <<<<<<<<<<<<<<
  *     return sin(x)
  * 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_1A_3echo_sin(PyObject *__pyx_self, PyObject *__pyx_v_x); /*proto*/
-static PyMethodDef __pyx_mdef_1A_3echo_sin = {"echo_sin", (PyCFunction)__pyx_pw_1A_3echo_sin, METH_O, 0};
-static PyObject *__pyx_pw_1A_3echo_sin(PyObject *__pyx_self, PyObject *__pyx_v_x) {
+static PyObject *__pyx_pw_1C_3echo_sin(PyObject *__pyx_self, PyObject *__pyx_arg_x); /*proto*/
+static PyMethodDef __pyx_mdef_1C_3echo_sin = {"echo_sin", (PyCFunction)__pyx_pw_1C_3echo_sin, METH_O, 0};
+static PyObject *__pyx_pw_1C_3echo_sin(PyObject *__pyx_self, PyObject *__pyx_arg_x) {
+  double __pyx_v_x;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("echo_sin (wrapper)", 0);
-  __pyx_r = __pyx_pf_1A_2echo_sin(__pyx_self, ((PyObject *)__pyx_v_x));
+  assert(__pyx_arg_x); {
+    __pyx_v_x = __pyx_PyFloat_AsDouble(__pyx_arg_x); if (unlikely((__pyx_v_x == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 26, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("C.echo_sin", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_1C_2echo_sin(__pyx_self, ((double)__pyx_v_x));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_1A_2echo_sin(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_x) {
+static PyObject *__pyx_pf_1C_2echo_sin(CYTHON_UNUSED PyObject *__pyx_self, double __pyx_v_x) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  double __pyx_t_1;
-  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("echo_sin", 0);
 
-  /* "A.py":16
- * 
+  /* "C.py":27
+ * @cython.locals(x=cython.double)
  * def echo_sin(x):
  *     return sin(x)             # <<<<<<<<<<<<<<
  * 
- * def _helper(a):
+ * @cython.cclass
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_PyFloat_AsDouble(__pyx_v_x); if (unlikely((__pyx_t_1 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 16, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(sin(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_r = __pyx_t_2;
-  __pyx_t_2 = 0;
+  __pyx_t_1 = PyFloat_FromDouble(sin(__pyx_v_x)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "A.py":15
- *     return a + x * y
- * 
+  /* "C.py":26
+ * @cython.returns(cython.double)
+ * @cython.locals(x=cython.double)
  * def echo_sin(x):             # <<<<<<<<<<<<<<
  *     return sin(x)
  * 
@@ -1282,8 +1274,8 @@ static PyObject *__pyx_pf_1A_2echo_sin(CYTHON_UNUSED PyObject *__pyx_self, PyObj
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("A.echo_sin", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("C.echo_sin", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -1291,54 +1283,17 @@ static PyObject *__pyx_pf_1A_2echo_sin(CYTHON_UNUSED PyObject *__pyx_self, PyObj
   return __pyx_r;
 }
 
-/* "A.py":18
- *     return sin(x)
- * 
- * def _helper(a):             # <<<<<<<<<<<<<<
- *     return a + 1
- * 
- */
-
-static double __pyx_f_1A__helper(double __pyx_v_a) {
-  double __pyx_r;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_helper", 0);
-
-  /* "A.py":19
- * 
- * def _helper(a):
- *     return a + 1             # <<<<<<<<<<<<<<
- * 
+/* "C.py":32
  * class A:
- */
-  __pyx_r = (__pyx_v_a + 1.0);
-  goto __pyx_L0;
-
-  /* "A.py":18
- *     return sin(x)
- * 
- * def _helper(a):             # <<<<<<<<<<<<<<
- *     return a + 1
- * 
- */
-
-  /* function exit code */
-  __pyx_L0:;
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "A.py":22
- * 
- * class A:
+ *     cython.declare(a=cython.int, b=cython.int)
  *     def __init__(self, b=0):             # <<<<<<<<<<<<<<
  *         self.a = 3
  *         self.b = b
  */
 
 /* Python wrapper */
-static int __pyx_pw_1A_1A_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_1A_1A_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_1C_1A_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_1C_1A_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_b = 0;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
@@ -1364,7 +1319,7 @@ static int __pyx_pw_1A_1A_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 22, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 32, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -1377,47 +1332,47 @@ static int __pyx_pw_1A_1A_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 22, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 32, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("A.A.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("C.A.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_1A_1A___init__(((struct __pyx_obj_1A_A *)__pyx_v_self), __pyx_v_b);
+  __pyx_r = __pyx_pf_1C_1A___init__(((struct __pyx_obj_1C_A *)__pyx_v_self), __pyx_v_b);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_1A_1A___init__(struct __pyx_obj_1A_A *__pyx_v_self, PyObject *__pyx_v_b) {
+static int __pyx_pf_1C_1A___init__(struct __pyx_obj_1C_A *__pyx_v_self, PyObject *__pyx_v_b) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "A.py":23
- * class A:
+  /* "C.py":33
+ *     cython.declare(a=cython.int, b=cython.int)
  *     def __init__(self, b=0):
  *         self.a = 3             # <<<<<<<<<<<<<<
  *         self.b = b
- * 
+ *     @cython.ccall
  */
   __pyx_v_self->a = 3;
 
-  /* "A.py":24
+  /* "C.py":34
  *     def __init__(self, b=0):
  *         self.a = 3
  *         self.b = b             # <<<<<<<<<<<<<<
- * 
- *     def foo(self, x):
+ *     @cython.ccall
+ *     @cython.locals(x=cython.double)
  */
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_b); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_b); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 34, __pyx_L1_error)
   __pyx_v_self->b = __pyx_t_1;
 
-  /* "A.py":22
- * 
+  /* "C.py":32
  * class A:
+ *     cython.declare(a=cython.int, b=cython.int)
  *     def __init__(self, b=0):             # <<<<<<<<<<<<<<
  *         self.a = 3
  *         self.b = b
@@ -1427,23 +1382,22 @@ static int __pyx_pf_1A_1A___init__(struct __pyx_obj_1A_A *__pyx_v_self, PyObject
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("A.A.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("C.A.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "A.py":26
- *         self.b = b
- * 
+/* "C.py":37
+ *     @cython.ccall
+ *     @cython.locals(x=cython.double)
  *     def foo(self, x):             # <<<<<<<<<<<<<<
  *         print(x + _helper(1.0))
- * 
  */
 
-static PyObject *__pyx_pw_1A_1A_3foo(PyObject *__pyx_v_self, PyObject *__pyx_arg_x); /*proto*/
-static PyObject *__pyx_f_1A_1A_foo(CYTHON_UNUSED struct __pyx_obj_1A_A *__pyx_v_self, double __pyx_v_x, int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_1C_1A_3foo(PyObject *__pyx_v_self, PyObject *__pyx_arg_x); /*proto*/
+static PyObject *__pyx_f_1C_1A_foo(CYTHON_UNUSED struct __pyx_obj_1C_A *__pyx_v_self, double __pyx_v_x, int __pyx_skip_dispatch) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1457,11 +1411,11 @@ static PyObject *__pyx_f_1A_1A_foo(CYTHON_UNUSED struct __pyx_obj_1A_A *__pyx_v_
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_foo); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_foo); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_1A_1A_3foo)) {
+    if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_1C_1A_3foo)) {
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_3 = PyFloat_FromDouble(__pyx_v_x); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 26, __pyx_L1_error)
+      __pyx_t_3 = PyFloat_FromDouble(__pyx_v_x); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_INCREF(__pyx_t_1);
       __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
@@ -1475,14 +1429,14 @@ static PyObject *__pyx_f_1A_1A_foo(CYTHON_UNUSED struct __pyx_obj_1A_A *__pyx_v_
         }
       }
       if (!__pyx_t_5) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 26, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_GOTREF(__pyx_t_2);
       } else {
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_4)) {
           PyObject *__pyx_temp[2] = {__pyx_t_5, __pyx_t_3};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 26, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -1491,20 +1445,20 @@ static PyObject *__pyx_f_1A_1A_foo(CYTHON_UNUSED struct __pyx_obj_1A_A *__pyx_v_
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
           PyObject *__pyx_temp[2] = {__pyx_t_5, __pyx_t_3};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 26, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         } else
         #endif
         {
-          __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 26, __pyx_L1_error)
+          __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 37, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
           __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5); __pyx_t_5 = NULL;
           __Pyx_GIVEREF(__pyx_t_3);
           PyTuple_SET_ITEM(__pyx_t_6, 0+1, __pyx_t_3);
           __pyx_t_3 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 26, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
         }
@@ -1518,30 +1472,28 @@ static PyObject *__pyx_f_1A_1A_foo(CYTHON_UNUSED struct __pyx_obj_1A_A *__pyx_v_
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "A.py":27
- * 
+  /* "C.py":38
+ *     @cython.locals(x=cython.double)
  *     def foo(self, x):
  *         print(x + _helper(1.0))             # <<<<<<<<<<<<<<
- * 
  */
-  __pyx_t_1 = PyFloat_FromDouble((__pyx_v_x + __pyx_f_1A__helper(1.0))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble((__pyx_v_x + __pyx_f_1C__helper(1.0))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "A.py":26
- *         self.b = b
- * 
+  /* "C.py":37
+ *     @cython.ccall
+ *     @cython.locals(x=cython.double)
  *     def foo(self, x):             # <<<<<<<<<<<<<<
  *         print(x + _helper(1.0))
- * 
  */
 
   /* function exit code */
@@ -1554,7 +1506,7 @@ static PyObject *__pyx_f_1A_1A_foo(CYTHON_UNUSED struct __pyx_obj_1A_A *__pyx_v_
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("A.A.foo", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("C.A.foo", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -1563,36 +1515,36 @@ static PyObject *__pyx_f_1A_1A_foo(CYTHON_UNUSED struct __pyx_obj_1A_A *__pyx_v_
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_1A_1A_3foo(PyObject *__pyx_v_self, PyObject *__pyx_arg_x); /*proto*/
-static PyMethodDef __pyx_mdef_1A_1A_3foo = {"foo", (PyCFunction)__pyx_pw_1A_1A_3foo, METH_O, 0};
-static PyObject *__pyx_pw_1A_1A_3foo(PyObject *__pyx_v_self, PyObject *__pyx_arg_x) {
+static PyObject *__pyx_pw_1C_1A_3foo(PyObject *__pyx_v_self, PyObject *__pyx_arg_x); /*proto*/
+static PyMethodDef __pyx_mdef_1C_1A_3foo = {"foo", (PyCFunction)__pyx_pw_1C_1A_3foo, METH_O, 0};
+static PyObject *__pyx_pw_1C_1A_3foo(PyObject *__pyx_v_self, PyObject *__pyx_arg_x) {
   double __pyx_v_x;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("foo (wrapper)", 0);
   assert(__pyx_arg_x); {
-    __pyx_v_x = __pyx_PyFloat_AsDouble(__pyx_arg_x); if (unlikely((__pyx_v_x == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 26, __pyx_L3_error)
+    __pyx_v_x = __pyx_PyFloat_AsDouble(__pyx_arg_x); if (unlikely((__pyx_v_x == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 37, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
-  __Pyx_AddTraceback("A.A.foo", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("C.A.foo", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_1A_1A_2foo(((struct __pyx_obj_1A_A *)__pyx_v_self), ((double)__pyx_v_x));
+  __pyx_r = __pyx_pf_1C_1A_2foo(((struct __pyx_obj_1C_A *)__pyx_v_self), ((double)__pyx_v_x));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_1A_1A_2foo(struct __pyx_obj_1A_A *__pyx_v_self, double __pyx_v_x) {
+static PyObject *__pyx_pf_1C_1A_2foo(struct __pyx_obj_1C_A *__pyx_v_self, double __pyx_v_x) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("foo", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_1A_1A_foo(__pyx_v_self, __pyx_v_x, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_1C_1A_foo(__pyx_v_self, __pyx_v_x, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -1601,153 +1553,10 @@ static PyObject *__pyx_pf_1A_1A_2foo(struct __pyx_obj_1A_A *__pyx_v_self, double
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("A.A.foo", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("C.A.foo", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "A.pxd":10
- * 
- * cdef class A:
- *     cdef public int a,b             # <<<<<<<<<<<<<<
- *     cpdef foo(self, double x)
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_1A_1A_1a_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_1A_1A_1a_1__get__(PyObject *__pyx_v_self) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_1A_1A_1a___get__(((struct __pyx_obj_1A_A *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_1A_1A_1a___get__(struct __pyx_obj_1A_A *__pyx_v_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  __Pyx_RefNannySetupContext("__get__", 0);
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->a); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 10, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("A.A.a.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* Python wrapper */
-static int __pyx_pw_1A_1A_1a_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_1A_1A_1a_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
-  int __pyx_r;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_1A_1A_1a_2__set__(((struct __pyx_obj_1A_A *)__pyx_v_self), ((PyObject *)__pyx_v_value));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static int __pyx_pf_1A_1A_1a_2__set__(struct __pyx_obj_1A_A *__pyx_v_self, PyObject *__pyx_v_value) {
-  int __pyx_r;
-  __Pyx_RefNannyDeclarations
-  int __pyx_t_1;
-  __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 10, __pyx_L1_error)
-  __pyx_v_self->a = __pyx_t_1;
-
-  /* function exit code */
-  __pyx_r = 0;
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_AddTraceback("A.A.a.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = -1;
-  __pyx_L0:;
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* Python wrapper */
-static PyObject *__pyx_pw_1A_1A_1b_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_1A_1A_1b_1__get__(PyObject *__pyx_v_self) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_1A_1A_1b___get__(((struct __pyx_obj_1A_A *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_1A_1A_1b___get__(struct __pyx_obj_1A_A *__pyx_v_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  __Pyx_RefNannySetupContext("__get__", 0);
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->b); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 10, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("A.A.b.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* Python wrapper */
-static int __pyx_pw_1A_1A_1b_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_1A_1A_1b_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
-  int __pyx_r;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_1A_1A_1b_2__set__(((struct __pyx_obj_1A_A *)__pyx_v_self), ((PyObject *)__pyx_v_value));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static int __pyx_pf_1A_1A_1b_2__set__(struct __pyx_obj_1A_A *__pyx_v_self, PyObject *__pyx_v_value) {
-  int __pyx_r;
-  __Pyx_RefNannyDeclarations
-  int __pyx_t_1;
-  __Pyx_RefNannySetupContext("__set__", 0);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_value); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 10, __pyx_L1_error)
-  __pyx_v_self->b = __pyx_t_1;
-
-  /* function exit code */
-  __pyx_r = 0;
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_AddTraceback("A.A.b.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = -1;
-  __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
@@ -1770,7 +1579,7 @@ static PyObject *__pyx_pw_11cfunc_dot_to_py_36__Pyx_CFunc_double____double___to_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("wrap (wrapper)", 0);
   assert(__pyx_arg_x); {
-    __pyx_v_x = __pyx_PyFloat_AsDouble(__pyx_arg_x); if (unlikely((__pyx_v_x == (double)-1) && PyErr_Occurred())) __PYX_ERR(2, 65, __pyx_L3_error)
+    __pyx_v_x = __pyx_PyFloat_AsDouble(__pyx_arg_x); if (unlikely((__pyx_v_x == (double)-1) && PyErr_Occurred())) __PYX_ERR(1, 65, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -1804,8 +1613,8 @@ static PyObject *__pyx_pf_11cfunc_dot_to_py_36__Pyx_CFunc_double____double___to_
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_cur_scope->__pyx_v_f(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(2, 67, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 67, __pyx_L1_error)
+  __pyx_t_1 = __pyx_cur_scope->__pyx_v_f(__pyx_v_x); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 67, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -1849,7 +1658,7 @@ static PyObject *__Pyx_CFunc_double____double___to_py(double (*__pyx_v_f)(double
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_double____double___to_py *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(2, 64, __pyx_L1_error)
+    __PYX_ERR(1, 64, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -1862,7 +1671,7 @@ static PyObject *__Pyx_CFunc_double____double___to_py(double (*__pyx_v_f)(double
  *         """wrap(x: float) -> float"""
  *         return f(x)
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_11cfunc_dot_to_py_36__Pyx_CFunc_double____double___to_py_1wrap, 0, __pyx_n_s_Pyx_CFunc_double____double___t, ((PyObject*)__pyx_cur_scope), __pyx_n_s_cfunc_to_py, __pyx_d, ((PyObject *)__pyx_codeobj__2)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 65, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_11cfunc_dot_to_py_36__Pyx_CFunc_double____double___to_py_1wrap, 0, __pyx_n_s_Pyx_CFunc_double____double___t, ((PyObject*)__pyx_cur_scope), __pyx_n_s_cfunc_to_py, __pyx_d, ((PyObject *)__pyx_codeobj__2)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_wrap = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -1899,10 +1708,10 @@ static PyObject *__Pyx_CFunc_double____double___to_py(double (*__pyx_v_f)(double
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static struct __pyx_vtabstruct_1A_A __pyx_vtable_1A_A;
+static struct __pyx_vtabstruct_1C_A __pyx_vtable_1C_A;
 
-static PyObject *__pyx_tp_new_1A_A(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_1A_A *p;
+static PyObject *__pyx_tp_new_1C_A(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_1C_A *p;
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -1910,12 +1719,12 @@ static PyObject *__pyx_tp_new_1A_A(PyTypeObject *t, CYTHON_UNUSED PyObject *a, C
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_1A_A *)o);
-  p->__pyx_vtab = __pyx_vtabptr_1A_A;
+  p = ((struct __pyx_obj_1C_A *)o);
+  p->__pyx_vtab = __pyx_vtabptr_1C_A;
   return o;
 }
 
-static void __pyx_tp_dealloc_1A_A(PyObject *o) {
+static void __pyx_tp_dealloc_1C_A(PyObject *o) {
   #if PY_VERSION_HEX >= 0x030400a1
   if (unlikely(Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -1924,50 +1733,16 @@ static void __pyx_tp_dealloc_1A_A(PyObject *o) {
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static PyObject *__pyx_getprop_1A_1A_a(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_1A_1A_1a_1__get__(o);
-}
-
-static int __pyx_setprop_1A_1A_a(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
-  if (v) {
-    return __pyx_pw_1A_1A_1a_3__set__(o, v);
-  }
-  else {
-    PyErr_SetString(PyExc_NotImplementedError, "__del__");
-    return -1;
-  }
-}
-
-static PyObject *__pyx_getprop_1A_1A_b(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_1A_1A_1b_1__get__(o);
-}
-
-static int __pyx_setprop_1A_1A_b(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
-  if (v) {
-    return __pyx_pw_1A_1A_1b_3__set__(o, v);
-  }
-  else {
-    PyErr_SetString(PyExc_NotImplementedError, "__del__");
-    return -1;
-  }
-}
-
-static PyMethodDef __pyx_methods_1A_A[] = {
+static PyMethodDef __pyx_methods_1C_A[] = {
   {0, 0, 0, 0}
 };
 
-static struct PyGetSetDef __pyx_getsets_1A_A[] = {
-  {(char *)"a", __pyx_getprop_1A_1A_a, __pyx_setprop_1A_1A_a, (char *)0, 0},
-  {(char *)"b", __pyx_getprop_1A_1A_b, __pyx_setprop_1A_1A_b, (char *)0, 0},
-  {0, 0, 0, 0, 0}
-};
-
-static PyTypeObject __pyx_type_1A_A = {
+static PyTypeObject __pyx_type_1C_A = {
   PyVarObject_HEAD_INIT(0, 0)
-  "A.A", /*tp_name*/
-  sizeof(struct __pyx_obj_1A_A), /*tp_basicsize*/
+  "C.A", /*tp_name*/
+  sizeof(struct __pyx_obj_1C_A), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_1A_A, /*tp_dealloc*/
+  __pyx_tp_dealloc_1C_A, /*tp_dealloc*/
   0, /*tp_print*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -1995,17 +1770,17 @@ static PyTypeObject __pyx_type_1A_A = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_1A_A, /*tp_methods*/
+  __pyx_methods_1C_A, /*tp_methods*/
   0, /*tp_members*/
-  __pyx_getsets_1A_A, /*tp_getset*/
+  0, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_1A_1A_1__init__, /*tp_init*/
+  __pyx_pw_1C_1A_1__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_1A_A, /*tp_new*/
+  __pyx_tp_new_1C_A, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -2046,7 +1821,7 @@ static void __pyx_tp_dealloc___pyx_scope_struct____Pyx_CFunc_double____double___
 
 static PyTypeObject __pyx_scope_struct____Pyx_CFunc_double____double___to_py = {
   PyVarObject_HEAD_INIT(0, 0)
-  "A.__pyx_scope_struct____Pyx_CFunc_double____double___to_py", /*tp_name*/
+  "C.__pyx_scope_struct____Pyx_CFunc_double____double___to_py", /*tp_name*/
   sizeof(struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_double____double___to_py), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc___pyx_scope_struct____Pyx_CFunc_double____double___to_py, /*tp_dealloc*/
@@ -2113,7 +1888,7 @@ static struct PyModuleDef __pyx_moduledef = {
   #else
     PyModuleDef_HEAD_INIT,
   #endif
-    "A",
+    "C",
     0, /* m_doc */
     -1, /* m_size */
     __pyx_methods /* m_methods */,
@@ -2125,12 +1900,13 @@ static struct PyModuleDef __pyx_moduledef = {
 #endif
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
-  {&__pyx_n_s_A, __pyx_k_A, sizeof(__pyx_k_A), 0, 0, 1, 1},
   {&__pyx_n_s_A_foo, __pyx_k_A_foo, sizeof(__pyx_k_A_foo), 0, 0, 1, 1},
+  {&__pyx_n_s_C, __pyx_k_C, sizeof(__pyx_k_C), 0, 0, 1, 1},
   {&__pyx_kp_s_C_Users_87_Documents_GitHub_my_T, __pyx_k_C_Users_87_Documents_GitHub_my_T, sizeof(__pyx_k_C_Users_87_Documents_GitHub_my_T), 0, 0, 1, 0},
   {&__pyx_kp_u_Just_a_lowly_interpreted_script, __pyx_k_Just_a_lowly_interpreted_script, sizeof(__pyx_k_Just_a_lowly_interpreted_script), 0, 1, 0, 0},
   {&__pyx_n_s_Pyx_CFunc_double____double___t, __pyx_k_Pyx_CFunc_double____double___t, sizeof(__pyx_k_Pyx_CFunc_double____double___t), 0, 0, 1, 1},
   {&__pyx_kp_u_Yep_I_m_compiled, __pyx_k_Yep_I_m_compiled, sizeof(__pyx_k_Yep_I_m_compiled), 0, 1, 0, 0},
+  {&__pyx_n_s_a, __pyx_k_a, sizeof(__pyx_k_a), 0, 0, 1, 1},
   {&__pyx_n_s_b, __pyx_k_b, sizeof(__pyx_k_b), 0, 0, 1, 1},
   {&__pyx_n_s_cfunc_to_py, __pyx_k_cfunc_to_py, sizeof(__pyx_k_cfunc_to_py), 0, 0, 1, 1},
   {&__pyx_n_s_echo_sin, __pyx_k_echo_sin, sizeof(__pyx_k_echo_sin), 0, 0, 1, 1},
@@ -2151,7 +1927,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 5, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -2168,24 +1944,24 @@ static int __Pyx_InitCachedConstants(void) {
  *         """wrap(x: float) -> float"""
  *         return f(x)
  */
-  __pyx_tuple_ = PyTuple_Pack(2, __pyx_n_s_x, __pyx_n_s_x); if (unlikely(!__pyx_tuple_)) __PYX_ERR(2, 65, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(2, __pyx_n_s_x, __pyx_n_s_x); if (unlikely(!__pyx_tuple_)) __PYX_ERR(1, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_wrap, 65, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(2, 65, __pyx_L1_error)
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_wrap, 65, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(1, 65, __pyx_L1_error)
 
-  /* "A.py":4
+  /* "C.py":5
  * 
  * if cython.compiled:
  *     print("Yep, I'm compiled.")             # <<<<<<<<<<<<<<
- * 
  * else:
+ *     print("Just a lowly interpreted script.")
  */
-  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_u_Yep_I_m_compiled); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_u_Yep_I_m_compiled); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "A.py":7
- * 
+  /* "C.py":7
+ *     print("Yep, I'm compiled.")
  * else:
  *     print("Just a lowly interpreted script.")             # <<<<<<<<<<<<<<
  *     from math import sin
@@ -2195,41 +1971,40 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "A.py":11
- * 
- * 
+  /* "C.py":14
+ * @cython.returns(cython.int)
+ * @cython.locals(x=cython.int, y=cython.int,a = cython.int)
  * def myfunction(x, y=2):             # <<<<<<<<<<<<<<
  *     a = x-y
  *     return a + x * y
  */
-  __pyx_tuple__5 = PyTuple_Pack(2, __pyx_n_s_x, __pyx_n_s_y); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(3, __pyx_n_s_x, __pyx_n_s_y, __pyx_n_s_a); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
-  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_C_Users_87_Documents_GitHub_my_T, __pyx_n_s_myfunction, 11, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_C_Users_87_Documents_GitHub_my_T, __pyx_n_s_myfunction, 14, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 14, __pyx_L1_error)
 
-  /* "A.py":15
- *     return a + x * y
- * 
+  /* "C.py":26
+ * @cython.returns(cython.double)
+ * @cython.locals(x=cython.double)
  * def echo_sin(x):             # <<<<<<<<<<<<<<
  *     return sin(x)
  * 
  */
-  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_n_s_x); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_tuple__7 = PyTuple_Pack(2, __pyx_n_s_x, __pyx_n_s_x); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
-  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_C_Users_87_Documents_GitHub_my_T, __pyx_n_s_echo_sin, 15, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_C_Users_87_Documents_GitHub_my_T, __pyx_n_s_echo_sin, 26, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 26, __pyx_L1_error)
 
-  /* "A.py":26
- *         self.b = b
- * 
+  /* "C.py":37
+ *     @cython.ccall
+ *     @cython.locals(x=cython.double)
  *     def foo(self, x):             # <<<<<<<<<<<<<<
  *         print(x + _helper(1.0))
- * 
  */
-  __pyx_tuple__9 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_x, __pyx_n_s_x); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_tuple__9 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_x, __pyx_n_s_x); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
-  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_C_Users_87_Documents_GitHub_my_T, __pyx_n_s_foo, 26, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_C_Users_87_Documents_GitHub_my_T, __pyx_n_s_foo, 37, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2246,11 +2021,11 @@ static int __Pyx_InitGlobals(void) {
 }
 
 #if PY_MAJOR_VERSION < 3
-PyMODINIT_FUNC initA(void); /*proto*/
-PyMODINIT_FUNC initA(void)
+PyMODINIT_FUNC initC(void); /*proto*/
+PyMODINIT_FUNC initC(void)
 #else
-PyMODINIT_FUNC PyInit_A(void); /*proto*/
-PyMODINIT_FUNC PyInit_A(void)
+PyMODINIT_FUNC PyInit_C(void); /*proto*/
+PyMODINIT_FUNC PyInit_C(void)
 #endif
 {
   int __pyx_t_1;
@@ -2266,7 +2041,7 @@ PyMODINIT_FUNC PyInit_A(void)
           Py_FatalError("failed to import 'refnanny' module");
   }
   #endif
-  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit_A(void)", 0);
+  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit_C(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_empty_tuple = PyTuple_New(0); if (unlikely(!__pyx_empty_tuple)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_empty_bytes = PyBytes_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_bytes)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -2295,7 +2070,7 @@ PyMODINIT_FUNC PyInit_A(void)
   #endif
   /*--- Module creation code ---*/
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("A", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("C", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -2312,14 +2087,14 @@ PyMODINIT_FUNC PyInit_A(void)
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_A) {
+  if (__pyx_module_is_main_C) {
     if (PyObject_SetAttrString(__pyx_m, "__name__", __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "A")) {
-      if (unlikely(PyDict_SetItemString(modules, "A", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "C")) {
+      if (unlikely(PyDict_SetItemString(modules, "C", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -2330,17 +2105,15 @@ PyMODINIT_FUNC PyInit_A(void)
   /*--- Global init code ---*/
   /*--- Variable export code ---*/
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("myfunction", (void (*)(void))__pyx_f_1A_myfunction, "int (int, int __pyx_skip_dispatch, struct __pyx_opt_args_1A_myfunction *__pyx_optional_args)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (__Pyx_ExportFunction("_helper", (void (*)(void))__pyx_f_1A__helper, "double (double)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   /*--- Type init code ---*/
-  __pyx_vtabptr_1A_A = &__pyx_vtable_1A_A;
-  __pyx_vtable_1A_A.foo = (PyObject *(*)(struct __pyx_obj_1A_A *, double, int __pyx_skip_dispatch))__pyx_f_1A_1A_foo;
-  if (PyType_Ready(&__pyx_type_1A_A) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
-  __pyx_type_1A_A.tp_print = 0;
-  if (__Pyx_SetVtable(__pyx_type_1A_A.tp_dict, __pyx_vtabptr_1A_A) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
-  if (PyObject_SetAttrString(__pyx_m, "A", (PyObject *)&__pyx_type_1A_A) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
-  __pyx_ptype_1A_A = &__pyx_type_1A_A;
-  if (PyType_Ready(&__pyx_scope_struct____Pyx_CFunc_double____double___to_py) < 0) __PYX_ERR(2, 64, __pyx_L1_error)
+  __pyx_vtabptr_1C_A = &__pyx_vtable_1C_A;
+  __pyx_vtable_1C_A.foo = (PyObject *(*)(struct __pyx_obj_1C_A *, double, int __pyx_skip_dispatch))__pyx_f_1C_1A_foo;
+  if (PyType_Ready(&__pyx_type_1C_A) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_type_1C_A.tp_print = 0;
+  if (__Pyx_SetVtable(__pyx_type_1C_A.tp_dict, __pyx_vtabptr_1C_A) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
+  if (PyObject_SetAttrString(__pyx_m, "A", (PyObject *)&__pyx_type_1C_A) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_ptype_1C_A = &__pyx_type_1C_A;
+  if (PyType_Ready(&__pyx_scope_struct____Pyx_CFunc_double____double___to_py) < 0) __PYX_ERR(1, 64, __pyx_L1_error)
   __pyx_scope_struct____Pyx_CFunc_double____double___to_py.tp_print = 0;
   __pyx_ptype___pyx_scope_struct____Pyx_CFunc_double____double___to_py = &__pyx_scope_struct____Pyx_CFunc_double____double___to_py;
   /*--- Type import code ---*/
@@ -2351,39 +2124,39 @@ PyMODINIT_FUNC PyInit_A(void)
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "A.py":3
+  /* "C.py":4
  * import cython
  * 
  * if cython.compiled:             # <<<<<<<<<<<<<<
  *     print("Yep, I'm compiled.")
- * 
+ * else:
  */
   __pyx_t_1 = (1 != 0);
   if (__pyx_t_1) {
 
-    /* "A.py":4
+    /* "C.py":5
  * 
  * if cython.compiled:
  *     print("Yep, I'm compiled.")             # <<<<<<<<<<<<<<
- * 
  * else:
+ *     print("Just a lowly interpreted script.")
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 4, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "A.py":3
+    /* "C.py":4
  * import cython
  * 
  * if cython.compiled:             # <<<<<<<<<<<<<<
  *     print("Yep, I'm compiled.")
- * 
+ * else:
  */
     goto __pyx_L2;
   }
 
-  /* "A.py":7
- * 
+  /* "C.py":7
+ *     print("Yep, I'm compiled.")
  * else:
  *     print("Just a lowly interpreted script.")             # <<<<<<<<<<<<<<
  *     from math import sin
@@ -2394,12 +2167,12 @@ PyMODINIT_FUNC PyInit_A(void)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "A.py":8
+    /* "C.py":8
  * else:
  *     print("Just a lowly interpreted script.")
  *     from math import sin             # <<<<<<<<<<<<<<
  * 
- * 
+ * @cython.boundscheck(False)
  */
     __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
@@ -2417,47 +2190,46 @@ PyMODINIT_FUNC PyInit_A(void)
   }
   __pyx_L2:;
 
-  /* "A.py":11
- * 
- * 
+  /* "C.py":14
+ * @cython.returns(cython.int)
+ * @cython.locals(x=cython.int, y=cython.int,a = cython.int)
  * def myfunction(x, y=2):             # <<<<<<<<<<<<<<
  *     a = x-y
  *     return a + x * y
  */
-  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_1A_1myfunction, 0, __pyx_n_s_myfunction, NULL, __pyx_n_s_A, __pyx_d, ((PyObject *)__pyx_codeobj__6)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_1C_1myfunction, 0, __pyx_n_s_myfunction, NULL, __pyx_n_s_C, __pyx_d, ((PyObject *)__pyx_codeobj__6)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_myfunction, __pyx_t_3) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_myfunction, __pyx_t_3) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "A.py":15
- *     return a + x * y
- * 
+  /* "C.py":26
+ * @cython.returns(cython.double)
+ * @cython.locals(x=cython.double)
  * def echo_sin(x):             # <<<<<<<<<<<<<<
  *     return sin(x)
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_1A_3echo_sin, 0, __pyx_n_s_echo_sin, NULL, __pyx_n_s_A, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_1C_3echo_sin, 0, __pyx_n_s_echo_sin, NULL, __pyx_n_s_C, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_echo_sin, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_echo_sin, __pyx_t_3) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "A.py":26
- *         self.b = b
- * 
+  /* "C.py":37
+ *     @cython.ccall
+ *     @cython.locals(x=cython.double)
  *     def foo(self, x):             # <<<<<<<<<<<<<<
  *         print(x + _helper(1.0))
- * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_1A_1A_3foo, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_A_foo, NULL, __pyx_n_s_A, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_NewEx(&__pyx_mdef_1C_1A_3foo, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_A_foo, NULL, __pyx_n_s_C, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_1A_A->tp_dict, __pyx_n_s_foo, __pyx_t_3) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_1C_A->tp_dict, __pyx_n_s_foo, __pyx_t_3) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  PyType_Modified(__pyx_ptype_1A_A);
+  PyType_Modified(__pyx_ptype_1C_A);
 
-  /* "A.py":1
- * import cython             # <<<<<<<<<<<<<<
+  /* "C.py":1
+ * #cython: language_level=3             # <<<<<<<<<<<<<<
+ * import cython
  * 
- * if cython.compiled:
  */
   __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -2475,8 +2247,8 @@ PyMODINIT_FUNC PyInit_A(void)
   /*--- Wrapped vars code ---*/
   {
     PyObject* wrapped = __Pyx_CFunc_double____double___to_py(sin);
-    if (unlikely(!wrapped)) __PYX_ERR(1, 3, __pyx_L1_error)
-    if (PyObject_SetAttrString(__pyx_m, "sin", wrapped) < 0) __PYX_ERR(1, 3, __pyx_L1_error);
+    if (unlikely(!wrapped)) __PYX_ERR(2, 3, __pyx_L1_error)
+    if (PyObject_SetAttrString(__pyx_m, "sin", wrapped) < 0) __PYX_ERR(2, 3, __pyx_L1_error);
   }
 
   goto __pyx_L0;
@@ -2485,11 +2257,11 @@ PyMODINIT_FUNC PyInit_A(void)
   __Pyx_XDECREF(__pyx_t_3);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init A", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init C", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_DECREF(__pyx_m); __pyx_m = 0;
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init A");
+    PyErr_SetString(PyExc_ImportError, "init C");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -2530,72 +2302,6 @@ static PyObject *__Pyx_GetBuiltinName(PyObject *name) {
 #endif
     }
     return result;
-}
-
-/* PyErrFetchRestore */
-#if CYTHON_FAST_THREAD_STATE
-static CYTHON_INLINE void __Pyx_ErrRestoreInState(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb) {
-    PyObject *tmp_type, *tmp_value, *tmp_tb;
-    tmp_type = tstate->curexc_type;
-    tmp_value = tstate->curexc_value;
-    tmp_tb = tstate->curexc_traceback;
-    tstate->curexc_type = type;
-    tstate->curexc_value = value;
-    tstate->curexc_traceback = tb;
-    Py_XDECREF(tmp_type);
-    Py_XDECREF(tmp_value);
-    Py_XDECREF(tmp_tb);
-}
-static CYTHON_INLINE void __Pyx_ErrFetchInState(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb) {
-    *type = tstate->curexc_type;
-    *value = tstate->curexc_value;
-    *tb = tstate->curexc_traceback;
-    tstate->curexc_type = 0;
-    tstate->curexc_value = 0;
-    tstate->curexc_traceback = 0;
-}
-#endif
-
-/* WriteUnraisableException */
-static void __Pyx_WriteUnraisable(const char *name, CYTHON_UNUSED int clineno,
-                                  CYTHON_UNUSED int lineno, CYTHON_UNUSED const char *filename,
-                                  int full_traceback, CYTHON_UNUSED int nogil) {
-    PyObject *old_exc, *old_val, *old_tb;
-    PyObject *ctx;
-    __Pyx_PyThreadState_declare
-#ifdef WITH_THREAD
-    PyGILState_STATE state;
-    if (nogil)
-        state = PyGILState_Ensure();
-#ifdef _MSC_VER
-    else state = (PyGILState_STATE)-1;
-#endif
-#endif
-    __Pyx_PyThreadState_assign
-    __Pyx_ErrFetch(&old_exc, &old_val, &old_tb);
-    if (full_traceback) {
-        Py_XINCREF(old_exc);
-        Py_XINCREF(old_val);
-        Py_XINCREF(old_tb);
-        __Pyx_ErrRestore(old_exc, old_val, old_tb);
-        PyErr_PrintEx(1);
-    }
-    #if PY_MAJOR_VERSION < 3
-    ctx = PyString_FromString(name);
-    #else
-    ctx = PyUnicode_FromString(name);
-    #endif
-    __Pyx_ErrRestore(old_exc, old_val, old_tb);
-    if (!ctx) {
-        PyErr_WriteUnraisable(Py_None);
-    } else {
-        PyErr_WriteUnraisable(ctx);
-        Py_DECREF(ctx);
-    }
-#ifdef WITH_THREAD
-    if (nogil)
-        PyGILState_Release(state);
-#endif
 }
 
 /* RaiseDoubleKeywords */
@@ -4327,43 +4033,6 @@ raise_neg_overflow:
         return PyErr_WarnEx(NULL, message, 1);
     }
     return 0;
-}
-
-/* FunctionExport */
-      static int __Pyx_ExportFunction(const char *name, void (*f)(void), const char *sig) {
-    PyObject *d = 0;
-    PyObject *cobj = 0;
-    union {
-        void (*fp)(void);
-        void *p;
-    } tmp;
-    d = PyObject_GetAttrString(__pyx_m, (char *)"__pyx_capi__");
-    if (!d) {
-        PyErr_Clear();
-        d = PyDict_New();
-        if (!d)
-            goto bad;
-        Py_INCREF(d);
-        if (PyModule_AddObject(__pyx_m, (char *)"__pyx_capi__", d) < 0)
-            goto bad;
-    }
-    tmp.fp = f;
-#if PY_VERSION_HEX >= 0x02070000
-    cobj = PyCapsule_New(tmp.p, sig, 0);
-#else
-    cobj = PyCObject_FromVoidPtrAndDesc(tmp.p, (void *)sig, 0);
-#endif
-    if (!cobj)
-        goto bad;
-    if (PyDict_SetItemString(d, name, cobj) < 0)
-        goto bad;
-    Py_DECREF(cobj);
-    Py_DECREF(d);
-    return 0;
-bad:
-    Py_XDECREF(cobj);
-    Py_XDECREF(d);
-    return -1;
 }
 
 /* InitStrings */
