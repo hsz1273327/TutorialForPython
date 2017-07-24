@@ -2,6 +2,7 @@
 # distutils: language = c++
 # distutils: sources = Rectangle.cpp
 
+
 cdef extern from "Rectangle.h" namespace "shapes":
     cdef cppclass Rectangle:
         Rectangle() except +
@@ -10,7 +11,6 @@ cdef extern from "Rectangle.h" namespace "shapes":
         int getArea()
         void getSize(int* width, int* height)
         void move(int, int)
-
 cdef class PyRectangle:
     cdef Rectangle c_rect      # hold a C++ instance which we're wrapping
     def __cinit__(self, int x0, int y0, int x1, int y1):
