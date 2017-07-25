@@ -8,8 +8,7 @@ extension = Extension(
            "helloworld",
            sources=["helloworld.pyx"],
            #include_dirs=[numpy.get_include()], # 如果用到numpy
-           language="c++",
-           language_level=3
+           language="c++"
 )
 
 setup(

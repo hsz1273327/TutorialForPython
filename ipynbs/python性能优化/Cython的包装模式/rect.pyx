@@ -11,6 +11,8 @@ cdef extern from "Rectangle.h" namespace "shapes":
         int getArea()
         void getSize(int* width, int* height)
         void move(int, int)
+        @staticmethod
+        int do_something()
 cdef class PyRectangle:
     cdef Rectangle c_rect      # hold a C++ instance which we're wrapping
     def __cinit__(self, int x0, int y0, int x1, int y1):
@@ -23,3 +25,6 @@ cdef class PyRectangle:
         return width, height
     def move(self, dx, dy):
         self.c_rect.move(dx, dy)
+    @staticmethod
+    def do_something():
+        return Rectangle.do_something()

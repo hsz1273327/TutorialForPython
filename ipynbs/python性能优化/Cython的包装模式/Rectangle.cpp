@@ -3,6 +3,9 @@
 namespace shapes {
 
   Rectangle::Rectangle() { }
+    int Rectangle::do_something(){
+        return 0;
+    }
 
     Rectangle::Rectangle(int X0, int Y0, int X1, int Y1) {
         x0 = X0;
