@@ -1,0 +1,1817 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>使用sqlite3共享内存 · python攻略</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="hsz">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="结语.html" />
+    
+    
+    <link rel="prev" href="并行编程的惯用法.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://blog.hszofficial.site/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../总章.html">
+            
+                <a href="../总章.html">
+            
+                    
+                    总章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../工具链/">
+            
+                <a href="../工具链/">
+            
+                    
+                    工具链
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../工具链/运行环境与部署分发.html">
+            
+                <a href="../工具链/运行环境与部署分发.html">
+            
+                    
+                    运行环境与部署分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../工具链/代码风格.html">
+            
+                <a href="../工具链/代码风格.html">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../工具链/调试与测试.html">
+            
+                <a href="../工具链/调试与测试.html">
+            
+                    
+                    调试与测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../工具链/结语.html">
+            
+                <a href="../工具链/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../Python的数据模型/">
+            
+                <a href="../Python的数据模型/">
+            
+                    
+                    Python的数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../Python的数据模型/数据模型.html">
+            
+                <a href="../Python的数据模型/数据模型.html">
+            
+                    
+                    数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../Python的数据模型/变量引用与垃圾回收.html">
+            
+                <a href="../Python的数据模型/变量引用与垃圾回收.html">
+            
+                    
+                    变量引用与垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../Python的数据模型/结语.html">
+            
+                <a href="../Python的数据模型/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../文本_文件与字节序/">
+            
+                <a href="../文本_文件与字节序/">
+            
+                    
+                    文本,文件与字节序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../文本_文件与字节序/文本和编码.html">
+            
+                <a href="../文本_文件与字节序/文本和编码.html">
+            
+                    
+                    文本和编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../文本_文件与字节序/字节序列与内存视图.html">
+            
+                <a href="../文本_文件与字节序/字节序列与内存视图.html">
+            
+                    
+                    字节序列与内存视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../文本_文件与字节序/正则表达式.html">
+            
+                <a href="../文本_文件与字节序/正则表达式.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../文本_文件与字节序/文件与IO流.html">
+            
+                <a href="../文本_文件与字节序/文件与IO流.html">
+            
+                    
+                    文件与IO流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../文本_文件与字节序/序列化.html">
+            
+                <a href="../文本_文件与字节序/序列化.html">
+            
+                    
+                    序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../文本_文件与字节序/配置文件解析.html">
+            
+                <a href="../文本_文件与字节序/配置文件解析.html">
+            
+                    
+                    配置文件解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../文本_文件与字节序/结语.html">
+            
+                <a href="../文本_文件与字节序/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="单线程同步流程控制.html">
+            
+                <a href="单线程同步流程控制.html">
+            
+                    
+                    单线程同步流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="阻塞异步与协程.html">
+            
+                <a href="阻塞异步与协程.html">
+            
+                    
+                    阻塞异步与协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="多线程与GIL.html">
+            
+                <a href="多线程与GIL.html">
+            
+                    
+                    多线程与GIL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="多进程.html">
+            
+                <a href="多进程.html">
+            
+                    
+                    多进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="并行编程的惯用法.html">
+            
+                <a href="并行编程的惯用法.html">
+            
+                    
+                    并行编程的惯用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="并行编程的惯用法.html">
+            
+                <a href="并行编程的惯用法.html">
+            
+                    
+                    并发模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.7" data-path="使用sqlite3共享内存.html">
+            
+                <a href="使用sqlite3共享内存.html">
+            
+                    
+                    使用sqlite3共享内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="结语.html">
+            
+                <a href="结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../数据结构与算法/">
+            
+                <a href="../数据结构与算法/">
+            
+                    
+                    数据结构与算法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../数据结构与算法/序列对象.html">
+            
+                <a href="../数据结构与算法/序列对象.html">
+            
+                    
+                    序列对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../数据结构与算法/映射对象.html">
+            
+                <a href="../数据结构与算法/映射对象.html">
+            
+                    
+                    映射对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../数据结构与算法/可迭代对象与生成器.html">
+            
+                <a href="../数据结构与算法/可迭代对象与生成器.html">
+            
+                    
+                    可迭代对象与生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../数据结构与算法/结语.html">
+            
+                <a href="../数据结构与算法/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../函数/">
+            
+                <a href="../函数/">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../函数/函数是一等对象.html">
+            
+                <a href="../函数/函数是一等对象.html">
+            
+                    
+                    函数是一等对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../函数/变量作用域与闭包.html">
+            
+                <a href="../函数/变量作用域与闭包.html">
+            
+                    
+                    变量作用域与闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../函数/结语.html">
+            
+                <a href="../函数/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../面向对象惯用法/">
+            
+                <a href="../面向对象惯用法/">
+            
+                    
+                    面向对象惯用法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../面向对象惯用法/python中的对象.html">
+            
+                <a href="../面向对象惯用法/python中的对象.html">
+            
+                    
+                    python中的对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../面向对象惯用法/协议与接口与抽象基类.html">
+            
+                <a href="../面向对象惯用法/协议与接口与抽象基类.html">
+            
+                    
+                    协议,接口与抽象基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../面向对象惯用法/多重继承和Mixin.html">
+            
+                <a href="../面向对象惯用法/多重继承和Mixin.html">
+            
+                    
+                    多重继承和Mixin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../面向对象惯用法/自定义序列Vector.html">
+            
+                <a href="../面向对象惯用法/自定义序列Vector.html">
+            
+                    
+                    自定义序列Vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../面向对象惯用法/结语.html">
+            
+                <a href="../面向对象惯用法/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../元编程/">
+            
+                <a href="../元编程/">
+            
+                    
+                    元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../元编程/导入时与运行时.html">
+            
+                <a href="../元编程/导入时与运行时.html">
+            
+                    
+                    导入时与运行时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../元编程/猴子补丁和热更新.html">
+            
+                <a href="../元编程/猴子补丁和热更新.html">
+            
+                    
+                    猴子补丁和热更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../元编程/动态编译.html">
+            
+                <a href="../元编程/动态编译.html">
+            
+                    
+                    动态编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../元编程/运算符重载.html">
+            
+                <a href="../元编程/运算符重载.html">
+            
+                    
+                    运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../元编程/动态属性与特性与描述符.html">
+            
+                <a href="../元编程/动态属性与特性与描述符.html">
+            
+                    
+                    动态属性,特性与描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../元编程/装饰器.html">
+            
+                <a href="../元编程/装饰器.html">
+            
+                    
+                    装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="../元编程/元类编程.html">
+            
+                <a href="../元编程/元类编程.html">
+            
+                    
+                    元类编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="../元编程/结语.html">
+            
+                <a href="../元编程/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../设计模式/">
+            
+                <a href="../设计模式/">
+            
+                    
+                    设计模式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../设计模式/策略模式.html">
+            
+                <a href="../设计模式/策略模式.html">
+            
+                    
+                    策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../设计模式/命令模式.html">
+            
+                <a href="../设计模式/命令模式.html">
+            
+                    
+                    命令模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../设计模式/结语.html">
+            
+                <a href="../设计模式/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../标准库中的数学工具/">
+            
+                <a href="../标准库中的数学工具/">
+            
+                    
+                    标准库中的数学工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../标准库中的数学工具/数学运算模块.html">
+            
+                <a href="../标准库中的数学工具/数学运算模块.html">
+            
+                    
+                    数学运算模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../标准库中的数学工具/统计模块.html">
+            
+                <a href="../标准库中的数学工具/统计模块.html">
+            
+                    
+                    统计模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../标准库中的数学工具/高精度计算.html">
+            
+                <a href="../标准库中的数学工具/高精度计算.html">
+            
+                    
+                    高精度计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../标准库中的数学工具/有理数.html">
+            
+                <a href="../标准库中的数学工具/有理数.html">
+            
+                    
+                    有理数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../标准库中的数学工具/复数运算.html">
+            
+                <a href="../标准库中的数学工具/复数运算.html">
+            
+                    
+                    复数运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../随机数据生成工具/">
+            
+                <a href="../随机数据生成工具/">
+            
+                    
+                    随机数据生成工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../随机数据生成工具/随机模块/随机模块.html">
+            
+                <a href="../随机数据生成工具/随机模块/随机模块.html">
+            
+                    
+                    随机模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../随机数据生成工具/随机时间生成器.html">
+            
+                <a href="../随机数据生成工具/随机时间生成器.html">
+            
+                    
+                    随机时间生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../随机数据生成工具/伪造信息生成器.html">
+            
+                <a href="../随机数据生成工具/伪造信息生成器.html">
+            
+                    
+                    伪造信息生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../摘要加密与数字签名/">
+            
+                <a href="../摘要加密与数字签名/">
+            
+                    
+                    摘要加密与数字签名
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../摘要加密与数字签名/摘要算法.html">
+            
+                <a href="../摘要加密与数字签名/摘要算法.html">
+            
+                    
+                    摘要算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../摘要加密与数字签名/加密算法.html">
+            
+                <a href="../摘要加密与数字签名/加密算法.html">
+            
+                    
+                    加密算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../摘要加密与数字签名/数字签名.html">
+            
+                <a href="../摘要加密与数字签名/数字签名.html">
+            
+                    
+                    数字签名
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../数据压缩/">
+            
+                <a href="../数据压缩/">
+            
+                    
+                    数据压缩
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../数据压缩/数据压缩解压.html">
+            
+                <a href="../数据压缩/数据压缩解压.html">
+            
+                    
+                    数据压缩解压
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../数据压缩/压缩归档.html">
+            
+                <a href="../数据压缩/压缩归档.html">
+            
+                    
+                    压缩归档
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../国际化工具/">
+            
+                <a href="../国际化工具/">
+            
+                    
+                    国际化工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../国际化工具/时间日期处理.html">
+            
+                <a href="../国际化工具/时间日期处理.html">
+            
+                    
+                    时间日期处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" data-path="../国际化工具/货币处理模块.html">
+            
+                <a href="../国际化工具/货币处理模块.html">
+            
+                    
+                    货币处理模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3" data-path="../国际化工具/字符编码判断.html">
+            
+                <a href="../国际化工具/字符编码判断.html">
+            
+                    
+                    字符编码判断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4" data-path="../国际化工具/国际化文本翻译.html">
+            
+                <a href="../国际化工具/国际化文本翻译.html">
+            
+                    
+                    国际化文本翻译
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../人机交互/">
+            
+                <a href="../人机交互/">
+            
+                    
+                    人机交互
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.17.1" data-path="../人机交互/使用python编写命令行工具.html">
+            
+                <a href="../人机交互/使用python编写命令行工具.html">
+            
+                    
+                    使用python编写命令行工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.2" data-path="../人机交互/GUI.html">
+            
+                <a href="../人机交互/GUI.html">
+            
+                    
+                    GUI
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../python性能优化/">
+            
+                <a href="../python性能优化/">
+            
+                    
+                    python性能优化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.18.1" data-path="../python性能优化/什么时候优化python程序.html">
+            
+                <a href="../python性能优化/什么时候优化python程序.html">
+            
+                    
+                    什么时候优化python程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18.2" data-path="../python性能优化/Cython的基本流程.html">
+            
+                <a href="../python性能优化/Cython的基本流程.html">
+            
+                    
+                    Cython的基本流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18.3" data-path="../python性能优化/Cython纯净模式.html">
+            
+                <a href="../python性能优化/Cython纯净模式.html">
+            
+                    
+                    Cython纯净模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18.4" data-path="../python性能优化/Cython的基本模式.html">
+            
+                <a href="../python性能优化/Cython的基本模式.html">
+            
+                    
+                    Cython的基本模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18.5" data-path="../python性能优化/Cython的包装模式.html">
+            
+                <a href="../python性能优化/Cython的包装模式.html">
+            
+                    
+                    Cython的包装模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18.6" data-path="../python性能优化/结语.html">
+            
+                <a href="../python性能优化/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >使用sqlite3共享内存</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;sqlite3&#x5171;&#x4EAB;&#x5185;&#x5B58;"><b>1. </b>&#x4F7F;&#x7528;sqlite3&#x5171;&#x4EAB;&#x5185;&#x5B58;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7B80;&#x5355;&#x4ECB;&#x7ECD;sqlite3"><b>1.1. </b>&#x7B80;&#x5355;&#x4ECB;&#x7ECD;sqlite3</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;"><b>1.1.1. </b>&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x521B;&#x5EFA;&#x8868;&#x683C;"><b>1.1.2. </b>&#x521B;&#x5EFA;&#x8868;&#x683C;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x63D2;&#x5165;&#x6570;&#x636E;"><b>1.1.3. </b>&#x63D2;&#x5165;&#x6570;&#x636E;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x67E5;&#x8BE2;"><b>1.1.4. </b>&#x67E5;&#x8BE2;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x66F4;&#x65B0;"><b>1.1.5. </b>&#x66F4;&#x65B0;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x66FF;&#x6362;"><b>1.1.6. </b>&#x66FF;&#x6362;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5220;&#x9664;"><b>1.1.7. </b>&#x5220;&#x9664;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x65AD;&#x5F00;&#x8FDE;&#x63A5;"><b>1.1.8. </b>&#x65AD;&#x5F00;&#x8FDE;&#x63A5;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5185;&#x5B58;&#x6A21;&#x5F0F;"><b>1.2. </b>&#x5185;&#x5B58;&#x6A21;&#x5F0F;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x95EE;&#x9898;"><b>1.3. </b>&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x95EE;&#x9898;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7F13;&#x5B58;&#x6A21;&#x5F0F;&#x7528;&#x4E8E;&#x591A;&#x7EBF;&#x7A0B;"><b>1.4. </b>&#x7F13;&#x5B58;&#x6A21;&#x5F0F;&#x7528;&#x4E8E;&#x591A;&#x7EBF;&#x7A0B;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4E0D;&#x540C;&#x8FDE;&#x63A5;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;&#x7684;&#x793A;&#x4F8B;-&#x6765;&#x81EA;stack-overflow"><b>1.4.1. </b>&#x4E0D;&#x540C;&#x8FDE;&#x63A5;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;&#x7684;&#x793A;&#x4F8B; (&#x6765;&#x81EA;stack overflow)</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x591A;&#x7EBF;&#x7A0B;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;"><b>1.4.2. </b>&#x591A;&#x7EBF;&#x7A0B;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#sqlite3&#x7528;&#x4E8E;&#x591A;&#x8FDB;&#x7A0B;"><b>1.5. </b>sqlite3&#x7528;&#x4E8E;&#x591A;&#x8FDB;&#x7A0B;</a></li></ul></ul></div><a href="#&#x4F7F;&#x7528;sqlite3&#x5171;&#x4EAB;&#x5185;&#x5B58;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x4F7F;&#x7528;sqlite3&#x5171;&#x4EAB;&#x5185;&#x5B58;"><a name="&#x4F7F;&#x7528;sqlite3&#x5171;&#x4EAB;&#x5185;&#x5B58;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;sqlite3&#x5171;&#x4EAB;&#x5185;&#x5B58;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x4F7F;&#x7528;sqlite3&#x5171;&#x4EAB;&#x5185;&#x5B58;</h1>
+<p>&#x591A;&#x8FDB;&#x7A0B;&#x7A0B;&#x5E8F;&#x5F80;&#x5F80;&#x78B0;&#x5230;&#x4E00;&#x4E2A;&#x95EE;&#x9898;:&#x6570;&#x636E;&#x5171;&#x4EAB;&#x95EE;&#x9898;.&#x8FD9;&#x4E5F;&#x662F;&#x672C;&#x6587;&#x7684;&#x4E3B;&#x9898;.</p>
+<h2 id="&#x7B80;&#x5355;&#x4ECB;&#x7ECD;sqlite3"><a name="&#x7B80;&#x5355;&#x4ECB;&#x7ECD;sqlite3" class="anchor-navigation-ex-anchor" href="#&#x7B80;&#x5355;&#x4ECB;&#x7ECD;sqlite3"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x7B80;&#x5355;&#x4ECB;&#x7ECD;sqlite3</h2>
+<p>sqlite3&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x4F1F;&#x5927;&#x7684;&#x5173;&#x7CFB;&#x578B;&#x6570;&#x636E;&#x5E93;,&#x53EF;&#x80FD;&#x5F88;&#x591A;&#x4EBA;&#x4E0D;&#x592A;&#x719F;&#x6089;.&#x4EBA;&#x8A00;&#x5173;&#x7CFB;&#x578B;&#x6570;&#x636E;&#x5E93;&#x4E00;&#x822C;&#x90FD;&#x662F;mysql,MS Sqlserver,Oracle,&#x4F46;&#x5176;&#x5B9E;sqlite&#x540C;&#x6837;&#x662F;&#x975E;&#x5E38;&#x51FA;&#x8272;&#x7684;&#x5173;&#x7CFB;&#x578B;&#x6570;&#x636E;&#x5E93;.</p>
+<p>&#x4ECE;&#x4EE3;&#x7801;&#x7684;&#x89D2;&#x5EA6;&#x8BB2;,sqlite&#x582A;&#x79F0;&#x6559;&#x79D1;&#x4E66;&#x822C;&#x7684;C&#x8BED;&#x8A00;&#x7F16;&#x7A0B;&#x793A;&#x4F8B;(&#x4E00;&#x822C;&#x4E5F;&#x662F;&#x4F5C;&#x4E3A;&#x5B66;&#x4E60;C&#x8BED;&#x8A00;&#x7684;&#x53C2;&#x8003;&#x4EE3;&#x7801;).</p>
+<p>&#x4ECE;&#x6027;&#x80FD;&#x89D2;&#x5EA6;&#x8BB2;,sqlite&#x56E0;&#x4E3A;&#x662F;&#x57FA;&#x4E8E;&#x78C1;&#x76D8;io&#x7684;,&#x6240;&#x4EE5;&#x57FA;&#x4E8E;socket&#x7684;&#x6570;&#x636E;&#x5E93;&#x6027;&#x80FD;&#x4E0E;&#x4ED6;&#x5B8C;&#x5168;&#x4E0D;&#x80FD;&#x76F8;&#x6BD4;.&#x5B83;&#x66F4;&#x6709;&#x5185;&#x5B58;&#x6A21;&#x5F0F;,&#x6BD4;&#x8D77;&#x78C1;&#x76D8;&#x6A21;&#x5F0F;&#x66F4;&#x52A0;&#x5FEB;&#x901F;.</p>
+<p>&#x4ECE;&#x7528;&#x9014;&#x6765;&#x8BB2;,sqlite3&#x7F16;&#x8BD1;&#x540E;&#x975E;&#x5E38;&#x5C0F;,&#x53EF;&#x4EE5;&#x653E;&#x5165;&#x8D44;&#x6E90;&#x5341;&#x5206;&#x6709;&#x9650;&#x7684;&#x5D4C;&#x5165;&#x5F0F;&#x8BBE;&#x5907;&#x4E2D;,&#x5149;&#x8FD9;&#x4E00;&#x70B9;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x5E93;&#x5C31;&#x65E0;&#x6CD5;&#x505A;&#x5230;.&#x5728;&#x8FFD;&#x6C42;&#x9AD8;&#x65F6;&#x6548;&#x6027;&#x7684;&#x4EFB;&#x52A1;&#x4E2D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x6A21;&#x5F0F;&#x5F53;&#x4F5C;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;&#x4F7F;&#x7528;.</p>
+<p>&#x4ECE;&#x4F7F;&#x7528;&#x8303;&#x56F4;&#x6765;&#x8BB2;,&#x53EA;&#x8981;&#x662F;&#x5D4C;&#x5165;&#x5F0F;&#x8BBE;&#x5907;,&#x5305;&#x62EC;&#x624B;&#x673A;,&#x4E00;&#x4E9B;&#x7269;&#x8054;&#x7F51;&#x7EC8;&#x7AEF;&#x5728;&#x5185;,&#x90FD;&#x6709;&#x4F7F;&#x7528;.&#x5B83;&#x4E0D;&#x5149;&#x53EF;&#x4EE5;&#x7528;&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x4F5C;&#x4E3A;&#x7F13;&#x5B58;.&#x8FDE;html5&#x90FD;&#x6709;&#x5BF9;&#x5176;&#x7684;&#x9609;&#x5272;&#x652F;&#x6301;(&#x867D;&#x7136;&#x5DF2;&#x7ECF;&#x88AB;&#x5E9F;&#x5F03;).</p>
+<p>sqlite&#x6700;&#x5927;&#x7684;&#x7F3A;&#x70B9;&#x540C;&#x6837;&#x6765;&#x81EA;&#x4E8E;&#x5B83;&#x57FA;&#x4E8E;&#x78C1;&#x76D8;&#x800C;&#x975E;socket.&#x8FD9;&#x4E00;&#x7279;&#x70B9;&#x8BA9;&#x5B83;&#x4E0D;&#x9002;&#x5408;&#x4F5C;&#x4E3A;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x7684;&#x4E2D;&#x5FC3;&#x8282;&#x70B9;.&#x4E0D;&#x8FC7;sqlite3&#x975E;&#x5E38;&#x9002;&#x5408;&#x5FAE;&#x670D;&#x52A1;&#x67B6;&#x6784;,&#x56E0;&#x4E3A;&#x5B83;&#x662F;&#x81EA;&#x6CBB;&#x7684;,&#x5E76;&#x4E14;&#x5229;&#x4E8E;&#x8FC1;&#x79FB;(&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x62F7;&#x8D1D;&#x8D70;&#x5C31;&#x662F;&#x4E86;),&#x5982;&#x679C;&#x9879;&#x76EE;&#x7684;&#x6570;&#x636E;&#x589E;&#x91CF;&#x6BD4;&#x8F83;&#x53EF;&#x63A7;,&#x5E76;&#x4E14;&#x5BF9;&#x5B9E;&#x65F6;&#x6027;&#x6709;&#x8F83;&#x9AD8;&#x8981;&#x6C42;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;sqlite3.</p>
+<p>python&#x7684;&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x5185;&#x7F6E;&#x4E86;sqlite3&#x652F;&#x6301;.&#x57FA;&#x672C;&#x4E0A;&#x53EA;&#x8981;&#x88C5;&#x4E86;python&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;sqlite3.&#x5E76;&#x4E14;,sqlite3&#x4F7F;&#x7528;&#x7684;&#x662F;python&#x901A;&#x7528;&#x7684;&#x6570;&#x636E;&#x5E93;&#x63A5;&#x53E3;&#x8BBE;&#x8BA1;,&#x4E00;&#x901A;&#x767E;&#x901A;,&#x4F1A;&#x7528;&#x5B83;&#x5C31;&#x4F1A;&#x7528;&#x5176;&#x4ED6;&#x7684;&#x6570;&#x636E;&#x5E93;&#x63A5;&#x53E3;</p>
+<h3 id="&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;"><a name="&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;" class="anchor-navigation-ex-anchor" href="#&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1. &#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;</h3>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> sqlite3
+conn = sqlite3.connect(<span class="hljs-string">&apos;test.db&apos;</span>)
+</code></pre>
+<h3 id="&#x521B;&#x5EFA;&#x8868;&#x683C;"><a name="&#x521B;&#x5EFA;&#x8868;&#x683C;" class="anchor-navigation-ex-anchor" href="#&#x521B;&#x5EFA;&#x8868;&#x683C;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.2. &#x521B;&#x5EFA;&#x8868;&#x683C;</h3>
+<p>&#x6570;&#x636E;&#x5E93;&#x7684;&#x64CD;&#x4F5C;&#x4F7F;&#x7528;&#x6E38;&#x6807;(cursor)&#x5B9E;&#x73B0;.&#x6E38;&#x6807;&#x5BF9;&#x8C61;&#x6709;<code>execute</code>&#x65B9;&#x6CD5;&#x7528;&#x6765;&#x5C06;sql&#x8BED;&#x53E5;&#x8F93;&#x5165;&#x5230;&#x8FDE;&#x63A5;&#x4E2D;,&#x4E4B;&#x540E;&#x518D;&#x8C03;&#x7528;&#x8FDE;&#x63A5;&#x7684;<code>commit</code>&#x65B9;&#x6CD5;&#x5C06;sql&#x8BED;&#x53E5;&#x4E0A;&#x4F20;&#x5230;&#x6570;&#x636E;&#x5E93;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;.</p>
+<pre><code class="lang-python">c = conn.cursor()
+c.execute(<span class="hljs-string">&apos;&apos;&apos;CREATE TABLE COMPANY
+       (ID INT PRIMARY KEY     NOT NULL,
+       NAME           TEXT    NOT NULL,
+       AGE            INT     NOT NULL,
+       ADDRESS        CHAR(50),
+       SALARY         REAL);&apos;&apos;&apos;</span>)
+conn.commit()
+</code></pre>
+<h3 id="&#x63D2;&#x5165;&#x6570;&#x636E;"><a name="&#x63D2;&#x5165;&#x6570;&#x636E;" class="anchor-navigation-ex-anchor" href="#&#x63D2;&#x5165;&#x6570;&#x636E;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.3. &#x63D2;&#x5165;&#x6570;&#x636E;</h3>
+<pre><code class="lang-python">c = conn.cursor()
+
+c.execute(<span class="hljs-string">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \
+      VALUES (1, &apos;Paul&apos;, 32, &apos;California&apos;, 20000.00 )&quot;</span>);
+
+c.execute(<span class="hljs-string">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \
+      VALUES (2, &apos;Allen&apos;, 25, &apos;Texas&apos;, 15000.00 )&quot;</span>);
+
+c.execute(<span class="hljs-string">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \
+      VALUES (3, &apos;Teddy&apos;, 23, &apos;Norway&apos;, 20000.00 )&quot;</span>);
+
+c.execute(<span class="hljs-string">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \
+      VALUES (4, &apos;Mark&apos;, 25, &apos;Rich-Mond &apos;, 65000.00 )&quot;</span>);
+
+conn.commit()
+</code></pre>
+<h3 id="&#x67E5;&#x8BE2;"><a name="&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.4. &#x67E5;&#x8BE2;</h3>
+<pre><code class="lang-python">c = conn.cursor()
+
+cursor = c.execute(<span class="hljs-string">&quot;SELECT id, name, address, salary  from COMPANY&quot;</span>)
+<span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> cursor:
+    print(<span class="hljs-string">&quot;ID = &quot;</span>, row[<span class="hljs-number">0</span>])
+    print(<span class="hljs-string">&quot;NAME = &quot;</span>, row[<span class="hljs-number">1</span>])
+    print(<span class="hljs-string">&quot;ADDRESS = &quot;</span>, row[<span class="hljs-number">2</span>])
+    print(<span class="hljs-string">&quot;SALARY = &quot;</span>, row[<span class="hljs-number">3</span>], <span class="hljs-string">&quot;\n&quot;</span>)
+</code></pre>
+<pre><code>ID =  1
+NAME =  Paul
+ADDRESS =  California
+SALARY =  20000.0 
+
+ID =  2
+NAME =  Allen
+ADDRESS =  Texas
+SALARY =  15000.0 
+
+ID =  3
+NAME =  Teddy
+ADDRESS =  Norway
+SALARY =  20000.0 
+
+ID =  4
+NAME =  Mark
+ADDRESS =  Rich-Mond 
+SALARY =  65000.0 
+</code></pre><h3 id="&#x66F4;&#x65B0;"><a name="&#x66F4;&#x65B0;" class="anchor-navigation-ex-anchor" href="#&#x66F4;&#x65B0;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.5. &#x66F4;&#x65B0;</h3>
+<pre><code class="lang-python">c = conn.cursor()
+
+
+c.execute(<span class="hljs-string">&quot;UPDATE COMPANY set SALARY = 25000.00 where ID=1&quot;</span>)
+conn.commit()
+print(<span class="hljs-string">&quot;Total number of rows updated :&quot;</span>, conn.total_changes)
+
+cursor = conn.execute(<span class="hljs-string">&quot;SELECT id, name, address, salary  from COMPANY&quot;</span>)
+<span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> cursor:
+    print(<span class="hljs-string">&quot;ID = &quot;</span>, row[<span class="hljs-number">0</span>])
+    print(<span class="hljs-string">&quot;NAME = &quot;</span>, row[<span class="hljs-number">1</span>])
+    print(<span class="hljs-string">&quot;ADDRESS = &quot;</span>, row[<span class="hljs-number">2</span>])
+    print(<span class="hljs-string">&quot;SALARY = &quot;</span>, row[<span class="hljs-number">3</span>], <span class="hljs-string">&quot;\n&quot;</span>)
+</code></pre>
+<pre><code>Total number of rows updated : 5
+ID =  1
+NAME =  Paul
+ADDRESS =  California
+SALARY =  25000.0 
+
+ID =  2
+NAME =  Allen
+ADDRESS =  Texas
+SALARY =  15000.0 
+
+ID =  3
+NAME =  Teddy
+ADDRESS =  Norway
+SALARY =  20000.0 
+
+ID =  4
+NAME =  Mark
+ADDRESS =  Rich-Mond 
+SALARY =  65000.0 
+</code></pre><h3 id="&#x66FF;&#x6362;"><a name="&#x66FF;&#x6362;" class="anchor-navigation-ex-anchor" href="#&#x66FF;&#x6362;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.6. &#x66FF;&#x6362;</h3>
+<pre><code class="lang-python">c = conn.cursor()
+
+c.execute(<span class="hljs-string">&quot;REPLACE INTO COMPANY (ID, NAME, AGE, ADDRESS, SALARY) VALUES (&apos;2&apos;, &apos;Allen&apos;, &apos;Texas&apos;, &apos;123456@qq.com&apos;, 16000.0 );&quot;</span>)
+conn.commit()
+print(<span class="hljs-string">&quot;Total number of rows updated :&quot;</span>, conn.total_changes)
+
+cursor = conn.execute(<span class="hljs-string">&quot;SELECT id, name, address, salary  from COMPANY&quot;</span>)
+<span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> cursor:
+    print(<span class="hljs-string">&quot;ID = &quot;</span>, row[<span class="hljs-number">0</span>])
+    print(<span class="hljs-string">&quot;NAME = &quot;</span>, row[<span class="hljs-number">1</span>])
+    print(<span class="hljs-string">&quot;ADDRESS = &quot;</span>, row[<span class="hljs-number">2</span>])
+    print(<span class="hljs-string">&quot;SALARY = &quot;</span>, row[<span class="hljs-number">3</span>], <span class="hljs-string">&quot;\n&quot;</span>)
+</code></pre>
+<pre><code>Total number of rows updated : 6
+ID =  1
+NAME =  Paul
+ADDRESS =  California
+SALARY =  25000.0 
+
+ID =  3
+NAME =  Teddy
+ADDRESS =  Norway
+SALARY =  20000.0 
+
+ID =  4
+NAME =  Mark
+ADDRESS =  Rich-Mond 
+SALARY =  65000.0 
+
+ID =  2
+NAME =  Allen
+ADDRESS =  123456@qq.com
+SALARY =  16000.0 
+</code></pre><h3 id="&#x5220;&#x9664;"><a name="&#x5220;&#x9664;" class="anchor-navigation-ex-anchor" href="#&#x5220;&#x9664;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.7. &#x5220;&#x9664;</h3>
+<pre><code class="lang-python">c = conn.cursor()
+c.execute(<span class="hljs-string">&quot;DELETE from COMPANY where ID=2;&quot;</span>)
+conn.commit()
+print(<span class="hljs-string">&quot;Total number of rows deleted :&quot;</span>, conn.total_changes)
+
+cursor = conn.execute(<span class="hljs-string">&quot;SELECT id, name, address, salary  from COMPANY&quot;</span>)
+<span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> cursor:
+    print(<span class="hljs-string">&quot;ID = &quot;</span>, row[<span class="hljs-number">0</span>])
+    print(<span class="hljs-string">&quot;NAME = &quot;</span>, row[<span class="hljs-number">1</span>])
+    print(<span class="hljs-string">&quot;ADDRESS = &quot;</span>, row[<span class="hljs-number">2</span>])
+    print(<span class="hljs-string">&quot;SALARY = &quot;</span>, row[<span class="hljs-number">3</span>], <span class="hljs-string">&quot;\n&quot;</span>)
+</code></pre>
+<pre><code>Total number of rows deleted : 7
+ID =  1
+NAME =  Paul
+ADDRESS =  California
+SALARY =  25000.0 
+
+ID =  3
+NAME =  Teddy
+ADDRESS =  Norway
+SALARY =  20000.0 
+
+ID =  4
+NAME =  Mark
+ADDRESS =  Rich-Mond 
+SALARY =  65000.0 
+</code></pre><h3 id="&#x65AD;&#x5F00;&#x8FDE;&#x63A5;"><a name="&#x65AD;&#x5F00;&#x8FDE;&#x63A5;" class="anchor-navigation-ex-anchor" href="#&#x65AD;&#x5F00;&#x8FDE;&#x63A5;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.8. &#x65AD;&#x5F00;&#x8FDE;&#x63A5;</h3>
+<pre><code class="lang-python">conn.close()
+</code></pre>
+<h2 id="&#x5185;&#x5B58;&#x6A21;&#x5F0F;"><a name="&#x5185;&#x5B58;&#x6A21;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x5185;&#x5B58;&#x6A21;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x5185;&#x5B58;&#x6A21;&#x5F0F;</h2>
+<p>sqlite&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7F13;&#x5B58;&#x6A21;&#x5F0F;,&#x7528;&#x6CD5;&#x5F88;&#x7B80;&#x5355;,&#x5C31;&#x662F;&#x628A;db&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6539;&#x4E3A;<code>&quot;:memory:&quot;</code>.&#x4E0D;&#x8FC7;&#x6CE8;&#x610F;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5E76;&#x4E0D;&#x80FD;&#x5171;&#x4EAB;&#x5185;&#x5B58;,&#x5B83;&#x76F8;&#x5F53;&#x4E8E;&#x6BCF;&#x4E2A;&#x8FDE;&#x63A5;&#x72EC;&#x7ACB;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x5B58;&#x50A8;&#x6570;&#x636E;.&#x4E00;&#x65E6;&#x65AD;&#x5F00;&#x6570;&#x636E;&#x5C31;&#x88AB;&#x91CA;&#x653E;&#x4E86;.</p>
+<h2 id="&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x95EE;&#x9898;"><a name="&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x95EE;&#x9898;" class="anchor-navigation-ex-anchor" href="#&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x95EE;&#x9898;</h2>
+<p>sqlite&#x9ED8;&#x8BA4;&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;,&#x5B83;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x53EA;&#x4F1A;&#x6709;&#x4E00;&#x6B21;commit&#x5728;&#x8BBF;&#x95EE;&#x6570;&#x636E;.&#x800C;&#x5176;&#x4ED6;&#x7684;commit&#x5219;&#x5728;&#x5916;&#x9762;&#x88AB;&#x963B;&#x585E;&#x7740;.&#x5982;&#x679C;&#x8981;&#x53BB;&#x6389;&#x963B;&#x585E;,&#x53EF;&#x4EE5;&#x5728;&#x8FDE;&#x63A5;&#x65F6;&#x6307;&#x5B9A;<code>check_same_thread</code>&#x4E3A;<code>False</code>.&#x5F53;&#x7136;&#x4E86;,&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x5C31;&#x5F97;&#x624B;&#x5DE5;&#x7BA1;&#x7406;&#x4E86;.</p>
+<h2 id="&#x7F13;&#x5B58;&#x6A21;&#x5F0F;&#x7528;&#x4E8E;&#x591A;&#x7EBF;&#x7A0B;"><a name="&#x7F13;&#x5B58;&#x6A21;&#x5F0F;&#x7528;&#x4E8E;&#x591A;&#x7EBF;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#&#x7F13;&#x5B58;&#x6A21;&#x5F0F;&#x7528;&#x4E8E;&#x591A;&#x7EBF;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. &#x7F13;&#x5B58;&#x6A21;&#x5F0F;&#x7528;&#x4E8E;&#x591A;&#x7EBF;&#x7A0B;</h2>
+<p>&#x5982;&#x679C;&#x8981;&#x8BA9;&#x5185;&#x5B58;&#x7528;&#x4E8E;&#x591A;&#x7EBF;&#x7A0B;,&#x90A3;&#x4E48;&#x5C31;&#x8981;&#x5171;&#x4EAB;&#x7F13;&#x5B58;.python&#x7684;sqlite3&#x63A5;&#x53E3;&#x6CA1;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x53C2;&#x6570;.&#x4F46;3.4&#x65B0;&#x589E;&#x7684;&#x53C2;&#x6570;<code>uri</code>&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;</p>
+<h3 id="&#x4E0D;&#x540C;&#x8FDE;&#x63A5;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;&#x7684;&#x793A;&#x4F8B;-&#x6765;&#x81EA;stack-overflow"><a name="&#x4E0D;&#x540C;&#x8FDE;&#x63A5;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;&#x7684;&#x793A;&#x4F8B;-&#x6765;&#x81EA;stack-overflow" class="anchor-navigation-ex-anchor" href="#&#x4E0D;&#x540C;&#x8FDE;&#x63A5;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;&#x7684;&#x793A;&#x4F8B;-&#x6765;&#x81EA;stack-overflow"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.1. &#x4E0D;&#x540C;&#x8FDE;&#x63A5;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;&#x7684;&#x793A;&#x4F8B; (&#x6765;&#x81EA;stack overflow)</h3>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;db1&#x548C;db2&#x8FDE;&#x63A5;&#x7684;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x540D;&#x5B57;&#x7684;&#x6570;&#x636E;&#x5E93;<code>foobar_database</code>.&#x4ED6;&#x4EEC;&#x4E00;&#x4E2A;&#x521B;&#x5EFA;&#x8868;&#x4E00;&#x4E2A;&#x63D2;&#x5165;&#x6570;&#x636E;.&#x6700;&#x7EC8;&#x90FD;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5230;.&#x8FD9;&#x5C31;&#x4E3A;&#x591A;&#x4E2A;&#x8FDB;&#x7A0B;&#x8BBF;&#x95EE;&#x5171;&#x540C;&#x7684;&#x5185;&#x5B58;&#x6570;&#x636E;&#x63D0;&#x4F9B;&#x4E86;&#x652F;&#x6301;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> sqlite3
+
+foobar_uri = <span class="hljs-string">&apos;file:foobar_database?mode=memory&amp;cache=shared&apos;</span>
+not_really_foobar_uri = <span class="hljs-string">&apos;file:not_really_foobar?mode=memory&amp;cache=shared&apos;</span>
+
+<span class="hljs-comment"># connect to databases in no particular order</span>
+db2 = sqlite3.connect(foobar_uri, uri=<span class="hljs-keyword">True</span>)
+db_lol = sqlite3.connect(not_really_foobar_uri, uri=<span class="hljs-keyword">True</span>)
+db1 = sqlite3.connect(foobar_uri, uri=<span class="hljs-keyword">True</span>)
+
+<span class="hljs-comment"># create cursor as db2</span>
+cur2 = db2.cursor()
+cur1 = db1.cursor()
+<span class="hljs-comment"># create table as db2</span>
+db2.execute(<span class="hljs-string">&apos;CREATE TABLE foo (NUMBER bar)&apos;</span>)
+
+<span class="hljs-comment"># insert values as db1</span>
+db1.execute(<span class="hljs-string">&apos;INSERT INTO foo VALUES (42)&apos;</span>)
+db1.commit()
+
+<span class="hljs-comment"># and fetch them from db2 through cur2</span>
+cur2.execute(<span class="hljs-string">&apos;SELECT * FROM foo&apos;</span>)
+print(cur2.fetchone()[<span class="hljs-number">0</span>])  <span class="hljs-comment"># 42</span>
+cur1.execute(<span class="hljs-string">&apos;SELECT * FROM foo&apos;</span>)
+print(cur1.fetchone()[<span class="hljs-number">0</span>])  <span class="hljs-comment"># 42</span>
+<span class="hljs-comment"># test that db_lol is not shared with db1 and db2</span>
+<span class="hljs-keyword">try</span>:
+    db_lol.cursor().execute(<span class="hljs-string">&apos;SELECT * FROM foo&apos;</span>)
+<span class="hljs-keyword">except</span> sqlite3.OperationalError <span class="hljs-keyword">as</span> exc:
+    print(exc)  <span class="hljs-comment"># just as expected</span>
+
+db2.close()
+db1.close()
+</code></pre>
+<pre><code>42
+42
+no such table: foo
+</code></pre><pre><code class="lang-python">sqlite3.sqlite_version_info
+</code></pre>
+<pre><code>(3, 14, 2)
+</code></pre><h3 id="&#x591A;&#x7EBF;&#x7A0B;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;"><a name="&#x591A;&#x7EBF;&#x7A0B;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;" class="anchor-navigation-ex-anchor" href="#&#x591A;&#x7EBF;&#x7A0B;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.2. &#x591A;&#x7EBF;&#x7A0B;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x6570;&#x636E;&#x5E93;</h3>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> os, time
+<span class="hljs-keyword">import</span> sqlite3
+<span class="hljs-keyword">import</span> threading
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">write</span><span class="hljs-params">(name)</span>:</span>
+    print(<span class="hljs-string">&quot;write db in&quot;</span>,name)
+    <span class="hljs-keyword">import</span> sqlite3
+    foobar_uri = <span class="hljs-string">&apos;file:foobar_database?mode=memory&amp;cache=shared&apos;</span>
+    conn = sqlite3.connect(foobar_uri, uri=<span class="hljs-keyword">True</span>)
+    c = conn.cursor()
+    c.execute(<span class="hljs-string">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \
+          VALUES (3, &apos;Teddy&apos;, 23, &apos;Norway&apos;, 20000.00 )&quot;</span>);
+    c.execute(<span class="hljs-string">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \
+          VALUES (4, &apos;Mark&apos;, 25, &apos;Rich-Mond &apos;, 65000.00 )&quot;</span>);
+    conn.commit()
+    conn.close()
+    print(<span class="hljs-string">&quot;write db done&quot;</span>)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    foobar_uri = <span class="hljs-string">&apos;file:foobar_database?mode=memory&amp;cache=shared&apos;</span>
+    conn = sqlite3.connect(foobar_uri, uri=<span class="hljs-keyword">True</span>)
+    c = conn.cursor()
+    c.execute(<span class="hljs-string">&apos;&apos;&apos;CREATE TABLE COMPANY
+           (ID INT PRIMARY KEY     NOT NULL,
+           NAME           TEXT    NOT NULL,
+           AGE            INT     NOT NULL,
+           ADDRESS        CHAR(50),
+           SALARY         REAL);&apos;&apos;&apos;</span>)
+    conn.commit()
+    c = conn.cursor()
+    c.execute(<span class="hljs-string">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \
+          VALUES (1, &apos;Paul&apos;, 32, &apos;California&apos;, 20000.00 )&quot;</span>);
+    c.execute(<span class="hljs-string">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \
+          VALUES (2, &apos;Allen&apos;, 25, &apos;Texas&apos;, 15000.00 )&quot;</span>);
+    conn.commit()
+    pr = threading.Thread(target=write,args=(<span class="hljs-string">&quot;write Thread&quot;</span>,))
+    pr.start()
+    pr.join()
+    print(<span class="hljs-string">&quot;read db&quot;</span>)
+    c = conn.cursor()
+    cursor = conn.execute(<span class="hljs-string">&quot;SELECT id, name, address, salary  from COMPANY&quot;</span>)
+    <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> cursor:
+        print(<span class="hljs-string">&quot;ID = &quot;</span>, row[<span class="hljs-number">0</span>])
+        print(<span class="hljs-string">&quot;NAME = &quot;</span>, row[<span class="hljs-number">1</span>])
+        print(<span class="hljs-string">&quot;ADDRESS = &quot;</span>, row[<span class="hljs-number">2</span>])
+        print(<span class="hljs-string">&quot;SALARY = &quot;</span>, row[<span class="hljs-number">3</span>], <span class="hljs-string">&quot;\n&quot;</span>)
+    conn.close()
+
+main()
+</code></pre>
+<pre><code>write db in write Thread
+write db done
+read db
+ID =  1
+NAME =  Paul
+ADDRESS =  California
+SALARY =  20000.0 
+
+ID =  2
+NAME =  Allen
+ADDRESS =  Texas
+SALARY =  15000.0 
+
+ID =  3
+NAME =  Teddy
+ADDRESS =  Norway
+SALARY =  20000.0 
+
+ID =  4
+NAME =  Mark
+ADDRESS =  Rich-Mond 
+SALARY =  65000.0 
+</code></pre><h2 id="sqlite3&#x7528;&#x4E8E;&#x591A;&#x8FDB;&#x7A0B;"><a name="sqlite3&#x7528;&#x4E8E;&#x591A;&#x8FDB;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#sqlite3&#x7528;&#x4E8E;&#x591A;&#x8FDB;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. sqlite3&#x7528;&#x4E8E;&#x591A;&#x8FDB;&#x7A0B;</h2>
+<p>sqlite3&#x7684;&#x5185;&#x5B58;&#x6A21;&#x5F0F;&#x5E76;&#x4E0D;&#x652F;&#x6301;&#x591A;&#x8FDB;&#x7A0B;,&#x4E0D;&#x8FC7;&#x5982;&#x679C;&#x4F7F;&#x7528;linux,&#x90A3;&#x4E48;&#x5C31;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x7684;&#x8BA9;sqlite3&#x76F4;&#x63A5;&#x4F7F;&#x7528;RAM&#x800C;&#x4E0D;&#x7528;&#x901A;&#x8FC7;&#x6587;&#x4EF6;io.</p>
+<p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x6BD4;&#x8F83;&#x9E21;&#x8D3C;.&#x4E0D;&#x5149;&#x662F;sqlite,&#x5176;&#x4ED6;&#x7684;&#x6587;&#x4EF6;&#x4E5F;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x4F7F;&#x7528;.</p>
+<p>linux&#x4E2D;&#x6709;<code>/dev/shm</code>&#x76EE;&#x5F55;,&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x4E0D;&#x5728;&#x786C;&#x76D8;&#x4E0A;&#x800C;&#x5728;&#x5185;&#x5B58;&#x4E0A;,&#x6240;&#x4EE5;&#x5982;&#x679C;&#x5C06;sqlite3&#x7684;&#x6570;&#x636E;&#x5E93;&#x6587;&#x4EF6;&#x653E;&#x5728;&#x8FD9;&#x4E0A;&#x9762;,&#x90A3;&#x5C31;&#x53EF;&#x4EE5;&#x50CF;&#x6B63;&#x5E38;&#x90A3;&#x6837;&#x591A;&#x8FDB;&#x7A0B;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x4E2D;&#x7684;sqlite&#x6570;&#x636E;&#x5E93;&#x4E86;.</p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2017-10-23 21:29:04
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="并行编程的惯用法.html" class="navigation navigation-prev " aria-label="Previous page: 并发模型">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="结语.html" class="navigation navigation-next " aria-label="Next page: 结语">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"使用sqlite3共享内存","level":"1.6.7","depth":2,"next":{"title":"结语","level":"1.6.8","depth":2,"path":"流程控制/结语.md","ref":"流程控制/结语.md","articles":[]},"previous":{"title":"并发模型","level":"1.6.6","depth":2,"path":"流程控制/并行编程的惯用法.md","ref":"流程控制/并行编程的惯用法.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","katex","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/hsz1273327"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","alipayText":"支付宝打赏","button":"赏","title":"","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","wechatText":"微信打赏"},"sitemap-general":{"prefix":"http://blog.hszofficial.site/TutorialForPython/"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":true},"mode":"float","pageTop":{"showLevelIcon":false,"mode":"float","pageTop":{"showLevelIcon":false,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"},"level1Icon":"","showLevel":true,"level2Icon":"","level3Icon":"","associatedWithSummary":true,"float":{"showLevelIcon":true,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"}},"showLevel":true},"github-buttons":{"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍python3.5+的语法与编程惯用法"},"file":{"path":"流程控制/使用sqlite3共享内存.md","mtime":"2017-10-23T13:29:04.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-10-23T14:01:21.867Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
