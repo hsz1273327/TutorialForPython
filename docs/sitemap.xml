@@ -82,9 +82,11 @@
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/人机交互/GUI.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/什么时候优化python程序.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/Cython的基本流程.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/Cython纯净模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/Cython的基本模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/Cython的包装模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/用numba为python写高性能C扩展.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/使用Cython优化python程序的性能/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/使用Cython优化python程序的性能/Cython的基本流程.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/使用Cython优化python程序的性能/Cython纯净模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/使用Cython优化python程序的性能/Cython的基本模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/使用Cython优化python程序的性能/Cython的包装模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/结语.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 </urlset>
