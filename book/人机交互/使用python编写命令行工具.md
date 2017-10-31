@@ -211,7 +211,7 @@ if __name__ == '__main__':
 ```
 
     usage: sqrt_std.py [-h] [-v] number
-    sqrt_std.py: error: too few arguments
+    sqrt_std.py: error: the following arguments are required: number
 
 
 
@@ -309,9 +309,9 @@ parser.parse_args(['--foo', 'b', '--baz', 'Z'])
 
 ```python
 def foo(args):
-    print args.x * args.y
+    print(args.x * args.y)
 def bar(args):
-    print '((%s))' % args.z
+    print('((%s))' % args.z)
 ```
 
 
@@ -339,7 +339,7 @@ args
 
 
 
-    Namespace(func=<function foo at 0x104720140>, x=2, y=1.0)
+    Namespace(func=<function foo at 0x1053c1840>, x=2, y=1.0)
 
 
 
@@ -360,7 +360,7 @@ args
 
 
 
-    Namespace(func=<function bar at 0x104720938>, z='XYZYX')
+    Namespace(func=<function bar at 0x1053c1950>, z='XYZYX')
 
 
 
@@ -455,6 +455,10 @@ parser.parse_args(["--foo","--bar"])
 
 
 
+    /Users/huangsizhe/LIB/CONDA/anaconda/lib/python3.6/site-packages/IPython/core/interactiveshell.py:2870: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.
+      warn("To exit: use 'exit', 'quit', or Ctrl-D.", stacklevel=1)
+
+
 
 ```python
 parser.parse_args([])
@@ -472,6 +476,10 @@ parser.parse_args([])
 
 
 
+    /Users/huangsizhe/LIB/CONDA/anaconda/lib/python3.6/site-packages/IPython/core/interactiveshell.py:2870: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.
+      warn("To exit: use 'exit', 'quit', or Ctrl-D.", stacklevel=1)
+
+
 
 ```python
 parser.parse_args(["--foo"])
@@ -483,6 +491,67 @@ parser.parse_args(["--foo"])
     Namespace(bar=True, foo=True)
 
 
+
+### 多级子命令
+
+如果我们的命令行工具有更加复杂的子命令解析需求,那么我们可以使用如下的方式做扩展:
+
+```python
+
+class Command:
+
+    def __init__(self, argv):
+        parser = argparse.ArgumentParser(
+            description='xxxxxx',
+            usage='''xxxx <command> [<args>]
+
+The most commonly used xxx commands are:
+
+   clean       clean a project
+   install     install a package
+
+   
+''')
+        parser.add_argument('command', help='Subcommand to run')
+        # parse_args defaults to [1:] for args, but you need to
+        # exclude the rest of the args too, or validation will fail
+        self.argv = argv
+        args = parser.parse_args(argv[0:1])
+        if not hasattr(self, args.command):
+            print('Unrecognized command')
+            parser.print_help()
+            exit(1)
+        # use dispatch pattern to invoke method with same name
+        getattr(self, args.command)()
+
+
+    def clean(self):
+        parser = argparse.ArgumentParser(
+            description='clean a project')
+        parser.add_argument(
+            '-A', '--all', action='store_true')
+        parser.set_defaults(func=clean)
+        args = parser.parse_args(self.argv[1:])
+        args.func(args)
+
+    def install(self):
+        parser = argparse.ArgumentParser(
+            description='install a package for this project')
+        parser.add_argument('packages', nargs='?', type=str, default="DEFAULT")
+        parser.add_argument(
+            '-D', '--dev', action='store_true')
+        parser.add_argument(
+            '-T', '--test', action='store_true')
+        parser.add_argument(
+            '-A', '--all', action='store_true')
+        parser.set_defaults(func=install)
+        args = parser.parse_args(self.argv[1:])
+        args.func(args)
+        print("install done!")
+        
+def main(argv: Sequence[str]=sys.argv[1:]):
+    Command(argv)
+```
 
 ### 更加pythonic的替代品
 
@@ -568,11 +637,11 @@ if __name__ == '__main__':
 !python src/python/doc/sqrt_doc.py -a
 ```
 
-    {u'--all': True,
-     u'--help': False,
-     u'--version': False,
-     u'<num>': [],
-     u'option': False}
+    {'--all': True,
+     '--help': False,
+     '--version': False,
+     '<num>': [],
+     'option': False}
 
 
 
@@ -686,7 +755,7 @@ for i in tqdm(range(int(9e6)),desc="test:"):
     pass
 ```
 
-    test:: 100%|██████████| 9000000/9000000 [00:07<00:00, 1152892.82it/s]
+    test:: 100%|██████████| 9000000/9000000 [00:03<00:00, 2331387.40it/s]
 
 
 
@@ -695,7 +764,7 @@ for i in tqdm(range(int(9e6)),desc="test",dynamic_ncols=True):
     pass
 ```
 
-    test: 100%|██████████| 9000000/9000000 [00:07<00:00, 1139875.67it/s]
+    test: 100%|██████████| 9000000/9000000 [00:03<00:00, 2387614.30it/s]
 
 
 ### 使用with语句手工更新
@@ -709,7 +778,7 @@ with tqdm(total=100) as bar:
           
 ```
 
-    100%|██████████| 100/100 [00:00<00:00, 335544.32it/s]
+    100%|██████████| 100/100 [00:00<00:00, 572210.64it/s]
 
 
 ## 补充: python命令行工具的发布
@@ -744,13 +813,15 @@ setup(
     running install
     running build
     running build_scripts
-    copying and adjusting /Users/huangsizhe/WORKSPACE/Blog/Docs/Human-Computer_nteraction_interface/commandline_tool/src/python/doc/sqrt_doc.py -> build/scripts-2.7
+    creating build
+    creating build/scripts-3.6
+    copying and adjusting /Users/huangsizhe/WORKSPACE/Blog/Docs/Python/TutorialForPython/ipynbs/人机交互/src/python/doc/sqrt_doc.py -> build/scripts-3.6
+    changing mode of build/scripts-3.6/sqrt_doc.py from 644 to 755
     running install_scripts
-    copying build/scripts-2.7/sqrt_doc.py -> /Users/huangsizhe/Lib/CONDA/anaconda/bin
-    changing mode of /Users/huangsizhe/Lib/CONDA/anaconda/bin/sqrt_doc.py to 755
+    copying build/scripts-3.6/sqrt_doc.py -> /Users/huangsizhe/LIB/CONDA/anaconda/bin
+    changing mode of /Users/huangsizhe/LIB/CONDA/anaconda/bin/sqrt_doc.py to 755
     running install_egg_info
-    Removing /Users/huangsizhe/Lib/CONDA/anaconda/lib/python2.7/site-packages/sqrt_doc-0.1.0-py2.7.egg-info
-    Writing /Users/huangsizhe/Lib/CONDA/anaconda/lib/python2.7/site-packages/sqrt_doc-0.1.0-py2.7.egg-info
+    Writing /Users/huangsizhe/LIB/CONDA/anaconda/lib/python3.6/site-packages/sqrt_doc-0.1.0-py3.6.egg-info
 
 
 
@@ -758,7 +829,7 @@ setup(
 !sqrt_doc.py 48
 ```
 
-    6.92820323028
+    6.928203230275509
 
 
 将std文件夹中文件结构改成
@@ -792,11 +863,3 @@ setup(
 
 之后到目录下开始编译
 `python setup.py install`
-
-
-```python
-!sqrt_std 36
-```
-
-    6.0
-
