@@ -15,3 +15,5 @@ _book
 *.mobi
 *.pdf
 ipynbs/面向对象惯用法/source/jupyter.PNG
+
+ipynbs/流程控制/.ipynb_checkpoints/并发模型-checkpoint.ipynb
