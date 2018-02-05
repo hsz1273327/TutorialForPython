@@ -11,5 +11,4 @@ selectors作为对原本异步调度器select的封装.这个高级api已经大�
 
 + 广播模式
 
-+ p2p模式
 
