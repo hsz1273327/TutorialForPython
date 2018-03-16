@@ -51,18 +51,6 @@
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/元编程/装饰器.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/元编程/元类编程.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/元编程/结语.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/设计模式/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/设计模式/策略模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/设计模式/命令模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/设计模式/结语.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/什么时候优化python程序.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/用numba为python写高性能C扩展.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/使用Cython优化python程序的性能/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/使用Cython优化python程序的性能/Cython的基本流程.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/使用Cython优化python程序的性能/Cython纯净模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/使用Cython优化python程序的性能/Cython的基本模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/使用Cython优化python程序的性能/Cython的包装模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/数学工具与科学计算/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/数学工具与科学计算/随机模块/随机模块.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/数学工具与科学计算/数学运算模块.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
@@ -83,7 +71,6 @@
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/国际化/字符编码判断.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/国际化/国际化文本翻译.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/国际化/结语.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/配置文件解析/配置文件解析.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/人机交互/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/人机交互/使用python编写命令行工具.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/人机交互/自定义交互式界面.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
@@ -94,4 +81,17 @@
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/网络异步编程/客户端服务器结构实现请求应答模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/网络异步编程/客户端中间人结构实现发布订阅模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/网络异步编程/结语.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/设计模式/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/设计模式/策略模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/设计模式/命令模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/设计模式/结语.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/编译与反编译.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/什么时候优化python程序.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/用numba为python写高性能C扩展.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/使用Cython优化python程序的性能/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/使用Cython优化python程序的性能/Cython的基本流程.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/使用Cython优化python程序的性能/Cython纯净模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/使用Cython优化python程序的性能/Cython的基本模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/python性能优化/使用Cython优化python程序的性能/Cython的包装模式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 </urlset>
