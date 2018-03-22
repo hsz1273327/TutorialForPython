@@ -5,7 +5,7 @@ from tkinter import Frame,Label,Button
 
 class Application(Frame):
     def __init__(self, master=None):
-        Frame.__init__(self, master)
+        super().__init__(master)
         #窗口大小位置
         self.master.geometry("600x400+100+400")#长x宽+x+y
         self.pack()
