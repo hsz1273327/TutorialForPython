@@ -29,4 +29,5 @@ if __name__ =="__main__":
     # 主消息循环:
     app2 = App2()
     app2.title("helloword2")
+    app2.geometry("200x200+0+0")#长x宽+x+y
     app1.mainloop()

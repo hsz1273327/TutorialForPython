@@ -21,3 +21,5 @@ GUI的图形化特点带了了用户学习难度的降低,因此GUI包括后来�
 
 
 本文的GUI编程攻略是针对python标准库Tkinter,网络上相关的资料比较少,因此很多人对其有"难用"的映像,实际上Tkinter可以说是最符合Python风格的gui框架了--极少的组件通过简单组合就可以构造一个简洁够用的GUI界面.
+
+本文的执行环境需要自己为`ipython notebook`编写的子进程执行魔术命令`%exec_py`,可以参考[这篇文章](http://blog.hszofficial.site/TutorialForJupyter/ipython%E4%B8%8E%E9%AD%94%E6%B3%95%E5%91%BD%E4%BB%A4/ipython%E4%B8%8E%E9%AD%94%E6%B3%95%E5%91%BD%E4%BB%A4.html)自行实现和配置.
