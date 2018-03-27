@@ -8,16 +8,18 @@ class Application(Frame):
         #窗口大小位置
         self.pack()
         self.createWidgets()
-        self.creatMenu()
+        menu = self.creatMenu()
 
 
     def creatMenu(self):
         #主菜单
-        menubar = Menu(self)
+        menubar = Menu(self.master)
+        
         #子菜单
         menufile = Menu(menubar)
         for item in ["新建","打开","保存","另存为"]:
             menufile.add_radiobutton(label = item)
+        
         menuedit = Menu(menubar)
         for item in ["复制","黏贴","剪切"]:
             menuedit.add_checkbutton(label = item)
@@ -26,6 +28,8 @@ class Application(Frame):
             menubar.add_cascade(label=name,menu=submenu)
         #最关键的一步,主菜单与app关联
         self.master.config(menu=menubar)
+        
+        
         #右键菜单
         menu = Menu(self.master)
         for i in ('One', 'Two', 'Three'):
@@ -58,6 +62,6 @@ if __name__ =="__main__":
     app = Application()
     # 设置窗口标题:
     app.master.title('Hello World')
-    #app.master.geometry("600x400+100+400")#长x宽+x+y
+    app.master.geometry("600x400+100+400")#长x宽+x+y
     # 主消息循环:
     app.mainloop()

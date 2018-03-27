@@ -26,7 +26,7 @@ class Application(Frame):
 if __name__ =="__main__":
     app = Application()
     # 设置窗口标题:
-    app.master.title('pack布局测试')
+    app.master.title('grid布局测试')
     #窗口大小位置
     #app.master.geometry("600x400+100+400")#长x宽+x+y
     # 主消息循环:

@@ -1,7 +1,9 @@
 
 #coding:utf-8
-from tkinter import LabelFrame,Label,Button
+from tkinter.ttk import LabelFrame,Label,Button,Style
 
+style = Style()
+style.configure("RW.TLabel", foreground="red", background="white")
 
 class Application(LabelFrame):
     def __init__(self, master=None):
@@ -16,7 +18,7 @@ class Application(LabelFrame):
         self.helloLabel = Label(self, text='Hello, world!')
     
         self.helloLabel.pack()
-        self.quitButton = Button(self, text='Quit',fg="red", command=self.quit)
+        self.quitButton = Button(self,text='Quit',style="RW.TLabel",command=self.quit)
         self.quitButton.pack()
 
 if __name__ =="__main__":
