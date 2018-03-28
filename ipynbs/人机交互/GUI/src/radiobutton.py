@@ -1,5 +1,5 @@
 
-from tkinter import Frame,Label,Button,Radiobutton
+from tkinter import Frame,Label,Button,Radiobutton, IntVar
 
     
 class Application(Frame):
@@ -10,17 +10,34 @@ class Application(Frame):
         self.pack()
         self.createWidgets()
     def createWidgets(self):
+        self.var = IntVar()
         self.helloLabel = Label(self, text='Hello, world!\n')
         self.helloLabel.pack()
-
-        self.c1 = Radiobutton(self,text = "1",command = lambda : self.helloLabel.config(
-                                                                text = "1被选中了奇数次\n") )
+        self.rbframe=Frame(self)
+        self.rbframe.pack()
+        self.c1 = Radiobutton(
+            self.rbframe,
+            indicatoron=False,
+            text = "1",
+            value=1,
+            variable=self.var,
+            command = self._callback
+        )
         self.c1.pack()
-        self.c2 = Radiobutton(self,text = "2",command = lambda : self.helloLabel.config(
-                                                                text = "2被选中了奇数次\n") )
+        self.c2 = Radiobutton(
+            self.rbframe,
+            indicatoron=False,
+            text = "2",
+            value=2,
+            variable=self.var,
+            command = self._callback
+        )
         self.c2.pack()
         self.quitButton = Button(self, text='Quit',fg="red", command=self.quit)
         self.quitButton.pack()
+        
+    def _callback(self):
+        self.helloLabel.config(text = "值为{}".format(self.var.get()))
 
 if __name__ =="__main__":
     app = Application()

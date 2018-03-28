@@ -10,6 +10,8 @@ class Application(Frame):
         self.createWidgets()
         menu = self.creatMenu()
         self.master.config(menu=menu)
+        menu.entryconfig("新建",label=234)
+        help(menu)
 
 
     def creatMenu(self):
