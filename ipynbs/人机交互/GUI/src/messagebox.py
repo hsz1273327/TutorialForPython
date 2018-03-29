@@ -1,5 +1,3 @@
-
-
 from tkinter import Frame,Label,Button,Entry
 from tkinter.messagebox import showinfo
     
