@@ -1,3 +1,4 @@
+
 # 结合pandas和matplotlib制作数据科学GUI工具
 
 
@@ -29,7 +30,8 @@ python的一大作用就是做数据分析,如果使用tkinter构建数据科学
 `TableCanvas`常用的方法有:
 
 + `table.show()`将图表渲染到gui
-+ `table.redraw()`更新图表
++ `table.updateModel(model)`更新图表数据
++ `table.redraw()`重新画图表
 + `table.importCSV(path)`从csv中导入数据
 + `table.columncolors['mycol'] = '#dcf1fc'`为指定列设置显示颜色
 + `table.setRowColors(rows, color)`为指定行设置颜色
@@ -59,7 +61,7 @@ root.mainloop()
 ```
 
     Overwriting src/table_canvas.py
-
+    
 
 
 ```python
@@ -116,7 +118,7 @@ wdyx.info()
     code      120 non-null object
     dtypes: float64(5), object(2)
     memory usage: 7.5+ KB
-
+    
 
 
 ```python
@@ -298,7 +300,7 @@ if __name__=="__main__":
 ```
 
     Overwriting src/matplotlib_draw.py
-
+    
 
 
 ```python
@@ -372,7 +374,7 @@ if __name__=="__main__":
 ```
 
     Overwriting src/matplotlib_draw_an.py
-
+    
 
 
 ```python
