@@ -1,0 +1,8 @@
+setup.py
+lib/__init__.py
+lib/sqrt_std.py
+sqrt_std.egg-info/PKG-INFO
+sqrt_std.egg-info/SOURCES.txt
+sqrt_std.egg-info/dependency_links.txt
+sqrt_std.egg-info/entry_points.txt
+sqrt_std.egg-info/top_level.txt
