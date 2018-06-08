@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+<div id="result"><p>here is the result</p></div>
+<button id="hello">
+<h1>jQuery Example</h1>
+</button>
+<script type="text/javascript">
+    $("#hello").click(function() {
+        $.getJSON($SCRIPT_ROOT + '/ajax',
+                function(data) {
+                    $('#result').text(data.hello)
+                })
+        return false
+    })
+    
+</script>
+
+{% endblock %}

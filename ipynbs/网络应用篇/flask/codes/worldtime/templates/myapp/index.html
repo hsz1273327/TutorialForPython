@@ -1,0 +1,19 @@
+{% extends "/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}hello world!{% endblock %}
+{% block content %}
+
+    <div class="container">
+        <div class="page-header">
+            <h1>World's Time Welcome!</h1>
+            <p>{{chinacity}}时间: {{chinatime|changeTime}}</p>
+            {% if city != chinacity%}
+                <p>{{city}}时间:{{ timezone|changeTime }}</p>
+            {% endif%}
+            {{ wtf.quick_form( timeform,form_type='horizontal') }}
+            
+        </div>      
+    </div>    
+    
+{{ super() }}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}MSG BOARD{% endblock %}
+{% block content %}
+
+    <div class="container">
+        <div class="page-header">
+            <h1>MSG BOARD!</h1>
+            {{ wtf.quick_form(msgform,form_type='horizontal') }}
+            
+            <ul class=entries>
+              {% for entry in MSG %}
+                <li><h4>{{ entry.author_id|AuthorName}} said at {{entry.timestamp|LocalTime }}:</h4><p>{{ entry.content }}<p></li>
+              {% else %}
+                <li><em>Unbelievable.  No messages here so far</em></li>
+              {% endfor %}
+            </ul>
+            
+        </div>      
+    </div>    
+    
+{{ super() }}
+{% endblock %}

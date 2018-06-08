@@ -1,0 +1,17 @@
+{% extends "bootstrap/base.html" %}
+{% block styles%}
+    {{super()}}
+    <style>
+    body{
+        padding-top:50px;
+    }
+
+    </style>
+{% endblock%}
+
+{% block navbar %}
+    {% include 'blocks/mainnavbar.html' %}
+{% endblock %}
+{% block content %}
+    {% include "blocks/footer.html" %}
+{% endblock %}
