@@ -21,3 +21,6 @@ debug.log
 ipynbs/.DS_Store
 ipynbs/.DS_Store
 .DS_Store
+book/package-lock.json
+book/.DS_Store
+book/.DS_Store

@@ -177,6 +177,6 @@ Python提供了解析docstring中特定语法内容作为测试代码和待验�
 + -g GUI版
 + -w 生成html文件
 
-### *sphinx-autodoc*
+### `*`sphinx-autodoc
 
 pydoc虽然方便,但实话说样式比较老旧,而且可定制性不强,现在的python包一般都用sphinx做文档,sphinx其实也是利用autodoc,结合docstring和规范化的文档格式,可以实现非常美观的项目文档.具体可以看[我的这篇博文](http://blog.hszofficial.site/blog/2016/11/29/%E4%BD%BF%E7%94%A8sphinx%E7%BB%93%E5%90%88markdown%E5%86%99%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3/)
