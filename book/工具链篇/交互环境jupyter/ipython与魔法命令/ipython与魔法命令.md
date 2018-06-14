@@ -206,7 +206,7 @@ print("hello")
     <matplotlib.figure.Figure at 0x113c4f160>
 
 
-### 自定义魔法命令
+## `*`自定义魔法命令
 
 ipython是允许自定义魔法命令的,而且也不复杂,我们看个例子,
 
@@ -308,6 +308,11 @@ ip.register_magics(MyMagics)
 
 
 我们可以把自己的魔法命令放在profile_default的startup文件夹下
+
+### 一个组实用的自定义魔法命令
+
+
+下面是个比较实用的自定义魔法命令,它的主要作用是利用子进程调用其他python解释器执行python脚本.
 
 
 ```python

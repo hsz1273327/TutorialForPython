@@ -33,7 +33,7 @@ Jupyter 现在是独立安装.当然,你依然需要装有python 和 pip.
 
 当然了,没有kernel是没法运行的
 
-## *Jupyter的多语言支持*
+## `*`Jupyter的多语言支持
 
 在[这里](https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages)你可以看到目前支持的语言.
 

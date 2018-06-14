@@ -1,5 +1,5 @@
 
-# jupyter notebook作为服务器
+# `*`jupyter notebook作为服务器
 
 jupyter notebook本来就是一个基于浏览器的服务,它默认在`localhost:8888`启动.我们可以通过修改一些启动参数来将它对外.这种方式并不推荐,因为每次都得手动输入参数很繁琐. jupyter 提供了一个命令为我们生成一份配置文件放在`~/.jupyter`目录下.
 

@@ -5,10 +5,10 @@ jupyter 是科学计算工具,那代码的调优就是它的一个重点了,pyth
 
 本文的先验知识有:
 
-+ [代码调试]()
-+ [性能调优]()
-+ [使用Cython为python加速]()
-+ [使用numba为python加速]()
++ [代码调试](/工具链篇/调试工具.html)
++ [性能调优](/工具链篇/性能调优工具/html)
++ [使用Cython为python加速](/嵌入与扩展篇/使用Cython优化python程序的性能)
++ [使用numba为python加速](/嵌入与扩展篇/用numba为python写高性能C扩展.html)
 
 ## 调试代码
 
@@ -214,7 +214,7 @@ import myfib
     
 
 
-## *使用C语言扩展做代码优化*
+## `*`使用C语言扩展做代码优化
 
 对于提高python运行速度,我们常用C语言来加速,对于用C语言构建核心运算模块,Cython是numpy,scipy的发展方向.一般用Cython我们都是拿他写模块,写好后要编译安装,而ipython notebook对Cython有相当好的支持
 

@@ -71,7 +71,7 @@
         * [自定义序列Vector](语法篇/面向对象惯用法/自定义序列Vector.md)
         * [结语](语法篇/面向对象惯用法/结语.md)
 
-    * [`*`元编程](语法篇/元编程/README.md)
+    * [元编程](语法篇/元编程/README.md)
         * [运算符重载](语法篇/元编程/运算符重载.md)
         * [特性与描述符](语法篇/元编程/特性与描述符.md)
         * [装饰器](语法篇/元编程/装饰器.md)
@@ -83,5 +83,17 @@
         * [结语](语法篇/元编程/结语.md)
 
     * [结语](语法篇/结语.md)
+    
+* [嵌入与扩展篇](嵌入与扩展篇/README.md)
+    * [使用Cython优化python程序的性能](嵌入与扩展篇/使用Cython优化python程序的性能/README.md)
+        * [Cython的简单介绍](嵌入与扩展篇/使用Cython优化python程序的性能/Cython的简单介绍.md)
+        * [Cython的基本模式](嵌入与扩展篇/使用Cython优化python程序的性能/Cython的基本模式.md)
+        * [静态化python模块](嵌入与扩展篇/使用Cython优化python程序的性能/静态化python模块.md)
+        * [使用cython申明文件申明python源码类型](嵌入与扩展篇/使用Cython优化python程序的性能/使用cython申明文件申明python源码类型.md)
+        * [Cython的包装模式](嵌入与扩展篇/使用Cython优化python程序的性能/Cython的包装模式.md)
 
-[术语表](术语表.md)
+    * [用numba为python写高性能C扩展](嵌入与扩展篇/用numba为python写高性能C扩展.md)
+    * [使用f2py用fortain给python写扩展](嵌入与扩展篇/使用f2py用fortain给python写扩展.md)
+    * [结语](嵌入与扩展篇/结语.md)
+
+* [术语表](术语表.md)
