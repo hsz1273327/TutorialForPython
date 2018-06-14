@@ -1,0 +1,2052 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>特性与描述符 · python攻略</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="hsz">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="装饰器.html" />
+    
+    
+    <link rel="prev" href="运算符重载.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://blog.hszofficial.site/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../工具链篇/">
+            
+                <a href="../../工具链篇/">
+            
+                    
+                    工具链篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../工具链篇/运行环境.html">
+            
+                <a href="../../工具链篇/运行环境.html">
+            
+                    
+                    运行环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../工具链篇/包的安装管理与分发.html">
+            
+                <a href="../../工具链篇/包的安装管理与分发.html">
+            
+                    
+                    包的安装管理与分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../工具链篇/交互环境jupyter/">
+            
+                <a href="../../工具链篇/交互环境jupyter/">
+            
+                    
+                    交互环境jupyter
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../../工具链篇/交互环境jupyter/基于web的可交互运行环境jupyter.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/基于web的可交互运行环境jupyter.html">
+            
+                    
+                    基于web的可交互运行环境jupyter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../../工具链篇/交互环境jupyter/ipython与魔法命令/ipython与魔法命令.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/ipython与魔法命令/ipython与魔法命令.html">
+            
+                    
+                    ipython与魔法命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../../工具链篇/交互环境jupyter/在Ipython_Notebook中的代码调试与优化.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/在Ipython_Notebook中的代码调试与优化.html">
+            
+                    
+                    在Ipython_Notebook中的代码调试与优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../../工具链篇/交互环境jupyter/多进程并行计算.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/多进程并行计算.html">
+            
+                    
+                    多进程并行计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../../工具链篇/交互环境jupyter/公开的jupyter_notebook服务.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/公开的jupyter_notebook服务.html">
+            
+                    
+                    公开的jupyter_notebook服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../../工具链篇/交互环境jupyter/notebook格式转换工具.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/notebook格式转换工具.html">
+            
+                    
+                    notebook格式转换工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../../工具链篇/交互环境jupyter/结语.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../工具链篇/代码风格.html">
+            
+                <a href="../../工具链篇/代码风格.html">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../工具链篇/docstring工具.html">
+            
+                <a href="../../工具链篇/docstring工具.html">
+            
+                    
+                    docstring工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../工具链篇/静态类型检测.html">
+            
+                <a href="../../工具链篇/静态类型检测.html">
+            
+                    
+                    静态类型检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../../工具链篇/日志工具.html">
+            
+                <a href="../../工具链篇/日志工具.html">
+            
+                    
+                    日志工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../../工具链篇/调试工具.html">
+            
+                <a href="../../工具链篇/调试工具.html">
+            
+                    
+                    调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../../工具链篇/调用追踪与异常栈追踪.html">
+            
+                <a href="../../工具链篇/调用追踪与异常栈追踪.html">
+            
+                    
+                    调用追踪与异常栈追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../../工具链篇/单元测试.html">
+            
+                <a href="../../工具链篇/单元测试.html">
+            
+                    
+                    单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../../工具链篇/部署服务.html">
+            
+                <a href="../../工具链篇/部署服务.html">
+            
+                    
+                    部署服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../../工具链篇/性能调优工具.html">
+            
+                <a href="../../工具链篇/性能调优工具.html">
+            
+                    
+                    性能调优工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../../工具链篇/结语.html">
+            
+                <a href="../../工具链篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    语法篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Python的数据模型/">
+            
+                <a href="../Python的数据模型/">
+            
+                    
+                    Python的数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../Python的数据模型/数据模型.html">
+            
+                <a href="../Python的数据模型/数据模型.html">
+            
+                    
+                    数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../Python的数据模型/变量引用与垃圾回收.html">
+            
+                <a href="../Python的数据模型/变量引用与垃圾回收.html">
+            
+                    
+                    变量引用与垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../Python的数据模型/结语.html">
+            
+                <a href="../Python的数据模型/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../模块/">
+            
+                <a href="../模块/">
+            
+                    
+                    模块
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../模块/导入时与运行时.html">
+            
+                <a href="../模块/导入时与运行时.html">
+            
+                    
+                    导入时与运行时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../模块/模块的预设字段.html">
+            
+                <a href="../模块/模块的预设字段.html">
+            
+                    
+                    模块的预设字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../模块/模块的加载流程.html">
+            
+                <a href="../模块/模块的加载流程.html">
+            
+                    
+                    模块的加载流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../模块/模块加载特殊内容.html">
+            
+                <a href="../模块/模块加载特殊内容.html">
+            
+                    
+                    模块加载特殊内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../模块/结语.html">
+            
+                <a href="../模块/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../文本与字节序/">
+            
+                <a href="../文本与字节序/">
+            
+                    
+                    文本与字节序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../文本与字节序/文本和编码.html">
+            
+                <a href="../文本与字节序/文本和编码.html">
+            
+                    
+                    文本和编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="../文本与字节序/字节序列与内存视图.html">
+            
+                <a href="../文本与字节序/字节序列与内存视图.html">
+            
+                    
+                    字节序列与内存视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="../文本与字节序/正则表达式.html">
+            
+                <a href="../文本与字节序/正则表达式.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="../文本与字节序/文件与IO流.html">
+            
+                <a href="../文本与字节序/文件与IO流.html">
+            
+                    
+                    文件与IO流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="../文本与字节序/序列化.html">
+            
+                <a href="../文本与字节序/序列化.html">
+            
+                    
+                    序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.6" data-path="../文本与字节序/结语.html">
+            
+                <a href="../文本与字节序/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../流程控制/">
+            
+                <a href="../流程控制/">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../流程控制/单线程同步流程控制.html">
+            
+                <a href="../流程控制/单线程同步流程控制.html">
+            
+                    
+                    单线程同步流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../流程控制/阻塞异步与协程.html">
+            
+                <a href="../流程控制/阻塞异步与协程.html">
+            
+                    
+                    阻塞异步与协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" data-path="../流程控制/多线程与GIL.html">
+            
+                <a href="../流程控制/多线程与GIL.html">
+            
+                    
+                    多线程与GIL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.4" data-path="../流程控制/多进程.html">
+            
+                <a href="../流程控制/多进程.html">
+            
+                    
+                    多进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.5" data-path="../流程控制/并行编程的惯用法.html">
+            
+                <a href="../流程控制/并行编程的惯用法.html">
+            
+                    
+                    并行编程的惯用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.6" data-path="../流程控制/结语.html">
+            
+                <a href="../流程控制/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../异常和警告.html">
+            
+                <a href="../异常和警告.html">
+            
+                    
+                    异常和警告
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../内置容器/">
+            
+                <a href="../内置容器/">
+            
+                    
+                    内置容器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="../内置容器/序列对象.html">
+            
+                <a href="../内置容器/序列对象.html">
+            
+                    
+                    序列对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="../内置容器/映射对象.html">
+            
+                <a href="../内置容器/映射对象.html">
+            
+                    
+                    映射对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="../内置容器/可迭代对象与生成器.html">
+            
+                <a href="../内置容器/可迭代对象与生成器.html">
+            
+                    
+                    可迭代对象与生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="../内置容器/结语.html">
+            
+                <a href="../内置容器/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../函数/">
+            
+                <a href="../函数/">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="../函数/函数是一等对象.html">
+            
+                <a href="../函数/函数是一等对象.html">
+            
+                    
+                    函数是一等对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="../函数/变量作用域与闭包.html">
+            
+                <a href="../函数/变量作用域与闭包.html">
+            
+                    
+                    变量作用域与闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.3" data-path="../函数/结语.html">
+            
+                <a href="../函数/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../面向对象惯用法/">
+            
+                <a href="../面向对象惯用法/">
+            
+                    
+                    面向对象惯用法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.8.1" data-path="../面向对象惯用法/python中的对象.html">
+            
+                <a href="../面向对象惯用法/python中的对象.html">
+            
+                    
+                    python中的对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.2" data-path="../面向对象惯用法/协议与接口与抽象基类.html">
+            
+                <a href="../面向对象惯用法/协议与接口与抽象基类.html">
+            
+                    
+                    协议,接口与抽象基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.3" data-path="../面向对象惯用法/多重继承和Mixin.html">
+            
+                <a href="../面向对象惯用法/多重继承和Mixin.html">
+            
+                    
+                    多重继承和Mixin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.4" data-path="../面向对象惯用法/自定义序列Vector.html">
+            
+                <a href="../面向对象惯用法/自定义序列Vector.html">
+            
+                    
+                    自定义序列Vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.5" data-path="../面向对象惯用法/结语.html">
+            
+                <a href="../面向对象惯用法/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    *元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.9.1" data-path="运算符重载.html">
+            
+                <a href="运算符重载.html">
+            
+                    
+                    运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.9.2" data-path="特性与描述符.html">
+            
+                <a href="特性与描述符.html">
+            
+                    
+                    特性与描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.3" data-path="装饰器.html">
+            
+                <a href="装饰器.html">
+            
+                    
+                    装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.4" data-path="元类编程.html">
+            
+                <a href="元类编程.html">
+            
+                    
+                    元类编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.5" data-path="import_hook.html">
+            
+                <a href="import_hook.html">
+            
+                    
+                    import_hook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.6" data-path="动态编译.html">
+            
+                <a href="动态编译.html">
+            
+                    
+                    动态编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.7" data-path="动态属性.html">
+            
+                <a href="动态属性.html">
+            
+                    
+                    动态属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.8" data-path="猴子补丁和热更新.md">
+            
+                <span>
+            
+                    
+                    猴子补丁和热更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.9" data-path="结语.html">
+            
+                <a href="结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../结语.html">
+            
+                <a href="../结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >特性与描述符</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7279;&#x6027;&#x4E0E;&#x63CF;&#x8FF0;&#x7B26;"><b>1. </b>&#x7279;&#x6027;&#x4E0E;&#x63CF;&#x8FF0;&#x7B26;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x906E;&#x76D6;&#x7C7B;&#x7684;&#x6570;&#x636E;&#x5C5E;&#x6027;"><b>1.1. </b>&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x906E;&#x76D6;&#x7C7B;&#x7684;&#x6570;&#x636E;&#x5C5E;&#x6027;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x4E0D;&#x4F1A;&#x906E;&#x76D6;&#x7C7B;&#x7279;&#x6027;"><b>1.2. </b>&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x4E0D;&#x4F1A;&#x906E;&#x76D6;&#x7C7B;&#x7279;&#x6027;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x65B0;&#x6DFB;&#x7684;&#x7C7B;&#x7279;&#x6027;&#x906E;&#x76D6;&#x73B0;&#x6709;&#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;"><b>1.3. </b>&#x65B0;&#x6DFB;&#x7684;&#x7C7B;&#x7279;&#x6027;&#x906E;&#x76D6;&#x73B0;&#x6709;&#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7279;&#x6027;&#x7684;&#x6587;&#x6863;"><b>1.4. </b>&#x7279;&#x6027;&#x7684;&#x6587;&#x6863;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;&#x7279;&#x6027;&#x83B7;&#x53D6;&#x94FE;&#x63A5;&#x7684;&#x8BB0;&#x5F55;"><b>1.5. </b>&#x4F7F;&#x7528;&#x7279;&#x6027;&#x83B7;&#x53D6;&#x94FE;&#x63A5;&#x7684;&#x8BB0;&#x5F55;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;&#x7279;&#x6027;&#x9A8C;&#x8BC1;&#x5C5E;&#x6027;"><b>1.6. </b>&#x4F7F;&#x7528;&#x7279;&#x6027;&#x9A8C;&#x8BC1;&#x5C5E;&#x6027;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#lineitem&#x7C7B;&#x7B2C;1&#x7248;&#xFF1A;&#x8868;&#x793A;&#x8BA2;&#x5355;&#x4E2D;&#x5546;&#x54C1;&#x7684;&#x7C7B;"><b>1.6.1. </b>LineItem&#x7C7B;&#x7B2C;1&#x7248;&#xFF1A;&#x8868;&#x793A;&#x8BA2;&#x5355;&#x4E2D;&#x5546;&#x54C1;&#x7684;&#x7C7B;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#lineitem&#x7C7B;&#x7B2C;2&#x7248;&#xFF1A;&#x80FD;&#x9A8C;&#x8BC1;&#x503C;&#x7684;&#x7279;&#x6027;"><b>1.6.2. </b>LineItem&#x7C7B;&#x7B2C;2&#x7248;&#xFF1A;&#x80FD;&#x9A8C;&#x8BC1;&#x503C;&#x7684;&#x7279;&#x6027;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7279;&#x6027;&#x5DE5;&#x5382;&#x51FD;&#x6570;"><b>1.7. </b>&#x7279;&#x6027;&#x5DE5;&#x5382;&#x51FD;&#x6570;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5C5E;&#x6027;&#x63CF;&#x8FF0;&#x7B26;"><b>1.8. </b>&#x5C5E;&#x6027;&#x63CF;&#x8FF0;&#x7B26;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#lineitem&#x7C7B;&#x7B2C;3&#x7248;&#xFF1A;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x63CF;&#x8FF0;&#x7B26;"><b>1.8.1. </b>LineItem&#x7C7B;&#x7B2C;3&#x7248;&#xFF1A;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x63CF;&#x8FF0;&#x7B26;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#lineitem&#x7C7B;&#x7B2C;4&#x7248;&#xFF1A;&#x81EA;&#x52A8;&#x83B7;&#x53D6;&#x50A8;&#x5B58;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x79F0;"><b>1.8.2. </b>LineItem&#x7C7B;&#x7B2C;4&#x7248;&#xFF1A;&#x81EA;&#x52A8;&#x83B7;&#x53D6;&#x50A8;&#x5B58;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x79F0;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#lineitem&#x7C7B;&#x7B2C;5&#x7248;&#xFF1A;&#x4E00;&#x79CD;&#x65B0;&#x578B;&#x63CF;&#x8FF0;&#x7B26;"><b>1.8.3. </b>LineItem&#x7C7B;&#x7B2C;5&#x7248;&#xFF1A;&#x4E00;&#x79CD;&#x65B0;&#x578B;&#x63CF;&#x8FF0;&#x7B26;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x8986;&#x76D6;&#x578B;&#x4E0E;&#x975E;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;"><b>1.9. </b>&#x8986;&#x76D6;&#x578B;&#x4E0E;&#x975E;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;"><b>1.9.1. </b>&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x6CA1;&#x6709;get&#x7684;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;"><b>1.9.2. </b>&#x6CA1;&#x6709;__get__&#x7684;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x975E;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;"><b>1.9.3. </b>&#x975E;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5728;&#x7C7B;&#x4E2D;&#x8986;&#x76D6;&#x63CF;&#x8FF0;&#x7B26;"><b>1.10. </b>&#x5728;&#x7C7B;&#x4E2D;&#x8986;&#x76D6;&#x63CF;&#x8FF0;&#x7B26;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x63CF;&#x8FF0;&#x7B26;&#x534F;&#x8BAE;&#x589E;&#x5F3A;36"><b>1.11. </b>&#x63CF;&#x8FF0;&#x7B26;&#x534F;&#x8BAE;&#x589E;&#x5F3A;[3.6]</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x65B9;&#x6CD5;&#x662F;&#x63CF;&#x8FF0;&#x7B26;"><b>1.12. </b>&#x65B9;&#x6CD5;&#x662F;&#x63CF;&#x8FF0;&#x7B26;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x63CF;&#x8FF0;&#x7B26;&#x7528;&#x6CD5;&#x5EFA;&#x8BAE;"><b>1.13. </b>&#x63CF;&#x8FF0;&#x7B26;&#x7528;&#x6CD5;&#x5EFA;&#x8BAE;</a></li></ul></ul></div><a href="#&#x7279;&#x6027;&#x4E0E;&#x63CF;&#x8FF0;&#x7B26;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x7279;&#x6027;&#x4E0E;&#x63CF;&#x8FF0;&#x7B26;"><a name="&#x7279;&#x6027;&#x4E0E;&#x63CF;&#x8FF0;&#x7B26;" class="anchor-navigation-ex-anchor" href="#&#x7279;&#x6027;&#x4E0E;&#x63CF;&#x8FF0;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x7279;&#x6027;&#x4E0E;&#x63CF;&#x8FF0;&#x7B26;</h1>
+<p>&#x9664;&#x4E86;&#x5C5E;&#x6027;&#x4E4B;&#x5916;,&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x7279;&#x6027;(property),&#x5728;&#x4E0D;&#x6539;&#x53D8;&#x7C7B;&#x63A5;&#x53E3;&#x7684;&#x524D;&#x63D0;&#x4E0B;,&#x4F7F;&#x7528;&#x5B58;&#x53D6;&#x65B9;&#x6CD5;(&#x5373;&#x8BFB;&#x503C;&#x65B9;&#x6CD5;&#x548C;&#x8BBE;&#x503C;&#x65B9;&#x6CD5;)&#x4FEE;&#x6539;&#x6570;&#x636E;&#x5C5E;&#x6027;.&#x8FD9;&#x4E0E;&#x7EDF;&#x4E00;&#x8BBF;&#x95EE;&#x539F;&#x5219;&#x76F8;&#x7B26;--&#x4E0D;&#x7BA1;&#x670D;&#x52A1;&#x662F;&#x7531;&#x5B58;&#x50A8;&#x8FD8;&#x662F;&#x8BA1;&#x7B97;&#x5B9E;&#x73B0;&#x7684;,&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x7684;&#x6240;&#x6709;&#x670D;&#x52A1;&#x90FD;&#x5E94;&#x8BE5;&#x901A;&#x8FC7;&#x7EDF;&#x4E00;&#x7684;&#x65B9;&#x5F0F;&#x4F7F;&#x7528;.</p>
+<p><code>property</code>&#x662F;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x7C7B;&#x4E2D;&#x65B9;&#x6CD5;&#x7684;&#x88C5;&#x9970;&#x5668;,&#x7528;&#x4E8E;&#x5C06;&#x65B9;&#x6CD5;&#x5C5E;&#x6027;&#x8F6C;&#x6362;&#x4E3A;&#x7279;&#x6027;,&#x5982;&#x679C;&#x8981;&#x8BBE;&#x5B9A;&#x7279;&#x6027;&#x7684;&#x589E;&#x5220;&#x6539;&#x67E5;&#x80FD;&#x529B;,&#x5219;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>&lt;property&gt;.setter,&lt;property&gt;.deleter</code>&#x5B9A;&#x4E49;.</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Event</span><span class="hljs-params">(DbRecord)</span>:</span> 
+<span class="hljs-meta">    @property</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">venue</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;The Event attribute&apos;&apos;&apos;</span>
+        <span class="hljs-keyword">return</span> self.__venue
+
+<span class="hljs-meta">    @venue.setter</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">venue</span><span class="hljs-params">(self,value)</span>:</span>
+        self.__venue = value
+
+<span class="hljs-meta">    @venue.deleter</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">venue</span><span class="hljs-params">(self,value)</span>:</span>
+        <span class="hljs-keyword">del</span> self.__venue
+</code></pre>
+<p>&#x867D;&#x7136;&#x5185;&#x7F6E;&#x7684;<code>property</code>&#x7ECF;&#x5E38;&#x7528;&#x4F5C;&#x88C5;&#x9970;&#x5668;,&#x4F46;&#x5B83;&#x5176;&#x5B9E;&#x662F;&#x4E00;&#x4E2A;&#x7C7B;.&#x5728;Python&#x4E2D;,&#x51FD;&#x6570;&#x548C;&#x7C7B;&#x901A;&#x5E38;&#x53EF;&#x4EE5;&#x4E92;&#x6362;,&#x56E0;&#x4E3A;&#x4E8C;&#x8005;&#x90FD;&#x662F;&#x53EF;&#x8C03;&#x7528;&#x7684;&#x5BF9;&#x8C61;,&#x800C;&#x4E14;&#x6CA1;&#x6709;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#x7684;<code>new</code>&#x8FD0;&#x7B97;&#x7B26;,&#x6240;&#x4EE5;&#x8C03;&#x7528;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x4E0E;&#x8C03;&#x7528;&#x5DE5;&#x5382;&#x51FD;&#x6570;&#x6CA1;&#x6709;&#x533A;&#x522B;.&#x6B64;&#x5916;,&#x53EA;&#x8981;&#x80FD;&#x8FD4;&#x56DE;&#x65B0;&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;,&#x4EE3;&#x66FF;&#x88AB;&#x88C5;&#x9970;&#x7684;&#x51FD;&#x6570;,&#x4E8C;&#x8005;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x4F5C;&#x88C5;&#x9970;&#x5668;.</p>
+<p><code>property</code>&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x7684;&#x5B8C;&#x6574;&#x7B7E;&#x540D;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><code>property(fget=None, fset=None, fdel=None, doc=None)</code></p>
+<p>&#x6240;&#x6709;&#x53C2;&#x6570;&#x90FD;&#x662F;&#x53EF;&#x9009;&#x7684;,&#x5982;&#x679C;&#x6CA1;&#x6709;&#x628A;&#x51FD;&#x6570;&#x4F20;&#x7ED9;&#x67D0;&#x4E2A;&#x53C2;&#x6570;,&#x90A3;&#x4E48;&#x5F97;&#x5230;&#x7684;&#x7279;&#x6027;&#x5BF9;&#x8C61;&#x5C31;&#x4E0D;&#x5141;&#x8BB8;&#x6267;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x64CD;&#x4F5C;.</p>
+<p>&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;,&#x8FD9;&#x79CD;&#x7ECF;&#x5178;&#x5F62;&#x5F0F;&#x6BD4;&#x88C5;&#x9970;&#x5668;&#x53E5;&#x6CD5;&#x597D;.&#x4F46;&#x662F;&#x5728;&#x65B9;&#x6CD5;&#x4F17;&#x591A;&#x7684;&#x7C7B;&#x5B9A;&#x4E49;&#x4F53;&#x4E2D;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x7684;&#x8BDD;,&#x4E00;&#x773C;&#x5C31;&#x80FD;&#x770B;&#x51FA;&#x54EA;&#x4E9B;&#x662F;&#x8BFB;&#x503C;&#x65B9;&#x6CD5;,&#x54EA;&#x4E9B;&#x662F;&#x8BBE;&#x503C;&#x65B9;&#x6CD5;,&#x800C;&#x4E0D;&#x7528;&#x6309;&#x7167;&#x60EF;&#x4F8B;&#x5728;&#x65B9;&#x6CD5;&#x540D;&#x7684;&#x524D;&#x9762;&#x52A0;&#x4E0A;<code>get</code>&#x548C;<code>set</code>.&#x7C7B;&#x4E2D;&#x7684;&#x7279;&#x6027;&#x80FD;&#x5F71;&#x54CD;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x7684;&#x5BFB;&#x627E;&#x65B9;&#x5F0F;,&#x800C;&#x4E00;&#x5F00;&#x59CB;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x53EF;&#x80FD;&#x4F1A;&#x8BA9;&#x4EBA;&#x89C9;&#x5F97;&#x610F;&#x5916;.</p>
+<p>&#x7279;&#x6027;&#x90FD;&#x662F;&#x7C7B;&#x5C5E;&#x6027;,&#x4F46;&#x662F;&#x7279;&#x6027;&#x7BA1;&#x7406;&#x7684;&#x5176;&#x5B9E;&#x662F;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x7684;&#x5B58;&#x53D6;.&#x5982;&#x679C;&#x5B9E;&#x4F8B;&#x548C;&#x6240;&#x5C5E;&#x7684;&#x7C7B;&#x6709;&#x540C;&#x540D;&#x6570;&#x636E;&#x5C5E;&#x6027;,&#x90A3;&#x4E48;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x4F1A;&#x8986;&#x76D6;(&#x6216;&#x79F0;&#x906E;&#x76D6;)&#x7C7B;&#x5C5E;&#x6027;--&#x81F3;&#x5C11;&#x901A;&#x8FC7;&#x90A3;&#x4E2A;&#x5B9E;&#x4F8B;&#x8BFB;&#x53D6;&#x5C5E;&#x6027;&#x65F6;&#x662F;&#x8FD9;&#x6837;.</p>
+<p>&#x672C;&#x8282;&#x7684;&#x5148;&#x9A8C;&#x77E5;&#x8BC6;&#x6709;:</p>
+<ul>
+<li><a href="../&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x60EF;&#x7528;&#x6CD5;">&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x60EF;&#x7528;&#x6CD5;</a></li>
+<li><a href="../Python&#x7684;&#x6570;&#x636E;&#x6A21;&#x578B;/&#x6570;&#x636E;&#x6A21;&#x578B;.html">python&#x7684;&#x6570;&#x636E;&#x6A21;&#x578B;</a></li>
+<li><a href="&#x88C5;&#x9970;&#x5668;.html">&#x88C5;&#x9970;&#x5668;</a></li>
+</ul>
+<h2 id="&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x906E;&#x76D6;&#x7C7B;&#x7684;&#x6570;&#x636E;&#x5C5E;&#x6027;"><a name="&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x906E;&#x76D6;&#x7C7B;&#x7684;&#x6570;&#x636E;&#x5C5E;&#x6027;" class="anchor-navigation-ex-anchor" href="#&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x906E;&#x76D6;&#x7C7B;&#x7684;&#x6570;&#x636E;&#x5C5E;&#x6027;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x906E;&#x76D6;&#x7C7B;&#x7684;&#x6570;&#x636E;&#x5C5E;&#x6027;</h2>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Class</span>:</span>
+    data = <span class="hljs-string">&apos;the class data attr&apos;</span>
+<span class="hljs-meta">    @property</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">prop</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;the prop value&apos;</span>
+</code></pre>
+<pre><code class="lang-python">obj = Class()
+vars(obj)
+</code></pre>
+<pre><code>{}
+</code></pre><pre><code class="lang-python">obj.data
+</code></pre>
+<pre><code>&apos;the class data attr&apos;
+</code></pre><pre><code class="lang-python">obj.data = <span class="hljs-string">&apos;bar&apos;</span>
+vars(obj)
+</code></pre>
+<pre><code>{&apos;data&apos;: &apos;bar&apos;}
+</code></pre><pre><code class="lang-python">obj.data
+</code></pre>
+<pre><code>&apos;bar&apos;
+</code></pre><pre><code class="lang-python">Class.data
+</code></pre>
+<pre><code>&apos;the class data attr&apos;
+</code></pre><h2 id="&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x4E0D;&#x4F1A;&#x906E;&#x76D6;&#x7C7B;&#x7279;&#x6027;"><a name="&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x4E0D;&#x4F1A;&#x906E;&#x76D6;&#x7C7B;&#x7279;&#x6027;" class="anchor-navigation-ex-anchor" href="#&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x4E0D;&#x4F1A;&#x906E;&#x76D6;&#x7C7B;&#x7279;&#x6027;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x4E0D;&#x4F1A;&#x906E;&#x76D6;&#x7C7B;&#x7279;&#x6027;</h2>
+<pre><code class="lang-python">Class.prop
+</code></pre>
+<pre><code>&lt;property at 0x1126f6db8&gt;
+</code></pre><pre><code class="lang-python">obj.prop
+</code></pre>
+<pre><code>&apos;the prop value&apos;
+</code></pre><pre><code class="lang-python">obj.prop = <span class="hljs-string">&apos;foo&apos;</span>
+</code></pre>
+<pre><code>---------------------------------------------------------------------------
+
+AttributeError                            Traceback (most recent call last)
+
+&lt;ipython-input-9-950b619b2a59&gt; in &lt;module&gt;()
+----&gt; 1 obj.prop = &apos;foo&apos;
+
+
+AttributeError: can&apos;t set attribute
+</code></pre><pre><code class="lang-python">obj.__dict__[<span class="hljs-string">&apos;prop&apos;</span>] = <span class="hljs-string">&apos;foo&apos;</span>
+</code></pre>
+<pre><code class="lang-python">vars(obj)
+</code></pre>
+<pre><code>{&apos;data&apos;: &apos;bar&apos;, &apos;prop&apos;: &apos;foo&apos;}
+</code></pre><pre><code class="lang-python">obj.prop
+</code></pre>
+<pre><code>&apos;the prop value&apos;
+</code></pre><pre><code class="lang-python">Class.prop
+</code></pre>
+<pre><code>&lt;property at 0x1126f6db8&gt;
+</code></pre><pre><code class="lang-python">obj.prop
+</code></pre>
+<pre><code>&apos;the prop value&apos;
+</code></pre><h2 id="&#x65B0;&#x6DFB;&#x7684;&#x7C7B;&#x7279;&#x6027;&#x906E;&#x76D6;&#x73B0;&#x6709;&#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;"><a name="&#x65B0;&#x6DFB;&#x7684;&#x7C7B;&#x7279;&#x6027;&#x906E;&#x76D6;&#x73B0;&#x6709;&#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;" class="anchor-navigation-ex-anchor" href="#&#x65B0;&#x6DFB;&#x7684;&#x7C7B;&#x7279;&#x6027;&#x906E;&#x76D6;&#x73B0;&#x6709;&#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x65B0;&#x6DFB;&#x7684;&#x7C7B;&#x7279;&#x6027;&#x906E;&#x76D6;&#x73B0;&#x6709;&#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;</h2>
+<pre><code class="lang-python">obj.data
+</code></pre>
+<pre><code>&apos;bar&apos;
+</code></pre><pre><code class="lang-python">Class.data
+</code></pre>
+<pre><code>&apos;the class data attr&apos;
+</code></pre><pre><code class="lang-python">Class.data = property(<span class="hljs-keyword">lambda</span> self: <span class="hljs-string">&apos;the &quot;data&quot; prop value&apos;</span>)
+obj.data
+</code></pre>
+<pre><code>&apos;the &quot;data&quot; prop value&apos;
+</code></pre><pre><code class="lang-python"><span class="hljs-keyword">del</span> Class.data
+obj.data
+</code></pre>
+<pre><code>&apos;bar&apos;
+</code></pre><h2 id="&#x7279;&#x6027;&#x7684;&#x6587;&#x6863;"><a name="&#x7279;&#x6027;&#x7684;&#x6587;&#x6863;" class="anchor-navigation-ex-anchor" href="#&#x7279;&#x6027;&#x7684;&#x6587;&#x6863;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. &#x7279;&#x6027;&#x7684;&#x6587;&#x6863;</h2>
+<p>&#x63A7;&#x5236;&#x53F0;&#x4E2D;&#x7684;<code>help()</code>&#x51FD;&#x6570;&#x6216;IDE&#x7B49;&#x5DE5;&#x5177;&#x9700;&#x8981;&#x663E;&#x793A;&#x7279;&#x6027;&#x7684;&#x6587;&#x6863;&#x65F6;,&#x4F1A;&#x4ECE;&#x7279;&#x6027;&#x7684;<code>__doc__</code>&#x5C5E;&#x6027;&#x4E2D;&#x63D0;&#x53D6;&#x4FE1;&#x606F;.</p>
+<ul>
+<li><p>&#x5982;&#x679C;&#x4F7F;&#x7528;&#x7ECF;&#x5178;&#x8C03;&#x7528;&#x53E5;&#x6CD5;,&#x4E3A;<code>property</code>&#x5BF9;&#x8C61;&#x8BBE;&#x7F6E;&#x6587;&#x6863;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x4F20;&#x5165;<code>doc</code>&#x53C2;&#x6570;:</p>
+<p>  <code>weight = property(get_weight, set_weight, doc=&apos;weight in kilograms&apos;)</code></p>
+</li>
+<li><p>&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x521B;&#x5EFA;<code>property</code>&#x5BF9;&#x8C61;&#x65F6;,&#x8BFB;&#x503C;&#x65B9;&#x6CD5;(&#x6709;<code>@property</code>&#x88C5;&#x9970;&#x5668;&#x7684;&#x65B9;&#x6CD5;)&#x7684;&#x6587;&#x6863;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x6574;&#x4F53;,&#x53D8;&#x6210;&#x7279;&#x6027;&#x7684;&#x6587;&#x6863;.</p>
+</li>
+</ul>
+<h2 id="&#x4F7F;&#x7528;&#x7279;&#x6027;&#x83B7;&#x53D6;&#x94FE;&#x63A5;&#x7684;&#x8BB0;&#x5F55;"><a name="&#x4F7F;&#x7528;&#x7279;&#x6027;&#x83B7;&#x53D6;&#x94FE;&#x63A5;&#x7684;&#x8BB0;&#x5F55;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;&#x7279;&#x6027;&#x83B7;&#x53D6;&#x94FE;&#x63A5;&#x7684;&#x8BB0;&#x5F55;"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. &#x4F7F;&#x7528;&#x7279;&#x6027;&#x83B7;&#x53D6;&#x94FE;&#x63A5;&#x7684;&#x8BB0;&#x5F55;</h2>
+<p>&#x4E0B;&#x56FE;&#x662F;&#x7528;&#x5230;&#x7684;&#x51E0;&#x4E2A;&#x7C7B;
+<img src="source/record.PNG" alt=""></p>
+<ul>
+<li><p>Record</p>
+<p>  <code>__init__</code> &#x65B9;&#x6CD5;&#x4E0E;schedule1.py &#x811A;&#x672C;&#xFF08;&#x89C1;&#x793A;&#x4F8B;19-9&#xFF09;&#x4E2D;&#x7684;&#x4E00;&#x6837;;&#x4E3A;&#x4E86;&#x8F85;&#x52A9;&#x6D4B;&#x8BD5;,&#x589E;&#x52A0;&#x4E86;<code>__eq__</code>&#x65B9;&#x6CD5;.</p>
+</li>
+<li><p>DbRecord</p>
+<p>  <code>Record</code>&#x7C7B;&#x7684;&#x5B50;&#x7C7B;,&#x6DFB;&#x52A0;&#x4E86;<code>__db</code> &#x7C7B;&#x5C5E;&#x6027;,&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x548C;&#x83B7;&#x53D6;<code>__db</code>&#x5C5E;&#x6027;&#x7684;<code>set_db</code> &#x548C;<code>get_db</code>&#x9759;&#x6001;&#x65B9;&#x6CD5;,&#x7528;&#x4E8E;&#x4ECE;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x83B7;&#x53D6;&#x8BB0;&#x5F55;&#x7684;fetch&#x7C7B;&#x65B9;&#x6CD5;,&#x4EE5;&#x53CA;&#x8F85;&#x52A9;&#x8C03;&#x8BD5;&#x548C;&#x6D4B;&#x8BD5;&#x7684;<code>__repr__</code>&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;.</p>
+</li>
+<li><p>Event</p>
+<p>  <code>DbRecord</code>&#x7C7B;&#x7684;&#x5B50;&#x7C7B;,&#x6DFB;&#x52A0;&#x4E86;&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x6240;&#x94FE;&#x63A5;&#x8BB0;&#x5F55;&#x7684;<code>venue</code>&#x548C;<code>speakers</code>&#x5C5E;&#x6027;,&#x4EE5;&#x53CA;&#x7279;&#x6B8A;&#x7684;<code>__repr__</code>&#x65B9;&#x6CD5;.</p>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> inspect
+DB_NAME = <span class="hljs-string">&apos;schedule2_db&apos;</span> 
+CONFERENCE = <span class="hljs-string">&apos;conference.115&apos;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Record</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, **kwargs)</span>:</span>
+        self.__dict__.update(kwargs)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__eq__</span><span class="hljs-params">(self, other)</span>:</span> 
+        <span class="hljs-keyword">if</span> isinstance(other, Record):
+            <span class="hljs-keyword">return</span> self.__dict__ == other.__dict__
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">NotImplemented</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MissingDatabaseError</span><span class="hljs-params">(RuntimeError)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;&#x9700;&#x8981;&#x6570;&#x636E;&#x5E93;&#x4F46;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x5E93;&#x65F6;&#x629B;&#x51FA;&#x3002;&quot;&quot;&quot;</span>
+    <span class="hljs-keyword">pass</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DbRecord</span><span class="hljs-params">(Record)</span>:</span>
+    __db = <span class="hljs-keyword">None</span>
+<span class="hljs-meta">    @staticmethod </span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_db</span><span class="hljs-params">(db)</span>:</span>
+        DbRecord.__db = db
+<span class="hljs-meta">    @staticmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_db</span><span class="hljs-params">()</span>:</span>
+        <span class="hljs-keyword">return</span> DbRecord.__db
+<span class="hljs-meta">    @classmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fetch</span><span class="hljs-params">(cls, ident)</span>:</span>
+        db = cls.get_db()
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-keyword">return</span> db[ident]
+        <span class="hljs-keyword">except</span> TypeError:
+            <span class="hljs-keyword">if</span> db <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+                msg = <span class="hljs-string">&quot;database not set; call &apos;{}.set_db(my_db)&apos;&quot;</span>
+                <span class="hljs-keyword">raise</span> MissingDatabaseError(msg.format(cls.__name__))
+            <span class="hljs-keyword">else</span>: 
+                <span class="hljs-keyword">raise</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> hasattr(self, <span class="hljs-string">&apos;serial&apos;</span>):
+            cls_name = self.__class__.__name__
+            <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&lt;{} serial={!r}&gt;&apos;</span>.format(cls_name, self.serial)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">return</span> super().__repr__()
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Event</span><span class="hljs-params">(DbRecord)</span>:</span> 
+<span class="hljs-meta">    @property</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">venue</span><span class="hljs-params">(self)</span>:</span>
+        key = <span class="hljs-string">&apos;venue.{}&apos;</span>.format(self.venue_serial)
+        <span class="hljs-keyword">return</span> self.__class__.fetch(key) 
+<span class="hljs-meta">    @property</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">speakers</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> hasattr(self, <span class="hljs-string">&apos;_speaker_objs&apos;</span>): 
+            spkr_serials = self.__dict__[<span class="hljs-string">&apos;speakers&apos;</span>] 
+            fetch = self.__class__.fetch 
+            self._speaker_objs = [fetch(<span class="hljs-string">&apos;speaker.{}&apos;</span>.format(key)) 
+                                      <span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> spkr_serials] 
+        <span class="hljs-keyword">return</span> self._speaker_objs 
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> hasattr(self, <span class="hljs-string">&apos;name&apos;</span>): 
+            cls_name = self.__class__.__name__
+            <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&lt;{} {!r}&gt;&apos;</span>.format(cls_name, self.name)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">return</span> super().__repr__()
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">load_db</span><span class="hljs-params">(db)</span>:</span>
+    raw_data = load()
+    warnings.warn(<span class="hljs-string">&apos;loading &apos;</span> + DB_NAME)
+    <span class="hljs-keyword">for</span> collection, rec_list <span class="hljs-keyword">in</span> raw_data[<span class="hljs-string">&apos;Schedule&apos;</span>].items():
+        record_type = collection[:<span class="hljs-number">-1</span>] 
+        cls_name = record_type.capitalize() 
+        cls = globals().get(cls_name, DbRecord) 
+        <span class="hljs-keyword">if</span> inspect.isclass(cls) <span class="hljs-keyword">and</span> issubclass(cls, DbRecord): 
+            factory = cls 
+        <span class="hljs-keyword">else</span>:
+            factory = DbRecord 
+        <span class="hljs-keyword">for</span> record <span class="hljs-keyword">in</span> rec_list: 
+            key = <span class="hljs-string">&apos;{}.{}&apos;</span>.format(record_type, record[<span class="hljs-string">&apos;serial&apos;</span>])
+            record[<span class="hljs-string">&apos;serial&apos;</span>] = key
+            db[key] = factory(**record)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> shelve
+</code></pre>
+<pre><code class="lang-python">db = shelve.open(DB_NAME)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">if</span> CONFERENCE <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> db:
+    load_db(db)
+</code></pre>
+<pre><code class="lang-python">DbRecord.set_db(db)
+</code></pre>
+<pre><code class="lang-python">event = DbRecord.fetch(<span class="hljs-string">&apos;event.33950&apos;</span>)
+event
+</code></pre>
+<pre><code>&lt;Event &apos;There *Will* Be Bugs&apos;&gt;
+</code></pre><pre><code class="lang-python">event.venue
+</code></pre>
+<pre><code>&lt;DbRecord serial=&apos;venue.1449&apos;&gt;
+</code></pre><pre><code class="lang-python">event.venue.name
+</code></pre>
+<pre><code>&apos;Portland 251&apos;
+</code></pre><pre><code class="lang-python"><span class="hljs-keyword">for</span> spkr <span class="hljs-keyword">in</span> event.speakers:
+    print(<span class="hljs-string">&apos;{0.serial}: {0.name}&apos;</span>.format(spkr))
+</code></pre>
+<pre><code>speaker.3471: Anna Martelli Ravenscroft
+speaker.5199: Alex Martelli
+</code></pre><pre><code class="lang-python">db.close()
+</code></pre>
+<h2 id="&#x4F7F;&#x7528;&#x7279;&#x6027;&#x9A8C;&#x8BC1;&#x5C5E;&#x6027;"><a name="&#x4F7F;&#x7528;&#x7279;&#x6027;&#x9A8C;&#x8BC1;&#x5C5E;&#x6027;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;&#x7279;&#x6027;&#x9A8C;&#x8BC1;&#x5C5E;&#x6027;"><i class="fa fa-link" aria-hidden="true"></i></a>1.6. &#x4F7F;&#x7528;&#x7279;&#x6027;&#x9A8C;&#x8BC1;&#x5C5E;&#x6027;</h2>
+<p>&#x76EE;&#x524D;,&#x6211;&#x4EEC;&#x53EA;&#x4ECB;&#x7ECD;&#x4E86;&#x5982;&#x4F55;&#x4F7F;&#x7528;<code>@property</code>&#x88C5;&#x9970;&#x5668;&#x5B9E;&#x73B0;&#x53EA;&#x8BFB;&#x7279;&#x6027;.&#x672C;&#x8282;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x53EF;&#x8BFB;&#x5199;&#x7684;&#x7279;&#x6027;</p>
+<h3 id="lineitem&#x7C7B;&#x7B2C;1&#x7248;&#xFF1A;&#x8868;&#x793A;&#x8BA2;&#x5355;&#x4E2D;&#x5546;&#x54C1;&#x7684;&#x7C7B;"><a name="lineitem&#x7C7B;&#x7B2C;1&#x7248;&#xFF1A;&#x8868;&#x793A;&#x8BA2;&#x5355;&#x4E2D;&#x5546;&#x54C1;&#x7684;&#x7C7B;" class="anchor-navigation-ex-anchor" href="#lineitem&#x7C7B;&#x7B2C;1&#x7248;&#xFF1A;&#x8868;&#x793A;&#x8BA2;&#x5355;&#x4E2D;&#x5546;&#x54C1;&#x7684;&#x7C7B;"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.1. LineItem&#x7C7B;&#x7B2C;1&#x7248;&#xFF1A;&#x8868;&#x793A;&#x8BA2;&#x5355;&#x4E2D;&#x5546;&#x54C1;&#x7684;&#x7C7B;</h3>
+<p>&#x5047;&#x8BBE;&#x6709;&#x4E2A;&#x9500;&#x552E;&#x6563;&#x88C5;&#x6709;&#x673A;&#x98DF;&#x7269;&#x7684;&#x7535;&#x5546;&#x5E94;&#x7528;,&#x5BA2;&#x6237;&#x53EF;&#x4EE5;&#x6309;&#x91CD;&#x91CF;&#x8BA2;&#x8D2D;&#x575A;&#x679C;&#x3001;&#x5E72;&#x679C;&#x6216;&#x6742;&#x7CAE;.&#x5728;&#x8FD9;&#x4E2A;&#x7CFB;&#x7EDF;&#x4E2D;,&#x6BCF;&#x4E2A;&#x8BA2;&#x5355;&#x4E2D;&#x90FD;&#x6709;&#x4E00;&#x7CFB;&#x5217;&#x5546;&#x54C1;,&#x800C;&#x6BCF;&#x4E2A;&#x5546;&#x54C1;&#x90FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;.</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LineItem</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, description, weight, price)</span>:</span>
+        self.description = description
+        self.weight = weight
+        self.price = price
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">subtotal</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.weight * self.price
+</code></pre>
+<pre><code class="lang-python">raisins = LineItem(<span class="hljs-string">&apos;Golden raisins&apos;</span>, <span class="hljs-number">10</span>, <span class="hljs-number">6.95</span>)
+</code></pre>
+<pre><code class="lang-python">raisins.subtotal()
+</code></pre>
+<pre><code>69.5
+</code></pre><pre><code class="lang-python">raisins.weight = <span class="hljs-number">-20</span>
+</code></pre>
+<pre><code class="lang-python">raisins.subtotal()
+</code></pre>
+<pre><code>-139.0
+</code></pre><p>&#x8FD9;&#x4E2A;&#x7C7B;&#x6CA1;&#x6CD5;&#x9650;&#x5236;&#x53C2;&#x6570;.&#x6BD4;&#x5982;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x5546;&#x54C1;&#x8BA2;&#x5355;,&#x5B83;&#x7684;&#x503C;&#x53EF;&#x4EE5;&#x662F;&#x8D1F;&#x7684;.</p>
+<h3 id="lineitem&#x7C7B;&#x7B2C;2&#x7248;&#xFF1A;&#x80FD;&#x9A8C;&#x8BC1;&#x503C;&#x7684;&#x7279;&#x6027;"><a name="lineitem&#x7C7B;&#x7B2C;2&#x7248;&#xFF1A;&#x80FD;&#x9A8C;&#x8BC1;&#x503C;&#x7684;&#x7279;&#x6027;" class="anchor-navigation-ex-anchor" href="#lineitem&#x7C7B;&#x7B2C;2&#x7248;&#xFF1A;&#x80FD;&#x9A8C;&#x8BC1;&#x503C;&#x7684;&#x7279;&#x6027;"><i class="fa fa-link" aria-hidden="true"></i></a>1.6.2. LineItem&#x7C7B;&#x7B2C;2&#x7248;&#xFF1A;&#x80FD;&#x9A8C;&#x8BC1;&#x503C;&#x7684;&#x7279;&#x6027;</h3>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LineItem</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, description, weight, price)</span>:</span>
+        self.description = description
+        self.weight = weight
+        self.price = price
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">subtotal</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.weight * self.price
+<span class="hljs-meta">    @property </span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">weight</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.__weight 
+<span class="hljs-meta">    @weight.setter</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">weight</span><span class="hljs-params">(self, value)</span>:</span>
+        <span class="hljs-keyword">if</span> value &gt; <span class="hljs-number">0</span>:
+            self.__weight = value 
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&apos;value must be &gt; 0&apos;</span>)
+</code></pre>
+<h2 id="&#x7279;&#x6027;&#x5DE5;&#x5382;&#x51FD;&#x6570;"><a name="&#x7279;&#x6027;&#x5DE5;&#x5382;&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x7279;&#x6027;&#x5DE5;&#x5382;&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>1.7. &#x7279;&#x6027;&#x5DE5;&#x5382;&#x51FD;&#x6570;</h2>
+<p>&#x6211;&#x4EEC;&#x7684;<code>weight</code> &#x548C;<code>price</code>&#x6709;&#x76F8;&#x4F3C;&#x7684;&#x7279;&#x70B9;,&#x90FD;&#x4E0D;&#x80FD;&#x4E3A;&#x8D1F;.&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x7C7B;&#x6709;&#x5F88;&#x591A;&#x8FD9;&#x6837;&#x7684;&#x7279;&#x6027;,&#x90A3;&#x4E00;&#x4E2A;&#x4E00;&#x4E2A;&#x5199;&#x7279;&#x6027;&#x4F1A;&#x5F88;&#x9EBB;&#x70E6;,&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7279;&#x6027;&#x5DE5;&#x5382;&#x51FD;&#x6570;&#x6765;&#x4EA7;&#x751F;&#x4E00;&#x6837;&#x7279;&#x70B9;&#x7684;&#x7279;&#x6027;.</p>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;<code>quantity</code>&#x7684;&#x7279;&#x6027;&#x5DE5;&#x5382;&#x51FD;&#x6570;,&#x53D6;&#x8FD9;&#x4E2A;&#x540D;&#x5B57;&#x662F;&#x56E0;&#x4E3A;,&#x5728;&#x8FD9;&#x4E2A;&#x5E94;&#x7528;&#x4E2D;&#x8981;&#x7BA1;&#x7406;&#x7684;&#x5C5E;&#x6027;&#x8868;&#x793A;&#x4E0D;&#x80FD;&#x4E3A;&#x8D1F;&#x6570;&#x6216;&#x96F6;&#x7684;&#x91CF;.&#x4E0B;&#x4F8B;&#x662F;<code>LineItem</code>&#x7C7B;&#x7684;&#x7B80;&#x6D01;&#x7248;,&#x7528;&#x5230;&#x4E86;<code>quantity</code>&#x7279;&#x6027;&#x7684;&#x4E24;&#x4E2A;&#x5B9E;&#x4F8B;:</p>
+<ul>
+<li>&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x7BA1;&#x7406;<code>weight</code>&#x5C5E;&#x6027;&#xFF0C;</li>
+<li>&#x53E6;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x7BA1;&#x7406;<code>price</code>&#x5C5E;&#x6027;&#x3002;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">quantity</span><span class="hljs-params">(storage_name)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">qty_getter</span><span class="hljs-params">(instance)</span>:</span>
+        <span class="hljs-keyword">return</span> instance.__dict__[storage_name]
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">qty_setter</span><span class="hljs-params">(instance, value)</span>:</span>
+        <span class="hljs-keyword">if</span> value &gt; <span class="hljs-number">0</span>:
+            instance.__dict__[storage_name] = value
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&apos;value must be &gt; 0&apos;</span>)
+    <span class="hljs-keyword">return</span> property(qty_getter, qty_setter)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LineItem</span>:</span>
+    weight = quantity(<span class="hljs-string">&apos;weight&apos;</span>)
+    price = quantity(<span class="hljs-string">&apos;price&apos;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, description, weight, price)</span>:</span>
+        self.description = description
+        self.weight = weight
+        self.price = price
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">subtotal</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.weight * self.price
+</code></pre>
+<pre><code class="lang-python">nutmeg = LineItem(<span class="hljs-string">&apos;Moluccan nutmeg&apos;</span>, <span class="hljs-number">8</span>, <span class="hljs-number">13.95</span>)
+</code></pre>
+<pre><code class="lang-python">nutmeg.weight, nutmeg.price
+</code></pre>
+<pre><code>(8, 13.95)
+</code></pre><pre><code class="lang-python">sorted(vars(nutmeg).items())
+</code></pre>
+<pre><code>[(&apos;description&apos;, &apos;Moluccan nutmeg&apos;), (&apos;price&apos;, 13.95), (&apos;weight&apos;, 8)]
+</code></pre><p>&#x5DE5;&#x5382;&#x51FD;&#x6570;&#x6784;&#x5EFA;&#x7684;&#x7279;&#x6027;&#x5229;&#x7528;&#x4E86;&#x7279;&#x6027;&#x8986;&#x76D6;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x7684;&#x884C;&#x4E3A;,&#x56E0;&#x6B64;&#x5BF9;<code>self.weight</code>&#x6216;<code>nutmeg.weight</code>&#x7684;&#x6BCF;&#x4E2A;&#x5F15;&#x7528;&#x90FD;&#x7531;&#x7279;&#x6027;&#x51FD;&#x6570;&#x5904;&#x7406;,&#x53EA;&#x6709;&#x76F4;&#x63A5;&#x5B58;&#x53D6;<code>__dict__</code>&#x5C5E;&#x6027;&#x624D;&#x80FD;&#x8DF3;&#x8FC7;&#x7279;&#x6027;&#x7684;&#x5904;&#x7406;&#x903B;&#x8F91;.</p>
+<p>&#x5728;&#x771F;&#x5B9E;&#x7684;&#x7CFB;&#x7EDF;&#x4E2D;,&#x5206;&#x6563;&#x5728;&#x591A;&#x4E2A;&#x7C7B;&#x4E2D;&#x7684;&#x591A;&#x4E2A;&#x5B57;&#x6BB5;&#x53EF;&#x80FD;&#x8981;&#x505A;&#x540C;&#x6837;&#x7684;&#x9A8C;&#x8BC1;,&#x6B64;&#x65F6;&#x6700;&#x597D;&#x628A;<code>quantity</code>&#x5DE5;&#x5382;&#x51FD;&#x6570;&#x653E;&#x5728;&#x5B9E;&#x7528;&#x5DE5;&#x5177;&#x6A21;&#x5757;&#x4E2D;,&#x4EE5;&#x4FBF;&#x91CD;&#x590D;&#x4F7F;&#x7528;.&#x6700;&#x7EC8;&#x53EF;&#x80FD;&#x8981;&#x91CD;&#x6784;&#x90A3;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x5DE5;&#x5382;&#x51FD;&#x6570;,&#x6539;&#x6210;&#x66F4;&#x6613;&#x6269;&#x5C55;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x7C7B;,&#x7136;&#x540E;&#x4F7F;&#x7528;&#x4E13;&#x95E8;&#x7684;&#x5B50;&#x7C7B;&#x6267;&#x884C;&#x4E0D;&#x540C;&#x7684;&#x9A8C;&#x8BC1;.</p>
+<h2 id="&#x5C5E;&#x6027;&#x63CF;&#x8FF0;&#x7B26;"><a name="&#x5C5E;&#x6027;&#x63CF;&#x8FF0;&#x7B26;" class="anchor-navigation-ex-anchor" href="#&#x5C5E;&#x6027;&#x63CF;&#x8FF0;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>1.8. &#x5C5E;&#x6027;&#x63CF;&#x8FF0;&#x7B26;</h2>
+<p>&#x63CF;&#x8FF0;&#x7B26;&#x662F;&#x5BF9;&#x591A;&#x4E2A;&#x5C5E;&#x6027;&#x8FD0;&#x7528;&#x76F8;&#x540C;&#x5B58;&#x53D6;&#x903B;&#x8F91;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;,ORM &#x4E2D;&#x7684;&#x5B57;&#x6BB5;&#x7C7B;&#x578B;&#x662F;&#x5F80;&#x5F80;&#x4F7F;&#x7528;&#x63CF;&#x8FF0;&#x7B26;&#xFF0C;&#x628A;&#x6570;&#x636E;&#x5E93;&#x8BB0;&#x5F55;&#x4E2D;&#x5B57;&#x6BB5;&#x91CC;&#x7684;&#x6570;&#x636E;&#x4E0E;Python&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x5BF9;&#x5E94;&#x8D77;&#x6765;.</p>
+<p>&#x63CF;&#x8FF0;&#x7B26;&#x662F;&#x5B9E;&#x73B0;&#x4E86;&#x7279;&#x5B9A;&#x534F;&#x8BAE;&#x7684;&#x7C7B;,&#x8FD9;&#x4E2A;&#x534F;&#x8BAE;&#x5305;&#x62EC;<code>__get__</code>&#x3001;<code>__set__</code> &#x548C;<code>__delete__</code>&#x65B9;&#x6CD5;.</p>
+<p><code>property</code>&#x7C7B;&#x5B9E;&#x73B0;&#x4E86;&#x5B8C;&#x6574;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x534F;&#x8BAE;.&#x901A;&#x5E38;&#x53EF;&#x4EE5;&#x53EA;&#x5B9E;&#x73B0;&#x90E8;&#x5206;&#x534F;&#x8BAE;.&#x5176;&#x5B9E;&#x6211;&#x4EEC;&#x5728;&#x771F;&#x5B9E;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x89C1;&#x5230;&#x7684;&#x5927;&#x591A;&#x6570;&#x63CF;&#x8FF0;&#x7B26;&#x53EA;&#x5B9E;&#x73B0;&#x4E86;<code>__get__</code> &#x548C;<code>__set__</code>&#x65B9;&#x6CD5;,&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x53EA;&#x5B9E;&#x73B0;&#x4E86;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;.&#x63CF;&#x8FF0;&#x7B26;&#x662F;Python&#x7684;&#x72EC;&#x6709;&#x7279;&#x5F81;,&#x4E0D;&#x4EC5;&#x5728;&#x5E94;&#x7528;&#x5C42;&#x4E2D;&#x4F7F;&#x7528;,&#x5728;&#x8BED;&#x8A00;&#x7684;&#x57FA;&#x7840;&#x8BBE;&#x65BD;&#x4E2D;&#x4E5F;&#x6709;&#x7528;&#x5230;.&#x9664;&#x4E86;&#x7279;&#x6027;&#x4E4B;&#x5916;,&#x4F7F;&#x7528;&#x63CF;&#x8FF0;&#x7B26;&#x7684;Python&#x529F;&#x80FD;&#x8FD8;&#x6709;&#x65B9;&#x6CD5;&#x53CA;<code>classmethod</code>&#x548C;<code>staticmethod</code>&#x88C5;&#x9970;&#x5668;.&#x7406;&#x89E3;&#x63CF;&#x8FF0;&#x7B26;&#x662F;&#x7CBE;&#x901A;Python&#x7684;&#x5173;&#x952E;.</p>
+<h3 id="lineitem&#x7C7B;&#x7B2C;3&#x7248;&#xFF1A;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x63CF;&#x8FF0;&#x7B26;"><a name="lineitem&#x7C7B;&#x7B2C;3&#x7248;&#xFF1A;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x63CF;&#x8FF0;&#x7B26;" class="anchor-navigation-ex-anchor" href="#lineitem&#x7C7B;&#x7B2C;3&#x7248;&#xFF1A;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x63CF;&#x8FF0;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>1.8.1. LineItem&#x7C7B;&#x7B2C;3&#x7248;&#xFF1A;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x63CF;&#x8FF0;&#x7B26;</h3>
+<p>&#x5B9E;&#x73B0;&#x4E86;<code>__get__</code>&#x3001;<code>__set__</code> &#x6216;<code>__delete__</code>&#x65B9;&#x6CD5;&#x7684;&#x7C7B;&#x662F;&#x63CF;&#x8FF0;&#x7B26;.&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x7528;&#x6CD5;&#x662F;,&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;,&#x4F5C;&#x4E3A;&#x53E6;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x7C7B;&#x5C5E;&#x6027;.</p>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;<code>Quantity</code>&#x63CF;&#x8FF0;&#x7B26;&#x7528;&#x6765;&#x4EE3;&#x66FF;&#x7279;&#x6027;&#x5DE5;&#x5382;&#x51FD;&#x6570;,<code>LineItem</code>&#x7C7B;&#x4F1A;&#x7528;&#x5230;&#x4E24;&#x4E2A;<code>Quantity</code>&#x5B9E;&#x4F8B;:</p>
+<ul>
+<li>&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x7BA1;&#x7406;<code>weight</code>&#x5C5E;&#x6027;</li>
+<li>&#x53E6;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x7BA1;&#x7406;<code>price</code>&#x5C5E;&#x6027;</li>
+</ul>
+<p><img src="source/des.PNG" alt=""></p>
+<p>&#x4ECE;&#x73B0;&#x5728;&#x5F00;&#x59CB;&#x6211;&#x4F1A;&#x4F7F;&#x7528;&#x4E0B;&#x8FF0;&#x5B9A;&#x4E49;:</p>
+<ul>
+<li><p>&#x63CF;&#x8FF0;&#x7B26;&#x7C7B;</p>
+<p>  &#x5B9E;&#x73B0;&#x63CF;&#x8FF0;&#x7B26;&#x534F;&#x8BAE;&#x7684;&#x7C7B;.&#x5728;&#x4E0A;&#x56FE;&#x4E2D;,&#x662F;<code>Quantity</code>&#x7C7B;.</p>
+</li>
+<li><p>&#x6258;&#x7BA1;&#x7C7B;</p>
+<p>  &#x628A;&#x63CF;&#x8FF0;&#x7B26;&#x5B9E;&#x4F8B;&#x58F0;&#x660E;&#x4E3A;&#x7C7B;&#x5C5E;&#x6027;&#x7684;&#x7C7B;&#x2014;&#x2014;&#x4E0A;&#x56FE;&#x4E2D;&#x7684;<code>LineItem</code>&#x7C7B;</p>
+</li>
+<li><p>&#x63CF;&#x8FF0;&#x7B26;&#x5B9E;&#x4F8B;</p>
+<p>  &#x63CF;&#x8FF0;&#x7B26;&#x7C7B;&#x7684;&#x5404;&#x4E2A;&#x5B9E;&#x4F8B;,&#x58F0;&#x660E;&#x4E3A;&#x6258;&#x7BA1;&#x7C7B;&#x7684;&#x7C7B;&#x5C5E;&#x6027;.&#x5728;&#x4E0A;&#x56FE;&#x4E2D;,&#x5404;&#x4E2A;&#x63CF;&#x8FF0;&#x7B26;&#x5B9E;&#x4F8B;&#x4F7F;&#x7528;&#x7BAD;&#x5934;&#x548C;&#x5E26;&#x4E0B;&#x5212;&#x7EBF;&#x7684;&#x540D;&#x79F0;&#x8868;&#x793A;(&#x5728;UML&#x4E2D;&#x4E0B;&#x5212;&#x7EBF;&#x8868;&#x793A;&#x7C7B;&#x5C5E;&#x6027;).&#x4E0E;&#x9ED1;&#x8272;&#x83F1;&#x5F62;&#x63A5;&#x89E6;&#x7684;<code>LineItem</code>&#x7C7B;&#x5305;&#x542B;&#x63CF;&#x8FF0;&#x7B26;&#x5B9E;&#x4F8B;.</p>
+</li>
+<li><p>&#x6258;&#x7BA1;&#x5B9E;&#x4F8B;</p>
+<p>  &#x6258;&#x7BA1;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;.&#x5728;&#x8FD9;&#x4E2A;&#x793A;&#x4F8B;&#x4E2D;,<code>LineItem</code>&#x5B9E;&#x4F8B;&#x662F;&#x6258;&#x7BA1;&#x5B9E;&#x4F8B;</p>
+</li>
+<li><p>&#x50A8;&#x5B58;&#x5C5E;&#x6027;</p>
+<p>  &#x6258;&#x7BA1;&#x5B9E;&#x4F8B;&#x4E2D;&#x5B58;&#x50A8;&#x81EA;&#x8EAB;&#x6258;&#x7BA1;&#x5C5E;&#x6027;&#x7684;&#x5C5E;&#x6027;.&#x5728;&#x4E0A;&#x56FE;&#x4E2D;,<code>LineItem</code>&#x5B9E;&#x4F8B;&#x7684;<code>weight</code> &#x548C;<code>price</code>&#x5C5E;&#x6027;&#x662F;&#x50A8;&#x5B58;&#x5C5E;&#x6027;.&#x8FD9;&#x79CD;&#x5C5E;&#x6027;&#x4E0E;&#x63CF;&#x8FF0;&#x7B26;&#x5C5E;&#x6027;&#x4E0D;&#x540C;,&#x63CF;&#x8FF0;&#x7B26;&#x5C5E;&#x6027;&#x90FD;&#x662F;&#x7C7B;&#x5C5E;&#x6027;.</p>
+</li>
+<li><p>&#x6258;&#x7BA1;&#x5C5E;&#x6027;</p>
+<p>  &#x6258;&#x7BA1;&#x7C7B;&#x4E2D;&#x7531;&#x63CF;&#x8FF0;&#x7B26;&#x5B9E;&#x4F8B;&#x5904;&#x7406;&#x7684;&#x516C;&#x5F00;&#x5C5E;&#x6027;,&#x503C;&#x5B58;&#x50A8;&#x5728;&#x50A8;&#x5B58;&#x5C5E;&#x6027;&#x4E2D;.&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x63CF;&#x8FF0;&#x7B26;&#x5B9E;&#x4F8B;&#x548C;&#x50A8;&#x5B58;&#x5C5E;&#x6027;&#x4E3A;&#x6258;&#x7BA1;&#x5C5E;&#x6027;&#x5EFA;&#x7ACB;&#x4E86;&#x57FA;&#x7840;.</p>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Quantity</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, storage_name)</span>:</span>
+        self.storage_name = storage_name
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__set__</span><span class="hljs-params">(self, instance, value)</span>:</span>
+        <span class="hljs-keyword">if</span> value &gt; <span class="hljs-number">0</span>:
+            instance.__dict__[self.storage_name] = value
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&apos;value must be &gt; 0&apos;</span>)
+</code></pre>
+<p>&#x5404;&#x4E2A;&#x6258;&#x7BA1;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x79F0;&#x4E0E;&#x50A8;&#x5B58;&#x5C5E;&#x6027;&#x4E00;&#x6837;,&#x800C;&#x4E14;&#x8BFB;&#x503C;&#x65B9;&#x6CD5;&#x4E0D;&#x9700;&#x8981;&#x7279;&#x6B8A;&#x7684;&#x903B;&#x8F91;,&#x6240;&#x4EE5;<code>Quantity</code>&#x7C7B;&#x4E0D;&#x9700;&#x8981;&#x5B9A;&#x4E49;<code>__get__</code>&#x65B9;&#x6CD5;.</p>
+<p>&#x7F16;&#x5199;<code>__set__</code>&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x8981;&#x8BB0;&#x4F4F;<code>self</code> &#x548C;<code>instance</code>&#x53C2;&#x6570;&#x7684;&#x610F;&#x601D;:</p>
+<ul>
+<li>self &#x662F;&#x63CF;&#x8FF0;&#x7B26;&#x5B9E;&#x4F8B;&#xFF0C;</li>
+<li>instance &#x662F;&#x6258;&#x7BA1;&#x5B9E;&#x4F8B;</li>
+</ul>
+<p>&#x7BA1;&#x7406;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x5E94;&#x8BE5;&#x628A;&#x503C;&#x5B58;&#x50A8;&#x5728;&#x6258;&#x7BA1;&#x5B9E;&#x4F8B;&#x4E2D;.&#x56E0;&#x6B64;Python&#x624D;&#x4E3A;&#x63CF;&#x8FF0;&#x7B26;&#x4E2D;&#x7684;&#x90A3;&#x4E2A;&#x65B9;&#x6CD5;&#x63D0;&#x4F9B;&#x4E86;<code>instance</code>&#x53C2;&#x6570;.</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LineItem</span>:</span>
+    weight = Quantity(<span class="hljs-string">&apos;weight&apos;</span>)
+    price = Quantity(<span class="hljs-string">&apos;price&apos;</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, description, weight, price)</span>:</span>
+        self.description = description
+        self.weight = weight
+        self.price = price
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">subtotal</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.weight * self.price
+</code></pre>
+<pre><code class="lang-python">truffle = LineItem(<span class="hljs-string">&apos;White truffle&apos;</span>, <span class="hljs-number">100</span>, <span class="hljs-number">0</span>)
+</code></pre>
+<pre><code>---------------------------------------------------------------------------
+
+ValueError                                Traceback (most recent call last)
+
+&lt;ipython-input-41-374bbc05eae3&gt; in &lt;module&gt;()
+----&gt; 1 truffle = LineItem(&apos;White truffle&apos;, 100, 0)
+
+
+&lt;ipython-input-40-39f3300dcdb9&gt; in __init__(self, description, weight, price)
+      5         self.description = description
+      6         self.weight = weight
+----&gt; 7         self.price = price
+      8     def subtotal(self):
+      9         return self.weight * self.price
+
+
+&lt;ipython-input-39-0c8ff1d78347&gt; in __set__(self, instance, value)
+      6             instance.__dict__[self.storage_name] = value
+      7         else:
+----&gt; 8             raise ValueError(&apos;value must be &gt; 0&apos;)
+
+
+ValueError: value must be &gt; 0
+</code></pre><p>&#x4E0A;&#x9762;&#x7684;&#x65B9;&#x5F0F;&#x8FD8;&#x662F;&#x4E0D;&#x591F;&#x7B80;&#x6D01;,&#x6211;&#x4EEC;&#x4E0D;&#x5F97;&#x4E0D;&#x5728;&#x7533;&#x660E;LineItem&#x65F6;&#x4E3A;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x6307;&#x5B9A;<code>Quantity()</code>&#x7684;&#x53C2;&#x6570;--&#x5C5E;&#x6027;&#x7684;&#x540D;&#x79F0;.</p>
+<p>&#x53EF;&#x95EE;&#x9898;&#x662F;&#x8D4B;&#x503C;&#x8BED;&#x53E5;&#x53F3;&#x624B;&#x8FB9;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x5148;&#x6267;&#x884C;,&#x800C;&#x6B64;&#x65F6;&#x53D8;&#x91CF;&#x8FD8;&#x4E0D;&#x5B58;&#x5728;.</p>
+<p><code>Quantity()</code>&#x8868;&#x8FBE;&#x5F0F;&#x8BA1;&#x7B97;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x521B;&#x5EFA;&#x63CF;&#x8FF0;&#x7B26;&#x5B9E;&#x4F8B;,&#x800C;&#x6B64;&#x65F6;<code>Quantity</code>&#x7C7B;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x65E0;&#x6CD5;&#x731C;&#x51FA;&#x8981;&#x628A;&#x63CF;&#x8FF0;&#x7B26;&#x7ED1;&#x5B9A;&#x7ED9;&#x54EA;&#x4E2A;&#x53D8;&#x91CF;(&#x4F8B;&#x5982;<code>weight</code>&#x6216;<code>price</code>).</p>
+<p>&#x56E0;&#x6B64;&#x4E0A;&#x4F8B;&#x5FC5;&#x987B;&#x660E;&#x786E;&#x6307;&#x660E;&#x5404;&#x4E2A;<code>Quantity</code>&#x5B9E;&#x4F8B;&#x7684;&#x540D;&#x79F0;.&#x8FD9;&#x6837;&#x4E0D;&#x4EC5;&#x9EBB;&#x70E6;,&#x8FD8;&#x5F88;&#x5371;&#x9669;--&#x5982;&#x679C;&#x7A0B;&#x5E8F;&#x5458;&#x76F4;&#x63A5;&#x590D;&#x5236;&#x7C98;&#x8D34;&#x4EE3;&#x7801;&#x800C;&#x5FD8;&#x4E86;&#x7F16;&#x8F91;&#x540D;&#x79F0;,&#x6BD4;&#x5982;&#x5199;&#x6210;<code>price = Quantity(&apos;weight&apos;)</code>&#xFF0C;&#x90A3;&#x4E48;&#x7A0B;&#x5E8F;&#x7684;&#x884C;&#x4E3A;&#x4F1A;&#x5927;&#x9519;&#x7279;&#x9519;&#xFF0C;&#x8BBE;&#x7F6E;<code>price</code>&#x7684;&#x503C;&#x65F6;&#x4F1A;&#x8986;&#x76D6;<code>weight</code>&#x7684;&#x503C;.</p>
+<h3 id="lineitem&#x7C7B;&#x7B2C;4&#x7248;&#xFF1A;&#x81EA;&#x52A8;&#x83B7;&#x53D6;&#x50A8;&#x5B58;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x79F0;"><a name="lineitem&#x7C7B;&#x7B2C;4&#x7248;&#xFF1A;&#x81EA;&#x52A8;&#x83B7;&#x53D6;&#x50A8;&#x5B58;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x79F0;" class="anchor-navigation-ex-anchor" href="#lineitem&#x7C7B;&#x7B2C;4&#x7248;&#xFF1A;&#x81EA;&#x52A8;&#x83B7;&#x53D6;&#x50A8;&#x5B58;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x79F0;"><i class="fa fa-link" aria-hidden="true"></i></a>1.8.2. LineItem&#x7C7B;&#x7B2C;4&#x7248;&#xFF1A;&#x81EA;&#x52A8;&#x83B7;&#x53D6;&#x50A8;&#x5B58;&#x5C5E;&#x6027;&#x7684;&#x540D;&#x79F0;</h3>
+<p>&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x5728;&#x63CF;&#x8FF0;&#x7B26;&#x58F0;&#x660E;&#x8BED;&#x53E5;&#x4E2D;&#x91CD;&#x590D;&#x8F93;&#x5165;&#x5C5E;&#x6027;&#x540D;,&#x6211;&#x4EEC;&#x5C06;&#x4E3A;&#x6BCF;&#x4E2A;<code>Quantity</code>&#x5B9E;&#x4F8B;&#x7684;<code>storage_name</code>&#x5C5E;&#x6027;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x72EC;&#x4E00;&#x65E0;&#x4E8C;&#x7684;&#x5B57;&#x7B26;&#x4E32;.&#x4E0B;&#x56FE;&#x662F;&#x66F4;&#x65B0;&#x540E;&#x7684;<code>Quantity</code>&#x548C;<code>LineItem</code>&#x7C7B;&#x7684;UML&#x7C7B;&#x56FE;.</p>
+<p><img src="source/lineitem4.PNG" alt=""></p>
+<p>&#x4E3A;&#x4E86;&#x751F;&#x6210;storage_name,&#x6211;&#x4EEC;&#x4EE5;<code>&apos;_Quantity#&apos;</code>&#x4E3A;&#x524D;&#x7F00;,&#x7136;&#x540E;&#x5728;&#x540E;&#x9762;&#x62FC;&#x63A5;&#x4E00;&#x4E2A;&#x6574;&#x6570;:</p>
+<p><code>Quantity.__counter</code>&#x7C7B;&#x5C5E;&#x6027;&#x7684;&#x5F53;&#x524D;&#x503C;,&#x6BCF;&#x6B21;&#x628A;&#x4E00;&#x4E2A;&#x65B0;&#x7684;<code>Quantity</code>&#x63CF;&#x8FF0;&#x7B26;&#x5B9E;&#x4F8B;&#x4F9D;&#x9644;&#x5230;&#x7C7B;&#x4E0A;,&#x90FD;&#x4F1A;&#x9012;&#x589E;&#x8FD9;&#x4E2A;&#x503C;.&#x5728;&#x524D;&#x7F00;&#x4E2D;&#x4F7F;&#x7528;&#x4E95;&#x53F7;&#x80FD;&#x907F;&#x514D;<code>storage_name</code>&#x4E0E;&#x7528;&#x6237;&#x4F7F;&#x7528;&#x70B9;&#x53F7;&#x521B;&#x5EFA;&#x7684;&#x5C5E;&#x6027;&#x51B2;&#x7A81;,&#x56E0;&#x4E3A;<code>nutmeg._Quantity#0</code>&#x662F;&#x65E0;&#x6548;&#x7684;Python&#x53E5;&#x6CD5;.&#x4F46;&#x662F;,&#x5185;&#x7F6E;&#x7684;<code>getattr</code> &#x548C;<code>setattr</code>&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&quot;&#x65E0;&#x6548;&#x7684;&quot;&#x6807;&#x8BC6;&#x7B26;&#x83B7;&#x53D6;&#x548C;&#x8BBE;&#x7F6E;&#x5C5E;&#x6027;,&#x6B64;&#x5916;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5904;&#x7406;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;<code>__dict__</code></p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Quantity</span>:</span>
+    __counter = <span class="hljs-number">0</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        cls = self.__class__
+        prefix = cls.__name__
+        index = cls.__counter
+        self.storage_name = <span class="hljs-string">&apos;_{}#{}&apos;</span>.format(prefix, index)
+        cls.__counter += <span class="hljs-number">1</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__get__</span><span class="hljs-params">(self, instance, owner)</span>:</span>
+        <span class="hljs-keyword">if</span> instance <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+            <span class="hljs-keyword">return</span> self
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">return</span> getattr(instance, self.storage_name)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__set__</span><span class="hljs-params">(self, instance, value)</span>:</span>
+        <span class="hljs-keyword">if</span> value &gt; <span class="hljs-number">0</span>:
+            setattr(instance, self.storage_name, value)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&apos;value must be &gt; 0&apos;</span>)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LineItem</span>:</span>
+    weight = Quantity()
+    price = Quantity()
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, description, weight, price)</span>:</span>
+        self.description = description
+        self.weight = weight
+        self.price = price
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">subtotal</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.weight * self.price
+</code></pre>
+<pre><code class="lang-python">coconuts = LineItem(<span class="hljs-string">&apos;Brazilian coconut&apos;</span>, <span class="hljs-number">20</span>, <span class="hljs-number">17.95</span>)
+</code></pre>
+<pre><code class="lang-python">coconuts.weight, coconuts.price
+</code></pre>
+<pre><code>(20, 17.95)
+</code></pre><pre><code class="lang-python">getattr(coconuts, <span class="hljs-string">&apos;_Quantity#0&apos;</span>), getattr(coconuts, <span class="hljs-string">&apos;_Quantity#1&apos;</span>)
+</code></pre>
+<pre><code>(20, 17.95)
+</code></pre><h3 id="lineitem&#x7C7B;&#x7B2C;5&#x7248;&#xFF1A;&#x4E00;&#x79CD;&#x65B0;&#x578B;&#x63CF;&#x8FF0;&#x7B26;"><a name="lineitem&#x7C7B;&#x7B2C;5&#x7248;&#xFF1A;&#x4E00;&#x79CD;&#x65B0;&#x578B;&#x63CF;&#x8FF0;&#x7B26;" class="anchor-navigation-ex-anchor" href="#lineitem&#x7C7B;&#x7B2C;5&#x7248;&#xFF1A;&#x4E00;&#x79CD;&#x65B0;&#x578B;&#x63CF;&#x8FF0;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>1.8.3. LineItem&#x7C7B;&#x7B2C;5&#x7248;&#xFF1A;&#x4E00;&#x79CD;&#x65B0;&#x578B;&#x63CF;&#x8FF0;&#x7B26;</h3>
+<p>&#x6211;&#x4EEC;&#x865A;&#x6784;&#x7684;&#x6709;&#x673A;&#x98DF;&#x7269;&#x7F51;&#x5E97;&#x9047;&#x5230;&#x4E00;&#x4E2A;&#x95EE;&#x9898;:</p>
+<blockquote>
+<p>&#x4E0D;&#x77E5;&#x600E;&#x4E48;&#x56DE;&#x4E8B;&#x513F;&#x6709;&#x4E2A;&#x5546;&#x54C1;&#x7684;&#x63CF;&#x8FF0;&#x4FE1;&#x606F;&#x4E3A;&#x7A7A;,&#x5BFC;&#x81F4;&#x65E0;&#x6CD5;&#x4E0B;&#x8BA2;&#x5355;.</p>
+</blockquote>
+<p>&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x51FA;&#x73B0;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;,&#x6211;&#x4EEC;&#x8981;&#x518D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x63CF;&#x8FF0;&#x7B26;<code>NonBlank</code>.&#x5728;&#x8BBE;&#x8BA1;<code>NonBlank</code>&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;,&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x5B83;&#x4E0E;<code>Quantity</code>&#x63CF;&#x8FF0;&#x7B26;&#x5F88;&#x50CF;,&#x53EA;&#x662F;&#x9A8C;&#x8BC1;&#x903B;&#x8F91;&#x4E0D;&#x540C;.</p>
+<p>&#x56DE;&#x60F3;<code>Quantity</code>&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x6211;&#x4EEC;&#x6CE8;&#x610F;&#x5230;&#x5B83;&#x505A;&#x4E86;&#x4E24;&#x4EF6;&#x4E0D;&#x540C;&#x7684;&#x4E8B;&#xFF1A;</p>
+<ul>
+<li>&#x7BA1;&#x7406;&#x6258;&#x7BA1;&#x5B9E;&#x4F8B;&#x4E2D;&#x7684;&#x50A8;&#x5B58;&#x5C5E;&#x6027;</li>
+<li>&#x9A8C;&#x8BC1;&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x90A3;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x503C;</li>
+</ul>
+<p>&#x7531;&#x6B64;&#x53EF;&#x77E5;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x91CD;&#x6784;,&#x5E76;&#x521B;&#x5EFA;&#x4E24;&#x4E2A;&#x57FA;&#x7C7B;</p>
+<ul>
+<li><p>AutoStorage</p>
+<p>  &#x81EA;&#x52A8;&#x7BA1;&#x7406;&#x50A8;&#x5B58;&#x5C5E;&#x6027;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x7C7B;</p>
+</li>
+<li><p>Validated</p>
+<p>  &#x6269;&#x5C55;AutoStorage&#x7C7B;&#x7684;&#x62BD;&#x8C61;&#x5B50;&#x7C7B;,&#x8986;&#x76D6;<code>__set__</code> &#x65B9;&#x6CD5;,&#x8C03;&#x7528;&#x5FC5;&#x987B;&#x7531;&#x5B50;&#x7C7B;&#x5B9E;&#x73B0;&#x7684;<code>validate</code>&#x65B9;&#x6CD5;</p>
+</li>
+</ul>
+<p>&#x6211;&#x4EEC;&#x91CD;&#x5199;<code>Quantity</code>&#x7C7B;,&#x5E76;&#x5B9E;&#x73B0;<code>NonBlank</code>,&#x8BA9;&#x5B83;&#x7EE7;&#x627F;<code>Validated</code>&#x7C7B;,&#x53EA;&#x7F16;&#x5199;<code>validate</code>&#x65B9;&#x6CD5;.&#x7C7B;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x89C1;&#x56FE;.</p>
+<p><img src="source/lineitem5.PNG" alt=""></p>
+<p><code>Validated</code>&#x3001;<code>Quantity</code>&#x548C;<code>NonBlank</code> &#x4E09;&#x4E2A;&#x7C7B;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x4F53;&#x73B0;&#x4E86;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;.&#x5177;&#x4F53;&#x800C;&#x8A00;&#xFF0C;<code>Validated.__set__</code> &#x65B9;&#x6CD5;&#x6B63;&#x662F;<code>Gamma</code>&#x7B49;&#x56DB;&#x4EBA;&#x6240;&#x63CF;&#x8FF0;&#x7684;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x7684;&#x4F8B;&#x8BC1;--&#x4E00;&#x4E2A;&#x6A21;&#x677F;&#x65B9;&#x6CD5;&#x7528;&#x4E00;&#x4E9B;&#x62BD;&#x8C61;&#x7684;&#x64CD;&#x4F5C;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7B97;&#x6CD5;&#xFF0C;&#x800C;&#x5B50;&#x7C7B;&#x5C06;&#x91CD;&#x5B9A;&#x4E49;&#x8FD9;&#x4E9B;&#x64CD;&#x4F5C;&#x4EE5;&#x63D0;&#x4F9B;&#x5177;&#x4F53;&#x7684;&#x884C;&#x4E3A;.</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> abc
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AutoStorage</span>:</span>
+    __counter = <span class="hljs-number">0</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        cls = self.__class__
+        prefix = cls.__name__
+        index = cls.__counter
+        self.storage_name = <span class="hljs-string">&apos;_{}#{}&apos;</span>.format(prefix, index)
+        cls.__counter += <span class="hljs-number">1</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__get__</span><span class="hljs-params">(self, instance, owner)</span>:</span>
+        <span class="hljs-keyword">if</span> instance <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+            <span class="hljs-keyword">return</span> self
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">return</span> getattr(instance, self.storage_name)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__set__</span><span class="hljs-params">(self, instance, value)</span>:</span>
+        setattr(instance, self.storage_name, value)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Validated</span><span class="hljs-params">(abc.ABC, AutoStorage)</span>:</span> 
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__set__</span><span class="hljs-params">(self, instance, value)</span>:</span>
+        value = self.validate(instance, value)
+        super().__set__(instance, value)
+<span class="hljs-meta">    @abc.abstractmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">validate</span><span class="hljs-params">(self, instance, value)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;return validated value or raise ValueError&quot;&quot;&quot;</span>
+        <span class="hljs-keyword">pass</span>
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Quantity</span><span class="hljs-params">(Validated)</span>:</span> 
+    <span class="hljs-string">&quot;&quot;&quot;a number greater than zero&quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">validate</span><span class="hljs-params">(self, instance, value)</span>:</span>
+        <span class="hljs-keyword">if</span> value &lt;= <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&apos;value must be &gt; 0&apos;</span>)
+        <span class="hljs-keyword">return</span> value
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NonBlank</span><span class="hljs-params">(Validated)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">validate</span><span class="hljs-params">(self, instance, value)</span>:</span>
+        value = value.strip()
+        <span class="hljs-keyword">if</span> len(value) == <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&apos;value cannot be empty or blank&apos;</span>)
+        <span class="hljs-keyword">return</span> value
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LineItem</span>:</span>
+    description = NonBlank()
+    weight = Quantity()
+    price = Quantity()
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, description, weight, price)</span>:</span>
+        self.description = description
+        self.weight = weight
+        self.price = price
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">subtotal</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.weight * self.price
+</code></pre>
+<pre><code class="lang-python">coconuts = LineItem(<span class="hljs-string">&apos;Brazilian coconut&apos;</span>, <span class="hljs-number">20</span>, <span class="hljs-number">17.95</span>)
+</code></pre>
+<pre><code class="lang-python">coconuts.weight, coconuts.price
+</code></pre>
+<pre><code>(20, 17.95)
+</code></pre><pre><code class="lang-python">raisins = LineItem(<span class="hljs-string">&apos;Golden raisins&apos;</span>, <span class="hljs-number">10</span>, <span class="hljs-number">6.95</span>)
+dir(raisins)[:<span class="hljs-number">3</span>]
+</code></pre>
+<pre><code>[&apos;_NonBlank#0&apos;, &apos;_Quantity#0&apos;, &apos;_Quantity#1&apos;]
+</code></pre><pre><code class="lang-python">LineItem.description.storage_name
+</code></pre>
+<pre><code>&apos;_NonBlank#0&apos;
+</code></pre><h2 id="&#x8986;&#x76D6;&#x578B;&#x4E0E;&#x975E;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;"><a name="&#x8986;&#x76D6;&#x578B;&#x4E0E;&#x975E;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;" class="anchor-navigation-ex-anchor" href="#&#x8986;&#x76D6;&#x578B;&#x4E0E;&#x975E;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>1.9. &#x8986;&#x76D6;&#x578B;&#x4E0E;&#x975E;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;</h2>
+<p>Python&#x5B58;&#x53D6;&#x5C5E;&#x6027;&#x7684;&#x65B9;&#x5F0F;&#x7279;&#x522B;&#x4E0D;&#x5BF9;&#x7B49;.&#x901A;&#x8FC7;&#x5B9E;&#x4F8B;&#x8BFB;&#x53D6;&#x5C5E;&#x6027;&#x65F6;,&#x901A;&#x5E38;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x5B9E;&#x4F8B;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x5C5E;&#x6027;;&#x4F46;&#x662F;&#x5982;&#x679C;&#x5B9E;&#x4F8B;&#x4E2D;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x7684;&#x5C5E;&#x6027;,&#x90A3;&#x4E48;&#x4F1A;&#x83B7;&#x53D6;&#x7C7B;&#x5C5E;&#x6027;.&#x800C;&#x4E3A;&#x5B9E;&#x4F8B;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x8D4B;&#x503C;&#x65F6;,&#x901A;&#x5E38;&#x4F1A;&#x5728;&#x5B9E;&#x4F8B;&#x4E2D;&#x521B;&#x5EFA;&#x5C5E;&#x6027;,&#x6839;&#x672C;&#x4E0D;&#x5F71;&#x54CD;&#x7C7B;.&#x8FD9;&#x79CD;&#x4E0D;&#x5BF9;&#x7B49;&#x7684;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x5BF9;&#x63CF;&#x8FF0;&#x7B26;&#x4E5F;&#x6709;&#x5F71;&#x54CD;.&#x5176;&#x5B9E;&#x6839;&#x636E;&#x662F;&#x5426;&#x5B9A;&#x4E49;<code>__set__</code>&#x65B9;&#x6CD5;,&#x63CF;&#x8FF0;&#x7B26;&#x53EF;&#x5206;&#x4E3A;&#x4E24;&#x5927;&#x7C7B;.&#x5176;&#x4E2D;&#x8986;&#x76D6;&#x578B;&#x53C8;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;2&#x5C0F;&#x7C7B;.</p>
+<ul>
+<li><p>&#x8986;&#x76D6;&#x578B;</p>
+<p>  &#x5B9A;&#x4E49;<code>__set__</code>,&#x63CF;&#x8FF0;&#x7B26;&#x7684;<code>__set__</code>&#x65B9;&#x6CD5;&#x4F7F;&#x7528;&#x6258;&#x7BA1;&#x5B9E;&#x4F8B;&#x4E2D;&#x7684;&#x540C;&#x540D;&#x5C5E;&#x6027;&#x8986;&#x76D6;(&#x5373;&#x63D2;&#x624B;&#x63A5;&#x7BA1;)&#x4E86;&#x8981;&#x8BBE;&#x7F6E;&#x7684;&#x5C5E;&#x6027;,&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x5178;&#x578B;&#x7528;&#x9014;&#x662F;&#x7BA1;&#x7406;&#x6570;&#x636E;&#x5C5E;&#x6027;</p>
+<ul>
+<li><p>&#x6CA1;&#x6709;<code>__get__</code>&#x65B9;&#x6CD5;&#x7684;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;</p>
+<p>  &#x901A;&#x5E38;&#xFF0C;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x65E2;&#x4F1A;&#x5B9E;&#x73B0;<code>__set__</code> &#x65B9;&#x6CD5;,&#x4E5F;&#x4F1A;&#x5B9E;&#x73B0;<code>__get__</code>&#x65B9;&#x6CD5;,&#x4E0D;&#x8FC7;&#x4E5F;&#x53EF;&#x4EE5;&#x53EA;&#x5B9E;&#x73B0;<code>__set__</code> &#x65B9;&#x6CD5;.&#x6B64;&#x65F6;,&#x53EA;&#x6709;&#x5199;&#x64CD;&#x4F5C;&#x7531;&#x63CF;&#x8FF0;&#x7B26;&#x5904;&#x7406;.&#x901A;&#x8FC7;&#x5B9E;&#x4F8B;&#x8BFB;&#x53D6;&#x63CF;&#x8FF0;&#x7B26;&#x4F1A;&#x8FD4;&#x56DE;&#x63CF;&#x8FF0;&#x7B26;&#x5BF9;&#x8C61;&#x672C;&#x8EAB;,&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x5904;&#x7406;&#x8BFB;&#x64CD;&#x4F5C;&#x7684;<code>__get__</code> &#x65B9;&#x6CD5;.&#x5982;&#x679C;&#x76F4;&#x63A5;&#x901A;&#x8FC7;&#x5B9E;&#x4F8B;&#x7684;<code>__dict__</code>&#x5C5E;&#x6027;&#x521B;&#x5EFA;&#x540C;&#x540D;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;,&#x4EE5;&#x540E;&#x518D;&#x8BBE;&#x7F6E;&#x90A3;&#x4E2A;&#x5C5E;&#x6027;&#x65F6;,&#x4ECD;&#x4F1A;&#x7531;<code>__set__</code> &#x65B9;&#x6CD5;&#x63D2;&#x624B;&#x63A5;&#x7BA1;,&#x4F46;&#x662F;&#x8BFB;&#x53D6;&#x90A3;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x8BDD;,&#x5C31;&#x4F1A;&#x76F4;&#x63A5;&#x4ECE;&#x5B9E;&#x4F8B;&#x4E2D;&#x8FD4;&#x56DE;&#x65B0;&#x8D4B;&#x4E88;&#x7684;&#x503C;,&#x800C;&#x4E0D;&#x4F1A;&#x8FD4;&#x56DE;&#x63CF;&#x8FF0;&#x7B26;&#x5BF9;&#x8C61;.&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x4F1A;&#x906E;&#x76D6;&#x63CF;&#x8FF0;&#x7B26;,&#x4E0D;&#x8FC7;&#x53EA;&#x6709;&#x8BFB;&#x64CD;&#x4F5C;&#x662F;&#x5982;&#x6B64;</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>&#x975E;&#x8986;&#x76D6;&#x578B;</p>
+<p>  &#x6CA1;&#x6709;&#x5B9E;&#x73B0;<code>__set__</code>&#x65B9;&#x6CD5;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x662F;&#x975E;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;.&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;&#x540C;&#x540D;&#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;,&#x63CF;&#x8FF0;&#x7B26;&#x4F1A;&#x88AB;&#x906E;&#x76D6;,&#x81F4;&#x4F7F;&#x63CF;&#x8FF0;&#x7B26;&#x65E0;&#x6CD5;&#x5904;&#x7406;&#x90A3;&#x4E2A;&#x5B9E;&#x4F8B;&#x7684;&#x90A3;&#x4E2A;&#x5C5E;&#x6027;.&#x65B9;&#x6CD5;&#x662F;&#x4EE5;&#x975E;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x5B9E;&#x73B0;&#x7684;</p>
+</li>
+</ul>
+<p>&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x89C2;&#x5BDF;&#x8FD9;&#x4E24;&#x7C7B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;&#x5DEE;&#x5F02;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">cls_name</span><span class="hljs-params">(obj_or_cls)</span>:</span>
+    cls = type(obj_or_cls)
+    <span class="hljs-keyword">if</span> cls <span class="hljs-keyword">is</span> type:
+        cls = obj_or_cls
+    <span class="hljs-keyword">return</span> cls.__name__.split(<span class="hljs-string">&apos;.&apos;</span>)[<span class="hljs-number">-1</span>]
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">display</span><span class="hljs-params">(obj)</span>:</span>
+    cls = type(obj)
+    <span class="hljs-keyword">if</span> cls <span class="hljs-keyword">is</span> type:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&lt;class {}&gt;&apos;</span>.format(obj.__name__)
+    <span class="hljs-keyword">elif</span> cls <span class="hljs-keyword">in</span> [type(<span class="hljs-keyword">None</span>), int]:
+        <span class="hljs-keyword">return</span> repr(obj)
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&lt;{} object&gt;&apos;</span>.format(cls_name(obj))
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print_args</span><span class="hljs-params">(name, *args)</span>:</span>
+    pseudo_args = <span class="hljs-string">&apos;, &apos;</span>.join(display(x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> args)
+    print(<span class="hljs-string">&apos;-&gt; {}.__{}__({})&apos;</span>.format(cls_name(args[<span class="hljs-number">0</span>]), name, pseudo_args))
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Overriding</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;
+    &#x4E5F;&#x79F0;&#x6570;&#x636E;&#x63CF;&#x8FF0;&#x7B26;&#x6216;&#x5F3A;&#x5236;&#x63CF;&#x8FF0;&#x7B26;&quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__get__</span><span class="hljs-params">(self, instance, owner)</span>:</span>
+        print_args(<span class="hljs-string">&apos;get&apos;</span>, self, instance, owner)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__set__</span><span class="hljs-params">(self, instance, value)</span>:</span>
+        print_args(<span class="hljs-string">&apos;set&apos;</span>, self, instance, value)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OverridingNoGet</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;&#x6CA1;&#x6709;`__get__`&#x65B9;&#x6CD5;&#x7684;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__set__</span><span class="hljs-params">(self, instance, value)</span>:</span>
+        print_args(<span class="hljs-string">&apos;set&apos;</span>, self, instance, value)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NonOverriding</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;&#x4E5F;&#x79F0;&#x975E;&#x6570;&#x636E;&#x63CF;&#x8FF0;&#x7B26;&#x6216;&#x906E;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__get__</span><span class="hljs-params">(self, instance, owner)</span>:</span>
+        print_args(<span class="hljs-string">&apos;get&apos;</span>, self, instance, owner)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Managed</span>:</span>
+    over = Overriding()
+    over_no_get = OverridingNoGet()
+    non_over = NonOverriding()
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">spam</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&apos;-&gt; Managed.spam({})&apos;</span>.format(display(self)))
+</code></pre>
+<h3 id="&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;"><a name="&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;" class="anchor-navigation-ex-anchor" href="#&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;"><i class="fa fa-link" aria-hidden="true"></i></a>1.9.1. &#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;</h3>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x90FD;&#x662F;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;</p>
+<pre><code class="lang-python">obj = Managed()
+</code></pre>
+<pre><code class="lang-python">obj.over
+</code></pre>
+<pre><code>-&gt; Overriding.__get__(&lt;Overriding object&gt;, &lt;Managed object&gt;, &lt;class Managed&gt;)
+</code></pre><pre><code class="lang-python">Managed.over
+</code></pre>
+<pre><code>-&gt; Overriding.__get__(&lt;Overriding object&gt;, None, &lt;class Managed&gt;)
+</code></pre><pre><code class="lang-python">obj.over = <span class="hljs-number">7</span>
+</code></pre>
+<pre><code>-&gt; Overriding.__set__(&lt;Overriding object&gt;, &lt;Managed object&gt;, 7)
+</code></pre><pre><code class="lang-python">obj.over
+</code></pre>
+<pre><code>-&gt; Overriding.__get__(&lt;Overriding object&gt;, &lt;Managed object&gt;, &lt;class Managed&gt;)
+</code></pre><pre><code class="lang-python">obj.__dict__[<span class="hljs-string">&apos;over&apos;</span>] = <span class="hljs-number">8</span>
+</code></pre>
+<pre><code class="lang-python">vars(obj)
+</code></pre>
+<pre><code>{&apos;over&apos;: 8}
+</code></pre><pre><code class="lang-python">obj.over
+</code></pre>
+<pre><code>-&gt; Overriding.__get__(&lt;Overriding object&gt;, &lt;Managed object&gt;, &lt;class Managed&gt;)
+</code></pre><h3 id="&#x6CA1;&#x6709;get&#x7684;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;"><a name="&#x6CA1;&#x6709;get&#x7684;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;" class="anchor-navigation-ex-anchor" href="#&#x6CA1;&#x6709;get&#x7684;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;"><i class="fa fa-link" aria-hidden="true"></i></a>1.9.2. &#x6CA1;&#x6709;__get__&#x7684;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;</h3>
+<p>&#x53EA;&#x6709;&#x5199;&#x64CD;&#x4F5C;&#x7531;&#x63CF;&#x8FF0;&#x7B26;&#x5904;&#x7406;.&#x901A;&#x8FC7;&#x5B9E;&#x4F8B;&#x8BFB;&#x53D6;&#x63CF;&#x8FF0;&#x7B26;&#x4F1A;&#x8FD4;&#x56DE;&#x63CF;&#x8FF0;&#x7B26;&#x5BF9;&#x8C61;&#x672C;&#x8EAB;</p>
+<pre><code class="lang-python">obj.over_no_get
+</code></pre>
+<pre><code>&lt;__main__.OverridingNoGet at 0x1127cd518&gt;
+</code></pre><pre><code class="lang-python">Managed.over_no_get
+</code></pre>
+<pre><code>&lt;__main__.OverridingNoGet at 0x1127cd518&gt;
+</code></pre><pre><code class="lang-python">obj.over_no_get = <span class="hljs-number">7</span>
+</code></pre>
+<pre><code>-&gt; OverridingNoGet.__set__(&lt;OverridingNoGet object&gt;, &lt;Managed object&gt;, 7)
+</code></pre><pre><code class="lang-python">obj.over_no_get
+</code></pre>
+<pre><code>&lt;__main__.OverridingNoGet at 0x1127cd518&gt;
+</code></pre><pre><code class="lang-python">obj.__dict__[<span class="hljs-string">&apos;over_no_get&apos;</span>] = <span class="hljs-number">9</span>
+</code></pre>
+<pre><code class="lang-python">obj.over_no_get
+</code></pre>
+<pre><code>9
+</code></pre><pre><code class="lang-python">obj.over_no_get = <span class="hljs-number">7</span>
+</code></pre>
+<pre><code>-&gt; OverridingNoGet.__set__(&lt;OverridingNoGet object&gt;, &lt;Managed object&gt;, 7)
+</code></pre><pre><code class="lang-python">obj.over_no_get
+</code></pre>
+<pre><code>9
+</code></pre><h3 id="&#x975E;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;"><a name="&#x975E;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;" class="anchor-navigation-ex-anchor" href="#&#x975E;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;"><i class="fa fa-link" aria-hidden="true"></i></a>1.9.3. &#x975E;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x884C;&#x4E3A;</h3>
+<p>&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;&#x540C;&#x540D;&#x7684;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;,&#x63CF;&#x8FF0;&#x7B26;&#x4F1A;&#x88AB;&#x906E;&#x76D6;,&#x81F4;&#x4F7F;&#x63CF;&#x8FF0;&#x7B26;&#x65E0;&#x6CD5;&#x5904;&#x7406;&#x90A3;&#x4E2A;&#x5B9E;&#x4F8B;&#x7684;&#x90A3;&#x4E2A;&#x5C5E;&#x6027;</p>
+<pre><code class="lang-python">obj = Managed()
+</code></pre>
+<pre><code class="lang-python">obj.non_over
+</code></pre>
+<pre><code>-&gt; NonOverriding.__get__(&lt;NonOverriding object&gt;, &lt;Managed object&gt;, &lt;class Managed&gt;)
+</code></pre><pre><code class="lang-python">obj.non_over = <span class="hljs-number">7</span>
+</code></pre>
+<pre><code class="lang-python">obj.non_over
+</code></pre>
+<pre><code>7
+</code></pre><pre><code class="lang-python">Managed.non_over
+</code></pre>
+<pre><code>-&gt; NonOverriding.__get__(&lt;NonOverriding object&gt;, None, &lt;class Managed&gt;)
+</code></pre><pre><code class="lang-python"><span class="hljs-keyword">del</span> obj.non_over
+</code></pre>
+<pre><code class="lang-python">obj.non_over
+</code></pre>
+<pre><code>-&gt; NonOverriding.__get__(&lt;NonOverriding object&gt;, &lt;Managed object&gt;, &lt;class Managed&gt;)
+</code></pre><h2 id="&#x5728;&#x7C7B;&#x4E2D;&#x8986;&#x76D6;&#x63CF;&#x8FF0;&#x7B26;"><a name="&#x5728;&#x7C7B;&#x4E2D;&#x8986;&#x76D6;&#x63CF;&#x8FF0;&#x7B26;" class="anchor-navigation-ex-anchor" href="#&#x5728;&#x7C7B;&#x4E2D;&#x8986;&#x76D6;&#x63CF;&#x8FF0;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>1.10. &#x5728;&#x7C7B;&#x4E2D;&#x8986;&#x76D6;&#x63CF;&#x8FF0;&#x7B26;</h2>
+<p>&#x4F9D;&#x9644;&#x5728;&#x7C7B;&#x4E0A;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x65E0;&#x6CD5;&#x63A7;&#x5236;&#x4E3A;&#x7C7B;&#x5C5E;&#x6027;&#x8D4B;&#x503C;&#x7684;&#x64CD;&#x4F5C;.&#x5176;&#x5B9E;,&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4E3A;&#x7C7B;&#x5C5E;&#x6027;&#x8D4B;&#x503C;&#x80FD;&#x8986;&#x76D6;&#x63CF;&#x8FF0;&#x7B26;&#x5C5E;&#x6027;.&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x7334;&#x5B50;&#x8865;&#x4E01;&#x6280;&#x672F;,&#x4E0D;&#x8FC7;&#x5728;&#x4E0B;&#x4F8B;&#x4E2D;,&#x6211;&#x4EEC;&#x628A;&#x63CF;&#x8FF0;&#x7B26;&#x66FF;&#x6362;&#x6210;&#x4E86;&#x6574;&#x6570;,&#x8FD9;&#x5176;&#x5B9E;&#x4F1A;&#x5BFC;&#x81F4;&#x4F9D;&#x8D56;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x7C7B;&#x4E0D;&#x80FD;&#x6B63;&#x786E;&#x5730;&#x6267;&#x884C;&#x64CD;&#x4F5C;.</p>
+<pre><code class="lang-python">obj = Managed()
+</code></pre>
+<pre><code class="lang-python">Managed.over = <span class="hljs-number">1</span>
+Managed.over_no_get = <span class="hljs-number">2</span>
+Managed.non_over = <span class="hljs-number">3</span>
+obj.over, obj.over_no_get, obj.non_over
+</code></pre>
+<pre><code>(1, 2, 3)
+</code></pre><p>&#x8BFB;&#x7C7B;&#x5C5E;&#x6027;&#x7684;&#x64CD;&#x4F5C;&#x53EF;&#x4EE5;&#x7531;&#x4F9D;&#x9644;&#x5728;&#x6258;&#x7BA1;&#x7C7B;&#x4E0A;&#x5B9A;&#x4E49;&#x6709;<code>__get__</code> &#x65B9;&#x6CD5;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x5904;&#x7406;,&#x4F46;&#x662F;&#x5199;&#x7C7B;&#x5C5E;&#x6027;&#x7684;&#x64CD;&#x4F5C;&#x4E0D;&#x4F1A;&#x7531;&#x4F9D;&#x9644;&#x5728;&#x6258;&#x7BA1;&#x7C7B;&#x4E0A;&#x5B9A;&#x4E49;&#x6709;<code>__set__</code>&#x65B9;&#x6CD5;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x5904;&#x7406;.</p>
+<p>&#x82E5;&#x60F3;&#x63A7;&#x5236;&#x8BBE;&#x7F6E;&#x7C7B;&#x5C5E;&#x6027;&#x7684;&#x64CD;&#x4F5C;,&#x8981;&#x628A;&#x63CF;&#x8FF0;&#x7B26;&#x4F9D;&#x9644;&#x5728;&#x7C7B;&#x7684;&#x7C7B;&#x4E0A;,&#x5373;&#x4F9D;&#x9644;&#x5728;&#x5143;&#x7C7B;&#x4E0A;.&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;,&#x5BF9;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x7C7B;&#x6765;&#x8BF4;,&#x5176;&#x5143;&#x7C7B;&#x662F;<code>type</code>,&#x800C;&#x6211;&#x4EEC;&#x4E0D;&#x80FD;&#x4E3A;<code>type</code> &#x6DFB;&#x52A0;&#x5C5E;&#x6027;,&#x4F46;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x5143;&#x7C7B;.</p>
+<h2 id="&#x63CF;&#x8FF0;&#x7B26;&#x534F;&#x8BAE;&#x589E;&#x5F3A;36"><a name="&#x63CF;&#x8FF0;&#x7B26;&#x534F;&#x8BAE;&#x589E;&#x5F3A;36" class="anchor-navigation-ex-anchor" href="#&#x63CF;&#x8FF0;&#x7B26;&#x534F;&#x8BAE;&#x589E;&#x5F3A;36"><i class="fa fa-link" aria-hidden="true"></i></a>1.11. &#x63CF;&#x8FF0;&#x7B26;&#x534F;&#x8BAE;&#x589E;&#x5F3A;[3.6]</h2>
+<p>&#x4E0A;&#x9762;&#x7684;<code>LineItem</code>&#x6709;&#x4E2A;&#x7F3A;&#x9677;--&#x5C31;&#x662F;&#x521D;&#x59CB;&#x5316;&#x7684;&#x65F6;&#x5019;&#x90FD;&#x660E;&#x786E;&#x8BA9;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x7ED1;&#x5B9A;&#x5728;Integer&#x4E0A;&#x7684;name&#x5C5E;&#x6027;&#x4E0A;,&#x800C;&#x65E0;&#x6CD5;&#x83B7;&#x77E5;&#x6240;&#x6709;&#x8005;&#x7C7B;&#x7684;&#x5C5E;&#x6027;&#x540D;.&#x5982;&#x679C;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x5185;&#x90E8;&#x540D;&#x5B57;,&#x53C8;&#x4F1A;&#x96BE;&#x4EE5;&#x8C03;&#x8BD5;.&#x4F7F;&#x7528;&#x5728;<a href="https://www.python.org/dev/peps/pep-0487/" target="_blank">PEP487</a>&#x4E0A;&#x63D0;&#x4F9B;&#x7684;&#x53EF;&#x9009;&#x7684;<code>__set_name__()</code>&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x540D;&#x5B57;,&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x8FD9;&#x90E8;&#x5206;&#x5185;&#x5BB9;:</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AutoStorage</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__get__</span><span class="hljs-params">(self, instance, owner)</span>:</span>
+        <span class="hljs-keyword">if</span> instance <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+            <span class="hljs-keyword">return</span> self
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">return</span> getattr(instance, self.name)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__set__</span><span class="hljs-params">(self, instance, value)</span>:</span>
+        setattr(instance, self.name, value) 
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__set_name__</span><span class="hljs-params">(self, owner, name)</span>:</span>
+        cls = self.__class__
+        prefix = cls.__name__
+        index = name
+        self.name = <span class="hljs-string">&apos;_{}#{}&apos;</span>.format(prefix, index)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Validated</span><span class="hljs-params">(abc.ABC, AutoStorage)</span>:</span> 
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__set__</span><span class="hljs-params">(self, instance, value)</span>:</span>
+        value = self.validate(instance, value)
+        super().__set__(instance, value)
+<span class="hljs-meta">    @abc.abstractmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">validate</span><span class="hljs-params">(self, instance, value)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;return validated value or raise ValueError&quot;&quot;&quot;</span>
+        <span class="hljs-keyword">pass</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Quantity</span><span class="hljs-params">(Validated)</span>:</span> 
+    <span class="hljs-string">&quot;&quot;&quot;a number greater than zero&quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">validate</span><span class="hljs-params">(self, instance, value)</span>:</span>
+        <span class="hljs-keyword">if</span> value &lt;= <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&apos;value must be &gt; 0&apos;</span>)
+        <span class="hljs-keyword">return</span> value
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NonBlank</span><span class="hljs-params">(Validated)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">validate</span><span class="hljs-params">(self, instance, value)</span>:</span>
+        value = value.strip()
+        <span class="hljs-keyword">if</span> len(value) == <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&apos;value cannot be empty or blank&apos;</span>)
+        <span class="hljs-keyword">return</span> value
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LineItem</span>:</span>
+    description = NonBlank()
+    weight = Quantity()
+    price = Quantity()
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, description, weight, price)</span>:</span>
+        self.description = description
+        self.weight = weight
+        self.price = price
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">subtotal</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.weight * self.price
+</code></pre>
+<pre><code class="lang-python">raisins = LineItem(<span class="hljs-string">&apos;Golden raisins&apos;</span>, <span class="hljs-number">10</span>, <span class="hljs-number">6.95</span>)
+dir(raisins)[:<span class="hljs-number">3</span>]
+</code></pre>
+<pre><code>[&apos;_NonBlank#description&apos;, &apos;_Quantity#price&apos;, &apos;_Quantity#weight&apos;]
+</code></pre><pre><code class="lang-python">LineItem.description.name
+</code></pre>
+<pre><code>&apos;_NonBlank#description&apos;
+</code></pre><h2 id="&#x65B9;&#x6CD5;&#x662F;&#x63CF;&#x8FF0;&#x7B26;"><a name="&#x65B9;&#x6CD5;&#x662F;&#x63CF;&#x8FF0;&#x7B26;" class="anchor-navigation-ex-anchor" href="#&#x65B9;&#x6CD5;&#x662F;&#x63CF;&#x8FF0;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>1.12. &#x65B9;&#x6CD5;&#x662F;&#x63CF;&#x8FF0;&#x7B26;</h2>
+<p>&#x5728;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x51FD;&#x6570;&#x5C5E;&#x4E8E;&#x7ED1;&#x5B9A;&#x65B9;&#x6CD5;(bound method),&#x56E0;&#x4E3A;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x51FD;&#x6570;&#x90FD;&#x6709;<code>__get__</code>&#x65B9;&#x6CD5;,&#x6240;&#x4EE5;&#x4F9D;&#x9644;&#x5230;&#x7C7B;&#x4E0A;&#x65F6;,&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x63CF;&#x8FF0;&#x7B26;.&#x51FD;&#x6570;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;<code>__set__</code>&#x65B9;&#x6CD5;,&#x56E0;&#x6B64;&#x662F;&#x975E;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;.</p>
+<p>&#x4E0E;&#x63CF;&#x8FF0;&#x7B26;&#x4E00;&#x6837;,&#x901A;&#x8FC7;&#x6258;&#x7BA1;&#x7C7B;&#x8BBF;&#x95EE;&#x65F6;,&#x51FD;&#x6570;&#x7684;<code>__get__</code>&#x65B9;&#x6CD5;&#x4F1A;&#x8FD4;&#x56DE;&#x81EA;&#x8EAB;&#x7684;&#x5F15;&#x7528;.&#x4F46;&#x662F;&#x901A;&#x8FC7;&#x5B9E;&#x4F8B;&#x8BBF;&#x95EE;&#x65F6;,&#x51FD;&#x6570;&#x7684;<code>__get__</code>&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x7ED1;&#x5B9A;&#x65B9;&#x6CD5;&#x5BF9;&#x8C61;--&#x4E00;&#x79CD;&#x53EF;&#x8C03;&#x7528;&#x7684;&#x5BF9;&#x8C61;,&#x91CC;&#x9762;&#x5305;&#x88C5;&#x7740;&#x51FD;&#x6570;,&#x5E76;&#x628A;&#x6258;&#x7BA1;&#x5B9E;&#x4F8B;(&#x4F8B;&#x5982;<code>obj</code>)&#x7ED1;&#x5B9A;&#x7ED9;&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;(&#x5373;<code>self</code>),&#x8FD9;&#x4E0E;<code>functools.partial</code>&#x51FD;&#x6570;&#x7684;&#x884C;&#x4E3A;&#x4E00;&#x81F4;</p>
+<h2 id="&#x63CF;&#x8FF0;&#x7B26;&#x7528;&#x6CD5;&#x5EFA;&#x8BAE;"><a name="&#x63CF;&#x8FF0;&#x7B26;&#x7528;&#x6CD5;&#x5EFA;&#x8BAE;" class="anchor-navigation-ex-anchor" href="#&#x63CF;&#x8FF0;&#x7B26;&#x7528;&#x6CD5;&#x5EFA;&#x8BAE;"><i class="fa fa-link" aria-hidden="true"></i></a>1.13. &#x63CF;&#x8FF0;&#x7B26;&#x7528;&#x6CD5;&#x5EFA;&#x8BAE;</h2>
+<p>&#x4E0B;&#x9762;&#x6839;&#x636E;&#x521A;&#x521A;&#x8BBA;&#x8FF0;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x7279;&#x5F81;&#x7ED9;&#x51FA;&#x4E00;&#x4E9B;&#x5B9E;&#x7528;&#x7684;&#x7ED3;&#x8BBA;:</p>
+<ul>
+<li><p>&#x4F7F;&#x7528;&#x7279;&#x6027;&#x4EE5;&#x4FDD;&#x6301;&#x7B80;&#x5355;</p>
+<p>  &#x5185;&#x7F6E;&#x7684;property &#x7C7B;&#x521B;&#x5EFA;&#x7684;&#x5176;&#x5B9E;&#x662F;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;,<code>__set__</code>&#x65B9;&#x6CD5;&#x548C;<code>__get__</code> &#x65B9;&#x6CD5;&#x90FD;&#x5B9E;&#x73B0;&#x4E86;,&#x5373;&#x4FBF;&#x4E0D;&#x5B9A;&#x4E49;&#x8BBE;&#x503C;&#x65B9;&#x6CD5;&#x4E5F;&#x662F;&#x5982;&#x6B64;.&#x7279;&#x6027;&#x7684;<code>__set__</code>&#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x629B;&#x51FA;<code>AttributeError:can&apos;t set attribute</code>,&#x56E0;&#x6B64;&#x521B;&#x5EFA;&#x53EA;&#x8BFB;&#x5C5E;&#x6027;&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x4F7F;&#x7528;&#x7279;&#x6027;,&#x8FD9;&#x80FD;&#x907F;&#x514D;&#x4E0B;&#x4E00;&#x6761;&#x6240;&#x8FF0;&#x7684;&#x95EE;&#x9898;.</p>
+</li>
+<li><p>&#x53EA;&#x8BFB;&#x63CF;&#x8FF0;&#x7B26;&#x5FC5;&#x987B;&#x6709;<code>__set__</code>&#x65B9;&#x6CD5;</p>
+<p>  &#x5982;&#x679C;&#x4F7F;&#x7528;&#x63CF;&#x8FF0;&#x7B26;&#x7C7B;&#x5B9E;&#x73B0;&#x53EA;&#x8BFB;&#x5C5E;&#x6027;,&#x8981;&#x8BB0;&#x4F4F;<code>__get__</code> &#x548C;<code>__set__</code> &#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x90FD;&#x5B9A;&#x4E49;,&#x5426;&#x5219;&#x5B9E;&#x4F8B;&#x7684;&#x540C;&#x540D;&#x5C5E;&#x6027;&#x4F1A;&#x906E;&#x76D6;&#x63CF;&#x8FF0;&#x7B26;.&#x53EA;&#x8BFB;&#x5C5E;&#x6027;&#x7684;<code>__set__</code>&#x65B9;&#x6CD5;&#x53EA;&#x9700;&#x629B;&#x51FA;<code>AttributeError</code>&#x5F02;&#x5E38;,&#x5E76;&#x63D0;&#x4F9B;&#x5408;&#x9002;&#x7684;&#x9519;&#x8BEF;&#x6D88;&#x606F;.</p>
+</li>
+<li><p>&#x7528;&#x4E8E;&#x9A8C;&#x8BC1;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x53EF;&#x4EE5;&#x53EA;&#x6709;<code>__set__</code>&#x65B9;&#x6CD5;</p>
+<p>  &#x5BF9;&#x4EC5;&#x7528;&#x4E8E;&#x9A8C;&#x8BC1;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x6765;&#x8BF4;,<code>__set__</code> &#x65B9;&#x6CD5;&#x5E94;&#x8BE5;&#x68C0;&#x67E5;value&#x53C2;&#x6570;&#x83B7;&#x5F97;&#x7684;&#x503C;,&#x5982;&#x679C;&#x6709;&#x6548;,&#x4F7F;&#x7528;&#x63CF;&#x8FF0;&#x7B26;&#x5B9E;&#x4F8B;&#x7684;&#x540D;&#x79F0;&#x4E3A;&#x952E;,&#x76F4;&#x63A5;&#x5728;&#x5B9E;&#x4F8B;&#x7684;<code>__dict__</code>&#x5C5E;&#x6027;&#x4E2D;&#x8BBE;&#x7F6E;.&#x8FD9;&#x6837;&#x4ECE;&#x5B9E;&#x4F8B;&#x4E2D;&#x8BFB;&#x53D6;&#x540C;&#x540D;&#x5C5E;&#x6027;&#x7684;&#x901F;&#x5EA6;&#x5F88;&#x5FEB;,&#x56E0;&#x4E3A;&#x4E0D;&#x7528;&#x7ECF;&#x8FC7;<code>__get__</code>&#x65B9;&#x6CD5;&#x5904;&#x7406;.</p>
+</li>
+<li><p>&#x4EC5;&#x6709;<code>__get__</code>&#x65B9;&#x6CD5;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x9AD8;&#x6548;&#x7F13;&#x5B58;</p>
+<p>  &#x5982;&#x679C;&#x53EA;&#x7F16;&#x5199;&#x4E86;<code>__get__</code>&#x65B9;&#x6CD5;,&#x90A3;&#x4E48;&#x521B;&#x5EFA;&#x7684;&#x662F;&#x975E;&#x8986;&#x76D6;&#x578B;&#x63CF;&#x8FF0;&#x7B26;.&#x8FD9;&#x79CD;&#x63CF;&#x8FF0;&#x7B26;&#x53EF;&#x7528;&#x4E8E;&#x6267;&#x884C;&#x67D0;&#x4E9B;&#x8017;&#x8D39;&#x8D44;&#x6E90;&#x7684;&#x8BA1;&#x7B97;,&#x7136;&#x540E;&#x4E3A;&#x5B9E;&#x4F8B;&#x8BBE;&#x7F6E;&#x540C;&#x540D;&#x5C5E;&#x6027;,&#x7F13;&#x5B58;&#x7ED3;&#x679C;.&#x540C;&#x540D;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x4F1A;&#x906E;&#x76D6;&#x63CF;&#x8FF0;&#x7B26;,&#x56E0;&#x6B64;&#x540E;&#x7EED;&#x8BBF;&#x95EE;&#x4F1A;&#x76F4;&#x63A5;&#x4ECE;&#x5B9E;&#x4F8B;&#x7684;<code>__dict__</code>&#x5C5E;&#x6027;&#x4E2D;&#x83B7;&#x53D6;&#x503C;,&#x800C;&#x4E0D;&#x4F1A;&#x518D;&#x89E6;&#x53D1;&#x63CF;&#x8FF0;&#x7B26;&#x7684;<code>__get__</code>&#x65B9;&#x6CD5;.</p>
+</li>
+<li><p>&#x975E;&#x7279;&#x6B8A;&#x7684;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x88AB;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x906E;&#x76D6;</p>
+<p>  &#x7531;&#x4E8E;&#x51FD;&#x6570;&#x548C;&#x65B9;&#x6CD5;&#x53EA;&#x5B9E;&#x73B0;&#x4E86;<code>__get__</code> &#x65B9;&#x6CD5;,&#x5B83;&#x4EEC;&#x4E0D;&#x4F1A;&#x5904;&#x7406;&#x540C;&#x540D;&#x5B9E;&#x4F8B;&#x5C5E;&#x6027;&#x7684;&#x8D4B;&#x503C;&#x64CD;&#x4F5C;.&#x56E0;&#x6B64;&#xFF0C;&#x50CF;<code>my_obj.the_method = 7</code> &#x8FD9;&#x6837;&#x7B80;&#x5355;&#x8D4B;&#x503C;&#x4E4B;&#x540E;,&#x540E;&#x7EED;&#x901A;&#x8FC7;&#x8BE5;&#x5B9E;&#x4F8B;&#x8BBF;&#x95EE;<code>the_method</code>&#x5F97;&#x5230;&#x7684;&#x662F;&#x6570;&#x5B57;7&#x2014;&#x2014;&#x4F46;&#x662F;&#x4E0D;&#x5F71;&#x54CD;&#x7C7B;&#x6216;&#x5176;&#x4ED6;&#x5B9E;&#x4F8B;.&#x7136;&#x800C;,&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#x4E0D;&#x53D7;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x5F71;&#x54CD;.&#x89E3;&#x91CA;&#x5668;&#x53EA;&#x4F1A;&#x5728;&#x7C7B;&#x4E2D;&#x5BFB;&#x627E;&#x7279;&#x6B8A;&#x7684;&#x65B9;&#x6CD5;,&#x4E5F;&#x5C31;&#x662F;&#x8BF4;<code>repr(x)</code>&#x6267;&#x884C;&#x7684;&#x5176;&#x5B9E;&#x662F;<code>x.__class__.__repr__(x)</code>,&#x56E0;&#x6B64;x&#x7684;<code>__repr__</code> &#x5C5E;&#x6027;&#x5BF9;<code>repr(x)</code>&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x6CA1;&#x6709;&#x5F71;&#x54CD;.&#x51FA;&#x4E8E;&#x540C;&#x6837;&#x7684;&#x539F;&#x56E0;,&#x5B9E;&#x4F8B;&#x7684;<code>__getattr__</code>&#x5C5E;&#x6027;&#x4E0D;&#x4F1A;&#x7834;&#x574F;&#x5E38;&#x89C4;&#x7684;&#x5C5E;&#x6027;&#x8BBF;&#x95EE;&#x89C4;&#x5219;.</p>
+</li>
+</ul>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2018-06-14 13:12:34
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="运算符重载.html" class="navigation navigation-prev " aria-label="Previous page: 运算符重载">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="装饰器.html" class="navigation navigation-next " aria-label="Next page: 装饰器">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"特性与描述符","level":"1.3.9.2","depth":3,"next":{"title":"装饰器","level":"1.3.9.3","depth":3,"path":"语法篇/元编程/装饰器.md","ref":"语法篇/元编程/装饰器.md","articles":[]},"previous":{"title":"运算符重载","level":"1.3.9.1","depth":3,"path":"语法篇/元编程/运算符重载.md","ref":"语法篇/元编程/运算符重载.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","katex","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/hsz1273327"},"livereload":{},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"title":"","button":"赏","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","wechatText":"微信打赏","alipayText":"支付宝打赏"},"sitemap-general":{"prefix":"http://blog.hszofficial.site/TutorialForPython/"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","printLog":false,"multipleH1":true,"float":{"showLevelIcon":true,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"},"pageTop":{"showLevelIcon":false,"mode":"float","pageTop":{"showLevelIcon":false,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"},"level1Icon":"","showLevel":true,"level2Icon":"","level3Icon":"","associatedWithSummary":true,"float":{"showLevelIcon":true,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"}}},"github-buttons":{"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍python3.5+的语法与编程惯用法"},"file":{"path":"语法篇/元编程/特性与描述符.md","mtime":"2018-06-14T05:12:34.090Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-14T03:29:45.830Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

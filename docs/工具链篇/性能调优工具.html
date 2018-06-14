@@ -1,0 +1,1684 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>性能调优工具 · python攻略</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="hsz">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="结语.html" />
+    
+    
+    <link rel="prev" href="部署服务.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://blog.hszofficial.site/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    工具链篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="运行环境.html">
+            
+                <a href="运行环境.html">
+            
+                    
+                    运行环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="包的安装管理与分发.html">
+            
+                <a href="包的安装管理与分发.html">
+            
+                    
+                    包的安装管理与分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="交互环境jupyter/">
+            
+                <a href="交互环境jupyter/">
+            
+                    
+                    交互环境jupyter
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="交互环境jupyter/基于web的可交互运行环境jupyter.html">
+            
+                <a href="交互环境jupyter/基于web的可交互运行环境jupyter.html">
+            
+                    
+                    基于web的可交互运行环境jupyter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="交互环境jupyter/ipython与魔法命令/ipython与魔法命令.html">
+            
+                <a href="交互环境jupyter/ipython与魔法命令/ipython与魔法命令.html">
+            
+                    
+                    ipython与魔法命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="交互环境jupyter/在Ipython_Notebook中的代码调试与优化.html">
+            
+                <a href="交互环境jupyter/在Ipython_Notebook中的代码调试与优化.html">
+            
+                    
+                    在Ipython_Notebook中的代码调试与优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="交互环境jupyter/多进程并行计算.html">
+            
+                <a href="交互环境jupyter/多进程并行计算.html">
+            
+                    
+                    多进程并行计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="交互环境jupyter/公开的jupyter_notebook服务.html">
+            
+                <a href="交互环境jupyter/公开的jupyter_notebook服务.html">
+            
+                    
+                    公开的jupyter_notebook服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="交互环境jupyter/notebook格式转换工具.html">
+            
+                <a href="交互环境jupyter/notebook格式转换工具.html">
+            
+                    
+                    notebook格式转换工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="交互环境jupyter/结语.html">
+            
+                <a href="交互环境jupyter/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="代码风格.html">
+            
+                <a href="代码风格.html">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="docstring工具.html">
+            
+                <a href="docstring工具.html">
+            
+                    
+                    docstring工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="静态类型检测.html">
+            
+                <a href="静态类型检测.html">
+            
+                    
+                    静态类型检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="日志工具.html">
+            
+                <a href="日志工具.html">
+            
+                    
+                    日志工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="调试工具.html">
+            
+                <a href="调试工具.html">
+            
+                    
+                    调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="调用追踪与异常栈追踪.html">
+            
+                <a href="调用追踪与异常栈追踪.html">
+            
+                    
+                    调用追踪与异常栈追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="单元测试.html">
+            
+                <a href="单元测试.html">
+            
+                    
+                    单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="部署服务.html">
+            
+                <a href="部署服务.html">
+            
+                    
+                    部署服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.12" data-path="性能调优工具.html">
+            
+                <a href="性能调优工具.html">
+            
+                    
+                    性能调优工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="结语.html">
+            
+                <a href="结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../语法篇/">
+            
+                <a href="../语法篇/">
+            
+                    
+                    语法篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../语法篇/Python的数据模型/">
+            
+                <a href="../语法篇/Python的数据模型/">
+            
+                    
+                    Python的数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../语法篇/Python的数据模型/数据模型.html">
+            
+                <a href="../语法篇/Python的数据模型/数据模型.html">
+            
+                    
+                    数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../语法篇/Python的数据模型/变量引用与垃圾回收.html">
+            
+                <a href="../语法篇/Python的数据模型/变量引用与垃圾回收.html">
+            
+                    
+                    变量引用与垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../语法篇/Python的数据模型/结语.html">
+            
+                <a href="../语法篇/Python的数据模型/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../语法篇/模块/">
+            
+                <a href="../语法篇/模块/">
+            
+                    
+                    模块
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../语法篇/模块/导入时与运行时.html">
+            
+                <a href="../语法篇/模块/导入时与运行时.html">
+            
+                    
+                    导入时与运行时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../语法篇/模块/模块的预设字段.html">
+            
+                <a href="../语法篇/模块/模块的预设字段.html">
+            
+                    
+                    模块的预设字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../语法篇/模块/模块的加载流程.html">
+            
+                <a href="../语法篇/模块/模块的加载流程.html">
+            
+                    
+                    模块的加载流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../语法篇/模块/模块加载特殊内容.html">
+            
+                <a href="../语法篇/模块/模块加载特殊内容.html">
+            
+                    
+                    模块加载特殊内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../语法篇/模块/结语.html">
+            
+                <a href="../语法篇/模块/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../语法篇/文本与字节序/">
+            
+                <a href="../语法篇/文本与字节序/">
+            
+                    
+                    文本与字节序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../语法篇/文本与字节序/文本和编码.html">
+            
+                <a href="../语法篇/文本与字节序/文本和编码.html">
+            
+                    
+                    文本和编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="../语法篇/文本与字节序/字节序列与内存视图.html">
+            
+                <a href="../语法篇/文本与字节序/字节序列与内存视图.html">
+            
+                    
+                    字节序列与内存视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="../语法篇/文本与字节序/正则表达式.html">
+            
+                <a href="../语法篇/文本与字节序/正则表达式.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="../语法篇/文本与字节序/文件与IO流.html">
+            
+                <a href="../语法篇/文本与字节序/文件与IO流.html">
+            
+                    
+                    文件与IO流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="../语法篇/文本与字节序/序列化.html">
+            
+                <a href="../语法篇/文本与字节序/序列化.html">
+            
+                    
+                    序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.6" data-path="../语法篇/文本与字节序/结语.html">
+            
+                <a href="../语法篇/文本与字节序/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../语法篇/流程控制/">
+            
+                <a href="../语法篇/流程控制/">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../语法篇/流程控制/单线程同步流程控制.html">
+            
+                <a href="../语法篇/流程控制/单线程同步流程控制.html">
+            
+                    
+                    单线程同步流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../语法篇/流程控制/阻塞异步与协程.html">
+            
+                <a href="../语法篇/流程控制/阻塞异步与协程.html">
+            
+                    
+                    阻塞异步与协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" data-path="../语法篇/流程控制/多线程与GIL.html">
+            
+                <a href="../语法篇/流程控制/多线程与GIL.html">
+            
+                    
+                    多线程与GIL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.4" data-path="../语法篇/流程控制/多进程.html">
+            
+                <a href="../语法篇/流程控制/多进程.html">
+            
+                    
+                    多进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.5" data-path="../语法篇/流程控制/并行编程的惯用法.html">
+            
+                <a href="../语法篇/流程控制/并行编程的惯用法.html">
+            
+                    
+                    并行编程的惯用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.6" data-path="../语法篇/流程控制/结语.html">
+            
+                <a href="../语法篇/流程控制/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../语法篇/异常和警告.html">
+            
+                <a href="../语法篇/异常和警告.html">
+            
+                    
+                    异常和警告
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../语法篇/内置容器/">
+            
+                <a href="../语法篇/内置容器/">
+            
+                    
+                    内置容器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="../语法篇/内置容器/序列对象.html">
+            
+                <a href="../语法篇/内置容器/序列对象.html">
+            
+                    
+                    序列对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="../语法篇/内置容器/映射对象.html">
+            
+                <a href="../语法篇/内置容器/映射对象.html">
+            
+                    
+                    映射对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="../语法篇/内置容器/可迭代对象与生成器.html">
+            
+                <a href="../语法篇/内置容器/可迭代对象与生成器.html">
+            
+                    
+                    可迭代对象与生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="../语法篇/内置容器/结语.html">
+            
+                <a href="../语法篇/内置容器/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../语法篇/函数/">
+            
+                <a href="../语法篇/函数/">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="../语法篇/函数/函数是一等对象.html">
+            
+                <a href="../语法篇/函数/函数是一等对象.html">
+            
+                    
+                    函数是一等对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="../语法篇/函数/变量作用域与闭包.html">
+            
+                <a href="../语法篇/函数/变量作用域与闭包.html">
+            
+                    
+                    变量作用域与闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.3" data-path="../语法篇/函数/结语.html">
+            
+                <a href="../语法篇/函数/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../语法篇/面向对象惯用法/">
+            
+                <a href="../语法篇/面向对象惯用法/">
+            
+                    
+                    面向对象惯用法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.8.1" data-path="../语法篇/面向对象惯用法/python中的对象.html">
+            
+                <a href="../语法篇/面向对象惯用法/python中的对象.html">
+            
+                    
+                    python中的对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.2" data-path="../语法篇/面向对象惯用法/协议与接口与抽象基类.html">
+            
+                <a href="../语法篇/面向对象惯用法/协议与接口与抽象基类.html">
+            
+                    
+                    协议,接口与抽象基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.3" data-path="../语法篇/面向对象惯用法/多重继承和Mixin.html">
+            
+                <a href="../语法篇/面向对象惯用法/多重继承和Mixin.html">
+            
+                    
+                    多重继承和Mixin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.4" data-path="../语法篇/面向对象惯用法/自定义序列Vector.html">
+            
+                <a href="../语法篇/面向对象惯用法/自定义序列Vector.html">
+            
+                    
+                    自定义序列Vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.5" data-path="../语法篇/面向对象惯用法/结语.html">
+            
+                <a href="../语法篇/面向对象惯用法/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../语法篇/元编程/">
+            
+                <a href="../语法篇/元编程/">
+            
+                    
+                    *元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.9.1" data-path="../语法篇/元编程/运算符重载.html">
+            
+                <a href="../语法篇/元编程/运算符重载.html">
+            
+                    
+                    运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.2" data-path="../语法篇/元编程/特性与描述符.html">
+            
+                <a href="../语法篇/元编程/特性与描述符.html">
+            
+                    
+                    特性与描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.3" data-path="../语法篇/元编程/装饰器.html">
+            
+                <a href="../语法篇/元编程/装饰器.html">
+            
+                    
+                    装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.4" data-path="../语法篇/元编程/元类编程.html">
+            
+                <a href="../语法篇/元编程/元类编程.html">
+            
+                    
+                    元类编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.5" data-path="../语法篇/元编程/import_hook.html">
+            
+                <a href="../语法篇/元编程/import_hook.html">
+            
+                    
+                    import_hook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.6" data-path="../语法篇/元编程/动态编译.html">
+            
+                <a href="../语法篇/元编程/动态编译.html">
+            
+                    
+                    动态编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.7" data-path="../语法篇/元编程/动态属性.html">
+            
+                <a href="../语法篇/元编程/动态属性.html">
+            
+                    
+                    动态属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.8" data-path="../语法篇/元编程/猴子补丁和热更新.md">
+            
+                <span>
+            
+                    
+                    猴子补丁和热更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.9" data-path="../语法篇/元编程/结语.html">
+            
+                <a href="../语法篇/元编程/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../语法篇/结语.html">
+            
+                <a href="../语法篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >性能调优工具</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x6027;&#x80FD;&#x8C03;&#x4F18;"><b>1. </b>&#x6027;&#x80FD;&#x8C03;&#x4F18;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x6D4B;&#x8BD5;&#x6574;&#x4F53;&#x8FD0;&#x884C;&#x65F6;&#x95F4;"><b>1.1. </b>&#x6D4B;&#x8BD5;&#x6574;&#x4F53;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x51FD;&#x6570;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;"><b>1.2. </b>&#x51FD;&#x6570;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;&#x5355;&#x72EC;&#x6A21;&#x5757;&#x5206;&#x6790;"><b>1.2.1. </b>&#x4F7F;&#x7528;&#x5355;&#x72EC;&#x6A21;&#x5757;&#x5206;&#x6790;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x5206;&#x6790;"><b>1.2.2. </b>&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x5206;&#x6790;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7EDF;&#x8BA1;&#x9879;&#x8BF4;&#x660E;"><b>1.2.3. </b>&#x7EDF;&#x8BA1;&#x9879;&#x8BF4;&#x660E;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4E0E;pstats&#x7ED3;&#x5408;&#x63D0;&#x4F9B;&#x591A;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x62A5;&#x8868;"><b>1.2.4. </b>&#x4E0E;pstats&#x7ED3;&#x5408;&#x63D0;&#x4F9B;&#x591A;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x62A5;&#x8868;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x8BED;&#x53E5;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;"><b>1.3. </b>&#x8BED;&#x53E5;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5185;&#x5B58;&#x5206;&#x6790;"><b>1.4. </b>&#x5185;&#x5B58;&#x5206;&#x6790;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5BF9;&#x8C61;&#x5206;&#x6790;&#x53CA;&#x8FFD;&#x8E2A;windows&#x4E0B;&#x4E0D;&#x80FD;&#x7528;"><b>1.5. </b>&#x5BF9;&#x8C61;&#x5206;&#x6790;&#x53CA;&#x8FFD;&#x8E2A;(windows&#x4E0B;&#x4E0D;&#x80FD;&#x7528;)</a></li></ul></ul></div><a href="#&#x6027;&#x80FD;&#x8C03;&#x4F18;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x6027;&#x80FD;&#x8C03;&#x4F18;"><a name="&#x6027;&#x80FD;&#x8C03;&#x4F18;" class="anchor-navigation-ex-anchor" href="#&#x6027;&#x80FD;&#x8C03;&#x4F18;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x6027;&#x80FD;&#x8C03;&#x4F18;</h1>
+<p>&#x5728;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x529F;&#x80FD;&#x4E14;&#x5065;&#x58EE;&#x4E0D;&#x51FA;&#x9519;&#x7684;&#x524D;&#x63D0;&#x4E0B;,&#x6211;&#x4EEC;&#x5F80;&#x5F80;&#x4F1A;&#x6709;&#x4F18;&#x5316;&#x6027;&#x80FD;&#x7684;&#x9700;&#x6C42;</p>
+<p>&#x6027;&#x80FD;&#x8C03;&#x4F18;&#x5927;&#x7EA6;&#x53EF;&#x4EE5;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x548C;&#x8FD0;&#x884C;&#x5185;&#x5B58;&#x5360;&#x7528;&#x4E24;&#x65B9;&#x9762;&#x6765;&#x8003;&#x91CF;,&#x4E0B;&#x9762;&#x4ECB;&#x7ECD;&#x7684;&#x5DE5;&#x5177;&#x5B9A;&#x4F4D;&#x7CBE;&#x5EA6;&#x7531;&#x7C97;&#x5230;&#x7EC6;,&#x4E5F;&#x5206;&#x4E3A;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x9762;</p>
+<h2 id="&#x6D4B;&#x8BD5;&#x6574;&#x4F53;&#x8FD0;&#x884C;&#x65F6;&#x95F4;"><a name="&#x6D4B;&#x8BD5;&#x6574;&#x4F53;&#x8FD0;&#x884C;&#x65F6;&#x95F4;" class="anchor-navigation-ex-anchor" href="#&#x6D4B;&#x8BD5;&#x6574;&#x4F53;&#x8FD0;&#x884C;&#x65F6;&#x95F4;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x6D4B;&#x8BD5;&#x6574;&#x4F53;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</h2>
+<p>Python&#x4E2D;&#x7684;timeit&#x662F;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x6548;&#x7387;&#x7684;&#x5DE5;&#x5177;.&#x53EF;&#x4EE5;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x76F4;&#x63A5;&#x6D4B;&#x8BD5;&#x811A;&#x672C;,&#x4E5F;&#x53EF;&#x4EE5;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x6548;&#x7387;,&#x5F53;&#x7136;&#x6700;&#x7B80;&#x5355;&#x7684;&#x8FD8;&#x662F;&#x76F4;&#x63A5;&#x7528;ipython&#x7684;&#x5185;&#x7F6E;timeit&#x9B54;&#x6CD5;&#x547D;&#x4EE4;&#x6D4B;&#x67D0;&#x6BB5;&#x4EE3;&#x7801;&#x7684;&#x6548;&#x7387;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> timeit
+t = timeit.Timer(<span class="hljs-string">&apos;map(lambda x: x**2,range(1000))&apos;</span>)
+t.timeit()
+</code></pre>
+<pre><code>0.404256040987093
+</code></pre><pre><code class="lang-python">!python -m timeit -s <span class="hljs-string">&quot;map(lambda x: x**2,range(1000))&quot;</span>
+</code></pre>
+<pre><code>100000000 loops, best of 3: 0.00833 usec per loop
+</code></pre><h2 id="&#x51FD;&#x6570;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;"><a name="&#x51FD;&#x6570;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;" class="anchor-navigation-ex-anchor" href="#&#x51FD;&#x6570;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x51FD;&#x6570;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;</h2>
+<p>python&#x7684;&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;&#x7684;&#x6A21;&#x5757;&#x53EB;cprofile,&#x4ED6;&#x662F;&#x4E00;&#x4E2A;&#x5F00;&#x9500;&#x6781;&#x5C0F;&#x7684;C&#x6269;&#x5C55;.&#x7528;&#x5B83;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x51FD;&#x6570;&#x7EA7;&#x7684;&#x6027;&#x80FD;&#x5206;&#x6790;,&#x914D;&#x5408;<code>pstats</code>&#x6A21;&#x5757;&#x8FD8;&#x53EF;&#x4EE5;&#x8F93;&#x51FA;&#x5206;&#x6790;&#x62A5;&#x544A;</p>
+<h3 id="&#x4F7F;&#x7528;&#x5355;&#x72EC;&#x6A21;&#x5757;&#x5206;&#x6790;"><a name="&#x4F7F;&#x7528;&#x5355;&#x72EC;&#x6A21;&#x5757;&#x5206;&#x6790;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;&#x5355;&#x72EC;&#x6A21;&#x5757;&#x5206;&#x6790;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.1. &#x4F7F;&#x7528;&#x5355;&#x72EC;&#x6A21;&#x5757;&#x5206;&#x6790;</h3>
+<pre><code class="lang-python">%%writefile src/C3/profile_test.py
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span>:</span>
+    sum = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10000</span>):
+        sum += i
+    <span class="hljs-keyword">return</span> sum
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
+    foo()
+</code></pre>
+<pre><code>Overwriting src/C3/profile_test.py
+</code></pre><pre><code class="lang-python">%%writefile src/C3/profile_test.py
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span>:</span>
+    sum = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10000</span>):
+        sum += i
+    <span class="hljs-keyword">return</span> sum
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
+    <span class="hljs-keyword">try</span> :
+        <span class="hljs-keyword">import</span> profile
+    <span class="hljs-keyword">except</span>:
+        <span class="hljs-keyword">import</span> cProfile <span class="hljs-keyword">as</span> profile
+
+    profile.run(<span class="hljs-string">&quot;foo()&quot;</span>)
+</code></pre>
+<pre><code>Overwriting src/C3/profile_test.py
+</code></pre><pre><code class="lang-python">!python src/C3/profile_test.py
+</code></pre>
+<pre><code>         5 function calls in 0.002 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.001    0.001 :0(exec)
+        1    0.001    0.001    0.001    0.001 :0(setprofile)
+        1    0.000    0.000    0.001    0.001 &lt;string&gt;:1(&lt;module&gt;)
+        1    0.000    0.000    0.002    0.002 profile:0(foo())
+        0    0.000             0.000          profile:0(profiler)
+        1    0.001    0.001    0.001    0.001 profile_test.py:1(foo)
+</code></pre><h3 id="&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x5206;&#x6790;"><a name="&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x5206;&#x6790;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x5206;&#x6790;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2. &#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x5206;&#x6790;</h3>
+<pre><code class="lang-python">%%writefile src/C3/profile_test_foo.py
+<span class="hljs-comment">#coding:utf-8</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span>:</span>
+    sum = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10000</span>):
+        sum += i
+    <span class="hljs-keyword">return</span> sum
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
+    foo()
+</code></pre>
+<pre><code>Overwriting src/C3/profile_test_foo.py
+</code></pre><pre><code class="lang-python">!python -m cProfile src/C3/profile_test_foo.py
+</code></pre>
+<pre><code>         4 function calls in 0.001 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.001    0.001 profile_test_foo.py:2(&lt;module&gt;)
+        1    0.001    0.001    0.001    0.001 profile_test_foo.py:2(foo)
+        1    0.000    0.000    0.001    0.001 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {method &apos;disable&apos; of &apos;_lsprof.Profiler&apos; objects}
+</code></pre><h3 id="&#x7EDF;&#x8BA1;&#x9879;&#x8BF4;&#x660E;"><a name="&#x7EDF;&#x8BA1;&#x9879;&#x8BF4;&#x660E;" class="anchor-navigation-ex-anchor" href="#&#x7EDF;&#x8BA1;&#x9879;&#x8BF4;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.3. &#x7EDF;&#x8BA1;&#x9879;&#x8BF4;&#x660E;</h3>
+<table>
+<thead>
+<tr>
+<th>&#x7EDF;&#x8BA1;&#x9879;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ncalls</td>
+<td>&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x6B21;&#x6570;</td>
+</tr>
+<tr>
+<td>tottime</td>
+<td>&#x51FD;&#x6570;&#x603B;&#x8BA1;&#x8FD0;&#x884C;&#x65F6;&#x95F4;,&#x4E0D;&#x542B;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td>cumtime</td>
+<td>&#x51FD;&#x6570;&#x603B;&#x8BA1;&#x8FD0;&#x884C;&#x65F6;&#x95F4;,&#x542B;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td>percall</td>
+<td>&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x4E00;&#x6B21;&#x5E73;&#x5747;&#x65F6;&#x95F4;,&#x7B49;&#x4E8E;tottime(cumtime)/ncalls</td>
+</tr>
+<tr>
+<td><code>filename:lineno</code></td>
+<td>&#x51FD;&#x6570;&#x6240;&#x5728;&#x6587;&#x4EF6;&#x540D;,&#x51FD;&#x6570;&#x7684;&#x884C;&#x53F7;,&#x51FD;&#x6570;&#x540D;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="&#x4E0E;pstats&#x7ED3;&#x5408;&#x63D0;&#x4F9B;&#x591A;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x62A5;&#x8868;"><a name="&#x4E0E;pstats&#x7ED3;&#x5408;&#x63D0;&#x4F9B;&#x591A;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x62A5;&#x8868;" class="anchor-navigation-ex-anchor" href="#&#x4E0E;pstats&#x7ED3;&#x5408;&#x63D0;&#x4F9B;&#x591A;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x62A5;&#x8868;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.4. &#x4E0E;pstats&#x7ED3;&#x5408;&#x63D0;&#x4F9B;&#x591A;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x62A5;&#x8868;</h3>
+<pre><code class="lang-python">%%writefile src/C3/profile_test_pstats.py
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span>:</span>
+    sum = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10000</span>):
+        sum += i
+    <span class="hljs-keyword">return</span> sum
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
+    <span class="hljs-keyword">try</span> :
+        <span class="hljs-keyword">import</span> profile
+    <span class="hljs-keyword">except</span>:
+        <span class="hljs-keyword">import</span> cProfile <span class="hljs-keyword">as</span> profile
+
+    profile.run(<span class="hljs-string">&quot;foo()&quot;</span>,<span class="hljs-string">&quot;foo.txt&quot;</span>)
+    <span class="hljs-keyword">import</span> pstats
+    p = pstats.Stats(<span class="hljs-string">&quot;foo.txt&quot;</span>)
+    p.sort_stats(<span class="hljs-string">&quot;time&quot;</span>).print_stats()
+</code></pre>
+<pre><code>Overwriting src/C3/profile_test_pstats.py
+</code></pre><pre><code class="lang-python">!python src/C3/profile_test_pstats.py
+</code></pre>
+<pre><code>Wed Jun  6 22:26:56 2018    foo.txt
+
+         5 function calls in 0.001 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.001    0.001    0.001    0.001 src/C3/profile_test_pstats.py:1(foo)
+        1    0.000    0.000    0.000    0.000 :0(setprofile)
+        1    0.000    0.000    0.001    0.001 :0(exec)
+        1    0.000    0.000    0.001    0.001 profile:0(foo())
+        1    0.000    0.000    0.001    0.001 &lt;string&gt;:1(&lt;module&gt;)
+        0    0.000             0.000          profile:0(profiler)
+</code></pre><p>stats&#x6709;&#x8BB8;&#x591A;&#x51FD;&#x6570;,&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x4E0D;&#x540C;&#x7684;&#x62A5;&#x8868;</p>
+<ul>
+<li>stats&#x51FD;&#x6570;&#x8BF4;&#x660E;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>&#x51FD;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>strip_dirs()</td>
+<td>&#x9664;&#x53BB;&#x6587;&#x4EF6;&#x540D;&#x524D;&#x540D;&#x7684;&#x8DEF;&#x5F84;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>add(filename,[...])</td>
+<td>&#x628A;profile&#x8F93;&#x51FA;&#x7684;&#x6587;&#x4EF6;&#x52A0;&#x5165;stats&#x5B9E;&#x4F8B;&#x4E2D;&#x7EDF;&#x8BA1;</td>
+</tr>
+<tr>
+<td>dump_stats(filename)</td>
+<td>&#x628A;stats&#x7EDF;&#x8BA1;&#x7ED3;&#x679C;&#x4FDD;&#x5B58;&#x5230;&#x6587;&#x4EF6;</td>
+</tr>
+<tr>
+<td>sort_stats(key,[...])</td>
+<td>&#x6700;&#x91CD;&#x8981;&#x7684;,&#x53EF;&#x4EE5;&#x7ED9;profile&#x7EDF;&#x8BA1;&#x7ED3;&#x679C;&#x6392;&#x5E8F;</td>
+</tr>
+<tr>
+<td>reverse_order()</td>
+<td>&#x6570;&#x636E;&#x53CD;&#x6392;&#x5E8F;</td>
+</tr>
+<tr>
+<td>print_stats([restriction,...])</td>
+<td>&#x628A;&#x62A5;&#x8868;&#x8F93;&#x51FA;&#x5230;stdout</td>
+</tr>
+<tr>
+<td>print_callers([restriction,...])</td>
+<td>&#x8F93;&#x51FA;&#x8C03;&#x7528;&#x6307;&#x5B9A;&#x51FD;&#x6570;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>print_callees([restriction,...])</td>
+<td>&#x8F93;&#x51FA;&#x6307;&#x5B9A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x8FC7;&#x7684;&#x51FD;&#x6570;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>sort_stats&#x53EF;&#x63A5;&#x53D7;&#x7684;&#x53C2;&#x6570;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ncalls</td>
+<td>&#x88AB;&#x8C03;&#x6B21;&#x6570;</td>
+</tr>
+<tr>
+<td>cumulative</td>
+<td>&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x603B;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td>file</td>
+<td>&#x6587;&#x4EF6;&#x540D;</td>
+</tr>
+<tr>
+<td>module</td>
+<td>&#x6A21;&#x5757;&#x540D;</td>
+</tr>
+<tr>
+<td>pcalls</td>
+<td>&#x7B80;&#x5355;&#x7EDF;&#x8BA1;</td>
+</tr>
+<tr>
+<td>line</td>
+<td>&#x884C;&#x53F7;</td>
+</tr>
+<tr>
+<td>name</td>
+<td>&#x51FD;&#x6570;&#x540D;</td>
+</tr>
+<tr>
+<td>nfl</td>
+<td>name,file,line</td>
+</tr>
+<tr>
+<td>stdname</td>
+<td>&#x6807;&#x51C6;&#x51FD;&#x6570;&#x540D;</td>
+</tr>
+<tr>
+<td>time</td>
+<td>&#x51FD;&#x6570;&#x5185;&#x90E8;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x8BED;&#x53E5;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;"><a name="&#x8BED;&#x53E5;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;" class="anchor-navigation-ex-anchor" href="#&#x8BED;&#x53E5;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x8BED;&#x53E5;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;</h2>
+<p>cprofiler&#x53EA;&#x80FD;&#x8FFD;&#x8E2A;&#x5230;&#x54EA;&#x4E2A;&#x51FD;&#x6570;&#x662F;&#x6027;&#x80FD;&#x74F6;&#x9888;,&#x800C;&#x51FD;&#x6570;&#x4E2D;&#x54EA;&#x6761;&#x8BED;&#x53E5;&#x662F;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5C31;&#x8FFD;&#x8E2A;&#x4E0D;&#x5230;&#x4E86;,&#x5BF9;&#x4E8E;&#x8BED;&#x53E5;&#x7EA7;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x5B9A;&#x4F4D;,python&#x5E76;&#x6CA1;&#x6709;&#x5B98;&#x65B9;&#x5DE5;&#x5177;,&#x4F46;github&#x4E0A;&#x6709;&#x4F4D;&#x5927;&#x795E;&#x5236;&#x4F5C;&#x4E86;<a href="https://github.com/rkern/line_profiler" target="_blank">line_profiler</a>,&#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x8FD9;&#x4E00;&#x529F;&#x80FD;,&#x5B83;&#x4E5F;&#x51E0;&#x4E4E;&#x53EF;&#x4EE5;&#x8BF4;&#x662F;python&#x7684;&#x534A;&#x6807;&#x51C6;&#x5DE5;&#x5177;&#x4E4B;&#x4E00;&#x4E86;.</p>
+<p>&#x56E0;&#x4E3A;&#x4E0D;&#x662F;&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x7684;&#x5185;&#x5BB9;,&#x6240;&#x4EE5;&#x9700;&#x8981;pip&#x5B89;&#x88C5;.</p>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x5341;&#x5206;&#x7B80;&#x5355;,&#x5728;&#x9700;&#x8981;&#x5206;&#x6790;&#x7684;&#x51FD;&#x6570;&#x4E0A;&#x9762;&#x52A0;&#x4E0A;&#x88C5;&#x9970;&#x5668;<code>@profile</code>&#x5373;&#x53EF;(&#x6CE8;&#x610F;&#x4E0D;&#x7528;import&#x4EFB;&#x4F55;&#x4E1C;&#x897F;,&#x8FD9;&#x6761;&#x88C5;&#x9970;&#x5668;&#x5728;&#x5B9A;&#x4F4D;&#x597D;&#x540E;&#x5E94;&#x8BE5;&#x5220;&#x9664;&#x4EE5;&#x4FDD;&#x8BC1;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;)</p>
+<pre><code class="lang-python">%%writefile src/C3/line_profile_test.py
+
+<span class="hljs-meta">@profile</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span>:</span>
+    sum = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10000</span>):
+        sum += i
+    <span class="hljs-keyword">return</span> sum
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
+    foo()
+</code></pre>
+<pre><code>Overwriting src/C3/line_profile_test.py
+</code></pre><pre><code class="lang-python">!python3 -m kernprof -l -v src/C3/line_profile_test.py
+</code></pre>
+<pre><code>Wrote profile results to line_profile_test.py.lprof
+Timer unit: 1e-06 s
+
+Total time: 0.00559 s
+File: src/C3/line_profile_test.py
+Function: foo at line 2
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+     2                                           @profile
+     3                                           def foo():
+     4         1          6.0      6.0      0.1      sum = 0
+     5     10001       2658.0      0.3     47.5      for i in range(10000):
+     6     10000       2926.0      0.3     52.3          sum += i
+     7         1          0.0      0.0      0.0      return sum
+</code></pre><h2 id="&#x5185;&#x5B58;&#x5206;&#x6790;"><a name="&#x5185;&#x5B58;&#x5206;&#x6790;" class="anchor-navigation-ex-anchor" href="#&#x5185;&#x5B58;&#x5206;&#x6790;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. &#x5185;&#x5B58;&#x5206;&#x6790;</h2>
+<p><a href="https://pypi.python.org/pypi/memory_profiler/" target="_blank">memory_profiler</a>&#x662F;&#x7528;&#x6765;&#x5206;&#x6790;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x60C5;&#x51B5;&#x548C;&#x8FFD;&#x8E2A;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x7684;&#x5DE5;&#x5177;.&#x5B83;&#x7528;&#x6CD5;&#x6BD4;&#x8F83;&#x63A5;&#x8FD1;<code>line_profiler</code></p>
+<p>&#x7531;&#x4E8E;&#x4E0D;&#x662F;&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x7684;&#x6A21;&#x5757;,&#x5B83;&#x9700;&#x8981;pip&#x5B89;&#x88C5;.</p>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;windows&#x4E0B;&#x9700;&#x8981;&#x5728;script&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x5C06;<code>mprof</code>&#x6587;&#x4EF6;&#x6539;&#x540D;&#x4E3A;<code>mprof.py</code>&#x5E76;&#x5728;&#x540C;&#x4E00;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<code>mprof.bat</code>&#x6587;&#x4EF6;&#x7F16;&#x8F91;&#x4E3A;&#x5982;&#x4E0B;&#x5185;&#x5BB9;</p>
+<pre><code class="lang-shell">@echo off
+python &quot;%~dpn0.py&quot; %*
+</code></pre>
+<p>&#x5B83;&#x7684;&#x4F7F;&#x7528;&#x53CA;&#x5176;&#x7B80;&#x5355;:</p>
+<pre><code class="lang-python">%%writefile src/C3/memory_test.py
+<span class="hljs-keyword">from</span> memory_profiler <span class="hljs-keyword">import</span> profile
+<span class="hljs-meta">@profile</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span>:</span>
+    sum = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10000</span>):
+        sum += i
+    <span class="hljs-keyword">return</span> sum
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
+    <span class="hljs-keyword">try</span> :
+        <span class="hljs-keyword">import</span> profile <span class="hljs-keyword">as</span> cProfile
+    <span class="hljs-keyword">except</span>:
+        <span class="hljs-keyword">import</span> cProfile 
+
+    cProfile.run(<span class="hljs-string">&quot;foo()&quot;</span>,<span class="hljs-string">&quot;foo.txt&quot;</span>)
+    <span class="hljs-keyword">import</span> pstats
+    p = pstats.Stats(<span class="hljs-string">&quot;foo.txt&quot;</span>)
+    p.sort_stats(<span class="hljs-string">&quot;time&quot;</span>).print_stats()
+</code></pre>
+<pre><code>Overwriting src/C3/memory_test.py
+</code></pre><p>&#x4E4B;&#x540E;&#x4F7F;&#x7528;</p>
+<pre><code class="lang-shell">python src/C3/memory_test.py
+</code></pre>
+<p>&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8BE6;&#x7EC6;&#x7ED3;&#x679C;&#x4E86;</p>
+<p>&#x6307;&#x5B9A;&#x7CBE;&#x5EA6;&#x53EF;&#x4EE5;&#x5728;profile&#x88C5;&#x9970;&#x5668;&#x540E;&#x9762;&#x52A0;&#x4E0A;&#x53C2;&#x6570; &#x5982;: @profile(precision=4)</p>
+<p>mprof&#x5DE5;&#x5177;&#x7C7B;&#x4F3C;<code>kernprof</code>,&#x7528;&#x5B83;&#x53EF;&#x4EE5;&#x8F93;&#x51FA;&#x66F4;&#x52A0;&#x53CB;&#x597D;&#x7684;&#x7EDF;&#x8BA1;&#x5206;&#x6790;&#x9875;&#x9762;</p>
+<pre><code class="lang-python">%%writefile src/C3/memory_test_round.py
+<span class="hljs-keyword">from</span> memory_profiler <span class="hljs-keyword">import</span> profile
+<span class="hljs-meta">@profile</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span>:</span>
+    sum = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10000</span>):
+        sum += i
+    <span class="hljs-keyword">return</span> sum
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
+    foo()
+</code></pre>
+<pre><code>Overwriting src/C3/memory_test_round.py
+</code></pre><pre><code class="lang-python">!mprof run src/C3/memory_test_round.py
+</code></pre>
+<pre><code>mprof: Sampling memory every 0.1s
+running as a Python program...
+Filename: src/C3/memory_test_round.py
+
+Line #    Mem usage    Increment   Line Contents
+================================================
+     2     48.9 MiB     48.9 MiB   @profile
+     3                             def foo():
+     4     48.9 MiB      0.0 MiB       sum = 0
+     5     48.9 MiB      0.0 MiB       for i in range(10000):
+     6     48.9 MiB      0.0 MiB           sum += i
+     7     48.9 MiB      0.0 MiB       return sum
+</code></pre><pre><code class="lang-python">!mprof plot
+</code></pre>
+<pre><code>Using last profile data.
+Figure(1260x540)
+</code></pre><h2 id="&#x5BF9;&#x8C61;&#x5206;&#x6790;&#x53CA;&#x8FFD;&#x8E2A;windows&#x4E0B;&#x4E0D;&#x80FD;&#x7528;"><a name="&#x5BF9;&#x8C61;&#x5206;&#x6790;&#x53CA;&#x8FFD;&#x8E2A;windows&#x4E0B;&#x4E0D;&#x80FD;&#x7528;" class="anchor-navigation-ex-anchor" href="#&#x5BF9;&#x8C61;&#x5206;&#x6790;&#x53CA;&#x8FFD;&#x8E2A;windows&#x4E0B;&#x4E0D;&#x80FD;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. &#x5BF9;&#x8C61;&#x5206;&#x6790;&#x53CA;&#x8FFD;&#x8E2A;(windows&#x4E0B;&#x4E0D;&#x80FD;&#x7528;)</h2>
+<p><a href="http://mg.pov.lt/objgraph/" target="_blank">Objgraph</a>&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x5206;&#x6790;&#x548C;&#x8FFD;&#x8E2A;,&#x5B83;&#x4E5F;&#x662F;&#x7528;pip&#x5B89;&#x88C5;,&#x4E0D;&#x8FC7;&#x5B83;&#x4F9D;&#x8D56;xdot(pip &#x5B89;&#x88C5;)
+&#x548C;<a href="http://www.graphviz.org/" target="_blank">graphviz</a>(brew&#x5B89;&#x88C5;)</p>
+<p>&#x5B83;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x7684;&#x529F;&#x80FD;&#x6709;:</p>
+<ul>
+<li>&#x7EDF;&#x8BA1;</li>
+<li>&#x5B9A;&#x4E49;&#x8FC7;&#x6EE4;&#x5BF9;&#x8C61;</li>
+<li>&#x904D;&#x5386;&#x548C;&#x663E;&#x793A;&#x5BF9;&#x8C61;&#x56FE;</li>
+</ul>
+<pre><code class="lang-python">%%writefile src/C3/Obj_test.py
+<span class="hljs-comment">#encoding=utf-8  </span>
+<span class="hljs-keyword">import</span> objgraph  
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:  
+    x = []  
+    y = [x, [x], dict(x=x)]  
+    objgraph.show_refs([y], filename=<span class="hljs-string">&apos;sample-graph.png&apos;</span>) <span class="hljs-comment">#&#x628A;[y]&#x91CC;&#x9762;&#x6240;&#x6709;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x753B;&#x51FA;&#x6765;  </span>
+    objgraph.show_backrefs([x], filename=<span class="hljs-string">&apos;sample-backref-graph.png&apos;</span>) <span class="hljs-comment">#&#x628A;&#x5BF9;x&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x5168;&#x90E8;&#x753B;&#x51FA;&#x6765;  </span>
+    <span class="hljs-comment">#objgraph.show_most_common_types() #&#x6240;&#x6709;&#x5E38;&#x7528;&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x7EDF;&#x8BA1;&#xFF0C;&#x6570;&#x636E;&#x91CF;&#x592A;&#x5927;&#xFF0C;&#x610F;&#x4E49;&#x4E0D;&#x5927;  </span>
+    objgraph.show_growth(limit=<span class="hljs-number">4</span>) <span class="hljs-comment">#&#x6253;&#x5370;&#x4ECE;&#x7A0B;&#x5E8F;&#x5F00;&#x59CB;&#x6216;&#x8005;&#x4E0A;&#x6B21;show_growth&#x5230;&#x73B0;&#x5728;&#x589E;&#x52A0;&#x7684;&#x5BF9;&#x8C61;&#xFF08;&#x6309;&#x7167;&#x589E;&#x52A0;&#x91CF;&#x7684;&#x5927;&#x5C0F;&#x6392;&#x5E8F;&#xFF09;</span>
+</code></pre>
+<pre><code>Overwriting src/C3/Obj_test.py
+</code></pre><pre><code class="lang-python">!python src/C3/Obj_test.py
+</code></pre>
+<pre><code>Graph written to /var/folders/62/pwdyzlx51_j_3_0lr8zxzbx00000gn/T/objgraph-jcx95ebu.dot (4 nodes)
+Image renderer (dot) not found, not doing anything else
+Graph written to /var/folders/62/pwdyzlx51_j_3_0lr8zxzbx00000gn/T/objgraph-ncj576f1.dot (7 nodes)
+Image renderer (dot) not found, not doing anything else
+function               2116     +2116
+dict                   1181     +1181
+wrapper_descriptor     1002     +1002
+tuple                   945      +945
+</code></pre><p>&#x4E8E;&#x662F;&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x56FE;&#x4E86;</p>
+<p><img src="source/C3/sample-graph.png" alt="">
+<img src="source/C3/sample-backref-graph.png" alt=""></p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2018-06-08 10:23:02
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="部署服务.html" class="navigation navigation-prev " aria-label="Previous page: 部署服务">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="结语.html" class="navigation navigation-next " aria-label="Next page: 结语">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"性能调优工具","level":"1.2.12","depth":2,"next":{"title":"结语","level":"1.2.13","depth":2,"path":"工具链篇/结语.md","ref":"工具链篇/结语.md","articles":[]},"previous":{"title":"部署服务","level":"1.2.11","depth":2,"path":"工具链篇/部署服务.md","ref":"工具链篇/部署服务.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","katex","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/hsz1273327"},"livereload":{},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"title":"","button":"赏","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","wechatText":"微信打赏","alipayText":"支付宝打赏"},"sitemap-general":{"prefix":"http://blog.hszofficial.site/TutorialForPython/"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":true,"associatedWithSummary":true,"mode":"float","printLog":false,"multipleH1":true,"float":{"showLevelIcon":true,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"},"pageTop":{"showLevelIcon":false,"mode":"float","pageTop":{"showLevelIcon":false,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"},"level1Icon":"","showLevel":true,"level2Icon":"","level3Icon":"","associatedWithSummary":true,"float":{"showLevelIcon":true,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"}}},"github-buttons":{"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍python3.5+的语法与编程惯用法"},"file":{"path":"工具链篇/性能调优工具.md","mtime":"2018-06-08T02:23:02.973Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-14T03:29:45.830Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
