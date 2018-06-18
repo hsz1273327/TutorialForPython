@@ -1,4 +1,4 @@
-#!/Users/huangsizhe/LIB/CONDA/anaconda/bin/python
+#!/Users/huangsizhe/anaconda3/bin/python
 # coding:utf-8 
 u"""
 Usage: 
