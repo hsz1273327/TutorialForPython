@@ -91,6 +91,7 @@
         * [静态化python模块](嵌入与扩展篇/使用Cython优化python程序的性能/静态化python模块.md)
         * [使用cython申明文件申明python源码类型](嵌入与扩展篇/使用Cython优化python程序的性能/使用cython申明文件申明python源码类型.md)
         * [Cython的包装模式](嵌入与扩展篇/使用Cython优化python程序的性能/Cython的包装模式.md)
+        * [使用Cython扩展numpy](嵌入与扩展篇/使用Cython优化python程序的性能/使用Cython扩展numpy.md)
 
     * [用numba为python写高性能C扩展](嵌入与扩展篇/用numba为python写高性能C扩展.md)
     * [使用f2py用fortain给python写扩展](嵌入与扩展篇/使用f2py用fortain给python写扩展.md)
@@ -134,5 +135,10 @@
         * [结语](人机交互篇/使用matplotlib做数据可视化/结语.md)
 
     * [结语](人机交互篇/结语.md)
+    
+* [数学与统计应用篇](数学与统计应用篇/README.md)
+    * [使用标准库处理基本数学问题](数学与统计应用篇/使用标准库处理基本数学问题/使用标准库处理基本数学问题.md)
+    * [numpy的高性能同构定长多维数组ndarray](数学与统计应用篇/numpy的高性能同构定长多维数组ndarray/numpy的高性能同构定长多维数组ndarray.md)
+    * [结语](数学与统计应用篇/结语.md)
 
 * [术语表](术语表.md)
