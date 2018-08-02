@@ -32,4 +32,4 @@ python是一门应用领域非常广泛的编程语言,但现今最为人所知�
     + 深度学习算法封装[keras](http://keras-cn.readthedocs.io/en/latest/)
   
 
-本文会着重介绍Numpy和Pandas,并附带着介绍Sympy,Pymc3和TensorFlow.Numpy和Pandas以介绍其数据结构为主,而其他则更多的是介绍其来自的理论框架.当然,更重要的,本文还会介绍python标准库中的数学计算工具.其他的内容以后有机会会在其他文章中介绍
+本文会着重介绍Numpy和Pandas,并且以介绍其数据结构为主.当然,更重要的,本文还会介绍python标准库中的数学计算工具.其他的内容就过于专业了,以后有机会会在其他文章中介绍.

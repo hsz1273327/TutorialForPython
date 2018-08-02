@@ -35,7 +35,7 @@ Jupyter 现在是独立安装.当然,你依然需要装有python 和 pip.
 
 ## `*`Jupyter的多语言支持
 
-在[这里](https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages)你可以看到目前支持的语言.
+在[这里](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)你可以看到目前支持的语言.
 
 下面介绍几个比较值得安装的的kernel安装:
 
@@ -43,7 +43,7 @@ Jupyter 现在是独立安装.当然,你依然需要装有python 和 pip.
 欢迎朋友们写下其他平台的经验,我看到也会进行修改,谢谢
 
 ### 通用依赖
-几乎所有kernel都需要`zeromq`和`openssl`这两个库,他们都可以用brew安装
+几乎所有kernel都需要`zeromq`和`openssl`这两个库,在mac下他们都可以用brew安装
 
 brew install zeromq
 brew install openssl
@@ -104,7 +104,7 @@ python3|brew 安装的 python3|pip3|/usr/local/lib/python3.4/site-packages
 ### Golang
 
 Go语言是谷歌几年前推出的一门编译型语言,它以简洁优雅高,高开发效率,高可维护性和善于处理高并发而著称
-Go有一套完善的开发流程和语言规范,目前这个kernel还有许多不支持的地方,因此只是安装着而已,没有实际作用
+Go有一套完善的开发流程和语言规范,是开发高性能服务的优秀选择.
 
 #### 安装依赖
 
@@ -122,7 +122,7 @@ go语言只要用homebrew安装即可
     export PATH=${GOPATH//://bin:}/bin:$PATH
 
 
-+ gophernotes
++ [gophernotes](https://github.com/gopherdata/gophernotes)
 
 这是一个go语言的解释器,可以写一句执行一句,它也自带一个交互命令行工具
 
@@ -254,16 +254,20 @@ go语言可以看[这篇](https://github.com/astaxie/build-web-application-with-
 
 ### 安装kernel
 
-    $ sudo npm install -g ijavascript
-    $ sudo npm install -g --save-dev babel-preset-es2015
-    
+```shell
+sudo npm install -g ijavascript
+sudo npm install -g --save-dev babel-preset-es2015
+```
+
     
     
 ### 配套设施--balel
 
 babel是一个将ES6标准的js代码转换为可在浏览器中运行的ES5代码的工具.我们可以安装ibabel来使用它
 
-    $ sudo npm install -g jp-babel@0.0.6
+```shell
+sudo npm install -g jp-babel@0.0.6
+```
     
 注意要用老版本,因为新版的babel有bug
 
