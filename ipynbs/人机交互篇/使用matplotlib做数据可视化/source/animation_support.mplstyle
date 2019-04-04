@@ -1,3 +1,0 @@
-animation.ffmpeg_path : /usr/local/Cellar/ffmpeg/3.2.2/bin/ffmpeg
-animation.convert_path: /usr/local/Cellar/imagemagick/6.9.7-0/bin/convert
-animation.html: html5

@@ -1,0 +1,2433 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>非结构网络 · python攻略</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="hsz">
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../桑基图/桑基图.html" />
+    
+    
+    <link rel="prev" href="../绘图工具pyplot/绘图工具pyplot.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"TutorialForPython/TutorialForPython.github.io","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://blog.hszofficial.site/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../../工具链篇/">
+            
+                <a href="../../../工具链篇/">
+            
+                    
+                    工具链篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../../工具链篇/运行环境.html">
+            
+                <a href="../../../工具链篇/运行环境.html">
+            
+                    
+                    运行环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../../工具链篇/包的安装管理与分发.html">
+            
+                <a href="../../../工具链篇/包的安装管理与分发.html">
+            
+                    
+                    包的安装管理与分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../../工具链篇/交互环境jupyter/">
+            
+                <a href="../../../工具链篇/交互环境jupyter/">
+            
+                    
+                    交互环境jupyter
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../../../工具链篇/交互环境jupyter/基于web的可交互运行环境jupyter.html">
+            
+                <a href="../../../工具链篇/交互环境jupyter/基于web的可交互运行环境jupyter.html">
+            
+                    
+                    基于web的可交互运行环境jupyter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../../../工具链篇/交互环境jupyter/ipython与魔法命令/ipython与魔法命令.html">
+            
+                <a href="../../../工具链篇/交互环境jupyter/ipython与魔法命令/ipython与魔法命令.html">
+            
+                    
+                    ipython与魔法命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../../../工具链篇/交互环境jupyter/在Ipython_Notebook中的代码调试与优化.html">
+            
+                <a href="../../../工具链篇/交互环境jupyter/在Ipython_Notebook中的代码调试与优化.html">
+            
+                    
+                    在Ipython_Notebook中的代码调试与优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../../../工具链篇/交互环境jupyter/多进程并行计算.html">
+            
+                <a href="../../../工具链篇/交互环境jupyter/多进程并行计算.html">
+            
+                    
+                    多进程并行计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../../../工具链篇/交互环境jupyter/公开的jupyter_notebook服务.html">
+            
+                <a href="../../../工具链篇/交互环境jupyter/公开的jupyter_notebook服务.html">
+            
+                    
+                    公开的jupyter_notebook服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../../../工具链篇/交互环境jupyter/notebook格式转换工具.html">
+            
+                <a href="../../../工具链篇/交互环境jupyter/notebook格式转换工具.html">
+            
+                    
+                    notebook格式转换工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../../../工具链篇/交互环境jupyter/结语.html">
+            
+                <a href="../../../工具链篇/交互环境jupyter/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../../工具链篇/代码风格.html">
+            
+                <a href="../../../工具链篇/代码风格.html">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../../工具链篇/docstring工具.html">
+            
+                <a href="../../../工具链篇/docstring工具.html">
+            
+                    
+                    docstring工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../../工具链篇/静态类型检测.html">
+            
+                <a href="../../../工具链篇/静态类型检测.html">
+            
+                    
+                    静态类型检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../../../工具链篇/日志工具.html">
+            
+                <a href="../../../工具链篇/日志工具.html">
+            
+                    
+                    日志工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../../../工具链篇/调试工具.html">
+            
+                <a href="../../../工具链篇/调试工具.html">
+            
+                    
+                    调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../../../工具链篇/调用追踪与异常栈追踪.html">
+            
+                <a href="../../../工具链篇/调用追踪与异常栈追踪.html">
+            
+                    
+                    调用追踪与异常栈追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../../../工具链篇/代码测试.html">
+            
+                <a href="../../../工具链篇/代码测试.html">
+            
+                    
+                    代码测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../../../工具链篇/部署服务.html">
+            
+                <a href="../../../工具链篇/部署服务.html">
+            
+                    
+                    部署服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../../../工具链篇/性能调优工具.html">
+            
+                <a href="../../../工具链篇/性能调优工具.html">
+            
+                    
+                    性能调优工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../../../工具链篇/结语.html">
+            
+                <a href="../../../工具链篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../../语法篇/">
+            
+                <a href="../../../语法篇/">
+            
+                    
+                    语法篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../../语法篇/Python的数据模型/">
+            
+                <a href="../../../语法篇/Python的数据模型/">
+            
+                    
+                    Python的数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../../../语法篇/Python的数据模型/数据模型.html">
+            
+                <a href="../../../语法篇/Python的数据模型/数据模型.html">
+            
+                    
+                    数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../../../语法篇/Python的数据模型/变量引用与垃圾回收.html">
+            
+                <a href="../../../语法篇/Python的数据模型/变量引用与垃圾回收.html">
+            
+                    
+                    变量引用与垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../../../语法篇/Python的数据模型/结语.html">
+            
+                <a href="../../../语法篇/Python的数据模型/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../../语法篇/模块/">
+            
+                <a href="../../../语法篇/模块/">
+            
+                    
+                    模块
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../../../语法篇/模块/导入时与运行时.html">
+            
+                <a href="../../../语法篇/模块/导入时与运行时.html">
+            
+                    
+                    导入时与运行时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../../../语法篇/模块/模块的预设字段.html">
+            
+                <a href="../../../语法篇/模块/模块的预设字段.html">
+            
+                    
+                    模块的预设字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../../../语法篇/模块/模块的加载流程.html">
+            
+                <a href="../../../语法篇/模块/模块的加载流程.html">
+            
+                    
+                    模块的加载流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../../../语法篇/模块/模块加载特殊内容.html">
+            
+                <a href="../../../语法篇/模块/模块加载特殊内容.html">
+            
+                    
+                    模块加载特殊内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../../../语法篇/模块/结语.html">
+            
+                <a href="../../../语法篇/模块/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../../语法篇/文本与字节序/">
+            
+                <a href="../../../语法篇/文本与字节序/">
+            
+                    
+                    文本与字节序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../../../语法篇/文本与字节序/文本和编码.html">
+            
+                <a href="../../../语法篇/文本与字节序/文本和编码.html">
+            
+                    
+                    文本和编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="../../../语法篇/文本与字节序/字节序列与内存视图.html">
+            
+                <a href="../../../语法篇/文本与字节序/字节序列与内存视图.html">
+            
+                    
+                    字节序列与内存视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="../../../语法篇/文本与字节序/正则表达式.html">
+            
+                <a href="../../../语法篇/文本与字节序/正则表达式.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="../../../语法篇/文本与字节序/文件与IO流.html">
+            
+                <a href="../../../语法篇/文本与字节序/文件与IO流.html">
+            
+                    
+                    文件与IO流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="../../../语法篇/文本与字节序/序列化.html">
+            
+                <a href="../../../语法篇/文本与字节序/序列化.html">
+            
+                    
+                    序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.6" data-path="../../../语法篇/文本与字节序/结语.html">
+            
+                <a href="../../../语法篇/文本与字节序/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../../语法篇/流程控制/">
+            
+                <a href="../../../语法篇/流程控制/">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../../../语法篇/流程控制/单线程同步流程控制.html">
+            
+                <a href="../../../语法篇/流程控制/单线程同步流程控制.html">
+            
+                    
+                    单线程同步流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../../../语法篇/流程控制/阻塞异步与协程.html">
+            
+                <a href="../../../语法篇/流程控制/阻塞异步与协程.html">
+            
+                    
+                    阻塞异步与协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" data-path="../../../语法篇/流程控制/多线程与GIL.html">
+            
+                <a href="../../../语法篇/流程控制/多线程与GIL.html">
+            
+                    
+                    多线程与GIL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.4" data-path="../../../语法篇/流程控制/多进程.html">
+            
+                <a href="../../../语法篇/流程控制/多进程.html">
+            
+                    
+                    多进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.5" data-path="../../../语法篇/流程控制/并行编程的惯用法.html">
+            
+                <a href="../../../语法篇/流程控制/并行编程的惯用法.html">
+            
+                    
+                    并行编程的惯用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.6" data-path="../../../语法篇/流程控制/结语.html">
+            
+                <a href="../../../语法篇/流程控制/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../../../语法篇/异常和警告.html">
+            
+                <a href="../../../语法篇/异常和警告.html">
+            
+                    
+                    异常和警告
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../../../语法篇/内置容器/">
+            
+                <a href="../../../语法篇/内置容器/">
+            
+                    
+                    内置容器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="../../../语法篇/内置容器/序列对象.html">
+            
+                <a href="../../../语法篇/内置容器/序列对象.html">
+            
+                    
+                    序列对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="../../../语法篇/内置容器/映射对象.html">
+            
+                <a href="../../../语法篇/内置容器/映射对象.html">
+            
+                    
+                    映射对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="../../../语法篇/内置容器/可迭代对象与生成器.html">
+            
+                <a href="../../../语法篇/内置容器/可迭代对象与生成器.html">
+            
+                    
+                    可迭代对象与生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="../../../语法篇/内置容器/结语.html">
+            
+                <a href="../../../语法篇/内置容器/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../../../语法篇/函数/">
+            
+                <a href="../../../语法篇/函数/">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="../../../语法篇/函数/函数是一等对象.html">
+            
+                <a href="../../../语法篇/函数/函数是一等对象.html">
+            
+                    
+                    函数是一等对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="../../../语法篇/函数/变量作用域与闭包.html">
+            
+                <a href="../../../语法篇/函数/变量作用域与闭包.html">
+            
+                    
+                    变量作用域与闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.3" data-path="../../../语法篇/函数/结语.html">
+            
+                <a href="../../../语法篇/函数/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../../../语法篇/面向对象惯用法/">
+            
+                <a href="../../../语法篇/面向对象惯用法/">
+            
+                    
+                    面向对象惯用法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.8.1" data-path="../../../语法篇/面向对象惯用法/python中的对象.html">
+            
+                <a href="../../../语法篇/面向对象惯用法/python中的对象.html">
+            
+                    
+                    python中的对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.2" data-path="../../../语法篇/面向对象惯用法/协议与接口与抽象基类.html">
+            
+                <a href="../../../语法篇/面向对象惯用法/协议与接口与抽象基类.html">
+            
+                    
+                    协议,接口与抽象基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.3" data-path="../../../语法篇/面向对象惯用法/多重继承和Mixin.html">
+            
+                <a href="../../../语法篇/面向对象惯用法/多重继承和Mixin.html">
+            
+                    
+                    多重继承和Mixin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.4" data-path="../../../语法篇/面向对象惯用法/自定义序列Vector.html">
+            
+                <a href="../../../语法篇/面向对象惯用法/自定义序列Vector.html">
+            
+                    
+                    自定义序列Vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.5" data-path="../../../语法篇/面向对象惯用法/结语.html">
+            
+                <a href="../../../语法篇/面向对象惯用法/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../../../语法篇/元编程/">
+            
+                <a href="../../../语法篇/元编程/">
+            
+                    
+                    元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.9.1" data-path="../../../语法篇/元编程/运算符重载.html">
+            
+                <a href="../../../语法篇/元编程/运算符重载.html">
+            
+                    
+                    运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.2" data-path="../../../语法篇/元编程/特性与描述符.html">
+            
+                <a href="../../../语法篇/元编程/特性与描述符.html">
+            
+                    
+                    特性与描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.3" data-path="../../../语法篇/元编程/装饰器.html">
+            
+                <a href="../../../语法篇/元编程/装饰器.html">
+            
+                    
+                    装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.4" data-path="../../../语法篇/元编程/元类编程.html">
+            
+                <a href="../../../语法篇/元编程/元类编程.html">
+            
+                    
+                    元类编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.5" data-path="../../../语法篇/元编程/import_hook.html">
+            
+                <a href="../../../语法篇/元编程/import_hook.html">
+            
+                    
+                    import_hook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.6" data-path="../../../语法篇/元编程/动态编译.html">
+            
+                <a href="../../../语法篇/元编程/动态编译.html">
+            
+                    
+                    动态编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.7" data-path="../../../语法篇/元编程/动态属性.html">
+            
+                <a href="../../../语法篇/元编程/动态属性.html">
+            
+                    
+                    动态属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.8" data-path="../../../语法篇/元编程/猴子补丁和热更新.md">
+            
+                <span>
+            
+                    
+                    猴子补丁和热更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.9" data-path="../../../语法篇/元编程/结语.html">
+            
+                <a href="../../../语法篇/元编程/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../../../语法篇/结语.html">
+            
+                <a href="../../../语法篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../../嵌入与扩展篇/">
+            
+                <a href="../../../嵌入与扩展篇/">
+            
+                    
+                    嵌入与扩展篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../../嵌入与扩展篇/使用Cython优化python程序的性能/">
+            
+                <a href="../../../嵌入与扩展篇/使用Cython优化python程序的性能/">
+            
+                    
+                    使用Cython优化python程序的性能
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的简单介绍.html">
+            
+                <a href="../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的简单介绍.html">
+            
+                    
+                    Cython的简单介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的基本模式.html">
+            
+                <a href="../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的基本模式.html">
+            
+                    
+                    Cython的基本模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../../../嵌入与扩展篇/使用Cython优化python程序的性能/静态化python模块.html">
+            
+                <a href="../../../嵌入与扩展篇/使用Cython优化python程序的性能/静态化python模块.html">
+            
+                    
+                    静态化python模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../../../嵌入与扩展篇/使用Cython优化python程序的性能/使用cython申明文件申明python源码类型.html">
+            
+                <a href="../../../嵌入与扩展篇/使用Cython优化python程序的性能/使用cython申明文件申明python源码类型.html">
+            
+                    
+                    使用cython申明文件申明python源码类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" data-path="../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的包装模式.html">
+            
+                <a href="../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的包装模式.html">
+            
+                    
+                    Cython的包装模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.6" data-path="../../../嵌入与扩展篇/使用Cython优化python程序的性能/使用Cython扩展numpy.html">
+            
+                <a href="../../../嵌入与扩展篇/使用Cython优化python程序的性能/使用Cython扩展numpy.html">
+            
+                    
+                    使用Cython扩展numpy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../../嵌入与扩展篇/用numba为python写高性能C扩展.html">
+            
+                <a href="../../../嵌入与扩展篇/用numba为python写高性能C扩展.html">
+            
+                    
+                    用numba为python写高性能C扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../../嵌入与扩展篇/使用f2py用fortain给python写扩展.html">
+            
+                <a href="../../../嵌入与扩展篇/使用f2py用fortain给python写扩展.html">
+            
+                    
+                    使用f2py用fortain给python写扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../../嵌入与扩展篇/结语.md">
+            
+                <span>
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../../基础应用篇/">
+            
+                <a href="../../../基础应用篇/">
+            
+                    
+                    基础应用篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../../基础应用篇/国际化/">
+            
+                <a href="../../../基础应用篇/国际化/">
+            
+                    
+                    国际化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1" data-path="../../../基础应用篇/国际化/字符编码判断.html">
+            
+                <a href="../../../基础应用篇/国际化/字符编码判断.html">
+            
+                    
+                    字符编码判断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2" data-path="../../../基础应用篇/国际化/国际化文本翻译.html">
+            
+                <a href="../../../基础应用篇/国际化/国际化文本翻译.html">
+            
+                    
+                    国际化文本翻译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.3" data-path="../../../基础应用篇/国际化/时间日期处理.html">
+            
+                <a href="../../../基础应用篇/国际化/时间日期处理.html">
+            
+                    
+                    时间日期处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.4" data-path="../../../基础应用篇/国际化/货币处理模块.html">
+            
+                <a href="../../../基础应用篇/国际化/货币处理模块.html">
+            
+                    
+                    货币处理模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.5" data-path="../../../基础应用篇/国际化/结语.html">
+            
+                <a href="../../../基础应用篇/国际化/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../../基础应用篇/数据压缩与归档/">
+            
+                <a href="../../../基础应用篇/数据压缩与归档/">
+            
+                    
+                    数据压缩与归档
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../../../基础应用篇/数据压缩与归档/数据压缩解压.html">
+            
+                <a href="../../../基础应用篇/数据压缩与归档/数据压缩解压.html">
+            
+                    
+                    数据压缩解压
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.2" data-path="../../../基础应用篇/数据压缩与归档/压缩归档.html">
+            
+                <a href="../../../基础应用篇/数据压缩与归档/压缩归档.html">
+            
+                    
+                    压缩归档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.3" data-path="../../../基础应用篇/数据压缩与归档/结语.html">
+            
+                <a href="../../../基础应用篇/数据压缩与归档/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../../基础应用篇/信息安全/">
+            
+                <a href="../../../基础应用篇/信息安全/">
+            
+                    
+                    信息安全
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../../../基础应用篇/信息安全/摘要算法.html">
+            
+                <a href="../../../基础应用篇/信息安全/摘要算法.html">
+            
+                    
+                    摘要算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.2" data-path="../../../基础应用篇/信息安全/数字签名.html">
+            
+                <a href="../../../基础应用篇/信息安全/数字签名.html">
+            
+                    
+                    数字签名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.3" data-path="../../../基础应用篇/信息安全/加密算法.html">
+            
+                <a href="../../../基础应用篇/信息安全/加密算法.html">
+            
+                    
+                    加密算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.4" data-path="../../../基础应用篇/信息安全/结语.html">
+            
+                <a href="../../../基础应用篇/信息安全/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    人机交互篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../使用python编写命令行工具.html">
+            
+                <a href="../../使用python编写命令行工具.html">
+            
+                    
+                    使用python编写命令行工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../../自定义交互式界面.html">
+            
+                <a href="../../自定义交互式界面.html">
+            
+                    
+                    自定义交互式界面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../../GUI/">
+            
+                <a href="../../GUI/">
+            
+                    
+                    GUI
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="../../GUI/TK框架GUI编程的基本思路.html">
+            
+                <a href="../../GUI/TK框架GUI编程的基本思路.html">
+            
+                    
+                    TK框架GUI编程的基本思路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="../../GUI/Tkinter的组件介绍.html">
+            
+                <a href="../../GUI/Tkinter的组件介绍.html">
+            
+                    
+                    Tkinter的组件介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.3" data-path="../../GUI/结合pandas和matplotlib制作数据科学GUI工具/结合pandas和matplotlib制作数据科学GUI工具.html">
+            
+                <a href="../../GUI/结合pandas和matplotlib制作数据科学GUI工具/结合pandas和matplotlib制作数据科学GUI工具.html">
+            
+                    
+                    结合pandas和matplotlib制作数据科学GUI工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    使用matplotlib做数据可视化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.4.1" data-path="../matplotlib的基本设置/matplotlib的基本设置.html">
+            
+                <a href="../matplotlib的基本设置/matplotlib的基本设置.html">
+            
+                    
+                    matplotlib的基本设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.2" data-path="../绘图工具pyplot/绘图工具pyplot.html">
+            
+                <a href="../绘图工具pyplot/绘图工具pyplot.html">
+            
+                    
+                    绘图工具pyplot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.4.3" data-path="非结构网络.html">
+            
+                <a href="非结构网络.html">
+            
+                    
+                    非结构网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.4" data-path="../桑基图/桑基图.html">
+            
+                <a href="../桑基图/桑基图.html">
+            
+                    
+                    桑基图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.5" data-path="../图片加载/图片加载.html">
+            
+                <a href="../图片加载/图片加载.html">
+            
+                    
+                    图片加载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.6" data-path="../保存图片/保存图片.html">
+            
+                <a href="../保存图片/保存图片.html">
+            
+                    
+                    保存图片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.7" data-path="../控件.html">
+            
+                <a href="../控件.html">
+            
+                    
+                    控件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.8" data-path="../动画/动画.html">
+            
+                <a href="../动画/动画.html">
+            
+                    
+                    动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.9" data-path="../matplitlib结合web技术.html">
+            
+                <a href="../matplitlib结合web技术.html">
+            
+                    
+                    matplitlib结合web技术
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.10" data-path="../结语.html">
+            
+                <a href="../结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../../结语.html">
+            
+                <a href="../../结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../../数学与统计应用篇/">
+            
+                <a href="../../../数学与统计应用篇/">
+            
+                    
+                    数学与统计应用篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../../../数学与统计应用篇/使用标准库处理基本数学问题/使用标准库处理基本数学问题.html">
+            
+                <a href="../../../数学与统计应用篇/使用标准库处理基本数学问题/使用标准库处理基本数学问题.html">
+            
+                    
+                    使用标准库处理基本数学问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../../../数学与统计应用篇/numpy的高性能同构定长多维数组ndarray/numpy的高性能同构定长多维数组ndarray.html">
+            
+                <a href="../../../数学与统计应用篇/numpy的高性能同构定长多维数组ndarray/numpy的高性能同构定长多维数组ndarray.html">
+            
+                    
+                    numpy的高性能同构定长多维数组ndarray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../../../数学与统计应用篇/使用numpy做科学计算/使用numpy做科学计算.html">
+            
+                <a href="../../../数学与统计应用篇/使用numpy做科学计算/使用numpy做科学计算.html">
+            
+                    
+                    使用numpy做科学计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../../../数学与统计应用篇/结语.html">
+            
+                <a href="../../../数学与统计应用篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../../接口服务篇/">
+            
+                <a href="../../../接口服务篇/">
+            
+                    
+                    接口服务篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../../../接口服务篇/GRpc接口服务.html">
+            
+                <a href="../../../接口服务篇/GRpc接口服务.html">
+            
+                    
+                    GRpc接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../../术语表.html">
+            
+                <a href="../../../术语表.html">
+            
+                    
+                    术语表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >非结构网络</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x975E;&#x7ED3;&#x6784;&#x7F51;&#x7EDC;"><b>1. </b>&#x975E;&#x7ED3;&#x6784;&#x7F51;&#x7EDC;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x6838;&#x5FC3;&#x7C7B;class-matplotlibtritriangulationx-y-trianglesnone-masknone"><b>1.1. </b>&#x6838;&#x5FC3;&#x7C7B;class matplotlib.tri.Triangulation(x, y, triangles=None, mask=None)</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5BFB;&#x627E;&#x662F;&#x4E09;&#x89D2;&#x5F62;&#x7B97;&#x6CD5;"><b>1.2. </b>&#x5BFB;&#x627E;&#x662F;&#x4E09;&#x89D2;&#x5F62;&#x7B97;&#x6CD5;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#x7EBF;&#x6027;&#x63D2;&#x503C;"><b>1.3. </b>&#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#x7EBF;&#x6027;&#x63D2;&#x503C;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#x6267;&#x884C;&#x4E09;&#x6B21;&#x63D2;&#x503C;"><b>1.4. </b>&#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#x6267;&#x884C;&#x4E09;&#x6B21;&#x63D2;&#x503C;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x901A;&#x8FC7;&#x9012;&#x5F52;&#x7EC6;&#x5206;&#x7684;&#x5747;&#x5300;&#x7F51;&#x683C;&#x7EC6;&#x5316;"><b>1.5. </b>&#x901A;&#x8FC7;&#x9012;&#x5F52;&#x7EC6;&#x5206;&#x7684;&#x5747;&#x5300;&#x7F51;&#x683C;&#x7EC6;&#x5316;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4E09;&#x89D2;&#x7F51;&#x683C;&#x5206;&#x6790;&#x548C;&#x6539;&#x8FDB;&#x7684;&#x57FA;&#x672C;&#x5DE5;&#x5177;"><b>1.6. </b>&#x4E09;&#x89D2;&#x7F51;&#x683C;&#x5206;&#x6790;&#x548C;&#x6539;&#x8FDB;&#x7684;&#x57FA;&#x672C;&#x5DE5;&#x5177;</a></li></ul></ul></div><a href="#&#x975E;&#x7ED3;&#x6784;&#x7F51;&#x7EDC;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x975E;&#x7ED3;&#x6784;&#x7F51;&#x7EDC;"><a name="&#x975E;&#x7ED3;&#x6784;&#x7F51;&#x7EDC;" class="anchor-navigation-ex-anchor" href="#&#x975E;&#x7ED3;&#x6784;&#x7F51;&#x7EDC;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x975E;&#x7ED3;&#x6784;&#x7F51;&#x7EDC;</h1>
+<p>&#x975E;&#x7ED3;&#x6784;&#x7F51;&#x683C;&#x662F;&#x6CA1;&#x6709;&#x89C4;&#x5219;&#x62D3;&#x6251;&#x5173;&#x7CFB;&#x7684;&#x7F51;&#x683C;&#xFF0C;&#x5B83;&#x901A;&#x5E38;&#x7531;&#x591A;&#x8FB9;&#x5F62;&#x4E09;&#x89D2;&#x5F62;&#x7EC4;&#x6210;&#x3002;
+&#x7F51;&#x683C;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x90FD;&#x53EF;&#x4EE5;&#x662F;&#x4E8C;&#x7EF4;&#x7684;&#x591A;&#x8FB9;&#x5F62;&#x6216;&#x8005;&#x4E09;&#x7EF4;&#x591A;&#x9762;&#x4F53;&#xFF0C;&#x5176;&#x4E2D;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x662F;&#x4E8C;&#x7EF4;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#x4EE5;&#x53CA;&#x4E09;&#x7EF4;&#x7684;&#x56DB;&#x9762;&#x4F53;&#x3002;
+&#x5728;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x9690;&#x542B;&#x7684;&#x8FDE;&#x901A;&#x6027;&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x7ED3;&#x6784;&#x7F51;&#x683C;&#x9762;&#x5BF9;&#x590D;&#x6742;&#x51E0;&#x4F55;&#x5916;&#x5F62;&#x65F6;&#x751F;&#x6210;&#x56F0;&#x96BE;&#xFF0C;&#x4EE5;&#x53CA;&#x8017;&#x8D39;&#x5927;&#x91CF;&#x4EBA;&#x5DE5;&#xFF0C;&#x81EA;&#x52A8;&#x5316;&#x7A0B;&#x5EA6;&#x4E0D;&#x9AD8;&#x7B49;&#x7F3A;&#x70B9;&#xFF0C;&#x975E;&#x7ED3;&#x6784;&#x7F51;&#x683C;&#x9010;&#x6E10;&#x53D1;&#x5C55;&#x8D77;&#x6765;.&#x4F7F;&#x7528;&#x5B83;&#x7684;&#x6280;&#x672F;&#x4E3B;&#x8981;&#x6709;&#x6D41;&#x4F53;&#x5206;&#x6790;,&#x7A7A;&#x6C14;&#x52A8;&#x529B;&#x5B66;,&#x6709;&#x9650;&#x5143;&#x5206;&#x6790;&#x7B49;&#x7EC6;&#x5206;&#x9886;&#x57DF;.</p>
+<p>matplotlib&#x4E2D;&#x6709;&#x9488;&#x5BF9;&#x5B83;&#x7684;&#x4F5C;&#x56FE;&#x5DE5;&#x5177;<code>matplotlib.tri</code>&#x6A21;&#x5757;</p>
+<h2 id="&#x6838;&#x5FC3;&#x7C7B;class-matplotlibtritriangulationx-y-trianglesnone-masknone"><a name="&#x6838;&#x5FC3;&#x7C7B;class-matplotlibtritriangulationx-y-trianglesnone-masknone" class="anchor-navigation-ex-anchor" href="#&#x6838;&#x5FC3;&#x7C7B;class-matplotlibtritriangulationx-y-trianglesnone-masknone"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x6838;&#x5FC3;&#x7C7B;class matplotlib.tri.Triangulation(x, y, triangles=None, mask=None)</h2>
+<p>&#x7531;n&#x4E2A;point&#x70B9;&#x548C;n&#x4E2A;&#x4E09;&#x89D2;&#x5F62;&#x7EC4;&#x6210;&#x7684;&#x975E;&#x7ED3;&#x6784;&#x5316;&#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#x3002;&#x4E09;&#x89D2;&#x5F62;&#x53EF;&#x4EE5;&#x7531;&#x7528;&#x6237;&#x6307;&#x5B9A;&#x6216;&#x4F7F;&#x7528;Delaunay&#x4E09;&#x89D2;&#x6D4B;&#x91CF;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x3002;</p>
+<ul>
+<li>x,y&#x5BF9;&#x5E94;&#x7F51;&#x683C;&#x70B9;&#x7684;&#x5750;&#x6807;</li>
+<li>triangles &#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x4E09;&#x89D2;&#x5F62;&#xFF0C;&#x7EC4;&#x6210;&#x4E09;&#x89D2;&#x5F62;&#x7684;&#x4E09;&#x4E2A;&#x70B9;&#x7684;&#x7D22;&#x5F15;&#x4EE5;&#x9006;&#x65F6;&#x9488;&#x65B9;&#x5F0F;&#x6392;&#x5E8F;&#x3002;&#x5982;&#x679C;&#x672A;&#x6307;&#x5B9A;&#xFF0C;&#x5219;&#x8BA1;&#x7B97;Delaunay&#x4E09;&#x89D2;&#x5256;&#x5206;&#x3002;</li>
+<li>mask &#x6307;&#x5B9A;&#x54EA;&#x4E9B;&#x4E09;&#x89D2;&#x5F62;&#x7684;&#x5C4F;&#x853D;&#x6570;&#x7EC4;</li>
+</ul>
+<p>&#x5B83;&#x7684;&#x65B9;&#x6CD5;&#x6709;:</p>
+<ul>
+<li><p>calculate_plane_coefficients(z)</p>
+<p>  &#x4ECE;&#x70B9;&#xFF08;x&#xFF0C;y&#xFF09;&#x5750;&#x6807;&#x548C;&#x6307;&#x5B9A;&#x7684;z&#x5F62;&#x9635;&#x5217;&#xFF08;n points&#xFF09;&#x8BA1;&#x7B97;&#x6240;&#x6709;&#x672A;&#x5C4F;&#x853D;&#x4E09;&#x89D2;&#x5F62;&#x7684;&#x5E73;&#x9762;&#x65B9;&#x7A0B;&#x7CFB;&#x6570;&#x3002;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x7EC4;&#x5177;&#x6709;&#x5F62;&#x72B6;&#xFF08;n points&#xFF0C;3&#xFF09;&#x5E76;&#x4E14;&#x5141;&#x8BB8;&#x4F7F;&#x7528;
+  z = array [tri&#xFF0C;0] <em> x array [tri&#xFF0C;1] </em> y array [tri&#xFF0C;2]</p>
+</li>
+<li><p>edges</p>
+<p>  &#x8FD4;&#x56DE;&#x5305;&#x542B;&#x975E;&#x5C4F;&#x853D;&#x4E09;&#x89D2;&#x5F62;&#x7684;&#x6240;&#x6709;&#x8FB9;&#x7684;&#x6574;&#x578B;&#x6570;&#x7EC4;&#x5F62;&#x72B6;&#xFF08;nedges&#xFF0C;2&#xFF09;&#x3002;&#x6BCF;&#x4E2A;&#x8FB9;&#x662F;&#x8D77;&#x70B9;&#x7D22;&#x5F15;&#x548C;&#x7EC8;&#x70B9;&#x7D22;&#x5F15;&#x3002;&#x6BCF;&#x4E2A;&#x8FB9;&#xFF08;&#x5F00;&#x59CB;&#xFF0C;&#x7ED3;&#x675F;&#x548C;&#x7ED3;&#x675F;&#xFF0C;&#x5F00;&#x59CB;&#xFF09;&#x53EA;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#x3002;</p>
+</li>
+<li><p>get_masked_triangles()</p>
+<p>  &#x8FD4;&#x56DE;&#x672A;&#x5C4F;&#x853D;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#x6570;&#x7EC4;&#x3002;</p>
+</li>
+<li><p>get_trifinder()</p>
+<p>  &#x8FD4;&#x56DE;&#x6B64;&#x4E09;&#x89D2;&#x5256;&#x5206;&#x7684;&#x9ED8;&#x8BA4;matplotlib.tri.TriFinder,&#x5982;&#x679C;&#x9700;&#x8981;,&#x521B;&#x5EFA;&#x5B83;.&#x8FD9;&#x5141;&#x8BB8;&#x8F7B;&#x677E;&#x5171;&#x4EAB;&#x76F8;&#x540C;&#x7684;TriFinder&#x5BF9;&#x8C61;&#x3002;</p>
+</li>
+<li><p>neighbors</p>
+<p>  &#x90BB;&#x70B9;</p>
+</li>
+<li><p>set_mask(mask)</p>
+<p>  &#x8BBE;&#x7F6E;&#x6216;&#x6E05;&#x9664;&#x5C4F;&#x853D;&#x6570;&#x7EC4;.</p>
+</li>
+</ul>
+<h2 id="&#x5BFB;&#x627E;&#x662F;&#x4E09;&#x89D2;&#x5F62;&#x7B97;&#x6CD5;"><a name="&#x5BFB;&#x627E;&#x662F;&#x4E09;&#x89D2;&#x5F62;&#x7B97;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x5BFB;&#x627E;&#x662F;&#x4E09;&#x89D2;&#x5F62;&#x7B97;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x5BFB;&#x627E;&#x662F;&#x4E09;&#x89D2;&#x5F62;&#x7B97;&#x6CD5;</h2>
+<p><code>matplotlib.tri.TriFinder(triangulation)</code>
+TriFinder&#x7C7B;&#x4F7F;&#x7528;&#x6765;&#x81EA;M.de Berg&#xFF0C;M.van Kreveld&#xFF0C;M.Overmars&#x548C;O. Schwarzkopf&#x7684;&#x4E66;&#x201C;Computational Geometry&#xFF0C;Algorithms and Applications&#x201D;&#xFF0C;&#x7B2C;&#x4E8C;&#x7248;&#x4E2D;&#x7684;&#x68AF;&#x5F62;&#x6620;&#x5C04;&#x7B97;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x4E09;&#x89D2;&#x6D4B;&#x91CF;&#x5FC5;&#x987B;&#x6709;&#x6548;&#xFF0C;&#x5373;&#x5B83;&#x4E0D;&#x80FD;&#x5177;&#x6709;&#x91CD;&#x590D;&#x7684;&#x70B9;&#xFF0C;&#x7531;&#x5171;&#x7EBF;&#x70B9;&#x5F62;&#x6210;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#x6216;&#x91CD;&#x53E0;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#x3002;&#x8BE5;&#x7B97;&#x6CD5;&#x5BF9;&#x4E8E;&#x7531;&#x5171;&#x7EBF;&#x70B9;&#x5F62;&#x6210;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#x5177;&#x6709;&#x4E00;&#x4E9B;&#x516C;&#x5DEE;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E0D;&#x5E94;&#x88AB;&#x4F9D;&#x8D56;&#x3002;
+&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x53EF;&#x4EE5;&#x88AB;&#x8C03;&#x7528; <code>trifinder(x,y)</code>,&#x8C03;&#x7528;&#x540E;&#x4F1A;
+&#x8FD4;&#x56DE;&#x5305;&#x542B;&#x6307;&#x5B9A;x&#xFF0C;y&#x70B9;&#x6240;&#x5728;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#x7684;&#x7D22;&#x5F15;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x6216;&#x8005;&#x5BF9;&#x4E8E;&#x4E0D;&#x5728;&#x4E09;&#x89D2;&#x5F62;&#x5185;&#x7684;&#x70B9;&#x8FD4;&#x56DE;-1&#x3002;
+x&#xFF0C;y&#x662F;&#x76F8;&#x540C;&#x5F62;&#x72B6;&#x548C;&#x4EFB;&#x610F;&#x6570;&#x91CF;&#x7EF4;&#x5EA6;&#x7684;&#x7C7B;&#x9635;&#x5217;x&#x548C;y&#x5750;&#x6807;&#x3002;
+&#x8FD4;&#x56DE;&#x5177;&#x6709;&#x76F8;&#x540C;&#x5F62;&#x72B6;&#x548C;x&#x548C;y&#x7684;&#x6574;&#x6570;&#x6570;&#x7EC4;&#x3002;</p>
+<h2 id="&#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#x7EBF;&#x6027;&#x63D2;&#x503C;"><a name="&#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#x7EBF;&#x6027;&#x63D2;&#x503C;" class="anchor-navigation-ex-anchor" href="#&#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#x7EBF;&#x6027;&#x63D2;&#x503C;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#x7EBF;&#x6027;&#x63D2;&#x503C;</h2>
+<p><code>matplotlib.tri.LinearTriInterpolator(triangulation, z, trifinder=None)</code></p>
+<p>LinearTriInterpolator&#x5BF9;&#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#x6267;&#x884C;&#x7EBF;&#x6027;&#x63D2;&#x503C;&#x3002;&#x6BCF;&#x4E2A;&#x4E09;&#x89D2;&#x5F62;&#x7531;&#x5E73;&#x9762;&#x8868;&#x793A;&#xFF0C;&#x4F7F;&#x5F97;&#x70B9;&#xFF08;x&#xFF0C;y&#xFF09;&#x5904;&#x7684;&#x5185;&#x63D2;&#x503C;&#x4F4D;&#x4E8E;&#x5305;&#x542B;&#xFF08;x&#xFF0C;y&#xFF09;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#x7684;&#x5E73;&#x9762;&#x4E0A;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5185;&#x63D2;&#x503C;&#x5728;&#x4E09;&#x89D2;&#x5F62;&#x4E0A;&#x662F;&#x8FDE;&#x7EED;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x4EEC;&#x7684;&#x4E00;&#x9636;&#x5BFC;&#x6570;&#x5728;&#x4E09;&#x89D2;&#x5F62;&#x4E4B;&#x95F4;&#x7684;&#x8FB9;&#x7F18;&#x5904;&#x662F;&#x4E0D;&#x8FDE;&#x7EED;&#x7684;&#x3002;</p>
+<p>&#x4ED6;&#x7684;&#x5B9E;&#x4F8B;&#x6709;&#x65B9;&#x6CD5;<code>gradient(x, y)</code>,&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x5728;&#x6307;&#x5B9A;&#x7684;x&#xFF0C;y&#x70B9;&#x5305;&#x542B;&#x63D2;&#x503C;&#x5BFC;&#x6570;&#x7684;2&#x4E2A;&#x5305;&#x542B;&#x5C4F;&#x853D;&#x6570;&#x7EC4;&#x7684;&#x5217;&#x8868;&#x3002;</p>
+<p>&#x800C;&#x5B9E;&#x4F8B;&#x88AB;&#x8C03;&#x7528;&#x4F1A;&#x8FD4;&#x56DE;&#x5728;&#x6307;&#x5B9A;&#x7684;x&#xFF0C;y&#x70B9;&#x5305;&#x542B;&#x63D2;&#x503C;&#x7684;&#x5C4F;&#x853D;&#x6570;&#x7EC4;&#x3002;</p>
+<h2 id="&#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#x6267;&#x884C;&#x4E09;&#x6B21;&#x63D2;&#x503C;"><a name="&#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#x6267;&#x884C;&#x4E09;&#x6B21;&#x63D2;&#x503C;" class="anchor-navigation-ex-anchor" href="#&#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#x6267;&#x884C;&#x4E09;&#x6B21;&#x63D2;&#x503C;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. &#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#x6267;&#x884C;&#x4E09;&#x6B21;&#x63D2;&#x503C;</h2>
+<p><code>matplotlib.tri.CubicTriInterpolator(triangulation, z, kind=&apos;min_E&apos;, trifinder=None, dz=None)</code></p>
+<p>CubicTriInterpolator&#x5BF9;&#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#x6267;&#x884C;&#x4E09;&#x6B21;&#x63D2;&#x503C;&#x3002;&#x5728;&#x4E00;&#x7EF4;, &#x4E00;&#x6BB5;&#x4E0A; &#x505A;&#x4E09;&#x6B21;&#x63D2;&#x503C;,&#x51FD;&#x6570;&#x7531;&#x51FD;&#x6570;&#x7684;&#x503C;&#x548C;&#x5176;&#x4E24;&#x7AEF;&#x7684;&#x5BFC;&#x6570;&#x5B9A;&#x4E49;&#x3002;&#x8FD9;&#x5728;&#x4E09;&#x89D2;&#x5F62;&#x5185;&#x7684;2-d&#x4E2D;&#x51E0;&#x4E4E;&#x76F8;&#x540C;&#xFF0C;&#x9664;&#x4E86;&#x51FD;&#x6570;&#x7684;&#x503C;&#x53CA;&#x5176;2&#x5BFC;&#x6570;&#x5FC5;&#x987B;&#x5728;&#x6BCF;&#x4E2A;&#x4E09;&#x89D2;&#x5F62;&#x8282;&#x70B9;&#x5904;&#x5B9A;&#x4E49;&#x3002;CubicTriInterpolator&#x83B7;&#x53D6;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#xFF08;&#x7531;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#xFF09;&#x7684;&#x51FD;&#x6570;&#x503C;&#xFF0C;&#x5E76;&#x5728;&#x5185;&#x90E8;&#x8BA1;&#x7B97;&#x5BFC;&#x6570;&#x7684;&#x503C;&#xFF0C;&#x4ECE;&#x800C;&#x5B9E;&#x73B0;&#x5E73;&#x6ED1;&#x63D2;&#x503C;&#x3002; &#xFF08;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x529F;&#x80FD;&#xFF0C;&#x7528;&#x6237;&#x8FD8;&#x53EF;&#x4EE5;&#x5728;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x5F3A;&#x52A0;&#x5BFC;&#x6570;&#x7684;&#x503C;&#xFF0C;&#x4F46;&#x8FD9;&#x4E0D;&#x5E94;&#x8BE5;&#x662F;&#x5E38;&#x89C1;&#x7684;&#x7528;&#x6CD5;&#x3002;&#xFF09;</p>
+<ul>
+<li><p>kind</p>
+<p>  &#x9009;&#x62E9;&#x5E73;&#x6ED1;&#x7B97;&#x6CD5;&#xFF0C;&#x4EE5;&#x4FBF;&#x8BA1;&#x7B97;&#x5185;&#x63D2;&#x5BFC;&#x6570;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A;&#x201C;min_E&#x201D;&#xFF09;&#xFF1A;&#x5982;&#x679C;&apos;min_E&apos;&#xFF1A;&#xFF08;&#x9ED8;&#x8BA4;&#xFF09;&#x8BA1;&#x7B97;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x5904;&#x7684;&#x5BFC;&#x6570;&#x4EE5;&#x6700;&#x5C0F;&#x5316;&#x5F2F;&#x66F2;&#x80FD;&#x91CF;&#x3002;&#x5982;&#x679C;&apos;geom&apos;&#xFF1A;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x5BFC;&#x6570;&#x88AB;&#x8BA1;&#x7B97;&#x4E3A;&#x76F8;&#x5173;&#x4E09;&#x89D2;&#x5F62;&#x6CD5;&#x7EBF;&#x7684;&#x52A0;&#x6743;&#x5E73;&#x5747;&#x503C;&#x3002;&#x7528;&#x4E8E;&#x901F;&#x5EA6;&#x4F18;&#x5316;&#xFF08;&#x5927;&#x7F51;&#x683C;&#xFF09;&#x3002;&#x5982;&#x679C;&apos;user&apos;&#xFF1A;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x53C2;&#x6570;dz&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x9700;&#x8981;&#x8BA1;&#x7B97;&#x3002;</p>
+</li>
+<li><p>trifinder</p>
+<p>  &#x5982;&#x679C;&#x672A;&#x6307;&#x5B9A;&#xFF0C;Triangulation&#x7684;&#x9ED8;&#x8BA4;TriFinder&#x5C06;&#x901A;&#x8FC7;&#x8C03;&#x7528;matplotlib.tri.Triangulation.get_trifinder&#xFF08;&#xFF09;&#x6765;&#x4F7F;&#x7528;&#x3002;</p>
+</li>
+<li><p>dz</p>
+<p>  &#x4EC5;&#x5728;kind =&apos;user&apos;&#x65F6;&#x4F7F;&#x7528;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;dz&#x5FC5;&#x987B;&#x63D0;&#x4F9B;&#x4E3A;&#xFF08;dzdx&#xFF0C;dzdy&#xFF09;&#xFF0C;&#x5176;&#x4E2D;dzdx&#xFF0C;dzdy&#x662F;&#x4E0E;z&#x76F8;&#x540C;&#x5F62;&#x72B6;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x5E76;&#x4E14;&#x662F;&#x4E09;&#x89D2;&#x70B9;&#x5904;&#x7684;&#x5185;&#x63D2;&#x4E00;&#x9636;&#x5BFC;&#x6570;&#x3002;</p>
+</li>
+</ul>
+<p>&#x5185;&#x63D2;&#x57FA;&#x4E8E;&#x4E09;&#x89D2;&#x7F51;&#x683C;&#x7684;Clough-Tocher&#x7EC6;&#x5206;&#x65B9;&#x6848;&#xFF08;&#x4E3A;&#x4E86;&#x4F7F;&#x5176;&#x66F4;&#x6E05;&#x695A;&#xFF0C;&#x7F51;&#x683C;&#x7684;&#x6BCF;&#x4E2A;&#x4E09;&#x89D2;&#x5F62;&#x5C06;&#x88AB;&#x5212;&#x5206;&#x4E3A;3&#x4E2A;&#x5B50;&#x4E09;&#x89D2;&#x5F62;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x6BCF;&#x4E2A;&#x5B50;&#x4E09;&#x89D2;&#x5F62;&#x4E0A;&#xFF0C;&#x5185;&#x63D2;&#x51FD;&#x6570;&#x662F;2&#x7684;&#x4E09;&#x6B21;&#x591A;&#x9879;&#x5F0F;&#x5750;&#x6807;&#xFF09;&#x3002;&#x8FD9;&#x79CD;&#x6280;&#x672F;&#x6E90;&#x81EA;FEM&#xFF08;&#x6709;&#x9650;&#x5143;&#x65B9;&#x6CD5;&#xFF09;&#x5206;&#x6790;;&#x4F7F;&#x7528;&#x7684;&#x5143;&#x4EF6;&#x662F;&#x8FD8;&#x539F;&#x7684;Hsieh-Clough-Tocher&#xFF08;HCT&#xFF09;&#x5143;&#x4EF6;&#x3002;&#x5176;&#x5F62;&#x72B6;&#x51FD;&#x6570;&#x5728;[R1]&#x4E2D;&#x63CF;&#x8FF0;&#x3002;&#x7EC4;&#x5408;&#x51FD;&#x6570;&#x4FDD;&#x8BC1;&#x662F;C1&#x5E73;&#x6ED1;&#x7684;&#xFF0C;&#x5373;&#x5B83;&#x662F;&#x8FDE;&#x7EED;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x5176;&#x4E00;&#x9636;&#x5BFC;&#x6570;&#x4E5F;&#x662F;&#x8FDE;&#x7EED;&#x7684;&#xFF08;&#x8FD9;&#x5728;&#x4E09;&#x89D2;&#x5F62;&#x5185;&#x5BB9;&#x4E2D;&#x662F;&#x5BB9;&#x6613;&#x663E;&#x793A;&#x7684;&#xFF0C;&#x4F46;&#x5F53;&#x7A7F;&#x8FC7;&#x8FB9;&#x7F18;&#x65F6;&#x4E5F;&#x662F;&#x5982;&#x6B64;&#xFF09;&#x3002;</p>
+<p>&#x5728;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF08;&#x79CD;&#x7C7B;=&apos;min_E&apos;&#xFF09;&#xFF0C;&#x5185;&#x63D2;&#x5668;&#x4F7F;&#x7531;HCT&#x5143;&#x7D20;&#x5F62;&#x72B6;&#x51FD;&#x6570;&#x751F;&#x6210;&#x7684;&#x51FD;&#x6570;&#x7A7A;&#x95F4;&#x4E0A;&#x7684;&#x66F2;&#x7387;&#x80FD;&#x91CF;&#x6700;&#x5C0F;&#x5316; - &#x5229;&#x7528;&#x65BD;&#x52A0;&#x7684;&#x503C;&#xFF0C;&#x4F46;&#x5728;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x5904;&#x7684;&#x4EFB;&#x610F;&#x5BFC;&#x6570;&#x3002;&#x6700;&#x5C0F;&#x5316;&#x7684;&#x51FD;&#x6570;&#x662F;&#x6240;&#x8C13;&#x7684;&#x603B;&#x66F2;&#x7387;&#x7684;&#x79EF;&#x5206;&#xFF08;&#x57FA;&#x4E8E;&#x6765;&#x81EA;[R2] -PCG&#x7A00;&#x758F;&#x6C42;&#x89E3;&#x5668;&#x7684;&#x7B97;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;&#xFF09;&#xFF1A;</p>
+<p>$ E(z) = {\frac 1 2 } \int_\Omega ((\frac {\partial^2 z} {\partial x^2} )^2 + (\frac {\partial^2 z} {\partial y^2} )^2 +2(\frac {\partial^2 z} {\partial y \partial x} )^2)dxdy $</p>
+<p>&#x5982;&#x679C;&#x7528;&#x6237;&#x9009;&#x62E9;case type =&apos;geom&apos;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x7B80;&#x5355;&#x7684;&#x51E0;&#x4F55;&#x8FD1;&#x4F3C;&#xFF08;&#x4E09;&#x89D2;&#x5F62;&#x6CD5;&#x7EBF;&#x5411;&#x91CF;&#x7684;&#x52A0;&#x6743;&#x5E73;&#x5747;&#xFF09;&#xFF0C;&#x8FD9;&#x53EF;&#x4EE5;&#x5728;&#x975E;&#x5E38;&#x5927;&#x7684;&#x7F51;&#x683C;&#x4E0A;&#x63D0;&#x9AD8;&#x901F;&#x5EA6;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> matplotlib.tri <span class="hljs-keyword">import</span> Triangulation, UniformTriRefiner,\
+    CubicTriInterpolator
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">import</span> matplotlib.cm <span class="hljs-keyword">as</span> cm
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> math
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x8BA1;&#x7B97;&#x5076;&#x6781;&#x5B50;&#x7684;&#x7535;&#x4F4D;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dipole_potential</span><span class="hljs-params">(x, y)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot; The electric dipole potential V &quot;&quot;&quot;</span>
+    r_sq = x**<span class="hljs-number">2</span> + y**<span class="hljs-number">2</span>
+    theta = np.arctan2(y, x)
+    z = np.cos(theta)/r_sq
+    <span class="hljs-keyword">return</span> (np.max(z) - z) / (np.max(z) - np.min(z))
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x521B;&#x5EFA;&#x4E09;&#x89D2;&#x7F51;&#x683C;</span>
+<span class="hljs-comment">#-----------------------------------------------------------------------------</span>
+<span class="hljs-comment"># &#x9996;&#x5148;&#x521B;&#x5EFA;&#x70B9;&#x7684;x&#x548C;y&#x5750;&#x6807;</span>
+
+n_angles = <span class="hljs-number">30</span>
+n_radii = <span class="hljs-number">10</span>
+min_radius = <span class="hljs-number">0.2</span>
+radii = np.linspace(min_radius, <span class="hljs-number">0.95</span>, n_radii)
+
+angles = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>*math.pi, n_angles, endpoint=<span class="hljs-keyword">False</span>)
+angles = np.repeat(angles[..., np.newaxis], n_radii, axis=<span class="hljs-number">1</span>)
+angles[:, <span class="hljs-number">1</span>::<span class="hljs-number">2</span>] += math.pi/n_angles
+
+x = (radii*np.cos(angles)).flatten()
+y = (radii*np.sin(angles)).flatten()
+V = dipole_potential(x, y)
+</code></pre>
+<pre><code class="lang-python">V[:<span class="hljs-number">5</span>]
+</code></pre>
+<pre><code>array([ 0.        ,  0.25222984,  0.35123967,  0.40177562,  0.4296875 ])
+</code></pre><pre><code class="lang-python">triang = Triangulation(x, y)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x5C4F;&#x853D;&#x6389;&#x4E0D;&#x9700;&#x8981;&#x7684;&#x503C;</span>
+xmid = x[triang.triangles].mean(axis=<span class="hljs-number">1</span>)
+ymid = y[triang.triangles].mean(axis=<span class="hljs-number">1</span>)
+mask = np.where(xmid*xmid + ymid*ymid &lt; min_radius*min_radius, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>)
+triang.set_mask(mask)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x7CBE;&#x7EC6;&#x5316;&#x6570;&#x636E; - &#x5185;&#x63D2;&#x7535;&#x4F4D;V</span>
+
+refiner = UniformTriRefiner(triang)
+tri_refi, z_test_refi = refiner.refine_field(V, subdiv=<span class="hljs-number">3</span>)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x8BA1;&#x7B97;&#x7535;&#x573A;&#xFF08;Ex&#xFF0C;Ey&#xFF09;&#x4F5C;&#x4E3A;&#x7535;&#x4F4D;&#x68AF;&#x5EA6;</span>
+tci = CubicTriInterpolator(triang, -V)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x8FD9;&#x91CC;,gradient()&#x9700;&#x8981; &#x7F51;&#x683C;&#x8282;&#x70B9;&#xFF0C;&#x4F46;&#x53EF;&#x4EE5;&#x5728;&#x5176;&#x4ED6;&#x4EFB;&#x4F55;&#x5730;&#x65B9;</span>
+(Ex, Ey) = tci.gradient(triang.x, triang.y)
+E_norm = np.sqrt(Ex**<span class="hljs-number">2</span> + Ey**<span class="hljs-number">2</span>)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment">#&#x4F5C;&#x56FE;</span>
+plt.figure()
+plt.gca().set_aspect(<span class="hljs-string">&apos;equal&apos;</span>)
+plt.triplot(triang, color=<span class="hljs-string">&apos;0.8&apos;</span>)
+
+levels = np.arange(<span class="hljs-number">0.</span>, <span class="hljs-number">1.</span>, <span class="hljs-number">0.01</span>)
+cmap = cm.get_cmap(name=<span class="hljs-string">&apos;hot&apos;</span>, lut=<span class="hljs-keyword">None</span>)
+<span class="hljs-comment"># &#x4E09;&#x89D2;&#x7B49;&#x9AD8;&#x7EBF;</span>
+plt.tricontour(tri_refi, z_test_refi, levels=levels, cmap=cmap,
+               linewidths=[<span class="hljs-number">2.0</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">1.0</span>])
+<span class="hljs-comment"># &#x7528;quiver&#x7ED8;&#x5236;&#x7535;&#x77E2;&#x91CF;&#x573A;&#x7684;&#x65B9;&#x5411;</span>
+plt.quiver(triang.x, triang.y, Ex/E_norm, Ey/E_norm,
+           units=<span class="hljs-string">&apos;xy&apos;</span>, scale=<span class="hljs-number">10.</span>, zorder=<span class="hljs-number">3</span>, color=<span class="hljs-string">&apos;blue&apos;</span>,
+           width=<span class="hljs-number">0.007</span>, headwidth=<span class="hljs-number">3.</span>, headlength=<span class="hljs-number">4.</span>)
+
+plt.title(<span class="hljs-string">&apos;Gradient plot: an electrical dipole&apos;</span>)
+plt.show()
+</code></pre>
+<p><img src="output_14_0.png" alt="png"></p>
+<h2 id="&#x901A;&#x8FC7;&#x9012;&#x5F52;&#x7EC6;&#x5206;&#x7684;&#x5747;&#x5300;&#x7F51;&#x683C;&#x7EC6;&#x5316;"><a name="&#x901A;&#x8FC7;&#x9012;&#x5F52;&#x7EC6;&#x5206;&#x7684;&#x5747;&#x5300;&#x7F51;&#x683C;&#x7EC6;&#x5316;" class="anchor-navigation-ex-anchor" href="#&#x901A;&#x8FC7;&#x9012;&#x5F52;&#x7EC6;&#x5206;&#x7684;&#x5747;&#x5300;&#x7F51;&#x683C;&#x7EC6;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. &#x901A;&#x8FC7;&#x9012;&#x5F52;&#x7EC6;&#x5206;&#x7684;&#x5747;&#x5300;&#x7F51;&#x683C;&#x7EC6;&#x5316;</h2>
+<p><code>matplotlib.tri.UniformTriRefiner(triangulation)</code>&#x7C7B;</p>
+<p>&#x901A;&#x8FC7;&#x9012;&#x5F52;&#x7EC6;&#x5206;&#x7684;&#x5747;&#x5300;&#x7F51;&#x683C;&#x7EC6;&#x5316;&#x3002;</p>
+<p>&#x5B83;&#x6709;&#x65B9;&#x6CD5;</p>
+<ul>
+<li><p><code>refine_field(z, triinterpolator=None, subdiv=3)</code>
+  &#x7528;&#x6765;&#x4F18;&#x5316;&#x5728;&#x5C01;&#x88C5;&#x4E09;&#x89D2;&#x5B9A;&#x4E49;&#x4E0A;&#x5B9A;&#x4E49;&#x7684;&#x5B57;&#x6BB5;</p>
+<ul>
+<li>triinterpolator&#x63D2;&#x503C;&#x5668;&#x7528;&#x4E8E;&#x573A;&#x63D2;&#x503C;&#x3002;&#x5982;&#x679C;&#x672A;&#x6307;&#x5B9A;&#xFF0C;&#x5C06;&#x4F7F;&#x7528;CubicTriInterpolator&#x3002;</li>
+<li>subdiv&#x7EC6;&#x5206;&#x7684;&#x9012;&#x5F52;&#x7EA7;&#x522B;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;3.&#x6BCF;&#x4E2A;&#x4E09;&#x89D2;&#x5F62;&#x5C06;&#x88AB;&#x5212;&#x5206;&#x4E3A;4&#x4E2A;**&#x5B50;&#x7EC6;&#x5206;&#x4E09;&#x89D2;&#x5F62;&#x3002;</li>
+</ul>
+</li>
+<li><p><code>refine_triangulation(return_tri_index=False, subdiv=3)</code></p>
+<p>  &#x8BA1;&#x7B97;&#x5C01;&#x88C5;&#x4E09;&#x89D2;&#x6D4B;&#x91CF;&#x7684;&#x5747;&#x5300;&#x7CBE;&#x7EC6;&#x4E09;&#x89D2;&#x6D4B;&#x91CF;refi_triangulation&#x3002;&#x6B64;&#x51FD;&#x6570;&#x901A;&#x8FC7;&#x5C06;&#x6BCF;&#x4E2A;&#x7236;&#x4E09;&#x89D2;&#x5F62;&#x9012;&#x5F52;&#x5730;&#xFF08;&#x9012;&#x5F52;&#x7EC6;&#x5206;&#x7684;&#x6C34;&#x5E73;&#xFF09;&#x5206;&#x5272;&#x6210;&#x5728;&#x8FB9;&#x4E2D;&#x95F4;&#x8282;&#x70B9;&#x4E0A;&#x6784;&#x5EFA;&#x7684;4&#x4E2A;&#x5B50;&#x5B50;&#x4E09;&#x89D2;&#x5F62;&#xFF0C;&#x6765;&#x7EC6;&#x5316;&#x5C01;&#x88C5;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#x3002;&#x6700;&#x540E;&#xFF0C;&#x6BCF;&#x4E2A;&#x4E09;&#x89D2;&#x5F62;&#x56E0;&#x6B64;&#x88AB;&#x5212;&#x5206;&#x4E3A;4 **&#x4E2A;&#x5B50;&#x4E09;&#x89D2;&#x5F62;&#x3002; subdiv&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;3&#xFF0C;&#x4ECE;&#x800C;&#x4E3A;&#x521D;&#x59CB;&#x4E09;&#x89D2;&#x5F62;&#x7684;&#x6BCF;&#x4E2A;&#x4E09;&#x89D2;&#x5F62;&#x4EA7;&#x751F;64&#x4E2A;&#x7CBE;&#x7EC6;&#x5B50;&#x4E09;&#x89D2;&#x5F62;&#x3002;</p>
+<ul>
+<li>return_tri_index&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x6307;&#x793A;&#x662F;&#x5426;&#x5C06;&#x8FD4;&#x56DE;&#x6307;&#x793A;&#x6BCF;&#x4E2A;&#x70B9;&#x7684;&#x7236;&#x4E09;&#x89D2;&#x5F62;&#x7D22;&#x5F15;&#x7684;&#x7D22;&#x5F15;&#x8868;&#x3002;&#x9ED8;&#x8BA4;&#x503C;False&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p>&#x4F8B;&#x5B50;:&#x5728;&#x7C97;&#x7CD9;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x7531;&#x76F8;&#x5BF9;&#x7A00;&#x758F;&#x7684;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x6784;&#x5EFA;&#x7684;&#x4E09;&#x89D2;&#x6D4B;&#x91CF;&#xFF09;&#x4E0A;&#x7ED8;&#x5236;&#x9AD8;&#x8D28;&#x91CF;&#x7B49;&#x9AD8;&#x7EBF;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x5728;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x4E09;&#x89D2;&#x7F51;&#x683C;&#x4E0A;&#x6F14;&#x793A;&#x9AD8;&#x5206;&#x8FA8;&#x7387;&#x4E09;&#x8F74;&#x5B9A;&#x4F4D;&#x7528;matplotlib.tri.UniformTriRefiner</span>
+
+<span class="hljs-keyword">import</span> matplotlib.tri <span class="hljs-keyword">as</span> tri
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x8981;&#x5206;&#x6790;&#x6D4B;&#x8BD5;&#x7684;function</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">function_z</span><span class="hljs-params">(x, y)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot; A function of 2 variables &quot;&quot;&quot;</span>
+    r1 = np.sqrt((<span class="hljs-number">0.5</span> - x)**<span class="hljs-number">2</span> + (<span class="hljs-number">0.5</span> - y)**<span class="hljs-number">2</span>)
+    theta1 = np.arctan2(<span class="hljs-number">0.5</span> - x, <span class="hljs-number">0.5</span> - y)
+    r2 = np.sqrt((-x - <span class="hljs-number">0.2</span>)**<span class="hljs-number">2</span> + (-y - <span class="hljs-number">0.2</span>)**<span class="hljs-number">2</span>)
+    theta2 = np.arctan2(-x - <span class="hljs-number">0.2</span>, -y - <span class="hljs-number">0.2</span>)
+    z = -(<span class="hljs-number">2</span>*(np.exp((r1/<span class="hljs-number">10</span>)**<span class="hljs-number">2</span>) - <span class="hljs-number">1</span>)*<span class="hljs-number">30.</span> * np.cos(<span class="hljs-number">7.</span>*theta1) +
+          (np.exp((r2/<span class="hljs-number">10</span>)**<span class="hljs-number">2</span>) - <span class="hljs-number">1</span>)*<span class="hljs-number">30.</span> * np.cos(<span class="hljs-number">11.</span>*theta2) +
+          <span class="hljs-number">0.7</span>*(x**<span class="hljs-number">2</span> + y**<span class="hljs-number">2</span>))
+    <span class="hljs-keyword">return</span> (np.max(z) - z)/(np.max(z) - np.min(z))
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x6784;&#x5EFA;&#x4E09;&#x89D2;&#x7F51;&#x7EDC;&#x4E2D;&#x7684;&#x70B9;</span>
+
+n_angles = <span class="hljs-number">20</span>
+n_radii = <span class="hljs-number">10</span>
+min_radius = <span class="hljs-number">0.15</span>
+radii = np.linspace(min_radius, <span class="hljs-number">0.95</span>, n_radii)
+
+angles = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>*math.pi, n_angles, endpoint=<span class="hljs-keyword">False</span>)
+angles = np.repeat(angles[..., np.newaxis], n_radii, axis=<span class="hljs-number">1</span>)
+angles[:, <span class="hljs-number">1</span>::<span class="hljs-number">2</span>] += math.pi/n_angles
+
+x = (radii*np.cos(angles)).flatten()
+y = (radii*np.sin(angles)).flatten()
+z = function_z(x, y)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment">#&#x5F00;&#x59CB;&#x6784;&#x5EFA;&#x4E09;&#x89D2;&#x7F51;&#x7EDC;</span>
+triang = tri.Triangulation(x, y)
+
+<span class="hljs-comment"># &#x5C4F;&#x853D;&#x4E0D;&#x8981;&#x7684;&#x5E97;</span>
+xmid = x[triang.triangles].mean(axis=<span class="hljs-number">1</span>)
+ymid = y[triang.triangles].mean(axis=<span class="hljs-number">1</span>)
+mask = np.where(xmid*xmid + ymid*ymid &lt; min_radius*min_radius, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>)
+triang.set_mask(mask)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x7CBE;&#x7EC6;&#x5316;&#x6570;&#x636E; </span>
+refiner = tri.UniformTriRefiner(triang)
+tri_refi, z_test_refi = refiner.refine_field(z, subdiv=<span class="hljs-number">3</span>)
+</code></pre>
+<pre><code class="lang-python">plt.figure()
+plt.gca().set_aspect(<span class="hljs-string">&apos;equal&apos;</span>)
+plt.triplot(triang, lw=<span class="hljs-number">0.5</span>, color=<span class="hljs-string">&apos;white&apos;</span>)
+
+levels = np.arange(<span class="hljs-number">0.</span>, <span class="hljs-number">1.</span>, <span class="hljs-number">0.025</span>)
+cmap = cm.get_cmap(name=<span class="hljs-string">&apos;terrain&apos;</span>, lut=<span class="hljs-keyword">None</span>)
+plt.tricontourf(tri_refi, z_test_refi, levels=levels, cmap=cmap)
+plt.tricontour(tri_refi, z_test_refi, levels=levels,
+               colors=[<span class="hljs-string">&apos;0.25&apos;</span>, <span class="hljs-string">&apos;0.5&apos;</span>, <span class="hljs-string">&apos;0.5&apos;</span>, <span class="hljs-string">&apos;0.5&apos;</span>, <span class="hljs-string">&apos;0.5&apos;</span>],
+               linewidths=[<span class="hljs-number">1.0</span>, <span class="hljs-number">0.5</span>, <span class="hljs-number">0.5</span>, <span class="hljs-number">0.5</span>, <span class="hljs-number">0.5</span>])
+
+plt.title(<span class="hljs-string">&quot;High-resolution tricontouring&quot;</span>)
+
+plt.show()
+</code></pre>
+<p><img src="output_22_0.png" alt="png"></p>
+<h2 id="&#x4E09;&#x89D2;&#x7F51;&#x683C;&#x5206;&#x6790;&#x548C;&#x6539;&#x8FDB;&#x7684;&#x57FA;&#x672C;&#x5DE5;&#x5177;"><a name="&#x4E09;&#x89D2;&#x7F51;&#x683C;&#x5206;&#x6790;&#x548C;&#x6539;&#x8FDB;&#x7684;&#x57FA;&#x672C;&#x5DE5;&#x5177;" class="anchor-navigation-ex-anchor" href="#&#x4E09;&#x89D2;&#x7F51;&#x683C;&#x5206;&#x6790;&#x548C;&#x6539;&#x8FDB;&#x7684;&#x57FA;&#x672C;&#x5DE5;&#x5177;"><i class="fa fa-link" aria-hidden="true"></i></a>1.6. &#x4E09;&#x89D2;&#x7F51;&#x683C;&#x5206;&#x6790;&#x548C;&#x6539;&#x8FDB;&#x7684;&#x57FA;&#x672C;&#x5DE5;&#x5177;</h2>
+<p><code>matplotlib.tri.TriAnalyzer(triangulation)</code></p>
+<p>&#x5B9A;&#x4E49;&#x4E09;&#x89D2;&#x7F51;&#x683C;&#x5206;&#x6790;&#x548C;&#x6539;&#x8FDB;&#x7684;&#x57FA;&#x672C;&#x5DE5;&#x5177;&#x3002;TriAnalizer&#x5C01;&#x88C5;&#x4E86;&#x4E00;&#x4E2A;Triangulation&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x4E86;&#x7528;&#x4E8E;&#x7F51;&#x683C;&#x5206;&#x6790;&#x548C;&#x7F51;&#x683C;&#x6539;&#x8FDB;&#x7684;&#x57FA;&#x672C;&#x5DE5;&#x5177;&#x3002;
+&#x5B83;&#x6709;&#x4E09;&#x4E2A;&#x65B9;&#x6CD5;</p>
+<ul>
+<li>circle_ratios(rescale=True)</li>
+</ul>
+<p>&#x8FD4;&#x56DE;&#x4E09;&#x89D2;&#x5F62;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#x5E73;&#x5766;&#x5EA6;&#x7684;&#x5EA6;&#x91CF;&#x3002;</p>
+<p>&#x5706;&#x5468;&#x534A;&#x5F84;&#x4E0E;&#x5916;&#x63A5;&#x5706;&#x534A;&#x5F84;&#x7684;&#x6BD4;&#x7387;&#x662F;&#x5E7F;&#x6CDB;&#x4F7F;&#x7528;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#x5E73;&#x5766;&#x5EA6;&#x7684;&#x6307;&#x6807;&#x3002;&#x5BF9;&#x4E8E;&#x7B49;&#x8FB9;&#x4E09;&#x89D2;&#x5F62;&#xFF0C;&#x5B83;&#x603B;&#x662F;&lt;= 0.5&#x548C;== 0.5&#x3002;&#x4F4E;&#x4E8E;0.01&#x7684;&#x5706;&#x5F62;&#x6BD4;&#x8868;&#x793A;&#x975E;&#x5E38;&#x5E73;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#x3002;&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x7531;&#x4E8E;2&#x8F74;&#x4E4B;&#x95F4;&#x7684;&#x6BD4;&#x4F8B;&#x5DEE;&#x5F02;&#x800C;&#x5BFC;&#x81F4;&#x7684;&#x8FC7;&#x4F4E;&#x7684;&#x503C;&#xFF0C;&#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#x53EF;&#x4EE5;&#x9996;&#x5148;&#x88AB;&#x91CD;&#x65B0;&#x7F29;&#x653E;&#x4EE5;&#x9002;&#x5408;&#x5177;&#x6709;scale_factors&#x7684;&#x5355;&#x4F4D;&#x6B63;&#x65B9;&#x5F62;&#xFF08;&#x4EC5;&#x5F53;rescale&#x662F;True&#x65F6;&#xFF0C;&#x5B83;&#x662F;&#x5176;&#x9ED8;&#x8BA4;&#x503C;).
+&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5C4F;&#x853D;&#x6570;&#x7EC4;</p>
+<ul>
+<li>get_flat_tri_mask(min_circle_ratio=0.01, rescale=True)</li>
+</ul>
+<p>&#x6D88;&#x9664;&#x4E09;&#x89D2;&#x6D4B;&#x91CF;&#x4E2D;&#x8FC7;&#x5206;&#x5E73;&#x5766;&#x7684;&#x8FB9;&#x754C;&#x4E09;&#x89D2;&#x5F62;&#x3002;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5C4F;&#x853D;&#x6570;&#x7EC4;new_mask(&#x5E03;&#x5C14;&#x503C;)&#xFF0C;&#x5B83;&#x5141;&#x8BB8;&#x4ECE;&#x8FB9;&#x754C;&#x5B9A;&#x4F4D;&#x7684;&#x5E73;&#x9762;&#x4E09;&#x89D2;&#x5F62;&#xFF08;&#x6839;&#x636E;&#x4ED6;&#x4EEC;&#x7684;circle_ratios&#xFF08;&#xFF09;&#xFF09;&#x6E05;&#x9664;&#x5C01;&#x88C5;&#x7684;&#x4E09;&#x89D2;&#x5256;&#x5206;&#x3002;&#x8FD9;&#x4E2A;&#x5C4F;&#x853D;&#x6570;&#x7EC4;&#x610F;&#x5473;&#x7740;&#x968F;&#x540E;&#x5E94;&#x7528;&#x4E8E;&#x4F7F;&#x7528;matplotlib.tri.Triangulation.set_mask&#xFF08;&#xFF09;&#x7684;&#x4E09;&#x89D2;&#x6D4B;&#x91CF;&#x3002; new_mask&#x662F;&#x521D;&#x59CB;&#x4E09;&#x89D2;&#x5F62;&#x63A9;&#x6A21;&#x7684;&#x6269;&#x5C55;&#xFF0C;&#x5728;&#x521D;&#x59CB;&#x63A9;&#x6A21;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#x5C06;&#x4FDD;&#x6301;&#x63A9;&#x853D;&#x7684;&#x610F;&#x4E49;&#x4E0A;&#x3002;new_mask&#x6570;&#x7EC4;&#x662F;&#x9012;&#x5F52;&#x8BA1;&#x7B97;&#x7684;;&#x5728;&#x6BCF;&#x4E2A;&#x6B65;&#x9AA4;&#xFF0C;&#x53EA;&#x6709;&#x5F53;&#x5B83;&#x4EEC;&#x4E0E;&#x5F53;&#x524D;&#x7F51;&#x683C;&#x8FB9;&#x754C;&#x5171;&#x4EAB;&#x4E00;&#x4FA7;&#x65F6;&#xFF0C;&#x624D;&#x79FB;&#x9664;&#x5E73;&#x9762;&#x4E09;&#x89D2;&#x5F62;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x4E09;&#x89D2;&#x57DF;&#x4E2D;&#x5C06;&#x4E0D;&#x4EA7;&#x751F;&#x65B0;&#x7684;&#x7A7A;&#x7A74;&#x3002;</p>
+<pre><code>+ min_circle_ratio
+    &#x5982;&#x679C;&#x5185;&#x5706;/&#x5916;&#x5706;&#x534A;&#x5F84;&#x6BD4;r/R &lt; min_circle_ratio&#xFF0C;&#x5219;&#x4F1A;&#x88AB;&#x53BB;&#x9664;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;0.01
+</code></pre><p>&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x57FA;&#x672C;&#x539F;&#x7406;&#x662F;Delaunay&#x4E09;&#x89D2;&#x5F62;(&#x4E00;&#x4E2A;&#x975E;&#x7ED3;&#x6784;&#x5316;&#x7684;&#x70B9;&#x96C6;&#x5408;,&#x6709;&#x65F6;&#x5728;&#x8FB9;&#x754C;&#x5904;&#x5305;&#x542B;&#x51E0;&#x4E4E;&#x5E73;&#x5766;&#x7684;&#x4E09;&#x89D2;&#x5F62;)&#xFF0C;&#x5BFC;&#x81F4;&#x7ED8;&#x56FE;&#x4E2D;&#x7684;&#x4F2A;&#x50CF;&#xFF08;&#x7279;&#x522B;&#x662F;&#x5BF9;&#x4E8E;&#x9AD8;&#x5206;&#x8FA8;&#x7387;&#x8F6E;&#x5ED3;&#x5316;&#xFF09;&#x3002;&#x7528;&#x8BA1;&#x7B97;&#x7684;new_mask&#x63A9;&#x853D;&#xFF0C;&#x5C01;&#x88C5;&#x7684;&#x4E09;&#x89D2;&#x5256;&#x5206;&#x5C06;&#x4E0D;&#x5305;&#x542B;&#x5177;&#x6709;&#x4F4E;&#x4E8E;min_circle_ratio&#x7684;&#x5706;&#x6BD4;&#x7387;&#x7684;&#x66F4;&#x591A;&#x672A;&#x63A9;&#x853D;&#x7684;&#x8FB9;&#x754C;&#x4E09;&#x89D2;&#x5F62;&#xFF0C;&#x4ECE;&#x800C;&#x6539;&#x8FDB;&#x540E;&#x7EED;&#x7ED8;&#x56FE;&#x6216;&#x63D2;&#x503C;&#x7684;&#x7F51;&#x683C;&#x8D28;&#x91CF;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;:&#x968F;&#x673A;&#x96C6;&#x5408;&#x7684;&#x9AD8;&#x5206;&#x8FA8;&#x7387;&#x5B9A;&#x5411;</p>
+<p>&#x672C;&#x6F14;&#x793A;&#x7684;&#x521D;&#x59CB;&#x6570;&#x636E;&#x70B9;&#x548C;&#x4E09;&#x89D2;&#x7F51;&#x683C;&#x4E3A;&#xFF1A;</p>
+<ul>
+<li>&#x5728;[-1,1]&#xD7;[-1,1]&#x6B63;&#x65B9;&#x5F62;&#x5185;&#x90E8;&#x5B9E;&#x4F8B;&#x5316;&#x4E00;&#x7EC4;&#x968F;&#x673A;&#x70B9;</li>
+<li>&#x7136;&#x540E;&#x8BA1;&#x7B97;&#x8FD9;&#x4E9B;&#x70B9;&#x7684;Delaunay&#x4E09;&#x89D2;&#x5256;&#x5206;&#xFF0C;&#x5176;&#x4E2D;a</li>
+<li>&#x968F;&#x673A;&#x5B50;&#x96C6;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#x88AB;&#x7528;&#x6237;&#x63A9;&#x76D6;&#xFF08;&#x57FA;&#x4E8E;<em> init_mask_frac </em>&#x53C2;&#x6570;&#xFF09;&#x3002; &#x8FD9;&#x5C06;&#x6A21;&#x62DF;&#x65E0;&#x6548;&#x7684;&#x6570;&#x636E;&#x3002;</li>
+</ul>
+<p>&#x63D0;&#x51FA;&#x7684;&#x901A;&#x7528;&#x7A0B;&#x5E8F;&#x83B7;&#x5F97;&#x9AD8;&#x5206;&#x8FA8;&#x7387;&#x8F6E;&#x5ED3;&#x7684;&#x8FD9;&#x79CD;
+&#x6570;&#x636E;&#x96C6;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x4F7F;&#x7528;matplotlib.tri.TriAnalyzer&#x8BA1;&#x7B97;&#x6269;&#x5C55;&#x5C4F;&#x853D;,&#x4ECE;&#x8FB9;&#x6846;&#x4E2D;&#x6392;&#x9664;&#x5F62;&#x72B6;&#x4E0D;&#x597D;&#xFF08;&#x5E73;&#xFF09;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#x4E09;&#x89D2;&#x6D4B;&#x91CF;&#x3002; &#x5C06;&#x5C4F;&#x853D;&#x5E94;&#x7528;&#x4E8E;&#x4E09;&#x89D2;&#x5256;&#x5206;&#xFF08;&#x4F7F;&#x7528;set_mask&#xFF09;&#x3002;</li>
+<li>&#x4F7F;&#x7528;a&#x6765;&#x7EC6;&#x5316;&#x548C;&#x5185;&#x63D2;&#x6570;&#x636E;matplotlib.tri.UniformTriRefiner&#x3002;</li>
+<li>&#x7528;tricontour&#x7ED8;&#x5236;&#x7CBE;&#x5236;&#x6570;&#x636E;&#x3002;</li>
+</ol>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> matplotlib.tri <span class="hljs-keyword">import</span> Triangulation, TriAnalyzer, UniformTriRefiner
+
+
+
+<span class="hljs-comment">#-----------------------------------------------------------------------------</span>
+<span class="hljs-comment"># &#x7528;&#x4E8E;&#x6D4B;&#x8BD5;&#x7684;&#x51FD;&#x6570;</span>
+<span class="hljs-comment">#-----------------------------------------------------------------------------</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">experiment_res</span><span class="hljs-params">(x, y)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot; &#x8868;&#x5B9E;&#x9A8C;&#x7ED3;&#x679C;&#x7684;&#x5206;&#x6790;&#x51FD;&#x6570;&quot;&quot;&quot;</span>
+    x = <span class="hljs-number">2.</span>*x
+    r1 = np.sqrt((<span class="hljs-number">0.5</span> - x)**<span class="hljs-number">2</span> + (<span class="hljs-number">0.5</span> - y)**<span class="hljs-number">2</span>)
+    theta1 = np.arctan2(<span class="hljs-number">0.5</span> - x, <span class="hljs-number">0.5</span> - y)
+    r2 = np.sqrt((-x - <span class="hljs-number">0.2</span>)**<span class="hljs-number">2</span> + (-y - <span class="hljs-number">0.2</span>)**<span class="hljs-number">2</span>)
+    theta2 = np.arctan2(-x - <span class="hljs-number">0.2</span>, -y - <span class="hljs-number">0.2</span>)
+    z = (<span class="hljs-number">4</span>*(np.exp((r1/<span class="hljs-number">10</span>)**<span class="hljs-number">2</span>) - <span class="hljs-number">1</span>)*<span class="hljs-number">30.</span> * np.cos(<span class="hljs-number">3</span>*theta1) +
+         (np.exp((r2/<span class="hljs-number">10</span>)**<span class="hljs-number">2</span>) - <span class="hljs-number">1</span>)*<span class="hljs-number">30.</span> * np.cos(<span class="hljs-number">5</span>*theta2) +
+         <span class="hljs-number">2</span>*(x**<span class="hljs-number">2</span> + y**<span class="hljs-number">2</span>))
+    <span class="hljs-keyword">return</span> (np.max(z) - z)/(np.max(z) - np.min(z))
+
+<span class="hljs-comment">#-----------------------------------------------------------------------------</span>
+<span class="hljs-comment"># &#x751F;&#x6210;&#x521D;&#x59CB;&#x6570;&#x636E;&#x6D4B;&#x8BD5;&#x70B9;&#x548C;&#x6F14;&#x793A;&#x7684;&#x4E09;&#x89D2;&#x6D4B;&#x91CF;</span>
+<span class="hljs-comment">#-----------------------------------------------------------------------------</span>
+
+n_test = <span class="hljs-number">200</span>  <span class="hljs-comment"># &#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x70B9;&#x6570;&#xFF0C;&#x5BF9;&#x4E8E;subdiv = 3&#x4ECE;3&#x5230;5000&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</span>
+
+subdiv = <span class="hljs-number">3</span>  <span class="hljs-comment"># &#x5E73;&#x6ED1;&#x56FE;&#x7684;&#x521D;&#x59CB;&#x7F51;&#x683C;&#x7684;&#x9012;&#x5F52;&#x7EC6;&#x5206;&#x6570;&#x3002; </span>
+            <span class="hljs-comment">#&#x503C;&gt; 3&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x7CBE;&#x7EC6;&#x7F51;&#x683C;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#x6570;&#x91CF;&#x975E;&#x5E38;&#x591A;&#xFF1A;new triangles numbering =&#xFF08;4 ** subdiv&#xFF09;* ntri</span>
+
+init_mask_frac = <span class="hljs-number">0.0</span>    
+
+min_circle_ratio = <span class="hljs-number">.01</span>  
+
+<span class="hljs-comment"># &#x968F;&#x673A;&#x70B9;</span>
+random_gen = np.random.mtrand.RandomState(seed=<span class="hljs-number">127260</span>)
+x_test = random_gen.uniform(<span class="hljs-number">-1.</span>, <span class="hljs-number">1.</span>, size=n_test)
+y_test = random_gen.uniform(<span class="hljs-number">-1.</span>, <span class="hljs-number">1.</span>, size=n_test)
+z_test = experiment_res(x_test, y_test)
+
+<span class="hljs-comment"># &#x4F7F;&#x7528;Delaunay&#x4E09;&#x89D2;&#x7F51;&#x683C;&#x5212;&#x5206;</span>
+tri = Triangulation(x_test, y_test)
+ntri = tri.triangles.shape[<span class="hljs-number">0</span>]
+
+<span class="hljs-comment"># &#x5254;&#x9664;&#x4E00;&#x4E9B;&#x8981;&#x5C4F;&#x853D;&#x7684;&#x70B9;</span>
+mask_init = np.zeros(ntri, dtype=np.bool)
+masked_tri = random_gen.randint(<span class="hljs-number">0</span>, ntri, int(ntri*init_mask_frac))
+mask_init[masked_tri] = <span class="hljs-keyword">True</span>
+tri.set_mask(mask_init)
+
+
+<span class="hljs-comment">#-----------------------------------------------------------------------------</span>
+<span class="hljs-comment"># &#x5728;&#x9AD8;&#x5206;&#x8FA8;&#x7387;&#x7ED8;&#x56FE;&#x4E4B;&#x524D;&#x6539;&#x8FDB;&#x4E09;&#x89D2;&#x6D4B;&#x91CF;&#xFF1A;&#x5220;&#x9664;&#x5E73;&#x9762;&#x4E09;&#x89D2;&#x5F62;</span>
+<span class="hljs-comment">#-----------------------------------------------------------------------------</span>
+<span class="hljs-comment"># &#x63A9;&#x853D;&#x5728;&#x4E09;&#x89D2;&#x5F62;&#x7F51;&#x683C;&#x7684;&#x8FB9;&#x754C;&#x5904;&#x7684;&#x4E0D;&#x826F;&#x5F62;&#x72B6;&#x7684;&#x4E09;&#x89D2;&#x5F62;</span>
+mask = TriAnalyzer(tri).get_flat_tri_mask(min_circle_ratio)
+tri.set_mask(mask)
+
+<span class="hljs-comment"># &#x7CBE;&#x7EC6;&#x5316;&#x6570;&#x636E;</span>
+refiner = UniformTriRefiner(tri)
+tri_refi, z_test_refi = refiner.refine_field(z_test, subdiv=subdiv)
+
+<span class="hljs-comment"># &#x7528;&#x4E8E;&#x4E0E;&#x5206;&#x6790;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;</span>
+z_expected = experiment_res(tri_refi.x, tri_refi.y)
+
+
+flat_tri = Triangulation(x_test, y_test)
+flat_tri.set_mask(~mask)
+
+<span class="hljs-comment">#&#x5F00;&#x59CB;&#x753B;&#x56FE;</span>
+plot_tri = <span class="hljs-keyword">True</span>          <span class="hljs-comment"># plot of base triangulation</span>
+plot_masked_tri = <span class="hljs-keyword">True</span>   <span class="hljs-comment"># plot of excessively flat excluded triangles</span>
+plot_refi_tri = <span class="hljs-keyword">False</span>    <span class="hljs-comment"># plot of refined triangulation</span>
+plot_expected = <span class="hljs-keyword">False</span>    <span class="hljs-comment"># plot of analytical function values for comparison</span>
+
+
+<span class="hljs-comment"># Graphical options for tricontouring</span>
+levels = np.arange(<span class="hljs-number">0.</span>, <span class="hljs-number">1.</span>, <span class="hljs-number">0.025</span>)
+cmap = cm.get_cmap(name=<span class="hljs-string">&apos;Blues&apos;</span>, lut=<span class="hljs-keyword">None</span>)
+
+plt.figure()
+plt.gca().set_aspect(<span class="hljs-string">&apos;equal&apos;</span>)
+plt.title(<span class="hljs-string">&quot;Filtering a Delaunay mesh\n&quot;</span> +
+          <span class="hljs-string">&quot;(application to high-resolution tricontouring)&quot;</span>)
+
+<span class="hljs-comment"># 1) &#x7CBE;&#x786E;&#xFF08;&#x8BA1;&#x7B97;&#xFF09;&#x6570;&#x636E;&#x8F6E;&#x5ED3;&#x7684;&#x56FE;&#xFF1A;</span>
+plt.tricontour(tri_refi, z_test_refi, levels=levels, cmap=cmap,
+               linewidths=[<span class="hljs-number">2.0</span>, <span class="hljs-number">0.5</span>, <span class="hljs-number">1.0</span>, <span class="hljs-number">0.5</span>])
+<span class="hljs-comment"># 2) &#x9884;&#x671F;&#xFF08;&#x5206;&#x6790;&#xFF09;&#x6570;&#x636E;&#x8F6E;&#x5ED3;&#xFF08;&#x865A;&#x7EBF;&#xFF09;&#x7684;&#x56FE;&#xFF1A;</span>
+<span class="hljs-keyword">if</span> plot_expected:
+    plt.tricontour(tri_refi, z_expected, levels=levels, cmap=cmap,
+                   linestyles=<span class="hljs-string">&apos;--&apos;</span>)
+<span class="hljs-comment"># 3) &#x8FDB;&#x884C;&#x5185;&#x63D2;&#x7684;&#x7EC6;&#x7F51;&#x683C;&#x7684;&#x56FE;&#xFF1A;</span>
+<span class="hljs-keyword">if</span> plot_refi_tri:
+    plt.triplot(tri_refi, color=<span class="hljs-string">&apos;0.97&apos;</span>)
+<span class="hljs-comment"># 4) &#x521D;&#x59CB;&#x201C;&#x7C97;&#x7CD9;&#x201D;&#x7F51;&#x683C;&#x7684;&#x56FE;&#xFF1A;</span>
+<span class="hljs-keyword">if</span> plot_tri:
+    plt.triplot(tri, color=<span class="hljs-string">&apos;0.7&apos;</span>)
+<span class="hljs-comment"># 4) &#x4ECE;&#x539F;&#x751F;&#x7684;Delaunay&#x4E09;&#x89D2;&#x5F62;&#x800C;&#x6765;&#x7684;&#x672A;&#x7ECF;&#x9A8C;&#x8BC1;&#x7684;&#x4E09;&#x89D2;&#x5F62;&#x7684;&#x56FE;&#xFF1A;</span>
+<span class="hljs-keyword">if</span> plot_masked_tri:
+    plt.triplot(flat_tri, color=<span class="hljs-string">&apos;red&apos;</span>)
+
+plt.show()
+</code></pre>
+<p><img src="output_25_0.png" alt="png"></p>
+<ul>
+<li>scale_factors</li>
+</ul>
+<p>&#x5C06;&#x4E09;&#x89D2;&#x5212;&#x5206;&#x4E3A;&#x4EE5;&#x5E73;&#x65B9;&#x4E3A;&#x5355;&#x4F4D;&#x3002;</p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-01-12 02:01:49
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../绘图工具pyplot/绘图工具pyplot.html" class="navigation navigation-prev " aria-label="Previous page: 绘图工具pyplot">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../桑基图/桑基图.html" class="navigation navigation-next " aria-label="Next page: 桑基图">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"非结构网络","level":"1.6.4.3","depth":3,"next":{"title":"桑基图","level":"1.6.4.4","depth":3,"path":"人机交互篇/使用matplotlib做数据可视化/桑基图/桑基图.md","ref":"人机交互篇/使用matplotlib做数据可视化/桑基图/桑基图.md","articles":[]},"previous":{"title":"绘图工具pyplot","level":"1.6.4.2","depth":3,"path":"人机交互篇/使用matplotlib做数据可视化/绘图工具pyplot/绘图工具pyplot.md","ref":"人机交互篇/使用matplotlib做数据可视化/绘图工具pyplot/绘图工具pyplot.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","katex","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/TutorialForPython/TutorialForPython.github.io"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"title":"","button":"赏","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","wechatText":"微信打赏","alipayText":"支付宝打赏"},"sitemap-general":{"prefix":"http://blog.hszofficial.site/TutorialForPython/"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":true},"mode":"float","multipleH1":true,"pageTop":{"showLevelIcon":false,"mode":"float","pageTop":{"showLevelIcon":false,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"},"level1Icon":"","showLevel":true,"level2Icon":"","level3Icon":"","associatedWithSummary":true,"float":{"showLevelIcon":true,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"}},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"repo":"TutorialForPython/TutorialForPython.github.io","types":["star","watch","fork"],"size":"small"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍python3.5+的语法与编程惯用法"},"file":{"path":"人机交互篇/使用matplotlib做数据可视化/非结构网络/非结构网络.md","mtime":"2019-01-11T18:01:49.756Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-29T02:59:31.913Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

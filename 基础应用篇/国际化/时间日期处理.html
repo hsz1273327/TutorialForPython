@@ -1,0 +1,2716 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>时间日期处理 · python攻略</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="hsz">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="货币处理模块.html" />
+    
+    
+    <link rel="prev" href="国际化文本翻译.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"TutorialForPython/TutorialForPython.github.io","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://blog.hszofficial.site/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../工具链篇/">
+            
+                <a href="../../工具链篇/">
+            
+                    
+                    工具链篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../工具链篇/运行环境.html">
+            
+                <a href="../../工具链篇/运行环境.html">
+            
+                    
+                    运行环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../工具链篇/包的安装管理与分发.html">
+            
+                <a href="../../工具链篇/包的安装管理与分发.html">
+            
+                    
+                    包的安装管理与分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../工具链篇/交互环境jupyter/">
+            
+                <a href="../../工具链篇/交互环境jupyter/">
+            
+                    
+                    交互环境jupyter
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../../工具链篇/交互环境jupyter/基于web的可交互运行环境jupyter.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/基于web的可交互运行环境jupyter.html">
+            
+                    
+                    基于web的可交互运行环境jupyter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../../工具链篇/交互环境jupyter/ipython与魔法命令/ipython与魔法命令.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/ipython与魔法命令/ipython与魔法命令.html">
+            
+                    
+                    ipython与魔法命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../../工具链篇/交互环境jupyter/在Ipython_Notebook中的代码调试与优化.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/在Ipython_Notebook中的代码调试与优化.html">
+            
+                    
+                    在Ipython_Notebook中的代码调试与优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../../工具链篇/交互环境jupyter/多进程并行计算.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/多进程并行计算.html">
+            
+                    
+                    多进程并行计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../../工具链篇/交互环境jupyter/公开的jupyter_notebook服务.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/公开的jupyter_notebook服务.html">
+            
+                    
+                    公开的jupyter_notebook服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../../工具链篇/交互环境jupyter/notebook格式转换工具.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/notebook格式转换工具.html">
+            
+                    
+                    notebook格式转换工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../../工具链篇/交互环境jupyter/结语.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../工具链篇/代码风格.html">
+            
+                <a href="../../工具链篇/代码风格.html">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../工具链篇/docstring工具.html">
+            
+                <a href="../../工具链篇/docstring工具.html">
+            
+                    
+                    docstring工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../工具链篇/静态类型检测.html">
+            
+                <a href="../../工具链篇/静态类型检测.html">
+            
+                    
+                    静态类型检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../../工具链篇/日志工具.html">
+            
+                <a href="../../工具链篇/日志工具.html">
+            
+                    
+                    日志工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../../工具链篇/调试工具.html">
+            
+                <a href="../../工具链篇/调试工具.html">
+            
+                    
+                    调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../../工具链篇/调用追踪与异常栈追踪.html">
+            
+                <a href="../../工具链篇/调用追踪与异常栈追踪.html">
+            
+                    
+                    调用追踪与异常栈追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../../工具链篇/代码测试.html">
+            
+                <a href="../../工具链篇/代码测试.html">
+            
+                    
+                    代码测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../../工具链篇/部署服务.html">
+            
+                <a href="../../工具链篇/部署服务.html">
+            
+                    
+                    部署服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../../工具链篇/性能调优工具.html">
+            
+                <a href="../../工具链篇/性能调优工具.html">
+            
+                    
+                    性能调优工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../../工具链篇/结语.html">
+            
+                <a href="../../工具链篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../语法篇/">
+            
+                <a href="../../语法篇/">
+            
+                    
+                    语法篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../语法篇/Python的数据模型/">
+            
+                <a href="../../语法篇/Python的数据模型/">
+            
+                    
+                    Python的数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../../语法篇/Python的数据模型/数据模型.html">
+            
+                <a href="../../语法篇/Python的数据模型/数据模型.html">
+            
+                    
+                    数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../../语法篇/Python的数据模型/变量引用与垃圾回收.html">
+            
+                <a href="../../语法篇/Python的数据模型/变量引用与垃圾回收.html">
+            
+                    
+                    变量引用与垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../../语法篇/Python的数据模型/结语.html">
+            
+                <a href="../../语法篇/Python的数据模型/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../语法篇/模块/">
+            
+                <a href="../../语法篇/模块/">
+            
+                    
+                    模块
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../../语法篇/模块/导入时与运行时.html">
+            
+                <a href="../../语法篇/模块/导入时与运行时.html">
+            
+                    
+                    导入时与运行时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../../语法篇/模块/模块的预设字段.html">
+            
+                <a href="../../语法篇/模块/模块的预设字段.html">
+            
+                    
+                    模块的预设字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../../语法篇/模块/模块的加载流程.html">
+            
+                <a href="../../语法篇/模块/模块的加载流程.html">
+            
+                    
+                    模块的加载流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../../语法篇/模块/模块加载特殊内容.html">
+            
+                <a href="../../语法篇/模块/模块加载特殊内容.html">
+            
+                    
+                    模块加载特殊内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../../语法篇/模块/结语.html">
+            
+                <a href="../../语法篇/模块/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../语法篇/文本与字节序/">
+            
+                <a href="../../语法篇/文本与字节序/">
+            
+                    
+                    文本与字节序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../../语法篇/文本与字节序/文本和编码.html">
+            
+                <a href="../../语法篇/文本与字节序/文本和编码.html">
+            
+                    
+                    文本和编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="../../语法篇/文本与字节序/字节序列与内存视图.html">
+            
+                <a href="../../语法篇/文本与字节序/字节序列与内存视图.html">
+            
+                    
+                    字节序列与内存视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="../../语法篇/文本与字节序/正则表达式.html">
+            
+                <a href="../../语法篇/文本与字节序/正则表达式.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="../../语法篇/文本与字节序/文件与IO流.html">
+            
+                <a href="../../语法篇/文本与字节序/文件与IO流.html">
+            
+                    
+                    文件与IO流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="../../语法篇/文本与字节序/序列化.html">
+            
+                <a href="../../语法篇/文本与字节序/序列化.html">
+            
+                    
+                    序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.6" data-path="../../语法篇/文本与字节序/结语.html">
+            
+                <a href="../../语法篇/文本与字节序/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../语法篇/流程控制/">
+            
+                <a href="../../语法篇/流程控制/">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../../语法篇/流程控制/单线程同步流程控制.html">
+            
+                <a href="../../语法篇/流程控制/单线程同步流程控制.html">
+            
+                    
+                    单线程同步流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../../语法篇/流程控制/阻塞异步与协程.html">
+            
+                <a href="../../语法篇/流程控制/阻塞异步与协程.html">
+            
+                    
+                    阻塞异步与协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" data-path="../../语法篇/流程控制/多线程与GIL.html">
+            
+                <a href="../../语法篇/流程控制/多线程与GIL.html">
+            
+                    
+                    多线程与GIL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.4" data-path="../../语法篇/流程控制/多进程.html">
+            
+                <a href="../../语法篇/流程控制/多进程.html">
+            
+                    
+                    多进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.5" data-path="../../语法篇/流程控制/并行编程的惯用法.html">
+            
+                <a href="../../语法篇/流程控制/并行编程的惯用法.html">
+            
+                    
+                    并行编程的惯用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.6" data-path="../../语法篇/流程控制/结语.html">
+            
+                <a href="../../语法篇/流程控制/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../../语法篇/异常和警告.html">
+            
+                <a href="../../语法篇/异常和警告.html">
+            
+                    
+                    异常和警告
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../../语法篇/内置容器/">
+            
+                <a href="../../语法篇/内置容器/">
+            
+                    
+                    内置容器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="../../语法篇/内置容器/序列对象.html">
+            
+                <a href="../../语法篇/内置容器/序列对象.html">
+            
+                    
+                    序列对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="../../语法篇/内置容器/映射对象.html">
+            
+                <a href="../../语法篇/内置容器/映射对象.html">
+            
+                    
+                    映射对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="../../语法篇/内置容器/可迭代对象与生成器.html">
+            
+                <a href="../../语法篇/内置容器/可迭代对象与生成器.html">
+            
+                    
+                    可迭代对象与生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="../../语法篇/内置容器/结语.html">
+            
+                <a href="../../语法篇/内置容器/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../../语法篇/函数/">
+            
+                <a href="../../语法篇/函数/">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="../../语法篇/函数/函数是一等对象.html">
+            
+                <a href="../../语法篇/函数/函数是一等对象.html">
+            
+                    
+                    函数是一等对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="../../语法篇/函数/变量作用域与闭包.html">
+            
+                <a href="../../语法篇/函数/变量作用域与闭包.html">
+            
+                    
+                    变量作用域与闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.3" data-path="../../语法篇/函数/结语.html">
+            
+                <a href="../../语法篇/函数/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../../语法篇/面向对象惯用法/">
+            
+                <a href="../../语法篇/面向对象惯用法/">
+            
+                    
+                    面向对象惯用法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.8.1" data-path="../../语法篇/面向对象惯用法/python中的对象.html">
+            
+                <a href="../../语法篇/面向对象惯用法/python中的对象.html">
+            
+                    
+                    python中的对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.2" data-path="../../语法篇/面向对象惯用法/协议与接口与抽象基类.html">
+            
+                <a href="../../语法篇/面向对象惯用法/协议与接口与抽象基类.html">
+            
+                    
+                    协议,接口与抽象基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.3" data-path="../../语法篇/面向对象惯用法/多重继承和Mixin.html">
+            
+                <a href="../../语法篇/面向对象惯用法/多重继承和Mixin.html">
+            
+                    
+                    多重继承和Mixin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.4" data-path="../../语法篇/面向对象惯用法/自定义序列Vector.html">
+            
+                <a href="../../语法篇/面向对象惯用法/自定义序列Vector.html">
+            
+                    
+                    自定义序列Vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.5" data-path="../../语法篇/面向对象惯用法/结语.html">
+            
+                <a href="../../语法篇/面向对象惯用法/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../../语法篇/元编程/">
+            
+                <a href="../../语法篇/元编程/">
+            
+                    
+                    元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.9.1" data-path="../../语法篇/元编程/运算符重载.html">
+            
+                <a href="../../语法篇/元编程/运算符重载.html">
+            
+                    
+                    运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.2" data-path="../../语法篇/元编程/特性与描述符.html">
+            
+                <a href="../../语法篇/元编程/特性与描述符.html">
+            
+                    
+                    特性与描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.3" data-path="../../语法篇/元编程/装饰器.html">
+            
+                <a href="../../语法篇/元编程/装饰器.html">
+            
+                    
+                    装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.4" data-path="../../语法篇/元编程/元类编程.html">
+            
+                <a href="../../语法篇/元编程/元类编程.html">
+            
+                    
+                    元类编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.5" data-path="../../语法篇/元编程/import_hook.html">
+            
+                <a href="../../语法篇/元编程/import_hook.html">
+            
+                    
+                    import_hook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.6" data-path="../../语法篇/元编程/动态编译.html">
+            
+                <a href="../../语法篇/元编程/动态编译.html">
+            
+                    
+                    动态编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.7" data-path="../../语法篇/元编程/动态属性.html">
+            
+                <a href="../../语法篇/元编程/动态属性.html">
+            
+                    
+                    动态属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.8" data-path="../../语法篇/元编程/猴子补丁和热更新.md">
+            
+                <span>
+            
+                    
+                    猴子补丁和热更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.9" data-path="../../语法篇/元编程/结语.html">
+            
+                <a href="../../语法篇/元编程/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../../语法篇/结语.html">
+            
+                <a href="../../语法篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../嵌入与扩展篇/">
+            
+                <a href="../../嵌入与扩展篇/">
+            
+                    
+                    嵌入与扩展篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../嵌入与扩展篇/使用Cython优化python程序的性能/">
+            
+                <a href="../../嵌入与扩展篇/使用Cython优化python程序的性能/">
+            
+                    
+                    使用Cython优化python程序的性能
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的简单介绍.html">
+            
+                <a href="../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的简单介绍.html">
+            
+                    
+                    Cython的简单介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的基本模式.html">
+            
+                <a href="../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的基本模式.html">
+            
+                    
+                    Cython的基本模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="../../嵌入与扩展篇/使用Cython优化python程序的性能/静态化python模块.html">
+            
+                <a href="../../嵌入与扩展篇/使用Cython优化python程序的性能/静态化python模块.html">
+            
+                    
+                    静态化python模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="../../嵌入与扩展篇/使用Cython优化python程序的性能/使用cython申明文件申明python源码类型.html">
+            
+                <a href="../../嵌入与扩展篇/使用Cython优化python程序的性能/使用cython申明文件申明python源码类型.html">
+            
+                    
+                    使用cython申明文件申明python源码类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" data-path="../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的包装模式.html">
+            
+                <a href="../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的包装模式.html">
+            
+                    
+                    Cython的包装模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.6" data-path="../../嵌入与扩展篇/使用Cython优化python程序的性能/使用Cython扩展numpy.html">
+            
+                <a href="../../嵌入与扩展篇/使用Cython优化python程序的性能/使用Cython扩展numpy.html">
+            
+                    
+                    使用Cython扩展numpy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../嵌入与扩展篇/用numba为python写高性能C扩展.html">
+            
+                <a href="../../嵌入与扩展篇/用numba为python写高性能C扩展.html">
+            
+                    
+                    用numba为python写高性能C扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../嵌入与扩展篇/使用f2py用fortain给python写扩展.html">
+            
+                <a href="../../嵌入与扩展篇/使用f2py用fortain给python写扩展.html">
+            
+                    
+                    使用f2py用fortain给python写扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../嵌入与扩展篇/结语.md">
+            
+                <span>
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    基础应用篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    国际化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1" data-path="字符编码判断.html">
+            
+                <a href="字符编码判断.html">
+            
+                    
+                    字符编码判断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2" data-path="国际化文本翻译.html">
+            
+                <a href="国际化文本翻译.html">
+            
+                    
+                    国际化文本翻译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.1.3" data-path="时间日期处理.html">
+            
+                <a href="时间日期处理.html">
+            
+                    
+                    时间日期处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.4" data-path="货币处理模块.html">
+            
+                <a href="货币处理模块.html">
+            
+                    
+                    货币处理模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.5" data-path="结语.html">
+            
+                <a href="结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../数据压缩与归档/">
+            
+                <a href="../数据压缩与归档/">
+            
+                    
+                    数据压缩与归档
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../数据压缩与归档/数据压缩解压.html">
+            
+                <a href="../数据压缩与归档/数据压缩解压.html">
+            
+                    
+                    数据压缩解压
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.2" data-path="../数据压缩与归档/压缩归档.html">
+            
+                <a href="../数据压缩与归档/压缩归档.html">
+            
+                    
+                    压缩归档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.3" data-path="../数据压缩与归档/结语.html">
+            
+                <a href="../数据压缩与归档/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../信息安全/">
+            
+                <a href="../信息安全/">
+            
+                    
+                    信息安全
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../信息安全/摘要算法.html">
+            
+                <a href="../信息安全/摘要算法.html">
+            
+                    
+                    摘要算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.2" data-path="../信息安全/数字签名.html">
+            
+                <a href="../信息安全/数字签名.html">
+            
+                    
+                    数字签名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.3" data-path="../信息安全/加密算法.html">
+            
+                <a href="../信息安全/加密算法.html">
+            
+                    
+                    加密算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.4" data-path="../信息安全/结语.html">
+            
+                <a href="../信息安全/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../人机交互篇/">
+            
+                <a href="../../人机交互篇/">
+            
+                    
+                    人机交互篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../人机交互篇/使用python编写命令行工具.html">
+            
+                <a href="../../人机交互篇/使用python编写命令行工具.html">
+            
+                    
+                    使用python编写命令行工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../../人机交互篇/自定义交互式界面.html">
+            
+                <a href="../../人机交互篇/自定义交互式界面.html">
+            
+                    
+                    自定义交互式界面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../../人机交互篇/GUI/">
+            
+                <a href="../../人机交互篇/GUI/">
+            
+                    
+                    GUI
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="../../人机交互篇/GUI/TK框架GUI编程的基本思路.html">
+            
+                <a href="../../人机交互篇/GUI/TK框架GUI编程的基本思路.html">
+            
+                    
+                    TK框架GUI编程的基本思路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="../../人机交互篇/GUI/Tkinter的组件介绍.html">
+            
+                <a href="../../人机交互篇/GUI/Tkinter的组件介绍.html">
+            
+                    
+                    Tkinter的组件介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.3" data-path="../../人机交互篇/GUI/结合pandas和matplotlib制作数据科学GUI工具/结合pandas和matplotlib制作数据科学GUI工具.html">
+            
+                <a href="../../人机交互篇/GUI/结合pandas和matplotlib制作数据科学GUI工具/结合pandas和matplotlib制作数据科学GUI工具.html">
+            
+                    
+                    结合pandas和matplotlib制作数据科学GUI工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../../人机交互篇/使用matplotlib做数据可视化/">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/">
+            
+                    
+                    使用matplotlib做数据可视化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.4.1" data-path="../../人机交互篇/使用matplotlib做数据可视化/matplotlib的基本设置/matplotlib的基本设置.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/matplotlib的基本设置/matplotlib的基本设置.html">
+            
+                    
+                    matplotlib的基本设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.2" data-path="../../人机交互篇/使用matplotlib做数据可视化/绘图工具pyplot/绘图工具pyplot.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/绘图工具pyplot/绘图工具pyplot.html">
+            
+                    
+                    绘图工具pyplot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.3" data-path="../../人机交互篇/使用matplotlib做数据可视化/非结构网络/非结构网络.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/非结构网络/非结构网络.html">
+            
+                    
+                    非结构网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.4" data-path="../../人机交互篇/使用matplotlib做数据可视化/桑基图/桑基图.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/桑基图/桑基图.html">
+            
+                    
+                    桑基图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.5" data-path="../../人机交互篇/使用matplotlib做数据可视化/图片加载/图片加载.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/图片加载/图片加载.html">
+            
+                    
+                    图片加载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.6" data-path="../../人机交互篇/使用matplotlib做数据可视化/保存图片/保存图片.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/保存图片/保存图片.html">
+            
+                    
+                    保存图片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.7" data-path="../../人机交互篇/使用matplotlib做数据可视化/控件.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/控件.html">
+            
+                    
+                    控件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.8" data-path="../../人机交互篇/使用matplotlib做数据可视化/动画/动画.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/动画/动画.html">
+            
+                    
+                    动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.9" data-path="../../人机交互篇/使用matplotlib做数据可视化/matplitlib结合web技术.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/matplitlib结合web技术.html">
+            
+                    
+                    matplitlib结合web技术
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.10" data-path="../../人机交互篇/使用matplotlib做数据可视化/结语.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../../人机交互篇/结语.html">
+            
+                <a href="../../人机交互篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../数学与统计应用篇/">
+            
+                <a href="../../数学与统计应用篇/">
+            
+                    
+                    数学与统计应用篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../../数学与统计应用篇/使用标准库处理基本数学问题/使用标准库处理基本数学问题.html">
+            
+                <a href="../../数学与统计应用篇/使用标准库处理基本数学问题/使用标准库处理基本数学问题.html">
+            
+                    
+                    使用标准库处理基本数学问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../../数学与统计应用篇/numpy的高性能同构定长多维数组ndarray/numpy的高性能同构定长多维数组ndarray.html">
+            
+                <a href="../../数学与统计应用篇/numpy的高性能同构定长多维数组ndarray/numpy的高性能同构定长多维数组ndarray.html">
+            
+                    
+                    numpy的高性能同构定长多维数组ndarray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../../数学与统计应用篇/使用numpy做科学计算/使用numpy做科学计算.html">
+            
+                <a href="../../数学与统计应用篇/使用numpy做科学计算/使用numpy做科学计算.html">
+            
+                    
+                    使用numpy做科学计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../../数学与统计应用篇/结语.html">
+            
+                <a href="../../数学与统计应用篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../接口服务篇/">
+            
+                <a href="../../接口服务篇/">
+            
+                    
+                    接口服务篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../../接口服务篇/GRpc接口服务.html">
+            
+                <a href="../../接口服务篇/GRpc接口服务.html">
+            
+                    
+                    GRpc接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../术语表.html">
+            
+                <a href="../../术语表.html">
+            
+                    
+                    术语表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >时间日期处理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x65F6;&#x95F4;&#x65E5;&#x671F;&#x5904;&#x7406;"><b>1. </b>&#x65F6;&#x95F4;&#x65E5;&#x671F;&#x5904;&#x7406;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4E00;&#x56FE;&#x6D41;&#x65F6;&#x95F4;&#x65E5;&#x671F;&#x5904;&#x7406;&#x7684;&#x65B9;&#x6CD5;&#x4ECB;&#x7ECD;"><b>1.1. </b>&#x4E00;&#x56FE;&#x6D41;&#x65F6;&#x95F4;&#x65E5;&#x671F;&#x5904;&#x7406;&#x7684;&#x65B9;&#x6CD5;&#x4ECB;&#x7ECD;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x57FA;&#x672C;&#x65F6;&#x95F4;&#x6A21;&#x5757;time"><b>1.2. </b>&#x57FA;&#x672C;&#x65F6;&#x95F4;&#x6A21;&#x5757;time</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x65F6;&#x95F4;&#x83B7;&#x53D6;"><b>1.2.1. </b>&#x65F6;&#x95F4;&#x83B7;&#x53D6;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x65F6;&#x95F4;&#x8868;&#x73B0;&#x5F62;&#x5F0F;&#x8F6C;&#x5316;"><b>1.2.2. </b>&#x65F6;&#x95F4;&#x8868;&#x73B0;&#x5F62;&#x5F0F;&#x8F6C;&#x5316;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7279;&#x6B8A;&#x51FD;&#x6570;"><b>1.2.3. </b>&#x7279;&#x6B8A;&#x51FD;&#x6570;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x57FA;&#x672C;&#x7684;&#x65E5;&#x5386;&#x6A21;&#x5757;calendar"><b>1.3. </b>&#x57FA;&#x672C;&#x7684;&#x65E5;&#x5386;&#x6A21;&#x5757;calendar</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x6700;&#x5E38;&#x7528;&#x7684;&#x65F6;&#x95F4;&#x65E5;&#x5386;&#x6A21;&#x5757;-datetime"><b>1.4. </b>&#x6700;&#x5E38;&#x7528;&#x7684;&#x65F6;&#x95F4;&#x65E5;&#x5386;&#x6A21;&#x5757; datetime</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x652F;&#x6301;&#x94FE;&#x5F0F;&#x8868;&#x8FBE;&#x5F0F;&#x548C;&#x65F6;&#x533A;&#x8F6C;&#x6362;&#x7684;&#x65F6;&#x95F4;&#x5904;&#x7406;&#x6A21;&#x5757;"><b>1.5. </b>&#x652F;&#x6301;&#x94FE;&#x5F0F;&#x8868;&#x8FBE;&#x5F0F;&#x548C;&#x65F6;&#x533A;&#x8F6C;&#x6362;&#x7684;&#x65F6;&#x95F4;&#x5904;&#x7406;&#x6A21;&#x5757;</a></li></ul></ul></div><a href="#&#x65F6;&#x95F4;&#x65E5;&#x671F;&#x5904;&#x7406;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x65F6;&#x95F4;&#x65E5;&#x671F;&#x5904;&#x7406;"><a name="&#x65F6;&#x95F4;&#x65E5;&#x671F;&#x5904;&#x7406;" class="anchor-navigation-ex-anchor" href="#&#x65F6;&#x95F4;&#x65E5;&#x671F;&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x65F6;&#x95F4;&#x65E5;&#x671F;&#x5904;&#x7406;</h1>
+<p>python&#x548C;&#x65F6;&#x95F4;&#x6709;&#x5173;&#x7684;&#x6807;&#x51C6;&#x5E93;&#x6A21;&#x5757;&#x5E38;&#x7528;&#x7684;&#x4E3B;&#x8981;&#x6709;3&#x4E2A;</p>
+<ul>
+<li>&#x57FA;&#x672C;&#x65F6;&#x95F4;&#x6A21;&#x5757;<code>time</code></li>
+<li>&#x65E5;&#x5386;&#x6A21;&#x5757;<code>calendar</code></li>
+<li>&#x65F6;&#x95F4;&#x65E5;&#x5386;&#x6A21;&#x5757;<code>datetime</code></li>
+</ul>
+<h2 id="&#x4E00;&#x56FE;&#x6D41;&#x65F6;&#x95F4;&#x65E5;&#x671F;&#x5904;&#x7406;&#x7684;&#x65B9;&#x6CD5;&#x4ECB;&#x7ECD;"><a name="&#x4E00;&#x56FE;&#x6D41;&#x65F6;&#x95F4;&#x65E5;&#x671F;&#x5904;&#x7406;&#x7684;&#x65B9;&#x6CD5;&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#&#x4E00;&#x56FE;&#x6D41;&#x65F6;&#x95F4;&#x65E5;&#x671F;&#x5904;&#x7406;&#x7684;&#x65B9;&#x6CD5;&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x4E00;&#x56FE;&#x6D41;&#x65F6;&#x95F4;&#x65E5;&#x671F;&#x5904;&#x7406;&#x7684;&#x65B9;&#x6CD5;&#x4ECB;&#x7ECD;</h2>
+<p><img src="time&#x683C;&#x5F0F;&#x8F6C;&#x6362;&#x5173;&#x7CFB;.jpg" alt=""></p>
+<h2 id="&#x57FA;&#x672C;&#x65F6;&#x95F4;&#x6A21;&#x5757;time"><a name="&#x57FA;&#x672C;&#x65F6;&#x95F4;&#x6A21;&#x5757;time" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x672C;&#x65F6;&#x95F4;&#x6A21;&#x5757;time"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x57FA;&#x672C;&#x65F6;&#x95F4;&#x6A21;&#x5757;time</h2>
+<p>time &#x6A21;&#x5757;&#x4E2D;&#x4E00;&#x822C;&#x6709;&#x4E09;&#x79CD;&#x8868;&#x793A;&#x65F6;&#x95F4;&#x7684;&#x65B9;&#x5F0F;:</p>
+<ul>
+<li><p>&#x7B2C;&#x4E00;&#x79CD;&#x662F;&#x65F6;&#x95F4;&#x6233;(timestamp)&#x7684;&#x65B9;&#x5F0F;(&#x76F8;&#x5BF9;&#x4E8E;1970.1.1 00:00:00&#x4EE5;&#x79D2;&#x8BA1;&#x7B97;&#x7684;&#x504F;&#x79FB;&#x91CF;),&#x65F6;&#x95F4;&#x6233;&#x662F;&#x60DF;&#x4E00;&#x7684;,&#x4E5F;&#x662F;&#x5404;&#x79CD;&#x8BED;&#x8A00;&#x901A;&#x7528;&#x7684;.&#x6709;&#x7684;&#x8BED;&#x8A00;&#x5982;java,js&#x65F6;&#x95F4;&#x4EE5;ms&#x8BB0;,&#x6240;&#x4EE5;&#x5904;&#x7406;&#x7684;&#x65F6;&#x5019;&#x6CE8;&#x610F;&#x4E0B;,&#x9002;&#x5F53;&#x7684;&#x65F6;&#x5019;<code>/1000</code></p>
+</li>
+<li><p>&#x7B2C;&#x4E8C;&#x79CD;&#x4EE5;&#x6570;&#x7EC4;&#x7684;&#x5F62;&#x5F0F;&#x8868;&#x793A;&#x5373;(struct_time,&#x7ED3;&#x6784;&#x5316;&#x65F6;&#x95F4;),&#x5171;&#x6709;&#x4E5D;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x5206;&#x522B;&#x8868;&#x793A;&#xFF0C;&#x540C;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x6233;&#x7684;struct_time&#x4F1A;&#x56E0;&#x4E3A;&#x65F6;&#x533A;&#x4E0D;&#x540C;&#x800C;&#x4E0D;&#x540C;</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>&#x5143;&#x7D20;&#x5C5E;&#x6027;</th>
+<th>&#x8303;&#x56F4;&#x53CA;&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>year</td>
+<td>(four digits, e.g. 1998)</td>
+</tr>
+<tr>
+<td>month</td>
+<td>(1-12)</td>
+</tr>
+<tr>
+<td>day</td>
+<td>(1-31)</td>
+</tr>
+<tr>
+<td>hours</td>
+<td>(0-23)</td>
+</tr>
+<tr>
+<td>minutes</td>
+<td>(0-59)</td>
+</tr>
+<tr>
+<td>seconds</td>
+<td>(0-59)</td>
+</tr>
+<tr>
+<td>weekday</td>
+<td>(0-6, Monday is 0)</td>
+</tr>
+<tr>
+<td>Julian day</td>
+<td>(&#x4E00;&#x5E74;&#x4E2D;&#x7684;&#x7B2C;&#x51E0;&#x5929;, 1-366)</td>
+</tr>
+<tr>
+<td>DST</td>
+<td>(-1, 0 or 1) &#x662F;&#x5426;&#x662F;&#x590F;&#x4EE4;&#x65F6;,&lt;/br&gt;0&#x8BF4;&#x660E;&#x662F;&#x4E0D;&#x662F;,1&#x8BF4;&#x660E;&#x662F;,-1&#x8BF4;&#x660E;&#x4E0D;&#x786E;&#x5B9A;</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>&#x7B2C;&#x4E09;&#x79CD;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x8868;&#x8FF0;,&#x4E5F;&#x5C31;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x770B;&#x61C2;&#x7684;&#x5F62;&#x5F0F;</li>
+</ul>
+<p>&#x53EF;&#x4EE5;&#x7528;&#x5982;&#x4E0B;&#x7684;&#x7B26;&#x53F7;&#x683C;&#x5F0F;&#x5316;&#x5B57;&#x7B26;&#x4E32;&#x8F93;&#x51FA;:</p>
+<table>
+<thead>
+<tr>
+<th>&#x7B26;&#x53F7;</th>
+<th>&#x610F;&#x601D;&#x53CA;&#x53D6;&#x503C;&#x8303;&#x56F4;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%y</td>
+<td>&#x4E24;&#x4F4D;&#x6570;&#x7684;&#x5E74;&#x4EFD;&#x8868;&#x793A;&#xFF08;00-99&#xFF09;</td>
+</tr>
+<tr>
+<td>%Y</td>
+<td>&#x56DB;&#x4F4D;&#x6570;&#x7684;&#x5E74;&#x4EFD;&#x8868;&#x793A;&#xFF08;000-9999&#xFF09;</td>
+</tr>
+<tr>
+<td>%m</td>
+<td>&#x6708;&#x4EFD;&#xFF08;01-12&#xFF09;</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>&#x6708;&#x5185;&#x4E2D;&#x7684;&#x4E00;&#x5929;&#xFF08;0-31&#xFF09;</td>
+</tr>
+<tr>
+<td>%H</td>
+<td>24&#x5C0F;&#x65F6;&#x5236;&#x5C0F;&#x65F6;&#x6570;&#xFF08;0-23&#xFF09;</td>
+</tr>
+<tr>
+<td>%I</td>
+<td>12&#x5C0F;&#x65F6;&#x5236;&#x5C0F;&#x65F6;&#x6570;&#xFF08;01-12&#xFF09; </td>
+</tr>
+<tr>
+<td>%M</td>
+<td>&#x5206;&#x949F;&#x6570;&#xFF08;00=59&#xFF09;</td>
+</tr>
+<tr>
+<td>%S</td>
+<td>&#x79D2;&#xFF08;00-59&#xFF09;</td>
+</tr>
+<tr>
+<td>%a</td>
+<td>&#x672C;&#x5730;&#x7B80;&#x5316;&#x661F;&#x671F;&#x540D;&#x79F0;</td>
+</tr>
+<tr>
+<td>%A</td>
+<td>&#x672C;&#x5730;&#x5B8C;&#x6574;&#x661F;&#x671F;&#x540D;&#x79F0;</td>
+</tr>
+<tr>
+<td>%b</td>
+<td>&#x672C;&#x5730;&#x7B80;&#x5316;&#x7684;&#x6708;&#x4EFD;&#x540D;&#x79F0;</td>
+</tr>
+<tr>
+<td>%B</td>
+<td>&#x672C;&#x5730;&#x5B8C;&#x6574;&#x7684;&#x6708;&#x4EFD;&#x540D;&#x79F0;</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>&#x672C;&#x5730;&#x76F8;&#x5E94;&#x7684;&#x65E5;&#x671F;&#x8868;&#x793A;&#x548C;&#x65F6;&#x95F4;&#x8868;&#x793A;</td>
+</tr>
+<tr>
+<td>%j</td>
+<td>&#x5E74;&#x5185;&#x7684;&#x4E00;&#x5929;&#xFF08;001-366&#xFF09;</td>
+</tr>
+<tr>
+<td>%p</td>
+<td>&#x672C;&#x5730;A.M.&#x6216;P.M.&#x7684;&#x7B49;&#x4EF7;&#x7B26;</td>
+</tr>
+<tr>
+<td>%U</td>
+<td>&#x4E00;&#x5E74;&#x4E2D;&#x7684;&#x661F;&#x671F;&#x6570;&#xFF08;00-53&#xFF09;&#x661F;&#x671F;&#x5929;&#x4E3A;&#x661F;&#x671F;&#x7684;&#x5F00;&#x59CB;</td>
+</tr>
+<tr>
+<td>%w</td>
+<td>&#x661F;&#x671F;&#xFF08;0-6&#xFF09;&#xFF0C;&#x661F;&#x671F;&#x5929;&#x4E3A;&#x661F;&#x671F;&#x7684;&#x5F00;&#x59CB;</td>
+</tr>
+<tr>
+<td>%W</td>
+<td>&#x4E00;&#x5E74;&#x4E2D;&#x7684;&#x661F;&#x671F;&#x6570;&#xFF08;00-53&#xFF09;&#x661F;&#x671F;&#x4E00;&#x4E3A;&#x661F;&#x671F;&#x7684;&#x5F00;&#x59CB;</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>&#x672C;&#x5730;&#x76F8;&#x5E94;&#x7684;&#x65E5;&#x671F;&#x8868;&#x793A;</td>
+</tr>
+<tr>
+<td>%X</td>
+<td>&#x672C;&#x5730;&#x76F8;&#x5E94;&#x7684;&#x65F6;&#x95F4;&#x8868;&#x793A;</td>
+</tr>
+<tr>
+<td>%Z</td>
+<td>&#x5F53;&#x524D;&#x65F6;&#x533A;&#x7684;&#x540D;&#x79F0;</td>
+</tr>
+<tr>
+<td>%%</td>
+<td>%&#x53F7;&#x672C;&#x8EAB; </td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> time
+</code></pre>
+<h3 id="&#x65F6;&#x95F4;&#x83B7;&#x53D6;"><a name="&#x65F6;&#x95F4;&#x83B7;&#x53D6;" class="anchor-navigation-ex-anchor" href="#&#x65F6;&#x95F4;&#x83B7;&#x53D6;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.1. &#x65F6;&#x95F4;&#x83B7;&#x53D6;</h3>
+<blockquote>
+<p>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x6233; time()</p>
+</blockquote>
+<pre><code class="lang-python">now_timestamp = time.time()
+now_timestamp
+</code></pre>
+<pre><code>1498831412.6540039
+</code></pre><blockquote>
+<p>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7ED3;&#x6784;&#x5316;&#x65F6;&#x95F4; localtime()</p>
+</blockquote>
+<pre><code class="lang-python">now_struct = time.localtime()
+now_struct
+</code></pre>
+<pre><code>time.struct_time(tm_year=2017, tm_mon=6, tm_mday=30, tm_hour=22, tm_min=3, tm_sec=33, tm_wday=4, tm_yday=181, tm_isdst=0)
+</code></pre><blockquote>
+<p>&#x76F4;&#x63A5;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x5B57;&#x7B26;&#x4E32; asctime() </p>
+</blockquote>
+<pre><code class="lang-python">time.asctime()
+</code></pre>
+<pre><code>&apos;Fri Jun 30 22:03:33 2017&apos;
+</code></pre><h3 id="&#x65F6;&#x95F4;&#x8868;&#x73B0;&#x5F62;&#x5F0F;&#x8F6C;&#x5316;"><a name="&#x65F6;&#x95F4;&#x8868;&#x73B0;&#x5F62;&#x5F0F;&#x8F6C;&#x5316;" class="anchor-navigation-ex-anchor" href="#&#x65F6;&#x95F4;&#x8868;&#x73B0;&#x5F62;&#x5F0F;&#x8F6C;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.2. &#x65F6;&#x95F4;&#x8868;&#x73B0;&#x5F62;&#x5F0F;&#x8F6C;&#x5316;</h3>
+<blockquote>
+<p>&#x65F6;&#x95F4;&#x6233;=&gt;&#x7ED3;&#x6784;&#x5316;&#x65F6;&#x95F4; localtime()  gmtime()</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x5F53;&#x524D;&#x65F6;&#x533A;</span>
+time.localtime(now_timestamp)
+</code></pre>
+<pre><code>time.struct_time(tm_year=2017, tm_mon=6, tm_mday=30, tm_hour=22, tm_min=3, tm_sec=32, tm_wday=4, tm_yday=181, tm_isdst=0)
+</code></pre><pre><code class="lang-python"><span class="hljs-comment"># UTC&#x65F6;&#x533A;(0&#x65F6;&#x533A;)</span>
+time.gmtime(now_timestamp)
+</code></pre>
+<pre><code>time.struct_time(tm_year=2017, tm_mon=6, tm_mday=30, tm_hour=14, tm_min=3, tm_sec=32, tm_wday=4, tm_yday=181, tm_isdst=0)
+</code></pre><blockquote>
+<p>&#x7ED3;&#x6784;&#x5316;&#x65F6;&#x95F4;=&gt;&#x65F6;&#x95F4;&#x6233; mktime()</p>
+</blockquote>
+<pre><code class="lang-python">time.mktime(now_struct)
+</code></pre>
+<pre><code>1498831413.0
+</code></pre><blockquote>
+<p>&#x7ED3;&#x6784;&#x5316;&#x65F6;&#x95F4;=&gt;&#x5B57;&#x7B26;&#x4E32; asctime() strftime()</p>
+</blockquote>
+<pre><code class="lang-python">time.asctime(now_struct)
+</code></pre>
+<pre><code>&apos;Fri Jun 30 22:03:33 2017&apos;
+</code></pre><pre><code class="lang-python">time.strftime(<span class="hljs-string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>, now_struct)
+</code></pre>
+<pre><code>&apos;2017-06-30 22:03:33&apos;
+</code></pre><blockquote>
+<p>&#x65F6;&#x95F4;&#x6233;=&gt;&#x5B57;&#x7B26;&#x4E32; ctime()</p>
+</blockquote>
+<pre><code class="lang-python">time.ctime(now_timestamp)
+</code></pre>
+<pre><code>&apos;Fri Jun 30 22:03:32 2017&apos;
+</code></pre><blockquote>
+<p>&#x5C06;&#x683C;&#x5F0F;&#x5316;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x5316;&#x4E3A;&#x65F6;&#x95F4;&#x6233;</p>
+</blockquote>
+<pre><code class="lang-python">a = <span class="hljs-string">&quot;Sat Sep 24 22:22:22 2015&quot;</span>
+b = time.mktime(time.strptime(a,<span class="hljs-string">&quot;%a %b %d %H:%M:%S %Y&quot;</span>))
+b
+</code></pre>
+<pre><code>1443104542.0
+</code></pre><blockquote>
+<p>&#x5C06;&#x683C;&#x5F0F;&#x5316;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x5316;&#x4E3A;&#x7ED3;&#x6784;&#x5316;&#x65F6;&#x95F4;</p>
+</blockquote>
+<pre><code class="lang-python">c = time.strptime(a,<span class="hljs-string">&quot;%a %b %d %H:%M:%S %Y&quot;</span>)
+c
+</code></pre>
+<pre><code>time.struct_time(tm_year=2015, tm_mon=9, tm_mday=24, tm_hour=22, tm_min=22, tm_sec=22, tm_wday=5, tm_yday=267, tm_isdst=-1)
+</code></pre><h3 id="&#x7279;&#x6B8A;&#x51FD;&#x6570;"><a name="&#x7279;&#x6B8A;&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x7279;&#x6B8A;&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.3. &#x7279;&#x6B8A;&#x51FD;&#x6570;</h3>
+<blockquote>
+<p>&#x7EBF;&#x7A0B;&#x63A8;&#x8FDF;&#x6307;&#x70B9;&#x65F6;&#x95F4; sleep(sec)</p>
+</blockquote>
+<pre><code class="lang-python">time.sleep(<span class="hljs-number">1</span>)
+</code></pre>
+<h2 id="&#x57FA;&#x672C;&#x7684;&#x65E5;&#x5386;&#x6A21;&#x5757;calendar"><a name="&#x57FA;&#x672C;&#x7684;&#x65E5;&#x5386;&#x6A21;&#x5757;calendar" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x672C;&#x7684;&#x65E5;&#x5386;&#x6A21;&#x5757;calendar"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x57FA;&#x672C;&#x7684;&#x65E5;&#x5386;&#x6A21;&#x5757;calendar</h2>
+<p>calendar&#x6A21;&#x5757;&#xFF0C;&#x5373;&#x65E5;&#x5386;&#x6A21;&#x5757;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x5BF9;&#x65E5;&#x671F;&#x7684;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;&#x65B9;&#x6CD5;&#xFF0C;&#x548C;&#x751F;&#x6210;&#x65E5;&#x5386;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x4E3B;&#x8981;&#x63D0;&#x4F9B;&#x7684;&#x5E38;&#x91CF;(&#x7528;list&#x67E5;&#x770B;):</p>
+<table>
+<thead>
+<tr>
+<th>&#x5E38;&#x91CF;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>calendar.day_name</td>
+<td>&#x4E00;&#x5468;&#x7684;&#x661F;&#x671F;&#x51E0;&#x540D;&#x5B57;</td>
+</tr>
+<tr>
+<td>calendar.day_abbr</td>
+<td>&#x4E00;&#x5468;&#x7684;&#x661F;&#x671F;&#x51E0;&#x540D;&#x5B57;&#x7684;&#x7B80;&#x5199;</td>
+</tr>
+<tr>
+<td>calendar.month_name</td>
+<td>&#x6708;&#x4EFD;&#x540D;&#x5B57;</td>
+</tr>
+<tr>
+<td>calendar.month_abbr</td>
+<td>&#x6708;&#x4EFD;&#x540D;&#x5B57;&#x7684;&#x7B80;&#x5199;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x4E3B;&#x8981;&#x7684;&#x65B9;&#x6CD5;&#x6709;:</p>
+<table>
+<thead>
+<tr>
+<th>&#x65B9;&#x6CD5;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>calendar.setfirstweekday(weekday)</td>
+<td>&#x8BBE;&#x7F6E;&#x65E5;&#x5386;&#x4E2D;&#x661F;&#x671F;&#x7684;&#x7684;&#x7B2C;&#x4E00;&#x5929;&#x662F;&#x5468;&#x51E0;</td>
+</tr>
+<tr>
+<td>calendar.firstweekday()</td>
+<td>&#x67E5;&#x770B;&#x65E5;&#x5386;&#x4E2D;&#x4E00;&#x661F;&#x671F;&#x7684;&#x7B2C;&#x4E00;&#x5929;&#x662F;&#x5468;&#x51E0;(&#x5728;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;)</td>
+</tr>
+<tr>
+<td>calendar.isleap(year)</td>
+<td>&#x5224;&#x65AD;&#x662F;&#x5426;&#x662F;&#x95F0;&#x5E74;</td>
+</tr>
+<tr>
+<td>calendar.leapdays(y1, y2)</td>
+<td>&#x83B7;&#x53D6;&#x4E24;&#x4E2A;&#x5E74;&#x4EFD;&#x4E4B;&#x95F4;&#x95F0;&#x5E74;&#x6570; </td>
+</tr>
+<tr>
+<td>calendar.weekday(year, month, day)</td>
+<td>&#x67E5;&#x770B;&#x67D0;&#x4E00;&#x5929;&#x662F;&#x661F;&#x671F;&#x51E0;(&#x5728;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;)</td>
+</tr>
+<tr>
+<td>calendar.weekheader(n)</td>
+<td>&#x8FD4;&#x56DE;&#x661F;&#x671F;&#x51E0;&#x7684;&#x82F1;&#x6587;&#x7F29;&#x5199;,n&#x8868;&#x793A;&#x7528;&#x51E0;&#x4F4D;&#x5B57;&#x6BCD;</td>
+</tr>
+<tr>
+<td>calendar.monthrange(year, month)</td>
+<td>&#x8FD4;&#x56DE;&#x7B2C;&#x4E00;&#x5929;&#x662F;&#x5468;&#x51E0;(&#x5217;&#x8868;&#x4E2D;&#x4F4D;&#x7F6E;&#x548C;&#x6708;&#x7684;&#x957F;&#x5EA6;)</td>
+</tr>
+<tr>
+<td>calendar.monthcalendar(year, month)</td>
+<td>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x8868;&#x793A;&#x65E5;&#x5386;&#x7684;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;</td>
+</tr>
+<tr>
+<td>calendar.prmonth(theyear, themonth, w=0, l=0)</td>
+<td>&#x76F4;&#x63A5;&#x6253;&#x5370;&#x65E5;&#x5386;</td>
+</tr>
+<tr>
+<td>calendar.month(theyear, themonth, w=0, l=0)</td>
+<td>&#x8FD4;&#x56DE;&#x67D0;&#x6708;&#x7684;&#x65E5;&#x5386;&#x6587;&#x672C;</td>
+</tr>
+<tr>
+<td>calendar.prcal(year, w=0, l=0, c=6, m=3)</td>
+<td>&#x6253;&#x5370;&#x4E00;&#x5E74;&#x7684;&#x65E5;&#x5386;</td>
+</tr>
+<tr>
+<td>calendar.calendar(year, w=2, l=1, c=6, m=3)</td>
+<td>&#x8FD4;&#x56DE;&#x4E00;&#x5E74;&#x65E5;&#x5386;&#x7684;&#x5B57;&#x7B26;&#x4E32;</td>
+</tr>
+<tr>
+<td>calendar.timegm(tuple)</td>
+<td>&#x628A;&#x4E00;&#x4E2A; UTC &#x7684; struct_time &#x8F6C;&#x5316;&#x4E3A; POSIX &#x65F6;&#x95F4;&#x6233;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5176;&#x4E2D;&#x6709;&#x4E09;&#x4E2A;&#x4E3B;&#x8981;&#x7684;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x5B9E;&#x4F8B;&#x5316;:</p>
+<ul>
+<li><p>calendar.Calendar(firstweekday=0) </p>
+<p>  &#x8BE5;&#x7C7B;&#x63D0;&#x4F9B;&#x4E86;&#x8BB8;&#x591A;&#x751F;&#x6210;&#x5668;&#xFF0C;&#x5982;&#x661F;&#x671F;&#x7684;&#x751F;&#x6210;&#x5668;&#xFF0C;&#x67D0;&#x6708;&#x65E5;&#x5386;&#x751F;&#x6210;&#x5668;.
+  &#x4E3B;&#x8981;&#x6709;:</p>
+<ul>
+<li><p>iterweekdays()
+  &#x8FD4;&#x56DE;&#x4E00;&#x5468;&#x51E0;&#x5929;&#x7684;&#x751F;&#x6210;&#x5668;</p>
+</li>
+<li><p>itermonthdates(year, month)
+  &#x8FD4;&#x56DE;&#x67D0;&#x6708;&#x7684;&#x6BCF;&#x4E00;&#x5929;&#x7684;datetime&#x6784;&#x6210;&#x7684;&#x751F;&#x6210;&#x5668;</p>
+</li>
+<li><p>itermonthdays2(year, month)
+  &#x8FD4;&#x56DE;&#x67D0;&#x6708;&#x7684;&#x6BCF;&#x4E00;&#x5929;&#x7684;(&#x65E5;&#x671F;,&#x661F;&#x671F;)&#x6784;&#x6210;&#x7684;&#x751F;&#x6210;&#x5668;</p>
+</li>
+<li><p>itermonthdays(year, month)
+  &#x8FD4;&#x56DE;&#x67D0;&#x6708;&#x7684;&#x6BCF;&#x4E00;&#x5929;&#x7684;&#x65E5;&#x671F;&#x6784;&#x6210;&#x7684;&#x751F;&#x6210;&#x5668;</p>
+</li>
+<li><p>monthdatescalendar(year, month)
+  &#x8FD4;&#x56DE;&#x67D0;&#x6708;&#x7684;&#x6BCF;&#x4E00;&#x5929;&#x7684;datetime&#x6784;&#x6210;&#x7684;list(&#x6BCF;&#x5468;&#x662F;&#x4E00;&#x4E2A;list)</p>
+</li>
+<li><p>monthdays2calendar(year, month)
+  &#x8FD4;&#x56DE;&#x67D0;&#x6708;&#x7684;&#x6BCF;&#x4E00;&#x5929;&#x7684;(&#x65E5;&#x671F;,&#x661F;&#x671F;)&#x6784;&#x6210;&#x7684;list(&#x6BCF;&#x5468;&#x662F;&#x4E00;&#x4E2A;list)</p>
+</li>
+<li><p>monthdayscalendar(year, month)
+  &#x8FD4;&#x56DE;&#x67D0;&#x6708;&#x7684;&#x6BCF;&#x4E00;&#x5929;&#x7684;&#x65E5;&#x671F;&#x6784;&#x6210;&#x7684;list(&#x6BCF;&#x5468;&#x662F;&#x4E00;&#x4E2A;list)</p>
+</li>
+<li><p>yeardatescalendar(year, width=3)
+  &#x8FD4;&#x56DE;&#x67D0;&#x5E74;&#x7684;&#x6BCF;&#x4E00;&#x5929;&#x7684;datetime&#x6784;&#x6210;&#x7684;list(&#x6BCF;&#x6708;&#x4E00;&#x4E2A;list,&#x6BCF;&#x5468;&#x662F;&#x4E00;&#x4E2A;list)</p>
+</li>
+<li><p>yeardays2calendar(year, width=3)
+  &#x8FD4;&#x56DE;&#x67D0;&#x5E74;&#x7684;&#x6BCF;&#x4E00;&#x5929;&#x7684;(&#x65E5;&#x671F;,&#x661F;&#x671F;)&#x6784;&#x6210;&#x7684;list(&#x6BCF;&#x6708;&#x4E00;&#x4E2A;list,&#x6BCF;&#x5468;&#x662F;&#x4E00;&#x4E2A;list)</p>
+</li>
+<li><p>yeardayscalendar(year, width=3)
+  &#x8FD4;&#x56DE;&#x67D0;&#x5E74;&#x7684;&#x6BCF;&#x4E00;&#x5929;&#x7684;&#x65E5;&#x671F;&#x6784;&#x6210;&#x7684;list(&#x6BCF;&#x6708;&#x4E00;&#x4E2A;list,&#x6BCF;&#x5468;&#x662F;&#x4E00;&#x4E2A;list)</p>
+</li>
+</ul>
+</li>
+<li><p>calendar.TextCalendar(firstweekday=0) </p>
+<p>  &#x8BE5;&#x7C7B;&#x63D0;&#x4F9B;&#x4E86;&#x6309;&#x6708;&#x3001;&#x6309;&#x5E74;&#x751F;&#x6210;&#x65E5;&#x5386;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x65B9;&#x6CD5;&#x3002;
+&#x4E3B;&#x8981;&#x6709;:</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>&#x65B9;&#x6CD5;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>formatmonth(theyear, themonth, w=0, l=0)</td>
+<td>&#x8FD4;&#x56DE;&#x67D0;&#x6708;&#x7684;&#x65E5;&#x5386;&#x5B57;&#x7B26;&#x4E32;</td>
+</tr>
+<tr>
+<td>prmonth(theyear, themonth, w=0, l=0)</td>
+<td>&#x6253;&#x5370;&#x67D0;&#x6708;&#x7684;&#x65E5;&#x5386;&#x5B57;&#x7B26;&#x4E32;</td>
+</tr>
+<tr>
+<td>formatyear(theyear, w=2, l=1, c=6, m=3)</td>
+<td>&#x8FD4;&#x56DE;&#x67D0;&#x5E74;&#x7684;&#x65E5;&#x5386;&#x5B57;&#x7B26;&#x4E32;</td>
+</tr>
+<tr>
+<td>pryear(theyear, w=2, l=1, c=6, m=3)</td>
+<td>&#x6253;&#x5370;&#x67D0;&#x5E74;&#x7684;&#x65E5;&#x5386;&#x5B57;&#x7B26;&#x4E32;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5B50;&#x7C7B;&#x6709;:</p>
+<p><code>calendar.LocaleTextCalendar(firstweekday=0, locale=None)</code></p>
+<p>&#x7528;&#x6765;&#x751F;&#x6210;&#x672C;&#x5730;&#x65E5;&#x5386;,&#x4E3B;&#x8981;&#x5C31;&#x662F;&#x6708;&#x4EFD;&#x548C;&#x661F;&#x671F;&#x7684;&#x672C;&#x5730;&#x8BED;&#x8A00;&#x5316;,locale&#x9ED8;&#x8BA4;&#x662F;&#x8BA1;&#x7B97;&#x673A;&#x7684;locale</p>
+<ul>
+<li><p>calendar.HTMLCalendar(firstweekday=0) </p>
+<p>  &#x7C7B;&#x4F3C;TextCalendar&#xFF0C;&#x4E0D;&#x8FC7;&#x751F;&#x6210;&#x7684;&#x662F;HTML&#x683C;&#x5F0F;&#x65E5;&#x5386;
+  &#x4E3B;&#x8981;&#x6709;:</p>
+<ul>
+<li><p>formatmonth(theyear, themonth, withyear=True)
+  &#x8FD4;&#x56DE;&#x67D0;&#x6708;&#x7684;&#x65E5;&#x5386;&#x7684;html&#x5B57;&#x7B26;&#x4E32;</p>
+</li>
+<li><p>formatyear(theyear, width=3)
+  &#x8FD4;&#x56DE;&#x67D0;&#x5E74;&#x7684;&#x65E5;&#x5386;&#x7684;html&#x5B57;&#x7B26;&#x4E32;</p>
+</li>
+<li><p>formatyearpage(theyear, width=3, css=&apos;calendar.css&apos;, encoding=None)
+  &#x8FD4;&#x56DE;&#x5B8C;&#x6574;&#x7684;&#x9875;&#x9762;&#x4EE3;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x4E32;</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>&#x5B50;&#x7C7B;&#x6709;:</p>
+<p><code>calendar.LocaleHTMLCalendar(firstweekday=0, locale=None)</code></p>
+<p>&#x7528;&#x6765;&#x751F;&#x6210;&#x672C;&#x5730;&#x65E5;&#x5386;,&#x4E3B;&#x8981;&#x5C31;&#x662F;&#x6708;&#x4EFD;&#x548C;&#x661F;&#x671F;&#x7684;&#x672C;&#x5730;&#x8BED;&#x8A00;&#x5316;,locale&#x9ED8;&#x8BA4;&#x662F;&#x8BA1;&#x7B97;&#x673A;&#x7684;locale</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> calendar
+</code></pre>
+<pre><code class="lang-python">cal = calendar.HTMLCalendar(calendar.MONDAY)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">with</span> open(<span class="hljs-string">&apos;calendar.html&apos;</span>,<span class="hljs-string">&quot;wb&quot;</span>) <span class="hljs-keyword">as</span> f:
+    f.write(cal.formatyearpage(<span class="hljs-number">2016</span>))
+</code></pre>
+<h2 id="&#x6700;&#x5E38;&#x7528;&#x7684;&#x65F6;&#x95F4;&#x65E5;&#x5386;&#x6A21;&#x5757;-datetime"><a name="&#x6700;&#x5E38;&#x7528;&#x7684;&#x65F6;&#x95F4;&#x65E5;&#x5386;&#x6A21;&#x5757;-datetime" class="anchor-navigation-ex-anchor" href="#&#x6700;&#x5E38;&#x7528;&#x7684;&#x65F6;&#x95F4;&#x65E5;&#x5386;&#x6A21;&#x5757;-datetime"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. &#x6700;&#x5E38;&#x7528;&#x7684;&#x65F6;&#x95F4;&#x65E5;&#x5386;&#x6A21;&#x5757; datetime</h2>
+<p>datetime&#x540C;&#x6837;&#x662F;python&#x6807;&#x51C6;&#x5E93;,&#x4E0D;&#x8FC7;&#x5B83;&#x770B;&#x8D77;&#x6765;&#x5C31;&#x5F88;OO&#x5F88;&#x73B0;&#x4EE3;&#x4E86;~&#x5B83;&#x7528;&#x4E00;&#x4E2A;&#x53EB;datetime&#x7684;&#x7C7B;&#x578B;&#x6765;&#x8868;&#x793A;&#x65F6;&#x95F4;,&#x4E00;&#x822C;&#x6765;&#x8BF4;,&#x505A;&#x65F6;&#x95F4;&#x7684;&#x8BA1;&#x7B97;&#x4F1A;&#x7528;&#x5B83;&#x800C;&#x4E0D;&#x662F;time&#x6A21;&#x5757;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime
+</code></pre>
+<blockquote>
+<p>&#x83B7;&#x53D6;datetime &#x65F6;&#x95F4;</p>
+<blockquote>
+<p>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65E5;&#x671F;&#x548C;&#x65F6;&#x95F4; datetime.now()</p>
+</blockquote>
+</blockquote>
+<pre><code class="lang-python">now = datetime.now()
+now
+</code></pre>
+<pre><code>datetime.datetime(2017, 6, 30, 22, 3, 39, 535750)
+</code></pre><pre><code class="lang-python">now.__str__()
+</code></pre>
+<pre><code>&apos;2017-06-30 22:03:39.535750&apos;
+</code></pre><blockquote>
+<blockquote>
+<p>&#x83B7;&#x53D6;&#x67D0;&#x4E00;&#x65F6;&#x95F4;datetime()</p>
+</blockquote>
+</blockquote>
+<pre><code class="lang-python">yesterday = datetime(<span class="hljs-number">2015</span>,<span class="hljs-number">9</span>,<span class="hljs-number">23</span>,<span class="hljs-number">17</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">220475</span>)
+yesterday
+</code></pre>
+<pre><code>datetime.datetime(2015, 9, 23, 17, 2, 4, 220475)
+</code></pre><blockquote>
+<p>datetime =&gt; &#x65F6;&#x95F4;&#x6233; .timestamp()</p>
+</blockquote>
+<pre><code class="lang-python">now.timestamp()
+</code></pre>
+<pre><code>1498831419.53575
+</code></pre><blockquote>
+<p>&#x65F6;&#x95F4;&#x6233; =&gt; datetime</p>
+<blockquote>
+<p>&#x672C;&#x5730;&#x65F6;&#x95F4;</p>
+</blockquote>
+</blockquote>
+<pre><code class="lang-python">before_now = datetime.fromtimestamp(now_timestamp)
+before_now.__str__()
+</code></pre>
+<pre><code>&apos;2017-06-30 22:03:32.654004&apos;
+</code></pre><blockquote>
+<blockquote>
+<p>UTC&#x6807;&#x51C6;&#x65F6;&#x95F4;</p>
+</blockquote>
+</blockquote>
+<pre><code class="lang-python">before_now_UTC = datetime.utcfromtimestamp(now_timestamp)
+before_now_UTC.__str__()
+</code></pre>
+<pre><code>&apos;2017-06-30 14:03:32.654004&apos;
+</code></pre><blockquote>
+<p>&#x683C;&#x5F0F;&#x5316;&#x5B57;&#x7B26;&#x4E32; =&gt; datetime</p>
+</blockquote>
+<pre><code class="lang-python">cday = datetime.strptime(<span class="hljs-string">&apos;2015-6-1 18:19:59&apos;</span>, <span class="hljs-string">&apos;%Y-%m-%d %H:%M:%S&apos;</span>)
+cday
+</code></pre>
+<pre><code>datetime.datetime(2015, 6, 1, 18, 19, 59)
+</code></pre><blockquote>
+<p>datetime =&gt; &#x683C;&#x5F0F;&#x5316;&#x5B57;&#x7B26;&#x4E32;</p>
+</blockquote>
+<pre><code class="lang-python">now.strftime(<span class="hljs-string">&apos;%a, %b %d %H:%M&apos;</span>)
+</code></pre>
+<pre><code>&apos;Fri, Jun 30 22:03&apos;
+</code></pre><blockquote>
+<p>&#x65F6;&#x95F4;&#x8BA1;&#x7B97;</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime, timedelta
+now = datetime.now()
+print(now)
+
+print(now + timedelta(hours=<span class="hljs-number">10</span>))
+
+print(now - timedelta(days=<span class="hljs-number">1</span>))
+
+print(now + timedelta(days=<span class="hljs-number">2</span>, hours=<span class="hljs-number">12</span>))
+</code></pre>
+<pre><code>2017-06-30 22:03:46.561364
+2017-07-01 08:03:46.561364
+2017-06-29 22:03:46.561364
+2017-07-03 10:03:46.561364
+</code></pre><pre><code class="lang-python">tenten = datetime(<span class="hljs-number">2015</span>, <span class="hljs-number">10</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+</code></pre>
+<pre><code class="lang-python">(tenten - now).__str__()
+</code></pre>
+<pre><code>&apos;-639 days, 1:56:13.438636&apos;
+</code></pre><pre><code class="lang-python"><span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime, timedelta
+</code></pre>
+<pre><code class="lang-python">now = datetime.now()
+</code></pre>
+<pre><code class="lang-python">now
+</code></pre>
+<pre><code>datetime.datetime(2017, 6, 30, 22, 3, 47, 327346)
+</code></pre><pre><code class="lang-python">now + timedelta(seconds=<span class="hljs-number">10</span>)
+</code></pre>
+<pre><code>datetime.datetime(2017, 6, 30, 22, 3, 57, 327346)
+</code></pre><pre><code class="lang-python">nowonow = datetime.now()
+</code></pre>
+<pre><code class="lang-python">nowonow
+</code></pre>
+<pre><code>datetime.datetime(2017, 6, 30, 22, 3, 47, 917878)
+</code></pre><pre><code class="lang-python">nowonow&lt;now
+</code></pre>
+<pre><code>False
+</code></pre><h2 id="&#x652F;&#x6301;&#x94FE;&#x5F0F;&#x8868;&#x8FBE;&#x5F0F;&#x548C;&#x65F6;&#x533A;&#x8F6C;&#x6362;&#x7684;&#x65F6;&#x95F4;&#x5904;&#x7406;&#x6A21;&#x5757;"><a name="&#x652F;&#x6301;&#x94FE;&#x5F0F;&#x8868;&#x8FBE;&#x5F0F;&#x548C;&#x65F6;&#x533A;&#x8F6C;&#x6362;&#x7684;&#x65F6;&#x95F4;&#x5904;&#x7406;&#x6A21;&#x5757;" class="anchor-navigation-ex-anchor" href="#&#x652F;&#x6301;&#x94FE;&#x5F0F;&#x8868;&#x8FBE;&#x5F0F;&#x548C;&#x65F6;&#x533A;&#x8F6C;&#x6362;&#x7684;&#x65F6;&#x95F4;&#x5904;&#x7406;&#x6A21;&#x5757;"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. &#x652F;&#x6301;&#x94FE;&#x5F0F;&#x8868;&#x8FBE;&#x5F0F;&#x548C;&#x65F6;&#x533A;&#x8F6C;&#x6362;&#x7684;&#x65F6;&#x95F4;&#x5904;&#x7406;&#x6A21;&#x5757;</h2>
+<p><a href="https://github.com/zachwill/moment" target="_blank">moment</a>&#x662F;&#x4E00;&#x4E2A;&#x5F00;&#x6E90;,&#x63A5;&#x53E3;&#x4EFF;&#x7167;js&#x5E93;moment&#x7684;&#x65F6;&#x95F4;&#x5904;&#x7406;&#x6A21;&#x5757;,&#x652F;&#x6301;&#x94FE;&#x5F0F;&#x8868;&#x8FBE;&#x5F0F;</p>
+<p>&#x4ED6;&#x7684;&#x597D;&#x5904;&#x662F;&#x7528;&#x94FE;&#x5F0F;&#x8868;&#x8FBE;&#x5F0F;&#x53EF;&#x4EE5;&#x5199;&#x8D77;&#x6765;&#x5F88;&#x987A;&#x7545;</p>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;pip&#x5B89;&#x88C5;,&#x4EE5;&#x4E0B;&#x662F;&#x5B98;&#x65B9;&#x7684;&#x4F8B;&#x5B50;,&#x8981;&#x7528;&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x5BF9;&#x7740;&#x4F8B;&#x5B50;&#x627E;&#x63A5;&#x53E3;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> moment
+<span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime
+
+<span class="hljs-comment"># Create a moment from a string</span>
+moment.date(<span class="hljs-string">&quot;12-18-2012&quot;</span>, <span class="hljs-string">&quot;M-D-YYYY&quot;</span>)
+
+<span class="hljs-comment"># Create a moment with strftime format</span>
+moment.date(<span class="hljs-string">&quot;12-18-2012&quot;</span>, <span class="hljs-string">&quot;%m-%d-%Y&quot;</span>)
+
+<span class="hljs-comment"># By default, the &quot;%Y-%m-%d&quot; strftime format is used</span>
+moment.date(<span class="hljs-string">&quot;2012-12-18&quot;</span>)
+
+<span class="hljs-comment"># Create a moment from the current datetime</span>
+moment.now()
+
+<span class="hljs-comment"># The moment can also be UTC-based</span>
+moment.utcnow()
+
+<span class="hljs-comment"># Create a moment with the UTC time zone</span>
+moment.utc(<span class="hljs-string">&quot;2012-12-18&quot;</span>, <span class="hljs-string">&quot;YYYY-M-D&quot;</span>)
+
+<span class="hljs-comment"># Create a moment from a Unix timestamp</span>
+moment.unix(<span class="hljs-number">13558751536</span>)
+
+<span class="hljs-comment"># Create a moment from a Unix UTC timestamp</span>
+moment.unix(<span class="hljs-number">13558751536</span>, utc=<span class="hljs-keyword">True</span>)
+
+<span class="hljs-comment"># Return a datetime instance</span>
+moment.date(<span class="hljs-number">2012</span>, <span class="hljs-number">12</span>, <span class="hljs-number">18</span>).date
+
+<span class="hljs-comment"># We can do the same thing with the UTC method</span>
+moment.utc(<span class="hljs-number">2012</span>, <span class="hljs-number">12</span>, <span class="hljs-number">18</span>).date
+
+<span class="hljs-comment"># Create and format a moment using Moment.js semantics</span>
+moment.now().format(<span class="hljs-string">&quot;YYYY-M-D&quot;</span>)
+
+<span class="hljs-comment"># Create and format a moment with strftime semantics</span>
+moment.date(<span class="hljs-number">2012</span>, <span class="hljs-number">12</span>, <span class="hljs-number">18</span>).strftime(<span class="hljs-string">&quot;%Y-%m-%d&quot;</span>)
+
+<span class="hljs-comment"># Update your moment&apos;s time zone</span>
+moment.date(datetime(<span class="hljs-number">2012</span>, <span class="hljs-number">12</span>, <span class="hljs-number">18</span>)).locale(<span class="hljs-string">&quot;US/Central&quot;</span>).date
+
+<span class="hljs-comment"># Alter the moment&apos;s UTC time zone to a different time zone</span>
+moment.utcnow().timezone(<span class="hljs-string">&quot;US/Eastern&quot;</span>).date
+
+<span class="hljs-comment"># Set and update your moment&apos;s time zone. For instance, I&apos;m on the</span>
+<span class="hljs-comment"># west coast, but want NYC&apos;s current time.</span>
+moment.now().locale(<span class="hljs-string">&quot;US/Pacific&quot;</span>).timezone(<span class="hljs-string">&quot;US/Eastern&quot;</span>)
+
+<span class="hljs-comment"># In order to manipulate time zones, a locale must always be set or</span>
+<span class="hljs-comment"># you must be using UTC.</span>
+moment.utcnow().timezone(<span class="hljs-string">&quot;US/Eastern&quot;</span>).date
+
+<span class="hljs-comment"># You can also clone a moment, so the original stays unaltered</span>
+now = moment.utcnow().timezone(<span class="hljs-string">&quot;US/Pacific&quot;</span>)
+future = now.clone().add(weeks=<span class="hljs-number">2</span>)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># Customize your moment by chaining commands</span>
+moment.date(<span class="hljs-number">2012</span>, <span class="hljs-number">12</span>, <span class="hljs-number">18</span>).add(days=<span class="hljs-number">2</span>).subtract(weeks=<span class="hljs-number">3</span>).date
+
+<span class="hljs-comment"># Imagine trying to do this with datetime, right?</span>
+moment.utcnow().add(years=<span class="hljs-number">3</span>, months=<span class="hljs-number">2</span>).format(<span class="hljs-string">&quot;YYYY-M-D h:m A&quot;</span>)
+
+<span class="hljs-comment"># You can use multiple keyword arguments</span>
+moment.date(<span class="hljs-number">2012</span>, <span class="hljs-number">12</span>, <span class="hljs-number">19</span>).add(hours=<span class="hljs-number">1</span>, minutes=<span class="hljs-number">2</span>, seconds=<span class="hljs-number">3</span>)
+
+<span class="hljs-comment"># And, a similar subtract example...</span>
+moment.date(<span class="hljs-number">2012</span>, <span class="hljs-number">12</span>, <span class="hljs-number">19</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>).subtract(hours=<span class="hljs-number">1</span>, minutes=<span class="hljs-number">2</span>, seconds=<span class="hljs-number">3</span>)
+
+<span class="hljs-comment"># In addition to adding/subtracting, we can also replace values</span>
+moment.now().replace(hours=<span class="hljs-number">5</span>, minutes=<span class="hljs-number">15</span>, seconds=<span class="hljs-number">0</span>).epoch()
+
+<span class="hljs-comment"># And, if you&apos;d prefer to keep the microseconds on your epoch value</span>
+moment.now().replace(hours=<span class="hljs-number">5</span>, minutes=<span class="hljs-number">15</span>, seconds=<span class="hljs-number">0</span>).epoch(rounding=<span class="hljs-keyword">False</span>)
+
+<span class="hljs-comment"># Years, months, and days can also be set</span>
+moment.now().replace(years=<span class="hljs-number">1984</span>, months=<span class="hljs-number">1</span>, days=<span class="hljs-number">1</span>, hours=<span class="hljs-number">0</span>, minutes=<span class="hljs-number">0</span>, seconds=<span class="hljs-number">0</span>)
+
+<span class="hljs-comment"># Also, datetime properties are available</span>
+moment.utc(<span class="hljs-number">2012</span>, <span class="hljs-number">12</span>, <span class="hljs-number">19</span>).year == <span class="hljs-number">2012</span>
+
+<span class="hljs-comment"># Including plural ones (since I&apos;m bad at remembering)</span>
+moment.now().seconds
+
+<span class="hljs-comment"># We can also manipulate to preferred weekdays, such as Monday</span>
+moment.date(<span class="hljs-number">2012</span>, <span class="hljs-number">12</span>, <span class="hljs-number">19</span>).replace(weekday=<span class="hljs-number">1</span>).strftime(<span class="hljs-string">&quot;%Y-%m-%d&quot;</span>)
+
+<span class="hljs-comment"># Or, this upcoming Sunday</span>
+moment.date(<span class="hljs-string">&quot;2012-12-19&quot;</span>).replace(weekday=<span class="hljs-number">7</span>).date
+
+<span class="hljs-comment"># We can even go back to two Sundays ago</span>
+moment.date(<span class="hljs-number">2012</span>, <span class="hljs-number">12</span>, <span class="hljs-number">19</span>).replace(weekday=<span class="hljs-number">-7</span>).format(<span class="hljs-string">&quot;YYYY-MM-DD&quot;</span>)
+
+<span class="hljs-comment"># It&apos;s also available as a property</span>
+moment.utcnow().weekday
+
+<span class="hljs-comment"># And, there&apos;s an easy way to zero out the hours, minutes, and seconds</span>
+moment.utcnow().zero
+</code></pre>
+<pre><code>&lt;Moment(2017-06-30)&gt;
+</code></pre><footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-01-12 02:01:49
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="国际化文本翻译.html" class="navigation navigation-prev " aria-label="Previous page: 国际化文本翻译">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="货币处理模块.html" class="navigation navigation-next " aria-label="Next page: 货币处理模块">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"时间日期处理","level":"1.5.1.3","depth":3,"next":{"title":"货币处理模块","level":"1.5.1.4","depth":3,"path":"基础应用篇/国际化/货币处理模块.md","ref":"基础应用篇/国际化/货币处理模块.md","articles":[]},"previous":{"title":"国际化文本翻译","level":"1.5.1.2","depth":3,"path":"基础应用篇/国际化/国际化文本翻译.md","ref":"基础应用篇/国际化/国际化文本翻译.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","katex","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/TutorialForPython/TutorialForPython.github.io"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"title":"","button":"赏","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","wechatText":"微信打赏","alipayText":"支付宝打赏"},"sitemap-general":{"prefix":"http://blog.hszofficial.site/TutorialForPython/"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":true},"mode":"float","multipleH1":true,"pageTop":{"showLevelIcon":false,"mode":"float","pageTop":{"showLevelIcon":false,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"},"level1Icon":"","showLevel":true,"level2Icon":"","level3Icon":"","associatedWithSummary":true,"float":{"showLevelIcon":true,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"}},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"repo":"TutorialForPython/TutorialForPython.github.io","types":["star","watch","fork"],"size":"small"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍python3.5+的语法与编程惯用法"},"file":{"path":"基础应用篇/国际化/时间日期处理.md","mtime":"2019-01-11T18:01:49.765Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-29T02:59:31.913Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

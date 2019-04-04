@@ -1,0 +1,3355 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Cython的基本模式 · python攻略</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="hsz">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="静态化python模块.html" />
+    
+    
+    <link rel="prev" href="Cython的简单介绍.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"TutorialForPython/TutorialForPython.github.io","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://blog.hszofficial.site/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../工具链篇/">
+            
+                <a href="../../工具链篇/">
+            
+                    
+                    工具链篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../工具链篇/运行环境.html">
+            
+                <a href="../../工具链篇/运行环境.html">
+            
+                    
+                    运行环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../工具链篇/包的安装管理与分发.html">
+            
+                <a href="../../工具链篇/包的安装管理与分发.html">
+            
+                    
+                    包的安装管理与分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../工具链篇/交互环境jupyter/">
+            
+                <a href="../../工具链篇/交互环境jupyter/">
+            
+                    
+                    交互环境jupyter
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../../工具链篇/交互环境jupyter/基于web的可交互运行环境jupyter.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/基于web的可交互运行环境jupyter.html">
+            
+                    
+                    基于web的可交互运行环境jupyter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../../工具链篇/交互环境jupyter/ipython与魔法命令/ipython与魔法命令.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/ipython与魔法命令/ipython与魔法命令.html">
+            
+                    
+                    ipython与魔法命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../../工具链篇/交互环境jupyter/在Ipython_Notebook中的代码调试与优化.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/在Ipython_Notebook中的代码调试与优化.html">
+            
+                    
+                    在Ipython_Notebook中的代码调试与优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../../工具链篇/交互环境jupyter/多进程并行计算.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/多进程并行计算.html">
+            
+                    
+                    多进程并行计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../../工具链篇/交互环境jupyter/公开的jupyter_notebook服务.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/公开的jupyter_notebook服务.html">
+            
+                    
+                    公开的jupyter_notebook服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../../工具链篇/交互环境jupyter/notebook格式转换工具.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/notebook格式转换工具.html">
+            
+                    
+                    notebook格式转换工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../../工具链篇/交互环境jupyter/结语.html">
+            
+                <a href="../../工具链篇/交互环境jupyter/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../工具链篇/代码风格.html">
+            
+                <a href="../../工具链篇/代码风格.html">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../工具链篇/docstring工具.html">
+            
+                <a href="../../工具链篇/docstring工具.html">
+            
+                    
+                    docstring工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../工具链篇/静态类型检测.html">
+            
+                <a href="../../工具链篇/静态类型检测.html">
+            
+                    
+                    静态类型检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../../工具链篇/日志工具.html">
+            
+                <a href="../../工具链篇/日志工具.html">
+            
+                    
+                    日志工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../../工具链篇/调试工具.html">
+            
+                <a href="../../工具链篇/调试工具.html">
+            
+                    
+                    调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../../工具链篇/调用追踪与异常栈追踪.html">
+            
+                <a href="../../工具链篇/调用追踪与异常栈追踪.html">
+            
+                    
+                    调用追踪与异常栈追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../../工具链篇/代码测试.html">
+            
+                <a href="../../工具链篇/代码测试.html">
+            
+                    
+                    代码测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../../工具链篇/部署服务.html">
+            
+                <a href="../../工具链篇/部署服务.html">
+            
+                    
+                    部署服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../../工具链篇/性能调优工具.html">
+            
+                <a href="../../工具链篇/性能调优工具.html">
+            
+                    
+                    性能调优工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../../工具链篇/结语.html">
+            
+                <a href="../../工具链篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../语法篇/">
+            
+                <a href="../../语法篇/">
+            
+                    
+                    语法篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../语法篇/Python的数据模型/">
+            
+                <a href="../../语法篇/Python的数据模型/">
+            
+                    
+                    Python的数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../../语法篇/Python的数据模型/数据模型.html">
+            
+                <a href="../../语法篇/Python的数据模型/数据模型.html">
+            
+                    
+                    数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../../语法篇/Python的数据模型/变量引用与垃圾回收.html">
+            
+                <a href="../../语法篇/Python的数据模型/变量引用与垃圾回收.html">
+            
+                    
+                    变量引用与垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../../语法篇/Python的数据模型/结语.html">
+            
+                <a href="../../语法篇/Python的数据模型/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../语法篇/模块/">
+            
+                <a href="../../语法篇/模块/">
+            
+                    
+                    模块
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../../语法篇/模块/导入时与运行时.html">
+            
+                <a href="../../语法篇/模块/导入时与运行时.html">
+            
+                    
+                    导入时与运行时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../../语法篇/模块/模块的预设字段.html">
+            
+                <a href="../../语法篇/模块/模块的预设字段.html">
+            
+                    
+                    模块的预设字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../../语法篇/模块/模块的加载流程.html">
+            
+                <a href="../../语法篇/模块/模块的加载流程.html">
+            
+                    
+                    模块的加载流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../../语法篇/模块/模块加载特殊内容.html">
+            
+                <a href="../../语法篇/模块/模块加载特殊内容.html">
+            
+                    
+                    模块加载特殊内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../../语法篇/模块/结语.html">
+            
+                <a href="../../语法篇/模块/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../语法篇/文本与字节序/">
+            
+                <a href="../../语法篇/文本与字节序/">
+            
+                    
+                    文本与字节序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../../语法篇/文本与字节序/文本和编码.html">
+            
+                <a href="../../语法篇/文本与字节序/文本和编码.html">
+            
+                    
+                    文本和编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="../../语法篇/文本与字节序/字节序列与内存视图.html">
+            
+                <a href="../../语法篇/文本与字节序/字节序列与内存视图.html">
+            
+                    
+                    字节序列与内存视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="../../语法篇/文本与字节序/正则表达式.html">
+            
+                <a href="../../语法篇/文本与字节序/正则表达式.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="../../语法篇/文本与字节序/文件与IO流.html">
+            
+                <a href="../../语法篇/文本与字节序/文件与IO流.html">
+            
+                    
+                    文件与IO流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="../../语法篇/文本与字节序/序列化.html">
+            
+                <a href="../../语法篇/文本与字节序/序列化.html">
+            
+                    
+                    序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.6" data-path="../../语法篇/文本与字节序/结语.html">
+            
+                <a href="../../语法篇/文本与字节序/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../语法篇/流程控制/">
+            
+                <a href="../../语法篇/流程控制/">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../../语法篇/流程控制/单线程同步流程控制.html">
+            
+                <a href="../../语法篇/流程控制/单线程同步流程控制.html">
+            
+                    
+                    单线程同步流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../../语法篇/流程控制/阻塞异步与协程.html">
+            
+                <a href="../../语法篇/流程控制/阻塞异步与协程.html">
+            
+                    
+                    阻塞异步与协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" data-path="../../语法篇/流程控制/多线程与GIL.html">
+            
+                <a href="../../语法篇/流程控制/多线程与GIL.html">
+            
+                    
+                    多线程与GIL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.4" data-path="../../语法篇/流程控制/多进程.html">
+            
+                <a href="../../语法篇/流程控制/多进程.html">
+            
+                    
+                    多进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.5" data-path="../../语法篇/流程控制/并行编程的惯用法.html">
+            
+                <a href="../../语法篇/流程控制/并行编程的惯用法.html">
+            
+                    
+                    并行编程的惯用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.6" data-path="../../语法篇/流程控制/结语.html">
+            
+                <a href="../../语法篇/流程控制/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../../语法篇/异常和警告.html">
+            
+                <a href="../../语法篇/异常和警告.html">
+            
+                    
+                    异常和警告
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../../语法篇/内置容器/">
+            
+                <a href="../../语法篇/内置容器/">
+            
+                    
+                    内置容器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="../../语法篇/内置容器/序列对象.html">
+            
+                <a href="../../语法篇/内置容器/序列对象.html">
+            
+                    
+                    序列对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="../../语法篇/内置容器/映射对象.html">
+            
+                <a href="../../语法篇/内置容器/映射对象.html">
+            
+                    
+                    映射对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="../../语法篇/内置容器/可迭代对象与生成器.html">
+            
+                <a href="../../语法篇/内置容器/可迭代对象与生成器.html">
+            
+                    
+                    可迭代对象与生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="../../语法篇/内置容器/结语.html">
+            
+                <a href="../../语法篇/内置容器/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../../语法篇/函数/">
+            
+                <a href="../../语法篇/函数/">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="../../语法篇/函数/函数是一等对象.html">
+            
+                <a href="../../语法篇/函数/函数是一等对象.html">
+            
+                    
+                    函数是一等对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="../../语法篇/函数/变量作用域与闭包.html">
+            
+                <a href="../../语法篇/函数/变量作用域与闭包.html">
+            
+                    
+                    变量作用域与闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.3" data-path="../../语法篇/函数/结语.html">
+            
+                <a href="../../语法篇/函数/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../../语法篇/面向对象惯用法/">
+            
+                <a href="../../语法篇/面向对象惯用法/">
+            
+                    
+                    面向对象惯用法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.8.1" data-path="../../语法篇/面向对象惯用法/python中的对象.html">
+            
+                <a href="../../语法篇/面向对象惯用法/python中的对象.html">
+            
+                    
+                    python中的对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.2" data-path="../../语法篇/面向对象惯用法/协议与接口与抽象基类.html">
+            
+                <a href="../../语法篇/面向对象惯用法/协议与接口与抽象基类.html">
+            
+                    
+                    协议,接口与抽象基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.3" data-path="../../语法篇/面向对象惯用法/多重继承和Mixin.html">
+            
+                <a href="../../语法篇/面向对象惯用法/多重继承和Mixin.html">
+            
+                    
+                    多重继承和Mixin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.4" data-path="../../语法篇/面向对象惯用法/自定义序列Vector.html">
+            
+                <a href="../../语法篇/面向对象惯用法/自定义序列Vector.html">
+            
+                    
+                    自定义序列Vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.5" data-path="../../语法篇/面向对象惯用法/结语.html">
+            
+                <a href="../../语法篇/面向对象惯用法/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../../语法篇/元编程/">
+            
+                <a href="../../语法篇/元编程/">
+            
+                    
+                    元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.9.1" data-path="../../语法篇/元编程/运算符重载.html">
+            
+                <a href="../../语法篇/元编程/运算符重载.html">
+            
+                    
+                    运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.2" data-path="../../语法篇/元编程/特性与描述符.html">
+            
+                <a href="../../语法篇/元编程/特性与描述符.html">
+            
+                    
+                    特性与描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.3" data-path="../../语法篇/元编程/装饰器.html">
+            
+                <a href="../../语法篇/元编程/装饰器.html">
+            
+                    
+                    装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.4" data-path="../../语法篇/元编程/元类编程.html">
+            
+                <a href="../../语法篇/元编程/元类编程.html">
+            
+                    
+                    元类编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.5" data-path="../../语法篇/元编程/import_hook.html">
+            
+                <a href="../../语法篇/元编程/import_hook.html">
+            
+                    
+                    import_hook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.6" data-path="../../语法篇/元编程/动态编译.html">
+            
+                <a href="../../语法篇/元编程/动态编译.html">
+            
+                    
+                    动态编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.7" data-path="../../语法篇/元编程/动态属性.html">
+            
+                <a href="../../语法篇/元编程/动态属性.html">
+            
+                    
+                    动态属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.8" data-path="../../语法篇/元编程/猴子补丁和热更新.md">
+            
+                <span>
+            
+                    
+                    猴子补丁和热更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.9" data-path="../../语法篇/元编程/结语.html">
+            
+                <a href="../../语法篇/元编程/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../../语法篇/结语.html">
+            
+                <a href="../../语法篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    嵌入与扩展篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    使用Cython优化python程序的性能
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="Cython的简单介绍.html">
+            
+                <a href="Cython的简单介绍.html">
+            
+                    
+                    Cython的简单介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.1.2" data-path="Cython的基本模式.html">
+            
+                <a href="Cython的基本模式.html">
+            
+                    
+                    Cython的基本模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.3" data-path="静态化python模块.html">
+            
+                <a href="静态化python模块.html">
+            
+                    
+                    静态化python模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.4" data-path="使用cython申明文件申明python源码类型.html">
+            
+                <a href="使用cython申明文件申明python源码类型.html">
+            
+                    
+                    使用cython申明文件申明python源码类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.5" data-path="Cython的包装模式.html">
+            
+                <a href="Cython的包装模式.html">
+            
+                    
+                    Cython的包装模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.6" data-path="使用Cython扩展numpy.html">
+            
+                <a href="使用Cython扩展numpy.html">
+            
+                    
+                    使用Cython扩展numpy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../用numba为python写高性能C扩展.html">
+            
+                <a href="../用numba为python写高性能C扩展.html">
+            
+                    
+                    用numba为python写高性能C扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../使用f2py用fortain给python写扩展.html">
+            
+                <a href="../使用f2py用fortain给python写扩展.html">
+            
+                    
+                    使用f2py用fortain给python写扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../结语.md">
+            
+                <span>
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../基础应用篇/">
+            
+                <a href="../../基础应用篇/">
+            
+                    
+                    基础应用篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../基础应用篇/国际化/">
+            
+                <a href="../../基础应用篇/国际化/">
+            
+                    
+                    国际化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1" data-path="../../基础应用篇/国际化/字符编码判断.html">
+            
+                <a href="../../基础应用篇/国际化/字符编码判断.html">
+            
+                    
+                    字符编码判断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2" data-path="../../基础应用篇/国际化/国际化文本翻译.html">
+            
+                <a href="../../基础应用篇/国际化/国际化文本翻译.html">
+            
+                    
+                    国际化文本翻译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.3" data-path="../../基础应用篇/国际化/时间日期处理.html">
+            
+                <a href="../../基础应用篇/国际化/时间日期处理.html">
+            
+                    
+                    时间日期处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.4" data-path="../../基础应用篇/国际化/货币处理模块.html">
+            
+                <a href="../../基础应用篇/国际化/货币处理模块.html">
+            
+                    
+                    货币处理模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.5" data-path="../../基础应用篇/国际化/结语.html">
+            
+                <a href="../../基础应用篇/国际化/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../基础应用篇/数据压缩与归档/">
+            
+                <a href="../../基础应用篇/数据压缩与归档/">
+            
+                    
+                    数据压缩与归档
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../../基础应用篇/数据压缩与归档/数据压缩解压.html">
+            
+                <a href="../../基础应用篇/数据压缩与归档/数据压缩解压.html">
+            
+                    
+                    数据压缩解压
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.2" data-path="../../基础应用篇/数据压缩与归档/压缩归档.html">
+            
+                <a href="../../基础应用篇/数据压缩与归档/压缩归档.html">
+            
+                    
+                    压缩归档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.3" data-path="../../基础应用篇/数据压缩与归档/结语.html">
+            
+                <a href="../../基础应用篇/数据压缩与归档/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../基础应用篇/信息安全/">
+            
+                <a href="../../基础应用篇/信息安全/">
+            
+                    
+                    信息安全
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../../基础应用篇/信息安全/摘要算法.html">
+            
+                <a href="../../基础应用篇/信息安全/摘要算法.html">
+            
+                    
+                    摘要算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.2" data-path="../../基础应用篇/信息安全/数字签名.html">
+            
+                <a href="../../基础应用篇/信息安全/数字签名.html">
+            
+                    
+                    数字签名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.3" data-path="../../基础应用篇/信息安全/加密算法.html">
+            
+                <a href="../../基础应用篇/信息安全/加密算法.html">
+            
+                    
+                    加密算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.4" data-path="../../基础应用篇/信息安全/结语.html">
+            
+                <a href="../../基础应用篇/信息安全/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../人机交互篇/">
+            
+                <a href="../../人机交互篇/">
+            
+                    
+                    人机交互篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../人机交互篇/使用python编写命令行工具.html">
+            
+                <a href="../../人机交互篇/使用python编写命令行工具.html">
+            
+                    
+                    使用python编写命令行工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../../人机交互篇/自定义交互式界面.html">
+            
+                <a href="../../人机交互篇/自定义交互式界面.html">
+            
+                    
+                    自定义交互式界面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../../人机交互篇/GUI/">
+            
+                <a href="../../人机交互篇/GUI/">
+            
+                    
+                    GUI
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="../../人机交互篇/GUI/TK框架GUI编程的基本思路.html">
+            
+                <a href="../../人机交互篇/GUI/TK框架GUI编程的基本思路.html">
+            
+                    
+                    TK框架GUI编程的基本思路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="../../人机交互篇/GUI/Tkinter的组件介绍.html">
+            
+                <a href="../../人机交互篇/GUI/Tkinter的组件介绍.html">
+            
+                    
+                    Tkinter的组件介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.3" data-path="../../人机交互篇/GUI/结合pandas和matplotlib制作数据科学GUI工具/结合pandas和matplotlib制作数据科学GUI工具.html">
+            
+                <a href="../../人机交互篇/GUI/结合pandas和matplotlib制作数据科学GUI工具/结合pandas和matplotlib制作数据科学GUI工具.html">
+            
+                    
+                    结合pandas和matplotlib制作数据科学GUI工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../../人机交互篇/使用matplotlib做数据可视化/">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/">
+            
+                    
+                    使用matplotlib做数据可视化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.4.1" data-path="../../人机交互篇/使用matplotlib做数据可视化/matplotlib的基本设置/matplotlib的基本设置.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/matplotlib的基本设置/matplotlib的基本设置.html">
+            
+                    
+                    matplotlib的基本设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.2" data-path="../../人机交互篇/使用matplotlib做数据可视化/绘图工具pyplot/绘图工具pyplot.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/绘图工具pyplot/绘图工具pyplot.html">
+            
+                    
+                    绘图工具pyplot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.3" data-path="../../人机交互篇/使用matplotlib做数据可视化/非结构网络/非结构网络.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/非结构网络/非结构网络.html">
+            
+                    
+                    非结构网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.4" data-path="../../人机交互篇/使用matplotlib做数据可视化/桑基图/桑基图.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/桑基图/桑基图.html">
+            
+                    
+                    桑基图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.5" data-path="../../人机交互篇/使用matplotlib做数据可视化/图片加载/图片加载.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/图片加载/图片加载.html">
+            
+                    
+                    图片加载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.6" data-path="../../人机交互篇/使用matplotlib做数据可视化/保存图片/保存图片.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/保存图片/保存图片.html">
+            
+                    
+                    保存图片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.7" data-path="../../人机交互篇/使用matplotlib做数据可视化/控件.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/控件.html">
+            
+                    
+                    控件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.8" data-path="../../人机交互篇/使用matplotlib做数据可视化/动画/动画.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/动画/动画.html">
+            
+                    
+                    动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.9" data-path="../../人机交互篇/使用matplotlib做数据可视化/matplitlib结合web技术.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/matplitlib结合web技术.html">
+            
+                    
+                    matplitlib结合web技术
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.10" data-path="../../人机交互篇/使用matplotlib做数据可视化/结语.html">
+            
+                <a href="../../人机交互篇/使用matplotlib做数据可视化/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../../人机交互篇/结语.html">
+            
+                <a href="../../人机交互篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../数学与统计应用篇/">
+            
+                <a href="../../数学与统计应用篇/">
+            
+                    
+                    数学与统计应用篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../../数学与统计应用篇/使用标准库处理基本数学问题/使用标准库处理基本数学问题.html">
+            
+                <a href="../../数学与统计应用篇/使用标准库处理基本数学问题/使用标准库处理基本数学问题.html">
+            
+                    
+                    使用标准库处理基本数学问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../../数学与统计应用篇/numpy的高性能同构定长多维数组ndarray/numpy的高性能同构定长多维数组ndarray.html">
+            
+                <a href="../../数学与统计应用篇/numpy的高性能同构定长多维数组ndarray/numpy的高性能同构定长多维数组ndarray.html">
+            
+                    
+                    numpy的高性能同构定长多维数组ndarray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../../数学与统计应用篇/使用numpy做科学计算/使用numpy做科学计算.html">
+            
+                <a href="../../数学与统计应用篇/使用numpy做科学计算/使用numpy做科学计算.html">
+            
+                    
+                    使用numpy做科学计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../../数学与统计应用篇/结语.html">
+            
+                <a href="../../数学与统计应用篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../接口服务篇/">
+            
+                <a href="../../接口服务篇/">
+            
+                    
+                    接口服务篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../../接口服务篇/GRpc接口服务.html">
+            
+                <a href="../../接口服务篇/GRpc接口服务.html">
+            
+                    
+                    GRpc接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../术语表.html">
+            
+                <a href="../../术语表.html">
+            
+                    
+                    术语表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Cython的基本模式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;pyx&#x6539;&#x5199;python&#x7A0B;&#x5E8F;"><b>1. </b>&#x4F7F;&#x7528;.pyx&#x6539;&#x5199;python&#x7A0B;&#x5E8F;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#cython&#x8BED;&#x6CD5;"><b>2. </b>Cython&#x8BED;&#x6CD5;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x9759;&#x6001;&#x5316;&#x53C2;&#x6570;"><b>2.1. </b>&#x9759;&#x6001;&#x5316;&#x53C2;&#x6570;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5728;python&#x51FD;&#x6570;&#x4E2D;&#x4F7F;&#x7528;c&#x8BED;&#x8A00;&#x7684;&#x7C7B;&#x578B;&#x6307;&#x660E;&#x7FFB;&#x8BD1;&#x4E3A;c&#x8BED;&#x8A00;&#x540E;&#x7684;&#x53C2;&#x6570;&#x7C7B;&#x578B;"><b>2.1.1. </b>&#x5728;python&#x51FD;&#x6570;&#x4E2D;&#x4F7F;&#x7528;c&#x8BED;&#x8A00;&#x7684;&#x7C7B;&#x578B;&#x6307;&#x660E;&#x7FFB;&#x8BD1;&#x4E3A;C&#x8BED;&#x8A00;&#x540E;&#x7684;&#x53C2;&#x6570;&#x7C7B;&#x578B;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#c&#x7EA7;&#x522B;&#x7533;&#x660E;"><b>2.2. </b>C&#x7EA7;&#x522B;&#x7533;&#x660E;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#cdef&#x8BED;&#x53E5;&#x7528;&#x4E8E;&#x521B;&#x5EFA;c&#x7EA7;&#x58F0;&#x660E;"><b>2.2.1. </b>cdef&#x8BED;&#x53E5;&#x7528;&#x4E8E;&#x521B;&#x5EFA;C&#x7EA7;&#x58F0;&#x660E;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7C7B;&#x578B;&#x8F6C;&#x6362;"><b>2.3. </b>&#x7C7B;&#x578B;&#x8F6C;&#x6362;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7C7B;&#x578B;&#x68C0;&#x6D4B;"><b>2.3.1. </b>&#x7C7B;&#x578B;&#x68C0;&#x6D4B;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5B57;&#x7B26;&#x4E32;"><b>2.4. </b>&#x5B57;&#x7B26;&#x4E32;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x51FD;&#x6570;&#x65B9;&#x6CD5;&#x7533;&#x660E;"><b>2.5. </b>&#x51FD;&#x6570;,&#x65B9;&#x6CD5;&#x7533;&#x660E;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#python&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;def"><b>2.5.1. </b>Python&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;(def)</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#c&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;-cdef"><b>2.5.2. </b>C&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61; (cdef)</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#python&#x548C;c&#x7684;&#x53EF;&#x8C03;&#x7528;cpdef"><b>2.5.3. </b>Python&#x548C;C&#x7684;&#x53EF;&#x8C03;&#x7528;(cpdef)</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#cython&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;"><b>2.5.4. </b>cython&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7C7B;&#x7533;&#x660E;&#x6269;&#x5C55;&#x7C7B;&#x578B;"><b>2.6. </b>&#x7C7B;&#x7533;&#x660E;(&#x6269;&#x5C55;&#x7C7B;&#x578B;)</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5C5E;&#x6027;"><b>2.6.1. </b>&#x5C5E;&#x6027;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7279;&#x6027;"><b>2.6.2. </b>&#x7279;&#x6027;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x65B9;&#x6CD5;"><b>2.6.3. </b>&#x65B9;&#x6CD5;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x65B9;&#x6CD5;&#x91CD;&#x8F7D;"><b>2.6.4. </b>&#x65B9;&#x6CD5;&#x91CD;&#x8F7D;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7EE7;&#x627F;"><b>2.7. </b>&#x7EE7;&#x627F;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x6269;&#x5C55;&#x7C7B;&#x578B;&#x5FEB;&#x901F;&#x5B9E;&#x4F8B;&#x5316;"><b>2.8. </b>&#x6269;&#x5C55;&#x7C7B;&#x578B;&#x5FEB;&#x901F;&#x5B9E;&#x4F8B;&#x5316;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7279;&#x6B8A;&#x65B9;&#x6CD5;"><b>2.9. </b>&#x7279;&#x6B8A;&#x65B9;&#x6CD5;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF1A;cinit-&#x548C;init"><b>2.9.1. </b>&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF1A;__cinit__() &#x548C;__init__()</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x6790;&#x6784;&#x65B9;&#x6CD5;&#xFF1A;dealloc"><b>2.10. </b>&#x6790;&#x6784;&#x65B9;&#x6CD5;&#xFF1A;__dealloc__()</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x903B;&#x8F91;&#x8FD0;&#x7B97;&#x65B9;&#x6CD5;"><b>2.11. </b>&#x903B;&#x8F91;&#x8FD0;&#x7B97;&#x65B9;&#x6CD5;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x8FD0;&#x7B97;&#x6BD4;&#x8F83;&#x64CD;&#x4F5C;"><b>2.12. </b>&#x8FD0;&#x7B97;&#x6BD4;&#x8F83;&#x64CD;&#x4F5C;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x9519;&#x8BEF;&#x5904;&#x7406;"><b>2.13. </b>&#x9519;&#x8BEF;&#x5904;&#x7406;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x6A21;&#x5757;&#x5BFC;&#x5165;"><b>2.14. </b>&#x6A21;&#x5757;&#x5BFC;&#x5165;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;c&#x7684;stl&#x548C;c&#x6807;&#x51C6;&#x5E93;"><b>2.14.1. </b>&#x4F7F;&#x7528;C++&#x7684;stl&#x548C;C&#x6807;&#x51C6;&#x5E93;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#cython&#x4E2D;&#x7684;array"><b>2.15. </b>Cython&#x4E2D;&#x7684;array</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x7684;&#x5B89;&#x5168;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;"><b>2.15.1. </b>&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x7684;&#x5B89;&#x5168;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x96F6;&#x5F00;&#x9500;&#xFF0C;&#x4E0D;&#x5B89;&#x5168;&#x8BBF;&#x95EE;&#x539F;&#x59CB;c&#x6307;&#x9488;"><b>2.15.2. </b>&#x96F6;&#x5F00;&#x9500;&#xFF0C;&#x4E0D;&#x5B89;&#x5168;&#x8BBF;&#x95EE;&#x539F;&#x59CB;C&#x6307;&#x9488;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x514B;&#x9686;&#xFF0C;&#x6269;&#x5C55;&#x6570;&#x7EC4;"><b>2.15.3. </b>&#x514B;&#x9686;&#xFF0C;&#x6269;&#x5C55;&#x6570;&#x7EC4;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x76F8;&#x5173;&#x63A5;&#x53E3;"><b>2.15.4. </b>&#x76F8;&#x5173;&#x63A5;&#x53E3;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#memoryviews&#x5185;&#x5B58;&#x89C6;&#x56FE;"><b>2.16. </b>Memoryviews&#x5185;&#x5B58;&#x89C6;&#x56FE;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x57FA;&#x672C;&#x8BED;&#x6CD5;"><b>2.16.1. </b>&#x57FA;&#x672C;&#x8BED;&#x6CD5;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x7D22;&#x5F15;"><b>2.16.2. </b>&#x7D22;&#x5F15;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x590D;&#x5236;"><b>2.16.3. </b>&#x590D;&#x5236;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x8F6C;&#x7F6E;"><b>2.16.4. </b>&#x8F6C;&#x7F6E;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x4E0E;&#x6570;&#x7EC4;"><b>2.17. </b>&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x4E0E;&#x6570;&#x7EC4;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5185;&#x5B58;&#x63A7;&#x5236;"><b>2.18. </b>&#x5185;&#x5B58;&#x63A7;&#x5236;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x53BB;&#x9664;gil&#x9650;&#x5236;"><b>2.19. </b>&#x53BB;&#x9664;gil&#x9650;&#x5236;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x91CA;&#x653E;gil"><b>2.19.1. </b>&#x91CA;&#x653E;GIL</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x83B7;&#x5F97;gil"><b>2.19.2. </b>&#x83B7;&#x5F97;GIL</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x53EF;&#x8C03;&#x7528;&#x7684;&#x4E0D;&#x53D7;gil&#x9650;&#x5236;&#x7684;&#x7684;&#x51FD;&#x6570;"><b>2.19.3. </b>&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x53EF;&#x8C03;&#x7528;&#x7684;&#x4E0D;&#x53D7;gil&#x9650;&#x5236;&#x7684;&#x7684;&#x51FD;&#x6570;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5E76;&#x884C;&#x7F16;&#x7A0B;&#x4F7F;&#x7528;openmp"><b>2.20. </b>&#x5E76;&#x884C;&#x7F16;&#x7A0B;(&#x4F7F;&#x7528;openmp)</a></li></ul></ul></div><a href="#&#x4F7F;&#x7528;pyx&#x6539;&#x5199;python&#x7A0B;&#x5E8F;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x4F7F;&#x7528;pyx&#x6539;&#x5199;python&#x7A0B;&#x5E8F;"><a name="&#x4F7F;&#x7528;pyx&#x6539;&#x5199;python&#x7A0B;&#x5E8F;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;pyx&#x6539;&#x5199;python&#x7A0B;&#x5E8F;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x4F7F;&#x7528;.pyx&#x6539;&#x5199;python&#x7A0B;&#x5E8F;</h1>
+<p>&#x5728;&#x7EAF;&#x51C0;&#x6A21;&#x5F0F;&#x4E2D;,&#x6211;&#x7684;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x624B;&#x6BB5;&#x5F88;&#x6709;&#x9650;:</p>
+<ol>
+<li>&#x53EA;&#x80FD;&#x76F4;&#x63A5;&#x4F7F;&#x7528;python&#x6A21;&#x5757;&#x548C;&#x5BF9;&#x8C61;</li>
+<li>&#x65E0;&#x6CD5;&#x4F7F;&#x7528;c++&#x7684;&#x5BB9;&#x5668;&#x548C;&#x7B97;&#x6CD5;</li>
+<li>&#x65E0;&#x6CD5;&#x4F7F;&#x7528;cimport</li>
+</ol>
+<pre><code class="lang-python">%load_ext Cython
+</code></pre>
+<pre><code class="lang-cython">%%cython
+# distutils: language=c++
+
+from libcpp.vector cimport vector
+from libcpp.string cimport string
+#from libc.stdio cimport printf
+
+cpdef print_vect(string content):
+    cdef vector[int] vect
+    cdef int i
+    for i in range(10):
+        vect.push_back(i)
+    for i in vect:
+        #printf(&quot;%d&quot;,vect[i])
+        print(vect[i])
+    for i in content:
+        #printf(&quot;%d&quot;,vect[i])
+        print(i)
+</code></pre>
+<pre><code class="lang-python">print_vect(<span class="hljs-string">&quot;&#x9ED1;&#x9F99;&#x6C5F;&quot;</span>.encode())
+</code></pre>
+<pre><code>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+-23
+-69
+-111
+-23
+-66
+-103
+-26
+-79
+-97
+</code></pre><h1 id="cython&#x8BED;&#x6CD5;"><a name="cython&#x8BED;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#cython&#x8BED;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2. Cython&#x8BED;&#x6CD5;</h1>
+<p>Cython&#x662F;python&#x7684;&#x8D85;&#x96C6;,&#x6240;&#x4EE5;python&#x89E3;&#x91CA;&#x5668;&#x65E0;&#x6CD5;&#x89E3;&#x91CA;cython&#x4EE3;&#x7801;,&#x5FC5;&#x987B;&#x7F16;&#x8BD1;&#x624D;&#x53EF;&#x4EE5;.</p>
+<h2 id="&#x9759;&#x6001;&#x5316;&#x53C2;&#x6570;"><a name="&#x9759;&#x6001;&#x5316;&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x9759;&#x6001;&#x5316;&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. &#x9759;&#x6001;&#x5316;&#x53C2;&#x6570;</h2>
+<p>Cython&#x662F;&#x4E00;&#x4E2A;Python&#x7F16;&#x8BD1;&#x5668;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5B83;&#x53EF;&#x4EE5;&#x7F16;&#x8BD1;&#x666E;&#x901A;&#x7684;Python&#x4EE3;&#x7801;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x6709;&#x4EFB;&#x4F55;&#x6539;&#x53D8;&#xFF08;&#x9664;&#x4E86;&#x4E00;&#x4E9B;&#x5C1A;&#x672A;&#x652F;&#x6301;&#x7684;&#x8BED;&#x8A00;&#x529F;&#x80FD;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x660E;&#x663E;&#x7684;&#x4F8B;&#x5916;&#xFF09;.&#x7136;&#x800C;&#xFF0C;&#x5BF9;&#x4E8E;&#x6027;&#x80FD;&#x5173;&#x952E;&#x4EE3;&#x7801;&#xFF0C;&#x6DFB;&#x52A0;&#x9759;&#x6001;&#x7C7B;&#x578B;&#x58F0;&#x660E;&#x901A;&#x5E38;&#x662F;&#x6709;&#x5E2E;&#x52A9;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x5C06;&#x5141;&#x8BB8;Cython&#x9000;&#x51FA;Python&#x4EE3;&#x7801;&#x7684;&#x52A8;&#x6001;&#x7279;&#x6027;&#xFF0C;&#x5E76;&#x751F;&#x6210;&#x66F4;&#x7B80;&#x5355;&#x66F4;&#x5FEB;&#x7684;C&#x4EE3;&#x7801;.&#x4F46;&#x662F;&#xFF0C;&#x5FC5;&#x987B;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x7C7B;&#x578B;&#x58F0;&#x660E;&#x4F1A;&#x4F7F;&#x6E90;&#x4EE3;&#x7801;&#x66F4;&#x52A0;&#x5197;&#x957F;&#xFF0C;&#x56E0;&#x800C;&#x53EF;&#x8BFB;&#x6027;&#x66F4;&#x4F4E;.&#x56E0;&#x6B64;&#xFF0C;&#x4E0D;&#x8981;&#x5728;&#x6CA1;&#x6709;&#x6B63;&#x5F53;&#x7406;&#x7531;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#xFF0C;&#x4F8B;&#x5982;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x8BC1;&#x660E;&#x4ED6;&#x4EEC;&#x5728;&#x6027;&#x80FD;&#x5173;&#x952E;&#x90E8;&#x5206;&#x771F;&#x6B63;&#x4F7F;&#x4EE3;&#x7801;&#x66F4;&#x5FEB;&#x901F;&#x5730;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#x662F;&#x4E0D;&#x9F13;&#x52B1;&#x7684;.&#x901A;&#x5E38;&#x5728;&#x6B63;&#x786E;&#x7684;&#x5730;&#x65B9;&#x6709;&#x51E0;&#x79CD;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x8D70;&#x5F88;&#x957F;&#x7684;&#x8DEF;.&#x6240;&#x6709;C&#x7C7B;&#x578B;&#x90FD;&#x53EF;&#x7528;&#x4E8E;&#x7C7B;&#x578B;&#x58F0;&#x660E;:&#x6574;&#x6570;&#x548C;&#x6D6E;&#x70B9;&#x7C7B;&#x578B;&#xFF0C;&#x590D;&#x6570;&#xFF0C;&#x7ED3;&#x6784;&#x4F53;&#xFF0C;&#x8054;&#x5408;&#x548C;&#x6307;&#x9488;&#x7C7B;&#x578B;. Cython&#x53EF;&#x4EE5;&#x5728;&#x5206;&#x914D;&#x7C7B;&#x578B;&#x4E4B;&#x95F4;&#x81EA;&#x52A8;&#x6B63;&#x786E;&#x5730;&#x8FDB;&#x884C;&#x8F6C;&#x6362;.&#x8FD9;&#x4E5F;&#x5305;&#x62EC;Python&#x7684;&#x4EFB;&#x610F;&#x5927;&#x5C0F;&#x7684;&#x6574;&#x6570;&#x7C7B;&#x578B;&#xFF0C;&#x5176;&#x4E2D;&#x8F6C;&#x6362;&#x4E3A;C&#x7C7B;&#x578B;&#x7684;&#x503C;&#x6EA2;&#x51FA;&#x4F1A;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x5F15;&#x53D1;Python <code>OverflowError</code>.(&#x4F46;&#x662F;&#xFF0C;&#x5728;&#x8FDB;&#x884C;&#x7B97;&#x672F;&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6EA2;&#x51FA;).&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x751F;&#x6210;&#x7684;C&#x4EE3;&#x7801;&#x5C06;&#x6B63;&#x786E;&#x5B89;&#x5168;&#x5730;&#x5904;&#x7406;C&#x7C7B;&#x578B;&#x7684;&#x4F9D;&#x8D56;&#x4E8E;&#x5E73;&#x53F0;&#x7684;&#x5927;&#x5C0F;.</p>
+<h3 id="&#x5728;python&#x51FD;&#x6570;&#x4E2D;&#x4F7F;&#x7528;c&#x8BED;&#x8A00;&#x7684;&#x7C7B;&#x578B;&#x6307;&#x660E;&#x7FFB;&#x8BD1;&#x4E3A;c&#x8BED;&#x8A00;&#x540E;&#x7684;&#x53C2;&#x6570;&#x7C7B;&#x578B;"><a name="&#x5728;python&#x51FD;&#x6570;&#x4E2D;&#x4F7F;&#x7528;c&#x8BED;&#x8A00;&#x7684;&#x7C7B;&#x578B;&#x6307;&#x660E;&#x7FFB;&#x8BD1;&#x4E3A;c&#x8BED;&#x8A00;&#x540E;&#x7684;&#x53C2;&#x6570;&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x5728;python&#x51FD;&#x6570;&#x4E2D;&#x4F7F;&#x7528;c&#x8BED;&#x8A00;&#x7684;&#x7C7B;&#x578B;&#x6307;&#x660E;&#x7FFB;&#x8BD1;&#x4E3A;c&#x8BED;&#x8A00;&#x540E;&#x7684;&#x53C2;&#x6570;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1.1. &#x5728;python&#x51FD;&#x6570;&#x4E2D;&#x4F7F;&#x7528;c&#x8BED;&#x8A00;&#x7684;&#x7C7B;&#x578B;&#x6307;&#x660E;&#x7FFB;&#x8BD1;&#x4E3A;C&#x8BED;&#x8A00;&#x540E;&#x7684;&#x53C2;&#x6570;&#x7C7B;&#x578B;</h3>
+<p>&#x7531;&#x4E8E;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#x88AB;&#x4F20;&#x9012;&#x5230;Python&#x58F0;&#x660E;&#x7684;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x5B83;&#x4EEC;&#x4F1A;&#x8F6C;&#x6362;&#x4E3A;&#x6307;&#x5B9A;&#x7684;C&#x7C7B;&#x578B;&#x503C;.&#x4F46;&#x8FD9;&#x53EA;&#x9002;&#x7528;&#x4E8E;&#x6570;&#x5B57;&#x548C;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;</p>
+<pre><code class="lang-cython">%%cython
+
+def f(double x):
+    return x**2-x
+
+def integrate_f(double a, double b, int N):
+    cdef int i
+    cdef double s, dx
+    s = 0
+    dx = (b-a)/N
+    for i in range(N):
+        s += f(a+i*dx)
+    return s * dx
+</code></pre>
+<pre><code class="lang-python">f(<span class="hljs-number">1.2</span>)
+</code></pre>
+<pre><code>0.24
+</code></pre><h2 id="c&#x7EA7;&#x522B;&#x7533;&#x660E;"><a name="c&#x7EA7;&#x522B;&#x7533;&#x660E;" class="anchor-navigation-ex-anchor" href="#c&#x7EA7;&#x522B;&#x7533;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2. C&#x7EA7;&#x522B;&#x7533;&#x660E;</h2>
+<p>&#x4F5C;&#x4E3A;&#x4E00;&#x79CD;&#x52A8;&#x6001;&#x8BED;&#x8A00;&#xFF0C;Python&#x9F13;&#x52B1;&#x4E86;&#x4E00;&#x79CD;&#x6839;&#x636E;&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;&#x8003;&#x8651;&#x7C7B;&#x548C;&#x5BF9;&#x8C61;&#x7684;&#x7F16;&#x7A0B;&#x98CE;&#x683C;&#xFF0C;&#x800C;&#x4E0D;&#x4EC5;&#x4EC5;&#x5C40;&#x9650;&#x4E8E;&#x7C7B;&#x5C42;&#x6B21;&#x7ED3;&#x6784;&#x4E2D;.&#x8FD9;&#x53EF;&#x4EE5;&#x4F7F;Python&#x6210;&#x4E3A;&#x4E00;&#x79CD;&#x975E;&#x5E38;&#x8F7B;&#x677E;&#x548C;&#x8212;&#x9002;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x7528;&#x4E8E;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#xFF0C;&#x4F46;&#x6709;&#x4E00;&#x4E2A;&#x4EE3;&#x4EF7; -- &#x7BA1;&#x7406;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&quot;&#x7E41;&#x6587;&#x7F1B;&#x8282;&quot;&#x88AB;&#x8F6C;&#x50A8;&#x5230;&#x7FFB;&#x8BD1;&#x5668;&#x4E0A;.&#x5728;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x89E3;&#x91CA;&#x5668;&#x5728;&#x641C;&#x7D22;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF0C;&#x83B7;&#x53D6;&#x5C5E;&#x6027;&#x548C;&#x89E3;&#x6790;&#x53C2;&#x6570;&#x548C;&#x5173;&#x952E;&#x5B57;&#x5143;&#x7EC4;&#x65B9;&#x9762;&#x505A;&#x4E86;&#x5927;&#x91CF;&#x5DE5;&#x4F5C;&#x3002;&#x4E0E;&quot;&#x65E9;&#x671F;&#x7ED1;&#x5B9A;&quot;&#x8BED;&#x8A00;&#xFF08;&#x5982;C++&#xFF09;&#x76F8;&#x6BD4;&#xFF0C;&#x8FD9;&#x79CD;&#x8FD0;&#x884C;&#x65F6;&quot;&#x540E;&#x671F;&#x7ED1;&#x5B9A;&quot;&#x662F;Python&#x76F8;&#x5BF9;&#x8F83;&#x6162;&#x7684;&#x4E3B;&#x8981;&#x539F;&#x56E0;.&#x7136;&#x800C;&#x4F7F;&#x7528;Cython&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F7F;&#x7528;&quot;&#x65E9;&#x671F;&#x7ED1;&#x5B9A;&quot;&#x7F16;&#x7A0B;&#x6280;&#x672F;&#x83B7;&#x5F97;&#x663E;&#x7740;&#x7684;&#x52A0;&#x901F;.</p>
+<h3 id="cdef&#x8BED;&#x53E5;&#x7528;&#x4E8E;&#x521B;&#x5EFA;c&#x7EA7;&#x58F0;&#x660E;"><a name="cdef&#x8BED;&#x53E5;&#x7528;&#x4E8E;&#x521B;&#x5EFA;c&#x7EA7;&#x58F0;&#x660E;" class="anchor-navigation-ex-anchor" href="#cdef&#x8BED;&#x53E5;&#x7528;&#x4E8E;&#x521B;&#x5EFA;c&#x7EA7;&#x58F0;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2.1. cdef&#x8BED;&#x53E5;&#x7528;&#x4E8E;&#x521B;&#x5EFA;C&#x7EA7;&#x58F0;&#x660E;</h3>
+<ul>
+<li>&#x7533;&#x660E;&#x53D8;&#x91CF;</li>
+</ul>
+<pre><code class="lang-cython">cdef int i, j, k
+cdef float f, g[42], *h
+</code></pre>
+<ul>
+<li>&#x7533;&#x660E;&#x7ED3;&#x6784;&#x4F53;</li>
+</ul>
+<pre><code class="lang-cython">cdef struct Grail:
+    int age
+    float volume
+</code></pre>
+<ul>
+<li>&#x7533;&#x660E;&#x8054;&#x5408;&#x4F53;</li>
+</ul>
+<pre><code class="lang-cython">cdef union Food:
+    char *spam
+    float *eggs
+</code></pre>
+<ul>
+<li>&#x7533;&#x660E;&#x679A;&#x4E3E;</li>
+</ul>
+<pre><code class="lang-cython">cdef enum CheeseType:
+    cheddar, edam,
+    camembert
+</code></pre>
+<ul>
+<li>&#x7533;&#x660E;&#x51FD;&#x6570;</li>
+</ul>
+<pre><code class="lang-cython">cdef int eggs(unsigned long l, float f):
+</code></pre>
+<p><code>cdef</code>&#x5173;&#x952E;&#x5B57;&#x6307;&#x5B9A;&#x65E9;&#x671F;&#x7ED1;&#x5B9A;,&#x9ED8;&#x8BA4;&#x662F;&#x79C1;&#x6709;&#x7684;,&#x53EA;&#x6709;&#x5728;&#x7533;&#x660E;&#x65F6;&#x6307;&#x5B9A;public&#x624D;&#x4F1A;&#x66B4;&#x9732;</p>
+<h2 id="&#x7C7B;&#x578B;&#x8F6C;&#x6362;"><a name="&#x7C7B;&#x578B;&#x8F6C;&#x6362;" class="anchor-navigation-ex-anchor" href="#&#x7C7B;&#x578B;&#x8F6C;&#x6362;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3. &#x7C7B;&#x578B;&#x8F6C;&#x6362;</h2>
+<p>&#x5728;cython&#x4E2D;&#x4F7F;&#x7528;<code>&lt;xxx&gt;yyy</code>&#x64CD;&#x4F5C;&#x7B26;&#x6765;&#x8FDB;&#x884C;&#x7C7B;&#x578B;&#x8F6C;&#x6362;,&#x5176;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x4E0E;C&#x4E2D;&#x7C7B;&#x4F3C;.</p>
+<pre><code class="lang-cython">cdef char *p, float *q
+p = &lt;char*&gt;q
+</code></pre>
+<p>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;cython&#x4E2D;python&#x7684;<code>bool</code>&#x7C7B;&#x578B;&#x4F1A;&#x8F6C;&#x5316;&#x4E3A;<code>bint</code>,&#x800C;python&#x4E2D;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x5219;&#x5BF9;&#x5E94;&#x7684;<code>object</code></p>
+<h3 id="&#x7C7B;&#x578B;&#x68C0;&#x6D4B;"><a name="&#x7C7B;&#x578B;&#x68C0;&#x6D4B;" class="anchor-navigation-ex-anchor" href="#&#x7C7B;&#x578B;&#x68C0;&#x6D4B;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3.1. &#x7C7B;&#x578B;&#x68C0;&#x6D4B;</h3>
+<p>&#x548C;C&#x4E2D;&#x7C7B;&#x4F3C;,&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x65F6;&#x4F7F;&#x7528;<code>&lt;xxx?&gt;yyy</code>&#x4F1A;&#x5148;&#x8FDB;&#x884C;&#x68C0;&#x6D4B;</p>
+<h2 id="&#x5B57;&#x7B26;&#x4E32;"><a name="&#x5B57;&#x7B26;&#x4E32;" class="anchor-navigation-ex-anchor" href="#&#x5B57;&#x7B26;&#x4E32;"><i class="fa fa-link" aria-hidden="true"></i></a>2.4. &#x5B57;&#x7B26;&#x4E32;</h2>
+<p>C&#x7EA7;&#x522B;&#x65E0;&#x8BBA;&#x662F;&#x5B57;&#x7B26;&#x6570;&#x7EC4;&#x8FD8;&#x662F;c++&#x7684;string,&#x90FD;&#x53EA;&#x63A5;&#x6536;python&#x7684;bytes&#x4F5C;&#x4E3A;&#x8F6C;&#x6362;&#x6765;&#x6E90;.&#x8FD4;&#x56DE;&#x7684;&#x4E5F;&#x53EA;&#x4F1A;&#x8F6C;&#x6362;&#x4E3A;bytes.&#x56E0;&#x6B64;&#x9700;&#x8981;&#x6CE8;&#x610F;.</p>
+<h2 id="&#x51FD;&#x6570;&#x65B9;&#x6CD5;&#x7533;&#x660E;"><a name="&#x51FD;&#x6570;&#x65B9;&#x6CD5;&#x7533;&#x660E;" class="anchor-navigation-ex-anchor" href="#&#x51FD;&#x6570;&#x65B9;&#x6CD5;&#x7533;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>2.5. &#x51FD;&#x6570;,&#x65B9;&#x6CD5;&#x7533;&#x660E;</h2>
+<p>Cython&#x4E2D;&#x6709;&#x4E09;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x51FD;&#x6570;&#x58F0;&#x660E;.</p>
+<h3 id="python&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;def"><a name="python&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;def" class="anchor-navigation-ex-anchor" href="#python&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;def"><i class="fa fa-link" aria-hidden="true"></i></a>2.5.1. Python&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;(def)</h3>
+<p>&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x51FD;&#x6570;&#x7279;&#x70B9;:</p>
+<ul>
+<li>&#x4F7F;&#x7528;<code>def</code>&#x7533;&#x660E;</li>
+<li>&#x53EF;&#x4EE5;&#x88AB;Python&#x89E3;&#x91CA;&#x5668;&#x8C03;&#x7528;</li>
+<li>&#x53EF;&#x4EE5;&#x88AB;Python&#x5BF9;&#x8C61;&#x8C03;&#x7528;</li>
+<li>&#x8FD4;&#x56DE;Python&#x5BF9;&#x8C61;</li>
+<li>&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x9759;&#x6001;&#x5316;</li>
+</ul>
+<h3 id="c&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;-cdef"><a name="c&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;-cdef" class="anchor-navigation-ex-anchor" href="#c&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61;-cdef"><i class="fa fa-link" aria-hidden="true"></i></a>2.5.2. C&#x7684;&#x53EF;&#x8C03;&#x7528;&#x5BF9;&#x8C61; (cdef)</h3>
+<p>&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x51FD;&#x6570;&#x7279;&#x70B9;:</p>
+<ul>
+<li>&#x7528;<code>cdef</code>&#x8BED;&#x53E5;&#x58F0;&#x660E;</li>
+<li>&#x65E0;&#x6CD5;&#x5728;python&#x89E3;&#x91CA;&#x5668;&#x4E2D;&#x8BBF;&#x95EE;</li>
+<li>&#x53EF;&#x4EE5;&#x88AB;Python&#x5BF9;&#x8C61;&#x6216;C&#x503C;&#x8C03;&#x7528;</li>
+<li>&#x5185;&#x90E8;&#x53D8;&#x91CF;&#x5FC5;&#x987B;&#x7533;&#x660E;</li>
+<li>&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;Python&#x5BF9;&#x8C61;&#x6216;C&#x503C;</li>
+</ul>
+<h3 id="python&#x548C;c&#x7684;&#x53EF;&#x8C03;&#x7528;cpdef"><a name="python&#x548C;c&#x7684;&#x53EF;&#x8C03;&#x7528;cpdef" class="anchor-navigation-ex-anchor" href="#python&#x548C;c&#x7684;&#x53EF;&#x8C03;&#x7528;cpdef"><i class="fa fa-link" aria-hidden="true"></i></a>2.5.3. Python&#x548C;C&#x7684;&#x53EF;&#x8C03;&#x7528;(cpdef)</h3>
+<p>&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x51FD;&#x6570;&#x7279;&#x70B9;:</p>
+<ul>
+<li>&#x7528;cpdef&#x8BED;&#x53E5;&#x58F0;&#x660E;.</li>
+<li>&#x53EF;&#x4EE5;&#x4ECE;&#x4EFB;&#x4F55;&#x5730;&#x65B9;&#x8C03;&#x7528;</li>
+<li>&#x5F53;&#x4ECE;&#x5176;&#x4ED6;Cython&#x4EE3;&#x7801;&#x8C03;&#x7528;&#x65F6;,&#x4F7F;&#x7528;&#x66F4;&#x5FEB;&#x7684;C&#x8C03;&#x7528;&#x7EA6;&#x5B9A;</li>
+</ul>
+<h3 id="cython&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;"><a name="cython&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#cython&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>2.5.4. cython&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;</h3>
+<p>Cython&#x5C06;&#x5BF9;&#x5927;&#x591A;&#x6570;&#x5185;&#x7F6E;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x7F16;&#x8BD1;&#x4E3A;&#x5BF9;&#x76F8;&#x5E94;&#x7684;Python / C API&#x4F8B;&#x7A0B;&#x7684;&#x76F4;&#x63A5;&#x8C03;&#x7528;,&#x4F7F;&#x5B83;&#x4EEC;&#x7279;&#x522B;&#x5FEB;&#x3002;
+&#x53EA;&#x6709;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x540D;&#x79F0;&#x7684;&#x76F4;&#x63A5;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x5DF2;&#x4F18;&#x5316;.&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x540D;&#x79F0;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5047;&#x8BBE;&#x5B83;&#x662F;&#x4E00;&#x4E2A;Python&#x5BF9;&#x8C61;&#xFF0C;&#x4F8B;&#x5982;&#x5C06;&#x5B83;&#x5206;&#x914D;&#x7ED9;&#x4E00;&#x4E2A;Python&#x53D8;&#x91CF;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;&#x5B83;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x8C03;&#x7528;&#x5C06;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;Python&#x51FD;&#x6570;&#x8C03;&#x7528;.</p>
+<table>
+<thead>
+<tr>
+<th>&#x5185;&#x7F6E;&#x51FD;&#x6570;</th>
+<th>&#x8FD4;&#x56DE;&#x7C7B;&#x578B;</th>
+<th>&#x76F8;&#x5F53;&#x4E8E;Python/C API&#x4E2D;&#x7684;&#x7C7B;&#x578B;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>abs(obj)</code></td>
+<td>object, double, ...</td>
+<td>PyNumber_Absolute, fabs, fabsf, ...</td>
+</tr>
+<tr>
+<td><code>callable(obj)</code></td>
+<td>bint</td>
+<td>PyObject_Callable</td>
+</tr>
+<tr>
+<td><code>delattr(obj, name)</code></td>
+<td>None</td>
+<td>PyObject_DelAttr</td>
+</tr>
+<tr>
+<td><code>exec(code, [glob, [loc]])</code></td>
+<td>object    </td>
+</tr>
+<tr>
+<td><code>dir(obj)</code></td>
+<td>list</td>
+<td>PyObject_Dir</td>
+</tr>
+<tr>
+<td><code>divmod(a, b)</code></td>
+<td>tuple</td>
+<td>PyNumber_Divmod</td>
+</tr>
+<tr>
+<td><code>getattr(obj, name, [default])</code></td>
+<td>object</td>
+<td>PyObject_GetAttr</td>
+</tr>
+<tr>
+<td><code>hasattr(obj, name)</code></td>
+<td>bint</td>
+<td>PyObject_HasAttr</td>
+</tr>
+<tr>
+<td><code>hash(obj)</code></td>
+<td>int / long</td>
+<td>PyObject_Hash</td>
+</tr>
+<tr>
+<td><code>intern(obj)</code></td>
+<td>object</td>
+<td><code>Py*_InternFromString</code></td>
+</tr>
+<tr>
+<td><code>isinstance(obj, type)</code></td>
+<td>bint</td>
+<td>PyObject_IsInstance</td>
+</tr>
+<tr>
+<td><code>issubclass(obj, type)</code></td>
+<td>bint</td>
+<td>PyObject_IsSubclass</td>
+</tr>
+<tr>
+<td><code>iter(obj, [sentinel])</code></td>
+<td>object</td>
+<td>PyObject_GetIter</td>
+</tr>
+<tr>
+<td><code>len(obj)</code></td>
+<td>Py_ssize_t</td>
+<td>PyObject_Length</td>
+</tr>
+<tr>
+<td><code>pow(x, y, [z])</code></td>
+<td>object</td>
+<td>PyNumber_Power</td>
+</tr>
+<tr>
+<td><code>reload(obj)</code></td>
+<td>object</td>
+<td>PyImport_ReloadModule</td>
+</tr>
+<tr>
+<td><code>repr(obj)</code></td>
+<td>object</td>
+<td>PyObject_Repr</td>
+</tr>
+<tr>
+<td><code>setattr(obj, name)</code></td>
+<td>void</td>
+<td>PyObject_SetAttr</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x7C7B;&#x7533;&#x660E;&#x6269;&#x5C55;&#x7C7B;&#x578B;"><a name="&#x7C7B;&#x7533;&#x660E;&#x6269;&#x5C55;&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x7C7B;&#x7533;&#x660E;&#x6269;&#x5C55;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>2.6. &#x7C7B;&#x7533;&#x660E;(&#x6269;&#x5C55;&#x7C7B;&#x578B;)</h2>
+<p>cython&#x6269;&#x5C55;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>cdef class</code>&#x6765;&#x5B9A;&#x4E49;.</p>
+<h3 id="&#x5C5E;&#x6027;"><a name="&#x5C5E;&#x6027;" class="anchor-navigation-ex-anchor" href="#&#x5C5E;&#x6027;"><i class="fa fa-link" aria-hidden="true"></i></a>2.6.1. &#x5C5E;&#x6027;</h3>
+<p>&#x5176;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>cdef</code>&#x6765;&#x5B9A;&#x4E49;,&#x9ED8;&#x8BA4;&#x662F;&#x79C1;&#x6709;&#x7684;,&#x4F46;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>public</code>&#x6216;&#x8005;<code>readonly</code>&#x5173;&#x952E;&#x5B57;&#x6307;&#x5B9A;&#x5176;&#x5C01;&#x88C5;&#x5F62;&#x5F0F;.</p>
+<pre><code class="lang-cython">%%cython
+cdef class Rectangle:
+    cdef public int x0
+    cdef readonly int y0
+    cdef int x1, y1
+    def __init__(self, int x0, int y0, int x1, int y1):
+        self.x0 = x0; self.y0 = y0; self.x1 = x1; self.y1 = y1
+
+    cdef int _area(self):
+        cdef int area
+        area = (self.x1 - self.x0) * (self.y1 - self.y0)
+        if area &lt; 0:
+            area = -area
+        return area
+
+    def area(self):
+        return self._area()
+
+def rectArea(x0, y0, x1, y1):
+    rect = Rectangle(x0, y0, x1, y1)
+    return rect.area()
+</code></pre>
+<pre><code class="lang-python">r = Rectangle(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>)
+</code></pre>
+<pre><code class="lang-python">r.x0
+</code></pre>
+<pre><code>1
+</code></pre><pre><code class="lang-python">r.y0
+</code></pre>
+<pre><code>2
+</code></pre><pre><code class="lang-python">r.x1
+</code></pre>
+<pre><code>---------------------------------------------------------------------------
+
+AttributeError                            Traceback (most recent call last)
+
+&lt;ipython-input-10-1a1a3632ad5d&gt; in &lt;module&gt;()
+----&gt; 1 r.x1
+
+
+AttributeError: &apos;_cython_magic_31443cea76eb5b8780ecd933e92cc406.Rec&apos; object has no attribute &apos;x1&apos;
+</code></pre><pre><code class="lang-python">r.x0=<span class="hljs-number">2</span>
+r.x0
+</code></pre>
+<pre><code>2
+</code></pre><pre><code class="lang-python">r.y0 = <span class="hljs-number">4</span>
+</code></pre>
+<pre><code>---------------------------------------------------------------------------
+
+AttributeError                            Traceback (most recent call last)
+
+&lt;ipython-input-12-ba0ed4f3a4a8&gt; in &lt;module&gt;()
+----&gt; 1 r.y0 = 4
+
+
+AttributeError: attribute &apos;y0&apos; of &apos;_cython_magic_31443cea76eb5b8780ecd933e92cc406.Rectangle&apos; objects is not writable
+</code></pre><pre><code class="lang-python">r.area()
+</code></pre>
+<pre><code>1
+</code></pre><pre><code class="lang-python">r._area()
+</code></pre>
+<pre><code>---------------------------------------------------------------------------
+
+AttributeError                            Traceback (most recent call last)
+
+&lt;ipython-input-14-91116c074669&gt; in &lt;module&gt;()
+----&gt; 1 r._area()
+
+
+AttributeError: &apos;_cython_magic_31443cea76eb5b8780ecd933e92cc406.Rec&apos; object has no attribute &apos;_area&apos;
+</code></pre><h3 id="&#x7279;&#x6027;"><a name="&#x7279;&#x6027;" class="anchor-navigation-ex-anchor" href="#&#x7279;&#x6027;"><i class="fa fa-link" aria-hidden="true"></i></a>2.6.2. &#x7279;&#x6027;</h3>
+<p>cython&#x7279;&#x6027;&#x9664;&#x4E86;&#x4E00;&#x822C;python&#x8BED;&#x53E5;&#x4E00;&#x6837;&#x7684;&#x88C5;&#x9970;&#x5668;&#x8BED;&#x6CD5;&#x5916;,&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x7279;&#x6B8A;&#x5B9A;&#x4E49;&#x65B9;&#x5F0F;,&#x4E24;&#x8005;&#x6548;&#x679C;&#x4E00;&#x81F4;.</p>
+<pre><code class="lang-cython">cdef class Spam:
+
+    property cheese:
+
+        &quot;A doc string can go here.&quot;
+
+        def __get__(self):
+            # This is called when the property is read.
+            ...
+
+        def __set__(self, value):
+            # This is called when the property is written.
+            ...
+
+        def __del__(self):
+            # This is called when the property is deleted.
+</code></pre>
+<p><code>__get__()</code>&#xFF0C;<code>__set__()</code>&#x548C;<code>__del__()</code>&#x65B9;&#x6CD5;&#x90FD;&#x662F;&#x53EF;&#x9009;&#x7684;.&#x5982;&#x679C;&#x7701;&#x7565;&#xFF0C;&#x5C5E;&#x6027;&#x8BBF;&#x95EE;&#x4F1A;&#x5F15;&#x53D1;&#x5F02;&#x5E38;.</p>
+<p>&#x4E0D;&#x63A8;&#x8350;&#x8FD9;&#x79CD;&#x5199;&#x6CD5;,&#x56E0;&#x4E3A;&#x770B;&#x8D77;&#x6765;&#x548C;python&#x5DEE;&#x522B;&#x592A;&#x5927;</p>
+<pre><code class="lang-cython">%%cython
+cdef class CheeseShop:
+
+    cdef object cheeses
+
+    def __cinit__(self):
+        self.cheeses = []
+
+    property cheese:   # note that this syntax is deprecated
+
+        def __get__(self):
+            return &quot;We don&apos;t have: %s&quot; % self.cheeses
+
+        def __set__(self, value):
+            self.cheeses.append(value)
+
+        def __del__(self):
+            del self.cheeses[:]
+</code></pre>
+<pre><code class="lang-python">shop = CheeseShop()
+print(shop.cheese)
+
+shop.cheese = <span class="hljs-string">&quot;camembert&quot;</span>
+print(shop.cheese)
+
+shop.cheese = <span class="hljs-string">&quot;cheddar&quot;</span>
+print(shop.cheese)
+
+<span class="hljs-keyword">del</span> shop.cheese
+print(shop.cheese)
+</code></pre>
+<pre><code>We don&apos;t have: []
+We don&apos;t have: [&apos;camembert&apos;]
+We don&apos;t have: [&apos;camembert&apos;, &apos;cheddar&apos;]
+We don&apos;t have: []
+</code></pre><h3 id="&#x65B9;&#x6CD5;"><a name="&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2.6.3. &#x65B9;&#x6CD5;</h3>
+<p><code>Rectangle</code>&#x4E2D;<code>_area</code>&#x662F;C&#x7EA7;&#x522B;&#x7684;&#x51FD;&#x6570;,&#x4E0D;&#x53EF;&#x88AB;&#x8BBF;&#x95EE;,&#x6240;&#x4EE5;&#x9700;&#x8981;&#x4F7F;&#x7528;<code>area</code>&#x65B9;&#x6CD5;&#x6765;&#x5C01;&#x88C5;.&#x4E0D;&#x8FC7;&#x901A;&#x5E38;&#x662F;&#x4F7F;&#x7528;<code>cpdef</code>&#x76F4;&#x63A5;&#x5B9E;&#x73B0;&#x7684;</p>
+<pre><code class="lang-cython">%%cython
+cdef class Rectangle:
+    cdef int x0, y0
+    cdef int x1, y1
+    def __init__(self, int x0, int y0, int x1, int y1):
+        self.x0 = x0; self.y0 = y0; self.x1 = x1; self.y1 = y1
+
+    cpdef int area(self):
+        cdef int area
+        area = (self.x1 - self.x0) * (self.y1 - self.y0)
+        if area &lt; 0:
+            area = -area
+        return area
+
+def rectArea(x0, y0, x1, y1):
+    cdef Rectangle rect
+    rect = Rectangle(x0, y0, x1, y1)
+    return rect.area()
+</code></pre>
+<pre><code class="lang-python">r = Rectangle(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>)
+</code></pre>
+<h3 id="&#x65B9;&#x6CD5;&#x91CD;&#x8F7D;"><a name="&#x65B9;&#x6CD5;&#x91CD;&#x8F7D;" class="anchor-navigation-ex-anchor" href="#&#x65B9;&#x6CD5;&#x91CD;&#x8F7D;"><i class="fa fa-link" aria-hidden="true"></i></a>2.6.4. &#x65B9;&#x6CD5;&#x91CD;&#x8F7D;</h3>
+<p>&#x5728;&#x6269;&#x5C55;&#x7C7B;&#x578B;&#x4E2D;&#x540C;&#x4E00;&#x7533;&#x660E;&#x65B9;&#x5F0F;&#x7684;&#x53EF;&#x4EE5;&#x76F8;&#x4E92;&#x91CD;&#x8F7D;,&#x800C;&#x4E0D;&#x540C;&#x7533;&#x660E;&#x65B9;&#x5F0F;&#x7684;&#x5219;&#x6709;&#x4E00;&#x5957;&#x4F18;&#x5148;&#x7EA7;:</p>
+<ul>
+<li><code>cpdef</code>&#x53EF;&#x4EE5;&#x91CD;&#x8F7D;<code>cdef</code>,&#x800C;&#x53CD;&#x8FC7;&#x6765;&#x5C31;&#x4E0D;&#x884C;</li>
+<li><code>def</code>&#x53EF;&#x4EE5;&#x91CD;&#x8F7D;<code>cpdef</code>,&#x800C;&#x53CD;&#x8FC7;&#x6765;&#x5C31;&#x4E0D;&#x884C;</li>
+</ul>
+<pre><code class="lang-cython">%%cython
+cdef class A:
+    cdef foo(self):
+        print(&quot;A&quot;)
+cdef class AA(A):
+    cdef foo(self):
+        print(&quot;AA&quot;)
+    cpdef bar(self):
+        self.foo()
+</code></pre>
+<pre><code class="lang-python">AA().bar()
+</code></pre>
+<pre><code>AA
+</code></pre><pre><code class="lang-cython">%%cython
+cdef class A:
+    cdef foo(self):
+        print(&quot;A&quot;)
+
+cdef class B(A):
+    cpdef foo(self, x=None):
+        print(&quot;B&quot;, x)
+
+class C(B):
+    def foo(self, x=True, int k=3):
+        print(&quot;C&quot;, x, k)
+</code></pre>
+<pre><code class="lang-python">B(<span class="hljs-number">12</span>).foo()
+</code></pre>
+<pre><code>B None
+</code></pre><pre><code class="lang-python">C().foo()
+</code></pre>
+<pre><code>C True 3
+</code></pre><h2 id="&#x7EE7;&#x627F;"><a name="&#x7EE7;&#x627F;" class="anchor-navigation-ex-anchor" href="#&#x7EE7;&#x627F;"><i class="fa fa-link" aria-hidden="true"></i></a>2.7. &#x7EE7;&#x627F;</h2>
+<p>&#x57FA;&#x7C7B;&#x7684;&#x5B8C;&#x6574;&#x5B9A;&#x4E49;&#x5FC5;&#x987B;&#x53EF;&#x7528;&#x4E8E;Cython&#xFF0C;&#x56E0;&#x6B64;&#x5982;&#x679C;&#x57FA;&#x7C7B;&#x662F;&#x5185;&#x7F6E;&#x7C7B;&#x578B;&#xFF0C;&#x5B83;&#x5FC5;&#x987B;&#x5148;&#x524D;&#x5DF2;&#x58F0;&#x660E;&#x4E3A;extern&#x6269;&#x5C55;&#x7C7B;&#x578B;.&#x5982;&#x679C;&#x57FA;&#x7C7B;&#x578B;&#x5728;&#x53E6;&#x4E00;&#x4E2A;Cython&#x6A21;&#x5757;&#x4E2D;&#x5B9A;&#x4E49;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x58F0;&#x660E;&#x4E3A;extern&#x6269;&#x5C55;&#x7C7B;&#x578B;&#x6216;&#x4F7F;&#x7528;cimport&#x8BED;&#x53E5;&#x5BFC;&#x5165;.</p>
+<p>&#x4E00;&#x4E2A;&#x6269;&#x5C55;&#x7C7B;&#x578B;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x57FA;&#x7C7B;(cython&#x7684;&#x6269;&#x5C55;&#x7C7B;&#x4E0D;&#x652F;&#x6301;&#x591A;&#x91CD;&#x7EE7;&#x627F;).&#x4F46;&#x53EF;&#x4EE5;&#x88AB;python&#x7C7B;&#x7EE7;&#x627F;,&#x8FD9;&#x79CD;&#x7EE7;&#x627F;&#x652F;&#x6301;&#x591A;&#x7EE7;&#x627F;.</p>
+<p>&#x6709;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x6269;&#x5C55;&#x7C7B;&#x578B;&#x5728;Python&#x4E2D;&#x88AB;&#x5B50;&#x7C7B;&#x5316;.&#x8FD9;&#x662F;&#x901A;&#x8FC7;<code>final</code>&#x6307;&#x4EE4;&#x5B8C;&#x6210;&#x7684;&#xFF0C;&#x901A;&#x5E38;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;&#x5728;&#x6269;&#x5C55;&#x7C7B;&#x578B;&#x4E0A;&#x8BBE;&#x7F6E;</p>
+<pre><code class="lang-cython">cimport cython
+
+@cython.final
+cdef class Parrot:
+   def done(self): pass
+</code></pre>
+<h2 id="&#x6269;&#x5C55;&#x7C7B;&#x578B;&#x5FEB;&#x901F;&#x5B9E;&#x4F8B;&#x5316;"><a name="&#x6269;&#x5C55;&#x7C7B;&#x578B;&#x5FEB;&#x901F;&#x5B9E;&#x4F8B;&#x5316;" class="anchor-navigation-ex-anchor" href="#&#x6269;&#x5C55;&#x7C7B;&#x578B;&#x5FEB;&#x901F;&#x5B9E;&#x4F8B;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a>2.8. &#x6269;&#x5C55;&#x7C7B;&#x578B;&#x5FEB;&#x901F;&#x5B9E;&#x4F8B;&#x5316;</h2>
+<p>Cython&#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x6765;&#x52A0;&#x901F;&#x6269;&#x5C55;&#x7C7B;&#x578B;&#x7684;&#x5B9E;&#x4F8B;&#x5316;.</p>
+<ul>
+<li>&#x7B2C;&#x4E00;&#x4E2A;&#x662F;&#x76F4;&#x63A5;&#x8C03;&#x7528;<code>__new__()</code>&#x7279;&#x6B8A;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x4ECE;Python&#x4E2D;&#x6240;&#x77E5;&#x3002;&#x5BF9;&#x4E8E;&#x4F8B;&#x5B50;&#x6269;&#x5C55;&#x7C7B;&#x578B;Penguin&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-cython">%%cython
+cdef class Penguin:
+    cdef public object food
+
+    def __cinit__(self, food):
+        self.food = food
+
+    def __init__(self, food):
+        print(&quot;eating!&quot;)
+</code></pre>
+<pre><code class="lang-python">normal_penguin = Penguin(<span class="hljs-string">&apos;fish&apos;</span>)
+</code></pre>
+<pre><code>eating!
+</code></pre><pre><code class="lang-python">normal_penguin.food
+</code></pre>
+<pre><code>&apos;fish&apos;
+</code></pre><pre><code class="lang-python">fast_penguin = Penguin.__new__(Penguin, <span class="hljs-string">&apos;wheat&apos;</span>)
+</code></pre>
+<pre><code class="lang-python">fast_penguin.food
+</code></pre>
+<pre><code>&apos;wheat&apos;
+</code></pre><p><code>__new__()</code>&#x5B9E;&#x4F8B;&#x5316;&#x7684;&#x5BF9;&#x8C61;&#x4F1A;&#x4E0D;&#x8FD0;&#x884C;<code>__init__()</code>&#x53EA;&#x4F1A;&#x8FD0;&#x884C;<code>__cinit__()</code></p>
+<ul>
+<li><p>&#x7B2C;&#x4E8C;&#x4E2A;&#x6027;&#x80FD;&#x6539;&#x8FDB;&#x9002;&#x7528;&#x4E8E;&#x7ECF;&#x5E38;&#x5728;&#x4E00;&#x884C;&#x4E2D;&#x521B;&#x5EFA;&#x548C;&#x5220;&#x9664;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x4EE5;&#x4FBF;&#x4ED6;&#x4EEC;&#x53EF;&#x4EE5;&#x4ECE;freelist&#x4E2D;&#x53D7;&#x76CA;.</p>
+<p>  Cython&#x4E3A;&#x6B64;&#x63D0;&#x4F9B;&#x4E86;&#x88C5;&#x9970;&#x5668;<code>@cython.freelist(N)</code>&#xFF0C;&#x5B83;&#x4E3A;&#x7ED9;&#x5B9A;&#x7C7B;&#x578B;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x9759;&#x6001;&#x5927;&#x5C0F;&#x7684;N&#x4E2A;&#x5B9E;&#x4F8B;&#x7684;<code>freelist</code>.&#x4F8B;&#xFF1A;</p>
+</li>
+</ul>
+<pre><code class="lang-cython">%%cython
+cimport cython
+
+@cython.freelist(8)
+cdef class Penguin:
+    cdef object food
+    def __cinit__(self, food):
+        self.food = food
+</code></pre>
+<pre><code class="lang-python">penguin = Penguin(<span class="hljs-string">&apos;fish 1&apos;</span>)
+</code></pre>
+<pre><code class="lang-python">penguin = <span class="hljs-keyword">None</span>
+penguin = Penguin(<span class="hljs-string">&apos;fish 2&apos;</span>)
+</code></pre>
+<h2 id="&#x7279;&#x6B8A;&#x65B9;&#x6CD5;"><a name="&#x7279;&#x6B8A;&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x7279;&#x6B8A;&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2.9. &#x7279;&#x6B8A;&#x65B9;&#x6CD5;</h2>
+<p>cython&#x4E5F;&#x652F;&#x6301;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;,&#x5B83;&#x652F;&#x6301;&#x7684;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#x53EF;&#x5728;<a href="http://docs.cython.org/en/latest/src/reference/special_methods_table.html#special-methods-table" target="_blank">&#x8FD9;&#x91CC;&#x770B;&#x5230;</a></p>
+<p>&#x6269;&#x5C55;&#x7C7B;&#x578B;&#x7684;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x7528;<code>def</code>&#xFF0C;&#x800C;&#x4E0D;&#x662F;<code>cdef</code>&#x58F0;&#x660E;,&#x8FD9;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x4ED6;&#x4EEC;&#x7684;&#x6027;&#x80FD; -- Python&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x8C03;&#x7528;&#x7EA6;&#x5B9A;&#x6765;&#x8C03;&#x7528;&#x8FD9;&#x4E9B;&#x7279;&#x6B8A;&#x65B9;&#x6CD5;.</p>
+<p>&#x8FD9;&#x8FB9;&#x5217;&#x4E3E;&#x51E0;&#x4E2A;&#x6BD4;&#x8F83;&#x4E2D;&#x8981;&#x7684;:</p>
+<h3 id="&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF1A;cinit-&#x548C;init"><a name="&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF1A;cinit-&#x548C;init" class="anchor-navigation-ex-anchor" href="#&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF1A;cinit-&#x548C;init"><i class="fa fa-link" aria-hidden="true"></i></a>2.9.1. &#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF1A;__cinit__() &#x548C;__init__()</h3>
+<p>&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x4E0E;&#x521D;&#x59CB;&#x5316;&#x5BF9;&#x8C61;&#x6709;&#x5173;.</p>
+<ul>
+<li><p><code>__cinit__()</code></p>
+<p>  &#x65B9;&#x6CD5;&#x662F;&#x5E94;&#x8BE5;&#x6267;&#x884C;&#x5BF9;&#x8C61;&#x7684;&#x57FA;&#x672C;C&#x7EA7;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5305;&#x62EC;&#x5BF9;&#x8C61;&#x5C06;&#x62E5;&#x6709;&#x7684;&#x4EFB;&#x4F55;C&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x5206;&#x914D;.&#x4F60;&#x9700;&#x8981;&#x5C0F;&#x5FC3;&#x4F60;&#x5728;<code>__cinit__()</code>&#x65B9;&#x6CD5;&#x4E2D;&#x505A;&#x4EC0;&#x4E48;&#xFF0C;&#x56E0;&#x4E3A;&#x5BF9;&#x8C61;&#x53EF;&#x80FD;&#x8FD8;&#x4E0D;&#x662F;&#x5B8C;&#x5168;&#x6709;&#x6548;&#x7684;Python&#x5BF9;&#x8C61;.&#x56E0;&#x6B64;&#xFF0C;&#x4F60;&#x5E94;&#x8BE5;&#x5C0F;&#x5FC3;&#x8C03;&#x7528;&#x4EFB;&#x4F55;Python&#x53EF;&#x80FD;&#x89E6;&#x6478;&#x5BF9;&#x8C61;&#x7684;&#x64CD;&#x4F5C;,&#x7279;&#x522B;&#x662F;&#x5176;&#x65B9;&#x6CD5;.</p>
+<p>  &#x5728;&#x8C03;&#x7528;<code>__cinit__()</code>&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x5DF2;&#x7ECF;&#x4E3A;&#x5BF9;&#x8C61;&#x5206;&#x914D;&#x4E86;&#x5185;&#x5B58;&#xFF0C;&#x5E76;&#x4E14;&#x4EFB;&#x4F55;C&#x5C5E;&#x6027;&#x5DF2;&#x521D;&#x59CB;&#x5316;&#x4E3A;0&#x6216;null&#x3002;(&#x4EFB;&#x4F55;Python&#x5C5E;&#x6027;&#x4E5F;&#x88AB;&#x521D;&#x59CB;&#x5316;&#x4E3A;None&#xFF0C;&#x4F46;&#x662F;&#x4F60;&#x53EF;&#x80FD;&#x4E0D;&#x5E94;&#x8BE5;&#x4F9D;&#x8D56;&#x5B83;.)&#x4F60;&#x7684;<code>__cinit__()</code>&#x65B9;&#x6CD5;&#x4E00;&#x5B9A;&#x53EA;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x4E00;&#x6B21;.</p>
+<p>  &#x5982;&#x679C;&#x6269;&#x5C55;&#x7C7B;&#x578B;&#x6709;&#x57FA;&#x7C7B;&#xFF0C;&#x90A3;&#x4E48;&#x5728;&#x8C03;&#x7528;<code>__cinit __()</code>&#x65B9;&#x6CD5;&#x4E4B;&#x524D;&#xFF0C;&#x5C06;&#x81EA;&#x52A8;&#x8C03;&#x7528;&#x57FA;&#x7C7B;&#x7684;<code>__cinit__()</code>&#x65B9;&#x6CD5;,&#x4F60;&#x4E0D;&#x80FD;&#x663E;&#x5F0F;&#x8C03;&#x7528;&#x57FA;&#x7C7B;&#x7684;<code>__cinit__()</code>&#x65B9;&#x6CD5;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x5C06;&#x4FEE;&#x6539;&#x7684;&#x53C2;&#x6570;&#x5217;&#x8868;&#x4F20;&#x9012;&#x7ED9;&#x57FA;&#x7C7B;,&#x5219;&#x5FC5;&#x987B;&#x5728;<code>__init__()</code>&#x65B9;&#x6CD5;&#x4E2D;&#x6267;&#x884C;&#x521D;&#x59CB;&#x5316;&#x7684;&#x76F8;&#x5173;&#x90E8;&#x5206;(&#x5176;&#x4E2D;&#x8C03;&#x7528;&#x7EE7;&#x627F;&#x65B9;&#x6CD5;&#x7684;&#x6B63;&#x5E38;&#x89C4;&#x5219;&#x9002;&#x7528;).</p>
+</li>
+<li><p><code>__init__()</code></p>
+<p>  &#x5728;<code>__cinit__()</code>&#x65B9;&#x6CD5;&#x4E2D;&#x4E0D;&#x80FD;&#x5B89;&#x5168;&#x5B8C;&#x6210;&#x7684;&#x4EFB;&#x4F55;&#x521D;&#x59CB;&#x5316;&#x90FD;&#x5E94;&#x8BE5;&#x5728;<code>__init__()</code>&#x65B9;&#x6CD5;&#x4E2D;&#x5B8C;&#x6210;.&#x5F53;&#x8C03;&#x7528;<code>__init __()</code>&#x65F6;&#xFF0C;&#x5BF9;&#x8C61;&#x662F;&#x4E00;&#x4E2A;&#x5B8C;&#x5168;&#x6709;&#x6548;&#x7684;Python&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x5B89;&#x5168;&#x7684;.&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;,<code>__init__()</code>&#x53EF;&#x80FD;&#x88AB;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x6216;&#x6839;&#x672C;&#x4E0D;&#x88AB;&#x8C03;&#x7528;.</p>
+</li>
+</ul>
+<p>&#x4F20;&#x9012;&#x7ED9;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x90FD;&#x5C06;&#x4F20;&#x9012;&#x7ED9;<code>__cinit __()</code>&#x65B9;&#x6CD5;&#x548C;<code>__init__()</code>&#x65B9;&#x6CD5;&#x3002;&#x5982;&#x679C;&#x4F60;&#x9884;&#x8BA1;&#x5728;Python&#x4E2D;&#x7EE7;&#x627F;&#x6269;&#x5C55;&#x7C7B;&#x578B;,&#x53EF;&#x80FD;&#x4F1A;&#x5C06;&#x53C2;&#x6570;&#x4EE5;<code>*&#x548C;**&#x53C2;&#x6570;</code>&#x7684;&#x5F62;&#x5F0F;&#x4F20;&#x7ED9;<code>__cinit__()</code>&#x65B9;&#x6CD5;&#xFF0C;&#x4EE5;&#x4FBF;&#x5B83;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x548C;&#x5FFD;&#x7565;&#x989D;&#x5916;&#x7684;&#x53C2;&#x6570;.&#x5426;&#x5219;&#xFF0C;&#x4EFB;&#x4F55;&#x5177;&#x6709;&#x5E26;&#x6709;&#x4E0D;&#x540C;&#x7B7E;&#x540D;&#x7684;<code>__init __()</code>&#x7684;Python&#x5B50;&#x7C7B;&#x90FD;&#x5FC5;&#x987B;&#x8986;&#x76D6;<code>__new __()</code>&#x4EE5;&#x53CA;<code>__init __()</code>&#xFF0C;&#x660E;&#x663E;&#x8FD9;&#x6837;&#x5F88;&#x4E0D;&#x53CB;&#x597D;.&#x6216;&#x8005;&#xFF0C;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x8D77;&#x89C1;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x58F0;&#x660E;&#x4F60;&#x7684;<code>__cinit__()</code>&#x65B9;&#x6CD5;&#x6CA1;&#x6709;&#x53C2;&#x6570;(&#x9664;&#x4E86;<code>self</code>)&#xFF0C;&#x5B83;&#x5C06;&#x7B80;&#x5355;&#x5730;&#x5FFD;&#x7565;&#x4F20;&#x9012;&#x7ED9;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x4EFB;&#x4F55;&#x989D;&#x5916;&#x7684;&#x53C2;&#x6570;.&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x53EF;&#x80FD;&#x66F4;&#x52A0;&#x4FDD;&#x9669;.</p>
+<h2 id="&#x6790;&#x6784;&#x65B9;&#x6CD5;&#xFF1A;dealloc"><a name="&#x6790;&#x6784;&#x65B9;&#x6CD5;&#xFF1A;dealloc" class="anchor-navigation-ex-anchor" href="#&#x6790;&#x6784;&#x65B9;&#x6CD5;&#xFF1A;dealloc"><i class="fa fa-link" aria-hidden="true"></i></a>2.10. &#x6790;&#x6784;&#x65B9;&#x6CD5;&#xFF1A;__dealloc__()</h2>
+<p>&#x4E0E;<code>__cinit__()</code>&#x65B9;&#x6CD5;&#x7684;&#x9006;&#x5411;&#x65B9;&#x6CD5;&#x662F;<code>__dealloc__()</code>&#x65B9;&#x6CD5;&#x3002;<code>__cinit__()</code>&#x65B9;&#x6CD5;&#x4E2D;&#x663E;&#x5F0F;&#x5206;&#x914D;&#x5185;&#x5B58;&#x7684;&#x4EFB;&#x4F55;C&#x6570;&#x636E;(&#x4F8B;&#x5982;&#x901A;&#x8FC7;malloc&#x5206;&#x914D;&#x7684;&#x7A7A;&#x95F4;)&#x5E94;&#x5728;<code>__dealloc__()</code>&#x65B9;&#x6CD5;&#x4E2D;&#x91CA;&#x653E;.&#x4F60;&#x9700;&#x8981;&#x5C0F;&#x5FC3;&#x4F60;&#x5728;<code>__dealloc __()</code>&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x64CD;&#x4F5C;.&#x5728;&#x8C03;&#x7528;<code>__dealloc__()</code>&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x5BF9;&#x8C61;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x88AB;&#x90E8;&#x5206;&#x9500;&#x6BC1;&#xFF0C;&#x5E76;&#x4E14;&#x5BF9;&#x4E8E;Python&#x800C;&#x8A00;&#x53EF;&#x80FD;&#x4E0D;&#x5904;&#x4E8E;&#x6709;&#x6548;&#x72B6;&#x6001;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x575A;&#x6301;&#x53EA;&#x662F;&#x91CA;&#x653E;C&#x6570;&#x636E;&#x662F;&#x6700;&#x597D;&#x7684;&#x9009;&#x62E9;.</p>
+<p>&#x4F60;&#x4E0D;&#x9700;&#x8981;&#x62C5;&#x5FC3;&#x91CA;&#x653E;&#x5BF9;&#x8C61;&#x7684;Python&#x5C5E;&#x6027;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;<code>__dealloc __()</code>&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x540E;&#xFF0C;&#x5B83;&#x5C06;&#x7531;Cython&#x5B8C;&#x6210;.
+&#x5F53;&#x5B50;&#x7C7B;&#x5316;&#x6269;&#x5C55;&#x7C7B;&#x578B;&#x65F6;,&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x8D85;&#x7C7B;&#x7684;<code>__dealloc__()</code>&#x65B9;&#x6CD5;&#x5C06;&#x59CB;&#x7EC8;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x5373;&#x4F7F;&#x5B83;&#x88AB;&#x8986;&#x76D6;.&#x8FD9;&#x4E0E;&#x5178;&#x578B;&#x7684;Python&#x884C;&#x4E3A;&#x4E0D;&#x540C;.</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;</p>
+<p>&#x6269;&#x5C55;&#x7C7B;&#x578B;&#x6CA1;&#x6709;<code>__del__()</code>&#x65B9;&#x6CD5;&#x3002;</p>
+<h2 id="&#x903B;&#x8F91;&#x8FD0;&#x7B97;&#x65B9;&#x6CD5;"><a name="&#x903B;&#x8F91;&#x8FD0;&#x7B97;&#x65B9;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x903B;&#x8F91;&#x8FD0;&#x7B97;&#x65B9;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2.11. &#x903B;&#x8F91;&#x8FD0;&#x7B97;&#x65B9;&#x6CD5;</h2>
+<p>&#x7B97;&#x672F;&#x8FD0;&#x7B97;&#x7B26;&#x65B9;&#x6CD5;(&#x5982;<code>__add__()</code>)&#x7684;&#x884C;&#x4E3A;&#x4E0E;Python&#x5BF9;&#x5E94;&#x65B9;&#x6CD5;&#x4E0D;&#x540C;&#x3002;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x6CA1;&#x6709;&#x5355;&#x72EC;&#x7684;&#x201C;&#x53CD;&#x8F6C;&#x201D;&#x7248;&#x672C;(<code>__radd __()</code>&#x7B49;).&#x76F8;&#x53CD;&#xFF0C;&#x5982;&#x679C;&#x7B2C;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x6570;&#x4E0D;&#x80FD;&#x6267;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x5219;&#x8C03;&#x7528;&#x7B2C;&#x4E8C;&#x4E2A;&#x64CD;&#x4F5C;&#x6570;&#x7684;&#x76F8;&#x540C;&#x65B9;&#x6CD5;&#xFF0C;&#x64CD;&#x4F5C;&#x6570;&#x7684;&#x987A;&#x5E8F;&#x76F8;&#x540C;.</p>
+<h2 id="&#x8FD0;&#x7B97;&#x6BD4;&#x8F83;&#x64CD;&#x4F5C;"><a name="&#x8FD0;&#x7B97;&#x6BD4;&#x8F83;&#x64CD;&#x4F5C;" class="anchor-navigation-ex-anchor" href="#&#x8FD0;&#x7B97;&#x6BD4;&#x8F83;&#x64CD;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>2.12. &#x8FD0;&#x7B97;&#x6BD4;&#x8F83;&#x64CD;&#x4F5C;</h2>
+<p>&#x5BF9;&#x4E8E;&#x4E0D;&#x540C;&#x7684;&#x6BD4;&#x8F83;&#x64CD;&#x4F5C;(<code>__eq__()</code>&#xFF0C;<code>__le__()</code>&#x7B49;&#x7B49;)Cython&#x6CA1;&#x6709;&#x5355;&#x72EC;&#x7684;&#x65B9;&#x6CD5;.&#x800C;&#x662F;&#x6709;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;<code>__richcmp __()</code>&#xFF0C;&#x5B83;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#xFF0C;&#x6307;&#x793A;&#x8981;&#x6267;&#x884C;&#x54EA;&#x79CD;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
+<table>
+<thead>
+<tr>
+<th>&#x64CD;&#x4F5C;</th>
+<th>&#x6307;&#x793A;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;</td>
+<td>0</td>
+</tr>
+<tr>
+<td>==</td>
+<td>2</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>4</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>1</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>3</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x9519;&#x8BEF;&#x5904;&#x7406;"><a name="&#x9519;&#x8BEF;&#x5904;&#x7406;" class="anchor-navigation-ex-anchor" href="#&#x9519;&#x8BEF;&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>2.13. &#x9519;&#x8BEF;&#x5904;&#x7406;</h2>
+<p>&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x505A;&#x4EFB;&#x4F55;&#x7279;&#x6B8A;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x7528;cdef&#x58F0;&#x660E;&#x7684;&#x51FD;&#x6570;&#x4E0D;&#x8FD4;&#x56DE;&#x4EFB;&#x4F55;Python&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x6837;&#x8FD9;&#x4E2A;cdef&#x51FD;&#x6570;&#x5C31;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x5411;&#x5176;&#x8C03;&#x7528;&#x8005;&#x62A5;&#x544A;&#x5176;Python&#x5F02;&#x5E38;.&#x5982;&#x679C;&#x5728;&#x6B64;&#x7C7B;&#x51FD;&#x6570;&#x4E2D;&#x68C0;&#x6D4B;&#x5230;&#x5F02;&#x5E38;&#xFF0C;&#x5219;&#x4F1A;&#x6253;&#x5370;&#x4E00;&#x6761;&#x8B66;&#x544A;&#x6D88;&#x606F;&#xFF0C;&#x5E76;&#x5FFD;&#x7565;&#x8BE5;&#x5F02;&#x5E38;.
+&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x4E00;&#x4E2A;&#x4E0D;&#x8FD4;&#x56DE;Python&#x5BF9;&#x8C61;&#x7684;C&#x51FD;&#x6570;&#x80FD;&#x591F;&#x5C06;&#x5F02;&#x5E38;&#x4F20;&#x64AD;&#x7ED9;&#x5B83;&#x7684;&#x8C03;&#x7528;&#x8005;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#x503C;&#x3002;&#x8FD9;&#x91CC;&#x662F;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-cython">
+cdef int spam() except -1:
+    ...
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x6B64;&#x58F0;&#x660E;&#xFF0C;&#x6BCF;&#x5F53;<code>spam()</code>&#x51FD;&#x6570;&#x5185;&#x53D1;&#x751F;&#x5F02;&#x5E38;&#x65F6;&#xFF0C;&#x5B83;&#x5C06;&#x7ACB;&#x5373;&#x8FD4;&#x56DE;&#x503C;<code>-1</code>.&#x6B64;&#x5916;&#xFF0C;&#x6BCF;&#x5F53;&#x5BF9;<code>spam()</code>&#x7684;&#x8C03;&#x7528;&#x8FD4;&#x56DE;<code>-1</code>&#x65F6;&#xFF0C;&#x5C06;&#x5047;&#x5B9A;&#x5F02;&#x5E38;&#x5DF2;&#x7ECF;&#x53D1;&#x751F;&#x5E76;&#x5C06;&#x88AB;&#x4F20;&#x64AD;.</p>
+<p>&#x5F53;&#x4E3A;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x5F02;&#x5E38;&#x503C;&#x65F6;&#xFF0C;&#x4E0D;&#x5E94;&#x663E;&#x5F0F;&#x6216;&#x9690;&#x5F0F;&#x8FD4;&#x56DE;&#x8BE5;&#x503C;.&#x7279;&#x522B;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x5F02;&#x5E38;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x4E00;&#x4E2A;<code>False</code>&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x5E94;&#x8BE5;&#x786E;&#x4FDD;&#x51FD;&#x6570;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x901A;&#x8FC7;&#x9690;&#x5F0F;&#x6216;&#x7A7A;&#x8FD4;&#x56DE;&#x7EC8;&#x6B62;.</p>
+<p>&#x5982;&#x679C;&#x6240;&#x6709;&#x53EF;&#x80FD;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x90FD;&#x662F;&#x5408;&#x6CD5;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x4F60;&#x4E0D;&#x80FD;&#x5B8C;&#x5168;&#x4FDD;&#x7559;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x4FE1;&#x53F7;&#x9519;&#x8BEF;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5F02;&#x5E38;&#x503C;&#x58F0;&#x660E;&#x7684;&#x66FF;&#x4EE3;&#x5F62;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-cython">cdef int spam() except? -1:
+    ...
+</code></pre>
+<p>&apos;?&apos;&#x53F7;&#x8868;&#x793A;-1&#x662F;&#x4E2A;&#x5F02;&#x5E38;&#x503C;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;Cython&#x901A;&#x8FC7;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x51FD;&#x6570;<code>PyErr_Occurred()</code>&#x8FDB;&#x884C;&#x8FD4;&#x56DE;&#xFF0C;&#x4ECE;&#x800C;&#x77E5;&#x9053;&#x8BE5;&#x51FD;&#x6570;&#x53D1;&#x751F;&#x4E86;&#x5F02;&#x5E38;&#x503C;.</p>
+<p>&#x8FD8;&#x6709;&#x7B2C;&#x4E09;&#x79CD;&#x5B9A;&#x4E49;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-cython">cdef int spam() except *:
+    ...
+</code></pre>
+<p>&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#x5BFC;&#x81F4;Cython&#x5728;&#x6BCF;&#x6B21;&#x8C03;&#x7528;spam()&#x540E;&#x751F;&#x6210;&#x5BF9;<code>PyErr_Occurred()</code>&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x800C;&#x4E0D;&#x7BA1;&#x5B83;&#x8FD4;&#x56DE;&#x4EC0;&#x4E48;&#x503C;&#x3002;&#x5982;&#x679C;&#x4F60;&#x6709;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x8FD4;&#x56DE;void&#x9700;&#x8981;&#x4F20;&#x64AD;&#x9519;&#x8BEF;&#xFF0C;&#x4F60;&#x5C06;&#x4E0D;&#x5F97;&#x4E0D;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#xFF0C;&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x8FD4;&#x56DE;&#x503C;&#x6765;&#x6D4B;&#x8BD5;.&#x5426;&#x5219;&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x5B9A;&#x4E49;&#x5E94;&#x8BE5;&#x5C3D;&#x91CF;&#x5C11;&#x7528;.</p>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF1A;</p>
+<p>&#x5F02;&#x5E38;&#x503C;&#x53EA;&#x80FD;&#x4E3A;&#x8FD4;&#x56DE;</p>
+<ul>
+<li>&#x6574;&#x6570;&#xFF0C;</li>
+<li>&#x679A;&#x4E3E;&#xFF0C;</li>
+<li>&#x6D6E;&#x70B9;</li>
+<li>&#x6307;&#x9488;&#x7C7B;&#x578B;&#x7684;&#x51FD;&#x6570;&#x58F0;&#x660E;.</li>
+</ul>
+<p>&#x5E76;&#x4E14;&#x8BE5;&#x503C;&#x5FC5;&#x987B;&#x662F;&#x5E38;&#x91CF;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</p>
+<p>void&#x51FD;&#x6570;&#x53EA;&#x80FD;&#x4F7F;&#x7528;<code>except *</code>&#x5F62;&#x5F0F;.</p>
+<p>&#x5F02;&#x5E38;&#x503C;&#x89C4;&#x8303;&#x662F;&#x51FD;&#x6570;&#x7B7E;&#x540D;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;&#x5982;&#x679C;&#x5C06;&#x6307;&#x9488;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;&#x51FD;&#x6570;&#x6216;&#x5C06;&#x5176;&#x6307;&#x5B9A;&#x7ED9;&#x53D8;&#x91CF;&#xFF0C;&#x5219;&#x58F0;&#x660E;&#x7684;&#x53C2;&#x6570;&#x6216;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#x5FC5;&#x987B;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x5F02;&#x5E38;&#x503C;&#x89C4;&#x8303;(&#x6216;&#x7F3A;&#x5C11;).&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x5F02;&#x5E38;&#x503C;&#x7684;&#x6307;&#x9488;&#x5230;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-cython">int (*grail)(int, char*) except -1
+</code></pre>
+<h2 id="&#x6A21;&#x5757;&#x5BFC;&#x5165;"><a name="&#x6A21;&#x5757;&#x5BFC;&#x5165;" class="anchor-navigation-ex-anchor" href="#&#x6A21;&#x5757;&#x5BFC;&#x5165;"><i class="fa fa-link" aria-hidden="true"></i></a>2.14. &#x6A21;&#x5757;&#x5BFC;&#x5165;</h2>
+<p>cython&#x4E2D;&#x7684;&#x5BFC;&#x5165;&#x65B9;&#x5F0F;&#x6709;3&#x79CD;:</p>
+<ul>
+<li><p>python&#x7684;<code>import</code></p>
+<p>  &#x7528;&#x4E8E;&#x5BFC;&#x5165;python&#x6A21;&#x5757;,&#x4E00;&#x822C;&#x53EA;&#x5728;&#x5B9E;&#x73B0;&#x6587;&#x4EF6;&#x4E2D;&#x5BFC;&#x5165;</p>
+</li>
+<li><p>cython&#x7684;<code>cimport</code></p>
+<p>  &#x7528;&#x4E8E;&#x5BFC;&#x5165;cpython&#x4E2D;<code>.pxd</code>&#x6587;&#x4EF6;&#x4E2D;&#x7533;&#x660E;&#x7684;&#x5185;&#x5BB9;&#x548C;&#x4E00;&#x4E9B;cpython&#x5C01;&#x88C5;&#x597D;&#x7684;&#x6807;&#x51C6;&#x6A21;&#x5757;,&#x53EF;&#x4EE5;&#x5728;&#x7533;&#x660E;&#x6587;&#x4EF6;&#x6216;&#x8005;&#x5B9E;&#x73B0;&#x6587;&#x4EF6;&#x4E2D;&#x5BFC;&#x5165;</p>
+</li>
+<li><p>cython&#x7684;<code>include</code></p>
+<p>  <code>include</code>&#x8BED;&#x53E5;&#x7528;&#x4E8E;&#x5BFC;&#x5165;<code>.pxi</code>&#x6587;&#x4EF6;.&#x8FD9;&#x79CD;&#x8BED;&#x6CD5;&#x7C7B;&#x4F3C;<code>C/C++</code>&#x4E2D;&#x7684;<code>#include</code>,&#x662F;&#x76F4;&#x63A5;&#x5C06;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x590D;&#x5236;&#x5230;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;</p>
+</li>
+</ul>
+<h3 id="&#x4F7F;&#x7528;c&#x7684;stl&#x548C;c&#x6807;&#x51C6;&#x5E93;"><a name="&#x4F7F;&#x7528;c&#x7684;stl&#x548C;c&#x6807;&#x51C6;&#x5E93;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;c&#x7684;stl&#x548C;c&#x6807;&#x51C6;&#x5E93;"><i class="fa fa-link" aria-hidden="true"></i></a>2.14.1. &#x4F7F;&#x7528;C++&#x7684;stl&#x548C;C&#x6807;&#x51C6;&#x5E93;</h3>
+<p>&#x5927;&#x591A;&#x6570;C++&#x6807;&#x51C6;&#x5E93;&#x7684;&#x5BB9;&#x5668;&#x5DF2;&#x5728;&#x4F4D;&#x4E8E;<code>/Cython /Includes/libcpp</code>&#x7684;pxd&#x6587;&#x4EF6;&#x4E2D;&#x58F0;&#x660E;.&#x8FD9;&#x4E9B;&#x5BB9;&#x5668;&#x662F;&#xFF1A;</p>
+<ul>
+<li>deque &#x53CC;&#x5411;&#x961F;&#x5217;</li>
+<li>list &#x5217;&#x8868;</li>
+<li>map &#x6620;&#x5C04;</li>
+<li>pair &#x5BF9;</li>
+<li>queue &#x961F;&#x5217;</li>
+<li>set&#x96C6;&#x5408;</li>
+<li>stack&#x6808;</li>
+<li>vector &#x5411;&#x91CF;</li>
+</ul>
+<p>&#x8FD9;&#x4E9B;&#x5BB9;&#x5668;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x770B;C++&#x7684;stl&#x90E8;&#x5206;.</p>
+<p>&#x56E0;&#x6B64;&#x73B0;&#x5728;&#x60F3;&#x7528;&#x8FD9;&#x4E9B;&#x5BB9;&#x5668;&#x53EA;&#x9700;&#x7B80;&#x5355;&#x7684;cimport&#x8FDB;&#x6765;&#x5373;&#x53EF;</p>
+<pre><code class="lang-cython">%%cython
+# distutils: language = c++
+from libcpp.vector cimport vector
+
+cdef vector[int] vect
+cdef int i
+for i in range(10):
+    vect.push_back(i)
+for i in range(10):
+    print(vect[i])
+</code></pre>
+<pre><code>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</code></pre><p>&#x73B0;&#x5728;&#x5728;Cython&#x4E2D;STL&#x5BB9;&#x5668;&#x4F1A;&#x4ECE;&#x76F8;&#x5E94;&#x7684;Python&#x5185;&#x5EFA;&#x7C7B;&#x578B;&#x4E2D;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x3002;&#x8F6C;&#x6362;&#x901A;&#x8FC7;&#x5BF9;&#x7C7B;&#x578B;&#x5316;&#x53D8;&#x91CF;&#xFF08;&#x5305;&#x62EC;&#x7C7B;&#x578B;&#x5316;&#x51FD;&#x6570;&#x53C2;&#x6570;&#xFF09;&#x7684;&#x8D4B;&#x503C;&#x6216;&#x663E;&#x5F0F;&#x8F6C;&#x6362;&#x89E6;&#x53D1;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-cython">%%cython
+# distutils: language = c++
+
+from libcpp.string cimport string
+from libcpp.vector cimport vector
+
+cdef string s = b&apos;py_bytes_object&apos;
+print(s)
+cpp_string = &lt;string&gt; &apos;py_unicode_object&apos;.encode(&apos;utf-8&apos;)
+
+cdef vector[int] vect = xrange(1, 10, 2)
+print(vect)              # [1, 3, 5, 7, 9]
+
+cdef vector[string] cpp_strings = b&apos;ab cd ef gh&apos;.split()
+print(cpp_strings[1])   # b&apos;cd&apos;
+</code></pre>
+<pre><code>b&apos;py_bytes_object&apos;
+[1, 3, 5, 7, 9]
+b&apos;cd&apos;
+</code></pre><p>&#x4EE5;&#x4E0B;&#x5F3A;&#x5236;&#x53EF;&#x7528;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>Python type =&gt;</th>
+<th>C++ type    =&gt;</th>
+<th>Python type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bytes</td>
+<td>std::string</td>
+<td>bytes</td>
+</tr>
+<tr>
+<td>iterable</td>
+<td>std::vector</td>
+<td>list</td>
+</tr>
+<tr>
+<td>iterable</td>
+<td>std::list</td>
+<td>list</td>
+</tr>
+<tr>
+<td>iterable</td>
+<td>std::set</td>
+<td>set</td>
+</tr>
+<tr>
+<td>iterable (len 2)</td>
+<td>std::pair</td>
+<td>tuple (len 2)</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6240;&#x6709;&#x8F6C;&#x6362;&#x90FD;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BB9;&#x5668;&#x5E76;&#x5C06;&#x6570;&#x636E;&#x590D;&#x5236;&#x5230;&#x8BE5;&#x5BB9;&#x5668;&#x4E2D;.&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x9879;&#x76EE;&#x4F1A;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x76F8;&#x5E94;&#x7684;&#x7C7B;&#x578B;,&#x5305;&#x62EC;&#x9012;&#x5F52;&#x8F6C;&#x6362;&#x5BB9;&#x5668;&#x5185;&#x7684;&#x5BB9;&#x5668;,&#x4F8B;&#x5982;&#x5B57;&#x7B26;&#x4E32;<code>map</code>&#x8F6C;&#x6362;&#x4E3A;<code>vector</code>.
+&#x652F;&#x6301;&#x5728;stl&#x5BB9;&#x5668;(&#x6216;&#x5B9E;&#x9645;&#x4E0A;&#x4EFB;&#x4F55;&#x7C7B;&#x4E0E;<code>begin()</code>&#x548C;<code>end()</code>&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x652F;&#x6301;&#x9012;&#x589E;,&#x53D6;&#x6D88;&#x5F15;&#x7528;&#x548C;&#x6BD4;&#x8F83;&#x7684;&#x5BF9;&#x8C61;)&#x901A;&#x8FC7;for&#x8BED;&#x6CD5;&#x652F;&#x6301;.&#x5305;&#x62EC;&#x5217;&#x8868;&#x89E3;&#x6790;.&#x4F8B;&#x5982;&#x5982;&#x4E0B;&#x4EE3;&#x7801;:</p>
+<pre><code class="lang-cython">%%cython
+# distutils: language = c++
+from libcpp.vector cimport vector
+cdef func(value):
+    return value**2
+cdef vector[int] v = [1,2,3,4,5,6,7,8]
+for value in v:
+    print(func(value))
+y = [x*x for x in v if x % 2 == 0]
+</code></pre>
+<pre><code>1
+4
+9
+16
+25
+36
+49
+64
+</code></pre><pre><code class="lang-python">y
+</code></pre>
+<pre><code>[4, 16, 36, 64]
+</code></pre><h2 id="cython&#x4E2D;&#x7684;array"><a name="cython&#x4E2D;&#x7684;array" class="anchor-navigation-ex-anchor" href="#cython&#x4E2D;&#x7684;array"><i class="fa fa-link" aria-hidden="true"></i></a>2.15. Cython&#x4E2D;&#x7684;array</h2>
+<p>Python&#x6709;&#x4E00;&#x4E2A;&#x5185;&#x7F6E;1&#x7EF4;&#x6570;&#x7EC4;&#x7684;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x7684;&#x52A8;&#x6001;&#x6570;&#x7EC4;&#x6A21;&#x5757;.&#x53EF;&#x4EE5;&#x4ECE;Cython&#x4E2D;&#x8BBF;&#x95EE;Python&#x6570;&#x7EC4;&#x7684;&#x5E95;&#x5C42;C&#x6570;&#x7EC4;.&#x540C;&#x65F6;,&#x5B83;&#x4EEC;&#x662F;&#x666E;&#x901A;&#x7684;Python&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x5B58;&#x50A8;&#x5728;&#x5217;&#x8868;&#x4E2D;&#x5E76;&#x5728;&#x591A;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x5E8F;&#x5217;&#x5316;.</p>
+<p>&#x4E0E;<code>malloc()</code>&#x548C;<code>free()</code>&#x7684;&#x624B;&#x52A8;&#x63A7;&#x5236;&#x5185;&#x5B58;&#x65B9;&#x6CD5;&#x76F8;&#x6BD4;&#xFF0C;&#x8FD9;&#x63D0;&#x4F9B;&#x4E86;&#x5BF9;Python&#x7684;&#x5B89;&#x5168;&#x548C;&#x81EA;&#x52A8;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#xFF0C;&#x4E0E;Numpy&#x6570;&#x7EC4;&#x76F8;&#x6BD4;,&#x65E0;&#x9700;&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;,&#x56E0;&#x4E3A;&#x6570;&#x7EC4;&#x6A21;&#x5757;&#x5185;&#x7F6E;&#x4E8E;cPython&#x548C;cython&#x4E2D;.</p>
+<h3 id="&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x7684;&#x5B89;&#x5168;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;"><a name="&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x7684;&#x5B89;&#x5168;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x7684;&#x5B89;&#x5168;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>2.15.1. &#x4F7F;&#x7528;&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x7684;&#x5B89;&#x5168;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;</h3>
+<p>&#x6CE8;&#x610F;&#xFF1A;cython&#x4E2D;&#x9700;&#x8981;&#x540C;&#x65F6;&#x5BFC;&#x5165;cython&#x7EA7;&#x522B;&#x7684;&#x6570;&#x7EC4;&#x548C;&#x5E38;&#x89C4;Python&#x6570;&#x7EC4;&#x5BF9;&#x8C61;&#x5F15;&#x5165;&#x5230;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x4E2D;.</p>
+<p>&#x5F53;&#x4E00;&#x4E2A;Python&#x6570;&#x7EC4;&#x88AB;&#x5206;&#x914D;&#x7ED9;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x4E3A;&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x7684;&#x53D8;&#x91CF;&#x65F6;&#xFF0C;&#x6784;&#x9020;&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x5C06;&#x4F1A;&#x6709;&#x4E00;&#x4E9B;&#x5FAE;&#x5C0F;&#x7684;&#x5F00;&#x9500;.&#x4F46;&#x662F;,&#x4ECE;&#x8FD9;&#x4E2A;&#x89D2;&#x5EA6;&#x6765;&#x770B;,&#x53D8;&#x91CF;&#x53EF;&#x4EE5;&#x4F20;&#x9012;&#x7ED9;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#x800C;&#x4E0D;&#x9700;&#x8981;&#x5F00;&#x9500;,&#x53EA;&#x8981;&#x5B83;&#x88AB;&#x8F93;&#x5165;:</p>
+<pre><code class="lang-cython">%%cython
+
+from cpython cimport array
+import array
+cdef array.array a = array.array(&apos;i&apos;, [1, 2, 3])
+cdef int[:] ca = a
+
+print(ca[0])
+</code></pre>
+<pre><code>1
+</code></pre><pre><code class="lang-cython">%%cython
+from cpython cimport array
+import array
+cdef array.array a = array.array(&apos;i&apos;, [1, 2, 3])
+cdef int[:] ca = a
+
+cdef int overhead(object a):
+    cdef int[:] ca = a
+    return ca[0]
+
+cdef int no_overhead(int[:] ca):
+    return ca[0]
+
+print(overhead(a))  # new memory view will be constructed, overhead
+print(no_overhead(ca))  # ca is already a memory view, so no overhead
+</code></pre>
+<pre><code>1
+1
+</code></pre><h3 id="&#x96F6;&#x5F00;&#x9500;&#xFF0C;&#x4E0D;&#x5B89;&#x5168;&#x8BBF;&#x95EE;&#x539F;&#x59CB;c&#x6307;&#x9488;"><a name="&#x96F6;&#x5F00;&#x9500;&#xFF0C;&#x4E0D;&#x5B89;&#x5168;&#x8BBF;&#x95EE;&#x539F;&#x59CB;c&#x6307;&#x9488;" class="anchor-navigation-ex-anchor" href="#&#x96F6;&#x5F00;&#x9500;&#xFF0C;&#x4E0D;&#x5B89;&#x5168;&#x8BBF;&#x95EE;&#x539F;&#x59CB;c&#x6307;&#x9488;"><i class="fa fa-link" aria-hidden="true"></i></a>2.15.2. &#x96F6;&#x5F00;&#x9500;&#xFF0C;&#x4E0D;&#x5B89;&#x5168;&#x8BBF;&#x95EE;&#x539F;&#x59CB;C&#x6307;&#x9488;</h3>
+<p>&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x4EFB;&#x4F55;&#x5F00;&#x9500;&#xFF0C;&#x5E76;&#x4E14;&#x80FD;&#x591F;&#x5C06;C&#x6307;&#x9488;&#x4F20;&#x9012;&#x7ED9;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x4EE5;&#x5E95;&#x5C42;&#x7684;&#x8FDE;&#x7EED;&#x6570;&#x7EC4;&#x4F5C;&#x4E3A;&#x6307;&#x9488;.&#x6CA1;&#x6709;&#x7C7B;&#x578B;&#x6216;&#x8FB9;&#x754C;&#x68C0;&#x67E5;,&#x6240;&#x4EE5;&#x8981;&#x5C0F;&#x5FC3;&#x4F7F;&#x7528;&#x6B63;&#x786E;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x7B7E;&#x540D;.</p>
+<p>&#x8BF7;&#x6CE8;&#x610F;,&#x6570;&#x7EC4;&#x5BF9;&#x8C61;&#x4E0A;&#x7684;&#x4EFB;&#x4F55;&#x957F;&#x5EA6;&#x53D8;&#x5316;&#x64CD;&#x4F5C;&#x90FD;&#x53EF;&#x80FD;&#x4F7F;&#x6307;&#x9488;&#x65E0;&#x6548;.</p>
+<pre><code class="lang-cython">%%cython
+from cpython cimport array
+import array
+
+cdef array.array a = array.array(&apos;i&apos;, [1, 2, 3])
+
+# access underlying pointer:
+print(a.data.as_ints[0])
+
+from libc.string cimport memset
+memset(a.data.as_voidptr, 0, len(a) * sizeof(int))
+</code></pre>
+<pre><code>1
+</code></pre><h3 id="&#x514B;&#x9686;&#xFF0C;&#x6269;&#x5C55;&#x6570;&#x7EC4;"><a name="&#x514B;&#x9686;&#xFF0C;&#x6269;&#x5C55;&#x6570;&#x7EC4;" class="anchor-navigation-ex-anchor" href="#&#x514B;&#x9686;&#xFF0C;&#x6269;&#x5C55;&#x6570;&#x7EC4;"><i class="fa fa-link" aria-hidden="true"></i></a>2.15.3. &#x514B;&#x9686;&#xFF0C;&#x6269;&#x5C55;&#x6570;&#x7EC4;</h3>
+<p>&#x4E3A;&#x907F;&#x514D;&#x4F7F;&#x7528;Python&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x6570;&#x7EC4;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E0E;&#x6A21;&#x677F;&#x7C7B;&#x578B;&#x76F8;&#x540C;&#x7684;&#x65B0;&#x6570;&#x7EC4;,&#x5E76;&#x9884;&#x5148;&#x5206;&#x914D;&#x7ED9;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x5143;&#x7D20;.&#x6570;&#x7EC4;&#x5728;&#x8BF7;&#x6C42;&#x65F6;&#x521D;&#x59CB;&#x5316;&#x4E3A;&#x96F6;.</p>
+<pre><code class="lang-cython">%%cython
+from cpython cimport array
+import array
+
+cdef array.array int_array_template = array.array(&apos;i&apos;, [])
+cdef array.array newarray
+
+# create an array with 3 elements with same type as template
+newarray = array.clone(int_array_template, 3, zero=False)
+</code></pre>
+<p>&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x6269;&#x5C55;&#x548C;&#x8C03;&#x6574;&#x5927;&#x5C0F;;&#x8FD9;&#x907F;&#x514D;&#x4E86;&#x91CD;&#x590D;&#x7684;&#x5185;&#x5B58;&#x91CD;&#x65B0;&#x5206;&#x914D;,&#x5982;&#x679C;&#x5143;&#x7D20;&#x88AB;&#x9010;&#x4E2A;&#x9644;&#x52A0;&#x6216;&#x5220;&#x9664;,&#x5219;&#x4F1A;&#x53D1;&#x751F;&#x8FD9;&#x79CD;&#x91CD;&#x65B0;&#x5206;&#x914D;.</p>
+<pre><code class="lang-cython">%%cython
+from cpython cimport array
+import array
+
+cdef array.array a = array.array(&apos;i&apos;, [1, 2, 3])
+cdef array.array b = array.array(&apos;i&apos;, [4, 5, 6])
+
+# extend a with b, resize as needed
+array.extend(a, b)
+# resize a, leaving just original three elements
+array.resize(a, len(a) - len(b))
+</code></pre>
+<h3 id="&#x76F8;&#x5173;&#x63A5;&#x53E3;"><a name="&#x76F8;&#x5173;&#x63A5;&#x53E3;" class="anchor-navigation-ex-anchor" href="#&#x76F8;&#x5173;&#x63A5;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a>2.15.4. &#x76F8;&#x5173;&#x63A5;&#x53E3;</h3>
+<p>&#x5C06;&#x5185;&#x5BB9;&#x5F3A;&#x5236;&#x8F6C;&#x6362;</p>
+<ul>
+<li>data.as_voidptr</li>
+<li>data.as_chars</li>
+<li>data.as_schars</li>
+<li>data.as_uchars</li>
+<li>data.as_shorts</li>
+<li>data.as_ushorts</li>
+<li>data.as_ints</li>
+<li>data.as_uints</li>
+<li>data.as_longs</li>
+<li>data.as_ulongs</li>
+<li>data.as_longlongs  # requires Python &gt;=3</li>
+<li>data.as_ulonglongs  # requires Python &gt;=3</li>
+<li>data.as_floats</li>
+<li>data.as_doubles</li>
+<li>data.as_pyunicodes</li>
+</ul>
+<p>&#x64CD;&#x4F5C;&#x7684;&#x76F8;&#x5173;&#x51FD;&#x6570;</p>
+<ul>
+<li><code>int resize(array self, Py_ssize_t n) except -1</code></li>
+</ul>
+<p>&#x5FEB;&#x901F;&#x8C03;&#x6574;&#x5927;&#x5C0F;/ realloc.&#x4E0D;&#x9002;&#x5408;&#x91CD;&#x590D;&#xFF0C;&#x5C0F;&#x589E;&#x91CF;;&#x5C06;&#x5E95;&#x5C42;&#x6570;&#x7EC4;&#x8C03;&#x6574;&#x5230;&#x6B63;&#x786E;&#x7684;&#x8BF7;&#x6C42;&#x91CF;.</p>
+<ul>
+<li><code>int resize_smart(array self, Py_ssize_t n) except -1</code></li>
+</ul>
+<p>&#x5C0F;&#x589E;&#x91CF;&#x66F4;&#x52A0;&#x6709;&#x6548;;&#x4F7F;&#x7528;&#x63D0;&#x4F9B;&#x644A;&#x9500;&#x7EBF;&#x6027;&#x65F6;&#x95F4;&#x9644;&#x52A0;&#x7684;&#x589E;&#x957F;&#x6A21;&#x5F0F;.</p>
+<ul>
+<li><code>cdef inline array clone(array template, Py_ssize_t length, bint zero)</code></li>
+</ul>
+<p>&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x6A21;&#x677F;&#x6570;&#x7EC4;&#xFF0C;&#x5FEB;&#x901F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x6570;&#x7EC4;.&#x7C7B;&#x578B;&#x5C06;&#x4E0E;&#x6A21;&#x677F;&#x76F8;&#x540C;.&#x5982;&#x679C;&#x4E3A;&#x96F6;,&#x5219;&#x5C06;&#x4F7F;&#x7528;&#x96F6;&#x521D;&#x59CB;&#x5316;&#x65B0;&#x6570;&#x7EC4;.</p>
+<ul>
+<li><code>cdef inline array copy(array self)</code></li>
+</ul>
+<p>&#x590D;&#x5236;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;</p>
+<ul>
+<li><p><code>cdef inline int extend_buffer(array self, char* stuff, Py_ssize_t n) except -1</code>
+&#x5BF9;&#x76F8;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x65B0;&#x6570;&#x636E;(&#x4F8B;&#x5982;&#xFF0C;&#x76F8;&#x540C;&#x6570;&#x7EC4;&#x7C7B;&#x578B;),&#x9AD8;&#x6548;&#x9644;&#x52A0;n&#x4E2A;&#x5143;&#x7D20;&#x6570;&#x91CF;&#x7684;&#x957F;&#x5EA6;</p>
+</li>
+<li><p><code>cdef inline int extend(array self, array other) except -1</code>
+&#x4F7F;&#x7528;&#x53E6;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x7684;&#x6570;&#x636E;&#x6269;&#x5C55;&#x6570;&#x7EC4;;&#x7C7B;&#x578B;&#x5FC5;&#x987B;&#x5339;&#x914D;&#x3002;</p>
+</li>
+<li><p><code>cdef inline void zero(array self)</code>
+&#x5C06;&#x6570;&#x7EC4;&#x5185;&#x5BB9;&#x5168;&#x90E8;&#x7F6E;0</p>
+</li>
+</ul>
+<h2 id="memoryviews&#x5185;&#x5B58;&#x89C6;&#x56FE;"><a name="memoryviews&#x5185;&#x5B58;&#x89C6;&#x56FE;" class="anchor-navigation-ex-anchor" href="#memoryviews&#x5185;&#x5B58;&#x89C6;&#x56FE;"><i class="fa fa-link" aria-hidden="true"></i></a>2.16. Memoryviews&#x5185;&#x5B58;&#x89C6;&#x56FE;</h2>
+<p>&#x7C7B;&#x578B;&#x5316;&#x7684;&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x53EF;&#x4EE5;&#x6709;&#x6548;&#x5730;&#x8BBF;&#x95EE;&#x5185;&#x5B58;&#x7F13;&#x51B2;&#x533A;,&#x4F8B;&#x5982;NumPy&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x7F13;&#x51B2;&#x533A;,&#x800C;&#x4E0D;&#x4F1A;&#x5BFC;&#x81F4;&#x4EFB;&#x4F55;Python&#x5F00;&#x9500;. Memoryview&#x7C7B;&#x4F3C;&#x4E8E;&#x5F53;&#x524D;&#x7684;NumPy&#x6570;&#x7EC4;&#x7F13;&#x51B2;&#x533A;&#x652F;&#x6301;(np.ndarray [np.float64_t&#xFF0C;ndim = 2]),&#x4F46;&#x5B83;&#x4EEC;&#x5177;&#x6709;&#x66F4;&#x591A;&#x7684;&#x529F;&#x80FD;&#x548C;&#x66F4;&#x6E05;&#x6670;&#x7684;&#x8BED;&#x6CD5;.&#x5185;&#x5B58;&#x8BBF;&#x95EE;&#x6BD4;&#x65E7;&#x7684;NumPy&#x6570;&#x7EC4;&#x7F13;&#x51B2;&#x533A;&#x652F;&#x6301;&#x66F4;&#x901A;&#x7528;,&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x66F4;&#x591A;&#x79CD;&#x7C7B;&#x7684;&#x6570;&#x7EC4;&#x6570;&#x636E;&#x6E90;.&#x4F8B;&#x5982;,&#x4ED6;&#x4EEC;&#x53EF;&#x4EE5;&#x5904;&#x7406;C&#x6570;&#x7EC4;&#x548C;Cython&#x6570;&#x7EC4;&#x7C7B;&#x578B;(Cython&#x6570;&#x7EC4;).&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x4F55;&#x4E0A;&#x4E0B;&#x6587;(&#x51FD;&#x6570;&#x53C2;&#x6570;&#xFF0C;&#x6A21;&#x5757;&#x7EA7;&#xFF0C;cdef&#x7C7B;&#x5C5E;&#x6027;&#x7B49;)&#x4E2D;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x89C6;&#x56FE;,&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x4ECE;&#x51E0;&#x4E4E;&#x4EFB;&#x4F55;&#x901A;&#x8FC7;<code>PEP 3118</code>&#x7F13;&#x51B2;&#x533A;&#x63A5;&#x53E3;&#x66B4;&#x9732;&#x53EF;&#x5199;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5BF9;&#x8C61;&#x83B7;&#x5F97;.</p>
+<p>&#x5982;&#x679C;&#x4E60;&#x60EF;&#x4F7F;&#x7528;NumPy&#xFF0C;&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x5E94;&#x8BE5;&#x8BA9;&#x60A8;&#x5F00;&#x59CB;&#x4F7F;&#x7528;Cython&#x5185;&#x5B58;&#x89C6;&#x56FE;.</p>
+<pre><code class="lang-cython">%%cython
+from cython.view cimport array as cvarray
+import numpy as np
+
+# Memoryview on a NumPy array
+narr = np.arange(27, dtype=np.dtype(&quot;i&quot;)).reshape((3, 3, 3))
+cdef int [:, :, :] narr_view = narr
+
+# Memoryview on a C array
+cdef int carr[3][3][3]
+cdef int [:, :, :] carr_view = carr
+
+# Memoryview on a Cython array
+cyarr = cvarray(shape=(3, 3, 3), itemsize=sizeof(int), format=&quot;i&quot;)
+cdef int [:, :, :] cyarr_view = cyarr
+
+# Show the sum of all the arrays before altering it
+print(&quot;NumPy sum of the NumPy array before assignments: %s&quot; % narr.sum())
+
+# We can copy the values from one memoryview into another using a single
+# statement, by either indexing with ... or (NumPy-style) with a colon.
+carr_view[...] = narr_view
+cyarr_view[:] = narr_view
+# NumPy-style syntax for assigning a single value to all elements.
+narr_view[:, :, :] = 3
+
+# Just to distinguish the arrays
+carr_view[0, 0, 0] = 100
+cyarr_view[0, 0, 0] = 1000
+
+# Assigning into the memoryview on the NumPy array alters the latter
+print(&quot;NumPy sum of NumPy array after assignments: %s&quot; % narr.sum())
+
+# A function using a memoryview does not usually need the GIL
+cpdef int sum3d(int[:, :, :] arr) nogil:
+    cdef size_t i, j, k
+    cdef int total = 0
+    I = arr.shape[0]
+    J = arr.shape[1]
+    K = arr.shape[2]
+    for i in range(I):
+        for j in range(J):
+            for k in range(K):
+                total += arr[i, j, k]
+    return total
+
+# A function accepting a memoryview knows how to use a NumPy array,
+# a C array, a Cython array...
+print(&quot;Memoryview sum of NumPy array is %s&quot; % sum3d(narr))
+print(&quot;Memoryview sum of C array is %s&quot; % sum3d(carr))
+print(&quot;Memoryview sum of Cython array is %s&quot; % sum3d(cyarr))
+# ... and of course, a memoryview.
+print(&quot;Memoryview sum of C memoryview is %s&quot; % sum3d(carr_view))
+</code></pre>
+<pre><code>NumPy sum of the NumPy array before assignments: 351
+NumPy sum of NumPy array after assignments: 81
+Memoryview sum of NumPy array is 81
+Memoryview sum of C array is 451
+Memoryview sum of Cython array is 1351
+Memoryview sum of C memoryview is 451
+</code></pre><h3 id="&#x57FA;&#x672C;&#x8BED;&#x6CD5;"><a name="&#x57FA;&#x672C;&#x8BED;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x672C;&#x8BED;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2.16.1. &#x57FA;&#x672C;&#x8BED;&#x6CD5;</h3>
+<p>&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x4F7F;&#x7528;Python&#x5207;&#x7247;&#x8BED;&#x6CD5;&#xFF0C;&#x4E0E;NumPy&#x7C7B;&#x4F3C;&#x3002;&#x8981;&#x5728;&#x4E00;&#x7EF4;int&#x7F13;&#x51B2;&#x533A;&#x4E0A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x89C6;&#x56FE;&#xFF1A;</p>
+<ul>
+<li>&#x4E00;&#x7EF4;&#x89C6;&#x56FE;:</li>
+</ul>
+<pre><code class="lang-cython">cdef int[:] view1D = exporting_object
+</code></pre>
+<ul>
+<li>&#x4E09;&#x7EF4;&#x89C6;&#x56FE;:</li>
+</ul>
+<pre><code class="lang-cython">cdef int[:,:,:] view3D = exporting_object
+</code></pre>
+<ul>
+<li>2D&#x89C6;&#x56FE;&#x5C06;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x7B2C;&#x4E00;&#x7EF4;&#x5EA6;&#x9650;&#x5236;&#x4E3A;&#x4ECE;&#x7B2C;&#x4E8C;&#x4E2A;(&#x7D22;&#x5F15;1)&#x5F00;&#x59CB;&#x7684;100&#x884C;&#xFF0C;&#x7136;&#x540E;&#x6BCF;&#x79D2;(&#x5947;&#x6570;)&#x884C;&#x8DF3;&#x8FC7;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-cython">cdef int[1:102:2,:] partial_view = exporting_object
+</code></pre>
+<ul>
+<li>&#x8FD9;&#x4E5F;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x5730;&#x4F5C;&#x4E3A;&#x51FD;&#x6570;&#x53C2;&#x6570;</li>
+</ul>
+<pre><code class="lang-cython">def process_3d_buffer(int[1:102:2,:] view not None):
+    ...
+</code></pre>
+<p>&#x8BE5;&#x53C2;&#x6570;&#x7684;<code>not None</code>&#x58F0;&#x660E;&#x81EA;&#x52A8;&#x62D2;&#x7EDD;&#x65E0;&#x503C;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;,&#x5426;&#x5219;&#x5C06;&#x5141;&#x8BB8;.&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x5141;&#x8BB8;None&#x7684;&#x539F;&#x56E0;&#x662F;&#x5B83;&#x65B9;&#x4FBF;&#x5730;&#x7528;&#x4E8E;&#x8FD4;&#x56DE;&#x53C2;&#x6570;:</p>
+<pre><code class="lang-cython">def process_buffer(int[:,:] input not None,
+              int[:,:] output = None):
+    if output is None:
+        output = ...  # e.g. numpy.empty_like(input)
+    # process &apos;input&apos; into &apos;output&apos;
+    return output
+</code></pre>
+<p>Cython&#x5C06;&#x81EA;&#x52A8;&#x62D2;&#x7EDD;&#x4E0D;&#x517C;&#x5BB9;&#x7684;&#x7F13;&#x51B2;&#x533A;&#xFF0C;&#x4F8B;&#x5982;&#x5C06;&#x4E09;&#x7EF4;&#x7F13;&#x51B2;&#x533A;&#x4F20;&#x9012;&#x5230;&#x9700;&#x8981;&#x4E8C;&#x7EF4;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x51FD;&#x6570;&#x5C06;&#x5F15;&#x53D1;<code>ValueError</code>&#x3002;</p>
+<h3 id="&#x7D22;&#x5F15;"><a name="&#x7D22;&#x5F15;" class="anchor-navigation-ex-anchor" href="#&#x7D22;&#x5F15;"><i class="fa fa-link" aria-hidden="true"></i></a>2.16.2. &#x7D22;&#x5F15;</h3>
+<p>&#x5728;Cython&#x4E2D;&#xFF0C;&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x4E0A;&#x7684;&#x7D22;&#x5F15;&#x8BBF;&#x95EE;&#x5C06;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x5185;&#x5B58;&#x5730;&#x5740;&#x3002;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x5411;&#x5176;&#x4E2D;&#x8BF7;&#x6C42;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x7684;C&#x7C7B;&#x578B;&#x7684;&#x9879;&#x76EE;&#x548C;&#x7D22;&#x5F15;&#xFF1A;</p>
+<pre><code class="lang-cython">cdef int[:,:] buf = exporting_object
+
+print(buf[1,2])
+</code></pre>
+<p>&#x8D1F;&#x6307;&#x6570;&#x4E5F;&#x4ECE;&#x5404;&#x81EA;&#x7684;&#x7EF4;&#x5EA6;&#x7ED3;&#x675F;&#x8D77;&#x8BA1;&#x7B97;&#xFF1A;</p>
+<pre><code class="lang-cython">print(buf[-1,-2])
+</code></pre>
+<p>&#x4EE5;&#x4E0B;&#x51FD;&#x6570;&#x5FAA;&#x73AF;&#x904D;&#x5386;2D&#x6570;&#x7EC4;&#x7684;&#x6BCF;&#x4E2A;&#x7EF4;&#x5EA6;&#xFF0C;&#x5E76;&#x4E3A;&#x6BCF;&#x4E2A;&#x9879;&#x6DFB;&#x52A0;1&#xFF1A;</p>
+<pre><code class="lang-cython">def add_one(int[:,:] buf):
+    for x in xrange(buf.shape[0]):
+        for y in xrange(buf.shape[1]):
+            buf[x,y] += 1
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6216;&#x4E0D;&#x4F7F;&#x7528;GIL&#x8FDB;&#x884C;&#x7D22;&#x5F15;&#x548C;&#x5207;&#x7247;&#x3002;&#x5B83;&#x57FA;&#x672C;&#x4E0A;&#x50CF;NumPy&#x4E00;&#x6837;&#x5DE5;&#x4F5C;.&#x5982;&#x679C;&#x4E3A;&#x6BCF;&#x4E2A;&#x7EF4;&#x6307;&#x5B9A;&#x4E86;&#x7D22;&#x5F15;&#xFF0C;&#x60A8;&#x5C06;&#x83B7;&#x5F97;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x7684;&#x5143;&#x7D20;(&#x4F8B;&#x5982;int).&#x5426;&#x5219;&#x5C06;&#x83B7;&#x5F97;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x89C6;&#x56FE;.&#x7701;&#x7565;&#x53F7;&#x610F;&#x5473;&#x7740;&#x53EF;&#x4EE5;&#x4E3A;&#x6BCF;&#x4E2A;&#x672A;&#x6307;&#x5B9A;&#x7EF4;&#x5EA6;&#x83B7;&#x5F97;&#x8FDE;&#x7EED;&#x7684;&#x5207;&#x7247;&#xFF1A;</p>
+<pre><code class="lang-cython">cdef int[:, :, :] my_view = exporting_object
+
+# These are all equivalent
+my_view[10]
+my_view[10, :, :]
+my_view[10, ...]
+</code></pre>
+<h3 id="&#x590D;&#x5236;"><a name="&#x590D;&#x5236;" class="anchor-navigation-ex-anchor" href="#&#x590D;&#x5236;"><i class="fa fa-link" aria-hidden="true"></i></a>2.16.3. &#x590D;&#x5236;</h3>
+<p>&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x53EF;&#x4EE5;&#x590D;&#x5236;</p>
+<pre><code class="lang-cython">cdef int[:, :, :] to_view, from_view
+...
+
+# copy the elements in from_view to to_view
+to_view[...] = from_view
+# or
+to_view[:] = from_view
+# or
+to_view[:, :, :] = from_view
+</code></pre>
+<p>&#x5B83;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;copy&#xFF08;&#xFF09;&#x548C;copy_fortran&#xFF08;&#xFF09;&#x65B9;&#x6CD5;&#x590D;&#x5236;</p>
+<h3 id="&#x8F6C;&#x7F6E;"><a name="&#x8F6C;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#&#x8F6C;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>2.16.4. &#x8F6C;&#x7F6E;</h3>
+<p>&#x5728;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x53EF;&#x4EE5;&#x4EE5;&#x4E0E;NumPy&#x5207;&#x7247;&#x76F8;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x8F6C;&#x7F6E;&#xFF1A;</p>
+<pre><code class="lang-cython">cdef int [:, :: 1] c_contig = ...
+
+cdef int [:: 1&#xFF0C;&#xFF1A;] f_contig = c_contig.T
+</code></pre>
+<p>&#x8FD9;&#x4E00;&#x64CD;&#x4F5C;&#x4F1A;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#xFF0C;&#x8F6C;&#x7F6E;&#x8FC7;&#x7684;&#x6570;&#x636E;&#x89C6;&#x56FE;&#x3002;&#x8C03;&#x6362;&#x8981;&#x6C42;&#x5B58;&#x50A8;&#x5668;&#x89C6;&#x56FE;&#x7684;&#x6240;&#x6709;&#x7EF4;&#x5EA6;&#x90FD;&#x5177;&#x6709;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x5B58;&#x50A8;&#x5668;&#x5E03;&#x5C40;(&#x5373;&#xFF0C;&#x901A;&#x8FC7;&#x6307;&#x9488;&#x4E0D;&#x5B58;&#x5728;&#x4EFB;&#x4F55;&#x6307;&#x4EE4;).</p>
+<h2 id="&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x4E0E;&#x6570;&#x7EC4;"><a name="&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x4E0E;&#x6570;&#x7EC4;" class="anchor-navigation-ex-anchor" href="#&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x4E0E;&#x6570;&#x7EC4;"><i class="fa fa-link" aria-hidden="true"></i></a>2.17. &#x5185;&#x5B58;&#x89C6;&#x56FE;&#x4E0E;&#x6570;&#x7EC4;</h2>
+<p>&#x8FD9;&#x4E9B;&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x53EF;&#x4EE5;&#x8F6C;&#x6362;&#x4E3A;Python memoryview&#x5BF9;&#x8C61;(<code>cython.view.memoryview</code>).&#x8FD9;&#x4E9B;Python&#x5BF9;&#x8C61;&#x662F;&#x53EF;&#x7D22;&#x5F15;&#x7684;&#xFF0C;&#x53EF;&#x5207;&#x7247;&#x7684;&#x5E76;&#x4E14;&#x4EE5;&#x4E0E;&#x539F;&#x59CB;&#x5185;&#x5B58;&#x8BBF;&#x95EE;&#x76F8;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x8F6C;&#x5EA7;&#x3002;&#x5B83;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x968F;&#x65F6;&#x8F6C;&#x6362;&#x56DE;<code>Cython-space memoryviews</code>.</p>
+<p>&#x5B83;&#x4EEC;&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x5C5E;&#x6027;&#xFF1A;</p>
+<ul>
+<li>shape: size in each dimension, as a tuple.</li>
+<li>strides: stride along each dimension, in bytes.</li>
+<li>suboffsets</li>
+<li>ndim: number of dimensions.</li>
+<li>size: total number of items in the view (product of the shape).</li>
+<li>itemsize: size, in bytes, of the items in the view.</li>
+<li>nbytes: equal to size times itemsize.</li>
+<li>base</li>
+<li>T</li>
+</ul>
+<p>&#x5F53;&#x7136;&#x8FD8;&#x6709;&#x4E0A;&#x8FF0;&#x7684;T&#x5C5E;&#x6027;&#xFF08;Transpose&#xFF09;&#x3002;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x5177;&#x6709;&#x4E0E;NumPy&#x76F8;&#x540C;&#x7684;&#x8BED;&#x4E49;.&#x4F8B;&#x5982;&#xFF0C;&#x8981;&#x68C0;&#x7D22;&#x539F;&#x59CB;&#x5BF9;&#x8C61;&#xFF1A;</p>
+<pre><code class="lang-cython">%%cython
+
+import numpy
+cimport numpy as cnp
+
+cdef cnp.int32_t[:] a = numpy.arange(10, dtype=numpy.int32)
+a = a[::2]
+
+print(a)
+print(numpy.asarray(a))
+print(a.base)
+</code></pre>
+<pre><code>&lt;MemoryView of &apos;ndarray&apos; object&gt;
+[0 2 4 6 8]
+[0 1 2 3 4 5 6 7 8 9]
+</code></pre><p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x6B64;&#x793A;&#x4F8B;&#x8FD4;&#x56DE;&#x4ECE;&#x4E2D;&#x83B7;&#x53D6;&#x89C6;&#x56FE;&#x7684;&#x539F;&#x59CB;&#x5BF9;&#x8C61;&#xFF0C;&#x540C;&#x65F6;&#x89C6;&#x56FE;&#x5DF2;&#x88AB;&#x91CD;&#x65B0;&#x751F;&#x6210;.</p>
+<p>&#x6BCF;&#x5F53;&#x590D;&#x5236;Cython&#x5185;&#x5B58;&#x89C6;&#x56FE;&#xFF08;&#x4F7F;&#x7528;&#x4EFB;&#x4F55;copy&#x6216;copy_fortran&#x65B9;&#x6CD5;&#xFF09;&#x65F6;&#xFF0C;&#x90FD;&#x4F1A;&#x83B7;&#x5F97;&#x65B0;&#x521B;&#x5EFA;&#x7684;cython.view.array&#x5BF9;&#x8C61;&#x7684;&#x65B0;&#x5185;&#x5B58;&#x89C6;&#x56FE;.&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x4E5F;&#x53EF;&#x4EE5;&#x624B;&#x52A8;&#x4F7F;&#x7528;,&#x5E76;&#x4F1A;&#x81EA;&#x52A8;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5757;.&#x5B83;&#x53EF;&#x4EE5;&#x968F;&#x540E;&#x88AB;&#x5206;&#x914D;&#x7ED9;C&#x6216;Fortran&#x8FDE;&#x7EED;&#x7247;(&#x6216;&#x8DE8;&#x7247;).&#x5B83;&#x53EF;&#x4EE5;&#x50CF;&#x4E0B;&#x9762;:</p>
+<pre><code class="lang-cython">from cython cimport view
+
+my_array = view.array(shape=(10, 2), itemsize=sizeof(int), format=&quot;i&quot;)
+cdef int[:, :] my_slice = my_array
+</code></pre>
+<p>&#x5B83;&#x8FD8;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;&#x53C2;&#x6570;&#x6A21;&#x5F0F;&#xFF08;&apos;c&apos;&#x6216;&apos;fortran&apos;&#xFF09;&#x548C;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x7684;<code>allocate_buffer</code>&#xFF0C;&#x5B83;&#x6307;&#x793A;&#x5F53;&#x8D85;&#x51FA;&#x8303;&#x56F4;&#x65F6;&#x662F;&#x5426;&#x5E94;&#x8BE5;&#x5206;&#x914D;&#x548C;&#x91CA;&#x653E;&#x7F13;&#x51B2;&#x533A;&#xFF1A;</p>
+<pre><code class="lang-cython">cdef view.array my_array = view.array(..., mode=&quot;fortran&quot;, allocate_buffer=False)
+my_array.data = &lt;char *&gt; my_data_pointer
+
+# define a function that can deallocate the data (if needed)
+my_array.callback_free_data = free
+</code></pre>
+<p>&#x8FD8;&#x53EF;&#x4EE5;&#x5C06;&#x6570;&#x7EC4;&#x7684;&#x6307;&#x9488;&#x6216;C&#x6570;&#x7EC4;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x7EC4;&#xFF1A;</p>
+<pre><code class="lang-cython">cdef view.array my_array = &lt;int[:10, :2]&gt; my_data_pointer
+cdef view.array my_array = &lt;int[:, :]&gt; my_c_array
+</code></pre>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7ACB;&#x5373;&#x5C06;<code>cython.view.array</code>&#x6307;&#x5B9A;&#x7ED9;&#x7C7B;&#x578B;&#x5316;&#x7684;&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x5207;&#x7247;.&#x53EF;&#x4EE5;&#x5C06;C&#x6570;&#x7EC4;&#x76F4;&#x63A5;&#x5206;&#x914D;&#x7ED9;&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x5207;&#x7247;&#xFF1A;</p>
+<pre><code class="lang-cython">cdef int[:, ::1] myslice = my_2d_c_array
+</code></pre>
+<p>&#x6570;&#x7EC4;&#x53EF;&#x4EE5;&#x50CF;Python&#x7A7A;&#x95F4;&#x4E00;&#x6837;&#x53EF;&#x7D22;&#x5F15;&#x548C;&#x53EF;&#x5207;&#x6362;&#xFF0C;&#x5C31;&#x50CF;<code>memoryview</code>&#x5BF9;&#x8C61;&#x4E00;&#x6837;&#xFF0C;&#x5E76;&#x4E14;&#x5177;&#x6709;&#x4E0E;<code>memoryview</code>&#x5BF9;&#x8C61;&#x76F8;&#x540C;&#x7684;&#x5C5E;&#x6027;.</p>
+<p><code>cython.view.array</code>&#x7684;&#x66FF;&#x4EE3;&#x65B9;&#x6CD5;&#x662F;Python&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x7684;&#x6570;&#x7EC4;&#x6A21;&#x5757;&#x3002;&#x5728;Python 3&#x4E2D;&#xFF0C;array.array&#x7C7B;&#x578B;&#x672C;&#x8EAB;&#x652F;&#x6301;&#x7F13;&#x51B2;&#x533A;&#x63A5;&#x53E3;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x6CA1;&#x6709;&#x989D;&#x5916;&#x7684;&#x8BBE;&#x7F6E;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>memoryviews</code>&#x5C31;&#x53EF;&#x4EE5;&#x5DE5;&#x4F5C;.</p>
+<pre><code class="lang-cython">%%cython
+cimport cpython.array
+
+def sum_array(int[:] view):
+    &quot;&quot;&quot;
+    &gt;&gt;&gt; from array import array
+    &gt;&gt;&gt; sum_array( array(&apos;i&apos;, [1,2,3]) )
+    6
+    &quot;&quot;&quot;
+    cdef int total
+    for i in range(view.shape[0]):
+        total += view[i]
+    return total
+</code></pre>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;cimport&#x8FD8;&#x4E3A;&#x9635;&#x5217;&#x7C7B;&#x578B;&#x542F;&#x7528;&#x65E7;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x8BED;&#x6CD5;.&#x56E0;&#x6B64;,&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#x4E5F;&#x8D77;&#x4F5C;&#x7528;:</p>
+<pre><code class="lang-cython">from cpython cimport array
+
+def sum_array(array.array[int] arr):  # using old buffer syntax
+</code></pre>
+<h2 id="&#x5185;&#x5B58;&#x63A7;&#x5236;"><a name="&#x5185;&#x5B58;&#x63A7;&#x5236;" class="anchor-navigation-ex-anchor" href="#&#x5185;&#x5B58;&#x63A7;&#x5236;"><i class="fa fa-link" aria-hidden="true"></i></a>2.18. &#x5185;&#x5B58;&#x63A7;&#x5236;</h2>
+<p>&#x52A8;&#x6001;&#x5185;&#x5B58;&#x5206;&#x914D;&#x5927;&#x591A;&#x65F6;&#x5019;&#x5728;Python&#x4E2D;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x95EE;&#x9898;.&#x4E00;&#x5207;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;,&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x7CFB;&#x7EDF;&#x548C;&#x5783;&#x573E;&#x6536;&#x96C6;&#x5668;&#x4F1A;&#x5728;&#x4E0D;&#x518D;&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;&#x65F6;&#x81EA;&#x52A8;&#x8FD4;&#x56DE;&#x5185;&#x5B58;.&#x5F53;&#x6D89;&#x53CA;&#x5230;&#x66F4;&#x4F4E;&#x7EA7;&#x522B;&#x7684;&#x6570;&#x636E;&#x7F13;&#x51B2;&#x533A;&#x65F6;,Cython&#x901A;&#x8FC7;NumPy,&#x5185;&#x5B58;&#x89C6;&#x56FE;&#x6216;Python&#x7684;stdlib&#x6570;&#x7EC4;&#x7C7B;&#x578B;,&#x4E3A;&#x7B80;&#x5355;&#x7C7B;&#x578B;&#x7684;(&#x591A;&#x7EF4;)&#x6570;&#x7EC4;&#x63D0;&#x4F9B;&#x4E86;&#x7279;&#x6B8A;&#x7684;&#x652F;&#x6301;.&#x5B83;&#x4EEC;&#x662F;&#x5168;&#x529F;&#x80FD;,&#x5E26;&#x5783;&#x573E;&#x6536;&#x96C6;,&#x6BD4;C&#x4E2D;&#x7684;&#x88F8;&#x6307;&#x9488;&#x66F4;&#x5BB9;&#x6613;&#x5DE5;&#x4F5C;;&#x540C;&#x65F6;&#x4ECD;&#x7136;&#x4FDD;&#x6301;&#x901F;&#x5EA6;&#x548C;&#x9759;&#x6001;&#x7C7B;&#x578B;&#x7684;&#x597D;&#x5904;.&#x7136;&#x800C;,&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;,&#x8FD9;&#x4E9B;&#x5BF9;&#x8C61;&#x4ECD;&#x7136;&#x4F1A;&#x4EA7;&#x751F;&#x4E0D;&#x53EF;&#x63A5;&#x53D7;&#x7684;&#x5F00;&#x9500;,&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x5728;C&#x4E2D;&#x8FDB;&#x884C;&#x624B;&#x52A8;&#x5185;&#x5B58;&#x7BA1;&#x7406;.</p>
+<p>&#x7B80;&#x5355;&#x7684;C&#x8BED;&#x8A00;&#x503C;&#x548C;&#x7ED3;&#x6784;(&#x4F8B;&#x5982;&#x5C40;&#x90E8;&#x53D8;&#x91CF;cdef double x)&#x901A;&#x5E38;&#x5206;&#x914D;&#x5728;&#x5806;&#x6808;&#x4E0A;&#x5E76;&#x901A;&#x8FC7;&#x503C;&#x4F20;&#x9012;.&#x4F46;&#x662F;&#x5BF9;&#x4E8E;&#x8F83;&#x5927;&#x548C;&#x66F4;&#x590D;&#x6742;&#x7684;&#x5BF9;&#x8C61;(&#x4F8B;&#x5982;&#x52A8;&#x6001;&#x5927;&#x5C0F;&#x7684;&#x53CC;&#x7CBE;&#x5EA6;&#x5217;&#x8868;),&#x5FC5;&#x987B;&#x624B;&#x52A8;&#x8BF7;&#x6C42;&#x5185;&#x5B58;&#x5E76;&#x53D1;&#x5E03;. C&#x4E3A;&#x6B64;&#x63D0;&#x4F9B;&#x4E86;<code>malloc()</code>&#xFF0C;<code>realloc()</code>&#x548C;<code>free()</code>&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x53EF;&#x4EE5;&#x4ECE;<code>clibc.stdlib</code>&#x5BFC;&#x5165;<code>cython</code>.&#x4ED6;&#x4EEC;&#x7684;&#x7B7E;&#x540D;&#x662F;&#xFF1A;</p>
+<pre><code class="lang-cython">void* malloc(size_t size)
+void* realloc(void* ptr, size_t size)
+void free(void* ptr)
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;:</p>
+<pre><code class="lang-cython">%%cython
+import random
+from libc.stdlib cimport malloc, free
+
+def random_noise(int number=1):
+    cdef int i
+    # allocate number * sizeof(double) bytes of memory
+    cdef double *my_array = &lt;double *&gt;malloc(number * sizeof(double))
+    if not my_array:
+        raise MemoryError()
+
+    try:
+        ran = random.normalvariate
+        for i in range(number):
+            my_array[i] = ran(0,1)
+
+        return [ my_array[i] for i in range(number) ]
+    finally:
+        # return the previously allocated memory to the system
+        free(my_array)
+</code></pre>
+<pre><code class="lang-python">random_noise(<span class="hljs-number">10</span>)
+</code></pre>
+<pre><code>[-1.6609585787562682,
+ 0.2930416975778874,
+ 1.0867854313042287,
+ 0.4215754219750379,
+ -0.020794290445162556,
+ -0.9283056817997914,
+ 1.1385359763229776,
+ -0.6051526240377219,
+ -0.6630213916869704,
+ -0.14696302042299017]
+</code></pre><p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x5728;Python&#x5806;&#x4E0A;&#x5206;&#x914D;&#x5185;&#x5B58;&#x7684;C-API&#x51FD;&#x6570;&#x901A;&#x5E38;&#x6BD4;&#x4E0A;&#x9762;&#x7684;&#x4F4E;&#x7EA7;C&#x51FD;&#x6570;&#x66F4;&#x4E3A;&#x4F18;&#x5148;,&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x63D0;&#x4F9B;&#x7684;&#x5185;&#x5B58;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x5728;Python&#x7684;&#x5185;&#x90E8;&#x5B58;&#x50A8;&#x5668;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#x4E2D;&#x89E3;&#x51B3;&#x7684;.&#x5B83;&#x4EEC;&#x8FD8;&#x5BF9;&#x8F83;&#x5C0F;&#x7684;&#x5185;&#x5B58;&#x5757;&#x8FDB;&#x884C;&#x4E86;&#x7279;&#x6B8A;&#x4F18;&#x5316;,&#x4ECE;&#x800C;&#x901A;&#x8FC7;&#x907F;&#x514D;&#x6602;&#x8D35;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x6765;&#x52A0;&#x5FEB;&#x5176;&#x5206;&#x914D;.</p>
+<p>C-API&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5728;<code>cpython.mem</code>&#x6807;&#x51C6;&#x58F0;&#x660E;&#x6587;&#x4EF6;&#x4E2D;&#x627E;&#x5230;&#xFF1A;</p>
+<pre><code class="lang-cython">from cpython.mem cimport PyMem_Malloc, PyMem_Realloc, PyMem_Free
+</code></pre>
+<p>&#x5B83;&#x4EEC;&#x7684;&#x63A5;&#x53E3;&#x548C;&#x7528;&#x6CD5;&#x4E0E;&#x76F8;&#x5E94;&#x7684;&#x4F4E;&#x7EA7;C&#x51FD;&#x6570;&#x7684;&#x63A5;&#x53E3;&#x548C;&#x7528;&#x6CD5;&#x76F8;&#x540C;.</p>
+<p>&#x9700;&#x8981;&#x8BB0;&#x4F4F;&#x7684;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x4E8B;&#x60C5;&#x662F;,&#x4F7F;&#x7528;<code>malloc()</code>&#x6216;<code>PyMem_Malloc()</code>&#x83B7;&#x53D6;&#x7684;&#x5185;&#x5B58;&#x5757;&#x5FC5;&#x987B;&#x5728;&#x4E0D;&#x518D;&#x4F7F;&#x7528;&#x65F6;&#x5BF9;&#x5176;&#x8C03;&#x7528;<code>free()</code>&#x6216;<code>PyMem_Free()</code>&#x8FDB;&#x884C;&#x624B;&#x52A8;&#x91CA;&#x653E;(&#x5E76;&#x4E14;&#x5FC5;&#x987B;&#x59CB;&#x7EC8;&#x4F7F;&#x7528;&#x5339;&#x914D;&#x7C7B;&#x578B;&#x7684;&#x81EA;&#x7531;&#x529F;&#x80FD;).&#x5426;&#x5219;&#xFF0C;&#x76F4;&#x5230;python&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#x624D;&#x4F1A;&#x88AB;&#x56DE;&#x6536;.&#x8FD9;&#x88AB;&#x79F0;&#x4E3A;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;.</p>
+<p>&#x5982;&#x679C;&#x4E00;&#x5757;&#x5185;&#x5B58;&#x9700;&#x8981;&#x6BD4;&#x53EF;&#x4EE5;&#x7531;<code>try...finally</code>&#x5757;&#x7BA1;&#x7406;&#x7684;&#x66F4;&#x957F;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x6709;&#x7528;&#x7684;&#x4E60;&#x60EF;&#x662F;&#x5C06;&#x5176;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E0E;Python&#x5BF9;&#x8C61;&#x76F8;&#x7ED3;&#x5408;&#xFF0C;&#x4EE5;&#x5229;&#x7528;Python&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x5185;&#x5B58;&#x7BA1;&#x7406;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-cython">%%cython
+from cpython.mem cimport PyMem_Malloc, PyMem_Realloc, PyMem_Free
+cdef class SomeMemory:
+
+    cdef double* data
+
+    def __cinit__(self, size_t number):
+        # allocate some memory (uninitialised, may contain arbitrary data)
+        self.data = &lt;double*&gt; PyMem_Malloc(number * sizeof(double))
+        if not self.data:
+            raise MemoryError()
+
+    def resize(self, size_t new_number):
+        # Allocates new_number * sizeof(double) bytes,
+        # preserving the current content and making a best-effort to
+        # re-use the original data location.
+        mem = &lt;double*&gt; PyMem_Realloc(self.data, new_number * sizeof(double))
+        if not mem:
+            raise MemoryError()
+        # Only overwrite the pointer if the memory was really reallocated.
+        # On error (mem is NULL), the originally memory has not been freed.
+        self.data = mem
+
+    def __dealloc__(self):
+        PyMem_Free(self.data)     # no-op if self.data is NULL
+</code></pre>
+<h2 id="&#x53BB;&#x9664;gil&#x9650;&#x5236;"><a name="&#x53BB;&#x9664;gil&#x9650;&#x5236;" class="anchor-navigation-ex-anchor" href="#&#x53BB;&#x9664;gil&#x9650;&#x5236;"><i class="fa fa-link" aria-hidden="true"></i></a>2.19. &#x53BB;&#x9664;gil&#x9650;&#x5236;</h2>
+<p>Cython&#x63D0;&#x4F9B;&#x4E86;&#x89E3;&#x9664;&#x548C;&#x4F7F;&#x7528;&#x5168;&#x5C40;&#x9501;&#xFF08;GIL&#xFF09;&#x7684;&#x8BBE;&#x65BD;&#x3002;&#x5F53;&#x4ECE;&#x591A;&#x7EBF;&#x7A0B;&#x4EE3;&#x7801;&#x8C03;&#x7528;&#xFF08;&#x5916;&#x90E8;C&#xFF09;&#x4EE3;&#x7801;&#x53EF;&#x80FD;&#x4F1A;&#x963B;&#x6B62;&#x6216;&#x5E0C;&#x671B;&#x4ECE;&#xFF08;&#x672C;&#x5730;&#xFF09;C&#x7EBF;&#x7A0B;&#x56DE;&#x8C03;&#x4F7F;&#x7528;Python&#x65F6;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x5F88;&#x6709;&#x7528;.&#x663E;&#x7136;&#xFF0C;&#x91CA;&#x653E;GIL&#x5E94;&#x8BE5;&#x53EA;&#x5BF9;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x4EE3;&#x7801;&#x6216;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x9632;&#x6B62;&#x79CD;&#x65CF;&#x6761;&#x4EF6;&#x548C;&#x5E76;&#x53D1;&#x95EE;&#x9898;&#x7684;&#x4FDD;&#x62A4;&#x63AA;&#x65BD;&#x7684;&#x4EE3;&#x7801;&#x8FDB;&#x884C;.&#x6CE8;&#x610F;&#xFF0C;&#x83B7;&#x53D6;GIL&#x662F;&#x4E00;&#x4E2A;&#x963B;&#x585E;&#x7EBF;&#x7A0B;&#x540C;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x56E0;&#x6B64;&#x662F;&#x6F5C;&#x5728;&#x7684;&#x6602;&#x8D35;&#x5F00;&#x9500;&#x3002;&#x53EF;&#x80FD;&#x4E0D;&#x503C;&#x5F97;&#x53D1;&#x5E03;GIL&#x8FDB;&#x884C;&#x5FAE;&#x5C0F;&#x7684;&#x8BA1;&#x7B97;&#x3002;&#x901A;&#x5E38;&#xFF0C;&#x5E76;&#x884C;&#x4EE3;&#x7801;&#x4E2D;&#x7684;I / O&#x64CD;&#x4F5C;&#x548C;&#x5B9E;&#x8D28;&#x6027;&#x8BA1;&#x7B97;&#x5C06;&#x4ECE;&#x4E2D;&#x53D7;&#x76CA;.</p>
+<h3 id="&#x91CA;&#x653E;gil"><a name="&#x91CA;&#x653E;gil" class="anchor-navigation-ex-anchor" href="#&#x91CA;&#x653E;gil"><i class="fa fa-link" aria-hidden="true"></i></a>2.19.1. &#x91CA;&#x653E;GIL</h3>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>nogil&#x8BED;&#x53E5;</code>&#x91CA;&#x653E;GIL&#x5468;&#x56F4;&#x7684;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-cython">with nogil:
+    &lt;code to be executed with the GIL released&gt;
+</code></pre>
+<p>&#x5728;&#x8BED;&#x53E5;&#x6B63;&#x6587;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x4E0D;&#x5F97;&#x4EE5;&#x4EFB;&#x4F55;&#x65B9;&#x5F0F;&#x5F15;&#x53D1;&#x5F02;&#x5E38;&#x6216;&#x64CD;&#x7EB5;Python&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x5F97;&#x5148;&#x8C03;&#x7528;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;Python&#x5BF9;&#x8C61;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x4ECE;&#x800C;&#x65E0;&#x9700;&#x5148;&#x91CD;&#x65B0;&#x83B7;&#x53D6;GIL.&#x4F8B;&#x5982;&#xFF0C;Cython&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x9A8C;&#x8BC1;&#x8FD9;&#x4E9B;&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x4E0D;&#x80FD;&#x67E5;&#x770B;&#x5916;&#x90E8;C&#x51FD;&#x6570;.&#x5B83;&#x4EEC;&#x5FC5;&#x987B;&#x88AB;&#x6B63;&#x786E;&#x58F0;&#x660E;&#x4E3A;&#x8981;&#x6C42;&#x6216;&#x4E0D;&#x8981;&#x6C42;GIL&#xFF08;&#x89C1;&#x4E0B;&#x6587;&#xFF09;&#xFF0C;&#x4EE5;&#x4F7F;Cython&#x7684;&#x68C0;&#x67E5;&#x751F;&#x6548;.</p>
+<h3 id="&#x83B7;&#x5F97;gil"><a name="&#x83B7;&#x5F97;gil" class="anchor-navigation-ex-anchor" href="#&#x83B7;&#x5F97;gil"><i class="fa fa-link" aria-hidden="true"></i></a>2.19.2. &#x83B7;&#x5F97;GIL</h3>
+<p>&#x8981;&#x7528;&#x4F5C;&#x6CA1;&#x6709;GIL&#x6267;&#x884C;&#x7684;C&#x4EE3;&#x7801;&#x7684;&#x56DE;&#x8C03;&#x7684;C&#x51FD;&#x6570;&#x9700;&#x8981;&#x5728;&#x64CD;&#x4F5C;Python&#x5BF9;&#x8C61;&#x4E4B;&#x524D;&#x83B7;&#x53D6;GIL&#x3002;&#x8FD9;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;&#x51FD;&#x6570;&#x5934;&#x4E2D;&#x6307;&#x5B9A;gil&#x6765;&#x5B8C;&#x6210;&#xFF1A;</p>
+<pre><code class="lang-cython">cdef void my_callback(void *data) with gil:
+    ...
+</code></pre>
+<p>&#x5982;&#x679C;&#x53EF;&#x4EE5;&#x4ECE;&#x53E6;&#x4E00;&#x4E2A;&#x975E;Python&#x7EBF;&#x7A0B;&#x8C03;&#x7528;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x9996;&#x5148;&#x901A;&#x8FC7;&#x8C03;&#x7528;<code>PyEval_InitThreads()</code>&#x6765;&#x521D;&#x59CB;&#x5316;GIL&#x3002;&#x5982;&#x679C;&#x4F60;&#x5DF2;&#x7ECF;&#x5728;&#x4F60;&#x7684;&#x6A21;&#x5757;&#x4E2D;&#x4F7F;&#x7528;<code>cython.parallel</code>&#xFF0C;&#x8FD9;&#x4E2A;&#x5DF2;&#x7ECF;&#x88AB;&#x7167;&#x987E;&#x4E86;.GIL&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;gil&#x8BED;&#x53E5;&#x83B7;&#x5F97;&#xFF1A;</p>
+<pre><code class="lang-cython">with gil:
+    &lt;execute this block with the GIL acquired&gt;
+</code></pre>
+<h3 id="&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x53EF;&#x8C03;&#x7528;&#x7684;&#x4E0D;&#x53D7;gil&#x9650;&#x5236;&#x7684;&#x7684;&#x51FD;&#x6570;"><a name="&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x53EF;&#x8C03;&#x7528;&#x7684;&#x4E0D;&#x53D7;gil&#x9650;&#x5236;&#x7684;&#x7684;&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x53EF;&#x8C03;&#x7528;&#x7684;&#x4E0D;&#x53D7;gil&#x9650;&#x5236;&#x7684;&#x7684;&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>2.19.3. &#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x53EF;&#x8C03;&#x7528;&#x7684;&#x4E0D;&#x53D7;gil&#x9650;&#x5236;&#x7684;&#x7684;&#x51FD;&#x6570;</h3>
+<p>&#x60A8;&#x53EF;&#x4EE5;&#x5728;C&#x51FD;&#x6570;&#x5934;&#x6216;&#x51FD;&#x6570;&#x7C7B;&#x578B;&#x4E2D;&#x6307;&#x5B9A;nogil&#xFF0C;&#x4EE5;&#x58F0;&#x660E;&#x5728;&#x6CA1;&#x6709;GIL&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x53EF;&#x4EE5;&#x5B89;&#x5168;&#x5730;&#x8C03;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-cython">cdef void my_gil_free_func(int spam) nogil:
+    ...
+</code></pre>
+<p>&#x5F53;&#x60A8;&#x5728;Cython&#x4E2D;&#x5B9E;&#x73B0;&#x8FD9;&#x6837;&#x7684;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x5B83;&#x4E0D;&#x80FD;&#x6709;&#x4EFB;&#x4F55;Python&#x53C2;&#x6570;&#x6216;Python&#x5BF9;&#x8C61;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;.&#x6B64;&#x5916;,&#x6D89;&#x53CA;Python&#x5BF9;&#x8C61;(&#x5305;&#x62EC;&#x8C03;&#x7528;Python&#x51FD;&#x6570;)&#x7684;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#x5FC5;&#x987B;&#x9996;&#x5148;&#x660E;&#x786E;&#x83B7;&#x53D6;GIL,&#x4F8B;&#x5982;:&#x901A;&#x8FC7;&#x4F7F;&#x7528;gil&#x5757;&#x6216;&#x8C03;&#x7528;&#x5DF2;&#x7ECF;&#x7528;gil&#x5B9A;&#x4E49;&#x7684;&#x51FD;&#x6570;.&#x8FD9;&#x4E9B;&#x9650;&#x5236;&#x7531;Cython&#x68C0;&#x67E5;,&#x5982;&#x679C;&#x5728;nogil&#x4EE3;&#x7801;&#x90E8;&#x5206;&#x627E;&#x5230;&#x4EFB;&#x4F55;Python&#x4EA4;&#x4E92;,&#x60A8;&#x5C06;&#x6536;&#x5230;&#x7F16;&#x8BD1;&#x9519;&#x8BEF;.</p>
+<p>&#x6CE8;&#x610F;nogil&#x51FD;&#x6570;&#x6CE8;&#x91CA;&#x58F0;&#x660E;&#x5728;&#x6CA1;&#x6709;GIL&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;&#x662F;&#x5B89;&#x5168;&#x7684;.&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x5728;&#x6301;&#x6709;GIL&#x7684;&#x540C;&#x65F6;&#x6267;&#x884C;&#x5B83;.&#x5982;&#x679C;&#x8C03;&#x7528;&#x8005;&#x6301;&#x6709;&#x8BE5;&#x529F;&#x80FD;,&#x672C;&#x8EAB;&#x5E76;&#x4E0D;&#x91CA;&#x653E;GIL.</p>
+<p>&#x7528;gil&#x6765;&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF08;&#x5373;&#x83B7;&#x53D6;&#x8F93;&#x5165;&#x7684;GIL&#xFF09;&#x4E5F;&#x9690;&#x542B;&#x5730;&#x4F7F;&#x5B83;&#x7684;&#x7B7E;&#x540D;nogil.</p>
+<h2 id="&#x5E76;&#x884C;&#x7F16;&#x7A0B;&#x4F7F;&#x7528;openmp"><a name="&#x5E76;&#x884C;&#x7F16;&#x7A0B;&#x4F7F;&#x7528;openmp" class="anchor-navigation-ex-anchor" href="#&#x5E76;&#x884C;&#x7F16;&#x7A0B;&#x4F7F;&#x7528;openmp"><i class="fa fa-link" aria-hidden="true"></i></a>2.20. &#x5E76;&#x884C;&#x7F16;&#x7A0B;(&#x4F7F;&#x7528;openmp)</h2>
+<p>Cython&#x901A;&#x8FC7;<code>cython.parallel</code>&#x6A21;&#x5757;&#x652F;&#x6301;&#x672C;&#x673A;&#x5E76;&#x884C;.&#x8981;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x5E76;&#x884C;&#x6027;,&#x5FC5;&#x987B;&#x91CA;&#x653E;GIL&#xFF08;&#x8BF7;&#x53C2;&#x9605;&#x91CA;&#x653E;GIL&#xFF09;.&#x5B83;&#x76EE;&#x524D;&#x652F;&#x6301;OpenMP&#xFF0C;&#x4F46;&#x540E;&#x6765;&#x53EF;&#x80FD;&#x4F1A;&#x652F;&#x6301;&#x66F4;&#x591A;&#x540E;&#x7AEF;.</p>
+<ul>
+<li><p><code>cython.parallel.prange([start,] stop[, step][, nogil=False][, schedule=None[, chunksize=None]][, num_threads=None])</code></p>
+<p>  &#x6B64;&#x529F;&#x80FD;&#x53EF;&#x7528;&#x4E8E;&#x5E76;&#x884C;&#x5FAA;&#x73AF;.OpenMP&#x81EA;&#x52A8;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x5E76;&#x6839;&#x636E;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x95F4;&#x8868;&#x5206;&#x914D;&#x5DE5;&#x4F5C;.&#x6B65;&#x9AA4;&#x4E0D;&#x80FD;&#x4E3A;0.&#x6B64;&#x529F;&#x80FD;&#x53EA;&#x80FD;&#x4E0E;GIL&#x4E00;&#x8D77;&#x4F7F;&#x7528;.&#x5982;&#x679C;nogil&#x4E3A;&#x771F;&#xFF0C;&#x5219;&#x5FAA;&#x73AF;&#x5C06;&#x5305;&#x88F9;&#x5728;nogil&#x90E8;&#x5206;&#x3002;&#x9488;&#x5BF9;&#x53D8;&#x91CF;&#x81EA;&#x52A8;&#x63A8;&#x65AD;&#x7EBF;&#x7A0B;&#x4F4D;&#x7F6E;&#x548C;&#x88C1;&#x51CF;&#x3002;&#x5982;&#x679C;&#x60A8;&#x5206;&#x914D;&#x7ED9;&#x4E00;&#x4E2A;prange&#x5757;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5B83;&#x5C06;&#x53D8;&#x4E3A;lastprivate&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x8BE5;&#x53D8;&#x91CF;&#x5C06;&#x5305;&#x542B;&#x4E0A;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x4E2D;&#x7684;&#x503C;&#x3002;&#x5982;&#x679C;&#x5728;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x4E0A;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;inplace&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x4F1A;&#x51CF;&#x5C11;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x8BE5;&#x53D8;&#x91CF;&#x7684;&#x7EBF;&#x7A0B;&#x672C;&#x5730;&#x526F;&#x672C;&#x7684;&#x503C;&#x5C06;&#x968F;&#x7740;&#x64CD;&#x4F5C;&#x7B26;&#x800C;&#x51CF;&#x5C11;&#xFF0C;&#x5E76;&#x5728;&#x5FAA;&#x73AF;&#x540E;&#x5206;&#x914D;&#x7ED9;&#x539F;&#x59CB;&#x53D8;&#x91CF;&#x3002;&#x7D22;&#x5F15;&#x53D8;&#x91CF;&#x59CB;&#x7EC8;&#x4E3A;lastprivate.&#x4E0E;&#x5757;&#x5E76;&#x884C;&#x5206;&#x914D;&#x7684;&#x53D8;&#x91CF;&#x5C06;&#x5728;&#x5757;&#x4E4B;&#x540E;&#x662F;&#x79C1;&#x6709;&#x7684;&#x548C;&#x4E0D;&#x53EF;&#x7528;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x8FDE;&#x7EED;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x503C;&#x7684;&#x6982;&#x5FF5;.</p>
+<p>  schedule&#x53C2;&#x6570;&#x4F1A;&#x4F20;&#x9012;&#x7ED9;OpenMP&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x4EE5;&#x4E0B;&#x4E4B;&#x4E00;&#xFF1A;</p>
+<ul>
+<li>static&#x9759;&#x6001;&#x7684;&#xFF1A;&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;<code>chunksize</code>&#xFF0C;&#x8FED;&#x4EE3;&#x5C06;&#x5728;&#x7ED9;&#x5B9A;&#x7684;<code>chunksize</code>&#x5757;&#x4E2D;&#x63D0;&#x524D;&#x5206;&#x53D1;&#x7ED9;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7ED9;&#x51FA;<code>chunksize</code>&#xFF0C;&#x5219;&#x8FED;&#x4EE3;&#x7A7A;&#x95F4;&#x88AB;&#x5206;&#x6210;&#x5927;&#x5C0F;&#x76F8;&#x7B49;&#x7684;&#x5757;&#xFF0C;&#x5E76;&#x4E14;&#x81F3;&#x591A;&#x4E00;&#x4E2A;&#x5757;&#x9884;&#x5148;&#x5206;&#x914D;&#x7ED9;&#x6BCF;&#x4E2A;&#x7EBF;&#x7A0B;&#x3002;&#x5F53;&#x8C03;&#x5EA6;&#x5F00;&#x9500;&#x91CD;&#x8981;&#x65F6;&#xFF0C;&#x8FD9;&#x662F;&#x6700;&#x5408;&#x9002;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x5C06;&#x95EE;&#x9898;&#x51CF;&#x5C11;&#x5230;&#x5DF2;&#x77E5;&#x5177;&#x6709;&#x5927;&#x81F4;&#x76F8;&#x540C;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x5927;&#x5C0F;&#x76F8;&#x540C;&#x7684;&#x5757;.</li>
+<li>dynamic&#x52A8;&#x6001;&#x7684;:&#x8FED;&#x4EE3;&#x88AB;&#x5206;&#x53D1;&#x7ED9;&#x7EBF;&#x7A0B;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x8BF7;&#x6C42;&#x5B83;&#x4EEC;&#xFF0C;&#x9ED8;&#x8BA4;&#x5757;&#x5927;&#x5C0F;&#x4E3A;1.&#x5F53;&#x6BCF;&#x4E2A;&#x5757;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x4E0D;&#x540C;&#x800C;&#x4E0D;&#x662F;&#x9884;&#x5148;&#x77E5;&#x9053;&#x65F6;&#xFF0C;&#x8FD9;&#x662F;&#x9002;&#x7528;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x4F7F;&#x7528;&#x8F83;&#x5927;&#x6570;&#x91CF;&#x7684;&#x8F83;&#x5C0F;&#x5757;&#x6765;&#x4FDD;&#x6301;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x5FD9;.</li>
+<li>guided&#x6709;&#x6307;&#x5BFC;&#x7684;:&#x4E0E;&#x52A8;&#x6001;&#x8C03;&#x5EA6;&#x4E00;&#x6837;,&#x8FED;&#x4EE3;&#x88AB;&#x5206;&#x914D;&#x7ED9;&#x7EBF;&#x7A0B;,&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x8BF7;&#x6C42;&#x5B83;&#x4EEC;,&#x4F46;&#x662F;&#x968F;&#x7740;&#x5757;&#x5927;&#x5C0F;&#x7684;&#x51CF;&#x5C0F;.&#x6BCF;&#x4E2A;&#x5757;&#x7684;&#x5927;&#x5C0F;&#x4E0E;&#x672A;&#x5206;&#x914D;&#x8FED;&#x4EE3;&#x6B21;&#x6570;&#x9664;&#x4EE5;&#x53C2;&#x4E0E;&#x7EBF;&#x7A0B;&#x6570;&#x51CF;&#x5C11;&#x5230;1(&#x6216;&#x8005;&#x63D0;&#x4F9B;&#x7684;<code>chunksize</code>)&#x6210;&#x6BD4;&#x4F8B;.&#x8FD9;&#x5DF2;&#x8D85;&#x8FC7;&#x7EAF;&#x52A8;&#x6001;&#x8C03;&#x5EA6;&#x7684;&#x4F18;&#x52BF;,&#x4E8B;&#x5B9E;&#x8BC1;&#x660E;,&#x5F53;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5757;&#x9700;&#x8981;&#x6BD4;&#x9884;&#x671F;&#x6216;&#x4EE5;&#x5176;&#x4ED6;&#x65B9;&#x5F0F;&#x88AB;&#x4E25;&#x91CD;&#x8BA1;&#x5212;&#x66F4;&#x591A;&#x7684;&#x65F6;&#x95F4;,&#x4F7F;&#x5927;&#x90E8;&#x5206;&#x7EBF;&#x7A0B;&#x5F00;&#x59CB;&#x8FD0;&#x884C;&#x95F2;&#x7F6E;&#x800C;&#x6700;&#x540E;&#x5757;&#x6B63;&#x5728;&#x53EA;&#x6709;&#x7EBF;&#x7A0B;&#x6570;&#x91CF;&#x8F83;&#x5C11;&#x7684;&#x5236;&#x4F5C;.</li>
+<li>runtime&#x8FD0;&#x884C;&#x65F6;&#x7684;&#xFF1A;&#x8C03;&#x5EA6;&#x548C;&#x5757;&#x5927;&#x5C0F;&#x53D6;&#x81EA;&#x8FD0;&#x884C;&#x65F6;&#x8C03;&#x5EA6;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>openmp.omp_set_schedule()</code>&#x51FD;&#x6570;&#x8C03;&#x7528;&#x6216;<code>OMP_SCHEDULE</code>&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;.&#x8BF7;&#x6CE8;&#x610F;,&#x8FD9;&#x57FA;&#x672C;&#x4E0A;&#x7981;&#x7528;&#x4E86;&#x8C03;&#x5EA6;&#x4EE3;&#x7801;&#x672C;&#x8EAB;&#x7684;&#x4EFB;&#x4F55;&#x9759;&#x6001;&#x7F16;&#x8BD1;&#x65F6;&#x95F4;&#x4F18;&#x5316;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x80FD;&#x4F1A;&#x663E;&#x793A;&#x6BD4;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x9759;&#x6001;&#x914D;&#x7F6E;&#x76F8;&#x540C;&#x8C03;&#x5EA6;&#x7B56;&#x7565;&#x65F6;&#x66F4;&#x5DEE;&#x7684;&#x6027;&#x80FD;.</li>
+</ul>
+</li>
+<li><p><code>cython.parallel.threadid()</code></p>
+<p>  &#x8FD4;&#x56DE;&#x7EBF;&#x7A0B;&#x7684;ID&#x3002;&#x5BF9;&#x4E8E;n&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;ids&#x7684;&#x8303;&#x56F4;&#x4E3A;0&#x5230;n-1</p>
+</li>
+<li><p><code>cython.parallel.parallel(num_threads=None)</code></p>
+<p>  &#x8BE5;&#x6307;&#x4EE4;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;with&#x8BED;&#x53E5;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x5E76;&#x884C;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x5E8F;&#x5217;.&#x8FD9;&#x5BF9;&#x4E8E;&#x8BBE;&#x7F6E;&#x7531;prange&#x4F7F;&#x7528;&#x7684;&#x7EBF;&#x7A0B;&#x672C;&#x5730;&#x7F13;&#x51B2;&#x533A;&#x76EE;&#x524D;&#x662F;&#x6709;&#x7528;&#x7684;.&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x7684;prange&#x5C06;&#x662F;&#x4E00;&#x4E2A;&#x5E76;&#x884C;&#x7684;&#x5DE5;&#x4F5C;&#x5171;&#x4EAB;&#x5FAA;&#x73AF;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x5E76;&#x884C;&#x90E8;&#x5206;&#x4E2D;&#x5206;&#x914D;&#x7684;&#x4EFB;&#x4F55;&#x53D8;&#x91CF;&#x5BF9;&#x4E8E;prange&#x4E5F;&#x662F;&#x79C1;&#x6709;&#x7684;.&#x5E76;&#x884C;&#x5757;&#x4E2D;&#x79C1;&#x6709;&#x7684;&#x53D8;&#x91CF;&#x5728;&#x5E76;&#x884C;&#x5757;&#x4E4B;&#x540E;&#x4E0D;&#x53EF;&#x7528;.</p>
+</li>
+</ul>
+<pre><code class="lang-python">%%writefile testomp.pyx
+<span class="hljs-keyword">from</span> cython.parallel <span class="hljs-keyword">import</span> prange
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+cimport numpy <span class="hljs-keyword">as</span> np
+
+<span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> exp 
+<span class="hljs-keyword">from</span> libc.math cimport exp <span class="hljs-keyword">as</span> c_exp
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">array_f</span><span class="hljs-params">(X)</span>:</span>
+
+    Y = np.zeros(X.shape)
+    index = X &gt; <span class="hljs-number">0.5</span>
+    Y[index] = np.exp(X[index])
+
+    <span class="hljs-keyword">return</span> Y
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">c_array_f</span><span class="hljs-params">(double[:] X)</span>:</span>
+
+    cdef int N = X.shape[<span class="hljs-number">0</span>]
+    cdef double[:] Y = np.zeros(N)
+    cdef int i
+
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(N):
+        <span class="hljs-keyword">if</span> X[i] &gt; <span class="hljs-number">0.5</span>:
+            Y[i] = c_exp(X[i])
+        <span class="hljs-keyword">else</span>:
+            Y[i] = <span class="hljs-number">0</span>
+
+    <span class="hljs-keyword">return</span> Y
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">c_array_f_multi</span><span class="hljs-params">(double[:] X)</span>:</span>
+
+    cdef int N = X.shape[<span class="hljs-number">0</span>]
+    cdef double[:] Y = np.zeros(N)
+    cdef int i
+
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> prange(N, nogil=<span class="hljs-keyword">True</span>):
+        <span class="hljs-keyword">if</span> X[i] &gt; <span class="hljs-number">0.5</span>:
+            Y[i] = c_exp(X[i])
+        <span class="hljs-keyword">else</span>:
+            Y[i] = <span class="hljs-number">0</span>
+
+    <span class="hljs-keyword">return</span> Y
+</code></pre>
+<pre><code>Overwriting testomp.pyx
+</code></pre><pre><code class="lang-python">%%writefile setup.py
+
+<span class="hljs-keyword">from</span> distutils.core <span class="hljs-keyword">import</span> setup
+<span class="hljs-keyword">from</span> distutils.extension <span class="hljs-keyword">import</span> Extension
+<span class="hljs-keyword">from</span> Cython.Build <span class="hljs-keyword">import</span> cythonize
+<span class="hljs-keyword">import</span> numpy
+ext_modules = [
+    Extension(
+        <span class="hljs-string">&quot;testomp&quot;</span>,
+        [<span class="hljs-string">&quot;testomp.pyx&quot;</span>],
+        <span class="hljs-comment">#extra_compile_args=[&apos;-fopenmp&apos;],</span>
+        <span class="hljs-comment">#extra_link_args=[&apos;-fopenmp&apos;],</span>
+        include_dirs=[numpy.get_include()],
+        extra_compile_args=[<span class="hljs-string">&apos;/openmp&apos;</span>],
+        extra_link_args=[<span class="hljs-string">&apos;-/openmp&apos;</span>],
+
+    )
+]
+
+setup(
+    name=<span class="hljs-string">&apos;hello-parallel-world&apos;</span>,
+    ext_modules=cythonize(ext_modules),
+)
+</code></pre>
+<pre><code>Overwriting setup.py
+</code></pre><pre><code class="lang-python">! python setup.py build_ext --inplace
+</code></pre>
+<pre><code>Compiling testomp.pyx because it changed.
+[1/1] Cythonizing testomp.pyx
+running build_ext
+building &apos;testomp&apos; extension
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\BIN\x86_amd64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -IC:\Users\87\Anaconda3\lib\site-packages\numpy\core\include -IC:\Users\87\Anaconda3\include -IC:\Users\87\Anaconda3\include &quot;-IC:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\8.1\include\shared&quot; &quot;-IC:\Program Files (x86)\Windows Kits\8.1\include\um&quot; &quot;-IC:\Program Files (x86)\Windows Kits\8.1\include\winrt&quot; /Tctestomp.c /Fobuild\temp.win-amd64-3.6\Release\testomp.obj /openmp
+testomp.c
+c:\users\87\anaconda3\lib\site-packages\numpy\core\include\numpy\npy_1_7_deprecated_api.h(12) : Warning Msg: Using deprecated NumPy API, disable it by #defining NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
+testomp.c(2411): warning C4244: &apos;=&apos;: conversion from &apos;Py_ssize_t&apos; to &apos;int&apos;, possible loss of data
+testomp.c(2675): warning C4244: &apos;=&apos;: conversion from &apos;Py_ssize_t&apos; to &apos;int&apos;, possible loss of data
+testomp.c(2660): warning C4101: &apos;__pyx_t_10&apos;: unreferenced local variable
+testomp.c(2663): warning C4101: &apos;__pyx_t_13&apos;: unreferenced local variable
+testomp.c(2664): warning C4101: &apos;__pyx_t_14&apos;: unreferenced local variable
+testomp.c(2661): warning C4101: &apos;__pyx_t_11&apos;: unreferenced local variable
+testomp.c(2662): warning C4101: &apos;__pyx_t_12&apos;: unreferenced local variable
+testomp.c(2665): warning C4101: &apos;__pyx_t_15&apos;: unreferenced local variable
+testomp.c(21358): warning C4244: &apos;initializing&apos;: conversion from &apos;double&apos; to &apos;float&apos;, possible loss of data
+testomp.c(21364): warning C4244: &apos;initializing&apos;: conversion from &apos;double&apos; to &apos;float&apos;, possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\BIN\x86_amd64\link.exe /nologo /INCREMENTAL:NO /LTCG /DLL /MANIFEST:EMBED,ID=2 /MANIFESTUAC:NO /LIBPATH:C:\Users\87\Anaconda3\libs /LIBPATH:C:\Users\87\Anaconda3\PCbuild\amd64 &quot;/LIBPATH:C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\LIB\amd64&quot; &quot;/LIBPATH:C:\Program Files (x86)\Windows Kits\10\lib\10.0.10240.0\ucrt\x64&quot; &quot;/LIBPATH:C:\Program Files (x86)\Windows Kits\8.1\lib\winv6.3\um\x64&quot; /EXPORT:PyInit_testomp build\temp.win-amd64-3.6\Release\testomp.obj /OUT:C:\Users\87\Documents\GitHub\my\TutorialForPython\ipynbs\python&#x6027;&#x80FD;&#x4F18;&#x5316;\Cython&#x7684;&#x57FA;&#x672C;&#x6A21;&#x5F0F;\testomp.cp36-win_amd64.pyd /IMPLIB:build\temp.win-amd64-3.6\Release\testomp.cp36-win_amd64.lib -/openmp
+LINK : warning LNK4044: unrecognized option &apos;//openmp&apos;; ignored
+testomp.obj : warning LNK4197: export &apos;PyInit_testomp&apos; specified multiple times; using first specification
+   Creating library build\temp.win-amd64-3.6\Release\testomp.cp36-win_amd64.lib and object build\temp.win-amd64-3.6\Release\testomp.cp36-win_amd64.exp
+Generating code
+Finished generating code
+
+
+warning: testomp.pyx:37:12: Use boundscheck(False) for faster access
+warning: testomp.pyx:38:13: Use boundscheck(False) for faster access
+warning: testomp.pyx:38:26: Use boundscheck(False) for faster access
+warning: testomp.pyx:40:13: Use boundscheck(False) for faster access
+</code></pre><pre><code class="lang-python"><span class="hljs-keyword">from</span> testomp <span class="hljs-keyword">import</span> c_array_f_multi,c_array_f
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+</code></pre>
+<pre><code class="lang-python">X = <span class="hljs-number">-1</span> + <span class="hljs-number">2</span>*np.random.rand(<span class="hljs-number">10000000</span>)
+</code></pre>
+<pre><code class="lang-python">%timeit c_array_f_multi(X)
+</code></pre>
+<pre><code>10 loops, best of 3: 52.3 ms per loop
+</code></pre><pre><code class="lang-python">%timeit c_array_f(X)
+</code></pre>
+<pre><code>10 loops, best of 3: 81.3 ms per loop
+</code></pre><footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-01-12 02:01:49
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Cython的简单介绍.html" class="navigation navigation-prev " aria-label="Previous page: Cython的简单介绍">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="静态化python模块.html" class="navigation navigation-next " aria-label="Next page: 静态化python模块">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Cython的基本模式","level":"1.4.1.2","depth":3,"next":{"title":"静态化python模块","level":"1.4.1.3","depth":3,"path":"嵌入与扩展篇/使用Cython优化python程序的性能/静态化python模块.md","ref":"嵌入与扩展篇/使用Cython优化python程序的性能/静态化python模块.md","articles":[]},"previous":{"title":"Cython的简单介绍","level":"1.4.1.1","depth":3,"path":"嵌入与扩展篇/使用Cython优化python程序的性能/Cython的简单介绍.md","ref":"嵌入与扩展篇/使用Cython优化python程序的性能/Cython的简单介绍.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","katex","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/TutorialForPython/TutorialForPython.github.io"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"title":"","button":"赏","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","wechatText":"微信打赏","alipayText":"支付宝打赏"},"sitemap-general":{"prefix":"http://blog.hszofficial.site/TutorialForPython/"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":true},"mode":"float","multipleH1":true,"pageTop":{"showLevelIcon":false,"mode":"float","pageTop":{"showLevelIcon":false,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"},"level1Icon":"","showLevel":true,"level2Icon":"","level3Icon":"","associatedWithSummary":true,"float":{"showLevelIcon":true,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"}},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"repo":"TutorialForPython/TutorialForPython.github.io","types":["star","watch","fork"],"size":"small"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍python3.5+的语法与编程惯用法"},"file":{"path":"嵌入与扩展篇/使用Cython优化python程序的性能/Cython的基本模式.md","mtime":"2019-01-11T18:01:49.769Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-29T02:59:31.913Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
