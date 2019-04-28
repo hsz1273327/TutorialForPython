@@ -8,6 +8,7 @@
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/工具链篇/交互环境jupyter/基于web的可交互运行环境jupyter.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/工具链篇/交互环境jupyter/ipython与魔法命令/ipython与魔法命令.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/工具链篇/交互环境jupyter/在Ipython_Notebook中的代码调试与优化.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/工具链篇/交互环境jupyter/在ipykernel中使用异步接口.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/工具链篇/交互环境jupyter/多进程并行计算.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/工具链篇/交互环境jupyter/公开的jupyter_notebook服务.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/工具链篇/交互环境jupyter/notebook格式转换工具.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
