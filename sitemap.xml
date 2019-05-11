@@ -100,6 +100,7 @@
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/基础应用篇/信息安全/加密算法.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/基础应用篇/信息安全/数字签名.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/基础应用篇/信息安全/结语.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/基础应用篇/定时任务.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/人机交互篇/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/人机交互篇/使用python编写命令行工具.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/人机交互篇/自定义交互式界面.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
