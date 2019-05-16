@@ -36,8 +36,9 @@
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/语法篇/文本与字节序/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/语法篇/文本与字节序/文本和编码.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/语法篇/文本与字节序/字节序列与内存视图.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/语法篇/文本与字节序/字符串操作.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/语法篇/文本与字节序/文本模板.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/语法篇/文本与字节序/正则表达式.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/语法篇/文本与字节序/文件与IO流.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/语法篇/文本与字节序/序列化.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/语法篇/文本与字节序/结语.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/语法篇/流程控制/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
