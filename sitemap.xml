@@ -72,6 +72,7 @@
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/语法篇/元编程/import_hook.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/语法篇/元编程/动态编译.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/语法篇/元编程/动态属性.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/语法篇/元编程/猴子补丁和热更新.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/语法篇/元编程/结语.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/语法篇/结语.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/基础应用篇/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
