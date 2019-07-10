@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>使用Flask快速构建RESTful接口服务 · python攻略</title>
+        <title>使用Sanic构建异步的RESTful接口服务 · python攻略</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -86,10 +86,8 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="使用Sanic构建异步的RESTful接口服务.html" />
     
-    
-    <link rel="prev" href="使用http客户端获取数据.html" />
+    <link rel="prev" href="使用Flask快速构建RESTful接口服务.html" />
     
 
     <style>
@@ -1558,7 +1556,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.2.4.2.2" data-path="使用Flask快速构建RESTful接口服务.html">
+        <li class="chapter " data-level="3.2.4.2.2" data-path="使用Flask快速构建RESTful接口服务.html">
             
                 <a href="使用Flask快速构建RESTful接口服务.html">
             
@@ -1571,7 +1569,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2.4.2.3" data-path="使用Sanic构建异步的RESTful接口服务.html">
+        <li class="chapter active" data-level="3.2.4.2.3" data-path="使用Sanic构建异步的RESTful接口服务.html">
             
                 <a href="使用Sanic构建异步的RESTful接口服务.html">
             
@@ -2277,7 +2275,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >使用Flask快速构建RESTful接口服务</a>
+        <a href="../../.." >使用Sanic构建异步的RESTful接口服务</a>
     </h1>
 </div>
 
@@ -2292,227 +2290,27 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;flask&#x5FEB;&#x901F;&#x6784;&#x5EFA;restful&#x63A5;&#x53E3;&#x670D;&#x52A1;"><b>1. </b>&#x4F7F;&#x7528;Flask&#x5FEB;&#x901F;&#x6784;&#x5EFA;RESTful&#x63A5;&#x53E3;&#x670D;&#x52A1;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#helloworld"><b>1.1. </b>helloworld</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4E3A;&#x63A5;&#x53E3;&#x5199;&#x6D4B;&#x8BD5;"><b>1.2. </b>&#x4E3A;&#x63A5;&#x53E3;&#x5199;&#x6D4B;&#x8BD5;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;&#x84DD;&#x56FE;&#x4E3A;&#x63A5;&#x53E3;&#x5206;&#x7EC4;"><b>1.3. </b>&#x4F7F;&#x7528;&#x84DD;&#x56FE;&#x4E3A;&#x63A5;&#x53E3;&#x5206;&#x7EC4;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;&#x94A9;&#x5B50;&#x63A7;&#x5236;&#x670D;&#x52A1;&#x884C;&#x4E3A;"><b>1.3.1. </b>&#x4F7F;&#x7528;&#x94A9;&#x5B50;&#x63A7;&#x5236;&#x670D;&#x52A1;&#x884C;&#x4E3A;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4F20;&#x9012;&#x4E0A;&#x4E0B;&#x6587;&#x6570;&#x636E;"><b>1.4. </b>&#x4F7F;&#x7528;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4F20;&#x9012;&#x4E0A;&#x4E0B;&#x6587;&#x6570;&#x636E;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4FEE;&#x6539;flask&#x7684;log"><b>1.4.1. </b>&#x4FEE;&#x6539;flask&#x7684;log</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4E3A;app&#x6784;&#x9020;&#x63D2;&#x4EF6;"><b>1.5. </b>&#x4E3A;app&#x6784;&#x9020;&#x63D2;&#x4EF6;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x9519;&#x8BEF;&#x5904;&#x7406;"><b>1.6. </b>&#x9519;&#x8BEF;&#x5904;&#x7406;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x90E8;&#x7F72;flask&#x63A5;&#x53E3;&#x670D;&#x52A1;"><b>1.7. </b>&#x90E8;&#x7F72;flask&#x63A5;&#x53E3;&#x670D;&#x52A1;</a></li></ul></ul></div><a href="#&#x4F7F;&#x7528;flask&#x5FEB;&#x901F;&#x6784;&#x5EFA;restful&#x63A5;&#x53E3;&#x670D;&#x52A1;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x4F7F;&#x7528;flask&#x5FEB;&#x901F;&#x6784;&#x5EFA;restful&#x63A5;&#x53E3;&#x670D;&#x52A1;"><a name="&#x4F7F;&#x7528;flask&#x5FEB;&#x901F;&#x6784;&#x5EFA;restful&#x63A5;&#x53E3;&#x670D;&#x52A1;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;flask&#x5FEB;&#x901F;&#x6784;&#x5EFA;restful&#x63A5;&#x53E3;&#x670D;&#x52A1;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x4F7F;&#x7528;Flask&#x5FEB;&#x901F;&#x6784;&#x5EFA;RESTful&#x63A5;&#x53E3;&#x670D;&#x52A1;</h1>
-<p>python&#x6709;&#x5F88;&#x591A;&#x4F18;&#x79C0;&#x7684;web&#x6846;&#x67B6;,&#x5176;&#x4E2D;&#x6700;&#x77E5;&#x540D;&#x7684;&#x4E00;&#x822C;&#x8BA4;&#x4E3A;&#x662F;Django,&#x4F46;&#x6700;&#x9002;&#x5408;&#x5199;RESTful&#x63A5;&#x53E3;&#x670D;&#x52A1;&#x7684;&#x662F;Flask.Flask&#x7ED9;&#x81EA;&#x5DF1;&#x7684;&#x5B9A;&#x4F4D;&#x662F;&quot;&#x5FAE;&#x6846;&#x67B6;&quot;--&#x5C3D;&#x91CF;&#x7684;&#x53EA;&#x505A;&#x6838;&#x5FC3;&#x529F;&#x80FD;,&#x5176;&#x4ED6;&#x4E1C;&#x897F;&#x901A;&#x8FC7;&#x63D2;&#x4EF6;&#x7684;&#x5F62;&#x5F0F;&#x6269;&#x5C55;,&#x8FD9;&#x79CD;&#x601D;&#x60F3;&#x5728;&#x5F88;&#x5927;&#x7A0B;&#x5EA6;&#x4E0A;&#x5F71;&#x54CD;&#x4E86;&#x540E;&#x6765;&#x7684;&#x5404;&#x79CD;&#x6846;&#x67B6;.&#x5F53;&#x7136;&#x4EE5;&#x73B0;&#x5728;&#x7684;&#x773C;&#x5149;&#x770B;Flask&#x8FDC;&#x8C08;&#x4E0D;&#x4E0A;&quot;&#x5FAE;&quot;,&#x4E0D;&#x8FC7;&#x5B83;&#x4F9D;&#x7136;&#x662F;&#x76EE;&#x524D;&#x6700;&#x5B8C;&#x5584;&#x7684;&quot;&#x5FAE;&#x6846;&#x67B6;&quot;,&#x4E5F;&#x662F;&#x591A;&#x6570;python&#x9879;&#x76EE;&#x670D;&#x52A1;&#x5668;&#x4EE3;&#x7801;&#x7684;&#x9996;&#x9009;&#x6846;&#x67B6;.&#x6BD4;&#x5982;&#x5F00;&#x6E90;&#x7684;BI&#x53EF;&#x89C6;&#x5316;&#x5DE5;&#x5177;redash,Superset&#x90FD;&#x662F;&#x57FA;&#x4E8E;Flask&#x7684;.</p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;sanic&#x6784;&#x5EFA;&#x5F02;&#x6B65;&#x7684;restful&#x63A5;&#x53E3;&#x670D;&#x52A1;"><b>1. </b>&#x4F7F;&#x7528;Sanic&#x6784;&#x5EFA;&#x5F02;&#x6B65;&#x7684;RESTful&#x63A5;&#x53E3;&#x670D;&#x52A1;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#helloworld"><b>1.1. </b>helloworld</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4E3A;&#x63A5;&#x53E3;&#x5199;&#x6D4B;&#x8BD5;"><b>1.2. </b>&#x4E3A;&#x63A5;&#x53E3;&#x5199;&#x6D4B;&#x8BD5;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;&#x84DD;&#x56FE;&#x4E3A;&#x63A5;&#x53E3;&#x5206;&#x7EC4;"><b>1.3. </b>&#x4F7F;&#x7528;&#x84DD;&#x56FE;&#x4E3A;&#x63A5;&#x53E3;&#x5206;&#x7EC4;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4E3A;&#x84DD;&#x56FE;&#x5206;&#x7EC4;"><b>1.3.1. </b>&#x4E3A;&#x84DD;&#x56FE;&#x5206;&#x7EC4;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;&#x94A9;&#x5B50;&#x63A7;&#x5236;&#x670D;&#x52A1;&#x884C;&#x4E3A;"><b>1.4. </b>&#x4F7F;&#x7528;&#x94A9;&#x5B50;&#x63A7;&#x5236;&#x670D;&#x52A1;&#x884C;&#x4E3A;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4FEE;&#x6539;log"><b>1.5. </b>&#x4FEE;&#x6539;log</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x9519;&#x8BEF;&#x5904;&#x7406;"><b>1.6. </b>&#x9519;&#x8BEF;&#x5904;&#x7406;</a></li></ul></ul></div><a href="#&#x4F7F;&#x7528;sanic&#x6784;&#x5EFA;&#x5F02;&#x6B65;&#x7684;restful&#x63A5;&#x53E3;&#x670D;&#x52A1;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x4F7F;&#x7528;sanic&#x6784;&#x5EFA;&#x5F02;&#x6B65;&#x7684;restful&#x63A5;&#x53E3;&#x670D;&#x52A1;"><a name="&#x4F7F;&#x7528;sanic&#x6784;&#x5EFA;&#x5F02;&#x6B65;&#x7684;restful&#x63A5;&#x53E3;&#x670D;&#x52A1;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;sanic&#x6784;&#x5EFA;&#x5F02;&#x6B65;&#x7684;restful&#x63A5;&#x53E3;&#x670D;&#x52A1;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x4F7F;&#x7528;Sanic&#x6784;&#x5EFA;&#x5F02;&#x6B65;&#x7684;RESTful&#x63A5;&#x53E3;&#x670D;&#x52A1;</h1>
+<p><a href="https://github.com/huge-success/sanic" target="_blank">sanic</a>&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;python3.6+&#x65B0;&#x7279;&#x6027;&#x534F;&#x7A0B;&#x7684;&#x5F02;&#x6B65;&#x6846;&#x67B6;,&#x5176;&#x63A5;&#x53E3;&#x8BBE;&#x8BA1;&#x53C2;&#x7167;&#x4E86;&#x540C;&#x6837;&#x53D7;&#x6B22;&#x8FCE;&#x7684;<a href="http://flask.pocoo.org/" target="_blank">flask</a>&#x4F46;&#x5B83;&#x6BD4;flask&#x66F4;&#x52A0;&#x8F7B;&#x91CF;,&#x7531;&#x4E8E;&#x534F;&#x7A0B;&#x7684;&#x4F5C;&#x7528;,&#x5176;&#x5E76;&#x53D1;&#x6027;&#x80FD;&#x66F4;&#x5F3A;.&#x800C;&#x4E14;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x501F;&#x52A9;&#x5176;&#x4ED6;http&#x7EC4;&#x4EF6;&#x5C31;&#x53EF;&#x4EE5;&#x5355;&#x72EC;&#x8FD0;&#x884C;,&#x751A;&#x81F3;&#x4E8E;&#x5B83;&#x8FD8;&#x53EF;&#x4EE5;&#x591A;&#x8FDB;&#x7A0B;&#x542F;&#x52A8;.&#x5F53;&#x7136;&#x76F8;&#x5BF9;&#x7684;&#x5B83;&#x7684;&#x751F;&#x6001;&#x6BD4;flask&#x5DEE;&#x7684;&#x591A;,&#x4F46;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;Restful&#x63A5;&#x53E3;&#x670D;&#x52A1;&#x5B83;&#x5DF2;&#x7ECF;&#x5F88;&#x591F;&#x7528;&#x4E86;,&#x540C;&#x65F6;&#x4ED6;&#x4E5F;&#x662F;&#x76EE;&#x524D;&#x6700;&#x6210;&#x719F;&#x7684;python&#x5F02;&#x6B65;&#x63A5;&#x53E3;&#x7684;http&#x6846;&#x67B6;.</p>
 <h2 id="helloworld"><a name="helloworld" class="anchor-navigation-ex-anchor" href="#helloworld"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. helloworld</h2>
-<p>&#x9996;&#x5148;&#x662F;&#x4E00;&#x4E2A;<a href="https://github.com/TutorialForPython/python-io/tree/master/%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/Http%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/code/flask-server/C0" target="_blank">helloworld</a>&#x9879;&#x76EE;,&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x7528;flask&#x6784;&#x9020;Restful&#x63A5;&#x53E3;&#x7684;&#x60EF;&#x7528;&#x65B9;&#x6CD5;.</p>
-<p>RESTful&#x63A5;&#x53E3;&#x57FA;&#x4E8E;HTTP&#x7684;METHOD,&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x4E5F;&#x5E38;&#x7528;<code>MethodView</code>&#x6784;&#x9020;&#x57FA;&#x4E8E;METHOD&#x7684;&#x63A5;&#x53E3;</p>
+<p>&#x6211;&#x4EEC;&#x4F9D;&#x7136;&#x4ECE;&#x4E00;&#x4E2A;<a href="https://github.com/TutorialForPython/python-io/tree/master/%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/Http%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/code/sanic-server/C0" target="_blank">helloworld</a>&#x5F00;&#x59CB;.</p>
+<p>RESTful&#x63A5;&#x53E3;&#x57FA;&#x4E8E;HTTP&#x7684;METHOD,&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x4E5F;&#x5E38;&#x7528;<code>HTTPMethodView</code>&#x6784;&#x9020;&#x57FA;&#x4E8E;METHOD&#x7684;&#x63A5;&#x53E3;</p>
 <p>&#x8FD9;&#x79CD;&#x5E94;&#x7528;&#x6784;&#x9020;&#x7684;&#x8FC7;&#x7A0B;&#x5C31;&#x662F;:</p>
-<ol>
-<li>&#x4F7F;&#x7528;<code>Flask(__name__)</code>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<code>&#x5E94;&#x7528;&#x5B9E;&#x4F8B;</code></li>
-<li>&#x7EE7;&#x627F;<code>MethodView</code>&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x5BF9;&#x5E94;<code>RESTful</code>&#x6982;&#x5FF5;&#x4E2D;<code>RESOURCE</code>&#x7684;<code>&#x89C6;&#x56FE;&#x7C7B;</code></li>
-<li>&#x901A;&#x8FC7;&#x8C03;&#x7528;<code>&#x89C6;&#x56FE;&#x7C7B;</code>&#x7684;&#x65B9;&#x6CD5;<code>.as_view(view_name:str)</code>&#x5C06;<code>&#x89C6;&#x56FE;&#x7C7B;</code>&#x8F6C;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;<code>&#x89C6;&#x56FE;&#x5BF9;&#x8C61;</code></li>
-<li>&#x8C03;&#x7528;<code>&#x5E94;&#x7528;&#x5B9E;&#x4F8B;</code>&#x7684;<code>.add_url_rule(url:str, view_func=&#x89C6;&#x56FE;&#x5BF9;&#x8C61;)</code>&#x65B9;&#x6CD5;&#x5C06;<code>&#x89C6;&#x56FE;&#x5BF9;&#x8C61;</code>&#x6CE8;&#x518C;&#x5230;<code>&#x5E94;&#x7528;&#x5B9E;&#x4F8B;</code>&#x5BF9;&#x5E94;&#x7684;url&#x4E0B;</li>
-</ol>
 <ul>
-<li>app.py</li>
+<li>&#x4F7F;&#x7528;<code>Sanic()</code>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x5B9E;&#x4F8B;</li>
+<li>&#x7EE7;&#x627F;<code>HTTPMethodView</code>&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x5BF9;&#x5E94;RESTful&#x6982;&#x5FF5;&#x4E2D;RESOURCE&#x7684;&#x89C6;&#x56FE;&#x7C7B;</li>
+<li>&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x89C6;&#x56FE;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;<code>.as_view()</code>&#x5C06;&#x89C6;&#x56FE;&#x7C7B;&#x8F6C;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;&#x89C6;&#x56FE;&#x5BF9;&#x8C61;</li>
+<li>&#x8C03;&#x7528;&#x5E94;&#x7528;&#x5B9E;&#x4F8B;&#x7684;<code>.add_route(view,url)</code>&#x65B9;&#x6CD5;&#x5C06;&#x89C6;&#x56FE;&#x5BF9;&#x8C61;&#x6CE8;&#x518C;&#x5230;&#x5E94;&#x7528;&#x5B9E;&#x4F8B;&#x5BF9;&#x5E94;&#x7684;url&#x4E0B;</li>
 </ul>
-<pre><code class="lang-python"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask, jsonify, request
-<span class="hljs-keyword">from</span> flask.views <span class="hljs-keyword">import</span> MethodView
-<span class="hljs-keyword">from</span> jsonschema <span class="hljs-keyword">import</span> validate
-app = Flask(__name__)
-app.config[<span class="hljs-string">&apos;JSON_AS_ASCII&apos;</span>] = <span class="hljs-keyword">False</span>
-
-User = []
-
-User_Schema = {
-    <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;User&quot;</span>,
-    <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;&#x7528;&#x6237;&quot;</span>,
-    <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
-    <span class="hljs-string">&quot;properties&quot;</span>: {
-        <span class="hljs-string">&quot;name&quot;</span>: {
-            <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;user name&quot;</span>,
-            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
-        }, <span class="hljs-string">&quot;age&quot;</span>: {
-            <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;user age&quot;</span>,
-            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
-            <span class="hljs-string">&quot;minimum&quot;</span>: <span class="hljs-number">0</span>,
-            <span class="hljs-string">&quot;maximum&quot;</span>: <span class="hljs-number">140</span>,
-            <span class="hljs-string">&quot;exclusiveMaximum&quot;</span>: <span class="hljs-keyword">True</span>
-        }
-    },
-    <span class="hljs-string">&quot;required&quot;</span>: [<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>]
-}
-
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserIndexAPI</span><span class="hljs-params">(MethodView)</span>:</span>
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self)</span>:</span>
-        count = len(User)
-        result = {
-            <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;&#x6D4B;&#x8BD5;api,User&#x603B;&#x89C8;&quot;</span>,
-            <span class="hljs-string">&quot;user-count&quot;</span>: count,
-            <span class="hljs-string">&quot;links&quot;</span>: [
-                {
-                    <span class="hljs-string">&quot;uri&quot;</span>: <span class="hljs-string">&quot;/user&quot;</span>,
-                    <span class="hljs-string">&quot;method&quot;</span>: <span class="hljs-string">&quot;POST&quot;</span>,
-                    <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7528;&#x6237;&quot;</span>
-                },
-                {
-                    <span class="hljs-string">&quot;uri&quot;</span>: <span class="hljs-string">&quot;/user/&lt;int:uid&gt;&quot;</span>,
-                    <span class="hljs-string">&quot;method&quot;</span>: <span class="hljs-string">&quot;GET&quot;</span>,
-                    <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;&#x7528;&#x6237;&#x53F7;&#x4E3A;&lt;id&gt;&#x7684;&#x7528;&#x6237;&#x4FE1;&#x606F;&quot;</span>
-                },
-                {
-                    <span class="hljs-string">&quot;uri&quot;</span>: <span class="hljs-string">&quot;/user/&lt;int:uid&gt;&quot;</span>,
-                    <span class="hljs-string">&quot;method&quot;</span>: <span class="hljs-string">&quot;PUT&quot;</span>,
-                    <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;&#x66F4;&#x65B0;&#x7528;&#x6237;&#x53F7;&#x4E3A;&lt;id&gt;&#x7528;&#x6237;&#x4FE1;&#x606F;&quot;</span>
-                },
-                {
-                    <span class="hljs-string">&quot;uri&quot;</span>: <span class="hljs-string">&quot;/user/&lt;int:uid&gt;&quot;</span>,
-                    <span class="hljs-string">&quot;method&quot;</span>: <span class="hljs-string">&quot;DELETE&quot;</span>,
-                    <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;&#x5220;&#x9664;&#x7528;&#x6237;&#x53F7;&#x4E3A;&lt;id&gt;&#x7528;&#x6237;&quot;</span>
-                },
-            ]
-        }
-
-        <span class="hljs-keyword">return</span> jsonify(result)
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post</span><span class="hljs-params">(self)</span>:</span>
-        insert = request.json
-
-        <span class="hljs-keyword">try</span>:
-            validate(instance=insert, schema=User_Schema)
-        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
-            <span class="hljs-keyword">return</span> jsonify({
-                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x53C2;&#x6570;&#x9519;&#x8BEF;&quot;</span>,
-                <span class="hljs-string">&quot;error&quot;</span>: str(e)
-            }), <span class="hljs-number">401</span>
-        <span class="hljs-keyword">else</span>:
-            uid = User.append(insert)
-            <span class="hljs-keyword">return</span> jsonify({
-                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x63D2;&#x5165;&#x6210;&#x529F;&quot;</span>,
-                <span class="hljs-string">&quot;uid&quot;</span>: uid
-            })
-
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserAPI</span><span class="hljs-params">(MethodView)</span>:</span>
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self, uid)</span>:</span>
-        <span class="hljs-keyword">try</span>:
-            u = User[uid]
-        <span class="hljs-keyword">except</span> IndexError <span class="hljs-keyword">as</span> dn:
-            <span class="hljs-keyword">return</span> jsonify({
-                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
-            }), <span class="hljs-number">401</span>
-
-        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
-            <span class="hljs-keyword">return</span> jsonify({
-                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x6267;&#x884C;&#x9519;&#x8BEF;&quot;</span>,
-            }), <span class="hljs-number">500</span>
-        <span class="hljs-keyword">else</span>:
-            <span class="hljs-keyword">if</span> u:
-                <span class="hljs-keyword">return</span> jsonify(u)
-            <span class="hljs-keyword">else</span>:
-                <span class="hljs-keyword">return</span> jsonify({
-                    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
-                }), <span class="hljs-number">401</span>
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">put</span><span class="hljs-params">(self, uid)</span>:</span>
-        <span class="hljs-keyword">try</span>:
-            u = User[uid]
-        <span class="hljs-keyword">except</span> IndexError <span class="hljs-keyword">as</span> dn:
-            <span class="hljs-keyword">return</span> jsonify({
-                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
-            }), <span class="hljs-number">401</span>
-
-        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
-            <span class="hljs-keyword">return</span> jsonify({
-                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x6267;&#x884C;&#x9519;&#x8BEF;&quot;</span>,
-            }), <span class="hljs-number">500</span>
-        <span class="hljs-keyword">else</span>:
-            <span class="hljs-keyword">if</span> u:
-                insert = request.json
-                u.update(insert)
-                <span class="hljs-keyword">return</span> jsonify({
-                    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x66F4;&#x65B0;&#x6210;&#x529F;&quot;</span>
-                })
-            <span class="hljs-keyword">else</span>:
-                <span class="hljs-keyword">return</span> jsonify({
-                    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
-                }), <span class="hljs-number">401</span>
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">delete</span><span class="hljs-params">(self, uid)</span>:</span>
-        <span class="hljs-keyword">try</span>:
-            u = User[uid]
-        <span class="hljs-keyword">except</span> IndexError <span class="hljs-keyword">as</span> dn:
-            <span class="hljs-keyword">return</span> jsonify({
-                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
-            }), <span class="hljs-number">401</span>
-
-        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
-            <span class="hljs-keyword">return</span> jsonify({
-                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x6267;&#x884C;&#x9519;&#x8BEF;&quot;</span>,
-            }), <span class="hljs-number">500</span>
-        <span class="hljs-keyword">else</span>:
-            <span class="hljs-keyword">if</span> u:
-                User[uid] = <span class="hljs-keyword">None</span>
-                <span class="hljs-keyword">return</span> jsonify({
-                    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x5220;&#x9664;&#x6210;&#x529F;&quot;</span>,
-                })
-            <span class="hljs-keyword">else</span>:
-                <span class="hljs-keyword">return</span> jsonify({
-                    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
-                }), <span class="hljs-number">401</span>
-
-
-user_index_view = UserIndexAPI.as_view(<span class="hljs-string">&apos;user_index_api&apos;</span>)
-user_view = UserAPI.as_view(<span class="hljs-string">&apos;user_api&apos;</span>)
-
-
-app.add_url_rule(<span class="hljs-string">&apos;/user&apos;</span>, view_func=user_index_view)
-app.add_url_rule(<span class="hljs-string">&apos;/user/&lt;int:uid&gt;&apos;</span>, view_func=user_view)
-
-<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
-    app.run()
-</code></pre>
-<p>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x6700;&#x7B80;&#x5355;&#x7684;RESTful&#x63A5;&#x53E3;,&#x63CF;&#x8FF0;&#x4E86;&#x7528;&#x6237;.&#x8BBE;&#x7F6E;<code>app.config[&apos;JSON_AS_ASCII&apos;] = False</code>&#x662F;&#x4E3A;&#x4E86;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x652F;&#x6301;utf-8.&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x5B9A;&#x4E49;<code>MethodView</code>&#x7684;&#x5B50;&#x7C7B;&#x6765;&#x5B9A;&#x4E49;&#x57FA;&#x4E8E;http&#x65B9;&#x6CD5;&#x7684;&#x63A5;&#x53E3;,&#x7136;&#x540E;&#x4F7F;&#x7528;<code>app.add_url_rule</code>&#x5C06;&#x5176;&#x6CE8;&#x518C;&#x5230;url&#x4E0A;.</p>
-<p>&#x8FD9;&#x4E2A;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x547D;&#x4EE4;</p>
-<pre><code class="lang-bash">python app.py
-</code></pre>
-<p>&#x542F;&#x52A8;,&#x4F46;&#x8FD9;&#x4E2A;&#x542F;&#x52A8;&#x7684;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x591A;&#x7EBF;&#x7A0B;&#x7684;&#x6D4B;&#x8BD5;&#x670D;&#x52A1;&#x5668;,&#x6D4B;&#x8BD5;&#x63A5;&#x53E3;&#x8FD8;&#x884C;&#x4E0A;&#x7EBF;&#x5C31;&#x65E0;&#x529B;&#x4E86;.</p>
-<h2 id="&#x4E3A;&#x63A5;&#x53E3;&#x5199;&#x6D4B;&#x8BD5;"><a name="&#x4E3A;&#x63A5;&#x53E3;&#x5199;&#x6D4B;&#x8BD5;" class="anchor-navigation-ex-anchor" href="#&#x4E3A;&#x63A5;&#x53E3;&#x5199;&#x6D4B;&#x8BD5;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x4E3A;&#x63A5;&#x53E3;&#x5199;&#x6D4B;&#x8BD5;</h2>
-<p>RESTful&#x63A5;&#x53E3;&#x6700;&#x5927;&#x7684;&#x4F18;&#x52BF;&#x662F;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x7684;&#x5199;&#x6D4B;&#x8BD5;,&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x9879;&#x76EE;<a href="https://github.com/TutorialForPython/python-io/tree/master/%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/Http%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/code/flask-server/C1" target="_blank">C1</a>&#x6765;&#x6F14;&#x793A;&#x5982;&#x4F55;&#x4E3A;flask&#x5199;&#x63A5;&#x53E3;&#x6D4B;&#x8BD5;</p>
-<ul>
-<li>test.py</li>
-</ul>
-<pre><code class="lang-python"><span class="hljs-keyword">import</span> json
-<span class="hljs-keyword">import</span> unittest
-<span class="hljs-keyword">import</span> app
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FlaskrTestCase</span><span class="hljs-params">(unittest.TestCase)</span>:</span>
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setUp</span><span class="hljs-params">(self)</span>:</span>
-        print(<span class="hljs-string">&quot;&#x6D4B;&#x8BD5;&#x5F00;&#x59CB;&quot;</span>)
-        self.app = app.app.test_client()
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tearDown</span><span class="hljs-params">(self)</span>:</span>
-        print(<span class="hljs-string">&quot;&#x6D4B;&#x8BD5;&#x7ED3;&#x675F;&quot;</span>)
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_user</span><span class="hljs-params">(self)</span>:</span>
-        rv = self.app.get(<span class="hljs-string">&apos;/user&apos;</span>)
-        <span class="hljs-keyword">assert</span> <span class="hljs-string">&quot;user-count&quot;</span> <span class="hljs-keyword">in</span> json.loads(rv.data).keys()
-</code></pre>
-<p>flask&#x7684;app&#x5BF9;&#x8C61;&#x6709;&#x4E00;&#x4E2A;<code>test_client()</code>&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x5BA2;&#x6237;&#x7AEF;</p>
-<h2 id="&#x4F7F;&#x7528;&#x84DD;&#x56FE;&#x4E3A;&#x63A5;&#x53E3;&#x5206;&#x7EC4;"><a name="&#x4F7F;&#x7528;&#x84DD;&#x56FE;&#x4E3A;&#x63A5;&#x53E3;&#x5206;&#x7EC4;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;&#x84DD;&#x56FE;&#x4E3A;&#x63A5;&#x53E3;&#x5206;&#x7EC4;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x4F7F;&#x7528;&#x84DD;&#x56FE;&#x4E3A;&#x63A5;&#x53E3;&#x5206;&#x7EC4;</h2>
-<p>&#x4E0A;&#x9762;&#x7684;&#x7528;&#x6237;&#x63A5;&#x53E3;&#x76F8;&#x5BF9;&#x662F;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x7684;,&#x5982;&#x679C;&#x78B0;&#x5230;&#x66F4;&#x591A;&#x7684;&#x63A5;&#x53E3;&#x9700;&#x8981;&#x7EC4;&#x7EC7;,&#x6216;&#x8005;&#x9700;&#x8981;&#x533A;&#x5206;&#x7248;&#x672C;,&#x6216;&#x8005;&#x7531;&#x7684;url&#x8981;&#x590D;&#x7528;&#x89C6;&#x56FE;,&#x90A3;&#x8FD9;&#x79CD;&#x5728;app&#x4E0B;&#x76F4;&#x63A5;&#x6302;&#x8F7D;&#x5C31;&#x4F1A;&#x5931;&#x53BB;&#x7075;&#x6D3B;&#x6027;,&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x5C06;&#x89C6;&#x56FE;&#x6A21;&#x5757;&#x5316;&#x6765;&#x89E3;&#x51B3;&#x4E0A;&#x9762;&#x7684;&#x95EE;&#x9898;.flask&#x63D0;&#x4F9B;&#x4E86;&#x84DD;&#x56FE;&#x6A21;&#x5F0F;&#x6765;&#x505A;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;.&#x5176;&#x57FA;&#x672C;&#x7528;&#x6CD5;&#x662F;:</p>
-<ol>
-<li>&#x4F7F;&#x7528;<code>Flask(__name__)</code>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<code>&#x5E94;&#x7528;&#x5B9E;&#x4F8B;</code></li>
-<li>&#x4F7F;&#x7528;<code>Blueprint()</code>&#x521B;&#x5EFA;<code>&#x84DD;&#x56FE;&#x5BF9;&#x8C61;</code>&#x5E76;&#x5B9A;&#x4E49;&#x84DD;&#x56FE;&#x5BF9;&#x8C61;&#x7684;&#x4E00;&#x7EA7;url</li>
-<li>&#x7EE7;&#x627F;<code>MethodView</code>&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x5BF9;&#x5E94;<code>RESTful</code>&#x6982;&#x5FF5;&#x4E2D;<code>RESOURCE</code>&#x7684;<code>&#x89C6;&#x56FE;&#x7C7B;</code></li>
-<li>&#x901A;&#x8FC7;&#x8C03;&#x7528;<code>&#x89C6;&#x56FE;&#x7C7B;</code>&#x7684;&#x65B9;&#x6CD5;<code>.as_view(view_name:str)</code>&#x5C06;<code>&#x89C6;&#x56FE;&#x7C7B;</code>&#x8F6C;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;<code>&#x89C6;&#x56FE;&#x5BF9;&#x8C61;</code></li>
-<li>&#x8C03;&#x7528;<code>&#x84DD;&#x56FE;&#x5BF9;&#x8C61;</code>&#x7684;<code>.add_url_rule(url:str, view_func=&#x89C6;&#x56FE;&#x5BF9;&#x8C61;)</code>&#x65B9;&#x6CD5;&#x5C06;<code>&#x89C6;&#x56FE;&#x5BF9;&#x8C61;</code>&#x6CE8;&#x518C;&#x5230;<code>&#x84DD;&#x56FE;&#x5BF9;&#x8C61;</code>&#x5BF9;&#x5E94;&#x7684;&#x4E8C;&#x7EA7;url&#x4E0B;</li>
-<li>&#x4F7F;&#x7528;<code>app.register_blueprint(&#x84DD;&#x56FE;&#x5BF9;&#x8C61;,url_prefix=&apos;/{first_url}&apos;)</code>&#x5C06;&#x84DD;&#x56FE;&#x6CE8;&#x518C;&#x5230;<code>&#x5E94;&#x7528;&#x5B9E;&#x4F8B;</code>&#x4E0A;</li>
-</ol>
-<p>&#x6211;&#x4EEC;&#x5C06;&#x539F;&#x6765;&#x7684;<code>user</code>&#x63A5;&#x53E3;&#x6302;&#x8F7D;&#x5230;&#x4E00;&#x7EA7;url<code>v1</code>&#x4E0A;,&#x9879;&#x76EE;&#x5728;<a href="https://github.com/TutorialForPython/python-io/tree/master/%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/Http%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/code/flask-server/C2" target="_blank">C2</a>&#x4E0A;</p>
 <ul>
 <li><code>app.py</code></li>
 </ul>
-<pre><code class="lang-python"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask, Blueprint, jsonify, request
-<span class="hljs-keyword">from</span> flask.views <span class="hljs-keyword">import</span> MethodView
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> sanic <span class="hljs-keyword">import</span> Sanic
+<span class="hljs-keyword">from</span> sanic.views <span class="hljs-keyword">import</span> HTTPMethodView
+<span class="hljs-keyword">from</span> sanic.response <span class="hljs-keyword">import</span> json <span class="hljs-keyword">as</span> jsonify
 <span class="hljs-keyword">from</span> jsonschema <span class="hljs-keyword">import</span> validate
-app = Flask(__name__)
-app.config[<span class="hljs-string">&apos;JSON_AS_ASCII&apos;</span>] = <span class="hljs-keyword">False</span>
-api_v1 = Blueprint(<span class="hljs-string">&apos;v1&apos;</span>, __name__)
 
+app = Sanic()
 
 User = []
 
@@ -2536,9 +2334,9 @@ User_Schema = {
 }
 
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserIndexAPI</span><span class="hljs-params">(MethodView)</span>:</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserIndexAPI</span><span class="hljs-params">(HTTPMethodView)</span>:</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self, request)</span>:</span>
         count = len(User)
         result = {
             <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;&#x6D4B;&#x8BD5;api,User&#x603B;&#x89C8;&quot;</span>,
@@ -2567,9 +2365,9 @@ User_Schema = {
             ]
         }
 
-        <span class="hljs-keyword">return</span> jsonify(result)
+        <span class="hljs-keyword">return</span> jsonify(result, ensure_ascii=<span class="hljs-keyword">False</span>)
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post</span><span class="hljs-params">(self, request)</span>:</span>
         insert = request.json
 
         <span class="hljs-keyword">try</span>:
@@ -2578,389 +2376,670 @@ User_Schema = {
             <span class="hljs-keyword">return</span> jsonify({
                 <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x53C2;&#x6570;&#x9519;&#x8BEF;&quot;</span>,
                 <span class="hljs-string">&quot;error&quot;</span>: str(e)
-            }), <span class="hljs-number">401</span>
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
         <span class="hljs-keyword">else</span>:
             uid = User.append(insert)
             <span class="hljs-keyword">return</span> jsonify({
                 <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x63D2;&#x5165;&#x6210;&#x529F;&quot;</span>,
                 <span class="hljs-string">&quot;uid&quot;</span>: uid
-            })
+            }, ensure_ascii=<span class="hljs-keyword">False</span>)
 
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserAPI</span><span class="hljs-params">(MethodView)</span>:</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserAPI</span><span class="hljs-params">(HTTPMethodView)</span>:</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self, uid)</span>:</span>
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self, request, uid)</span>:</span>
         <span class="hljs-keyword">try</span>:
             u = User[uid]
         <span class="hljs-keyword">except</span> IndexError <span class="hljs-keyword">as</span> dn:
             <span class="hljs-keyword">return</span> jsonify({
                 <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
-            }), <span class="hljs-number">401</span>
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
 
         <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
             <span class="hljs-keyword">return</span> jsonify({
                 <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x6267;&#x884C;&#x9519;&#x8BEF;&quot;</span>,
-            }), <span class="hljs-number">500</span>
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">500</span>)
         <span class="hljs-keyword">else</span>:
             <span class="hljs-keyword">if</span> u:
-                <span class="hljs-keyword">return</span> jsonify(u)
+                <span class="hljs-keyword">return</span> jsonify(u, ensure_ascii=<span class="hljs-keyword">False</span>)
             <span class="hljs-keyword">else</span>:
                 <span class="hljs-keyword">return</span> jsonify({
                     <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
-                }), <span class="hljs-number">401</span>
+                }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">put</span><span class="hljs-params">(self, uid)</span>:</span>
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">put</span><span class="hljs-params">(self, request, uid)</span>:</span>
         <span class="hljs-keyword">try</span>:
             u = User[uid]
         <span class="hljs-keyword">except</span> IndexError <span class="hljs-keyword">as</span> dn:
             <span class="hljs-keyword">return</span> jsonify({
                 <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
-            }), <span class="hljs-number">401</span>
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
 
         <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
             <span class="hljs-keyword">return</span> jsonify({
                 <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x6267;&#x884C;&#x9519;&#x8BEF;&quot;</span>,
-            }), <span class="hljs-number">500</span>
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">500</span>)
         <span class="hljs-keyword">else</span>:
             <span class="hljs-keyword">if</span> u:
                 insert = request.json
                 u.update(insert)
                 <span class="hljs-keyword">return</span> jsonify({
                     <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x66F4;&#x65B0;&#x6210;&#x529F;&quot;</span>
-                })
+                }, ensure_ascii=<span class="hljs-keyword">False</span>)
             <span class="hljs-keyword">else</span>:
                 <span class="hljs-keyword">return</span> jsonify({
                     <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
-                }), <span class="hljs-number">401</span>
+                }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">delete</span><span class="hljs-params">(self, uid)</span>:</span>
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">delete</span><span class="hljs-params">(self, request, uid)</span>:</span>
         <span class="hljs-keyword">try</span>:
             u = User[uid]
         <span class="hljs-keyword">except</span> IndexError <span class="hljs-keyword">as</span> dn:
             <span class="hljs-keyword">return</span> jsonify({
                 <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
-            }), <span class="hljs-number">401</span>
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
 
         <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
             <span class="hljs-keyword">return</span> jsonify({
                 <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x6267;&#x884C;&#x9519;&#x8BEF;&quot;</span>,
-            }), <span class="hljs-number">500</span>
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">500</span>)
         <span class="hljs-keyword">else</span>:
             <span class="hljs-keyword">if</span> u:
                 User[uid] = <span class="hljs-keyword">None</span>
                 <span class="hljs-keyword">return</span> jsonify({
                     <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x5220;&#x9664;&#x6210;&#x529F;&quot;</span>,
-                })
+                }, ensure_ascii=<span class="hljs-keyword">False</span>)
             <span class="hljs-keyword">else</span>:
                 <span class="hljs-keyword">return</span> jsonify({
                     <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
-                }), <span class="hljs-number">401</span>
+                }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
 
 
-user_index_view = UserIndexAPI.as_view(<span class="hljs-string">&apos;user_index_api&apos;</span>)
-user_view = UserAPI.as_view(<span class="hljs-string">&apos;user_api&apos;</span>)
+user_index_view = UserIndexAPI.as_view()
+user_view = UserAPI.as_view()
 
 
-api_v1.add_url_rule(<span class="hljs-string">&apos;/user&apos;</span>, view_func=user_index_view)
-api_v1.add_url_rule(<span class="hljs-string">&apos;/user/&lt;int:uid&gt;&apos;</span>, view_func=user_view)
-
-app.register_blueprint(api_v1, url_prefix=<span class="hljs-string">&apos;/v1&apos;</span>)
+app.add_route(user_index_view, <span class="hljs-string">&apos;/user&apos;</span>)
+app.add_route(user_view, <span class="hljs-string">&apos;/user/&lt;uid:int&gt;&apos;</span>)
 
 <span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
-    app.run()
+    app.run(host=<span class="hljs-string">&apos;localhost&apos;</span>, port=<span class="hljs-number">5000</span>)
 </code></pre>
-<h3 id="&#x4F7F;&#x7528;&#x94A9;&#x5B50;&#x63A7;&#x5236;&#x670D;&#x52A1;&#x884C;&#x4E3A;"><a name="&#x4F7F;&#x7528;&#x94A9;&#x5B50;&#x63A7;&#x5236;&#x670D;&#x52A1;&#x884C;&#x4E3A;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;&#x94A9;&#x5B50;&#x63A7;&#x5236;&#x670D;&#x52A1;&#x884C;&#x4E3A;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3.1. &#x4F7F;&#x7528;&#x94A9;&#x5B50;&#x63A7;&#x5236;&#x670D;&#x52A1;&#x884C;&#x4E3A;</h3>
-<p>flask&#x7A0B;&#x5E8F;&#x4E2D;&#x6BCF;&#x4E00;&#x6B21;&#x7684;&#x8BF7;&#x6C42;&#x9700;&#x8981;&#x5148;&#x901A;&#x8FC7;&#x94A9;&#x5B50;,&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x5C06;&#x4E00;&#x4E9B;&#x5E38;&#x89C4;&#x7684;&#x64CD;&#x4F5C;&#x653E;&#x5728;&#x94A9;&#x5B50;&#x4E2D;&#x8FD9;&#x6837;&#x5C31;&#x7701;&#x5F97;&#x6BCF;&#x4E2A;&#x63A5;&#x53E3;&#x90FD;&#x5B9A;&#x4E49;&#x4E00;&#x904D;&#x76F8;&#x540C;&#x7684;&#x884C;&#x4E3A;,&#x4E0B;&#x9762;&#x662F;&#x6240;&#x6709;&#x94A9;&#x5B50;&#x7684;&#x884C;&#x4E3A;&#x987A;&#x5E8F;:</p>
-<ul>
-<li><code>before_request()</code></li>
-<li><code>after_request()</code></li>
-<li><code>teardown_request()</code></li>
-<li><code>after_this_request()</code></li>
-<li><code>before_first_request()</code></li>
-</ul>
-<p><img src="source/flask_hook.png" alt=""></p>
-<p>&#x84DD;&#x56FE;&#x4E5F;&#x6709;&#x7C7B;&#x4F3C;&#x7684;&#x94A9;&#x5B50;,&#x5176;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x4E5F;&#x548C;&#x4E0A;&#x9762;&#x7C7B;&#x4F3C;.</p>
-<p>&#x5982;&#x679C;&#x9700;&#x8981;&#x7CBE;&#x7EC6;&#x5316;&#x5230;&#x5177;&#x4F53;&#x7684;view,&#x6211;&#x4EEC;&#x5219;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;,&#x5728;<code>MethodView</code>&#x7684;&#x5B50;&#x7C7B;&#x4E2D;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x5176;&#x4E2D;&#x58F0;&#x660E;<code>decorators = [xxx]</code>&#x6765;&#x8C03;&#x7528;&#x88C5;&#x9970;&#x5668;,&#x4E00;&#x4E2A;&#x5178;&#x578B;&#x7684;&#x88C5;&#x9970;&#x5668;&#x662F;:</p>
-<pre><code class="lang-python">
-<span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps
-<span class="hljs-keyword">import</span> time
-
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print_time</span><span class="hljs-params">(f)</span>:</span>
-<span class="hljs-meta">    @wraps(f)</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decorated_function</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
-        start = time.time()
-        response = f(*args, **kwargs)
-        end = time.time()
-        spend = end-start
-        print(f<span class="hljs-string">&quot;spend {spend} s&quot;</span>)
-        <span class="hljs-keyword">return</span> response
-    <span class="hljs-keyword">return</span> decorated_function
-</code></pre>
-<p>&#x6211;&#x4EEC;&#x7528;&#x4F8B;&#x5B50;<a href="https://github.com/TutorialForPython/python-io/tree/master/%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/Http%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/code/flask-server/C3" target="_blank">C3</a>&#x6765;&#x5C55;&#x793A;&#x4E0B;</p>
-<ul>
-<li>app.py</li>
-</ul>
-<pre><code class="lang-python">...
-
-<span class="hljs-meta">@app.before_first_request</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_before_first_request</span><span class="hljs-params">()</span>:</span>
-    print(<span class="hljs-string">&quot;before_first_request&quot;</span>)
-
-
-<span class="hljs-meta">@app.before_request</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_before_request</span><span class="hljs-params">()</span>:</span>
-    print(<span class="hljs-string">&quot;before_request&quot;</span>)
-
-
-<span class="hljs-meta">@app.after_request</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_after_request</span><span class="hljs-params">(response)</span>:</span>
-    print(f<span class="hljs-string">&quot;after_request:{response}&quot;</span>)
-    <span class="hljs-keyword">return</span> response
-
-
-<span class="hljs-meta">@app.teardown_request</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_teardown_request</span><span class="hljs-params">(response)</span>:</span>
-    print(f<span class="hljs-string">&quot;teardown_request:{response}&quot;</span>)
-    <span class="hljs-keyword">return</span> response
-
-
-<span class="hljs-meta">@api_v1.before_request</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_bp_before_request</span><span class="hljs-params">()</span>:</span>
-    print(<span class="hljs-string">&quot;bp_before_request&quot;</span>)
-
-
-<span class="hljs-meta">@api_v1.teardown_request</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_bp_teardown_request</span><span class="hljs-params">(response)</span>:</span>
-    print(f<span class="hljs-string">&quot;bp_teardown_request:{response}&quot;</span>)
-    <span class="hljs-keyword">return</span> response
-
-
-<span class="hljs-meta">@api_v1.after_request</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_bp_after_request</span><span class="hljs-params">(response)</span>:</span>
-    print(f<span class="hljs-string">&quot;bp_after_request:{response}&quot;</span>)
-    <span class="hljs-keyword">return</span> response
-
-user_index_view = UserIndexAPI.as_view(<span class="hljs-string">&apos;user_index_api&apos;</span>)
-user_view = UserAPI.as_view(<span class="hljs-string">&apos;user_api&apos;</span>)
-
-
-api_v1.add_url_rule(<span class="hljs-string">&apos;/user&apos;</span>, view_func=user_index_view)
-api_v1.add_url_rule(<span class="hljs-string">&apos;/user/&lt;int:uid&gt;&apos;</span>, view_func=user_view)
-
-app.register_blueprint(api_v1, url_prefix=<span class="hljs-string">&apos;/v1&apos;</span>)
-...
-</code></pre>
-<p>&#x9700;&#x8981;&#x6CE8;&#x610F;,&#x84DD;&#x56FE;&#x7684;&#x94A9;&#x5B50;&#x8981;&#x5728;&#x84DD;&#x56FE;&#x6CE8;&#x518C;&#x5230;app&#x4E4B;&#x524D;&#x6CE8;&#x518C;&#x8FDB;&#x53BB;,&#x5426;&#x5219;&#x4E0D;&#x4F1A;&#x751F;&#x6548;</p>
-<h2 id="&#x4F7F;&#x7528;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4F20;&#x9012;&#x4E0A;&#x4E0B;&#x6587;&#x6570;&#x636E;"><a name="&#x4F7F;&#x7528;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4F20;&#x9012;&#x4E0A;&#x4E0B;&#x6587;&#x6570;&#x636E;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4F20;&#x9012;&#x4E0A;&#x4E0B;&#x6587;&#x6570;&#x636E;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. &#x4F7F;&#x7528;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4F20;&#x9012;&#x4E0A;&#x4E0B;&#x6587;&#x6570;&#x636E;</h2>
-<p>flask&#x5B9A;&#x4E49;&#x4E86;&#x5982;&#x4E0B;&#x51E0;&#x79CD;&#x4E0A;&#x4E0B;&#x6587;&#x5168;&#x5C40;&#x53D8;&#x91CF;:</p>
+<p>&#x4E3A;&#x4E86;&#x9632;&#x6B62;<code>json</code>&#x548C;&#x6807;&#x51C6;&#x5E93;&#x91CD;&#x540D;,&#x6211;&#x4EEC;&#x6700;&#x597D;&#x5C06;<code>sanic.response.json</code>&#x91CD;&#x547D;&#x540D;&#x4E3A;<code>jsonify</code>.&#x4E3A;&#x4E86;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x652F;&#x6301;utf-8,&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4E3A;<code>jsonify</code>&#x63A5;&#x53E3;&#x4F20;&#x5165;&#x53C2;&#x6570;<code>ensure_ascii=False</code>.&#x9700;&#x8981;&#x6CE8;&#x610F;<code>jsonify</code>&#x4E2D;&#x53EF;&#x4EE5;&#x7528;<code>status</code>&#x5B57;&#x6BB5;&#x8BBE;&#x7F6E;http&#x72B6;&#x6001;&#x7801;,&#x8FD9;&#x662F;&#x548C;flask&#x4E2D;&#x4E0D;&#x540C;&#x7684;&#x5730;&#x65B9;</p>
+<p>&#x8FD9;&#x4E2A;app&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x547D;&#x4EE4;<code>python app.py</code>&#x72EC;&#x7ACB;&#x90E8;&#x7F72;.&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8BBE;&#x7F6E;&#x53C2;&#x6570;&#x5B9A;&#x4E49;&#x90E8;&#x7F72;&#x65F6;&#x5019;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4FE1;&#x606F;.&#x4E3B;&#x8981;&#x7684;&#x53C2;&#x6570;&#x6709;:</p>
 <table>
 <thead>
 <tr>
-<th>&#x53D8;&#x91CF;&#x540D;</th>
-<th>&#x4E0A;&#x4E0B;&#x6587;&#x7C7B;&#x522B;</th>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x9ED8;&#x8BA4;&#x503C;</th>
 <th>&#x8BF4;&#x660E;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>current_app</td>
-<td>&#x7A0B;&#x5E8F;&#x4E0A;&#x4E0B;&#x6587;</td>
-<td>&#x6307;&#x5411;&#x5904;&#x7406;&#x8BF7;&#x6C42;&#x7684;&#x5F53;&#x524D;&#x7A0B;&#x5E8F;&#x5B9E;&#x4F8B;</td>
+<td><code>host</code></td>
+<td>&quot;127.0.0.1&quot;</td>
+<td>&#x670D;&#x52A1;&#x7684;host</td>
 </tr>
 <tr>
-<td>g</td>
-<td>&#x7A0B;&#x5E8F;&#x4E0A;&#x4E0B;&#x6587;</td>
-<td>&#x66FF;&#x4EE3;Python&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x7528;&#x6CD5;&#xFF0C;&#x786E;&#x4FDD;&#x4EC5;&#x5728;&#x5F53;&#x524D;&#x8BF7;&#x6C42;&#x53EF;&#x7528;&#xFF0C;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x5168;&#x5C40;&#x6570;&#x636E;&#xFF0C;&#x6BCF;&#x6B21;&#x8BF7;&#x6C42;&#x90FD;&#x4F1A;&#x91CD;&#x8BBE;</td>
+<td><code>port</code></td>
+<td>8000</td>
+<td>&#x670D;&#x52A1;&#x7684;&#x7AEF;&#x53E3;</td>
 </tr>
 <tr>
-<td>request</td>
-<td>&#x8BF7;&#x6C42;&#x4E0A;&#x4E0B;&#x6587;</td>
-<td>&#x5C01;&#x88C5;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x51FA;&#x7684;&#x8BF7;&#x6C42;&#x62A5;&#x6587;&#x6570;&#x636E;</td>
+<td><code>debug</code></td>
+<td>False</td>
+<td>debug&#x6A21;&#x5F0F;,&#x4F1A;&#x964D;&#x4F4E;&#x6027;&#x80FD;</td>
 </tr>
 <tr>
-<td>session</td>
-<td>&#x8BF7;&#x6C42;&#x4E0A;&#x4E0B;&#x6587;</td>
-<td>&#x7528;&#x4E8E;&#x8BB0;&#x4F4F;&#x8BF7;&#x6C42;&#x4E4B;&#x95F4;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x901A;&#x8FC7;&#x7B7E;&#x540D;&#x7684;Cookie&#x5B9E;&#x73B0;</td>
+<td><code>ssl</code></td>
+<td>None</td>
+<td>ssl&#x4E0A;&#x4E0B;&#x6587;,&#x7528;&#x4E8E;&#x914D;&#x7F6E;https</td>
+</tr>
+<tr>
+<td><code>sock</code></td>
+<td>None</td>
+<td>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7ED1;&#x5B9A;<code>unix sock</code>&#x800C;&#x975E;host+port&#x6765;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;</td>
+</tr>
+<tr>
+<td><code>workers</code></td>
+<td>1</td>
+<td>&#x6267;&#x884C;&#x670D;&#x52A1;&#x7684;&#x8FDB;&#x7A0B;&#x6570;</td>
+</tr>
+<tr>
+<td><code>loop</code></td>
+<td>None</td>
+<td>&#x6307;&#x5B9A;&#x4E00;&#x4E2A;asyncio&#x534F;&#x8BAE;&#x7684;loop&#x5BF9;&#x8C61;</td>
+</tr>
+<tr>
+<td><code>access_log</code></td>
+<td>True</td>
+<td>&#x8BF7;&#x6C42;&#x4FE1;&#x606F;&#x8BB0;&#x5F55;&#x8FDB;log,&#x4F1A;&#x663E;&#x8457;&#x964D;&#x4F4E;&#x6027;&#x80FD;</td>
 </tr>
 </tbody>
 </table>
-<p>&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x4E8E;&#x4F20;&#x9012;&#x4E2D;&#x95F4;&#x6570;&#x636E;&#x7684;&#x662F;&#x5168;&#x5C40;&#x53D8;&#x91CF;g,&#x6211;&#x4EEC;&#x5229;&#x7528;&#x4F8B;&#x5B50;<a href="https://github.com/TutorialForPython/python-io/tree/master/%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/Http%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/code/flask-server/C4" target="_blank">C4</a>&#x6765;&#x6F14;&#x793A;&#x4E0B;,&#x5728;&#x4F8B;&#x5B50;C4&#x4E2D;&#x6211;&#x4EEC;&#x4F1A;&#x4F7F;&#x7528;<code>before_request</code>&#x4E3A;&#x5168;&#x5C40;&#x53D8;&#x91CF;g&#x521B;&#x5EFA;&#x4E00;&#x4E2A;uuid&#x5B57;&#x6BB5;,&#x518D;&#x5728;<code>after_request</code>&#x4E2D;&#x5C06;&#x5176;&#x8BFB;&#x51FA;&#x91CD;&#x65B0;&#x6784;&#x9020;response</p>
+<h2 id="&#x4E3A;&#x63A5;&#x53E3;&#x5199;&#x6D4B;&#x8BD5;"><a name="&#x4E3A;&#x63A5;&#x53E3;&#x5199;&#x6D4B;&#x8BD5;" class="anchor-navigation-ex-anchor" href="#&#x4E3A;&#x63A5;&#x53E3;&#x5199;&#x6D4B;&#x8BD5;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x4E3A;&#x63A5;&#x53E3;&#x5199;&#x6D4B;&#x8BD5;</h2>
+<p>RESTful&#x63A5;&#x53E3;&#x6700;&#x5927;&#x7684;&#x4F18;&#x52BF;&#x662F;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x7684;&#x5199;&#x6D4B;&#x8BD5;,&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x9879;&#x76EE;<a href="https://github.com/TutorialForPython/python-io/tree/master/%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/Http%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/code/sanic-server/C1" target="_blank">C1</a>&#x6765;&#x6F14;&#x793A;&#x5982;&#x4F55;&#x4E3A;Sanic&#x5199;&#x63A5;&#x53E3;&#x6D4B;&#x8BD5;,sanic&#x7684;app&#x5BF9;&#x8C61;&#x81EA;&#x5DF1;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x5BA2;&#x6237;&#x7AEF;&#x63A5;&#x53E3;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x5B83;&#x6765;&#x5B9E;&#x73B0;&#x6D4B;&#x8BD5;</p>
 <ul>
-<li>app.py</li>
+<li>test.py</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> app <span class="hljs-keyword">import</span> app
+<span class="hljs-keyword">import</span> unittest
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SanicTestCase</span><span class="hljs-params">(unittest.TestCase)</span>:</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">setUp</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&quot;&#x6D4B;&#x8BD5;&#x5F00;&#x59CB;&quot;</span>)
+        self.app = app.test_client
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tearDown</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">&quot;&#x6D4B;&#x8BD5;&#x7ED3;&#x675F;&quot;</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_user</span><span class="hljs-params">(self)</span>:</span>
+        request, response  = self.app.get(<span class="hljs-string">&apos;/user&apos;</span>)
+        <span class="hljs-keyword">assert</span> <span class="hljs-string">&quot;user-count&quot;</span> <span class="hljs-keyword">in</span> response.json.keys()
+</code></pre>
+<h2 id="&#x4F7F;&#x7528;&#x84DD;&#x56FE;&#x4E3A;&#x63A5;&#x53E3;&#x5206;&#x7EC4;"><a name="&#x4F7F;&#x7528;&#x84DD;&#x56FE;&#x4E3A;&#x63A5;&#x53E3;&#x5206;&#x7EC4;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;&#x84DD;&#x56FE;&#x4E3A;&#x63A5;&#x53E3;&#x5206;&#x7EC4;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x4F7F;&#x7528;&#x84DD;&#x56FE;&#x4E3A;&#x63A5;&#x53E3;&#x5206;&#x7EC4;</h2>
+<p>&#x4E0A;&#x9762;&#x7684;&#x7528;&#x6237;&#x63A5;&#x53E3;&#x76F8;&#x5BF9;&#x662F;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x7684;,&#x5982;&#x679C;&#x78B0;&#x5230;&#x66F4;&#x591A;&#x7684;&#x63A5;&#x53E3;&#x9700;&#x8981;&#x7EC4;&#x7EC7;,&#x6216;&#x8005;&#x9700;&#x8981;&#x533A;&#x5206;&#x7248;&#x672C;,&#x6216;&#x8005;&#x7531;&#x7684;url&#x8981;&#x590D;&#x7528;&#x89C6;&#x56FE;,&#x90A3;&#x8FD9;&#x79CD;&#x5728;app&#x4E0B;&#x76F4;&#x63A5;&#x6302;&#x8F7D;&#x5C31;&#x4F1A;&#x5931;&#x53BB;&#x7075;&#x6D3B;&#x6027;,&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x5C06;&#x89C6;&#x56FE;&#x6A21;&#x5757;&#x5316;&#x6765;&#x89E3;&#x51B3;&#x4E0A;&#x9762;&#x7684;&#x95EE;&#x9898;.Sanic&#x4E5F;&#x63D0;&#x4F9B;&#x4E86;&#x84DD;&#x56FE;&#x6A21;&#x5F0F;&#x6765;&#x505A;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;.&#x5176;&#x57FA;&#x672C;&#x7528;&#x6CD5;&#x662F;:</p>
+<ol>
+<li>&#x4F7F;&#x7528;Sanic()&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x5B9E;&#x4F8B;</li>
+<li>&#x4F7F;&#x7528;Blueprint()&#x521B;&#x5EFA;&#x84DD;&#x56FE;&#x5BF9;&#x8C61;&#x5E76;&#x5B9A;&#x4E49;&#x84DD;&#x56FE;&#x5BF9;&#x8C61;&#x7684;&#x4E00;&#x7EA7;url</li>
+<li>&#x7EE7;&#x627F;HTTPMethodView&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x5BF9;&#x5E94;RESTful&#x6982;&#x5FF5;&#x4E2D;RESOURCE&#x7684;&#x89C6;&#x56FE;&#x7C7B;</li>
+<li>&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x89C6;&#x56FE;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;.as_view()&#x5C06;&#x89C6;&#x56FE;&#x7C7B;&#x8F6C;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;&#x89C6;&#x56FE;&#x5BF9;&#x8C61;</li>
+<li>&#x8C03;&#x7528;&#x84DD;&#x56FE;&#x5BF9;&#x8C61;&#x7684;.add_route(view,url)&#x65B9;&#x6CD5;&#x5C06;&#x89C6;&#x56FE;&#x5BF9;&#x8C61;&#x6CE8;&#x518C;&#x5230;&#x84DD;&#x56FE;&#x5BF9;&#x8C61;&#x5BF9;&#x5E94;&#x7684;&#x4E8C;&#x7EA7;url&#x4E0B;</li>
+<li>&#x4F7F;&#x7528;app.blueprint(api_v1, url_prefix=&apos;/v1&apos;)&#x5C06;&#x84DD;&#x56FE;&#x6CE8;&#x518C;&#x5230;&#x5E94;&#x7528;&#x5B9E;&#x4F8B;&#x4E0A;</li>
+</ol>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x539F;&#x6765;&#x7684;user&#x63A5;&#x53E3;&#x6302;&#x8F7D;&#x5230;&#x4E00;&#x7EA7;urlv1&#x4E0A;,&#x9879;&#x76EE;&#x5728;<a href="https://github.com/TutorialForPython/python-io/tree/master/%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/Http%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/code/sanic-server/C2" target="_blank">C2</a>&#x4E0A;</p>
+<ul>
+<li><code>app.py</code></li>
 </ul>
 <pre><code class="lang-python">...
-<span class="hljs-meta">@app.before_request</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_before_request</span><span class="hljs-params">()</span>:</span>
-    g.uuid = str(uuid4())
-    print(f<span class="hljs-string">&quot;{g.uuid}&quot;</span>)
+<span class="hljs-keyword">from</span> sanic <span class="hljs-keyword">import</span> Blueprint
 
-<span class="hljs-meta">@app.after_request</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_after_request</span><span class="hljs-params">(response)</span>:</span>
-    data = response.get_json()
-    data.update({
-        <span class="hljs-string">&quot;uuid&quot;</span>: g.uuid
-    })
-    print(f<span class="hljs-string">&quot;after_request: uuid{g.uuid}&quot;</span>)
-    <span class="hljs-keyword">return</span> jsonify(data)
+
+app = Sanic()
+api_v1 = Blueprint(<span class="hljs-string">&apos;v1_blueprint&apos;</span>)
+
 ...
+
+api_v1.add_route(user_index_view, <span class="hljs-string">&apos;/user&apos;</span>)
+api_v1.add_route(user_view, <span class="hljs-string">&apos;/user/&lt;uid:int&gt;&apos;</span>)
+
+app.blueprint(api_v1, url_prefix=<span class="hljs-string">&apos;/v1&apos;</span>)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    app.run(host=<span class="hljs-string">&apos;localhost&apos;</span>, port=<span class="hljs-number">5000</span>)
 </code></pre>
-<h3 id="&#x4FEE;&#x6539;flask&#x7684;log"><a name="&#x4FEE;&#x6539;flask&#x7684;log" class="anchor-navigation-ex-anchor" href="#&#x4FEE;&#x6539;flask&#x7684;log"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.1. &#x4FEE;&#x6539;flask&#x7684;log</h3>
-<p>flask&#x9ED8;&#x8BA4;&#x7684;log&#x5728;<code>app.logger</code>,&#x5B83;&#x662F;&#x4E00;&#x4E2A;<code>&#x6241;&#x5E73;&#x7684;&#x6587;&#x672C;</code>,&#x800C;&#x73B0;&#x5728;&#x7684;&#x8D8B;&#x52BF;&#x662F;&#x4F7F;&#x7528;json&#x683C;&#x5F0F;&#x5316;log&#x4EE5;&#x4FBF;&#x4E8E;&#x540E;&#x7EED;&#x5206;&#x6790;,&#x4E3A;&#x4E86;&#x6EE1;&#x8DB3;&#x8FD9;&#x4E2A;&#x9700;&#x6C42;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x50CF;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x8BBE;&#x7F6E;,&#x4EE3;&#x7801;&#x5728;<a href="https://github.com/TutorialForPython/python-io/tree/master/%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/Http%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/code/flask-server/C5" target="_blank">C5</a></p>
-<p>flask&#x9ED8;&#x8BA4;&#x7684;logger&#x540D;&#x5B57;&#x4E3A;<code>flask.app</code>,&#x5982;&#x679C;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;<code>werkzeug</code>&#x542F;&#x52A8;&#x670D;&#x52A1;,&#x90A3;&#x5B83;&#x7684;logger&#x540D;&#x4E3A;<code>werkzeug</code>,&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C06;&#x4ED6;&#x4EEC;&#x5185;&#x5BB9;&#x7684;&#x683C;&#x5F0F;&#x90FD;&#x6539;&#x4E3A;json.</p>
+<h3 id="&#x4E3A;&#x84DD;&#x56FE;&#x5206;&#x7EC4;"><a name="&#x4E3A;&#x84DD;&#x56FE;&#x5206;&#x7EC4;" class="anchor-navigation-ex-anchor" href="#&#x4E3A;&#x84DD;&#x56FE;&#x5206;&#x7EC4;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3.1. &#x4E3A;&#x84DD;&#x56FE;&#x5206;&#x7EC4;</h3>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;&#x84DD;&#x56FE;&#x6CE8;&#x518C;&#x5230;&#x7EC4;&#x4E0A;&#x8FC7;&#x7A0B;&#x4E5F;&#x4E0E;&#x6CE8;&#x518C;&#x5230;app&#x5BF9;&#x8C61;&#x4E0A;&#x7C7B;&#x4F3C;,&#x4F8B;&#x5B50;&#x4E3A;<a href="https://github.com/TutorialForPython/python-io/tree/master/%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/Http%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/code/sanic-server/C3" target="_blank">C3</a>,&#x6211;&#x4EEC;&#x65B0;&#x589E;&#x4E00;&#x4E2A;todo&#x7684;source:</p>
 <ul>
-<li>logger.py</li>
+<li><code>app.py</code></li>
 </ul>
-<pre><code class="lang-python"><span class="hljs-keyword">import</span> sys
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> sanic <span class="hljs-keyword">import</span> Sanic
+<span class="hljs-keyword">from</span> sanic <span class="hljs-keyword">import</span> Blueprint
+<span class="hljs-keyword">from</span> sanic.views <span class="hljs-keyword">import</span> HTTPMethodView
+<span class="hljs-keyword">from</span> sanic.response <span class="hljs-keyword">import</span> json <span class="hljs-keyword">as</span> jsonify
+<span class="hljs-keyword">from</span> jsonschema <span class="hljs-keyword">import</span> validate
+
+app = Sanic()
+api_user = Blueprint(<span class="hljs-string">&apos;api_user&apos;</span>)
+
+User = []
+
+User_Schema = {
+    <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;User&quot;</span>,
+    <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;&#x7528;&#x6237;&quot;</span>,
+    <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+    <span class="hljs-string">&quot;properties&quot;</span>: {
+        <span class="hljs-string">&quot;name&quot;</span>: {
+            <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;user name&quot;</span>,
+            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+        }, <span class="hljs-string">&quot;age&quot;</span>: {
+            <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;user age&quot;</span>,
+            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;integer&quot;</span>,
+            <span class="hljs-string">&quot;minimum&quot;</span>: <span class="hljs-number">0</span>,
+            <span class="hljs-string">&quot;maximum&quot;</span>: <span class="hljs-number">140</span>,
+            <span class="hljs-string">&quot;exclusiveMaximum&quot;</span>: <span class="hljs-keyword">True</span>
+        }
+    },
+    <span class="hljs-string">&quot;required&quot;</span>: [<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>]
+}
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserIndexAPI</span><span class="hljs-params">(HTTPMethodView)</span>:</span>
+
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self, request)</span>:</span>
+        count = len(User)
+        result = {
+            <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;&#x6D4B;&#x8BD5;api,User&#x603B;&#x89C8;&quot;</span>,
+            <span class="hljs-string">&quot;user-count&quot;</span>: count,
+            <span class="hljs-string">&quot;links&quot;</span>: [
+                {
+                    <span class="hljs-string">&quot;uri&quot;</span>: <span class="hljs-string">&quot;/user&quot;</span>,
+                    <span class="hljs-string">&quot;method&quot;</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+                    <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7528;&#x6237;&quot;</span>
+                },
+                {
+                    <span class="hljs-string">&quot;uri&quot;</span>: <span class="hljs-string">&quot;/user/&lt;int:uid&gt;&quot;</span>,
+                    <span class="hljs-string">&quot;method&quot;</span>: <span class="hljs-string">&quot;GET&quot;</span>,
+                    <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;&#x7528;&#x6237;&#x53F7;&#x4E3A;&lt;id&gt;&#x7684;&#x7528;&#x6237;&#x4FE1;&#x606F;&quot;</span>
+                },
+                {
+                    <span class="hljs-string">&quot;uri&quot;</span>: <span class="hljs-string">&quot;/user/&lt;int:uid&gt;&quot;</span>,
+                    <span class="hljs-string">&quot;method&quot;</span>: <span class="hljs-string">&quot;PUT&quot;</span>,
+                    <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;&#x66F4;&#x65B0;&#x7528;&#x6237;&#x53F7;&#x4E3A;&lt;id&gt;&#x7528;&#x6237;&#x4FE1;&#x606F;&quot;</span>
+                },
+                {
+                    <span class="hljs-string">&quot;uri&quot;</span>: <span class="hljs-string">&quot;/user/&lt;int:uid&gt;&quot;</span>,
+                    <span class="hljs-string">&quot;method&quot;</span>: <span class="hljs-string">&quot;DELETE&quot;</span>,
+                    <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;&#x5220;&#x9664;&#x7528;&#x6237;&#x53F7;&#x4E3A;&lt;id&gt;&#x7528;&#x6237;&quot;</span>
+                },
+            ]
+        }
+
+        <span class="hljs-keyword">return</span> jsonify(result, ensure_ascii=<span class="hljs-keyword">False</span>)
+
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post</span><span class="hljs-params">(self, request)</span>:</span>
+        insert = request.json
+
+        <span class="hljs-keyword">try</span>:
+            validate(instance=insert, schema=User_Schema)
+        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+            <span class="hljs-keyword">return</span> jsonify({
+                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x53C2;&#x6570;&#x9519;&#x8BEF;&quot;</span>,
+                <span class="hljs-string">&quot;error&quot;</span>: str(e)
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
+        <span class="hljs-keyword">else</span>:
+            uid = User.append(insert)
+            <span class="hljs-keyword">return</span> jsonify({
+                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x63D2;&#x5165;&#x6210;&#x529F;&quot;</span>,
+                <span class="hljs-string">&quot;uid&quot;</span>: uid
+            }, ensure_ascii=<span class="hljs-keyword">False</span>)
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserAPI</span><span class="hljs-params">(HTTPMethodView)</span>:</span>
+
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self, request, uid)</span>:</span>
+        <span class="hljs-keyword">try</span>:
+            u = User[uid]
+        <span class="hljs-keyword">except</span> IndexError <span class="hljs-keyword">as</span> dn:
+            <span class="hljs-keyword">return</span> jsonify({
+                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
+
+        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+            <span class="hljs-keyword">return</span> jsonify({
+                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x6267;&#x884C;&#x9519;&#x8BEF;&quot;</span>,
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">500</span>)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">if</span> u:
+                <span class="hljs-keyword">return</span> jsonify(u, ensure_ascii=<span class="hljs-keyword">False</span>)
+            <span class="hljs-keyword">else</span>:
+                <span class="hljs-keyword">return</span> jsonify({
+                    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
+                }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
+
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">put</span><span class="hljs-params">(self, request, uid)</span>:</span>
+        <span class="hljs-keyword">try</span>:
+            u = User[uid]
+        <span class="hljs-keyword">except</span> IndexError <span class="hljs-keyword">as</span> dn:
+            <span class="hljs-keyword">return</span> jsonify({
+                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
+
+        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+            <span class="hljs-keyword">return</span> jsonify({
+                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x6267;&#x884C;&#x9519;&#x8BEF;&quot;</span>,
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">500</span>)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">if</span> u:
+                insert = request.json
+                u.update(insert)
+                <span class="hljs-keyword">return</span> jsonify({
+                    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x66F4;&#x65B0;&#x6210;&#x529F;&quot;</span>
+                }, ensure_ascii=<span class="hljs-keyword">False</span>)
+            <span class="hljs-keyword">else</span>:
+                <span class="hljs-keyword">return</span> jsonify({
+                    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
+                }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
+
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">delete</span><span class="hljs-params">(self, request, uid)</span>:</span>
+        <span class="hljs-keyword">try</span>:
+            u = User[uid]
+        <span class="hljs-keyword">except</span> IndexError <span class="hljs-keyword">as</span> dn:
+            <span class="hljs-keyword">return</span> jsonify({
+                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
+
+        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+            <span class="hljs-keyword">return</span> jsonify({
+                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x6267;&#x884C;&#x9519;&#x8BEF;&quot;</span>,
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">500</span>)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">if</span> u:
+                User[uid] = <span class="hljs-keyword">None</span>
+                <span class="hljs-keyword">return</span> jsonify({
+                    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x5220;&#x9664;&#x6210;&#x529F;&quot;</span>,
+                }, ensure_ascii=<span class="hljs-keyword">False</span>)
+            <span class="hljs-keyword">else</span>:
+                <span class="hljs-keyword">return</span> jsonify({
+                    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
+                }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
+
+
+user_index_view = UserIndexAPI.as_view()
+user_view = UserAPI.as_view()
+
+api_user.add_route(user_index_view, <span class="hljs-string">&apos;/user&apos;</span>)
+api_user.add_route(user_view, <span class="hljs-string">&apos;/user/&lt;uid:int&gt;&apos;</span>)
+
+
+api_todo = Blueprint(<span class="hljs-string">&apos;api_todo&apos;</span>)
+
+Todo = {}
+
+Todo_Schema = {
+    <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;Todo&quot;</span>,
+    <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;&#x5DE5;&#x4F5C;&#x5217;&#x8868;&quot;</span>,
+    <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>,
+    <span class="hljs-string">&quot;properties&quot;</span>: {
+        <span class="hljs-string">&quot;msg&quot;</span>: {
+            <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;message&quot;</span>,
+            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>
+        }, <span class="hljs-string">&quot;dead_line&quot;</span>: {
+            <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-string">&quot;dead line&quot;</span>,
+            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;str&quot;</span>
+        }
+    },
+    <span class="hljs-string">&quot;required&quot;</span>: [<span class="hljs-string">&quot;msg&quot;</span>]
+}
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoAPI</span><span class="hljs-params">(HTTPMethodView)</span>:</span>
+
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self, request, uid)</span>:</span>
+        <span class="hljs-keyword">try</span>:
+            u = User[uid]
+        <span class="hljs-keyword">except</span> IndexError <span class="hljs-keyword">as</span> dn:
+            <span class="hljs-keyword">return</span> jsonify({
+                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
+
+        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+            <span class="hljs-keyword">return</span> jsonify({
+                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x6267;&#x884C;&#x9519;&#x8BEF;&quot;</span>,
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">500</span>)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">if</span> u:
+                <span class="hljs-keyword">if</span> Todo.get(uid):
+                    <span class="hljs-keyword">return</span> jsonify({<span class="hljs-string">&quot;uid&quot;</span>: uid, <span class="hljs-string">&quot;todo&quot;</span>: Todo.get(uid)}, ensure_ascii=<span class="hljs-keyword">False</span>)
+                <span class="hljs-keyword">else</span>:
+                    <span class="hljs-keyword">return</span> jsonify({
+                        <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&#x7684;todo&#x5217;&#x8868;&quot;</span>,
+                    }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">404</span>)
+            <span class="hljs-keyword">else</span>:
+                <span class="hljs-keyword">return</span> jsonify({
+                    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
+                }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
+
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post</span><span class="hljs-params">(self, request, uid)</span>:</span>
+        <span class="hljs-keyword">try</span>:
+            u = User[uid]
+        <span class="hljs-keyword">except</span> IndexError <span class="hljs-keyword">as</span> dn:
+            <span class="hljs-keyword">return</span> jsonify({
+                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
+
+        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+            <span class="hljs-keyword">return</span> jsonify({
+                <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x6267;&#x884C;&#x9519;&#x8BEF;&quot;</span>,
+            }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">500</span>)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">if</span> u:
+                insert = request.json
+                <span class="hljs-keyword">try</span>:
+                    validate(instance=insert, schema=Todo_Schema)
+                <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+                    <span class="hljs-keyword">return</span> jsonify({
+                        <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x53C2;&#x6570;&#x9519;&#x8BEF;&quot;</span>,
+                        <span class="hljs-string">&quot;error&quot;</span>: str(e)
+                    }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
+                <span class="hljs-keyword">else</span>:
+                    Todo.get(uid).append(insert)
+                    <span class="hljs-keyword">return</span> jsonify({
+                        <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x63D2;&#x5165;&#x6210;&#x529F;&quot;</span>
+                    }, ensure_ascii=<span class="hljs-keyword">False</span>)
+            <span class="hljs-keyword">else</span>:
+                <span class="hljs-keyword">return</span> jsonify({
+                    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;&#x672A;&#x627E;&#x5230;&#x7528;&#x6237;&quot;</span>,
+                }, ensure_ascii=<span class="hljs-keyword">False</span>, status=<span class="hljs-number">401</span>)
+
+
+todo_view = TodoAPI.as_view()
+api_todo.add_route(todo_view, <span class="hljs-string">&apos;/todo/&lt;uid:int&gt;&apos;</span>)
+
+api_v1 = Blueprint.group(api_user, api_todo)
+
+app.blueprint(api_v1, url_prefix=<span class="hljs-string">&apos;/v1&apos;</span>)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    app.run(host=<span class="hljs-string">&apos;localhost&apos;</span>, port=<span class="hljs-number">5000</span>)
+</code></pre>
+<h2 id="&#x4F7F;&#x7528;&#x94A9;&#x5B50;&#x63A7;&#x5236;&#x670D;&#x52A1;&#x884C;&#x4E3A;"><a name="&#x4F7F;&#x7528;&#x94A9;&#x5B50;&#x63A7;&#x5236;&#x670D;&#x52A1;&#x884C;&#x4E3A;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;&#x94A9;&#x5B50;&#x63A7;&#x5236;&#x670D;&#x52A1;&#x884C;&#x4E3A;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. &#x4F7F;&#x7528;&#x94A9;&#x5B50;&#x63A7;&#x5236;&#x670D;&#x52A1;&#x884C;&#x4E3A;</h2>
+<p>Sanic&#x7A0B;&#x5E8F;&#x53EA;&#x6709;3&#x7C7B;&#x94A9;&#x5B50;</p>
+<ul>
+<li><p><code>Listeners</code>&#x5728;&#x6574;&#x4E2A;&#x670D;&#x52A1;&#x7684;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;&#x548C;&#x7ED3;&#x675F;&#x8FC7;&#x7A0B;&#x65F6;&#x751F;&#x6548;,&#x4F7F;&#x7528;&#x88C5;&#x9970;&#x5668;<code>app.listener(listener)</code>&#x6765;&#x6CE8;&#x518C;,&#x5176;&#x88C5;&#x9970;&#x7684;&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x7531;&#x53C2;&#x6570;<code>app</code>&#x548C;<code>loop</code>,&#x5305;&#x62EC;:</p>
+<ul>
+<li>before_server_start</li>
+<li>after_server_start</li>
+<li>before_server_stop</li>
+<li>after_server_stop</li>
+</ul>
+</li>
+<li><p><code>middleware</code>&#x5728;&#x6BCF;&#x6B21;&#x8BF7;&#x6C42;&#x7684;&#x5904;&#x7406;&#x524D;&#x540E;&#x751F;&#x6548;,&#x9700;&#x8981;&#x6CE8;&#x610F;sanic&#x4E2D;&#x6CA1;&#x6709;&#x9488;&#x5BF9;Blueprint&#x6216;&#x8005;Blueprint group&#x7684;<code>middleware</code>,&#x867D;&#x7136;Blueprint&#x6709;&#x63A5;&#x53E3;,&#x4F46;&#x662F;&#x5168;&#x5C40;&#x7684;</p>
+<ul>
+<li>&#x88C5;&#x9970;&#x5668;<code>@app.middleware(&apos;request&apos;)</code>&#x4FEE;&#x9970;&#x7684;&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x6709;&#x53C2;&#x6570;<code>request</code></li>
+<li>&#x88C5;&#x9970;&#x5668;<code>@app.middleware(&apos;response&apos;)</code>&#x4FEE;&#x9970;&#x7684;&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x6709;&#x53C2;&#x6570;<code>request</code>&#x548C;<code>response</code></li>
+</ul>
+</li>
+<li><p><code>Handler Decorators</code>&#x4FEE;&#x9970;view&#x7684;&#x88C5;&#x9970;&#x5668;,&#x53EA;&#x8981;&#x5BF9;&#x9700;&#x8981;&#x4FEE;&#x9970;&#x7684;view&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x4FEE;&#x9970;&#x5373;&#x53EF;&#x5982;&#x679C;&#x662F;&#x6574;&#x4E2A;view&#x90FD;&#x9700;&#x8981;&#x88C5;&#x9970;,&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x5728;&#x5B9A;&#x4E49;&#x7684;<code>HTTPMethodView</code>&#x7684;&#x5B50;&#x7C7B;&#x4E2D;&#x7533;&#x660E;<code>decorators = [some_decorator_here]</code>
+  &#x4E00;&#x4E2A;&#x5178;&#x578B;&#x7684;&#x88C5;&#x9970;&#x5668;&#x5982;&#x4E0B;:</p>
+<pre><code class="lang-python">  <span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps
+  <span class="hljs-keyword">import</span> time
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decorator</span><span class="hljs-params">(f)</span>:</span>
+<span class="hljs-meta">      @wraps(f)</span>
+      <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decorated_function</span><span class="hljs-params">(request, *args, **kwargs)</span>:</span>
+          start = time.time()
+          response = <span class="hljs-keyword">await</span> f(request, *args, **kwargs)
+          end = time.time()
+          spend = end-start
+          print(f<span class="hljs-string">&quot;spend {spend} s&quot;</span>)
+          <span class="hljs-keyword">return</span> response
+      <span class="hljs-keyword">return</span> decorated_function
+</code></pre>
+</li>
+</ul>
+<p>&#x6211;&#x4EEC;&#x7528;&#x4F8B;&#x5B50;<a href="https://github.com/TutorialForPython/python-io/tree/master/%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/Http%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/code/sanic-server/C4" target="_blank">C4</a>&#x6765;&#x5C55;&#x793A;&#x4E0B;</p>
+<ul>
+<li><code>app.py</code></li>
+</ul>
+<pre><code class="lang-python">...
+<span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps
 <span class="hljs-keyword">import</span> time
-<span class="hljs-keyword">import</span> logging
-<span class="hljs-keyword">import</span> structlog
-<span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> request
-<span class="hljs-keyword">from</span> flask.logging <span class="hljs-keyword">import</span> default_handler
-<span class="hljs-keyword">import</span> werkzeug._internal <span class="hljs-keyword">as</span> _internal
-logging.Formatter.converter = time.gmtime
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RequestFormatter</span><span class="hljs-params">(logging.Formatter)</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">format</span><span class="hljs-params">(self, record)</span>:</span>
-        record.request = <span class="hljs-string">&apos;{0} {1}&apos;</span>.format(request.method, request.url)
-        record.host = request.host
-        <span class="hljs-keyword">return</span> super().format(record)
-access_formatter=RequestFormatter(** {
-    <span class="hljs-string">&quot;fmt&quot;</span>: <span class="hljs-string">&apos;&apos;&apos;{&quot;timestamp&quot;:&quot;%(asctime)s&quot;,&quot;logger&quot;:&quot;app.access&quot;, &quot;level&quot;:&quot;%(levelname)s&quot;,&quot;host&quot;:&quot;%(host)s&quot;,&quot;request&quot;:&quot;%(request)s&quot;,%(message)s}&apos;&apos;&apos;</span>,
-    <span class="hljs-string">&quot;datefmt&quot;</span>: <span class="hljs-string">&quot;%Y-%m-%dT%H:%M:%S Z&quot;</span>
-})
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print_time</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decorator</span><span class="hljs-params">(f)</span>:</span>
+<span class="hljs-meta">        @wraps(f)</span>
+        <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decorated_function</span><span class="hljs-params">(request, *args, **kwargs)</span>:</span>
+            start = time.time()
+            response = <span class="hljs-keyword">await</span> f(request, *args, **kwargs)
+            end = time.time()
+            spend = end-start
+            print(f<span class="hljs-string">&quot;spend {spend} s&quot;</span>)
+            <span class="hljs-keyword">return</span> response
+        <span class="hljs-keyword">return</span> decorated_function
+    <span class="hljs-keyword">return</span> decorator
 
-werkzeug_formatter = logging.Formatter(**{
-    <span class="hljs-string">&quot;fmt&quot;</span>: <span class="hljs-string">&apos;&apos;&apos;{&quot;timestamp&quot;:&quot;%(asctime)s&quot;,&quot;logger&quot;:&quot;werkzeug.server&quot;, &quot;level&quot;:&quot;%(levelname)s&quot;,&quot;msg&quot;:&quot;%(message)s&quot;}&apos;&apos;&apos;</span>,
-    <span class="hljs-string">&quot;datefmt&quot;</span>: <span class="hljs-string">&quot;%Y-%m-%dT%H:%M:%S Z&quot;</span>
-})
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_app</span><span class="hljs-params">(app,flask_log_level=logging.INFO,werkzeug_log_level=logging.INFO)</span>:</span>
-    default_handler.setFormatter(access_formatter)
-
-    handler = logging.StreamHandler(sys.stdout)
-    flask_app_logger = logging.getLogger(<span class="hljs-string">&quot;flask.app&quot;</span>)
-    flask_app_logger.addHandler(handler)
-    flask_app_logger.setLevel(flask_log_level)  <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x6700;&#x4F4E;log&#x7B49;&#x7EA7;</span>
-    werkzeug_handler = logging.StreamHandler()
-    werkzeug_handler.setFormatter(werkzeug_formatter)
-    werkzeug_logger = logging.getLogger(<span class="hljs-string">&quot;werkzeug&quot;</span>)
-    werkzeug_logger.handlers = []
-    werkzeug_logger.addHandler(werkzeug_handler)
-    werkzeug_logger.setLevel(werkzeug_log_level)  <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x6700;&#x4F4E;log&#x7B49;&#x7EA7;</span>
-    structlog.configure(
-        processors=[
-            structlog.stdlib.filter_by_level,  <span class="hljs-comment"># &#x5224;&#x65AD;&#x662F;&#x5426;&#x63A5;&#x53D7;&#x67D0;&#x4E2A;level&#x7684;log&#x6D88;&#x606F;</span>
-            structlog.stdlib.add_logger_name,  <span class="hljs-comment"># &#x589E;&#x52A0;&#x5B57;&#x6BB5;logger</span>
-            structlog.stdlib.add_log_level,  <span class="hljs-comment"># &#x589E;&#x52A0;&#x5B57;&#x6BB5;level</span>
-            structlog.stdlib.PositionalArgumentsFormatter(),
-            structlog.processors.TimeStamper(fmt=<span class="hljs-string">&quot;iso&quot;</span>),  <span class="hljs-comment"># &#x589E;&#x52A0;&#x5B57;&#x6BB5;timestamp&#x4E14;&#x4F7F;&#x7528;iso&#x683C;&#x5F0F;&#x8F93;&#x51FA;</span>
-            structlog.processors.StackInfoRenderer(),
-            structlog.processors.format_exc_info,  <span class="hljs-comment"># &#x6355;&#x83B7;&#x5F02;&#x5E38;&#x7684;&#x6808;&#x4FE1;&#x606F;</span>
-            structlog.processors.StackInfoRenderer(),  <span class="hljs-comment"># &#x8BE6;&#x7EC6;&#x6808;&#x4FE1;&#x606F;</span>
-            structlog.processors.JSONRenderer()  <span class="hljs-comment"># json&#x683C;&#x5F0F;&#x8F93;&#x51FA;,&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F1A;&#x88AB;&#x653E;&#x5165;event&#x5B57;&#x6BB5;</span>
-        ],
-        context_class=dict,
-        logger_factory=structlog.stdlib.LoggerFactory(),
-        wrapper_class=structlog.stdlib.BoundLogger,
-        cache_logger_on_first_use=<span class="hljs-keyword">True</span>,
-    )
-    log = structlog.get_logger(<span class="hljs-string">&quot;flask.app&quot;</span>)
-    app.logger = log
-    <span class="hljs-keyword">return</span> app
-</code></pre>
-<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x6211;&#x4EEC;&#x5C06;<code>app.logger</code>&#x66FF;&#x6362;&#x6210;&#x4E86;<code>structlog</code>&#x7684;log,&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x7684;log&#x5C31;&#x662F;&#x7ED3;&#x6784;&#x5316;&#x6570;&#x636E;&#x4E86;.</p>
-<h2 id="&#x4E3A;app&#x6784;&#x9020;&#x63D2;&#x4EF6;"><a name="&#x4E3A;app&#x6784;&#x9020;&#x63D2;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#&#x4E3A;app&#x6784;&#x9020;&#x63D2;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. &#x4E3A;app&#x6784;&#x9020;&#x63D2;&#x4EF6;</h2>
-<p>Flask&#x63D2;&#x4EF6;&#x662F;&#x4E3A;&#x7279;&#x5B9A;&#x76EE;&#x7684;&#x5C01;&#x88C5;&#x597D;&#x7684;&#x7EC4;&#x4EF6;&#x7EC4;&#x5408;,&#x5B83;&#x5FC5;&#x987B;&#x6EE1;&#x8DB3;&#x63A5;&#x53E3;<code>init_app(app,*args,**kwargs)</code>,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;Flask&#x63D2;&#x4EF6;&#x6765;&#x4E13;&#x95E8;&#x5C01;&#x88C5;flask&#x7684;json&#x683C;&#x5F0F;&#x7684;log.<a href="https://github.com/TutorialForPython/python-io/tree/master/%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/Http%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/code/flask-server/C6" target="_blank">C6</a>&#x5C31;&#x6F14;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x5C06;<code>logger.py</code>&#x6539;&#x9020;&#x4E3A;&#x4E00;&#x4E2A;Flask&#x63D2;&#x4EF6;.</p>
-<ul>
-<li>flask_jsonifylog.py</li>
-</ul>
-<pre><code class="lang-python">...
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JsonLogger</span>:</span>
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,app=None)</span>:</span>
-        self.app = app
-        <span class="hljs-keyword">if</span> app <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
-            self.init_app(app=app)
-
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_app</span><span class="hljs-params">(self,app)</span>:</span>
-        app.config.setdefault(<span class="hljs-string">&apos;FLASK_LOG_LEVEL&apos;</span>, <span class="hljs-string">&apos;INFO&apos;</span>)
-        app.config.setdefault(<span class="hljs-string">&apos;WERKZEUG_LOG_LEVEL&apos;</span>, <span class="hljs-string">&apos;INFO&apos;</span>)
-        default_handler.setFormatter(access_formatter)
-        handler = logging.StreamHandler(sys.stdout)
-        flask_app_logger = logging.getLogger(<span class="hljs-string">&quot;flask.app&quot;</span>)
-        flask_app_logger.addHandler(handler)
-
-        flask_log_level = app.config.get(<span class="hljs-string">&quot;FLASK_LOG_LEVEL&quot;</span>)
-        flask_app_logger.setLevel(getattr(logging,flask_log_level)) <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x6700;&#x4F4E;log&#x7B49;&#x7EA7;</span>
-        werkzeug_handler = logging.StreamHandler()
-        werkzeug_handler.setFormatter(werkzeug_formatter)
-        werkzeug_logger = logging.getLogger(<span class="hljs-string">&quot;werkzeug&quot;</span>)
-        werkzeug_logger.handlers = []
-        werkzeug_logger.addHandler(werkzeug_handler)
-
-        werkzeug_log_level = app.config.get(<span class="hljs-string">&quot;WERKZEUG_LOG_LEVEL&quot;</span>)
-        werkzeug_logger.setLevel(getattr(logging,werkzeug_log_level))<span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x6700;&#x4F4E;log&#x7B49;&#x7EA7;</span>
-        structlog.configure(
-            processors=[
-                structlog.stdlib.filter_by_level,  <span class="hljs-comment"># &#x5224;&#x65AD;&#x662F;&#x5426;&#x63A5;&#x53D7;&#x67D0;&#x4E2A;level&#x7684;log&#x6D88;&#x606F;</span>
-                structlog.stdlib.add_logger_name,  <span class="hljs-comment"># &#x589E;&#x52A0;&#x5B57;&#x6BB5;logger</span>
-                structlog.stdlib.add_log_level,  <span class="hljs-comment"># &#x589E;&#x52A0;&#x5B57;&#x6BB5;level</span>
-                structlog.stdlib.PositionalArgumentsFormatter(),
-                structlog.processors.TimeStamper(fmt=<span class="hljs-string">&quot;iso&quot;</span>),  <span class="hljs-comment"># &#x589E;&#x52A0;&#x5B57;&#x6BB5;timestamp&#x4E14;&#x4F7F;&#x7528;iso&#x683C;&#x5F0F;&#x8F93;&#x51FA;</span>
-                structlog.processors.StackInfoRenderer(),
-                structlog.processors.format_exc_info,  <span class="hljs-comment"># &#x6355;&#x83B7;&#x5F02;&#x5E38;&#x7684;&#x6808;&#x4FE1;&#x606F;</span>
-                structlog.processors.StackInfoRenderer(),  <span class="hljs-comment"># &#x8BE6;&#x7EC6;&#x6808;&#x4FE1;&#x606F;</span>
-                structlog.processors.JSONRenderer()  <span class="hljs-comment"># json&#x683C;&#x5F0F;&#x8F93;&#x51FA;,&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F1A;&#x88AB;&#x653E;&#x5165;event&#x5B57;&#x6BB5;</span>
-            ],
-            context_class=dict,
-            logger_factory=structlog.stdlib.LoggerFactory(),
-            wrapper_class=structlog.stdlib.BoundLogger,
-            cache_logger_on_first_use=<span class="hljs-keyword">True</span>,
-        )
-        log = structlog.get_logger(<span class="hljs-string">&quot;flask.app&quot;</span>)
-        app.logger = log
-</code></pre>
-<p>&#x5176;&#x4ED6;&#x90E8;&#x5206;&#x90FD;&#x4E00;&#x6837;,&#x53EA;&#x662F;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C06;&#x5176;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x7C7B;&#x5C01;&#x88C5;&#x8D77;&#x6765;.&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#x5982;&#x4E0B;:</p>
-<ul>
-<li>app.py</li>
-</ul>
-<pre><code class="lang-python">...
-<span class="hljs-keyword">from</span> flask_jsonifylog <span class="hljs-keyword">import</span> JsonLogger
 ...
 
-JsonLogger(app)
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserIndexAPI</span><span class="hljs-params">(HTTPMethodView)</span>:</span>
+<span class="hljs-meta">    @print_time</span>
+    <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self, request)</span>:</span>
+
+...
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoAPI</span><span class="hljs-params">(HTTPMethodView)</span>:</span>
+    decorators = [print_time]
+
+...
+<span class="hljs-meta">@app.listener(&quot;before_server_start&quot;)</span>
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_before_server_start</span><span class="hljs-params">(app,loop)</span>:</span>
+    print(<span class="hljs-string">&quot;before_server_start&quot;</span>)
+
+<span class="hljs-meta">@app.listener(&quot;after_server_start&quot;)</span>
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_after_server_start</span><span class="hljs-params">(app,loop)</span>:</span>
+    print(<span class="hljs-string">&quot;after_server_start&quot;</span>)
+
+<span class="hljs-meta">@app.listener(&quot;before_server_stop&quot;)</span>
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_before_server_stop</span><span class="hljs-params">(app,loop)</span>:</span>
+    print(<span class="hljs-string">&quot;before_server_stop&quot;</span>)
+
+<span class="hljs-meta">@app.listener(&quot;after_server_stop&quot;)</span>
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_after_server_stop</span><span class="hljs-params">(app,loop)</span>:</span>
+    print(<span class="hljs-string">&quot;after_server_stop&quot;</span>)
+
+<span class="hljs-meta">@app.middleware(&apos;request&apos;)</span>
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print_on_request</span><span class="hljs-params">(request)</span>:</span>
+    print(<span class="hljs-string">&quot;I print when a request is received by the server&quot;</span>)
+
+<span class="hljs-meta">@app.middleware(&apos;response&apos;)</span>
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print_on_response</span><span class="hljs-params">(request, response)</span>:</span>
+    print(<span class="hljs-string">&quot;I print when a response is returned by the server&quot;</span>)
+
+...
+</code></pre>
+<h2 id="&#x4FEE;&#x6539;log"><a name="&#x4FEE;&#x6539;log" class="anchor-navigation-ex-anchor" href="#&#x4FEE;&#x6539;log"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. &#x4FEE;&#x6539;log</h2>
+<p>sanic&#x9ED8;&#x8BA4;&#x7684;log&#x4E3A;<code>sanic.root</code>,<code>sanic.error</code>&#x548C;<code>sanic.access</code>,&#x8F93;&#x51FA;&#x662F;&#x6241;&#x5E73;&#x7684;&#x6587;&#x672C;,&#x800C;&#x73B0;&#x5728;&#x7684;&#x8D8B;&#x52BF;&#x662F;&#x4F7F;&#x7528;json&#x683C;&#x5F0F;&#x5316;log&#x4EE5;&#x4FBF;&#x4E8E;&#x540E;&#x7EED;&#x5206;&#x6790;,&#x4E3A;&#x4E86;&#x6EE1;&#x8DB3;&#x8FD9;&#x4E2A;&#x9700;&#x6C42;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x50CF;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x8BBE;&#x7F6E;,&#x4EE3;&#x7801;&#x5728;<a href="https://github.com/TutorialForPython/python-io/tree/master/%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/Http%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/code/sanic-server/C5" target="_blank">C5</a></p>
+<ul>
+<li><code>logger.py</code></li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> time
+<span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">import</span> logging
+<span class="hljs-keyword">import</span> sanic.log
+<span class="hljs-keyword">import</span> structlog
+logging.Formatter.converter = time.gmtime
+
+
+LOGGING_CONFIG_JSON = dict(
+    version=<span class="hljs-number">1</span>,
+    disable_existing_loggers=<span class="hljs-keyword">False</span>,
+    loggers={
+        <span class="hljs-string">&quot;sanic.root&quot;</span>: {<span class="hljs-string">&quot;level&quot;</span>: <span class="hljs-string">&quot;INFO&quot;</span>, <span class="hljs-string">&quot;handlers&quot;</span>: [<span class="hljs-string">&quot;console&quot;</span>]},
+        <span class="hljs-string">&quot;sanic.error&quot;</span>: {
+            <span class="hljs-string">&quot;level&quot;</span>: <span class="hljs-string">&quot;INFO&quot;</span>,
+            <span class="hljs-string">&quot;handlers&quot;</span>: [<span class="hljs-string">&quot;error_console&quot;</span>],
+            <span class="hljs-string">&quot;propagate&quot;</span>: <span class="hljs-keyword">True</span>,
+            <span class="hljs-string">&quot;qualname&quot;</span>: <span class="hljs-string">&quot;sanic.error&quot;</span>,
+        },
+        <span class="hljs-string">&quot;sanic.access&quot;</span>: {
+            <span class="hljs-string">&quot;level&quot;</span>: <span class="hljs-string">&quot;INFO&quot;</span>,
+            <span class="hljs-string">&quot;handlers&quot;</span>: [<span class="hljs-string">&quot;access_console&quot;</span>],
+            <span class="hljs-string">&quot;propagate&quot;</span>: <span class="hljs-keyword">True</span>,
+            <span class="hljs-string">&quot;qualname&quot;</span>: <span class="hljs-string">&quot;sanic.access&quot;</span>,
+        },
+    },
+    handlers={
+        <span class="hljs-string">&quot;console&quot;</span>: {
+            <span class="hljs-string">&quot;class&quot;</span>: <span class="hljs-string">&quot;logging.StreamHandler&quot;</span>,
+            <span class="hljs-string">&quot;formatter&quot;</span>: <span class="hljs-string">&quot;generic&quot;</span>,
+            <span class="hljs-string">&quot;stream&quot;</span>: sys.stdout,
+        },
+        <span class="hljs-string">&quot;error_console&quot;</span>: {
+            <span class="hljs-string">&quot;class&quot;</span>: <span class="hljs-string">&quot;logging.StreamHandler&quot;</span>,
+            <span class="hljs-string">&quot;formatter&quot;</span>: <span class="hljs-string">&quot;error_msg&quot;</span>,
+            <span class="hljs-string">&quot;stream&quot;</span>: sys.stderr,
+        },
+        <span class="hljs-string">&quot;access_console&quot;</span>: {
+            <span class="hljs-string">&quot;class&quot;</span>: <span class="hljs-string">&quot;logging.StreamHandler&quot;</span>,
+            <span class="hljs-string">&quot;formatter&quot;</span>: <span class="hljs-string">&quot;access&quot;</span>,
+            <span class="hljs-string">&quot;stream&quot;</span>: sys.stdout,
+        },
+    },
+    formatters={
+        <span class="hljs-string">&quot;generic&quot;</span>: {
+            <span class="hljs-string">&quot;format&quot;</span>: <span class="hljs-string">&apos;&apos;&apos;%(message)s&apos;&apos;&apos;</span>,
+            <span class="hljs-string">&quot;datefmt&quot;</span>: <span class="hljs-string">&quot;%Y-%m-%dT%H:%M:%S Z&quot;</span>,
+            <span class="hljs-string">&quot;class&quot;</span>: <span class="hljs-string">&quot;logging.Formatter&quot;</span>,
+        },
+        <span class="hljs-string">&quot;error_msg&quot;</span>: {
+            <span class="hljs-string">&quot;format&quot;</span>: <span class="hljs-string">&apos;&apos;&apos;{&quot;time&quot;:&quot;%(asctime)s&quot;,&quot;process&quot;:&quot;%(process)d&quot;, &quot;level&quot;:&quot;%(levelname)s&quot;,&quot;msg&quot;:&quot;%(message)s&quot;}&apos;&apos;&apos;</span>,
+            <span class="hljs-string">&quot;datefmt&quot;</span>: <span class="hljs-string">&quot;%Y-%m-%dT%H:%M:%S Z&quot;</span>,
+            <span class="hljs-string">&quot;class&quot;</span>: <span class="hljs-string">&quot;logging.Formatter&quot;</span>,
+        },
+        <span class="hljs-string">&quot;access&quot;</span>: {
+            <span class="hljs-string">&quot;format&quot;</span>: <span class="hljs-string">&apos;&apos;&apos;{&quot;time&quot;:&quot;%(asctime)s&quot;,&quot;name&quot;:&quot;%(name)s&quot;, &quot;level&quot;:&quot;%(levelname)s&quot;,&quot;host&quot;:&quot;%(host)s&quot;,&quot;status&quot;:&quot;%(status)d&quot;,&quot;byte&quot;:&quot;%(byte)d&quot;,&quot;request&quot;:&quot;%(request)s&quot;}&apos;&apos;&apos;</span>,
+            <span class="hljs-string">&quot;datefmt&quot;</span>: <span class="hljs-string">&quot;%Y-%m-%dT%H:%M:%S Z&quot;</span>,
+            <span class="hljs-string">&quot;class&quot;</span>: <span class="hljs-string">&quot;logging.Formatter&quot;</span>,
+        },
+    },
+)
+
+
+<span class="hljs-comment">#logging.config.dictConfig(LOGGING_CONFIG_JSON)</span>
+structlog.configure(
+    processors=[
+        structlog.stdlib.filter_by_level,  <span class="hljs-comment"># &#x5224;&#x65AD;&#x662F;&#x5426;&#x63A5;&#x53D7;&#x67D0;&#x4E2A;level&#x7684;log&#x6D88;&#x606F;</span>
+        structlog.stdlib.add_logger_name,  <span class="hljs-comment"># &#x589E;&#x52A0;&#x5B57;&#x6BB5;logger</span>
+        structlog.stdlib.add_log_level,  <span class="hljs-comment"># &#x589E;&#x52A0;&#x5B57;&#x6BB5;level</span>
+        structlog.stdlib.PositionalArgumentsFormatter(),
+        structlog.processors.TimeStamper(fmt=<span class="hljs-string">&quot;iso&quot;</span>),  <span class="hljs-comment"># &#x589E;&#x52A0;&#x5B57;&#x6BB5;timestamp&#x4E14;&#x4F7F;&#x7528;iso&#x683C;&#x5F0F;&#x8F93;&#x51FA;</span>
+        structlog.processors.StackInfoRenderer(),
+        structlog.processors.format_exc_info,  <span class="hljs-comment"># &#x6355;&#x83B7;&#x5F02;&#x5E38;&#x7684;&#x6808;&#x4FE1;&#x606F;</span>
+        structlog.processors.StackInfoRenderer(),  <span class="hljs-comment"># &#x8BE6;&#x7EC6;&#x6808;&#x4FE1;&#x606F;</span>
+        structlog.processors.JSONRenderer()  <span class="hljs-comment"># json&#x683C;&#x5F0F;&#x8F93;&#x51FA;,&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F1A;&#x88AB;&#x653E;&#x5165;event&#x5B57;&#x6BB5;</span>
+    ],
+    context_class=dict,
+    logger_factory=structlog.stdlib.LoggerFactory(),
+    wrapper_class=structlog.stdlib.BoundLogger,
+    cache_logger_on_first_use=<span class="hljs-keyword">True</span>,
+)
+log = structlog.get_logger(<span class="hljs-string">&quot;sanic.root&quot;</span>)
+sanic.log.logger = log
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x6211;&#x4EEC;&#x5C06;<code>sanic.log.logger</code>&#x66FF;&#x6362;&#x6210;&#x4E86;<code>structlog</code>&#x7684;<code>log</code>,&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x7684;log&#x5C31;&#x662F;&#x7ED3;&#x6784;&#x5316;&#x6570;&#x636E;&#x4E86;.&#x8981;&#x4F7F;&#x7528;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;<code>sanic.log.logger</code></p>
+<ul>
+<li><code>app.py</code></li>
+</ul>
+<pre><code class="lang-python">...
+<span class="hljs-keyword">from</span> logger <span class="hljs-keyword">import</span> LOGGING_CONFIG_JSON
+<span class="hljs-keyword">from</span> sanic.log <span class="hljs-keyword">import</span> logger
+...
+
+app = Sanic(log_config=LOGGING_CONFIG_JSON)
+
+...
+<span class="hljs-meta">@app.middleware(&apos;response&apos;)</span>
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">print_on_response</span><span class="hljs-params">(request, response)</span>:</span>
+    logger.info(<span class="hljs-string">&quot;I print when a response is returned by the server&quot;</span>)
+...
 </code></pre>
 <h2 id="&#x9519;&#x8BEF;&#x5904;&#x7406;"><a name="&#x9519;&#x8BEF;&#x5904;&#x7406;" class="anchor-navigation-ex-anchor" href="#&#x9519;&#x8BEF;&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>1.6. &#x9519;&#x8BEF;&#x5904;&#x7406;</h2>
-<p>&#x53E6;&#x4E00;&#x4E2A;&#x5E38;&#x89C1;&#x7684;&#x9700;&#x8981;&#x662F;&#x9519;&#x8BEF;&#x5904;&#x7406;,&#x901A;&#x5E38;RESTful&#x63A5;&#x53E3;&#x4F1A;&#x590D;&#x7528;http&#x72B6;&#x6001;,&#x6BD4;&#x5982;500&#x8868;&#x793A;&#x670D;&#x52A1;&#x5668;&#x9519;&#x8BEF;,404&#x8868;&#x793A;&#x627E;&#x4E0D;&#x5230;&#x8D44;&#x6E90;.&#x6211;&#x4EEC;&#x4F7F;&#x7528;<code>app.errorhandler</code>&#x6765;&#x5B9A;&#x4E49;&#x9519;&#x8BEF;&#x7684;&#x5904;&#x7406;&#x65B9;&#x5F0F;<a href="https://github.com/TutorialForPython/python-io/tree/master/%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/Http%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/code/flask-server/C7" target="_blank">C7</a></p>
+<p>&#x53E6;&#x4E00;&#x4E2A;&#x5E38;&#x89C1;&#x7684;&#x9700;&#x8981;&#x662F;&#x9519;&#x8BEF;&#x5904;&#x7406;,&#x901A;&#x5E38;RESTful&#x63A5;&#x53E3;&#x4F1A;&#x590D;&#x7528;http&#x72B6;&#x6001;,&#x6BD4;&#x5982;500&#x8868;&#x793A;&#x670D;&#x52A1;&#x5668;&#x9519;&#x8BEF;,404&#x8868;&#x793A;&#x627E;&#x4E0D;&#x5230;&#x8D44;&#x6E90;.&#x6211;&#x4EEC;&#x4F7F;&#x7528;<code>app.exception</code>&#x6765;&#x5B9A;&#x4E49;&#x9519;&#x8BEF;&#x7684;&#x5904;&#x7406;&#x65B9;&#x5F0F;<a href="https://github.com/TutorialForPython/python-io/tree/master/%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/Http%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/code/sanic-server/C6" target="_blank">C6</a></p>
 <pre><code class="lang-python">...
+<span class="hljs-keyword">from</span> sanic.exceptions <span class="hljs-keyword">import</span> NotFound
+...
 
-<span class="hljs-meta">@app.errorhandler(werkzeug.exceptions.NotFound)</span>
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle_bad_request</span><span class="hljs-params">(e)</span>:</span>
-    <span class="hljs-keyword">return</span> jsonify({
-        <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Not Found&quot;</span>
-    }), <span class="hljs-number">404</span>
+<span class="hljs-meta">@app.exception(NotFound)</span>
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ignore_404s</span><span class="hljs-params">(request, exception)</span>:</span>
+    <span class="hljs-keyword">return</span> jsonify({<span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;page not found&quot;</span>}, status=<span class="hljs-number">404</span>)
+
+
+<span class="hljs-meta">@app.exception(Exception)</span>
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ignore_500s</span><span class="hljs-params">(request, exception)</span>:</span>
+    <span class="hljs-keyword">return</span> jsonify({<span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;server error&quot;</span>}, status=<span class="hljs-number">500</span>)
 ...
 </code></pre>
-<h2 id="&#x90E8;&#x7F72;flask&#x63A5;&#x53E3;&#x670D;&#x52A1;"><a name="&#x90E8;&#x7F72;flask&#x63A5;&#x53E3;&#x670D;&#x52A1;" class="anchor-navigation-ex-anchor" href="#&#x90E8;&#x7F72;flask&#x63A5;&#x53E3;&#x670D;&#x52A1;"><i class="fa fa-link" aria-hidden="true"></i></a>1.7. &#x90E8;&#x7F72;flask&#x63A5;&#x53E3;&#x670D;&#x52A1;</h2>
-<p>python&#x7684;&#x670D;&#x52A1;&#x90E8;&#x7F72;&#x4F8B;&#x5B50;&#x5728;<a href="https://github.com/TutorialForPython/python-io/tree/master/%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/Http%E6%8E%A5%E5%8F%A3%E6%9C%8D%E5%8A%A1/code/flask-server/C8" target="_blank">C8</a></p>
-<p>python&#x53D7;&#x9650;&#x4E8E;gil&#x53EA;&#x80FD;&#x5229;&#x7528;&#x4E00;&#x4E2A;&#x6838;,&#x4E3A;&#x4E86;&#x63D0;&#x9AD8;&#x8D1F;&#x8F7D;&#x5145;&#x5206;&#x5229;&#x7528;&#x591A;&#x6838;,&#x5E38;&#x89C1;&#x7684;&#x7B56;&#x7565;&#x662F;&#x4F7F;&#x7528;&#x591A;&#x8FDB;&#x7A0B;,&#x8FD9;&#x5C31;&#x4F1A;&#x7528;&#x5230;&#x5DE5;&#x5177;<a href="https://gunicorn.org/" target="_blank">gunicorn</a>.&#x5B83;&#x7684;&#x7528;&#x6CD5;&#x975E;&#x5E38;&#x7B80;&#x5355;:</p>
-<pre><code class="lang-bash">gunicorn -w 4 -k gevent -b 127.0.0.1:4000 app:app
-</code></pre>
-<p>&#x4F7F;&#x7528;<code>-w</code>&#x6307;&#x5B9A;&#x8D77;&#x591A;&#x5C11;&#x8FDB;&#x7A0B;,<code>-b</code>&#x6307;&#x5B9A;&#x7ED1;&#x5B9A;&#x7684;host&#x548C;port,&#x7136;&#x540E;&#x518D;&#x6307;&#x5B9A;flask&#x7684;app&#x5BF9;&#x8C61;&#x5373;&#x53EF;,&#x5982;&#x679C;&#x9700;&#x8981;&#x4F7F;&#x7528;gevent&#x5C06;&#x7EBF;&#x7A0B;&#x6539;&#x4E3A;&#x534F;&#x7A0B;,&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>-k</code>&#x6307;&#x540D;&#x4F7F;&#x7528;gevent</p>
-<p>&#x4F46;&#x5728;&#x5BB9;&#x5668;&#x5316;&#x7684;&#x73B0;&#x5728;,&#x6211;&#x4EEC;&#x5F80;&#x5F80;&#x66F4;&#x591A;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;swarm&#x6216;&#x8005;k8s&#x901A;&#x8FC7;&#x591A;&#x5BB9;&#x5668;&#x505A;&#x8D1F;&#x8F7D;&#x5747;&#x8861;,&#x90A3;&#x4F7F;&#x7528;gunicorn&#x5C31;&#x592A;&#x91CD;&#x4E86;,&#x8FD9;&#x79CD;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x5E38;&#x4F7F;&#x7528;gevent&#x6784;&#x9020;&#x670D;&#x52A1;.</p>
-<ul>
-<li>gevent_server.py</li>
-</ul>
-<pre><code class="lang-python"><span class="hljs-keyword">from</span> gevent <span class="hljs-keyword">import</span> monkey; monkey.patch_all()
-<span class="hljs-keyword">from</span> gevent.pywsgi <span class="hljs-keyword">import</span> WSGIServer
-<span class="hljs-keyword">from</span> app <span class="hljs-keyword">import</span> app
-<span class="hljs-keyword">import</span> logging
-
-http_server = WSGIServer((<span class="hljs-string">&apos;&apos;</span>, <span class="hljs-number">5000</span>), app, log=logging.getLogger(<span class="hljs-string">&quot;werkzeug&quot;</span>))
-http_server.serve_forever()
-</code></pre>
-<p>&#x8FD9;&#x91CC;&#x8981;&#x6CE8;&#x610F;import&#x7684;&#x987A;&#x5E8F;,&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x4F7F;&#x7528;gevent&#x542F;&#x52A8;Flask&#x5F80;&#x5F80;&#x6027;&#x80FD;&#x74F6;&#x9888;&#x4E0D;&#x5728;flask&#x6846;&#x67B6;&#x800C;&#x5728;&#x6570;&#x636E;&#x5E93;,&#x8FD9;&#x79CD;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x5C31;&#x9700;&#x8981;&#x4F7F;&#x7528;gevent&#x7684;&#x7334;&#x5B50;&#x8865;&#x4E01;&#x5C06;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x7684;&#x90E8;&#x5206;&#x4E5F;&#x5F02;&#x6B65;&#x5316;.</p>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2019-07-10 23:55:41
+2019-07-11 01:01:53
 </span></footer>
                                 
                                 </section>
@@ -2988,14 +3067,10 @@ http_server.serve_forever()
 
             
                 
-                <a href="使用http客户端获取数据.html" class="navigation navigation-prev " aria-label="Previous page: 使用http客户端获取数据">
+                <a href="使用Flask快速构建RESTful接口服务.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 使用Flask快速构建RESTful接口服务">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="使用Sanic构建异步的RESTful接口服务.html" class="navigation navigation-next " aria-label="Next page: 使用Sanic构建异步的RESTful接口服务">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -3004,7 +3079,7 @@ http_server.serve_forever()
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"使用Flask快速构建RESTful接口服务","level":"3.2.4.2.2","depth":4,"next":{"title":"使用Sanic构建异步的RESTful接口服务","level":"3.2.4.2.3","depth":4,"path":"输入输出篇/接口服务/Http接口服务/使用Sanic构建异步的RESTful接口服务.md","ref":"输入输出篇/接口服务/Http接口服务/使用Sanic构建异步的RESTful接口服务.md","articles":[]},"previous":{"title":"使用http客户端获取数据","level":"3.2.4.2.1","depth":4,"path":"输入输出篇/接口服务/Http接口服务/使用http客户端获取数据.md","ref":"输入输出篇/接口服务/Http接口服务/使用http客户端获取数据.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","mathjax","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"http://blog.hszofficial.site/TutorialForPython"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"title":"","button":"赏","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","wechatText":"微信打赏","alipayText":"支付宝打赏"},"sitemap-general":{"prefix":"http://blog.hszofficial.site/TutorialForPython/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":true},"mode":"float","multipleH1":true,"pageTop":{"showLevelIcon":false,"mode":"float","pageTop":{"showLevelIcon":false,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"},"level1Icon":"","showLevel":true,"level2Icon":"","level3Icon":"","associatedWithSummary":true,"float":{"showLevelIcon":true,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"}},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍python3.5+的语法与编程惯用法"},"file":{"path":"输入输出篇/接口服务/Http接口服务/使用Flask快速构建RESTful接口服务.md","mtime":"2019-07-10T15:55:41.291Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T17:05:18.236Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"使用Sanic构建异步的RESTful接口服务","level":"3.2.4.2.3","depth":4,"next":{"title":"websocket接口服务","level":"3.2.4.3","depth":3,"ref":"","articles":[]},"previous":{"title":"使用Flask快速构建RESTful接口服务","level":"3.2.4.2.2","depth":4,"path":"输入输出篇/接口服务/Http接口服务/使用Flask快速构建RESTful接口服务.md","ref":"输入输出篇/接口服务/Http接口服务/使用Flask快速构建RESTful接口服务.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","mathjax","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"http://blog.hszofficial.site/TutorialForPython"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"title":"","button":"赏","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","wechatText":"微信打赏","alipayText":"支付宝打赏"},"sitemap-general":{"prefix":"http://blog.hszofficial.site/TutorialForPython/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":true},"mode":"float","multipleH1":true,"pageTop":{"showLevelIcon":false,"mode":"float","pageTop":{"showLevelIcon":false,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"},"level1Icon":"","showLevel":true,"level2Icon":"","level3Icon":"","associatedWithSummary":true,"float":{"showLevelIcon":true,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"}},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍python3.5+的语法与编程惯用法"},"file":{"path":"输入输出篇/接口服务/Http接口服务/使用Sanic构建异步的RESTful接口服务.md","mtime":"2019-07-10T17:01:53.827Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-10T17:05:18.236Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
