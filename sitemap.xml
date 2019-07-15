@@ -104,6 +104,8 @@
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/输入输出篇/接口服务/Http接口服务/使用Sanic构建异步的RESTful接口服务.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/输入输出篇/接口服务/Http接口服务/结语.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/输入输出篇/接口服务/WebSocket接口服务/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/输入输出篇/接口服务/WebSocket接口服务/WebSocket接口服务和客户端.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/输入输出篇/接口服务/WebSocket接口服务/结语.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/输入输出篇/结语.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/信息安全篇/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/信息安全篇/随机密码.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
