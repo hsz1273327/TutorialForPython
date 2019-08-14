@@ -102,6 +102,9 @@
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/输入输出篇/接口服务/Http接口服务/使用http客户端获取数据.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/输入输出篇/接口服务/Http接口服务/使用Flask快速构建RESTful接口服务.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/输入输出篇/接口服务/Http接口服务/使用Sanic构建异步的RESTful接口服务.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/输入输出篇/接口服务/Http接口服务/解析请求与响应头.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/输入输出篇/接口服务/Http接口服务/解析url.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/输入输出篇/接口服务/Http接口服务/解析html文件.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/输入输出篇/接口服务/Http接口服务/结语.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/输入输出篇/接口服务/WebSocket接口服务/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/输入输出篇/接口服务/WebSocket接口服务/WebSocket接口服务和客户端.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
