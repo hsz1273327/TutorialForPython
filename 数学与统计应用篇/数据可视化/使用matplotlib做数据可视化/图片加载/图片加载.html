@@ -1,0 +1,2836 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>图片加载 · python攻略</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="hsz">
+        
+        
+    
+    <link rel="stylesheet" href="../../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../保存图片/保存图片.html" />
+    
+    
+    <link rel="prev" href="../桑基图/桑基图.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://blog.hszofficial.site/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../../">
+            
+                <a href="../../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../../../工具链篇/">
+            
+                <a href="../../../../工具链篇/">
+            
+                    
+                    工具链篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../../../工具链篇/运行环境.html">
+            
+                <a href="../../../../工具链篇/运行环境.html">
+            
+                    
+                    运行环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../../../工具链篇/包的安装管理与分发.html">
+            
+                <a href="../../../../工具链篇/包的安装管理与分发.html">
+            
+                    
+                    包的安装管理与分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../../../工具链篇/交互环境jupyter/">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/">
+            
+                    
+                    交互环境jupyter
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../../../../工具链篇/交互环境jupyter/基于web的可交互运行环境jupyter.html">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/基于web的可交互运行环境jupyter.html">
+            
+                    
+                    基于web的可交互运行环境jupyter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../../../../工具链篇/交互环境jupyter/ipython与魔法命令/ipython与魔法命令.html">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/ipython与魔法命令/ipython与魔法命令.html">
+            
+                    
+                    ipython与魔法命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../../../../工具链篇/交互环境jupyter/在Ipython_Notebook中的代码调试与优化.html">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/在Ipython_Notebook中的代码调试与优化.html">
+            
+                    
+                    在Ipython_Notebook中的代码调试与优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../../../../工具链篇/交互环境jupyter/在ipykernel中使用异步接口.html">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/在ipykernel中使用异步接口.html">
+            
+                    
+                    在ipykernel中使用异步接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../../../../工具链篇/交互环境jupyter/多进程并行计算.html">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/多进程并行计算.html">
+            
+                    
+                    多进程并行计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../../../../工具链篇/交互环境jupyter/公开的jupyter_notebook服务.html">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/公开的jupyter_notebook服务.html">
+            
+                    
+                    公开的jupyter_notebook服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../../../../工具链篇/交互环境jupyter/notebook格式转换工具.html">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/notebook格式转换工具.html">
+            
+                    
+                    notebook格式转换工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.8" data-path="../../../../工具链篇/交互环境jupyter/结语.html">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../../../工具链篇/代码风格.html">
+            
+                <a href="../../../../工具链篇/代码风格.html">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../../../工具链篇/docstring工具.html">
+            
+                <a href="../../../../工具链篇/docstring工具.html">
+            
+                    
+                    docstring工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../../../工具链篇/静态类型检测.html">
+            
+                <a href="../../../../工具链篇/静态类型检测.html">
+            
+                    
+                    静态类型检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../../../../工具链篇/日志工具.html">
+            
+                <a href="../../../../工具链篇/日志工具.html">
+            
+                    
+                    日志工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../../../../工具链篇/调试工具.html">
+            
+                <a href="../../../../工具链篇/调试工具.html">
+            
+                    
+                    调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../../../../工具链篇/调用追踪与异常栈追踪.html">
+            
+                <a href="../../../../工具链篇/调用追踪与异常栈追踪.html">
+            
+                    
+                    调用追踪与异常栈追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../../../../工具链篇/代码测试.html">
+            
+                <a href="../../../../工具链篇/代码测试.html">
+            
+                    
+                    代码测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../../../../工具链篇/部署服务.html">
+            
+                <a href="../../../../工具链篇/部署服务.html">
+            
+                    
+                    部署服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../../../../工具链篇/性能调优工具.html">
+            
+                <a href="../../../../工具链篇/性能调优工具.html">
+            
+                    
+                    性能调优工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../../../../工具链篇/结语.html">
+            
+                <a href="../../../../工具链篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../../../语法篇/">
+            
+                <a href="../../../../语法篇/">
+            
+                    
+                    语法篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../../../语法篇/数据模型/">
+            
+                <a href="../../../../语法篇/数据模型/">
+            
+                    
+                    数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../../../../语法篇/数据模型/数据模型.html">
+            
+                <a href="../../../../语法篇/数据模型/数据模型.html">
+            
+                    
+                    数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../../../../语法篇/数据模型/变量引用与垃圾回收.html">
+            
+                <a href="../../../../语法篇/数据模型/变量引用与垃圾回收.html">
+            
+                    
+                    变量引用与垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../../../../语法篇/数据模型/结语.html">
+            
+                <a href="../../../../语法篇/数据模型/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../../../语法篇/模块/">
+            
+                <a href="../../../../语法篇/模块/">
+            
+                    
+                    模块
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../../../../语法篇/模块/导入时与运行时.html">
+            
+                <a href="../../../../语法篇/模块/导入时与运行时.html">
+            
+                    
+                    导入时与运行时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../../../../语法篇/模块/模块的预设字段.html">
+            
+                <a href="../../../../语法篇/模块/模块的预设字段.html">
+            
+                    
+                    模块的预设字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../../../../语法篇/模块/模块的加载流程.html">
+            
+                <a href="../../../../语法篇/模块/模块的加载流程.html">
+            
+                    
+                    模块的加载流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../../../../语法篇/模块/模块加载特殊内容.html">
+            
+                <a href="../../../../语法篇/模块/模块加载特殊内容.html">
+            
+                    
+                    模块加载特殊内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../../../../语法篇/模块/结语.html">
+            
+                <a href="../../../../语法篇/模块/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../../../语法篇/文本与字节序/">
+            
+                <a href="../../../../语法篇/文本与字节序/">
+            
+                    
+                    文本与字节序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../../../../语法篇/文本与字节序/文本和编码.html">
+            
+                <a href="../../../../语法篇/文本与字节序/文本和编码.html">
+            
+                    
+                    文本和编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="../../../../语法篇/文本与字节序/字节序列与内存视图.html">
+            
+                <a href="../../../../语法篇/文本与字节序/字节序列与内存视图.html">
+            
+                    
+                    字节序列与内存视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="../../../../语法篇/文本与字节序/字符串操作.html">
+            
+                <a href="../../../../语法篇/文本与字节序/字符串操作.html">
+            
+                    
+                    字符串操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="../../../../语法篇/文本与字节序/文本模板.html">
+            
+                <a href="../../../../语法篇/文本与字节序/文本模板.html">
+            
+                    
+                    文本模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="../../../../语法篇/文本与字节序/正则表达式.html">
+            
+                <a href="../../../../语法篇/文本与字节序/正则表达式.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.6" data-path="../../../../语法篇/文本与字节序/序列化.html">
+            
+                <a href="../../../../语法篇/文本与字节序/序列化.html">
+            
+                    
+                    序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.7" data-path="../../../../语法篇/文本与字节序/结语.html">
+            
+                <a href="../../../../语法篇/文本与字节序/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../../../语法篇/流程控制/">
+            
+                <a href="../../../../语法篇/流程控制/">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../../../../语法篇/流程控制/单线程同步流程控制.html">
+            
+                <a href="../../../../语法篇/流程控制/单线程同步流程控制.html">
+            
+                    
+                    单线程同步流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../../../../语法篇/流程控制/阻塞异步与协程.html">
+            
+                <a href="../../../../语法篇/流程控制/阻塞异步与协程.html">
+            
+                    
+                    阻塞异步与协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" data-path="../../../../语法篇/流程控制/多线程与GIL.html">
+            
+                <a href="../../../../语法篇/流程控制/多线程与GIL.html">
+            
+                    
+                    多线程与GIL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.4" data-path="../../../../语法篇/流程控制/多进程.html">
+            
+                <a href="../../../../语法篇/流程控制/多进程.html">
+            
+                    
+                    多进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.5" data-path="../../../../语法篇/流程控制/并行编程的惯用法.html">
+            
+                <a href="../../../../语法篇/流程控制/并行编程的惯用法.html">
+            
+                    
+                    并行编程的惯用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.6" data-path="../../../../语法篇/流程控制/结语.html">
+            
+                <a href="../../../../语法篇/流程控制/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../../../../语法篇/异常和警告.html">
+            
+                <a href="../../../../语法篇/异常和警告.html">
+            
+                    
+                    异常和警告
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../../../../语法篇/内置容器/">
+            
+                <a href="../../../../语法篇/内置容器/">
+            
+                    
+                    内置容器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="../../../../语法篇/内置容器/序列对象.html">
+            
+                <a href="../../../../语法篇/内置容器/序列对象.html">
+            
+                    
+                    序列对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="../../../../语法篇/内置容器/映射对象.html">
+            
+                <a href="../../../../语法篇/内置容器/映射对象.html">
+            
+                    
+                    映射对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="../../../../语法篇/内置容器/可迭代对象与生成器.html">
+            
+                <a href="../../../../语法篇/内置容器/可迭代对象与生成器.html">
+            
+                    
+                    可迭代对象与生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="../../../../语法篇/内置容器/结语.html">
+            
+                <a href="../../../../语法篇/内置容器/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../../../../语法篇/函数/">
+            
+                <a href="../../../../语法篇/函数/">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="../../../../语法篇/函数/函数是一等对象.html">
+            
+                <a href="../../../../语法篇/函数/函数是一等对象.html">
+            
+                    
+                    函数是一等对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="../../../../语法篇/函数/变量作用域与闭包.html">
+            
+                <a href="../../../../语法篇/函数/变量作用域与闭包.html">
+            
+                    
+                    变量作用域与闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.3" data-path="../../../../语法篇/函数/结语.html">
+            
+                <a href="../../../../语法篇/函数/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../../../../语法篇/面向对象惯用法/">
+            
+                <a href="../../../../语法篇/面向对象惯用法/">
+            
+                    
+                    面向对象惯用法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.8.1" data-path="../../../../语法篇/面向对象惯用法/python中的对象.html">
+            
+                <a href="../../../../语法篇/面向对象惯用法/python中的对象.html">
+            
+                    
+                    python中的对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.2" data-path="../../../../语法篇/面向对象惯用法/协议与接口与抽象基类.html">
+            
+                <a href="../../../../语法篇/面向对象惯用法/协议与接口与抽象基类.html">
+            
+                    
+                    协议,接口与抽象基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.3" data-path="../../../../语法篇/面向对象惯用法/多重继承和Mixin.html">
+            
+                <a href="../../../../语法篇/面向对象惯用法/多重继承和Mixin.html">
+            
+                    
+                    多重继承和Mixin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.4" data-path="../../../../语法篇/面向对象惯用法/自定义序列Vector.html">
+            
+                <a href="../../../../语法篇/面向对象惯用法/自定义序列Vector.html">
+            
+                    
+                    自定义序列Vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.5" data-path="../../../../语法篇/面向对象惯用法/结语.html">
+            
+                <a href="../../../../语法篇/面向对象惯用法/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../../../../语法篇/元编程/">
+            
+                <a href="../../../../语法篇/元编程/">
+            
+                    
+                    元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.9.1" data-path="../../../../语法篇/元编程/运算符重载.html">
+            
+                <a href="../../../../语法篇/元编程/运算符重载.html">
+            
+                    
+                    运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.2" data-path="../../../../语法篇/元编程/特性与描述符.html">
+            
+                <a href="../../../../语法篇/元编程/特性与描述符.html">
+            
+                    
+                    特性与描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.3" data-path="../../../../语法篇/元编程/装饰器.html">
+            
+                <a href="../../../../语法篇/元编程/装饰器.html">
+            
+                    
+                    装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.4" data-path="../../../../语法篇/元编程/元类编程.html">
+            
+                <a href="../../../../语法篇/元编程/元类编程.html">
+            
+                    
+                    元类编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.5" data-path="../../../../语法篇/元编程/import_hook.html">
+            
+                <a href="../../../../语法篇/元编程/import_hook.html">
+            
+                    
+                    import_hook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.6" data-path="../../../../语法篇/元编程/动态编译.html">
+            
+                <a href="../../../../语法篇/元编程/动态编译.html">
+            
+                    
+                    动态编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.7" data-path="../../../../语法篇/元编程/动态属性.html">
+            
+                <a href="../../../../语法篇/元编程/动态属性.html">
+            
+                    
+                    动态属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.8" data-path="../../../../语法篇/元编程/猴子补丁和热更新.html">
+            
+                <a href="../../../../语法篇/元编程/猴子补丁和热更新.html">
+            
+                    
+                    猴子补丁和热更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.9" data-path="../../../../语法篇/元编程/结语.html">
+            
+                <a href="../../../../语法篇/元编程/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../../../../语法篇/结语.html">
+            
+                <a href="../../../../语法篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../../../基础应用篇/">
+            
+                <a href="../../../../基础应用篇/">
+            
+                    
+                    基础应用篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../../../基础应用篇/国际化/">
+            
+                <a href="../../../../基础应用篇/国际化/">
+            
+                    
+                    国际化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1.1" data-path="../../../../基础应用篇/国际化/字符编码判断.html">
+            
+                <a href="../../../../基础应用篇/国际化/字符编码判断.html">
+            
+                    
+                    字符编码判断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.2" data-path="../../../../基础应用篇/国际化/国际化文本翻译.html">
+            
+                <a href="../../../../基础应用篇/国际化/国际化文本翻译.html">
+            
+                    
+                    国际化文本翻译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.3" data-path="../../../../基础应用篇/国际化/时间日期处理.html">
+            
+                <a href="../../../../基础应用篇/国际化/时间日期处理.html">
+            
+                    
+                    时间日期处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.4" data-path="../../../../基础应用篇/国际化/货币处理模块.html">
+            
+                <a href="../../../../基础应用篇/国际化/货币处理模块.html">
+            
+                    
+                    货币处理模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.5" data-path="../../../../基础应用篇/国际化/结语.html">
+            
+                <a href="../../../../基础应用篇/国际化/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../../../../基础应用篇/数据压缩与归档/">
+            
+                <a href="../../../../基础应用篇/数据压缩与归档/">
+            
+                    
+                    数据压缩与归档
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../../../../基础应用篇/数据压缩与归档/数据压缩解压.html">
+            
+                <a href="../../../../基础应用篇/数据压缩与归档/数据压缩解压.html">
+            
+                    
+                    数据压缩解压
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="../../../../基础应用篇/数据压缩与归档/压缩归档.html">
+            
+                <a href="../../../../基础应用篇/数据压缩与归档/压缩归档.html">
+            
+                    
+                    压缩归档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="../../../../基础应用篇/数据压缩与归档/结语.html">
+            
+                <a href="../../../../基础应用篇/数据压缩与归档/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../../../../基础应用篇/定时任务.html">
+            
+                <a href="../../../../基础应用篇/定时任务.html">
+            
+                    
+                    定时任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../../../../基础应用篇/结构数据验证.html">
+            
+                <a href="../../../../基础应用篇/结构数据验证.html">
+            
+                    
+                    结构数据验证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../../../../基础应用篇/调用子进程.html">
+            
+                <a href="../../../../基础应用篇/调用子进程.html">
+            
+                    
+                    调用子进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../../../输入输出篇/">
+            
+                <a href="../../../../输入输出篇/">
+            
+                    
+                    输入输出篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../../../../输入输出篇/标准输入输出.html">
+            
+                <a href="../../../../输入输出篇/标准输入输出.html">
+            
+                    
+                    标准输入输出
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../../../../输入输出篇/文件与IO流.html">
+            
+                <a href="../../../../输入输出篇/文件与IO流.html">
+            
+                    
+                    文件与IO流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../../../../输入输出篇/异步socket编程/">
+            
+                <a href="../../../../输入输出篇/异步socket编程/">
+            
+                    
+                    异步socket编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.3.1" data-path="../../../../输入输出篇/异步socket编程/异步网络编程的组件介绍.html">
+            
+                <a href="../../../../输入输出篇/异步socket编程/异步网络编程的组件介绍.html">
+            
+                    
+                    异步网络编程的组件介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.2" data-path="../../../../输入输出篇/异步socket编程/客户端服务器结构实现请求应答模式.html">
+            
+                <a href="../../../../输入输出篇/异步socket编程/客户端服务器结构实现请求应答模式.html">
+            
+                    
+                    客户端服务器结构实现请求应答模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.3" data-path="../../../../输入输出篇/异步socket编程/客户端中间人结构实现发布订阅模式.html">
+            
+                <a href="../../../../输入输出篇/异步socket编程/客户端中间人结构实现发布订阅模式.html">
+            
+                    
+                    客户端中间人结构实现发布订阅模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.4" data-path="../../../../输入输出篇/异步socket编程/p2p结构.html">
+            
+                <a href="../../../../输入输出篇/异步socket编程/p2p结构.html">
+            
+                    
+                    p2p结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.5" data-path="../../../../输入输出篇/异步socket编程/结语.html">
+            
+                <a href="../../../../输入输出篇/异步socket编程/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../../../../输入输出篇/数据库读写.html">
+            
+                <a href="../../../../输入输出篇/数据库读写.html">
+            
+                    
+                    数据库读写
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="../../../../输入输出篇/接口服务/">
+            
+                <a href="../../../../输入输出篇/接口服务/">
+            
+                    
+                    接口服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.5.1" data-path="../../../../输入输出篇/接口服务/RPC服务/">
+            
+                <a href="../../../../输入输出篇/接口服务/RPC服务/">
+            
+                    
+                    RPC服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.5.1.1" data-path="../../../../输入输出篇/接口服务/RPC服务/XMLRPC接口服务.html">
+            
+                <a href="../../../../输入输出篇/接口服务/RPC服务/XMLRPC接口服务.html">
+            
+                    
+                    XMLRPC接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.1.2" data-path="../../../../输入输出篇/接口服务/RPC服务/JSONRPC接口服务.md">
+            
+                <span>
+            
+                    
+                    JSONRPC接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.1.3" data-path="../../../../输入输出篇/接口服务/RPC服务/GRpc接口服务.html">
+            
+                <a href="../../../../输入输出篇/接口服务/RPC服务/GRpc接口服务.html">
+            
+                    
+                    GRpc接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.1.4" data-path="../../../../输入输出篇/接口服务/RPC服务/ZERORPC接口服务.html">
+            
+                <a href="../../../../输入输出篇/接口服务/RPC服务/ZERORPC接口服务.html">
+            
+                    
+                    ZERORPC接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.2" data-path="../../../../输入输出篇/接口服务/Http接口服务/">
+            
+                <a href="../../../../输入输出篇/接口服务/Http接口服务/">
+            
+                    
+                    Http接口服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.5.2.1" data-path="../../../../输入输出篇/接口服务/Http接口服务/使用http客户端获取数据.html">
+            
+                <a href="../../../../输入输出篇/接口服务/Http接口服务/使用http客户端获取数据.html">
+            
+                    
+                    使用http客户端获取数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.2.2" data-path="../../../../输入输出篇/接口服务/Http接口服务/使用Flask快速构建RESTful接口服务.html">
+            
+                <a href="../../../../输入输出篇/接口服务/Http接口服务/使用Flask快速构建RESTful接口服务.html">
+            
+                    
+                    使用Flask快速构建RESTful接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.2.3" data-path="../../../../输入输出篇/接口服务/Http接口服务/使用Sanic构建异步的RESTful接口服务.html">
+            
+                <a href="../../../../输入输出篇/接口服务/Http接口服务/使用Sanic构建异步的RESTful接口服务.html">
+            
+                    
+                    使用Sanic构建异步的RESTful接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.2.4" data-path="../../../../输入输出篇/接口服务/Http接口服务/解析请求与响应头.html">
+            
+                <a href="../../../../输入输出篇/接口服务/Http接口服务/解析请求与响应头.html">
+            
+                    
+                    解析请求与响应头
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.2.5" data-path="../../../../输入输出篇/接口服务/Http接口服务/解析url.html">
+            
+                <a href="../../../../输入输出篇/接口服务/Http接口服务/解析url.html">
+            
+                    
+                    解析url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.2.6" data-path="../../../../输入输出篇/接口服务/Http接口服务/解析html文件.html">
+            
+                <a href="../../../../输入输出篇/接口服务/Http接口服务/解析html文件.html">
+            
+                    
+                    解析html文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.2.7" data-path="../../../../输入输出篇/接口服务/Http接口服务/结语.html">
+            
+                <a href="../../../../输入输出篇/接口服务/Http接口服务/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.3" data-path="../../../../输入输出篇/接口服务/WebSocket接口服务/">
+            
+                <a href="../../../../输入输出篇/接口服务/WebSocket接口服务/">
+            
+                    
+                    WebSocket接口服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.5.3.1" data-path="../../../../输入输出篇/接口服务/WebSocket接口服务/WebSocket接口服务和客户端.html">
+            
+                <a href="../../../../输入输出篇/接口服务/WebSocket接口服务/WebSocket接口服务和客户端.html">
+            
+                    
+                    WebSocket接口服务和客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.3.2" data-path="../../../../输入输出篇/接口服务/WebSocket接口服务/结语.html">
+            
+                <a href="../../../../输入输出篇/接口服务/WebSocket接口服务/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" data-path="../../../../输入输出篇/人机交互/">
+            
+                <a href="../../../../输入输出篇/人机交互/">
+            
+                    
+                    人机交互
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.6.1" data-path="../../../../输入输出篇/人机交互/使用python编写命令行工具.html">
+            
+                <a href="../../../../输入输出篇/人机交互/使用python编写命令行工具.html">
+            
+                    
+                    使用python编写命令行工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.2" data-path="../../../../输入输出篇/人机交互/自定义交互式界面.html">
+            
+                <a href="../../../../输入输出篇/人机交互/自定义交互式界面.html">
+            
+                    
+                    自定义交互式界面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.3" data-path="../../../../输入输出篇/人机交互/GUI/">
+            
+                <a href="../../../../输入输出篇/人机交互/GUI/">
+            
+                    
+                    GUI
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.6.3.1" data-path="../../../../输入输出篇/人机交互/GUI/TK框架GUI编程的基本思路.html">
+            
+                <a href="../../../../输入输出篇/人机交互/GUI/TK框架GUI编程的基本思路.html">
+            
+                    
+                    TK框架GUI编程的基本思路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.3.2" data-path="../../../../输入输出篇/人机交互/GUI/Tkinter的组件介绍.html">
+            
+                <a href="../../../../输入输出篇/人机交互/GUI/Tkinter的组件介绍.html">
+            
+                    
+                    Tkinter的组件介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.3.3" data-path="../../../../输入输出篇/人机交互/GUI/结合pandas和matplotlib制作数据科学GUI工具/结合pandas和matplotlib制作数据科学GUI工具.html">
+            
+                <a href="../../../../输入输出篇/人机交互/GUI/结合pandas和matplotlib制作数据科学GUI工具/结合pandas和matplotlib制作数据科学GUI工具.html">
+            
+                    
+                    结合pandas和matplotlib制作数据科学GUI工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.4" data-path="../../../../输入输出篇/人机交互/结语.html">
+            
+                <a href="../../../../输入输出篇/人机交互/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.7" data-path="../../../../输入输出篇/结语.html">
+            
+                <a href="../../../../输入输出篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../../../信息安全篇/">
+            
+                <a href="../../../../信息安全篇/">
+            
+                    
+                    信息安全篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../../../../信息安全篇/随机密码.html">
+            
+                <a href="../../../../信息安全篇/随机密码.html">
+            
+                    
+                    随机密码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../../../../信息安全篇/摘要算法.html">
+            
+                <a href="../../../../信息安全篇/摘要算法.html">
+            
+                    
+                    摘要算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../../../../信息安全篇/加密算法.html">
+            
+                <a href="../../../../信息安全篇/加密算法.html">
+            
+                    
+                    加密算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../../../../信息安全篇/数字签名.html">
+            
+                <a href="../../../../信息安全篇/数字签名.html">
+            
+                    
+                    数字签名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.5" data-path="../../../../信息安全篇/动态口令.html">
+            
+                <a href="../../../../信息安全篇/动态口令.html">
+            
+                    
+                    动态口令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.6" data-path="../../../../信息安全篇/结语.html">
+            
+                <a href="../../../../信息安全篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    数学与统计应用篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../../科学计算/">
+            
+                <a href="../../../科学计算/">
+            
+                    
+                    科学计算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1.1" data-path="../../../科学计算/使用标准库处理基本数学问题/使用标准库处理基本数学问题.html">
+            
+                <a href="../../../科学计算/使用标准库处理基本数学问题/使用标准库处理基本数学问题.html">
+            
+                    
+                    使用标准库处理基本数学问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.2" data-path="../../../科学计算/numpy的高性能同构定长多维数组ndarray/numpy的高性能同构定长多维数组ndarray.html">
+            
+                <a href="../../../科学计算/numpy的高性能同构定长多维数组ndarray/numpy的高性能同构定长多维数组ndarray.html">
+            
+                    
+                    numpy的高性能同构定长多维数组ndarray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.3" data-path="../../../科学计算/使用numpy做科学计算/使用numpy做科学计算.html">
+            
+                <a href="../../../科学计算/使用numpy做科学计算/使用numpy做科学计算.html">
+            
+                    
+                    使用numpy做科学计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.4" data-path="../../../科学计算/结语.md">
+            
+                <span>
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    数据可视化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.2.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    使用matplotlib做数据可视化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.2.1.1" data-path="../matplotlib的基本设置/matplotlib的基本设置.html">
+            
+                <a href="../matplotlib的基本设置/matplotlib的基本设置.html">
+            
+                    
+                    matplotlib的基本设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.1.2" data-path="../绘图工具pyplot/绘图工具pyplot.html">
+            
+                <a href="../绘图工具pyplot/绘图工具pyplot.html">
+            
+                    
+                    绘图工具pyplot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.1.3" data-path="../非结构网络/非结构网络.html">
+            
+                <a href="../非结构网络/非结构网络.html">
+            
+                    
+                    非结构网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.1.4" data-path="../桑基图/桑基图.html">
+            
+                <a href="../桑基图/桑基图.html">
+            
+                    
+                    桑基图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.1.2.1.5" data-path="图片加载.html">
+            
+                <a href="图片加载.html">
+            
+                    
+                    图片加载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.1.6" data-path="../保存图片/保存图片.html">
+            
+                <a href="../保存图片/保存图片.html">
+            
+                    
+                    保存图片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.1.7" data-path="../控件.html">
+            
+                <a href="../控件.html">
+            
+                    
+                    控件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.1.8" data-path="../动画/动画.html">
+            
+                <a href="../动画/动画.html">
+            
+                    
+                    动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.1.9" data-path="../../../../人机交互篇/数据可视化/使用matplotlib做数据可视化/matplitlib结合web技术.md">
+            
+                <span>
+            
+                    
+                    matplitlib结合web技术
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.1.10" data-path="../结语.html">
+            
+                <a href="../结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../../术语表/">
+            
+                <a href="../../../术语表/">
+            
+                    
+                    术语表
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.3.1" data-path="../../../术语表/概率与统计术语/">
+            
+                <a href="../../../术语表/概率与统计术语/">
+            
+                    
+                    概率与统计术语
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.3.1.1" data-path="../../../术语表/概率与统计术语/误差.html">
+            
+                <a href="../../../术语表/概率与统计术语/误差.html">
+            
+                    
+                    误差
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../../../嵌入与扩展篇/">
+            
+                <a href="../../../../嵌入与扩展篇/">
+            
+                    
+                    嵌入与扩展篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/">
+            
+                <a href="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/">
+            
+                    
+                    使用Cython优化python程序的性能
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1.1" data-path="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的简单介绍.html">
+            
+                <a href="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的简单介绍.html">
+            
+                    
+                    Cython的简单介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.2" data-path="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的基本模式.html">
+            
+                <a href="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的基本模式.html">
+            
+                    
+                    Cython的基本模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.3" data-path="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/静态化python模块.html">
+            
+                <a href="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/静态化python模块.html">
+            
+                    
+                    静态化python模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.4" data-path="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/使用cython申明文件申明python源码类型.html">
+            
+                <a href="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/使用cython申明文件申明python源码类型.html">
+            
+                    
+                    使用cython申明文件申明python源码类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.5" data-path="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的包装模式.html">
+            
+                <a href="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的包装模式.html">
+            
+                    
+                    Cython的包装模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.1.6" data-path="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/使用Cython扩展numpy.html">
+            
+                <a href="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/使用Cython扩展numpy.html">
+            
+                    
+                    使用Cython扩展numpy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../../../../嵌入与扩展篇/用numba为python写高性能C扩展.html">
+            
+                <a href="../../../../嵌入与扩展篇/用numba为python写高性能C扩展.html">
+            
+                    
+                    用numba为python写高性能C扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../../../../嵌入与扩展篇/使用f2py用fortain给python写扩展.html">
+            
+                <a href="../../../../嵌入与扩展篇/使用f2py用fortain给python写扩展.html">
+            
+                    
+                    使用f2py用fortain给python写扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../../../../嵌入与扩展篇/结语.md">
+            
+                <span>
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../../../../术语表.html">
+            
+                <a href="../../../../术语表.html">
+            
+                    
+                    术语表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../../.." >图片加载</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x56FE;&#x7247;&#x52A0;&#x8F7D;"><b>1. </b>&#x56FE;&#x7247;&#x52A0;&#x8F7D;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x5C06;&#x5047;&#x5F69;&#x8272;&#x65B9;&#x6848;&#x5E94;&#x7528;&#x4E8E;&#x56FE;&#x50CF;&#x7ED8;&#x56FE;"><b>1.1. </b>&#x5C06;&#x5047;&#x5F69;&#x8272;&#x65B9;&#x6848;&#x5E94;&#x7528;&#x4E8E;&#x56FE;&#x50CF;&#x7ED8;&#x56FE;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x8272;&#x6807;&#x53C2;&#x8003;"><b>1.1.1. </b>&#x8272;&#x6807;&#x53C2;&#x8003;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x68C0;&#x67E5;&#x7279;&#x5B9A;&#x6570;&#x636E;&#x8303;&#x56F4;"><b>1.1.2. </b>&#x68C0;&#x67E5;&#x7279;&#x5B9A;&#x6570;&#x636E;&#x8303;&#x56F4;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x9635;&#x5217;&#x63D2;&#x503C;&#x65B9;&#x6848;"><b>1.2. </b>&#x9635;&#x5217;&#x63D2;&#x503C;&#x65B9;&#x6848;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x56FE;&#x7247;&#x4FEE;&#x6539;&#x5206;&#x8FA8;&#x7387;"><b>1.2.1. </b>&#x56FE;&#x7247;&#x4FEE;&#x6539;&#x5206;&#x8FA8;&#x7387;</a></li></ul></ul></ul></div><a href="#&#x56FE;&#x7247;&#x52A0;&#x8F7D;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x56FE;&#x7247;&#x52A0;&#x8F7D;"><a name="&#x56FE;&#x7247;&#x52A0;&#x8F7D;" class="anchor-navigation-ex-anchor" href="#&#x56FE;&#x7247;&#x52A0;&#x8F7D;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x56FE;&#x7247;&#x52A0;&#x8F7D;</h1>
+<p><code>matplotlib.image</code>&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x8BFB;&#x53D6;&#x56FE;&#x7247;&#x548C;&#x8FDB;&#x884C;&#x7B80;&#x5355;&#x5904;&#x7406;&#x7684;&#x80FD;&#x529B;,&#x4ED6;&#x7684;&#x5E95;&#x5C42;&#x662F;pillow</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">import</span> matplotlib.image <span class="hljs-keyword">as</span> mpimg
+</code></pre>
+<pre><code class="lang-python">img=mpimg.imread(<span class="hljs-string">&apos;./source/cat.jpg&apos;</span>)
+</code></pre>
+<p>&#x901A;&#x8FC7;<code>imread()</code>&#x65B9;&#x6CD5;&#x8BFB;&#x53D6;&#x7684;&#x56FE;&#x7247;&#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#x6210;&#x50CF;&#x7D20;&#x77E9;&#x9635;(numpy&#x7684;narray&#x5BF9;&#x8C61;),&#x5176;shape&#x4E0E;&#x56FE;&#x50CF;&#x5206;&#x8FA8;&#x7387;&#x6709;&#x5173;,&#x6BD4;&#x5982;:</p>
+<p>&#x4E0A;&#x56FE;&#x662F;342x220&#x7684;&#x56FE;&#x7247;,&#x90A3;&#x4E48;</p>
+<pre><code class="lang-python">img.shape
+</code></pre>
+<pre><code>(220, 342, 3)
+</code></pre><p>&#x5176;&#x4E2D;&#x7684;3&#x4E3A;&#x6BCF;&#x4E2A;&#x50CF;&#x7D20;&#x8868;&#x73B0;&#x4E3A;&#x4E00;&#x4E2A;RGB&#x7684;&#x4E09;&#x4F4D;&#x6570;&#x7EC4;</p>
+<pre><code class="lang-python">img
+</code></pre>
+<pre><code>array([[[254, 254, 254],
+        [254, 254, 254],
+        [254, 254, 254],
+        ..., 
+        [255, 255, 255],
+        [255, 255, 255],
+        [255, 255, 255]],
+
+       [[254, 254, 254],
+        [254, 254, 254],
+        [254, 254, 254],
+        ..., 
+        [255, 255, 255],
+        [255, 255, 255],
+        [255, 255, 255]],
+
+       [[254, 254, 254],
+        [254, 254, 254],
+        [255, 255, 255],
+        ..., 
+        [255, 255, 255],
+        [255, 255, 255],
+        [255, 255, 255]],
+
+       ..., 
+       [[255, 255, 255],
+        [255, 255, 255],
+        [255, 255, 255],
+        ..., 
+        [255, 255, 255],
+        [255, 255, 255],
+        [255, 255, 255]],
+
+       [[255, 255, 255],
+        [255, 255, 255],
+        [255, 255, 255],
+        ..., 
+        [255, 255, 255],
+        [255, 255, 255],
+        [255, 255, 255]],
+
+       [[255, 255, 255],
+        [255, 255, 255],
+        [255, 255, 255],
+        ..., 
+        [255, 255, 255],
+        [255, 255, 255],
+        [255, 255, 255]]], dtype=uint8)
+</code></pre><p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;plt.imshow(img)&#x5C06;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x521D;&#x59CB;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;plot&#x5BF9;&#x8C61;</p>
+<pre><code class="lang-python">imgplot = plt.imshow(img)
+</code></pre>
+<pre><code class="lang-python">plt.show()
+</code></pre>
+<p><img src="output_9_0.png" alt="png"></p>
+<p>&#x5F53;&#x7136;&#x4E86;&#x53EA;&#x8981;&#x662F;&#x76F8;&#x540C;&#x683C;&#x5F0F;&#x7684;&#x6570;&#x7EC4;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x65B9;&#x5F0F;&#x521D;&#x59CB;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;plot&#x5BF9;&#x8C61;</p>
+<h2 id="&#x5C06;&#x5047;&#x5F69;&#x8272;&#x65B9;&#x6848;&#x5E94;&#x7528;&#x4E8E;&#x56FE;&#x50CF;&#x7ED8;&#x56FE;"><a name="&#x5C06;&#x5047;&#x5F69;&#x8272;&#x65B9;&#x6848;&#x5E94;&#x7528;&#x4E8E;&#x56FE;&#x50CF;&#x7ED8;&#x56FE;" class="anchor-navigation-ex-anchor" href="#&#x5C06;&#x5047;&#x5F69;&#x8272;&#x65B9;&#x6848;&#x5E94;&#x7528;&#x4E8E;&#x56FE;&#x50CF;&#x7ED8;&#x56FE;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x5C06;&#x5047;&#x5F69;&#x8272;&#x65B9;&#x6848;&#x5E94;&#x7528;&#x4E8E;&#x56FE;&#x50CF;&#x7ED8;&#x56FE;</h2>
+<p>&#x4F2A;&#x5F69;&#x8272;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x6709;&#x7528;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x7528;&#x4E8E;&#x589E;&#x5F3A;&#x5BF9;&#x6BD4;&#x5EA6;&#x548C;&#x66F4;&#x5BB9;&#x6613;&#x5730;&#x53EF;&#x89C6;&#x5316;&#x6570;&#x636E;&#x3002;&#x8FD9;&#x5728;&#x4F7F;&#x7528;&#x6295;&#x5F71;&#x4EEA;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x6F14;&#x793A;&#x65F6;&#x5C24;&#x5176;&#x6709;&#x7528;(&#x5B83;&#x4EEC;&#x7684;&#x5BF9;&#x6BD4;&#x5EA6;&#x901A;&#x5E38;&#x5F88;&#x5DEE;)&#x3002;&#x5047;&#x5F69;&#x8272;&#x4EC5;&#x4E0E;&#x5355;&#x901A;&#x9053;&#xFF0C;&#x7070;&#x5EA6;&#xFF0C;&#x5149;&#x5EA6;&#x56FE;&#x50CF;&#x76F8;&#x5173;&#x3002;&#x6211;&#x4EEC;&#x76EE;&#x524D;&#x6709;&#x4E00;&#x4E2A;RGB&#x56FE;&#x50CF;&#x3002;&#x7531;&#x4E8E;R&#xFF0C;G&#x548C;B&#x90FD;&#x662F;&#x76F8;&#x4F3C;&#x7684;&#xFF08;&#x89C1;&#x4E0A;&#x9762;&#x6216;&#x5728;&#x4F60;&#x7684;&#x6570;&#x636E;&#x4E2D;&#x7684;&#x81EA;&#x5DF1;&#xFF09;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53EA;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x901A;&#x9053;&#x7684;&#x6570;&#x636E;&#xFF1A;</p>
+<pre><code class="lang-python">lum_img_r = img[:,:,<span class="hljs-number">0</span>]
+</code></pre>
+<pre><code class="lang-python">lum_img_r
+</code></pre>
+<pre><code>array([[254, 254, 254, ..., 255, 255, 255],
+       [254, 254, 254, ..., 255, 255, 255],
+       [254, 254, 255, ..., 255, 255, 255],
+       ..., 
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255],
+       [255, 255, 255, ..., 255, 255, 255]], dtype=uint8)
+</code></pre><pre><code class="lang-python">lum_img_r.shape
+</code></pre>
+<pre><code>(220, 342)
+</code></pre><pre><code class="lang-python">plt.imshow(lum_img_r)
+plt.show()
+</code></pre>
+<p><img src="output_15_0.png" alt="png"></p>
+<pre><code class="lang-python">lum_img_g = img[:,:,<span class="hljs-number">1</span>]
+plt.imshow(lum_img_g)
+plt.show()
+</code></pre>
+<p><img src="output_16_0.png" alt="png"></p>
+<pre><code class="lang-python">lum_img_g = img[:,:,<span class="hljs-number">2</span>]
+plt.imshow(lum_img_g)
+plt.show()
+</code></pre>
+<p><img src="output_17_0.png" alt="png"></p>
+<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x4EE5;&#x4F7F;&#x7528;R&#x4E3A;&#x901A;&#x9053;&#x7684;&#x56FE;&#x7247;,&#x4F7F;&#x7528;&#x4EAE;&#x5EA6;&#xFF08;2D&#xFF0C;&#x65E0;&#x989C;&#x8272;&#xFF09;&#x56FE;&#x50CF;&#xFF0C;&#x5E94;&#x7528;&#x9ED8;&#x8BA4;&#x8272;&#x5F69;&#x6620;&#x5C04;&#xFF08;&#x4E5F;&#x79F0;&#x4E3A;&#x67E5;&#x627E;&#x8868;&#xFF0C;LUT&#xFF09;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x79F0;&#x4E3A;jet&#x3002;&#x6709;&#x5F88;&#x591A;&#x5176;&#x4ED6;&#x7684;&#x4E5F;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x3002;</p>
+<pre><code class="lang-python">plt.imshow(lum_img_r, cmap=<span class="hljs-string">&quot;hot&quot;</span>)
+plt.show()
+</code></pre>
+<p><img src="output_19_0.png" alt="png"></p>
+<p>&#x4E5F;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;set_cmap()&#x65B9;&#x6CD5;&#x66F4;&#x6539;&#x73B0;&#x6709;&#x7ED8;&#x56FE;&#x5BF9;&#x8C61;&#x4E0A;&#x7684;&#x989C;&#x8272;</p>
+<pre><code class="lang-python">imgplot = plt.imshow(lum_img_r)
+imgplot.set_cmap(<span class="hljs-string">&apos;spectral&apos;</span>)
+plt.show()
+</code></pre>
+<pre><code>/Users/huangsizhe/LIB/CONDA/anaconda/lib/python3.6/site-packages/matplotlib/cbook.py:136: MatplotlibDeprecationWarning: The spectral and spectral_r colormap was deprecated in version 2.0. Use nipy_spectral and nipy_spectral_r instead.
+  warnings.warn(message, mplDeprecation, stacklevel=1)
+</code></pre><p><img src="output_21_1.png" alt="png"></p>
+<h3 id="&#x8272;&#x6807;&#x53C2;&#x8003;"><a name="&#x8272;&#x6807;&#x53C2;&#x8003;" class="anchor-navigation-ex-anchor" href="#&#x8272;&#x6807;&#x53C2;&#x8003;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1. &#x8272;&#x6807;&#x53C2;&#x8003;</h3>
+<p>&#x5B83;&#x6709;&#x52A9;&#x4E8E;&#x4E86;&#x89E3;&#x989C;&#x8272;&#x4EE3;&#x8868;&#x4EC0;&#x4E48;&#x503C;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6DFB;&#x52A0;&#x989C;&#x8272;&#x6761;&#x6765;&#x505A;&#x5230;&#x8FD9;&#x4E00;&#x70B9;&#x3002;</p>
+<pre><code class="lang-python">imgplot = plt.imshow(lum_img_r)
+plt.colorbar()
+plt.show()
+</code></pre>
+<p><img src="output_23_0.png" alt="png"></p>
+<h3 id="&#x68C0;&#x67E5;&#x7279;&#x5B9A;&#x6570;&#x636E;&#x8303;&#x56F4;"><a name="&#x68C0;&#x67E5;&#x7279;&#x5B9A;&#x6570;&#x636E;&#x8303;&#x56F4;" class="anchor-navigation-ex-anchor" href="#&#x68C0;&#x67E5;&#x7279;&#x5B9A;&#x6570;&#x636E;&#x8303;&#x56F4;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.2. &#x68C0;&#x67E5;&#x7279;&#x5B9A;&#x6570;&#x636E;&#x8303;&#x56F4;</h3>
+<p>&#x6709;&#x65F6;&#xFF0C;&#x60A8;&#x60F3;&#x8981;&#x589E;&#x5F3A;&#x56FE;&#x50CF;&#x7684;&#x5BF9;&#x6BD4;&#x5EA6;&#xFF0C;&#x6216;&#x8005;&#x5728;&#x7279;&#x5B9A;&#x533A;&#x57DF;&#x4E2D;&#x6269;&#x5927;&#x5BF9;&#x6BD4;&#x5EA6;&#xFF0C;&#x540C;&#x65F6;&#x727A;&#x7272;&#x4E0D;&#x4F1A;&#x53D8;&#x5316;&#x5F88;&#x5927;&#x7684;&#x989C;&#x8272;&#x7684;&#x7EC6;&#x8282;&#xFF0C;&#x6216;&#x8005;&#x65E0;&#x5173;&#x7D27;&#x8981;&#x3002;&#x627E;&#x5230;&#x611F;&#x5174;&#x8DA3;&#x533A;&#x57DF;&#x7684;&#x597D;&#x5DE5;&#x5177;&#x662F;&#x76F4;&#x65B9;&#x56FE;&#x3002;&#x8981;&#x521B;&#x5EFA;&#x6211;&#x4EEC;&#x7684;&#x56FE;&#x50CF;&#x6570;&#x636E;&#x7684;&#x76F4;&#x65B9;&#x56FE;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;hist&#xFF08;&#xFF09;&#x51FD;&#x6570;&#x3002;</p>
+<pre><code class="lang-python">plt.hist(lum_img_r.ravel(), bins=<span class="hljs-number">256</span>,fc=<span class="hljs-string">&apos;k&apos;</span>, ec=<span class="hljs-string">&apos;k&apos;</span>)
+plt.show()
+</code></pre>
+<p><img src="output_25_0.png" alt="png"></p>
+<p>&#x4E0B;&#x56FE;&#x5C31;&#x663E;&#x793A;&#x51FA;&#x4E86;&#x5404;&#x4E2A;&#x8272;&#x503C;&#x7684;&#x5206;&#x5E03;&#x72B6;&#x6001;,&#x770B;&#x6253;&#x51FA;&#x6765;25x&#x4E3A;&#x503C;&#x7684;&#x662F;&#x5927;&#x591A;&#x6570;&#x4E2D;&#x7684;&#x5927;&#x591A;&#x6570;</p>
+<p>&#x901A;&#x5E38;&#xFF0C;&#x56FE;&#x50CF;&#x7684;&#x201C;&#x6709;&#x8DA3;&#x201D;&#x90E8;&#x5206;&#x5728;&#x5CF0;&#x503C;&#x9644;&#x8FD1;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x526A;&#x5207;&#x5CF0;&#x503C;&#x4E0A;&#x65B9;&#x548C;/&#x6216;&#x4E0B;&#x65B9;&#x7684;&#x533A;&#x57DF;&#x83B7;&#x5F97;&#x989D;&#x5916;&#x7684;&#x5BF9;&#x6BD4;&#x5EA6;&#x3002;&#x5728;&#x6211;&#x4EEC;&#x7684;&#x76F4;&#x65B9;&#x56FE;&#x4E2D;&#xFF0C;&#x770B;&#x8D77;&#x6765;&#x5728;&#x9AD8;&#x7AEF;&#x6CA1;&#x6709;&#x592A;&#x591A;&#x6709;&#x7528;&#x7684;&#x4FE1;&#x606F;&#xFF08;&#x56FE;&#x50CF;&#x4E2D;&#x4E0D;&#x662F;&#x5F88;&#x591A;&#x767D;&#x8272;&#x7684;&#x4E1C;&#x897F;&#xFF09;&#x3002;&#x8BA9;&#x6211;&#x4EEC;&#x8C03;&#x6574;&#x4E0A;&#x9650;&#xFF0C;&#x4EE5;&#x4FBF;&#x6211;&#x4EEC;&#x6709;&#x6548;&#x5730;&#x201C;&#x653E;&#x5927;&#x201D;&#x76F4;&#x65B9;&#x56FE;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x5C06;clim&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;imshow&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x56FE;&#x50CF;&#x7ED8;&#x56FE;&#x5BF9;&#x8C61;&#x7684;set_clim&#xFF08;&#xFF09;&#x65B9;&#x6CD5;&#x6765;&#x505A;&#x5230;&#x8FD9;&#x4E00;&#x70B9;&#xFF0C;&#x4F46;&#x662F;&#x8981;&#x786E;&#x4FDD;&#x4F60;&#x5728;&#x4F7F;&#x7528;IPython Notebook&#x65F6;&#x5728;plot&#x547D;&#x4EE4;&#x7684;&#x540C;&#x4E00;&#x4E2A;&#x5355;&#x5143;&#x683C;&#x4E2D;&#x8FD9;&#x6837;&#x505A; - &#x5B83;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;&#x4EE5;&#x524D;&#x5355;&#x5143;&#x683C;&#x7684;&#x7ED8;&#x56FE;&#x3002;</p>
+<pre><code class="lang-python">imgplot = plt.imshow(lum_img_r, clim=(<span class="hljs-number">0</span>, <span class="hljs-number">200</span>))
+plt.show()
+</code></pre>
+<p><img src="output_27_0.png" alt="png"></p>
+<h2 id="&#x9635;&#x5217;&#x63D2;&#x503C;&#x65B9;&#x6848;"><a name="&#x9635;&#x5217;&#x63D2;&#x503C;&#x65B9;&#x6848;" class="anchor-navigation-ex-anchor" href="#&#x9635;&#x5217;&#x63D2;&#x503C;&#x65B9;&#x6848;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x9635;&#x5217;&#x63D2;&#x503C;&#x65B9;&#x6848;</h2>
+<p>&#x63D2;&#x503C;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x5B66;&#x65B9;&#x6848;&#x8BA1;&#x7B97;&#x50CF;&#x7D20;&#x7684;&#x201C;&#x5E94;&#x8BE5;&#x201D;&#x7684;&#x989C;&#x8272;&#x6216;&#x503C;&#x3002;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x53D1;&#x751F;&#x7684;&#x4E00;&#x4E2A;&#x5E38;&#x89C1;&#x7684;&#x5730;&#x65B9;&#x662F;&#x5F53;&#x4F60;&#x8C03;&#x6574;&#x56FE;&#x50CF;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x50CF;&#x7D20;&#x7684;&#x6570;&#x91CF;&#x53D8;&#x5316;&#xFF0C;&#x4F46;&#x4F60;&#x60F3;&#x8981;&#x76F8;&#x540C;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x7531;&#x4E8E;&#x50CF;&#x7D20;&#x662F;&#x79BB;&#x6563;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x7F3A;&#x5C11;&#x7A7A;&#x95F4;&#x3002;&#x63D2;&#x503C;&#x662F;&#x5982;&#x4F55;&#x586B;&#x8865;&#x8FD9;&#x4E2A;&#x7A7A;&#x95F4;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x4F60;&#x7684;&#x56FE;&#x50CF;&#x6709;&#x65F6;&#x62C9;&#x4F38;&#x4F1A;&#x51FA;&#x6765;&#x770B;&#x8D77;&#x6765;&#x50CF;&#x7D20;&#x5316;&#x3002;&#x5F53;&#x539F;&#x59CB;&#x56FE;&#x50CF;&#x548C;&#x6269;&#x5C55;&#x56FE;&#x50CF;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;&#x8F83;&#x5927;&#x65F6;&#xFF0C;&#x6548;&#x679C;&#x66F4;&#x52A0;&#x660E;&#x663E;&#x3002;&#x6BD4;&#x5982;windows&#x663E;&#x793A;&#x50CF;&#x7D20;&#x5982;&#x679C;&#x8FC7;&#x5206;&#x4F4E;&#x4E8E;&#x4F60;&#x7684;&#x5C4F;&#x5E55;&#x50CF;&#x7D20;,&#x90A3;&#x4E48;&#x4F60;&#x62C9;&#x4F38;&#x5230;&#x5C4F;&#x5E55;&#x90A3;&#x4E48;&#x5927;,&#x770B;&#x8D77;&#x6765;&#x5C31;&#x90FD;&#x662F;&#x9A6C;&#x8D5B;&#x514B;,&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x6548;&#x679C;.</p>
+<p>&#x800C;&#x63D2;&#x503C;&#x7B97;&#x6CD5;&#x5C31;&#x662F;&#x62C9;&#x4F38;&#x65F6;&#x5982;&#x4F55;&#x6A21;&#x62DF;&#x7684;&#x53BB;&#x663E;&#x793A;&#x51FA;&#x7F3A;&#x5931;&#x4FE1;&#x606F;&#x7684;&#x6280;&#x672F;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image
+img = Image.open(<span class="hljs-string">&apos;./source/cat.jpg&apos;</span>)
+
+img.thumbnail((<span class="hljs-number">64</span>, <span class="hljs-number">64</span>), Image.ANTIALIAS) <span class="hljs-comment"># &#x5C06;&#x56FE;&#x7247;&#x538B;&#x7F29;&#x5230;64x64&#x50CF;&#x7D20;</span>
+</code></pre>
+<pre><code class="lang-python">img.height,img.width<span class="hljs-comment">#41&#x662F;&#x56E0;&#x4E3A;&#x56FE;&#x7247;&#x6BD4;&#x4F8B;</span>
+</code></pre>
+<pre><code>(41, 64)
+</code></pre><pre><code class="lang-python">imgplot = plt.imshow(img)
+plt.show()
+</code></pre>
+<p><img src="output_31_0.png" alt="png"></p>
+<p>&#x5185;&#x7F6E;&#x7684;&#x63D2;&#x503C;&#x7B97;&#x6CD5;&#x6709;</p>
+<ul>
+<li>&apos;nearest&apos;, &#x6700;&#x8FD1;&#x503C;,&#x4E5F;&#x5C31;&#x662F;&#x9A6C;&#x8D5B;&#x514B;&#x5757;</li>
+<li>&apos;bilinear&apos;, <a href="https://en.wikipedia.org/wiki/Bilinear_interpolation" target="_blank">&#x53CC;&#x7EBF;&#x6027;&#x63D2;&#x503C;</a></li>
+<li>&apos;bicubic&apos;,<a href="https://en.wikipedia.org/wiki/Bicubic_interpolation" target="_blank">&#x53CC;&#x4E09;&#x6B21;&#x63D2;&#x503C;</a></li>
+<li>&apos;spline16&apos;/&apos;spline36&apos;, <a href="https://en.wikipedia.org/wiki/Spline_interpolation" target="_blank">&#x6837;&#x6761;&#x63D2;&#x503C;</a></li>
+<li>&apos;hanning&apos;/&apos;hamming&apos;/&apos;gaussian&apos;/&apos;kaiser&apos;/&apos;bessel&apos;/&apos;sinc&apos;
+  <a href="https://en.wikipedia.org/wiki/Window_function" target="_blank">&#x7A97;&#x63D2;&#x503C;&#x7B97;&#x6CD5;</a></li>
+<li>&apos;hermite&apos;,<a href="https://en.wikipedia.org/wiki/Hermite_interpolation" target="_blank">&#x57C3;&#x5C14;&#x7C73;&#x7279;&#x63D2;&#x503C;</a></li>
+<li>&apos;quadric&apos;,<a href="https://en.wikipedia.org/wiki/Quadric" target="_blank">&#x4E8C;&#x6B21;&#x66F2;&#x9762;&#x63D2;&#x503C;</a></li>
+<li><p>&apos;catrom&apos;,[Catmull-Rom&#x63D2;&#x503C;&#x7B97;&#x6CD5;]<a href="https://en.wikipedia.org/wiki/Centripetal_Catmull%E2%80%93Rom_spline" target="_blank">https://en.wikipedia.org/wiki/Centripetal_Catmull%E2%80%93Rom_spline</a></p>
+</li>
+<li><p>&apos;mitchell&apos;</p>
+</li>
+<li><p>&apos;lanczos&apos;<a href="http://baike.baidu.com/link?url=GIZkv1i2pTaJNhQEKqNS3ScaPuVFVJNsZ3lm8_-jMzEVqRqO0EQqN4IQlMcM6r5XxpES-D226PHQs4s7yJNK6uf7R_IHqXJAyVVu4sekM9_tzFEhBmXNvfJ9nXfB-sQb" target="_blank">Lanczos&#x7B97;&#x6CD5;</a></p>
+</li>
+</ul>
+<pre><code class="lang-python">imgplot = plt.imshow(img, interpolation=<span class="hljs-string">&quot;nearest&quot;</span>)
+plt.show()
+</code></pre>
+<p><img src="output_33_0.png" alt="png"></p>
+<p>&#x4F7F;&#x7528;&#x53CC;&#x4E09;&#x6B21;&#x63D2;&#x503C;(bicubic)&#x6A21;&#x7CCA;&#x5904;&#x7406;</p>
+<pre><code class="lang-python">imgplot = plt.imshow(img, interpolation=<span class="hljs-string">&quot;bicubic&quot;</span>)
+plt.show()
+</code></pre>
+<p><img src="output_35_0.png" alt="png"></p>
+<h3 id="&#x56FE;&#x7247;&#x4FEE;&#x6539;&#x5206;&#x8FA8;&#x7387;"><a name="&#x56FE;&#x7247;&#x4FEE;&#x6539;&#x5206;&#x8FA8;&#x7387;" class="anchor-navigation-ex-anchor" href="#&#x56FE;&#x7247;&#x4FEE;&#x6539;&#x5206;&#x8FA8;&#x7387;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2.1. &#x56FE;&#x7247;&#x4FEE;&#x6539;&#x5206;&#x8FA8;&#x7387;</h3>
+<p>img&#x6A21;&#x5757;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x7F29;&#x7565;&#x56FE;&#x7684;&#x5DE5;&#x5177;
+<code>matplotlib.image.thumbnail(infile, thumbfile, scale=0.1, interpolation=&apos;bilinear&apos;, preview=False)</code>
+&#x5B83;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x5E76;&#x4FDD;&#x5B58;&#x4E3A;&#x53E6;&#x4E00;&#x6587;&#x4EF6;,&#x53EA;&#x662F;&#x7C7B;&#x578B;&#x9650;&#x5236;&#x5728;png,svg&#x548C;pdf&#x4E09;&#x79CD;</p>
+<pre><code class="lang-python">mpimg.thumbnail(<span class="hljs-string">&quot;./source/cat.jpg&quot;</span>, <span class="hljs-string">&quot;./source/cat_min.png&quot;</span>, scale=<span class="hljs-number">0.15</span>, interpolation=<span class="hljs-string">&apos;bicubic&apos;</span>)
+</code></pre>
+<p><img src="output_37_0.png" alt="png"></p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-08-15 22:59:15
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../桑基图/桑基图.html" class="navigation navigation-prev " aria-label="Previous page: 桑基图">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../保存图片/保存图片.html" class="navigation navigation-next " aria-label="Next page: 保存图片">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"图片加载","level":"3.1.2.1.5","depth":4,"next":{"title":"保存图片","level":"3.1.2.1.6","depth":4,"path":"数学与统计应用篇/数据可视化/使用matplotlib做数据可视化/保存图片/保存图片.md","ref":"数学与统计应用篇/数据可视化/使用matplotlib做数据可视化/保存图片/保存图片.md","articles":[]},"previous":{"title":"桑基图","level":"3.1.2.1.4","depth":4,"path":"数学与统计应用篇/数据可视化/使用matplotlib做数据可视化/桑基图/桑基图.md","ref":"数学与统计应用篇/数据可视化/使用matplotlib做数据可视化/桑基图/桑基图.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","mathjax","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"http://blog.hszofficial.site/TutorialForPython"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"title":"","button":"赏","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","wechatText":"微信打赏","alipayText":"支付宝打赏"},"sitemap-general":{"prefix":"http://blog.hszofficial.site/TutorialForPython/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":true},"mode":"float","multipleH1":true,"pageTop":{"showLevelIcon":false,"mode":"float","pageTop":{"showLevelIcon":false,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"},"level1Icon":"","showLevel":true,"level2Icon":"","level3Icon":"","associatedWithSummary":true,"float":{"showLevelIcon":true,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"}},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍python3.5+的语法与编程惯用法"},"file":{"path":"数学与统计应用篇/数据可视化/使用matplotlib做数据可视化/图片加载/图片加载.md","mtime":"2019-08-15T14:59:15.205Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-15T15:27:49.606Z"},"basePath":"../../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../../gitbook/gitbook.js"></script>
+    <script src="../../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
