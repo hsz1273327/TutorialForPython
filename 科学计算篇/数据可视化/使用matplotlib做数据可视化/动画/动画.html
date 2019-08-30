@@ -1,101 +1,2884 @@
 
-# 动画
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>动画 · python攻略</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="hsz">
+        
+        
+    
+    <link rel="stylesheet" href="../../../../gitbook/style.css">
 
-动画说白了就是隔段时间刷新一下画面,`matplotlib.animation`提供了构建动画的工具主要是这几个方法:
+    
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
 
-+ 通过函数构建
-+ 通过作品构建
-+ 通过继承`matplotlib.animation.TimedAnimation`类制作动画
+    
 
-动画需要后渲染后端,一般使用[ffmpeg](http://ffmpeg.zeranoe.com/builds/),安装方法可以看[]这里](http://www.wikihow.com/Install-FFmpeg-on-Windows)
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
 
-无论哪种方式构建的动画都可以通过`.save`方法保存为希望的格式,也可以用`.to_html5_video`方法输出一份html5可以读取的文件.
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../matplitlib结合web技术.html" />
+    
+    
+    <link rel="prev" href="../控件.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
 
 
-```python
-from __future__ import print_function
-from imp import reload
-import matplotlib
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://blog.hszofficial.site/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../../">
+            
+                <a href="../../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../../../工具链篇/">
+            
+                <a href="../../../../工具链篇/">
+            
+                    
+                    工具链篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../../../工具链篇/运行环境.html">
+            
+                <a href="../../../../工具链篇/运行环境.html">
+            
+                    
+                    运行环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../../../工具链篇/包的安装管理与分发.html">
+            
+                <a href="../../../../工具链篇/包的安装管理与分发.html">
+            
+                    
+                    包的安装管理与分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../../../工具链篇/交互环境jupyter/">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/">
+            
+                    
+                    交互环境jupyter
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../../../../工具链篇/交互环境jupyter/基于web的可交互运行环境jupyter.html">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/基于web的可交互运行环境jupyter.html">
+            
+                    
+                    基于web的可交互运行环境jupyter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../../../../工具链篇/交互环境jupyter/ipython与魔法命令/ipython与魔法命令.html">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/ipython与魔法命令/ipython与魔法命令.html">
+            
+                    
+                    ipython与魔法命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../../../../工具链篇/交互环境jupyter/在Ipython_Notebook中的代码调试与优化.html">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/在Ipython_Notebook中的代码调试与优化.html">
+            
+                    
+                    在Ipython_Notebook中的代码调试与优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../../../../工具链篇/交互环境jupyter/在ipykernel中使用异步接口.html">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/在ipykernel中使用异步接口.html">
+            
+                    
+                    在ipykernel中使用异步接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../../../../工具链篇/交互环境jupyter/多进程并行计算.html">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/多进程并行计算.html">
+            
+                    
+                    多进程并行计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../../../../工具链篇/交互环境jupyter/公开的jupyter_notebook服务.html">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/公开的jupyter_notebook服务.html">
+            
+                    
+                    公开的jupyter_notebook服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../../../../工具链篇/交互环境jupyter/notebook格式转换工具.html">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/notebook格式转换工具.html">
+            
+                    
+                    notebook格式转换工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.8" data-path="../../../../工具链篇/交互环境jupyter/结语.html">
+            
+                <a href="../../../../工具链篇/交互环境jupyter/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../../../工具链篇/代码风格.html">
+            
+                <a href="../../../../工具链篇/代码风格.html">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../../../工具链篇/docstring工具.html">
+            
+                <a href="../../../../工具链篇/docstring工具.html">
+            
+                    
+                    docstring工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../../../工具链篇/静态类型检测.html">
+            
+                <a href="../../../../工具链篇/静态类型检测.html">
+            
+                    
+                    静态类型检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../../../../工具链篇/日志工具.html">
+            
+                <a href="../../../../工具链篇/日志工具.html">
+            
+                    
+                    日志工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../../../../工具链篇/调试工具.html">
+            
+                <a href="../../../../工具链篇/调试工具.html">
+            
+                    
+                    调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../../../../工具链篇/调用追踪与异常栈追踪.html">
+            
+                <a href="../../../../工具链篇/调用追踪与异常栈追踪.html">
+            
+                    
+                    调用追踪与异常栈追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../../../../工具链篇/代码测试.html">
+            
+                <a href="../../../../工具链篇/代码测试.html">
+            
+                    
+                    代码测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../../../../工具链篇/部署服务.html">
+            
+                <a href="../../../../工具链篇/部署服务.html">
+            
+                    
+                    部署服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../../../../工具链篇/性能调优工具.html">
+            
+                <a href="../../../../工具链篇/性能调优工具.html">
+            
+                    
+                    性能调优工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../../../../工具链篇/结语.html">
+            
+                <a href="../../../../工具链篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../../../语法篇/">
+            
+                <a href="../../../../语法篇/">
+            
+                    
+                    语法篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../../../语法篇/数据模型/">
+            
+                <a href="../../../../语法篇/数据模型/">
+            
+                    
+                    数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1.1" data-path="../../../../语法篇/数据模型/数据模型.html">
+            
+                <a href="../../../../语法篇/数据模型/数据模型.html">
+            
+                    
+                    数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.2" data-path="../../../../语法篇/数据模型/变量引用与垃圾回收.html">
+            
+                <a href="../../../../语法篇/数据模型/变量引用与垃圾回收.html">
+            
+                    
+                    变量引用与垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.3" data-path="../../../../语法篇/数据模型/结语.html">
+            
+                <a href="../../../../语法篇/数据模型/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../../../../语法篇/模块/">
+            
+                <a href="../../../../语法篇/模块/">
+            
+                    
+                    模块
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../../../../语法篇/模块/导入时与运行时.html">
+            
+                <a href="../../../../语法篇/模块/导入时与运行时.html">
+            
+                    
+                    导入时与运行时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="../../../../语法篇/模块/模块的预设字段.html">
+            
+                <a href="../../../../语法篇/模块/模块的预设字段.html">
+            
+                    
+                    模块的预设字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="../../../../语法篇/模块/模块的加载流程.html">
+            
+                <a href="../../../../语法篇/模块/模块的加载流程.html">
+            
+                    
+                    模块的加载流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.4" data-path="../../../../语法篇/模块/模块加载特殊内容.html">
+            
+                <a href="../../../../语法篇/模块/模块加载特殊内容.html">
+            
+                    
+                    模块加载特殊内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.5" data-path="../../../../语法篇/模块/结语.html">
+            
+                <a href="../../../../语法篇/模块/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../../../../语法篇/文本与字节序/">
+            
+                <a href="../../../../语法篇/文本与字节序/">
+            
+                    
+                    文本与字节序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.3.1" data-path="../../../../语法篇/文本与字节序/文本和编码.html">
+            
+                <a href="../../../../语法篇/文本与字节序/文本和编码.html">
+            
+                    
+                    文本和编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.2" data-path="../../../../语法篇/文本与字节序/字节序列与内存视图.html">
+            
+                <a href="../../../../语法篇/文本与字节序/字节序列与内存视图.html">
+            
+                    
+                    字节序列与内存视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.3" data-path="../../../../语法篇/文本与字节序/字符串操作.html">
+            
+                <a href="../../../../语法篇/文本与字节序/字符串操作.html">
+            
+                    
+                    字符串操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.4" data-path="../../../../语法篇/文本与字节序/文本模板.html">
+            
+                <a href="../../../../语法篇/文本与字节序/文本模板.html">
+            
+                    
+                    文本模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.5" data-path="../../../../语法篇/文本与字节序/正则表达式.html">
+            
+                <a href="../../../../语法篇/文本与字节序/正则表达式.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.6" data-path="../../../../语法篇/文本与字节序/序列化.html">
+            
+                <a href="../../../../语法篇/文本与字节序/序列化.html">
+            
+                    
+                    序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.7" data-path="../../../../语法篇/文本与字节序/结语.html">
+            
+                <a href="../../../../语法篇/文本与字节序/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../../../../语法篇/流程控制/">
+            
+                <a href="../../../../语法篇/流程控制/">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.4.1" data-path="../../../../语法篇/流程控制/单线程同步流程控制.html">
+            
+                <a href="../../../../语法篇/流程控制/单线程同步流程控制.html">
+            
+                    
+                    单线程同步流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.2" data-path="../../../../语法篇/流程控制/阻塞异步与协程.html">
+            
+                <a href="../../../../语法篇/流程控制/阻塞异步与协程.html">
+            
+                    
+                    阻塞异步与协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.3" data-path="../../../../语法篇/流程控制/多线程与GIL.html">
+            
+                <a href="../../../../语法篇/流程控制/多线程与GIL.html">
+            
+                    
+                    多线程与GIL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.4" data-path="../../../../语法篇/流程控制/多进程.html">
+            
+                <a href="../../../../语法篇/流程控制/多进程.html">
+            
+                    
+                    多进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.5" data-path="../../../../语法篇/流程控制/并行编程的惯用法.html">
+            
+                <a href="../../../../语法篇/流程控制/并行编程的惯用法.html">
+            
+                    
+                    并行编程的惯用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.6" data-path="../../../../语法篇/流程控制/结语.html">
+            
+                <a href="../../../../语法篇/流程控制/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../../../../语法篇/异常和警告.html">
+            
+                <a href="../../../../语法篇/异常和警告.html">
+            
+                    
+                    异常和警告
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../../../../语法篇/内置容器/">
+            
+                <a href="../../../../语法篇/内置容器/">
+            
+                    
+                    内置容器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.6.1" data-path="../../../../语法篇/内置容器/序列对象.html">
+            
+                <a href="../../../../语法篇/内置容器/序列对象.html">
+            
+                    
+                    序列对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.2" data-path="../../../../语法篇/内置容器/映射对象.html">
+            
+                <a href="../../../../语法篇/内置容器/映射对象.html">
+            
+                    
+                    映射对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.3" data-path="../../../../语法篇/内置容器/可迭代对象与生成器.html">
+            
+                <a href="../../../../语法篇/内置容器/可迭代对象与生成器.html">
+            
+                    
+                    可迭代对象与生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.4" data-path="../../../../语法篇/内置容器/结语.html">
+            
+                <a href="../../../../语法篇/内置容器/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../../../../语法篇/函数/">
+            
+                <a href="../../../../语法篇/函数/">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.7.1" data-path="../../../../语法篇/函数/函数是一等对象.html">
+            
+                <a href="../../../../语法篇/函数/函数是一等对象.html">
+            
+                    
+                    函数是一等对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.2" data-path="../../../../语法篇/函数/变量作用域与闭包.html">
+            
+                <a href="../../../../语法篇/函数/变量作用域与闭包.html">
+            
+                    
+                    变量作用域与闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.3" data-path="../../../../语法篇/函数/结语.html">
+            
+                <a href="../../../../语法篇/函数/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../../../../语法篇/面向对象惯用法/">
+            
+                <a href="../../../../语法篇/面向对象惯用法/">
+            
+                    
+                    面向对象惯用法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.8.1" data-path="../../../../语法篇/面向对象惯用法/python中的对象.html">
+            
+                <a href="../../../../语法篇/面向对象惯用法/python中的对象.html">
+            
+                    
+                    python中的对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.2" data-path="../../../../语法篇/面向对象惯用法/协议与接口与抽象基类.html">
+            
+                <a href="../../../../语法篇/面向对象惯用法/协议与接口与抽象基类.html">
+            
+                    
+                    协议,接口与抽象基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.3" data-path="../../../../语法篇/面向对象惯用法/多重继承和Mixin.html">
+            
+                <a href="../../../../语法篇/面向对象惯用法/多重继承和Mixin.html">
+            
+                    
+                    多重继承和Mixin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.4" data-path="../../../../语法篇/面向对象惯用法/自定义序列Vector.html">
+            
+                <a href="../../../../语法篇/面向对象惯用法/自定义序列Vector.html">
+            
+                    
+                    自定义序列Vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.5" data-path="../../../../语法篇/面向对象惯用法/结语.html">
+            
+                <a href="../../../../语法篇/面向对象惯用法/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../../../../语法篇/元编程/">
+            
+                <a href="../../../../语法篇/元编程/">
+            
+                    
+                    元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.9.1" data-path="../../../../语法篇/元编程/运算符重载.html">
+            
+                <a href="../../../../语法篇/元编程/运算符重载.html">
+            
+                    
+                    运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9.2" data-path="../../../../语法篇/元编程/特性与描述符.html">
+            
+                <a href="../../../../语法篇/元编程/特性与描述符.html">
+            
+                    
+                    特性与描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9.3" data-path="../../../../语法篇/元编程/装饰器.html">
+            
+                <a href="../../../../语法篇/元编程/装饰器.html">
+            
+                    
+                    装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9.4" data-path="../../../../语法篇/元编程/元类编程.html">
+            
+                <a href="../../../../语法篇/元编程/元类编程.html">
+            
+                    
+                    元类编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9.5" data-path="../../../../语法篇/元编程/import_hook.html">
+            
+                <a href="../../../../语法篇/元编程/import_hook.html">
+            
+                    
+                    import_hook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9.6" data-path="../../../../语法篇/元编程/动态编译.html">
+            
+                <a href="../../../../语法篇/元编程/动态编译.html">
+            
+                    
+                    动态编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9.7" data-path="../../../../语法篇/元编程/动态属性.html">
+            
+                <a href="../../../../语法篇/元编程/动态属性.html">
+            
+                    
+                    动态属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9.8" data-path="../../../../语法篇/元编程/猴子补丁和热更新.html">
+            
+                <a href="../../../../语法篇/元编程/猴子补丁和热更新.html">
+            
+                    
+                    猴子补丁和热更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9.9" data-path="../../../../语法篇/元编程/结语.html">
+            
+                <a href="../../../../语法篇/元编程/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="../../../../语法篇/结语.html">
+            
+                <a href="../../../../语法篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../../../基础应用篇/">
+            
+                <a href="../../../../基础应用篇/">
+            
+                    
+                    基础应用篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../../../基础应用篇/国际化/">
+            
+                <a href="../../../../基础应用篇/国际化/">
+            
+                    
+                    国际化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1.1" data-path="../../../../基础应用篇/国际化/字符编码判断.html">
+            
+                <a href="../../../../基础应用篇/国际化/字符编码判断.html">
+            
+                    
+                    字符编码判断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.2" data-path="../../../../基础应用篇/国际化/国际化文本翻译.html">
+            
+                <a href="../../../../基础应用篇/国际化/国际化文本翻译.html">
+            
+                    
+                    国际化文本翻译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.3" data-path="../../../../基础应用篇/国际化/时间日期处理.html">
+            
+                <a href="../../../../基础应用篇/国际化/时间日期处理.html">
+            
+                    
+                    时间日期处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.4" data-path="../../../../基础应用篇/国际化/货币处理模块.html">
+            
+                <a href="../../../../基础应用篇/国际化/货币处理模块.html">
+            
+                    
+                    货币处理模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.5" data-path="../../../../基础应用篇/国际化/结语.html">
+            
+                <a href="../../../../基础应用篇/国际化/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../../../基础应用篇/数据压缩与归档/">
+            
+                <a href="../../../../基础应用篇/数据压缩与归档/">
+            
+                    
+                    数据压缩与归档
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.2.1" data-path="../../../../基础应用篇/数据压缩与归档/数据压缩解压.html">
+            
+                <a href="../../../../基础应用篇/数据压缩与归档/数据压缩解压.html">
+            
+                    
+                    数据压缩解压
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.2" data-path="../../../../基础应用篇/数据压缩与归档/压缩归档.html">
+            
+                <a href="../../../../基础应用篇/数据压缩与归档/压缩归档.html">
+            
+                    
+                    压缩归档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.3" data-path="../../../../基础应用篇/数据压缩与归档/结语.html">
+            
+                <a href="../../../../基础应用篇/数据压缩与归档/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../../../基础应用篇/定时任务.html">
+            
+                <a href="../../../../基础应用篇/定时任务.html">
+            
+                    
+                    定时任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../../../../基础应用篇/结构数据验证.html">
+            
+                <a href="../../../../基础应用篇/结构数据验证.html">
+            
+                    
+                    结构数据验证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../../../../基础应用篇/调用子进程.html">
+            
+                <a href="../../../../基础应用篇/调用子进程.html">
+            
+                    
+                    调用子进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../../../信息安全篇/">
+            
+                <a href="../../../../信息安全篇/">
+            
+                    
+                    信息安全篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../../../信息安全篇/随机密码.html">
+            
+                <a href="../../../../信息安全篇/随机密码.html">
+            
+                    
+                    随机密码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../../../信息安全篇/摘要算法.html">
+            
+                <a href="../../../../信息安全篇/摘要算法.html">
+            
+                    
+                    摘要算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../../../../信息安全篇/加密算法.html">
+            
+                <a href="../../../../信息安全篇/加密算法.html">
+            
+                    
+                    加密算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4" data-path="../../../../信息安全篇/数字签名.html">
+            
+                <a href="../../../../信息安全篇/数字签名.html">
+            
+                    
+                    数字签名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5" data-path="../../../../信息安全篇/动态口令.html">
+            
+                <a href="../../../../信息安全篇/动态口令.html">
+            
+                    
+                    动态口令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.6" data-path="../../../../信息安全篇/结语.html">
+            
+                <a href="../../../../信息安全篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../../../输入输出篇/">
+            
+                <a href="../../../../输入输出篇/">
+            
+                    
+                    输入输出篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../../../输入输出篇/标准输入输出.html">
+            
+                <a href="../../../../输入输出篇/标准输入输出.html">
+            
+                    
+                    标准输入输出
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../../../../输入输出篇/文件与IO流.html">
+            
+                <a href="../../../../输入输出篇/文件与IO流.html">
+            
+                    
+                    文件与IO流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../../../../输入输出篇/异步socket编程/">
+            
+                <a href="../../../../输入输出篇/异步socket编程/">
+            
+                    
+                    异步socket编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.3.1" data-path="../../../../输入输出篇/异步socket编程/异步网络编程的组件介绍.html">
+            
+                <a href="../../../../输入输出篇/异步socket编程/异步网络编程的组件介绍.html">
+            
+                    
+                    异步网络编程的组件介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.2" data-path="../../../../输入输出篇/异步socket编程/客户端服务器结构实现请求应答模式.html">
+            
+                <a href="../../../../输入输出篇/异步socket编程/客户端服务器结构实现请求应答模式.html">
+            
+                    
+                    客户端服务器结构实现请求应答模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.3" data-path="../../../../输入输出篇/异步socket编程/客户端中间人结构实现发布订阅模式.html">
+            
+                <a href="../../../../输入输出篇/异步socket编程/客户端中间人结构实现发布订阅模式.html">
+            
+                    
+                    客户端中间人结构实现发布订阅模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.4" data-path="../../../../输入输出篇/异步socket编程/p2p结构.html">
+            
+                <a href="../../../../输入输出篇/异步socket编程/p2p结构.html">
+            
+                    
+                    p2p结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.5" data-path="../../../../输入输出篇/异步socket编程/结语.html">
+            
+                <a href="../../../../输入输出篇/异步socket编程/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../../../../输入输出篇/数据库读写.html">
+            
+                <a href="../../../../输入输出篇/数据库读写.html">
+            
+                    
+                    数据库读写
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../../../../输入输出篇/接口服务/">
+            
+                <a href="../../../../输入输出篇/接口服务/">
+            
+                    
+                    接口服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.5.1" data-path="../../../../输入输出篇/接口服务/RPC服务/">
+            
+                <a href="../../../../输入输出篇/接口服务/RPC服务/">
+            
+                    
+                    RPC服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.5.1.1" data-path="../../../../输入输出篇/接口服务/RPC服务/XMLRPC接口服务.html">
+            
+                <a href="../../../../输入输出篇/接口服务/RPC服务/XMLRPC接口服务.html">
+            
+                    
+                    XMLRPC接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.1.2" data-path="../../../../输入输出篇/接口服务/RPC服务/JSONRPC接口服务.md">
+            
+                <span>
+            
+                    
+                    JSONRPC接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.1.3" data-path="../../../../输入输出篇/接口服务/RPC服务/GRpc接口服务.html">
+            
+                <a href="../../../../输入输出篇/接口服务/RPC服务/GRpc接口服务.html">
+            
+                    
+                    GRpc接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.1.4" data-path="../../../../输入输出篇/接口服务/RPC服务/ZERORPC接口服务.html">
+            
+                <a href="../../../../输入输出篇/接口服务/RPC服务/ZERORPC接口服务.html">
+            
+                    
+                    ZERORPC接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.2" data-path="../../../../输入输出篇/接口服务/Http接口服务/">
+            
+                <a href="../../../../输入输出篇/接口服务/Http接口服务/">
+            
+                    
+                    Http接口服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.5.2.1" data-path="../../../../输入输出篇/接口服务/Http接口服务/使用http客户端获取数据.html">
+            
+                <a href="../../../../输入输出篇/接口服务/Http接口服务/使用http客户端获取数据.html">
+            
+                    
+                    使用http客户端获取数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.2.2" data-path="../../../../输入输出篇/接口服务/Http接口服务/使用Flask快速构建RESTful接口服务.html">
+            
+                <a href="../../../../输入输出篇/接口服务/Http接口服务/使用Flask快速构建RESTful接口服务.html">
+            
+                    
+                    使用Flask快速构建RESTful接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.2.3" data-path="../../../../输入输出篇/接口服务/Http接口服务/使用Sanic构建异步的RESTful接口服务.html">
+            
+                <a href="../../../../输入输出篇/接口服务/Http接口服务/使用Sanic构建异步的RESTful接口服务.html">
+            
+                    
+                    使用Sanic构建异步的RESTful接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.2.4" data-path="../../../../输入输出篇/接口服务/Http接口服务/解析请求与响应头.html">
+            
+                <a href="../../../../输入输出篇/接口服务/Http接口服务/解析请求与响应头.html">
+            
+                    
+                    解析请求与响应头
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.2.5" data-path="../../../../输入输出篇/接口服务/Http接口服务/解析url.html">
+            
+                <a href="../../../../输入输出篇/接口服务/Http接口服务/解析url.html">
+            
+                    
+                    解析url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.2.6" data-path="../../../../输入输出篇/接口服务/Http接口服务/解析html文件.html">
+            
+                <a href="../../../../输入输出篇/接口服务/Http接口服务/解析html文件.html">
+            
+                    
+                    解析html文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.2.7" data-path="../../../../输入输出篇/接口服务/Http接口服务/结语.html">
+            
+                <a href="../../../../输入输出篇/接口服务/Http接口服务/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.3" data-path="../../../../输入输出篇/接口服务/WebSocket接口服务/">
+            
+                <a href="../../../../输入输出篇/接口服务/WebSocket接口服务/">
+            
+                    
+                    WebSocket接口服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.5.3.1" data-path="../../../../输入输出篇/接口服务/WebSocket接口服务/WebSocket接口服务和客户端.html">
+            
+                <a href="../../../../输入输出篇/接口服务/WebSocket接口服务/WebSocket接口服务和客户端.html">
+            
+                    
+                    WebSocket接口服务和客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.3.2" data-path="../../../../输入输出篇/接口服务/WebSocket接口服务/结语.html">
+            
+                <a href="../../../../输入输出篇/接口服务/WebSocket接口服务/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../../../../输入输出篇/人机交互/">
+            
+                <a href="../../../../输入输出篇/人机交互/">
+            
+                    
+                    人机交互
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.6.1" data-path="../../../../输入输出篇/人机交互/使用python编写命令行工具.html">
+            
+                <a href="../../../../输入输出篇/人机交互/使用python编写命令行工具.html">
+            
+                    
+                    使用python编写命令行工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.2" data-path="../../../../输入输出篇/人机交互/自定义交互式界面.html">
+            
+                <a href="../../../../输入输出篇/人机交互/自定义交互式界面.html">
+            
+                    
+                    自定义交互式界面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.3" data-path="../../../../输入输出篇/人机交互/GUI/">
+            
+                <a href="../../../../输入输出篇/人机交互/GUI/">
+            
+                    
+                    GUI
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.6.3.1" data-path="../../../../输入输出篇/人机交互/GUI/TK框架GUI编程的基本思路.html">
+            
+                <a href="../../../../输入输出篇/人机交互/GUI/TK框架GUI编程的基本思路.html">
+            
+                    
+                    TK框架GUI编程的基本思路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.3.2" data-path="../../../../输入输出篇/人机交互/GUI/Tkinter的组件介绍.html">
+            
+                <a href="../../../../输入输出篇/人机交互/GUI/Tkinter的组件介绍.html">
+            
+                    
+                    Tkinter的组件介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.3.3" data-path="../../../../输入输出篇/人机交互/GUI/结合pandas和matplotlib制作数据科学GUI工具/结合pandas和matplotlib制作数据科学GUI工具.html">
+            
+                <a href="../../../../输入输出篇/人机交互/GUI/结合pandas和matplotlib制作数据科学GUI工具/结合pandas和matplotlib制作数据科学GUI工具.html">
+            
+                    
+                    结合pandas和matplotlib制作数据科学GUI工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.4" data-path="../../../../输入输出篇/人机交互/结语.html">
+            
+                <a href="../../../../输入输出篇/人机交互/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../../../../输入输出篇/结语.html">
+            
+                <a href="../../../../输入输出篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    科学计算篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../../../使用python做计算/">
+            
+                <a href="../../../使用python做计算/">
+            
+                    
+                    使用python做计算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.1" data-path="../../../使用python做计算/符号计算/">
+            
+                <a href="../../../使用python做计算/符号计算/">
+            
+                    
+                    符号计算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.1.1" data-path="../../../使用python做计算/符号计算/声明符号和内置符号类型.html">
+            
+                <a href="../../../使用python做计算/符号计算/声明符号和内置符号类型.html">
+            
+                    
+                    声明符号和内置符号类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.2" data-path="../../../使用python做计算/符号计算/符号计算/README.md">
+            
+                <span>
+            
+                    
+                    符号计算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.1.2.1" data-path="../../../使用python做计算/符号计算/符号计算/表达式操作/表达式操作.html">
+            
+                <a href="../../../使用python做计算/符号计算/符号计算/表达式操作/表达式操作.html">
+            
+                    
+                    表达式操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.2.2" data-path="../../../使用python做计算/符号计算/符号计算/微积分.md">
+            
+                <span>
+            
+                    
+                    微积分
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.2.3" data-path="../../../使用python做计算/符号计算/符号计算/解方程/解方程.html">
+            
+                <a href="../../../使用python做计算/符号计算/符号计算/解方程/解方程.html">
+            
+                    
+                    解方程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.2.4" data-path="../../../使用python做计算/符号计算/符号计算/线性代数/线性代数.html">
+            
+                <a href="../../../使用python做计算/符号计算/符号计算/线性代数/线性代数.html">
+            
+                    
+                    线性代数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.2.5" data-path="../../../使用python做计算/符号计算/符号计算/概率统计/概率统计.html">
+            
+                <a href="../../../使用python做计算/符号计算/符号计算/概率统计/概率统计.html">
+            
+                    
+                    概率统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.2.6" data-path="../../../使用python做计算/符号计算/符号计算/布尔代数/布尔代数.html">
+            
+                <a href="../../../使用python做计算/符号计算/符号计算/布尔代数/布尔代数.html">
+            
+                    
+                    布尔代数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.3" data-path="../../../使用python做计算/符号计算/输出/README.md">
+            
+                <span>
+            
+                    
+                    输出
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.1.3.1" data-path="../../../使用python做计算/符号计算/输出/求值.html">
+            
+                <a href="../../../使用python做计算/符号计算/输出/求值.html">
+            
+                    
+                    求值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.3.2" data-path="../../../使用python做计算/符号计算/输出/更加优雅的输出打印结果/更加优雅的输出打印结果.html">
+            
+                <a href="../../../使用python做计算/符号计算/输出/更加优雅的输出打印结果/更加优雅的输出打印结果.html">
+            
+                    
+                    更加优雅的输出打印结果
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.3.3" data-path="../../../使用python做计算/符号计算/输出/画图/画图.html">
+            
+                <a href="../../../使用python做计算/符号计算/输出/画图/画图.html">
+            
+                    
+                    画图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.2" data-path="../../../使用python做计算/数值计算/">
+            
+                <a href="../../../使用python做计算/数值计算/">
+            
+                    
+                    数值计算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.2.1" data-path="../../../使用python做计算/数值计算/使用标准库处理基本数学问题/使用标准库处理基本数学问题.html">
+            
+                <a href="../../../使用python做计算/数值计算/使用标准库处理基本数学问题/使用标准库处理基本数学问题.html">
+            
+                    
+                    使用标准库处理基本数学问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.2.2" data-path="../../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/">
+            
+                <a href="../../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/">
+            
+                    
+                    使用numpy和scipy处理复杂的数值计算问题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.2.2.1" data-path="../../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/numpy的高性能同构定长多维数组/numpy的高性能同构定长多维数组.html">
+            
+                <a href="../../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/numpy的高性能同构定长多维数组/numpy的高性能同构定长多维数组.html">
+            
+                    
+                    numpy的高性能同构定长多维数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.2.2.2" data-path="../../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/universal_function/universal_function.html">
+            
+                <a href="../../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/universal_function/universal_function.html">
+            
+                    
+                    universal_function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.2.2.3" data-path="../../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/精度与基本数学运算.html">
+            
+                <a href="../../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/精度与基本数学运算.html">
+            
+                    
+                    精度与基本数学运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.2.2.4" data-path="../../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/使用numpy做科学计算/使用numpy做科学计算.html">
+            
+                <a href="../../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/使用numpy做科学计算/使用numpy做科学计算.html">
+            
+                    
+                    使用numpy做科学计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    数据可视化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.2.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    使用matplotlib做数据可视化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.2.1.1" data-path="../matplotlib的基本设置/matplotlib的基本设置.html">
+            
+                <a href="../matplotlib的基本设置/matplotlib的基本设置.html">
+            
+                    
+                    matplotlib的基本设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.1.2" data-path="../绘图工具pyplot/绘图工具pyplot.html">
+            
+                <a href="../绘图工具pyplot/绘图工具pyplot.html">
+            
+                    
+                    绘图工具pyplot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.1.3" data-path="../非结构网络/非结构网络.html">
+            
+                <a href="../非结构网络/非结构网络.html">
+            
+                    
+                    非结构网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.1.4" data-path="../桑基图/桑基图.html">
+            
+                <a href="../桑基图/桑基图.html">
+            
+                    
+                    桑基图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.1.5" data-path="../图片加载/图片加载.html">
+            
+                <a href="../图片加载/图片加载.html">
+            
+                    
+                    图片加载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.1.6" data-path="../保存图片/保存图片.html">
+            
+                <a href="../保存图片/保存图片.html">
+            
+                    
+                    保存图片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.1.7" data-path="../控件.html">
+            
+                <a href="../控件.html">
+            
+                    
+                    控件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.1.2.1.8" data-path="动画.html">
+            
+                <a href="动画.html">
+            
+                    
+                    动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.1.9" data-path="../matplitlib结合web技术.html">
+            
+                <a href="../matplitlib结合web技术.html">
+            
+                    
+                    matplitlib结合web技术
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.1.10" data-path="../结语.html">
+            
+                <a href="../结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="../../../不同领域的应用/">
+            
+                <a href="../../../不同领域的应用/">
+            
+                    
+                    不同领域的应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../../../../嵌入与扩展篇/">
+            
+                <a href="../../../../嵌入与扩展篇/">
+            
+                    
+                    嵌入与扩展篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/">
+            
+                <a href="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/">
+            
+                    
+                    使用Cython优化python程序的性能
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1.1" data-path="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的简单介绍.html">
+            
+                <a href="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的简单介绍.html">
+            
+                    
+                    Cython的简单介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.1.2" data-path="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的基本模式.html">
+            
+                <a href="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的基本模式.html">
+            
+                    
+                    Cython的基本模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.1.3" data-path="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/静态化python模块.html">
+            
+                <a href="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/静态化python模块.html">
+            
+                    
+                    静态化python模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.1.4" data-path="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/使用cython申明文件申明python源码类型.html">
+            
+                <a href="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/使用cython申明文件申明python源码类型.html">
+            
+                    
+                    使用cython申明文件申明python源码类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.1.5" data-path="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的包装模式.html">
+            
+                <a href="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的包装模式.html">
+            
+                    
+                    Cython的包装模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.1.6" data-path="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/使用Cython扩展numpy.html">
+            
+                <a href="../../../../嵌入与扩展篇/使用Cython优化python程序的性能/使用Cython扩展numpy.html">
+            
+                    
+                    使用Cython扩展numpy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="../../../../嵌入与扩展篇/用numba为python写高性能C扩展.html">
+            
+                <a href="../../../../嵌入与扩展篇/用numba为python写高性能C扩展.html">
+            
+                    
+                    用numba为python写高性能C扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.3" data-path="../../../../嵌入与扩展篇/使用f2py用fortain给python写扩展.html">
+            
+                <a href="../../../../嵌入与扩展篇/使用f2py用fortain给python写扩展.html">
+            
+                    
+                    使用f2py用fortain给python写扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4" data-path="../../../../嵌入与扩展篇/结语.md">
+            
+                <span>
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../../../../术语表/">
+            
+                <a href="../../../../术语表/">
+            
+                    
+                    术语表
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../../../../术语表/统计/">
+            
+                <a href="../../../../术语表/统计/">
+            
+                    
+                    统计
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1.1" data-path="../../../../术语表/统计/误差.html">
+            
+                <a href="../../../../术语表/统计/误差.html">
+            
+                    
+                    误差
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../../.." >动画</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x52A8;&#x753B;"><b>1. </b>&#x52A8;&#x753B;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x901A;&#x8FC7;&#x51FD;&#x6570;&#x6784;&#x5EFA;&#x52A8;&#x753B;"><b>1.1. </b>&#x901A;&#x8FC7;&#x51FD;&#x6570;&#x6784;&#x5EFA;&#x52A8;&#x753B;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;&#x6570;&#x5B57;&#x5B9A;&#x4E49;&#x5E27;"><b>1.1.1. </b>&#x4F7F;&#x7528;&#x6570;&#x5B57;&#x5B9A;&#x4E49;&#x5E27;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;&#x751F;&#x6210;&#x5668;&#x5B9A;&#x4E49;&#x5E27;"><b>1.1.2. </b>&#x4F7F;&#x7528;&#x751F;&#x6210;&#x5668;&#x5B9A;&#x4E49;&#x5E27;</a></li></ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x901A;&#x8FC7;&#x4F5C;&#x54C1;&#x7EC4;&#x5408;&#x6784;&#x5EFA;&#x52A8;&#x753B;"><b>1.2. </b>&#x901A;&#x8FC7;&#x4F5C;&#x54C1;&#x7EC4;&#x5408;&#x6784;&#x5EFA;&#x52A8;&#x753B;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x901A;&#x8FC7;&#x7EE7;&#x627F;&#x6784;&#x5EFA;"><b>1.3. </b>&#x901A;&#x8FC7;&#x7EE7;&#x627F;&#x6784;&#x5EFA;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x52A8;&#x753B;&#x7684;&#x8F93;&#x51FA;"><b>1.4. </b>&#x52A8;&#x753B;&#x7684;&#x8F93;&#x51FA;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x8F93;&#x51FA;&#x4E3A;html5&#x53EF;&#x8BFB;&#x7684;&#x89C6;&#x5C4F;"><b>1.4.1. </b>&#x8F93;&#x51FA;&#x4E3A;html5&#x53EF;&#x8BFB;&#x7684;&#x89C6;&#x5C4F;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4FDD;&#x5B58;&#x52A8;&#x753B;"><b>1.4.2. </b>&#x4FDD;&#x5B58;&#x52A8;&#x753B;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x52A8;&#x753B;&#x751F;&#x6210;&#x548C;&#x8F6C;&#x7801;&#x5DE5;&#x5177;&#x7684;&#x8BBE;&#x7F6E;"><b>1.4.3. </b>&#x52A8;&#x753B;&#x751F;&#x6210;&#x548C;&#x8F6C;&#x7801;&#x5DE5;&#x5177;&#x7684;&#x8BBE;&#x7F6E;</a></li></ul></ul></ul></div><a href="#&#x52A8;&#x753B;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x52A8;&#x753B;"><a name="&#x52A8;&#x753B;" class="anchor-navigation-ex-anchor" href="#&#x52A8;&#x753B;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x52A8;&#x753B;</h1>
+<p>&#x52A8;&#x753B;&#x8BF4;&#x767D;&#x4E86;&#x5C31;&#x662F;&#x9694;&#x6BB5;&#x65F6;&#x95F4;&#x5237;&#x65B0;&#x4E00;&#x4E0B;&#x753B;&#x9762;,<code>matplotlib.animation</code>&#x63D0;&#x4F9B;&#x4E86;&#x6784;&#x5EFA;&#x52A8;&#x753B;&#x7684;&#x5DE5;&#x5177;&#x4E3B;&#x8981;&#x662F;&#x8FD9;&#x51E0;&#x4E2A;&#x65B9;&#x6CD5;:</p>
+<ul>
+<li>&#x901A;&#x8FC7;&#x51FD;&#x6570;&#x6784;&#x5EFA;</li>
+<li>&#x901A;&#x8FC7;&#x4F5C;&#x54C1;&#x6784;&#x5EFA;</li>
+<li>&#x901A;&#x8FC7;&#x7EE7;&#x627F;<code>matplotlib.animation.TimedAnimation</code>&#x7C7B;&#x5236;&#x4F5C;&#x52A8;&#x753B;</li>
+</ul>
+<p>&#x52A8;&#x753B;&#x9700;&#x8981;&#x540E;&#x6E32;&#x67D3;&#x540E;&#x7AEF;,&#x4E00;&#x822C;&#x4F7F;&#x7528;<a href="http://ffmpeg.zeranoe.com/builds/" target="_blank">ffmpeg</a>,&#x5B89;&#x88C5;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x770B;<a href="http://www.wikihow.com/Install-FFmpeg-on-Windows" target="_blank">]&#x8FD9;&#x91CC;</a></p>
+<p>&#x65E0;&#x8BBA;&#x54EA;&#x79CD;&#x65B9;&#x5F0F;&#x6784;&#x5EFA;&#x7684;&#x52A8;&#x753B;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>.save</code>&#x65B9;&#x6CD5;&#x4FDD;&#x5B58;&#x4E3A;&#x5E0C;&#x671B;&#x7684;&#x683C;&#x5F0F;,&#x4E5F;&#x53EF;&#x4EE5;&#x7528;<code>.to_html5_video</code>&#x65B9;&#x6CD5;&#x8F93;&#x51FA;&#x4E00;&#x4EFD;html5&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x7684;&#x6587;&#x4EF6;.</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> __future__ <span class="hljs-keyword">import</span> print_function
+<span class="hljs-keyword">from</span> imp <span class="hljs-keyword">import</span> reload
+<span class="hljs-keyword">import</span> matplotlib
 reload(matplotlib)
 
-matplotlib.use('nbagg')
+matplotlib.use(<span class="hljs-string">&apos;nbagg&apos;</span>)
 
-import matplotlib.backends.backend_nbagg
+<span class="hljs-keyword">import</span> matplotlib.backends.backend_nbagg
 reload(matplotlib.backends.backend_nbagg)
-import matplotlib.backends.backend_webagg_core
+<span class="hljs-keyword">import</span> matplotlib.backends.backend_webagg_core
 reload(matplotlib.backends.backend_webagg_core)
 
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.animation as animation
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">import</span> matplotlib.animation <span class="hljs-keyword">as</span> animation
 
-plt.interactive(False)
-```
+plt.interactive(<span class="hljs-keyword">False</span>)
+</code></pre>
+<h2 id="&#x901A;&#x8FC7;&#x51FD;&#x6570;&#x6784;&#x5EFA;&#x52A8;&#x753B;"><a name="&#x901A;&#x8FC7;&#x51FD;&#x6570;&#x6784;&#x5EFA;&#x52A8;&#x753B;" class="anchor-navigation-ex-anchor" href="#&#x901A;&#x8FC7;&#x51FD;&#x6570;&#x6784;&#x5EFA;&#x52A8;&#x753B;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x901A;&#x8FC7;&#x51FD;&#x6570;&#x6784;&#x5EFA;&#x52A8;&#x753B;</h2>
+<p><code>matplotlib.animation.FuncAnimation(fig, func, frames=None, init_func=None, fargs=None, save_count=None, **kwargs)</code></p>
+<p>FuncAnimation&#x7C7B;&#x662F;&#x6700;&#x5E38;&#x7528;&#x7684;&#x6784;&#x5EFA;&#x51FD;&#x6570;.</p>
+<p>&#x4ED6;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6709;&#x8FD9;&#x6837;&#x4E00;&#x4E9B;&#x53C2;&#x6570;</p>
+<ul>
+<li>fig &#x4E00;&#x4E2A;figure&#x5BF9;&#x8C61;,&#x56FE;&#x50CF;&#x90FD;&#x662F;&#x57FA;&#x4E8E;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x4E2A;&#x753B;&#x677F;</li>
+<li>func(frame)-&gt;tuple(axes.plot) &#x4E00;&#x4E2A;&#x6784;&#x5EFA;&#x52A8;&#x753B;&#x51FD;&#x6570;,&#x53C2;&#x6570;&#x662F;frames&#x4F20;&#x5165;&#x7684;&#x6BCF;&#x4E00;&#x5E27;,&#x800C;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x7531;&#x53C2;&#x6570;&#x6784;&#x5EFA;&#x7684;plot&#x5BF9;&#x8C61;&#x6784;&#x6210;&#x7684;tuple</li>
+<li>frames &#x4E00;&#x4E2A;&#x53EF;&#x8FED;&#x4EE3;&#x5BF9;&#x8C61;,&#x53EF;&#x4EE5;&#x662F;&#x751F;&#x6210;&#x5668;,&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x5E8F;&#x5217;,&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x6570;&#x5B57;,&#x6570;&#x5B57;&#x76F8;&#x5F53;&#x4E8E;&#x4F20;&#x5165;&#x4E00;&#x4E2A;xrange(n)</li>
+<li>init_func(frame)-&gt;tuple(axes.plot) &#x521D;&#x59CB;&#x5316;&#x51FD;&#x6570;,&#x7B2C;0&#x5E27;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x5B83;&#x6784;&#x5EFA;&#x56FE;&#x5F62;</li>
+<li>&#x5982;&#x679C;blit = True&#xFF0C;func&#x548C;init_func&#x5FC5;&#x987B;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x53EF;&#x8FED;&#x4EE3;&#x7684;&#x4F5C;&#x54C1;&#x5BF9;&#x8C61;&#x6765;&#x91CD;&#x7ED8;</li>
+<li>kwargs&#x5305;&#x62EC;repeat&#xFF0C;repeat_delay&#x548C;interval&#xFF1A;<ul>
+<li>interval&#x6BCF;&#x9694;interval&#x6BEB;&#x79D2;&#x7ED8;&#x5236;&#x4E00;&#x4E2A;&#x65B0;&#x5E27;&#x3002;</li>
+<li>repeat&#x63A7;&#x5236;&#x52A8;&#x753B;&#x662F;&#x5426;&#x5E94;&#x5728;&#x5E27;&#x5E8F;&#x5217;&#x5B8C;&#x6210;&#x65F6;&#x91CD;&#x590D;&#x3002; </li>
+<li>repeat_delay&#x53EF;&#x9009;&#x5730;&#x5728;&#x91CD;&#x590D;&#x52A8;&#x753B;&#x4E4B;&#x524D;&#x6DFB;&#x52A0;&#x4EE5;&#x6BEB;&#x79D2;&#x4E3A;&#x5355;&#x4F4D;&#x7684;&#x5EF6;&#x8FDF;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> IPython.display <span class="hljs-keyword">import</span> HTML
+</code></pre>
+<pre><code class="lang-python">%matplotlib inline
+</code></pre>
+<pre><code class="lang-python">plt.style.use(<span class="hljs-string">&quot;animation_support&quot;</span>)
+</code></pre>
+<h3 id="&#x4F7F;&#x7528;&#x6570;&#x5B57;&#x5B9A;&#x4E49;&#x5E27;"><a name="&#x4F7F;&#x7528;&#x6570;&#x5B57;&#x5B9A;&#x4E49;&#x5E27;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;&#x6570;&#x5B57;&#x5B9A;&#x4E49;&#x5E27;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1. &#x4F7F;&#x7528;&#x6570;&#x5B57;&#x5B9A;&#x4E49;&#x5E27;</h3>
+<pre><code class="lang-python">fig, ax = plt.subplots()
 
-## 通过函数构建动画
-
-`matplotlib.animation.FuncAnimation(fig, func, frames=None, init_func=None, fargs=None, save_count=None, **kwargs)`
-
-FuncAnimation类是最常用的构建函数.
-
-他的构造函数有这样一些参数
-
-+ fig 一个figure对象,图像都是基于这个对象相当于一个画板
-+ func(frame)->tuple(axes.plot) 一个构建动画函数,参数是frames传入的每一帧,而返回的是一个由参数构建的plot对象构成的tuple
-+ frames 一个可迭代对象,可以是生成器,可以是一个序列,也可以是数字,数字相当于传入一个xrange(n)
-+ init_func(frame)->tuple(axes.plot) 初始化函数,第0帧时候调用它构建图形
-+ 如果blit = True，func和init_func必须返回一个可迭代的作品对象来重绘
-+ kwargs包括repeat，repeat_delay和interval：
-    + interval每隔interval毫秒绘制一个新帧。
-    + repeat控制动画是否应在帧序列完成时重复。 
-    + repeat_delay可选地在重复动画之前添加以毫秒为单位的延迟。
-
-
-
-
-```python
-from IPython.display import HTML
-```
-
-
-```python
-%matplotlib inline
-```
-
-
-```python
-plt.style.use("animation_support")
-```
-
-### 使用数字定义帧
-
-
-```python
-fig, ax = plt.subplots()
-
-x = np.arange(0, 2*np.pi, 0.01)
+x = np.arange(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>*np.pi, <span class="hljs-number">0.01</span>)
 line, = ax.plot(x, np.sin(x))
 
 
-def animate(i):
-    line.set_ydata(np.sin(x + i/10.0))  # update the data
-    return line,
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">animate</span><span class="hljs-params">(i)</span>:</span>
+    line.set_ydata(np.sin(x + i/<span class="hljs-number">10.0</span>))  <span class="hljs-comment"># update the data</span>
+    <span class="hljs-keyword">return</span> line,
 
 
-# Init only required for blitting to give a clean slate.
-def init():
-    line.set_ydata(np.ma.array(x, mask=True))
-    return line,
+<span class="hljs-comment"># Init only required for blitting to give a clean slate.</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init</span><span class="hljs-params">()</span>:</span>
+    line.set_ydata(np.ma.array(x, mask=<span class="hljs-keyword">True</span>))
+    <span class="hljs-keyword">return</span> line,
 
-ani = animation.FuncAnimation(fig, animate, 200, init_func=init,
-                              interval=25, blit=True)
+ani = animation.FuncAnimation(fig, animate, <span class="hljs-number">200</span>, init_func=init,
+                              interval=<span class="hljs-number">25</span>, blit=<span class="hljs-keyword">True</span>)
 
 ani
-```
-
-
-
-
+</code></pre>
 <video width="432" height="288" controls autoplay loop>
   <source type="video/mp4" src="data:video/mp4;base64,AAAAHGZ0eXBNNFYgAAACAGlzb21pc28yYXZjMQAAAAhmcmVlAAC37G1kYXQAAAKuBgX//6rcRem9
 5tlIt5Ys2CDZI+7veDI2NCAtIGNvcmUgMTQ4IHIyNzI4IDRkNWM4YjAgLSBILjI2NC9NUEVHLTQg
@@ -983,60 +3766,51 @@ AAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTcuNTYuMTAw
 
 
 
-![png](output_7_1.png)
-
-
-### 使用生成器定义帧
-
-
-```python
-# 使用生成器构建每一帧的传入数据
-def data_gen(t=0):
-    cnt = 0
-    while cnt < 1000:
-        cnt += 1
-        t += 0.1
-        yield t, np.sin(2*np.pi*t) * np.exp(-t/10.)
+<p><img src="output_7_1.png" alt="png"></p>
+<h3 id="&#x4F7F;&#x7528;&#x751F;&#x6210;&#x5668;&#x5B9A;&#x4E49;&#x5E27;"><a name="&#x4F7F;&#x7528;&#x751F;&#x6210;&#x5668;&#x5B9A;&#x4E49;&#x5E27;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;&#x751F;&#x6210;&#x5668;&#x5B9A;&#x4E49;&#x5E27;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.2. &#x4F7F;&#x7528;&#x751F;&#x6210;&#x5668;&#x5B9A;&#x4E49;&#x5E27;</h3>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x4F7F;&#x7528;&#x751F;&#x6210;&#x5668;&#x6784;&#x5EFA;&#x6BCF;&#x4E00;&#x5E27;&#x7684;&#x4F20;&#x5165;&#x6570;&#x636E;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">data_gen</span><span class="hljs-params">(t=<span class="hljs-number">0</span>)</span>:</span>
+    cnt = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">while</span> cnt &lt; <span class="hljs-number">1000</span>:
+        cnt += <span class="hljs-number">1</span>
+        t += <span class="hljs-number">0.1</span>
+        <span class="hljs-keyword">yield</span> t, np.sin(<span class="hljs-number">2</span>*np.pi*t) * np.exp(-t/<span class="hljs-number">10.</span>)
 
 
 
-# 全局变量组,
+<span class="hljs-comment"># &#x5168;&#x5C40;&#x53D8;&#x91CF;&#x7EC4;,</span>
 fig, ax = plt.subplots()
-line, = ax.plot([], [], lw=2) # 关键部分,刷新的就是它
+line, = ax.plot([], [], lw=<span class="hljs-number">2</span>) <span class="hljs-comment"># &#x5173;&#x952E;&#x90E8;&#x5206;,&#x5237;&#x65B0;&#x7684;&#x5C31;&#x662F;&#x5B83;</span>
 ax.grid()
 xdata, ydata = [], []
 
-# 第一帧的内容
-def init():
-    ax.set_ylim(-1.1, 1.1)
-    ax.set_xlim(0, 10)
-    del xdata[:]
-    del ydata[:]
+<span class="hljs-comment"># &#x7B2C;&#x4E00;&#x5E27;&#x7684;&#x5185;&#x5BB9;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init</span><span class="hljs-params">()</span>:</span>
+    ax.set_ylim(<span class="hljs-number">-1.1</span>, <span class="hljs-number">1.1</span>)
+    ax.set_xlim(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>)
+    <span class="hljs-keyword">del</span> xdata[:]
+    <span class="hljs-keyword">del</span> ydata[:]
     line.set_data(xdata, ydata)
-    return line,
+    <span class="hljs-keyword">return</span> line,
 
-# 刷新图片的函数
-def run(data):
+<span class="hljs-comment"># &#x5237;&#x65B0;&#x56FE;&#x7247;&#x7684;&#x51FD;&#x6570;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(data)</span>:</span>
     t, y = data
     xdata.append(t)
     ydata.append(y)
     xmin, xmax = ax.get_xlim()
 
-    if t >= xmax:
-        ax.set_xlim(xmin, 2*xmax)
+    <span class="hljs-keyword">if</span> t &gt;= xmax:
+        ax.set_xlim(xmin, <span class="hljs-number">2</span>*xmax)
         ax.figure.canvas.draw()
     line.set_data(xdata, ydata)
 
-    return line,
+    <span class="hljs-keyword">return</span> line,
 
-ani = animation.FuncAnimation(fig, run, data_gen, blit=False, interval=10,
-                              repeat=False, init_func=init)
+ani = animation.FuncAnimation(fig, run, data_gen, blit=<span class="hljs-keyword">False</span>, interval=<span class="hljs-number">10</span>,
+                              repeat=<span class="hljs-keyword">False</span>, init_func=init)
 ani
-```
-
-
-
-
+</code></pre>
 <video width="432" height="288" controls autoplay>
   <source type="video/mp4" src="data:video/mp4;base64,AAAAHGZ0eXBNNFYgAAACAGlzb21pc28yYXZjMQAAAAhmcmVlAAA5u21kYXQAAAKuBgX//6rcRem9
 5tlIt5Ys2CDZI+7veDI2NCAtIGNvcmUgMTQ4IHIyNzI4IDRkNWM4YjAgLSBILjI2NC9NUEVHLTQg
@@ -1340,34 +4114,23 @@ AABMYXZmNTcuNTYuMTAw
 
 
 
-![png](output_9_1.png)
+<p><img src="output_9_1.png" alt="png"></p>
+<h2 id="&#x901A;&#x8FC7;&#x4F5C;&#x54C1;&#x7EC4;&#x5408;&#x6784;&#x5EFA;&#x52A8;&#x753B;"><a name="&#x901A;&#x8FC7;&#x4F5C;&#x54C1;&#x7EC4;&#x5408;&#x6784;&#x5EFA;&#x52A8;&#x753B;" class="anchor-navigation-ex-anchor" href="#&#x901A;&#x8FC7;&#x4F5C;&#x54C1;&#x7EC4;&#x5408;&#x6784;&#x5EFA;&#x52A8;&#x753B;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x901A;&#x8FC7;&#x4F5C;&#x54C1;&#x7EC4;&#x5408;&#x6784;&#x5EFA;&#x52A8;&#x753B;</h2>
+<p><code>matplotlib.animation.ArtistAnimation(fig, artists, *args, **kwargs)</code></p>
+<p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x548C;&#x4E0A;&#x9762;&#x7C7B;&#x4F3C;,&#x53EA;&#x662F;&#x5148;&#x753B;&#x597D;&#x6BCF;&#x4E00;&#x5E45;&#x56FE;,&#x4E4B;&#x540E;&#x6309;&#x987A;&#x5E8F;&#x548C;&#x6307;&#x5B9A;&#x7684;&#x5E27;&#x7387;&#x5236;&#x4F5C;&#x52A8;&#x753B;</p>
+<pre><code class="lang-python">fig2 = plt.figure()
 
-
-## 通过作品组合构建动画
-
-`matplotlib.animation.ArtistAnimation(fig, artists, *args, **kwargs)`
-
-这种方式和上面类似,只是先画好每一幅图,之后按顺序和指定的帧率制作动画
-
-
-```python
-fig2 = plt.figure()
-
-x = np.arange(-9, 10)
-y = np.arange(-9, 10).reshape(-1, 1)
+x = np.arange(<span class="hljs-number">-9</span>, <span class="hljs-number">10</span>)
+y = np.arange(<span class="hljs-number">-9</span>, <span class="hljs-number">10</span>).reshape(<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>)
 base = np.hypot(x, y)
 ims = []
-for add in np.arange(15):
-    ims.append((plt.pcolor(x, y, base + add, norm=plt.Normalize(0, 30)),))
+<span class="hljs-keyword">for</span> add <span class="hljs-keyword">in</span> np.arange(<span class="hljs-number">15</span>):
+    ims.append((plt.pcolor(x, y, base + add, norm=plt.Normalize(<span class="hljs-number">0</span>, <span class="hljs-number">30</span>)),))
 
-im_ani = animation.ArtistAnimation(fig2, ims, interval=50, repeat_delay=3000,
-                                   blit=True)
+im_ani = animation.ArtistAnimation(fig2, ims, interval=<span class="hljs-number">50</span>, repeat_delay=<span class="hljs-number">3000</span>,
+                                   blit=<span class="hljs-keyword">True</span>)
 im_ani
-```
-
-
-
-
+</code></pre>
 <video width="432" height="288" controls autoplay loop>
   <source type="video/mp4" src="data:video/mp4;base64,AAAAHGZ0eXBNNFYgAAACAGlzb21pc28yYXZjMQAAAAhmcmVlAAA88W1kYXQAAAKuBgX//6rcRem9
 5tlIt5Ys2CDZI+7veDI2NCAtIGNvcmUgMTQ4IHIyNzI4IDRkNWM4YjAgLSBILjI2NC9NUEVHLTQg
@@ -1668,76 +4431,72 @@ AAAtaWxzdAAAACWpdG9vAAAAHWRhdGEAAAABAAAAAExhdmY1Ny41Ni4xMDA=
 
 
 
-![png](output_11_1.png)
-
-
-## 通过继承构建
-
-`matplotlib.animation.TimedAnimation`是上面俩的基类,我们也可以直接继承它来构造动画,主要要重载的是
-+ `__init__()`方法
-+ `_draw_frame`方法,对应func
-+ `new_frame_seq`对应frames
-+ `_init_draw`对应init_func
-
-
-```python
-from matplotlib.lines import Line2D
-class SubplotAnimation(animation.TimedAnimation):
-    def __init__(self):
+<p><img src="output_11_1.png" alt="png"></p>
+<h2 id="&#x901A;&#x8FC7;&#x7EE7;&#x627F;&#x6784;&#x5EFA;"><a name="&#x901A;&#x8FC7;&#x7EE7;&#x627F;&#x6784;&#x5EFA;" class="anchor-navigation-ex-anchor" href="#&#x901A;&#x8FC7;&#x7EE7;&#x627F;&#x6784;&#x5EFA;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x901A;&#x8FC7;&#x7EE7;&#x627F;&#x6784;&#x5EFA;</h2>
+<p><code>matplotlib.animation.TimedAnimation</code>&#x662F;&#x4E0A;&#x9762;&#x4FE9;&#x7684;&#x57FA;&#x7C7B;,&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x7EE7;&#x627F;&#x5B83;&#x6765;&#x6784;&#x9020;&#x52A8;&#x753B;,&#x4E3B;&#x8981;&#x8981;&#x91CD;&#x8F7D;&#x7684;&#x662F;</p>
+<ul>
+<li><code>__init__()</code>&#x65B9;&#x6CD5;</li>
+<li><code>_draw_frame</code>&#x65B9;&#x6CD5;,&#x5BF9;&#x5E94;func</li>
+<li><code>new_frame_seq</code>&#x5BF9;&#x5E94;frames</li>
+<li><code>_init_draw</code>&#x5BF9;&#x5E94;init_func</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> matplotlib.lines <span class="hljs-keyword">import</span> Line2D
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SubplotAnimation</span><span class="hljs-params">(animation.TimedAnimation)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
         fig = plt.figure()
-        ax1 = fig.add_subplot(1, 2, 1)
-        ax2 = fig.add_subplot(2, 2, 2)
-        ax3 = fig.add_subplot(2, 2, 4)
+        ax1 = fig.add_subplot(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>)
+        ax2 = fig.add_subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>)
+        ax3 = fig.add_subplot(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>)
 
-        self.t = np.linspace(0, 80, 400)
-        self.x = np.cos(2 * np.pi * self.t / 10.)
-        self.y = np.sin(2 * np.pi * self.t / 10.)
-        self.z = 10 * self.t
+        self.t = np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">80</span>, <span class="hljs-number">400</span>)
+        self.x = np.cos(<span class="hljs-number">2</span> * np.pi * self.t / <span class="hljs-number">10.</span>)
+        self.y = np.sin(<span class="hljs-number">2</span> * np.pi * self.t / <span class="hljs-number">10.</span>)
+        self.z = <span class="hljs-number">10</span> * self.t
 
-        ax1.set_xlabel('x')
-        ax1.set_ylabel('y')
-        self.line1 = Line2D([], [], color='black')
-        self.line1a = Line2D([], [], color='red', linewidth=2)
+        ax1.set_xlabel(<span class="hljs-string">&apos;x&apos;</span>)
+        ax1.set_ylabel(<span class="hljs-string">&apos;y&apos;</span>)
+        self.line1 = Line2D([], [], color=<span class="hljs-string">&apos;black&apos;</span>)
+        self.line1a = Line2D([], [], color=<span class="hljs-string">&apos;red&apos;</span>, linewidth=<span class="hljs-number">2</span>)
         self.line1e = Line2D(
-            [], [], color='red', marker='o', markeredgecolor='r')
+            [], [], color=<span class="hljs-string">&apos;red&apos;</span>, marker=<span class="hljs-string">&apos;o&apos;</span>, markeredgecolor=<span class="hljs-string">&apos;r&apos;</span>)
         ax1.add_line(self.line1)
         ax1.add_line(self.line1a)
         ax1.add_line(self.line1e)
-        ax1.set_xlim(-1, 1)
-        ax1.set_ylim(-2, 2)
-        ax1.set_aspect('equal', 'datalim')
+        ax1.set_xlim(<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>)
+        ax1.set_ylim(<span class="hljs-number">-2</span>, <span class="hljs-number">2</span>)
+        ax1.set_aspect(<span class="hljs-string">&apos;equal&apos;</span>, <span class="hljs-string">&apos;datalim&apos;</span>)
 
-        ax2.set_xlabel('y')
-        ax2.set_ylabel('z')
-        self.line2 = Line2D([], [], color='black')
-        self.line2a = Line2D([], [], color='red', linewidth=2)
+        ax2.set_xlabel(<span class="hljs-string">&apos;y&apos;</span>)
+        ax2.set_ylabel(<span class="hljs-string">&apos;z&apos;</span>)
+        self.line2 = Line2D([], [], color=<span class="hljs-string">&apos;black&apos;</span>)
+        self.line2a = Line2D([], [], color=<span class="hljs-string">&apos;red&apos;</span>, linewidth=<span class="hljs-number">2</span>)
         self.line2e = Line2D(
-            [], [], color='red', marker='o', markeredgecolor='r')
+            [], [], color=<span class="hljs-string">&apos;red&apos;</span>, marker=<span class="hljs-string">&apos;o&apos;</span>, markeredgecolor=<span class="hljs-string">&apos;r&apos;</span>)
         ax2.add_line(self.line2)
         ax2.add_line(self.line2a)
         ax2.add_line(self.line2e)
-        ax2.set_xlim(-1, 1)
-        ax2.set_ylim(0, 800)
+        ax2.set_xlim(<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>)
+        ax2.set_ylim(<span class="hljs-number">0</span>, <span class="hljs-number">800</span>)
 
-        ax3.set_xlabel('x')
-        ax3.set_ylabel('z')
-        self.line3 = Line2D([], [], color='black')
-        self.line3a = Line2D([], [], color='red', linewidth=2)
+        ax3.set_xlabel(<span class="hljs-string">&apos;x&apos;</span>)
+        ax3.set_ylabel(<span class="hljs-string">&apos;z&apos;</span>)
+        self.line3 = Line2D([], [], color=<span class="hljs-string">&apos;black&apos;</span>)
+        self.line3a = Line2D([], [], color=<span class="hljs-string">&apos;red&apos;</span>, linewidth=<span class="hljs-number">2</span>)
         self.line3e = Line2D(
-            [], [], color='red', marker='o', markeredgecolor='r')
+            [], [], color=<span class="hljs-string">&apos;red&apos;</span>, marker=<span class="hljs-string">&apos;o&apos;</span>, markeredgecolor=<span class="hljs-string">&apos;r&apos;</span>)
         ax3.add_line(self.line3)
         ax3.add_line(self.line3a)
         ax3.add_line(self.line3e)
-        ax3.set_xlim(-1, 1)
-        ax3.set_ylim(0, 800)
+        ax3.set_xlim(<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>)
+        ax3.set_ylim(<span class="hljs-number">0</span>, <span class="hljs-number">800</span>)
 
-        animation.TimedAnimation.__init__(self, fig, interval=50, blit=True)
+        animation.TimedAnimation.__init__(self, fig, interval=<span class="hljs-number">50</span>, blit=<span class="hljs-keyword">True</span>)
 
-    def _draw_frame(self, framedata):
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_draw_frame</span><span class="hljs-params">(self, framedata)</span>:</span>
         i = framedata
-        head = i - 1
-        head_len = 10
-        head_slice = (self.t > self.t[i] - 1.0) & (self.t < self.t[i])
+        head = i - <span class="hljs-number">1</span>
+        head_len = <span class="hljs-number">10</span>
+        head_slice = (self.t &gt; self.t[i] - <span class="hljs-number">1.0</span>) &amp; (self.t &lt; self.t[i])
 
         self.line1.set_data(self.x[:i], self.y[:i])
         self.line1a.set_data(self.x[head_slice], self.y[head_slice])
@@ -1755,26 +4514,19 @@ class SubplotAnimation(animation.TimedAnimation):
                                self.line2, self.line2a, self.line2e,
                                self.line3, self.line3a, self.line3e]
 
-    def new_frame_seq(self):
-        return iter(range(self.t.size))
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">new_frame_seq</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> iter(range(self.t.size))
 
-    def _init_draw(self):
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_init_draw</span><span class="hljs-params">(self)</span>:</span>
         lines = [self.line1, self.line1a, self.line1e,
                  self.line2, self.line2a, self.line2e,
                  self.line3, self.line3a, self.line3e]
-        for l in lines:
+        <span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> lines:
             l.set_data([], [])
-```
-
-
-```python
-ani = SubplotAnimation()
+</code></pre>
+<pre><code class="lang-python">ani = SubplotAnimation()
 ani
-```
-
-
-
-
+</code></pre>
 <video width="432" height="288" controls autoplay loop>
   <source type="video/mp4" src="data:video/mp4;base64,AAAAHGZ0eXBNNFYgAAACAGlzb21pc28yYXZjMQAAAAhmcmVlAAJvJW1kYXQAAAKuBgX//6rcRem9
 5tlIt5Ys2CDZI+7veDI2NCAtIGNvcmUgMTQ4IHIyNzI4IDRkNWM4YjAgLSBILjI2NC9NUEVHLTQg
@@ -4670,42 +7422,125 @@ AAAAAQAAAABMYXZmNTcuNTYuMTAw
 
 
 
-![png](output_14_1.png)
-
-
-## 动画的输出
-
-最简单的输出就是直接通过matplotlib输出,直接`plt.show()`即可,注意这种方式jupyter notebook并不支持.只能在脚本中使用
-
-### 输出为html5可读的视屏
-
-使用`.to_html5_video()`方法可以直接输出一段浏览器可以识别的带标签的html5字符串这种可以直接嵌入到网页前端
-
-### 保存动画
-
-动画保存是通过`.save(filename, writer=None, fps=None, dpi=None, codec=None, bitrate=None, extra_args=None, metadata=None, extra_anim=None, savefig_kwargs=None)`方法
-
-+ writer可以自己定义转码工具,默认为ffmpeg
-+ fps为帧率
-+ dpi控制动画每帧中的每英寸点数.
-+ codec指定保存的格式,默认使用filename的后缀作为格式
-+ bitrate指定压缩影片每秒使用的位数，以千位/秒为单位。更高的数字意味着更高质量的电影，但是以增加的文件大小为代价。如果未指定值，则默认值为rcparam animation.bitrate给出的值。
-+ metadata元数据包括在输出文件中的元数据的键和值的字典。可能有用的一些键包括：标题，艺术家，流派，主题，版权，srcform，注释。
-
-### 动画生成和转码工具的设置
-
-matplotlib本身就是个作图的工具,本身无法制作动画,但他可以通过其他工具提供了几个参数用来转码和设置,我们可以定义一个主题来实现需要的时候加载
-
-```
-animation.ffmpeg_path : <yourpathtoffmpeg>/bin/ffmpeg
-animation.convert_path: <yourpathtoimagemagick>/imagemagick/6.9.7-0/bin/convert
+<p><img src="output_14_1.png" alt="png"></p>
+<h2 id="&#x52A8;&#x753B;&#x7684;&#x8F93;&#x51FA;"><a name="&#x52A8;&#x753B;&#x7684;&#x8F93;&#x51FA;" class="anchor-navigation-ex-anchor" href="#&#x52A8;&#x753B;&#x7684;&#x8F93;&#x51FA;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. &#x52A8;&#x753B;&#x7684;&#x8F93;&#x51FA;</h2>
+<p>&#x6700;&#x7B80;&#x5355;&#x7684;&#x8F93;&#x51FA;&#x5C31;&#x662F;&#x76F4;&#x63A5;&#x901A;&#x8FC7;matplotlib&#x8F93;&#x51FA;,&#x76F4;&#x63A5;<code>plt.show()</code>&#x5373;&#x53EF;,&#x6CE8;&#x610F;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;jupyter notebook&#x5E76;&#x4E0D;&#x652F;&#x6301;.&#x53EA;&#x80FD;&#x5728;&#x811A;&#x672C;&#x4E2D;&#x4F7F;&#x7528;</p>
+<h3 id="&#x8F93;&#x51FA;&#x4E3A;html5&#x53EF;&#x8BFB;&#x7684;&#x89C6;&#x5C4F;"><a name="&#x8F93;&#x51FA;&#x4E3A;html5&#x53EF;&#x8BFB;&#x7684;&#x89C6;&#x5C4F;" class="anchor-navigation-ex-anchor" href="#&#x8F93;&#x51FA;&#x4E3A;html5&#x53EF;&#x8BFB;&#x7684;&#x89C6;&#x5C4F;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.1. &#x8F93;&#x51FA;&#x4E3A;html5&#x53EF;&#x8BFB;&#x7684;&#x89C6;&#x5C4F;</h3>
+<p>&#x4F7F;&#x7528;<code>.to_html5_video()</code>&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8F93;&#x51FA;&#x4E00;&#x6BB5;&#x6D4F;&#x89C8;&#x5668;&#x53EF;&#x4EE5;&#x8BC6;&#x522B;&#x7684;&#x5E26;&#x6807;&#x7B7E;&#x7684;html5&#x5B57;&#x7B26;&#x4E32;&#x8FD9;&#x79CD;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5D4C;&#x5165;&#x5230;&#x7F51;&#x9875;&#x524D;&#x7AEF;</p>
+<h3 id="&#x4FDD;&#x5B58;&#x52A8;&#x753B;"><a name="&#x4FDD;&#x5B58;&#x52A8;&#x753B;" class="anchor-navigation-ex-anchor" href="#&#x4FDD;&#x5B58;&#x52A8;&#x753B;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.2. &#x4FDD;&#x5B58;&#x52A8;&#x753B;</h3>
+<p>&#x52A8;&#x753B;&#x4FDD;&#x5B58;&#x662F;&#x901A;&#x8FC7;<code>.save(filename, writer=None, fps=None, dpi=None, codec=None, bitrate=None, extra_args=None, metadata=None, extra_anim=None, savefig_kwargs=None)</code>&#x65B9;&#x6CD5;</p>
+<ul>
+<li>writer&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#x8F6C;&#x7801;&#x5DE5;&#x5177;,&#x9ED8;&#x8BA4;&#x4E3A;ffmpeg</li>
+<li>fps&#x4E3A;&#x5E27;&#x7387;</li>
+<li>dpi&#x63A7;&#x5236;&#x52A8;&#x753B;&#x6BCF;&#x5E27;&#x4E2D;&#x7684;&#x6BCF;&#x82F1;&#x5BF8;&#x70B9;&#x6570;.</li>
+<li>codec&#x6307;&#x5B9A;&#x4FDD;&#x5B58;&#x7684;&#x683C;&#x5F0F;,&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;filename&#x7684;&#x540E;&#x7F00;&#x4F5C;&#x4E3A;&#x683C;&#x5F0F;</li>
+<li>bitrate&#x6307;&#x5B9A;&#x538B;&#x7F29;&#x5F71;&#x7247;&#x6BCF;&#x79D2;&#x4F7F;&#x7528;&#x7684;&#x4F4D;&#x6570;&#xFF0C;&#x4EE5;&#x5343;&#x4F4D;/&#x79D2;&#x4E3A;&#x5355;&#x4F4D;&#x3002;&#x66F4;&#x9AD8;&#x7684;&#x6570;&#x5B57;&#x610F;&#x5473;&#x7740;&#x66F4;&#x9AD8;&#x8D28;&#x91CF;&#x7684;&#x7535;&#x5F71;&#xFF0C;&#x4F46;&#x662F;&#x4EE5;&#x589E;&#x52A0;&#x7684;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#x4E3A;&#x4EE3;&#x4EF7;&#x3002;&#x5982;&#x679C;&#x672A;&#x6307;&#x5B9A;&#x503C;&#xFF0C;&#x5219;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;rcparam animation.bitrate&#x7ED9;&#x51FA;&#x7684;&#x503C;&#x3002;</li>
+<li>metadata&#x5143;&#x6570;&#x636E;&#x5305;&#x62EC;&#x5728;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5143;&#x6570;&#x636E;&#x7684;&#x952E;&#x548C;&#x503C;&#x7684;&#x5B57;&#x5178;&#x3002;&#x53EF;&#x80FD;&#x6709;&#x7528;&#x7684;&#x4E00;&#x4E9B;&#x952E;&#x5305;&#x62EC;&#xFF1A;&#x6807;&#x9898;&#xFF0C;&#x827A;&#x672F;&#x5BB6;&#xFF0C;&#x6D41;&#x6D3E;&#xFF0C;&#x4E3B;&#x9898;&#xFF0C;&#x7248;&#x6743;&#xFF0C;srcform&#xFF0C;&#x6CE8;&#x91CA;&#x3002;</li>
+</ul>
+<h3 id="&#x52A8;&#x753B;&#x751F;&#x6210;&#x548C;&#x8F6C;&#x7801;&#x5DE5;&#x5177;&#x7684;&#x8BBE;&#x7F6E;"><a name="&#x52A8;&#x753B;&#x751F;&#x6210;&#x548C;&#x8F6C;&#x7801;&#x5DE5;&#x5177;&#x7684;&#x8BBE;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#&#x52A8;&#x753B;&#x751F;&#x6210;&#x548C;&#x8F6C;&#x7801;&#x5DE5;&#x5177;&#x7684;&#x8BBE;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4.3. &#x52A8;&#x753B;&#x751F;&#x6210;&#x548C;&#x8F6C;&#x7801;&#x5DE5;&#x5177;&#x7684;&#x8BBE;&#x7F6E;</h3>
+<p>matplotlib&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x4E2A;&#x4F5C;&#x56FE;&#x7684;&#x5DE5;&#x5177;,&#x672C;&#x8EAB;&#x65E0;&#x6CD5;&#x5236;&#x4F5C;&#x52A8;&#x753B;,&#x4F46;&#x4ED6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5176;&#x4ED6;&#x5DE5;&#x5177;&#x63D0;&#x4F9B;&#x4E86;&#x51E0;&#x4E2A;&#x53C2;&#x6570;&#x7528;&#x6765;&#x8F6C;&#x7801;&#x548C;&#x8BBE;&#x7F6E;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x4E3B;&#x9898;&#x6765;&#x5B9E;&#x73B0;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x52A0;&#x8F7D;</p>
+<pre><code>animation.ffmpeg_path : &lt;yourpathtoffmpeg&gt;/bin/ffmpeg
+animation.convert_path: &lt;yourpathtoimagemagick&gt;/imagemagick/6.9.7-0/bin/convert
 animation.html: html5
-```
+</code></pre><p>&#x901A;&#x8FC7;&#x8FD9;&#x6837;&#x7684;&#x8BBE;&#x7F6E;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;ffmpeg&#x5DE5;&#x5177;&#x8F6C;&#x7801;&#x4E3A;&#x5E38;&#x89C1;&#x7684;&#x683C;&#x5F0F;&#x5982;MP4,&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6307;&#x5B9A;writer&#x53C2;&#x6570;&#x6765;&#x4F7F;&#x7528;imagemagick&#x6784;&#x5EFA;gif&#x52A8;&#x753B;&#x56FE;&#x7247;.</p>
+<p>&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4E3A;&#x4E86;&#x8BA9;jupyter notebook&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x663E;&#x793A;&#x52A8;&#x753B;,&#x5982;&#x679C;&#x4E0D;&#x8BBE;&#x7F6E;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;</p>
+<p><code>from IPython.display import HTML</code></p>
+<p>&#x7136;&#x540E;<code>HTML(ani.to_html5())</code>&#x6765;&#x8F93;&#x51FA;&#x52A8;&#x753B;</p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-08-29 21:15:27
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
 
-通过这样的设置可以使用ffmpeg工具转码为常见的格式如MP4,也可以通过指定writer参数来使用imagemagick构建gif动画图片.
+                        </div>
+                    </div>
+                
+            </div>
 
-第三个参数是为了让jupyter notebook可以直接显示动画,如果不设置也可以使用
+            
+                
+                <a href="../控件.html" class="navigation navigation-prev " aria-label="Previous page: 控件">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../matplitlib结合web技术.html" class="navigation navigation-next " aria-label="Next page: matplitlib结合web技术">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
 
-`from IPython.display import HTML`
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"动画","level":"5.1.2.1.8","depth":4,"next":{"title":"matplitlib结合web技术","level":"5.1.2.1.9","depth":4,"path":"科学计算篇/数据可视化/使用matplotlib做数据可视化/matplitlib结合web技术.md","ref":"科学计算篇/数据可视化/使用matplotlib做数据可视化/matplitlib结合web技术.md","articles":[]},"previous":{"title":"控件","level":"5.1.2.1.7","depth":4,"path":"科学计算篇/数据可视化/使用matplotlib做数据可视化/控件.md","ref":"科学计算篇/数据可视化/使用matplotlib做数据可视化/控件.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","mathjax","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"http://blog.hszofficial.site/TutorialForPython"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"title":"","button":"赏","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","wechatText":"微信打赏","alipayText":"支付宝打赏"},"sitemap-general":{"prefix":"http://blog.hszofficial.site/TutorialForPython/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":true},"mode":"float","multipleH1":true,"pageTop":{"showLevelIcon":false,"mode":"float","pageTop":{"showLevelIcon":false,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"},"level1Icon":"","showLevel":true,"level2Icon":"","level3Icon":"","associatedWithSummary":true,"float":{"showLevelIcon":true,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"}},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍python3.5+的语法与编程惯用法"},"file":{"path":"科学计算篇/数据可视化/使用matplotlib做数据可视化/动画/动画.md","mtime":"2019-08-29T13:15:27.629Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-30T04:24:36.077Z"},"basePath":"../../../..","book":{"language":""}});
+        });
+    </script>
+</div>
 
-然后`HTML(ani.to_html5())`来输出动画
+        
+    <script src="../../../../gitbook/gitbook.js"></script>
+    <script src="../../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

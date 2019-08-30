@@ -1,295 +1,3047 @@
 
-# matplitlib结合web技术
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>matplitlib结合web技术 · python攻略</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="hsz">
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
 
-现今的数据可视化早已不再局限于文章或者出个图就算了,更多的需要使用web技术动态的构建图像,使用web技术做数据可视化当然可以在前端做,比如结合d3.js实现,但如果要从后端生成,我们也可以使用matplotlib来实现.
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
 
-matplotlib的web端使用的绘图技术有两种
+    
 
-+ 基于svg图像标签`<SVG>`的图像技术
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
 
-+ 基于websocket的图像技术
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
-根据实现也分为展示型和交互型,一般来说,交互型就会用到ajax技术,轮询,或者websocket了
+    
+    <link rel="next" href="结语.html" />
+    
+    
+    <link rel="prev" href="动画/动画.html" />
+    
 
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"};
+    </script>
 
-当然了,对于生成的动画,也是可以结合web技术实现展示的
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
 
-我们这次的来以股票数据作为例子来绘制图形,用来查看上证50股的历史k线图
-
-上证50成分股内容如下
-
-```
-symbol_dict = {
-    "600000": "浦发银行",
-    "600010": "包钢股份",
-    "600015": "华夏银行",
-    "600016": "民生银行",
-    "600018": "上港集团",
-    "600028": "中国石化",
-    "600030": "中信证券",
-    "600036": "招商银行",
-    "600048": "保利地产",
-    "600050": "中国联通",
-    "600089": "特变电工",
-    "600104": "上汽集团",
-    "600109": "国金证券",
-    "600111": "北方稀土",
-    "600150": "中国船舶",
-    "600256": "广汇能源",
-    "600406": "国电南瑞",
-    "600518": "康美药业",
-    "600519": "贵州茅台",
-    "600583": "海油工程",
-    "600585": "海螺水泥",
-    "600637": "东方明珠",
-    "600690": "青岛海尔",
-    "600837": "海通证券",
-    "600887": "伊利股份",
-    "600893": "中航动力",
-    "600958": "东方证券",
-    "600999": "招商证券",
-    "601006": "大秦铁路",
-    "601088": "中国神华",
-    "601166": "兴业银行",
-    "601169": "北京银行",
-    "601186": "中国铁建",
-    "601288": "农业银行",
-    "601318": "中国平安",
-    "601328": "交通银行",
-    "601390": "中国中铁",
-    "601398": "工商银行",
-    "601601": "中国太保",
-    "601628": "中国人寿",
-    "601668": "中国建筑",
-    "601688": "华泰证券",
-    "601766": "中国中车",
-    "601800": "中国交建",
-    "601818": "光大银行",
-    "601857": "中国石油",
-    "601901": "方正证券",
-    "601988": "中国银行",
-    "601989": "中国重工",
-    "601998": "中信银行"}
-```
-
-我们通过输入编号和日期来进行查找
-
-下面是基本的函数
+            
+                <nav role="navigation">
+                
 
 
-```python
-from __future__ import print_function
-from imp import reload
-import matplotlib
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://blog.hszofficial.site/" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../../工具链篇/">
+            
+                <a href="../../../工具链篇/">
+            
+                    
+                    工具链篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../../工具链篇/运行环境.html">
+            
+                <a href="../../../工具链篇/运行环境.html">
+            
+                    
+                    运行环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../../工具链篇/包的安装管理与分发.html">
+            
+                <a href="../../../工具链篇/包的安装管理与分发.html">
+            
+                    
+                    包的安装管理与分发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../../工具链篇/交互环境jupyter/">
+            
+                <a href="../../../工具链篇/交互环境jupyter/">
+            
+                    
+                    交互环境jupyter
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../../../工具链篇/交互环境jupyter/基于web的可交互运行环境jupyter.html">
+            
+                <a href="../../../工具链篇/交互环境jupyter/基于web的可交互运行环境jupyter.html">
+            
+                    
+                    基于web的可交互运行环境jupyter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../../../工具链篇/交互环境jupyter/ipython与魔法命令/ipython与魔法命令.html">
+            
+                <a href="../../../工具链篇/交互环境jupyter/ipython与魔法命令/ipython与魔法命令.html">
+            
+                    
+                    ipython与魔法命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../../../工具链篇/交互环境jupyter/在Ipython_Notebook中的代码调试与优化.html">
+            
+                <a href="../../../工具链篇/交互环境jupyter/在Ipython_Notebook中的代码调试与优化.html">
+            
+                    
+                    在Ipython_Notebook中的代码调试与优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../../../工具链篇/交互环境jupyter/在ipykernel中使用异步接口.html">
+            
+                <a href="../../../工具链篇/交互环境jupyter/在ipykernel中使用异步接口.html">
+            
+                    
+                    在ipykernel中使用异步接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../../../工具链篇/交互环境jupyter/多进程并行计算.html">
+            
+                <a href="../../../工具链篇/交互环境jupyter/多进程并行计算.html">
+            
+                    
+                    多进程并行计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../../../工具链篇/交互环境jupyter/公开的jupyter_notebook服务.html">
+            
+                <a href="../../../工具链篇/交互环境jupyter/公开的jupyter_notebook服务.html">
+            
+                    
+                    公开的jupyter_notebook服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../../../工具链篇/交互环境jupyter/notebook格式转换工具.html">
+            
+                <a href="../../../工具链篇/交互环境jupyter/notebook格式转换工具.html">
+            
+                    
+                    notebook格式转换工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.8" data-path="../../../工具链篇/交互环境jupyter/结语.html">
+            
+                <a href="../../../工具链篇/交互环境jupyter/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../../工具链篇/代码风格.html">
+            
+                <a href="../../../工具链篇/代码风格.html">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../../工具链篇/docstring工具.html">
+            
+                <a href="../../../工具链篇/docstring工具.html">
+            
+                    
+                    docstring工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../../工具链篇/静态类型检测.html">
+            
+                <a href="../../../工具链篇/静态类型检测.html">
+            
+                    
+                    静态类型检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../../../工具链篇/日志工具.html">
+            
+                <a href="../../../工具链篇/日志工具.html">
+            
+                    
+                    日志工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../../../工具链篇/调试工具.html">
+            
+                <a href="../../../工具链篇/调试工具.html">
+            
+                    
+                    调试工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../../../工具链篇/调用追踪与异常栈追踪.html">
+            
+                <a href="../../../工具链篇/调用追踪与异常栈追踪.html">
+            
+                    
+                    调用追踪与异常栈追踪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../../../工具链篇/代码测试.html">
+            
+                <a href="../../../工具链篇/代码测试.html">
+            
+                    
+                    代码测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../../../工具链篇/部署服务.html">
+            
+                <a href="../../../工具链篇/部署服务.html">
+            
+                    
+                    部署服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../../../工具链篇/性能调优工具.html">
+            
+                <a href="../../../工具链篇/性能调优工具.html">
+            
+                    
+                    性能调优工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../../../工具链篇/结语.html">
+            
+                <a href="../../../工具链篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../../语法篇/">
+            
+                <a href="../../../语法篇/">
+            
+                    
+                    语法篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../../../语法篇/数据模型/">
+            
+                <a href="../../../语法篇/数据模型/">
+            
+                    
+                    数据模型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1.1" data-path="../../../语法篇/数据模型/数据模型.html">
+            
+                <a href="../../../语法篇/数据模型/数据模型.html">
+            
+                    
+                    数据模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.2" data-path="../../../语法篇/数据模型/变量引用与垃圾回收.html">
+            
+                <a href="../../../语法篇/数据模型/变量引用与垃圾回收.html">
+            
+                    
+                    变量引用与垃圾回收
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.1.3" data-path="../../../语法篇/数据模型/结语.html">
+            
+                <a href="../../../语法篇/数据模型/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../../../语法篇/模块/">
+            
+                <a href="../../../语法篇/模块/">
+            
+                    
+                    模块
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../../../语法篇/模块/导入时与运行时.html">
+            
+                <a href="../../../语法篇/模块/导入时与运行时.html">
+            
+                    
+                    导入时与运行时
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="../../../语法篇/模块/模块的预设字段.html">
+            
+                <a href="../../../语法篇/模块/模块的预设字段.html">
+            
+                    
+                    模块的预设字段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="../../../语法篇/模块/模块的加载流程.html">
+            
+                <a href="../../../语法篇/模块/模块的加载流程.html">
+            
+                    
+                    模块的加载流程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.4" data-path="../../../语法篇/模块/模块加载特殊内容.html">
+            
+                <a href="../../../语法篇/模块/模块加载特殊内容.html">
+            
+                    
+                    模块加载特殊内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.5" data-path="../../../语法篇/模块/结语.html">
+            
+                <a href="../../../语法篇/模块/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../../../语法篇/文本与字节序/">
+            
+                <a href="../../../语法篇/文本与字节序/">
+            
+                    
+                    文本与字节序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.3.1" data-path="../../../语法篇/文本与字节序/文本和编码.html">
+            
+                <a href="../../../语法篇/文本与字节序/文本和编码.html">
+            
+                    
+                    文本和编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.2" data-path="../../../语法篇/文本与字节序/字节序列与内存视图.html">
+            
+                <a href="../../../语法篇/文本与字节序/字节序列与内存视图.html">
+            
+                    
+                    字节序列与内存视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.3" data-path="../../../语法篇/文本与字节序/字符串操作.html">
+            
+                <a href="../../../语法篇/文本与字节序/字符串操作.html">
+            
+                    
+                    字符串操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.4" data-path="../../../语法篇/文本与字节序/文本模板.html">
+            
+                <a href="../../../语法篇/文本与字节序/文本模板.html">
+            
+                    
+                    文本模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.5" data-path="../../../语法篇/文本与字节序/正则表达式.html">
+            
+                <a href="../../../语法篇/文本与字节序/正则表达式.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.6" data-path="../../../语法篇/文本与字节序/序列化.html">
+            
+                <a href="../../../语法篇/文本与字节序/序列化.html">
+            
+                    
+                    序列化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.7" data-path="../../../语法篇/文本与字节序/结语.html">
+            
+                <a href="../../../语法篇/文本与字节序/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../../../语法篇/流程控制/">
+            
+                <a href="../../../语法篇/流程控制/">
+            
+                    
+                    流程控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.4.1" data-path="../../../语法篇/流程控制/单线程同步流程控制.html">
+            
+                <a href="../../../语法篇/流程控制/单线程同步流程控制.html">
+            
+                    
+                    单线程同步流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.2" data-path="../../../语法篇/流程控制/阻塞异步与协程.html">
+            
+                <a href="../../../语法篇/流程控制/阻塞异步与协程.html">
+            
+                    
+                    阻塞异步与协程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.3" data-path="../../../语法篇/流程控制/多线程与GIL.html">
+            
+                <a href="../../../语法篇/流程控制/多线程与GIL.html">
+            
+                    
+                    多线程与GIL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.4" data-path="../../../语法篇/流程控制/多进程.html">
+            
+                <a href="../../../语法篇/流程控制/多进程.html">
+            
+                    
+                    多进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.5" data-path="../../../语法篇/流程控制/并行编程的惯用法.html">
+            
+                <a href="../../../语法篇/流程控制/并行编程的惯用法.html">
+            
+                    
+                    并行编程的惯用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4.6" data-path="../../../语法篇/流程控制/结语.html">
+            
+                <a href="../../../语法篇/流程控制/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../../../语法篇/异常和警告.html">
+            
+                <a href="../../../语法篇/异常和警告.html">
+            
+                    
+                    异常和警告
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../../../语法篇/内置容器/">
+            
+                <a href="../../../语法篇/内置容器/">
+            
+                    
+                    内置容器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.6.1" data-path="../../../语法篇/内置容器/序列对象.html">
+            
+                <a href="../../../语法篇/内置容器/序列对象.html">
+            
+                    
+                    序列对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.2" data-path="../../../语法篇/内置容器/映射对象.html">
+            
+                <a href="../../../语法篇/内置容器/映射对象.html">
+            
+                    
+                    映射对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.3" data-path="../../../语法篇/内置容器/可迭代对象与生成器.html">
+            
+                <a href="../../../语法篇/内置容器/可迭代对象与生成器.html">
+            
+                    
+                    可迭代对象与生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6.4" data-path="../../../语法篇/内置容器/结语.html">
+            
+                <a href="../../../语法篇/内置容器/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../../../语法篇/函数/">
+            
+                <a href="../../../语法篇/函数/">
+            
+                    
+                    函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.7.1" data-path="../../../语法篇/函数/函数是一等对象.html">
+            
+                <a href="../../../语法篇/函数/函数是一等对象.html">
+            
+                    
+                    函数是一等对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.2" data-path="../../../语法篇/函数/变量作用域与闭包.html">
+            
+                <a href="../../../语法篇/函数/变量作用域与闭包.html">
+            
+                    
+                    变量作用域与闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7.3" data-path="../../../语法篇/函数/结语.html">
+            
+                <a href="../../../语法篇/函数/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../../../语法篇/面向对象惯用法/">
+            
+                <a href="../../../语法篇/面向对象惯用法/">
+            
+                    
+                    面向对象惯用法
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.8.1" data-path="../../../语法篇/面向对象惯用法/python中的对象.html">
+            
+                <a href="../../../语法篇/面向对象惯用法/python中的对象.html">
+            
+                    
+                    python中的对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.2" data-path="../../../语法篇/面向对象惯用法/协议与接口与抽象基类.html">
+            
+                <a href="../../../语法篇/面向对象惯用法/协议与接口与抽象基类.html">
+            
+                    
+                    协议,接口与抽象基类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.3" data-path="../../../语法篇/面向对象惯用法/多重继承和Mixin.html">
+            
+                <a href="../../../语法篇/面向对象惯用法/多重继承和Mixin.html">
+            
+                    
+                    多重继承和Mixin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.4" data-path="../../../语法篇/面向对象惯用法/自定义序列Vector.html">
+            
+                <a href="../../../语法篇/面向对象惯用法/自定义序列Vector.html">
+            
+                    
+                    自定义序列Vector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8.5" data-path="../../../语法篇/面向对象惯用法/结语.html">
+            
+                <a href="../../../语法篇/面向对象惯用法/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../../../语法篇/元编程/">
+            
+                <a href="../../../语法篇/元编程/">
+            
+                    
+                    元编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.9.1" data-path="../../../语法篇/元编程/运算符重载.html">
+            
+                <a href="../../../语法篇/元编程/运算符重载.html">
+            
+                    
+                    运算符重载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9.2" data-path="../../../语法篇/元编程/特性与描述符.html">
+            
+                <a href="../../../语法篇/元编程/特性与描述符.html">
+            
+                    
+                    特性与描述符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9.3" data-path="../../../语法篇/元编程/装饰器.html">
+            
+                <a href="../../../语法篇/元编程/装饰器.html">
+            
+                    
+                    装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9.4" data-path="../../../语法篇/元编程/元类编程.html">
+            
+                <a href="../../../语法篇/元编程/元类编程.html">
+            
+                    
+                    元类编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9.5" data-path="../../../语法篇/元编程/import_hook.html">
+            
+                <a href="../../../语法篇/元编程/import_hook.html">
+            
+                    
+                    import_hook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9.6" data-path="../../../语法篇/元编程/动态编译.html">
+            
+                <a href="../../../语法篇/元编程/动态编译.html">
+            
+                    
+                    动态编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9.7" data-path="../../../语法篇/元编程/动态属性.html">
+            
+                <a href="../../../语法篇/元编程/动态属性.html">
+            
+                    
+                    动态属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9.8" data-path="../../../语法篇/元编程/猴子补丁和热更新.html">
+            
+                <a href="../../../语法篇/元编程/猴子补丁和热更新.html">
+            
+                    
+                    猴子补丁和热更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9.9" data-path="../../../语法篇/元编程/结语.html">
+            
+                <a href="../../../语法篇/元编程/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="../../../语法篇/结语.html">
+            
+                <a href="../../../语法篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../../../基础应用篇/">
+            
+                <a href="../../../基础应用篇/">
+            
+                    
+                    基础应用篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../../../基础应用篇/国际化/">
+            
+                <a href="../../../基础应用篇/国际化/">
+            
+                    
+                    国际化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1.1" data-path="../../../基础应用篇/国际化/字符编码判断.html">
+            
+                <a href="../../../基础应用篇/国际化/字符编码判断.html">
+            
+                    
+                    字符编码判断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.2" data-path="../../../基础应用篇/国际化/国际化文本翻译.html">
+            
+                <a href="../../../基础应用篇/国际化/国际化文本翻译.html">
+            
+                    
+                    国际化文本翻译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.3" data-path="../../../基础应用篇/国际化/时间日期处理.html">
+            
+                <a href="../../../基础应用篇/国际化/时间日期处理.html">
+            
+                    
+                    时间日期处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.4" data-path="../../../基础应用篇/国际化/货币处理模块.html">
+            
+                <a href="../../../基础应用篇/国际化/货币处理模块.html">
+            
+                    
+                    货币处理模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.5" data-path="../../../基础应用篇/国际化/结语.html">
+            
+                <a href="../../../基础应用篇/国际化/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../../../基础应用篇/数据压缩与归档/">
+            
+                <a href="../../../基础应用篇/数据压缩与归档/">
+            
+                    
+                    数据压缩与归档
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.2.1" data-path="../../../基础应用篇/数据压缩与归档/数据压缩解压.html">
+            
+                <a href="../../../基础应用篇/数据压缩与归档/数据压缩解压.html">
+            
+                    
+                    数据压缩解压
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.2" data-path="../../../基础应用篇/数据压缩与归档/压缩归档.html">
+            
+                <a href="../../../基础应用篇/数据压缩与归档/压缩归档.html">
+            
+                    
+                    压缩归档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.3" data-path="../../../基础应用篇/数据压缩与归档/结语.html">
+            
+                <a href="../../../基础应用篇/数据压缩与归档/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../../../基础应用篇/定时任务.html">
+            
+                <a href="../../../基础应用篇/定时任务.html">
+            
+                    
+                    定时任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../../../基础应用篇/结构数据验证.html">
+            
+                <a href="../../../基础应用篇/结构数据验证.html">
+            
+                    
+                    结构数据验证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../../../基础应用篇/调用子进程.html">
+            
+                <a href="../../../基础应用篇/调用子进程.html">
+            
+                    
+                    调用子进程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../../信息安全篇/">
+            
+                <a href="../../../信息安全篇/">
+            
+                    
+                    信息安全篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../../信息安全篇/随机密码.html">
+            
+                <a href="../../../信息安全篇/随机密码.html">
+            
+                    
+                    随机密码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../../信息安全篇/摘要算法.html">
+            
+                <a href="../../../信息安全篇/摘要算法.html">
+            
+                    
+                    摘要算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../../../信息安全篇/加密算法.html">
+            
+                <a href="../../../信息安全篇/加密算法.html">
+            
+                    
+                    加密算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.4" data-path="../../../信息安全篇/数字签名.html">
+            
+                <a href="../../../信息安全篇/数字签名.html">
+            
+                    
+                    数字签名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.5" data-path="../../../信息安全篇/动态口令.html">
+            
+                <a href="../../../信息安全篇/动态口令.html">
+            
+                    
+                    动态口令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.6" data-path="../../../信息安全篇/结语.html">
+            
+                <a href="../../../信息安全篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../../输入输出篇/">
+            
+                <a href="../../../输入输出篇/">
+            
+                    
+                    输入输出篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../../../输入输出篇/标准输入输出.html">
+            
+                <a href="../../../输入输出篇/标准输入输出.html">
+            
+                    
+                    标准输入输出
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../../../输入输出篇/文件与IO流.html">
+            
+                <a href="../../../输入输出篇/文件与IO流.html">
+            
+                    
+                    文件与IO流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../../../输入输出篇/异步socket编程/">
+            
+                <a href="../../../输入输出篇/异步socket编程/">
+            
+                    
+                    异步socket编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.3.1" data-path="../../../输入输出篇/异步socket编程/异步网络编程的组件介绍.html">
+            
+                <a href="../../../输入输出篇/异步socket编程/异步网络编程的组件介绍.html">
+            
+                    
+                    异步网络编程的组件介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.2" data-path="../../../输入输出篇/异步socket编程/客户端服务器结构实现请求应答模式.html">
+            
+                <a href="../../../输入输出篇/异步socket编程/客户端服务器结构实现请求应答模式.html">
+            
+                    
+                    客户端服务器结构实现请求应答模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.3" data-path="../../../输入输出篇/异步socket编程/客户端中间人结构实现发布订阅模式.html">
+            
+                <a href="../../../输入输出篇/异步socket编程/客户端中间人结构实现发布订阅模式.html">
+            
+                    
+                    客户端中间人结构实现发布订阅模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.4" data-path="../../../输入输出篇/异步socket编程/p2p结构.html">
+            
+                <a href="../../../输入输出篇/异步socket编程/p2p结构.html">
+            
+                    
+                    p2p结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3.5" data-path="../../../输入输出篇/异步socket编程/结语.html">
+            
+                <a href="../../../输入输出篇/异步socket编程/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="../../../输入输出篇/数据库读写.html">
+            
+                <a href="../../../输入输出篇/数据库读写.html">
+            
+                    
+                    数据库读写
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5" data-path="../../../输入输出篇/接口服务/">
+            
+                <a href="../../../输入输出篇/接口服务/">
+            
+                    
+                    接口服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.5.1" data-path="../../../输入输出篇/接口服务/RPC服务/">
+            
+                <a href="../../../输入输出篇/接口服务/RPC服务/">
+            
+                    
+                    RPC服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.5.1.1" data-path="../../../输入输出篇/接口服务/RPC服务/XMLRPC接口服务.html">
+            
+                <a href="../../../输入输出篇/接口服务/RPC服务/XMLRPC接口服务.html">
+            
+                    
+                    XMLRPC接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.1.2" data-path="../../../输入输出篇/接口服务/RPC服务/JSONRPC接口服务.md">
+            
+                <span>
+            
+                    
+                    JSONRPC接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.1.3" data-path="../../../输入输出篇/接口服务/RPC服务/GRpc接口服务.html">
+            
+                <a href="../../../输入输出篇/接口服务/RPC服务/GRpc接口服务.html">
+            
+                    
+                    GRpc接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.1.4" data-path="../../../输入输出篇/接口服务/RPC服务/ZERORPC接口服务.html">
+            
+                <a href="../../../输入输出篇/接口服务/RPC服务/ZERORPC接口服务.html">
+            
+                    
+                    ZERORPC接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.2" data-path="../../../输入输出篇/接口服务/Http接口服务/">
+            
+                <a href="../../../输入输出篇/接口服务/Http接口服务/">
+            
+                    
+                    Http接口服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.5.2.1" data-path="../../../输入输出篇/接口服务/Http接口服务/使用http客户端获取数据.html">
+            
+                <a href="../../../输入输出篇/接口服务/Http接口服务/使用http客户端获取数据.html">
+            
+                    
+                    使用http客户端获取数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.2.2" data-path="../../../输入输出篇/接口服务/Http接口服务/使用Flask快速构建RESTful接口服务.html">
+            
+                <a href="../../../输入输出篇/接口服务/Http接口服务/使用Flask快速构建RESTful接口服务.html">
+            
+                    
+                    使用Flask快速构建RESTful接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.2.3" data-path="../../../输入输出篇/接口服务/Http接口服务/使用Sanic构建异步的RESTful接口服务.html">
+            
+                <a href="../../../输入输出篇/接口服务/Http接口服务/使用Sanic构建异步的RESTful接口服务.html">
+            
+                    
+                    使用Sanic构建异步的RESTful接口服务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.2.4" data-path="../../../输入输出篇/接口服务/Http接口服务/解析请求与响应头.html">
+            
+                <a href="../../../输入输出篇/接口服务/Http接口服务/解析请求与响应头.html">
+            
+                    
+                    解析请求与响应头
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.2.5" data-path="../../../输入输出篇/接口服务/Http接口服务/解析url.html">
+            
+                <a href="../../../输入输出篇/接口服务/Http接口服务/解析url.html">
+            
+                    
+                    解析url
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.2.6" data-path="../../../输入输出篇/接口服务/Http接口服务/解析html文件.html">
+            
+                <a href="../../../输入输出篇/接口服务/Http接口服务/解析html文件.html">
+            
+                    
+                    解析html文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.2.7" data-path="../../../输入输出篇/接口服务/Http接口服务/结语.html">
+            
+                <a href="../../../输入输出篇/接口服务/Http接口服务/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.3" data-path="../../../输入输出篇/接口服务/WebSocket接口服务/">
+            
+                <a href="../../../输入输出篇/接口服务/WebSocket接口服务/">
+            
+                    
+                    WebSocket接口服务
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.5.3.1" data-path="../../../输入输出篇/接口服务/WebSocket接口服务/WebSocket接口服务和客户端.html">
+            
+                <a href="../../../输入输出篇/接口服务/WebSocket接口服务/WebSocket接口服务和客户端.html">
+            
+                    
+                    WebSocket接口服务和客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.5.3.2" data-path="../../../输入输出篇/接口服务/WebSocket接口服务/结语.html">
+            
+                <a href="../../../输入输出篇/接口服务/WebSocket接口服务/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6" data-path="../../../输入输出篇/人机交互/">
+            
+                <a href="../../../输入输出篇/人机交互/">
+            
+                    
+                    人机交互
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.6.1" data-path="../../../输入输出篇/人机交互/使用python编写命令行工具.html">
+            
+                <a href="../../../输入输出篇/人机交互/使用python编写命令行工具.html">
+            
+                    
+                    使用python编写命令行工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.2" data-path="../../../输入输出篇/人机交互/自定义交互式界面.html">
+            
+                <a href="../../../输入输出篇/人机交互/自定义交互式界面.html">
+            
+                    
+                    自定义交互式界面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.3" data-path="../../../输入输出篇/人机交互/GUI/">
+            
+                <a href="../../../输入输出篇/人机交互/GUI/">
+            
+                    
+                    GUI
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.6.3.1" data-path="../../../输入输出篇/人机交互/GUI/TK框架GUI编程的基本思路.html">
+            
+                <a href="../../../输入输出篇/人机交互/GUI/TK框架GUI编程的基本思路.html">
+            
+                    
+                    TK框架GUI编程的基本思路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.3.2" data-path="../../../输入输出篇/人机交互/GUI/Tkinter的组件介绍.html">
+            
+                <a href="../../../输入输出篇/人机交互/GUI/Tkinter的组件介绍.html">
+            
+                    
+                    Tkinter的组件介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.3.3" data-path="../../../输入输出篇/人机交互/GUI/结合pandas和matplotlib制作数据科学GUI工具/结合pandas和matplotlib制作数据科学GUI工具.html">
+            
+                <a href="../../../输入输出篇/人机交互/GUI/结合pandas和matplotlib制作数据科学GUI工具/结合pandas和matplotlib制作数据科学GUI工具.html">
+            
+                    
+                    结合pandas和matplotlib制作数据科学GUI工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.6.4" data-path="../../../输入输出篇/人机交互/结语.html">
+            
+                <a href="../../../输入输出篇/人机交互/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.7" data-path="../../../输入输出篇/结语.html">
+            
+                <a href="../../../输入输出篇/结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    科学计算篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../../使用python做计算/">
+            
+                <a href="../../使用python做计算/">
+            
+                    
+                    使用python做计算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.1" data-path="../../使用python做计算/符号计算/">
+            
+                <a href="../../使用python做计算/符号计算/">
+            
+                    
+                    符号计算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.1.1" data-path="../../使用python做计算/符号计算/声明符号和内置符号类型.html">
+            
+                <a href="../../使用python做计算/符号计算/声明符号和内置符号类型.html">
+            
+                    
+                    声明符号和内置符号类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.2" data-path="../../使用python做计算/符号计算/符号计算/README.md">
+            
+                <span>
+            
+                    
+                    符号计算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.1.2.1" data-path="../../使用python做计算/符号计算/符号计算/表达式操作/表达式操作.html">
+            
+                <a href="../../使用python做计算/符号计算/符号计算/表达式操作/表达式操作.html">
+            
+                    
+                    表达式操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.2.2" data-path="../../使用python做计算/符号计算/符号计算/微积分.md">
+            
+                <span>
+            
+                    
+                    微积分
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.2.3" data-path="../../使用python做计算/符号计算/符号计算/解方程/解方程.html">
+            
+                <a href="../../使用python做计算/符号计算/符号计算/解方程/解方程.html">
+            
+                    
+                    解方程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.2.4" data-path="../../使用python做计算/符号计算/符号计算/线性代数/线性代数.html">
+            
+                <a href="../../使用python做计算/符号计算/符号计算/线性代数/线性代数.html">
+            
+                    
+                    线性代数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.2.5" data-path="../../使用python做计算/符号计算/符号计算/概率统计/概率统计.html">
+            
+                <a href="../../使用python做计算/符号计算/符号计算/概率统计/概率统计.html">
+            
+                    
+                    概率统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.2.6" data-path="../../使用python做计算/符号计算/符号计算/布尔代数/布尔代数.html">
+            
+                <a href="../../使用python做计算/符号计算/符号计算/布尔代数/布尔代数.html">
+            
+                    
+                    布尔代数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.3" data-path="../../使用python做计算/符号计算/输出/README.md">
+            
+                <span>
+            
+                    
+                    输出
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.1.3.1" data-path="../../使用python做计算/符号计算/输出/求值.html">
+            
+                <a href="../../使用python做计算/符号计算/输出/求值.html">
+            
+                    
+                    求值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.3.2" data-path="../../使用python做计算/符号计算/输出/更加优雅的输出打印结果/更加优雅的输出打印结果.html">
+            
+                <a href="../../使用python做计算/符号计算/输出/更加优雅的输出打印结果/更加优雅的输出打印结果.html">
+            
+                    
+                    更加优雅的输出打印结果
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.1.3.3" data-path="../../使用python做计算/符号计算/输出/画图/画图.html">
+            
+                <a href="../../使用python做计算/符号计算/输出/画图/画图.html">
+            
+                    
+                    画图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.2" data-path="../../使用python做计算/数值计算/">
+            
+                <a href="../../使用python做计算/数值计算/">
+            
+                    
+                    数值计算
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.2.1" data-path="../../使用python做计算/数值计算/使用标准库处理基本数学问题/使用标准库处理基本数学问题.html">
+            
+                <a href="../../使用python做计算/数值计算/使用标准库处理基本数学问题/使用标准库处理基本数学问题.html">
+            
+                    
+                    使用标准库处理基本数学问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.2.2" data-path="../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/">
+            
+                <a href="../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/">
+            
+                    
+                    使用numpy和scipy处理复杂的数值计算问题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1.2.2.1" data-path="../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/numpy的高性能同构定长多维数组/numpy的高性能同构定长多维数组.html">
+            
+                <a href="../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/numpy的高性能同构定长多维数组/numpy的高性能同构定长多维数组.html">
+            
+                    
+                    numpy的高性能同构定长多维数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.2.2.2" data-path="../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/universal_function/universal_function.html">
+            
+                <a href="../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/universal_function/universal_function.html">
+            
+                    
+                    universal_function
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.2.2.3" data-path="../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/精度与基本数学运算.html">
+            
+                <a href="../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/精度与基本数学运算.html">
+            
+                    
+                    精度与基本数学运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.1.2.2.4" data-path="../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/使用numpy做科学计算/使用numpy做科学计算.html">
+            
+                <a href="../../使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/使用numpy做科学计算/使用numpy做科学计算.html">
+            
+                    
+                    使用numpy做科学计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    数据可视化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    使用matplotlib做数据可视化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.2.1.1" data-path="matplotlib的基本设置/matplotlib的基本设置.html">
+            
+                <a href="matplotlib的基本设置/matplotlib的基本设置.html">
+            
+                    
+                    matplotlib的基本设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.1.2" data-path="绘图工具pyplot/绘图工具pyplot.html">
+            
+                <a href="绘图工具pyplot/绘图工具pyplot.html">
+            
+                    
+                    绘图工具pyplot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.1.3" data-path="非结构网络/非结构网络.html">
+            
+                <a href="非结构网络/非结构网络.html">
+            
+                    
+                    非结构网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.1.4" data-path="桑基图/桑基图.html">
+            
+                <a href="桑基图/桑基图.html">
+            
+                    
+                    桑基图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.1.5" data-path="图片加载/图片加载.html">
+            
+                <a href="图片加载/图片加载.html">
+            
+                    
+                    图片加载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.1.6" data-path="保存图片/保存图片.html">
+            
+                <a href="保存图片/保存图片.html">
+            
+                    
+                    保存图片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.1.7" data-path="控件.html">
+            
+                <a href="控件.html">
+            
+                    
+                    控件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.1.8" data-path="动画/动画.html">
+            
+                <a href="动画/动画.html">
+            
+                    
+                    动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.1.2.1.9" data-path="matplitlib结合web技术.html">
+            
+                <a href="matplitlib结合web技术.html">
+            
+                    
+                    matplitlib结合web技术
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2.1.10" data-path="结语.html">
+            
+                <a href="结语.html">
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="../../不同领域的应用/">
+            
+                <a href="../../不同领域的应用/">
+            
+                    
+                    不同领域的应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../../../嵌入与扩展篇/">
+            
+                <a href="../../../嵌入与扩展篇/">
+            
+                    
+                    嵌入与扩展篇
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../../../嵌入与扩展篇/使用Cython优化python程序的性能/">
+            
+                <a href="../../../嵌入与扩展篇/使用Cython优化python程序的性能/">
+            
+                    
+                    使用Cython优化python程序的性能
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1.1" data-path="../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的简单介绍.html">
+            
+                <a href="../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的简单介绍.html">
+            
+                    
+                    Cython的简单介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.1.2" data-path="../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的基本模式.html">
+            
+                <a href="../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的基本模式.html">
+            
+                    
+                    Cython的基本模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.1.3" data-path="../../../嵌入与扩展篇/使用Cython优化python程序的性能/静态化python模块.html">
+            
+                <a href="../../../嵌入与扩展篇/使用Cython优化python程序的性能/静态化python模块.html">
+            
+                    
+                    静态化python模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.1.4" data-path="../../../嵌入与扩展篇/使用Cython优化python程序的性能/使用cython申明文件申明python源码类型.html">
+            
+                <a href="../../../嵌入与扩展篇/使用Cython优化python程序的性能/使用cython申明文件申明python源码类型.html">
+            
+                    
+                    使用cython申明文件申明python源码类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.1.5" data-path="../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的包装模式.html">
+            
+                <a href="../../../嵌入与扩展篇/使用Cython优化python程序的性能/Cython的包装模式.html">
+            
+                    
+                    Cython的包装模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.1.6" data-path="../../../嵌入与扩展篇/使用Cython优化python程序的性能/使用Cython扩展numpy.html">
+            
+                <a href="../../../嵌入与扩展篇/使用Cython优化python程序的性能/使用Cython扩展numpy.html">
+            
+                    
+                    使用Cython扩展numpy
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="../../../嵌入与扩展篇/用numba为python写高性能C扩展.html">
+            
+                <a href="../../../嵌入与扩展篇/用numba为python写高性能C扩展.html">
+            
+                    
+                    用numba为python写高性能C扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.3" data-path="../../../嵌入与扩展篇/使用f2py用fortain给python写扩展.html">
+            
+                <a href="../../../嵌入与扩展篇/使用f2py用fortain给python写扩展.html">
+            
+                    
+                    使用f2py用fortain给python写扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4" data-path="../../../嵌入与扩展篇/结语.md">
+            
+                <span>
+            
+                    
+                    结语
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../../../术语表/">
+            
+                <a href="../../../术语表/">
+            
+                    
+                    术语表
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../../../术语表/统计/">
+            
+                <a href="../../../术语表/统计/">
+            
+                    
+                    统计
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1.1" data-path="../../../术语表/统计/误差.html">
+            
+                <a href="../../../术语表/统计/误差.html">
+            
+                    
+                    误差
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >matplitlib结合web技术</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#matplitlib&#x7ED3;&#x5408;web&#x6280;&#x672F;"><b>1. </b>matplitlib&#x7ED3;&#x5408;web&#x6280;&#x672F;</a></li><ul><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x57FA;&#x4E8E;svg&#x7684;&#x5C55;&#x793A;&#x578B;&#x56FE;&#x50CF;"><b>1.1. </b>&#x57FA;&#x4E8E;SVG&#x7684;&#x5C55;&#x793A;&#x578B;&#x56FE;&#x50CF;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x57FA;&#x4E8E;websocket&#x7684;&#x7ED8;&#x56FE;&#x6280;&#x672F;"><b>1.2. </b>&#x57FA;&#x4E8E;websocket&#x7684;&#x7ED8;&#x56FE;&#x6280;&#x672F;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;tohtml5video&#x76F4;&#x63A5;&#x8F93;&#x51FA;&#x52A8;&#x753B;"><b>1.3. </b>&#x4F7F;&#x7528;.to_html5_video()&#x76F4;&#x63A5;&#x8F93;&#x51FA;&#x52A8;&#x753B;</a></li><li><span class="title-icon fa fa-hand-o-right"></span><a href="#&#x4F7F;&#x7528;gif&#x56FE;&#x7247;&#x5D4C;&#x5165;img&#x8F93;&#x51FA;&#x52A8;&#x753B;"><b>1.4. </b>&#x4F7F;&#x7528;gif&#x56FE;&#x7247;&#x5D4C;&#x5165;img&#x8F93;&#x51FA;&#x52A8;&#x753B;</a></li></ul></ul></div><a href="#matplitlib&#x7ED3;&#x5408;web&#x6280;&#x672F;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="matplitlib&#x7ED3;&#x5408;web&#x6280;&#x672F;"><a name="matplitlib&#x7ED3;&#x5408;web&#x6280;&#x672F;" class="anchor-navigation-ex-anchor" href="#matplitlib&#x7ED3;&#x5408;web&#x6280;&#x672F;"><i class="fa fa-link" aria-hidden="true"></i></a>1. matplitlib&#x7ED3;&#x5408;web&#x6280;&#x672F;</h1>
+<p>&#x73B0;&#x4ECA;&#x7684;&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;&#x65E9;&#x5DF2;&#x4E0D;&#x518D;&#x5C40;&#x9650;&#x4E8E;&#x6587;&#x7AE0;&#x6216;&#x8005;&#x51FA;&#x4E2A;&#x56FE;&#x5C31;&#x7B97;&#x4E86;,&#x66F4;&#x591A;&#x7684;&#x9700;&#x8981;&#x4F7F;&#x7528;web&#x6280;&#x672F;&#x52A8;&#x6001;&#x7684;&#x6784;&#x5EFA;&#x56FE;&#x50CF;,&#x4F7F;&#x7528;web&#x6280;&#x672F;&#x505A;&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;&#x5F53;&#x7136;&#x53EF;&#x4EE5;&#x5728;&#x524D;&#x7AEF;&#x505A;,&#x6BD4;&#x5982;&#x7ED3;&#x5408;d3.js&#x5B9E;&#x73B0;,&#x4F46;&#x5982;&#x679C;&#x8981;&#x4ECE;&#x540E;&#x7AEF;&#x751F;&#x6210;,&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;matplotlib&#x6765;&#x5B9E;&#x73B0;.</p>
+<p>matplotlib&#x7684;web&#x7AEF;&#x4F7F;&#x7528;&#x7684;&#x7ED8;&#x56FE;&#x6280;&#x672F;&#x6709;&#x4E24;&#x79CD;</p>
+<ul>
+<li><p>&#x57FA;&#x4E8E;svg&#x56FE;&#x50CF;&#x6807;&#x7B7E;<code>&lt;SVG&gt;</code>&#x7684;&#x56FE;&#x50CF;&#x6280;&#x672F;</p>
+</li>
+<li><p>&#x57FA;&#x4E8E;websocket&#x7684;&#x56FE;&#x50CF;&#x6280;&#x672F;</p>
+</li>
+</ul>
+<p>&#x6839;&#x636E;&#x5B9E;&#x73B0;&#x4E5F;&#x5206;&#x4E3A;&#x5C55;&#x793A;&#x578B;&#x548C;&#x4EA4;&#x4E92;&#x578B;,&#x4E00;&#x822C;&#x6765;&#x8BF4;,&#x4EA4;&#x4E92;&#x578B;&#x5C31;&#x4F1A;&#x7528;&#x5230;ajax&#x6280;&#x672F;,&#x8F6E;&#x8BE2;,&#x6216;&#x8005;websocket&#x4E86;</p>
+<p>&#x5F53;&#x7136;&#x4E86;,&#x5BF9;&#x4E8E;&#x751F;&#x6210;&#x7684;&#x52A8;&#x753B;,&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x7ED3;&#x5408;web&#x6280;&#x672F;&#x5B9E;&#x73B0;&#x5C55;&#x793A;&#x7684;</p>
+<p>&#x6211;&#x4EEC;&#x8FD9;&#x6B21;&#x7684;&#x6765;&#x4EE5;&#x80A1;&#x7968;&#x6570;&#x636E;&#x4F5C;&#x4E3A;&#x4F8B;&#x5B50;&#x6765;&#x7ED8;&#x5236;&#x56FE;&#x5F62;,&#x7528;&#x6765;&#x67E5;&#x770B;&#x4E0A;&#x8BC1;50&#x80A1;&#x7684;&#x5386;&#x53F2;k&#x7EBF;&#x56FE;</p>
+<p>&#x4E0A;&#x8BC1;50&#x6210;&#x5206;&#x80A1;&#x5185;&#x5BB9;&#x5982;&#x4E0B;</p>
+<pre><code>symbol_dict = {
+    &quot;600000&quot;: &quot;&#x6D66;&#x53D1;&#x94F6;&#x884C;&quot;,
+    &quot;600010&quot;: &quot;&#x5305;&#x94A2;&#x80A1;&#x4EFD;&quot;,
+    &quot;600015&quot;: &quot;&#x534E;&#x590F;&#x94F6;&#x884C;&quot;,
+    &quot;600016&quot;: &quot;&#x6C11;&#x751F;&#x94F6;&#x884C;&quot;,
+    &quot;600018&quot;: &quot;&#x4E0A;&#x6E2F;&#x96C6;&#x56E2;&quot;,
+    &quot;600028&quot;: &quot;&#x4E2D;&#x56FD;&#x77F3;&#x5316;&quot;,
+    &quot;600030&quot;: &quot;&#x4E2D;&#x4FE1;&#x8BC1;&#x5238;&quot;,
+    &quot;600036&quot;: &quot;&#x62DB;&#x5546;&#x94F6;&#x884C;&quot;,
+    &quot;600048&quot;: &quot;&#x4FDD;&#x5229;&#x5730;&#x4EA7;&quot;,
+    &quot;600050&quot;: &quot;&#x4E2D;&#x56FD;&#x8054;&#x901A;&quot;,
+    &quot;600089&quot;: &quot;&#x7279;&#x53D8;&#x7535;&#x5DE5;&quot;,
+    &quot;600104&quot;: &quot;&#x4E0A;&#x6C7D;&#x96C6;&#x56E2;&quot;,
+    &quot;600109&quot;: &quot;&#x56FD;&#x91D1;&#x8BC1;&#x5238;&quot;,
+    &quot;600111&quot;: &quot;&#x5317;&#x65B9;&#x7A00;&#x571F;&quot;,
+    &quot;600150&quot;: &quot;&#x4E2D;&#x56FD;&#x8239;&#x8236;&quot;,
+    &quot;600256&quot;: &quot;&#x5E7F;&#x6C47;&#x80FD;&#x6E90;&quot;,
+    &quot;600406&quot;: &quot;&#x56FD;&#x7535;&#x5357;&#x745E;&quot;,
+    &quot;600518&quot;: &quot;&#x5EB7;&#x7F8E;&#x836F;&#x4E1A;&quot;,
+    &quot;600519&quot;: &quot;&#x8D35;&#x5DDE;&#x8305;&#x53F0;&quot;,
+    &quot;600583&quot;: &quot;&#x6D77;&#x6CB9;&#x5DE5;&#x7A0B;&quot;,
+    &quot;600585&quot;: &quot;&#x6D77;&#x87BA;&#x6C34;&#x6CE5;&quot;,
+    &quot;600637&quot;: &quot;&#x4E1C;&#x65B9;&#x660E;&#x73E0;&quot;,
+    &quot;600690&quot;: &quot;&#x9752;&#x5C9B;&#x6D77;&#x5C14;&quot;,
+    &quot;600837&quot;: &quot;&#x6D77;&#x901A;&#x8BC1;&#x5238;&quot;,
+    &quot;600887&quot;: &quot;&#x4F0A;&#x5229;&#x80A1;&#x4EFD;&quot;,
+    &quot;600893&quot;: &quot;&#x4E2D;&#x822A;&#x52A8;&#x529B;&quot;,
+    &quot;600958&quot;: &quot;&#x4E1C;&#x65B9;&#x8BC1;&#x5238;&quot;,
+    &quot;600999&quot;: &quot;&#x62DB;&#x5546;&#x8BC1;&#x5238;&quot;,
+    &quot;601006&quot;: &quot;&#x5927;&#x79E6;&#x94C1;&#x8DEF;&quot;,
+    &quot;601088&quot;: &quot;&#x4E2D;&#x56FD;&#x795E;&#x534E;&quot;,
+    &quot;601166&quot;: &quot;&#x5174;&#x4E1A;&#x94F6;&#x884C;&quot;,
+    &quot;601169&quot;: &quot;&#x5317;&#x4EAC;&#x94F6;&#x884C;&quot;,
+    &quot;601186&quot;: &quot;&#x4E2D;&#x56FD;&#x94C1;&#x5EFA;&quot;,
+    &quot;601288&quot;: &quot;&#x519C;&#x4E1A;&#x94F6;&#x884C;&quot;,
+    &quot;601318&quot;: &quot;&#x4E2D;&#x56FD;&#x5E73;&#x5B89;&quot;,
+    &quot;601328&quot;: &quot;&#x4EA4;&#x901A;&#x94F6;&#x884C;&quot;,
+    &quot;601390&quot;: &quot;&#x4E2D;&#x56FD;&#x4E2D;&#x94C1;&quot;,
+    &quot;601398&quot;: &quot;&#x5DE5;&#x5546;&#x94F6;&#x884C;&quot;,
+    &quot;601601&quot;: &quot;&#x4E2D;&#x56FD;&#x592A;&#x4FDD;&quot;,
+    &quot;601628&quot;: &quot;&#x4E2D;&#x56FD;&#x4EBA;&#x5BFF;&quot;,
+    &quot;601668&quot;: &quot;&#x4E2D;&#x56FD;&#x5EFA;&#x7B51;&quot;,
+    &quot;601688&quot;: &quot;&#x534E;&#x6CF0;&#x8BC1;&#x5238;&quot;,
+    &quot;601766&quot;: &quot;&#x4E2D;&#x56FD;&#x4E2D;&#x8F66;&quot;,
+    &quot;601800&quot;: &quot;&#x4E2D;&#x56FD;&#x4EA4;&#x5EFA;&quot;,
+    &quot;601818&quot;: &quot;&#x5149;&#x5927;&#x94F6;&#x884C;&quot;,
+    &quot;601857&quot;: &quot;&#x4E2D;&#x56FD;&#x77F3;&#x6CB9;&quot;,
+    &quot;601901&quot;: &quot;&#x65B9;&#x6B63;&#x8BC1;&#x5238;&quot;,
+    &quot;601988&quot;: &quot;&#x4E2D;&#x56FD;&#x94F6;&#x884C;&quot;,
+    &quot;601989&quot;: &quot;&#x4E2D;&#x56FD;&#x91CD;&#x5DE5;&quot;,
+    &quot;601998&quot;: &quot;&#x4E2D;&#x4FE1;&#x94F6;&#x884C;&quot;}
+</code></pre><p>&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x8F93;&#x5165;&#x7F16;&#x53F7;&#x548C;&#x65E5;&#x671F;&#x6765;&#x8FDB;&#x884C;&#x67E5;&#x627E;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x57FA;&#x672C;&#x7684;&#x51FD;&#x6570;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> __future__ <span class="hljs-keyword">import</span> print_function
+<span class="hljs-keyword">from</span> imp <span class="hljs-keyword">import</span> reload
+<span class="hljs-keyword">import</span> matplotlib
 reload(matplotlib)
 
-matplotlib.use('nbagg')
+matplotlib.use(<span class="hljs-string">&apos;nbagg&apos;</span>)
 
-import matplotlib.backends.backend_nbagg
+<span class="hljs-keyword">import</span> matplotlib.backends.backend_nbagg
 reload(matplotlib.backends.backend_nbagg)
-import matplotlib.backends.backend_webagg_core
+<span class="hljs-keyword">import</span> matplotlib.backends.backend_webagg_core
 reload(matplotlib.backends.backend_webagg_core)
 
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.animation as animation
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">import</span> matplotlib.animation <span class="hljs-keyword">as</span> animation
 
-plt.interactive(False)
+plt.interactive(<span class="hljs-keyword">False</span>)
 
-from matplotlib.finance import quotes_historical_yahoo_ochl
-from matplotlib.finance import candlestick_ochl
-from matplotlib.dates import YearLocator, MonthLocator, DateFormatter  ,WeekdayLocator,MONDAY,DayLocator
-import datetime  
-import numpy as np
-```
-
-    /Users/huangsizhe/LIB/CONDA/anaconda/lib/python3.6/site-packages/matplotlib/cbook.py:136: MatplotlibDeprecationWarning: The finance module has been deprecated in mpl 2.0 and will be removed in mpl 2.2. Please use the module mpl_finance instead.
-      warnings.warn(message, mplDeprecation, stacklevel=1)
-
-
-
-```python
-symbol_dict = {
-    "600000": u"浦发银行",
-    "600010": u"包钢股份",
-    "600015": u"华夏银行",
-    "600016": u"民生银行",
-    "600018": u"上港集团",
-    "600028": u"中国石化",
-    "600030": u"中信证券",
-    "600036": u"招商银行",
-    "600048": u"保利地产",
-    "600050": u"中国联通",
-    "600089": u"特变电工",
-    "600104": u"上汽集团",
-    "600109": u"国金证券",
-    "600111": u"北方稀土",
-    "600150": u"中国船舶",
-    "600256": u"广汇能源",
-    "600406": u"国电南瑞",
-    "600518": u"康美药业",
-    "600519": u"贵州茅台",
-    "600583": u"海油工程",
-    "600585": u"海螺水泥",
-    "600637": u"东方明珠",
-    "600690": u"青岛海尔",
-    "600837": u"海通证券",
-    "600887": u"伊利股份",
-    "600893": u"中航动力",
-    "600958": u"东方证券",
-    "600999": u"招商证券",
-    "601006": u"大秦铁路",
-    "601088": u"中国神华",
-    "601166": u"兴业银行",
-    "601169": u"北京银行",
-    "601186": u"中国铁建",
-    "601288": u"农业银行",
-    "601318": u"中国平安",
-    "601328": u"交通银行",
-    "601390": u"中国中铁",
-    "601398": u"工商银行",
-    "601601": u"中国太保",
-    "601628": u"中国人寿",
-    "601668": u"中国建筑",
-    "601688": u"华泰证券",
-    "601766": u"中国中车",
-    "601800": u"中国交建",
-    "601818": u"光大银行",
-    "601857": u"中国石油",
-    "601901": u"方正证券",
-    "601988": u"中国银行",
-    "601989": u"中国重工",
-    "601998": u"中信银行"
+<span class="hljs-keyword">from</span> matplotlib.finance <span class="hljs-keyword">import</span> quotes_historical_yahoo_ochl
+<span class="hljs-keyword">from</span> matplotlib.finance <span class="hljs-keyword">import</span> candlestick_ochl
+<span class="hljs-keyword">from</span> matplotlib.dates <span class="hljs-keyword">import</span> YearLocator, MonthLocator, DateFormatter  ,WeekdayLocator,MONDAY,DayLocator
+<span class="hljs-keyword">import</span> datetime  
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+</code></pre>
+<pre><code>/Users/huangsizhe/LIB/CONDA/anaconda/lib/python3.6/site-packages/matplotlib/cbook.py:136: MatplotlibDeprecationWarning: The finance module has been deprecated in mpl 2.0 and will be removed in mpl 2.2. Please use the module mpl_finance instead.
+  warnings.warn(message, mplDeprecation, stacklevel=1)
+</code></pre><pre><code class="lang-python">symbol_dict = {
+    <span class="hljs-string">&quot;600000&quot;</span>: <span class="hljs-string">u&quot;&#x6D66;&#x53D1;&#x94F6;&#x884C;&quot;</span>,
+    <span class="hljs-string">&quot;600010&quot;</span>: <span class="hljs-string">u&quot;&#x5305;&#x94A2;&#x80A1;&#x4EFD;&quot;</span>,
+    <span class="hljs-string">&quot;600015&quot;</span>: <span class="hljs-string">u&quot;&#x534E;&#x590F;&#x94F6;&#x884C;&quot;</span>,
+    <span class="hljs-string">&quot;600016&quot;</span>: <span class="hljs-string">u&quot;&#x6C11;&#x751F;&#x94F6;&#x884C;&quot;</span>,
+    <span class="hljs-string">&quot;600018&quot;</span>: <span class="hljs-string">u&quot;&#x4E0A;&#x6E2F;&#x96C6;&#x56E2;&quot;</span>,
+    <span class="hljs-string">&quot;600028&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x56FD;&#x77F3;&#x5316;&quot;</span>,
+    <span class="hljs-string">&quot;600030&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x4FE1;&#x8BC1;&#x5238;&quot;</span>,
+    <span class="hljs-string">&quot;600036&quot;</span>: <span class="hljs-string">u&quot;&#x62DB;&#x5546;&#x94F6;&#x884C;&quot;</span>,
+    <span class="hljs-string">&quot;600048&quot;</span>: <span class="hljs-string">u&quot;&#x4FDD;&#x5229;&#x5730;&#x4EA7;&quot;</span>,
+    <span class="hljs-string">&quot;600050&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x56FD;&#x8054;&#x901A;&quot;</span>,
+    <span class="hljs-string">&quot;600089&quot;</span>: <span class="hljs-string">u&quot;&#x7279;&#x53D8;&#x7535;&#x5DE5;&quot;</span>,
+    <span class="hljs-string">&quot;600104&quot;</span>: <span class="hljs-string">u&quot;&#x4E0A;&#x6C7D;&#x96C6;&#x56E2;&quot;</span>,
+    <span class="hljs-string">&quot;600109&quot;</span>: <span class="hljs-string">u&quot;&#x56FD;&#x91D1;&#x8BC1;&#x5238;&quot;</span>,
+    <span class="hljs-string">&quot;600111&quot;</span>: <span class="hljs-string">u&quot;&#x5317;&#x65B9;&#x7A00;&#x571F;&quot;</span>,
+    <span class="hljs-string">&quot;600150&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x56FD;&#x8239;&#x8236;&quot;</span>,
+    <span class="hljs-string">&quot;600256&quot;</span>: <span class="hljs-string">u&quot;&#x5E7F;&#x6C47;&#x80FD;&#x6E90;&quot;</span>,
+    <span class="hljs-string">&quot;600406&quot;</span>: <span class="hljs-string">u&quot;&#x56FD;&#x7535;&#x5357;&#x745E;&quot;</span>,
+    <span class="hljs-string">&quot;600518&quot;</span>: <span class="hljs-string">u&quot;&#x5EB7;&#x7F8E;&#x836F;&#x4E1A;&quot;</span>,
+    <span class="hljs-string">&quot;600519&quot;</span>: <span class="hljs-string">u&quot;&#x8D35;&#x5DDE;&#x8305;&#x53F0;&quot;</span>,
+    <span class="hljs-string">&quot;600583&quot;</span>: <span class="hljs-string">u&quot;&#x6D77;&#x6CB9;&#x5DE5;&#x7A0B;&quot;</span>,
+    <span class="hljs-string">&quot;600585&quot;</span>: <span class="hljs-string">u&quot;&#x6D77;&#x87BA;&#x6C34;&#x6CE5;&quot;</span>,
+    <span class="hljs-string">&quot;600637&quot;</span>: <span class="hljs-string">u&quot;&#x4E1C;&#x65B9;&#x660E;&#x73E0;&quot;</span>,
+    <span class="hljs-string">&quot;600690&quot;</span>: <span class="hljs-string">u&quot;&#x9752;&#x5C9B;&#x6D77;&#x5C14;&quot;</span>,
+    <span class="hljs-string">&quot;600837&quot;</span>: <span class="hljs-string">u&quot;&#x6D77;&#x901A;&#x8BC1;&#x5238;&quot;</span>,
+    <span class="hljs-string">&quot;600887&quot;</span>: <span class="hljs-string">u&quot;&#x4F0A;&#x5229;&#x80A1;&#x4EFD;&quot;</span>,
+    <span class="hljs-string">&quot;600893&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x822A;&#x52A8;&#x529B;&quot;</span>,
+    <span class="hljs-string">&quot;600958&quot;</span>: <span class="hljs-string">u&quot;&#x4E1C;&#x65B9;&#x8BC1;&#x5238;&quot;</span>,
+    <span class="hljs-string">&quot;600999&quot;</span>: <span class="hljs-string">u&quot;&#x62DB;&#x5546;&#x8BC1;&#x5238;&quot;</span>,
+    <span class="hljs-string">&quot;601006&quot;</span>: <span class="hljs-string">u&quot;&#x5927;&#x79E6;&#x94C1;&#x8DEF;&quot;</span>,
+    <span class="hljs-string">&quot;601088&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x56FD;&#x795E;&#x534E;&quot;</span>,
+    <span class="hljs-string">&quot;601166&quot;</span>: <span class="hljs-string">u&quot;&#x5174;&#x4E1A;&#x94F6;&#x884C;&quot;</span>,
+    <span class="hljs-string">&quot;601169&quot;</span>: <span class="hljs-string">u&quot;&#x5317;&#x4EAC;&#x94F6;&#x884C;&quot;</span>,
+    <span class="hljs-string">&quot;601186&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x56FD;&#x94C1;&#x5EFA;&quot;</span>,
+    <span class="hljs-string">&quot;601288&quot;</span>: <span class="hljs-string">u&quot;&#x519C;&#x4E1A;&#x94F6;&#x884C;&quot;</span>,
+    <span class="hljs-string">&quot;601318&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x56FD;&#x5E73;&#x5B89;&quot;</span>,
+    <span class="hljs-string">&quot;601328&quot;</span>: <span class="hljs-string">u&quot;&#x4EA4;&#x901A;&#x94F6;&#x884C;&quot;</span>,
+    <span class="hljs-string">&quot;601390&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x56FD;&#x4E2D;&#x94C1;&quot;</span>,
+    <span class="hljs-string">&quot;601398&quot;</span>: <span class="hljs-string">u&quot;&#x5DE5;&#x5546;&#x94F6;&#x884C;&quot;</span>,
+    <span class="hljs-string">&quot;601601&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x56FD;&#x592A;&#x4FDD;&quot;</span>,
+    <span class="hljs-string">&quot;601628&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x56FD;&#x4EBA;&#x5BFF;&quot;</span>,
+    <span class="hljs-string">&quot;601668&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x56FD;&#x5EFA;&#x7B51;&quot;</span>,
+    <span class="hljs-string">&quot;601688&quot;</span>: <span class="hljs-string">u&quot;&#x534E;&#x6CF0;&#x8BC1;&#x5238;&quot;</span>,
+    <span class="hljs-string">&quot;601766&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x56FD;&#x4E2D;&#x8F66;&quot;</span>,
+    <span class="hljs-string">&quot;601800&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x56FD;&#x4EA4;&#x5EFA;&quot;</span>,
+    <span class="hljs-string">&quot;601818&quot;</span>: <span class="hljs-string">u&quot;&#x5149;&#x5927;&#x94F6;&#x884C;&quot;</span>,
+    <span class="hljs-string">&quot;601857&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x56FD;&#x77F3;&#x6CB9;&quot;</span>,
+    <span class="hljs-string">&quot;601901&quot;</span>: <span class="hljs-string">u&quot;&#x65B9;&#x6B63;&#x8BC1;&#x5238;&quot;</span>,
+    <span class="hljs-string">&quot;601988&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x56FD;&#x94F6;&#x884C;&quot;</span>,
+    <span class="hljs-string">&quot;601989&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x56FD;&#x91CD;&#x5DE5;&quot;</span>,
+    <span class="hljs-string">&quot;601998&quot;</span>: <span class="hljs-string">u&quot;&#x4E2D;&#x4FE1;&#x94F6;&#x884C;&quot;</span>
 }
-```
+</code></pre>
+<pre><code class="lang-python">plt.style.use(<span class="hljs-string">&apos;chinese_support&apos;</span>)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">draw_k</span><span class="hljs-params">(id_str,from_date_str,to_date_str)</span>:</span>
 
+    <span class="hljs-comment">#&#x8BBE;&#x7F6E;x&#x8F74;&#x5750;&#x6807;&#x523B;&#x5EA6;</span>
+    mondays = WeekdayLocator(MONDAY)            <span class="hljs-comment"># &#x4E3B;&#x8981;&#x523B;&#x5EA6;</span>
+    alldays = DayLocator()                      <span class="hljs-comment"># &#x6B21;&#x8981;&#x523B;&#x5EA6;</span>
 
-```python
-plt.style.use('chinese_support')
-```
+    mondayFormatter = DateFormatter(<span class="hljs-string">&apos;%m-%d-%Y&apos;</span>) <span class="hljs-comment"># &#x5982;&#xFF1A;2-29-2015</span>
+    dayFormatter = DateFormatter(<span class="hljs-string">&apos;%d&apos;</span>) 
 
+    from_date = tuple((int(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> from_date_str.strip().split(<span class="hljs-string">&quot;-&quot;</span>)))
 
-```python
-def draw_k(id_str,from_date_str,to_date_str):
-    
-    #设置x轴坐标刻度
-    mondays = WeekdayLocator(MONDAY)            # 主要刻度
-    alldays = DayLocator()                      # 次要刻度
+    to_date = tuple((int(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> to_date_str.strip().split(<span class="hljs-string">&quot;-&quot;</span>)))
+    quotes_ochl = quotes_historical_yahoo_ochl(id_str+<span class="hljs-string">&apos;.ss&apos;</span>, from_date ,to_date)
 
-    mondayFormatter = DateFormatter('%m-%d-%Y') # 如：2-29-2015
-    dayFormatter = DateFormatter('%d') 
-    
-    from_date = tuple((int(i) for i in from_date_str.strip().split("-")))
-
-    to_date = tuple((int(i) for i in to_date_str.strip().split("-")))
-    quotes_ochl = quotes_historical_yahoo_ochl(id_str+'.ss', from_date ,to_date)
-    
     fig, ax = plt.subplots()
-    fig.subplots_adjust(bottom=0.2)
+    fig.subplots_adjust(bottom=<span class="hljs-number">0.2</span>)
 
     ax.xaxis.set_major_locator(mondays)
     ax.xaxis.set_minor_locator(alldays)
     ax.xaxis.set_major_formatter(mondayFormatter)
 
 
-    candlestick_ochl(ax, quotes_ochl, width=0.6, colorup='r', colordown='g')
+    candlestick_ochl(ax, quotes_ochl, width=<span class="hljs-number">0.6</span>, colorup=<span class="hljs-string">&apos;r&apos;</span>, colordown=<span class="hljs-string">&apos;g&apos;</span>)
     ax.xaxis_date()
     ax.autoscale_view()
-    plt.setp(plt.gca().get_xticklabels(), rotation=45, horizontalalignment='right')
+    plt.setp(plt.gca().get_xticklabels(), rotation=<span class="hljs-number">45</span>, horizontalalignment=<span class="hljs-string">&apos;right&apos;</span>)
 
-    ax.grid(True)
-    plt.title(symbol_dict.get(id_str,u"未知"))
+    ax.grid(<span class="hljs-keyword">True</span>)
+    plt.title(symbol_dict.get(id_str,<span class="hljs-string">u&quot;&#x672A;&#x77E5;&quot;</span>))
     plt.show()
-```
-
-
-```python
-draw_k('600000','2016-6-20','2016-7-20')
-```
-
-
-    <IPython.core.display.Javascript object>
-
-
-
-<img src="data:image/png;base64,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" width="640">
-
-
-## 基于SVG的展示型图像
-
-
-一种方式是将svg图像写入一个伪造的文件,然后将其取出,把头部修改了,这样就可以直接用了
-
-
-
-```python
-from pyquery import PyQuery as Q
-from io import BytesIO
-import json
-```
-
-
-```python
-def deal_with_svg(f):
-    # Create XML tree from the SVG file.
+</code></pre>
+<pre><code class="lang-python">draw_k(<span class="hljs-string">&apos;600000&apos;</span>,<span class="hljs-string">&apos;2016-6-20&apos;</span>,<span class="hljs-string">&apos;2016-7-20&apos;</span>)
+</code></pre>
+<pre><code>&lt;IPython.core.display.Javascript object&gt;
+</code></pre><p><img src="data:image/png;base64,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" width="640"></p>
+<h2 id="&#x57FA;&#x4E8E;svg&#x7684;&#x5C55;&#x793A;&#x578B;&#x56FE;&#x50CF;"><a name="&#x57FA;&#x4E8E;svg&#x7684;&#x5C55;&#x793A;&#x578B;&#x56FE;&#x50CF;" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x4E8E;svg&#x7684;&#x5C55;&#x793A;&#x578B;&#x56FE;&#x50CF;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x57FA;&#x4E8E;SVG&#x7684;&#x5C55;&#x793A;&#x578B;&#x56FE;&#x50CF;</h2>
+<p>&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x662F;&#x5C06;svg&#x56FE;&#x50CF;&#x5199;&#x5165;&#x4E00;&#x4E2A;&#x4F2A;&#x9020;&#x7684;&#x6587;&#x4EF6;,&#x7136;&#x540E;&#x5C06;&#x5176;&#x53D6;&#x51FA;,&#x628A;&#x5934;&#x90E8;&#x4FEE;&#x6539;&#x4E86;,&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x7528;&#x4E86;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> pyquery <span class="hljs-keyword">import</span> PyQuery <span class="hljs-keyword">as</span> Q
+<span class="hljs-keyword">from</span> io <span class="hljs-keyword">import</span> BytesIO
+<span class="hljs-keyword">import</span> json
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">deal_with_svg</span><span class="hljs-params">(f)</span>:</span>
+    <span class="hljs-comment"># Create XML tree from the SVG file.</span>
     value = f.getvalue()
-    # Add attributes to the patch objects.
-    
-    # Add a transition effect
+    <span class="hljs-comment"># Add attributes to the patch objects.</span>
+
+    <span class="hljs-comment"># Add a transition effect</span>
     result = Q(value)
-    return result.__str__()
-```
+    <span class="hljs-keyword">return</span> result.__str__()
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">draw_k_svg</span><span class="hljs-params">(id_str,from_date_str,to_date_str)</span>:</span>
 
+    <span class="hljs-comment">#&#x8BBE;&#x7F6E;x&#x8F74;&#x5750;&#x6807;&#x523B;&#x5EA6;</span>
+    mondays = WeekdayLocator(MONDAY)            <span class="hljs-comment"># &#x4E3B;&#x8981;&#x523B;&#x5EA6;</span>
+    alldays = DayLocator()                      <span class="hljs-comment"># &#x6B21;&#x8981;&#x523B;&#x5EA6;</span>
 
-```python
-def draw_k_svg(id_str,from_date_str,to_date_str):
-    
-    #设置x轴坐标刻度
-    mondays = WeekdayLocator(MONDAY)            # 主要刻度
-    alldays = DayLocator()                      # 次要刻度
+    mondayFormatter = DateFormatter(<span class="hljs-string">&apos;%m-%d-%Y&apos;</span>) <span class="hljs-comment"># &#x5982;&#xFF1A;2-29-2015</span>
+    dayFormatter = DateFormatter(<span class="hljs-string">&apos;%d&apos;</span>) 
 
-    mondayFormatter = DateFormatter('%m-%d-%Y') # 如：2-29-2015
-    dayFormatter = DateFormatter('%d') 
-    
-    from_date = tuple((int(i) for i in from_date_str.strip().split("-"))) 
-    to_date = tuple((int(i) for i in to_date_str.strip().split("-")))
-    quotes_ochl = quotes_historical_yahoo_ochl(id_str+'.ss', from_date ,to_date)
-    
+    from_date = tuple((int(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> from_date_str.strip().split(<span class="hljs-string">&quot;-&quot;</span>))) 
+    to_date = tuple((int(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> to_date_str.strip().split(<span class="hljs-string">&quot;-&quot;</span>)))
+    quotes_ochl = quotes_historical_yahoo_ochl(id_str+<span class="hljs-string">&apos;.ss&apos;</span>, from_date ,to_date)
+
     fig, ax = plt.subplots()
-    fig.subplots_adjust(bottom=0.2)
+    fig.subplots_adjust(bottom=<span class="hljs-number">0.2</span>)
 
     ax.xaxis.set_major_locator(mondays)
     ax.xaxis.set_minor_locator(alldays)
     ax.xaxis.set_major_formatter(mondayFormatter)
 
 
-    candlestick_ochl(ax, quotes_ochl, width=0.6, colorup='r', colordown='g')
+    candlestick_ochl(ax, quotes_ochl, width=<span class="hljs-number">0.6</span>, colorup=<span class="hljs-string">&apos;r&apos;</span>, colordown=<span class="hljs-string">&apos;g&apos;</span>)
     ax.xaxis_date()
     ax.autoscale_view()
-    plt.setp(plt.gca().get_xticklabels(), rotation=45, horizontalalignment='right')
+    plt.setp(plt.gca().get_xticklabels(), rotation=<span class="hljs-number">45</span>, horizontalalignment=<span class="hljs-string">&apos;right&apos;</span>)
 
-    ax.grid(True)
-    plt.title(symbol_dict.get(id_str,u"未知"))
-    
+    ax.grid(<span class="hljs-keyword">True</span>)
+    plt.title(symbol_dict.get(id_str,<span class="hljs-string">u&quot;&#x672A;&#x77E5;&quot;</span>))
+
     f = BytesIO()
-    plt.savefig(f, format="svg")
-    return deal_with_svg(f)
-```
-
-
-```python
-from IPython.display import HTML
-```
-
-
-```python
-HTML(draw_k_svg('600000','2016-6-20','2016-7-20'))
-```
-
-
-
-
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="345pt" version="1.1" viewBox="0 0 460 345" width="460pt">
+    plt.savefig(f, format=<span class="hljs-string">&quot;svg&quot;</span>)
+    <span class="hljs-keyword">return</span> deal_with_svg(f)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> IPython.display <span class="hljs-keyword">import</span> HTML
+</code></pre>
+<pre><code class="lang-python">HTML(draw_k_svg(<span class="hljs-string">&apos;600000&apos;</span>,<span class="hljs-string">&apos;2016-6-20&apos;</span>,<span class="hljs-string">&apos;2016-7-20&apos;</span>))
+</code></pre>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="345pt" version="1.1" viewbox="0 0 460 345" width="460pt">
  <defs>
   <style type="text/css">
 *{stroke-linecap:butt;stroke-linejoin:round;}
@@ -1020,98 +3772,85 @@ HTML(draw_k_svg('600000','2016-6-20','2016-7-20'))
   </g>
  </g>
  <defs>
-  <clipPath id="p62ed102bc7">
+  <clippath id="p62ed102bc7">
    <rect height="235.008" width="357.12" x="57.6" y="41.472"/>
-  </clipPath>
+  </clippath>
  </defs>
 </svg>
 
 
 
-样例代码可以在这里看到
-
-## 基于websocket的绘图技术
-
-
-通过这种方式可以提供交互,把图片连同工具栏一起发送到客户端,具体的方法可以看样例代码,这边提供了2种样例代码,分别使用:
-
-+ [tornado](https://github.com/hsz1273327/matplotlib_for_visualization/blob/master/ipynbs/src/webtech/canvas_websocket/simpleApp_tornado.py)
-
-+ [flask+gevent-websocket](https://github.com/hsz1273327/matplotlib_for_visualization/blob/master/ipynbs/src/webtech/canvas_websocket/simpleApp.py)
-
-## 使用`.to_html5_video()`直接输出动画
-
-在支持html5的的浏览器上完全可以直接用`.to_html5_video()`来获得可以输出视频
+<p>&#x6837;&#x4F8B;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;&#x770B;&#x5230;</p>
+<h2 id="&#x57FA;&#x4E8E;websocket&#x7684;&#x7ED8;&#x56FE;&#x6280;&#x672F;"><a name="&#x57FA;&#x4E8E;websocket&#x7684;&#x7ED8;&#x56FE;&#x6280;&#x672F;" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x4E8E;websocket&#x7684;&#x7ED8;&#x56FE;&#x6280;&#x672F;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x57FA;&#x4E8E;websocket&#x7684;&#x7ED8;&#x56FE;&#x6280;&#x672F;</h2>
+<p>&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x4EA4;&#x4E92;,&#x628A;&#x56FE;&#x7247;&#x8FDE;&#x540C;&#x5DE5;&#x5177;&#x680F;&#x4E00;&#x8D77;&#x53D1;&#x9001;&#x5230;&#x5BA2;&#x6237;&#x7AEF;,&#x5177;&#x4F53;&#x7684;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x770B;&#x6837;&#x4F8B;&#x4EE3;&#x7801;,&#x8FD9;&#x8FB9;&#x63D0;&#x4F9B;&#x4E86;2&#x79CD;&#x6837;&#x4F8B;&#x4EE3;&#x7801;,&#x5206;&#x522B;&#x4F7F;&#x7528;:</p>
+<ul>
+<li><p><a href="https://github.com/hsz1273327/matplotlib_for_visualization/blob/master/ipynbs/src/webtech/canvas_websocket/simpleApp_tornado.py" target="_blank">tornado</a></p>
+</li>
+<li><p><a href="https://github.com/hsz1273327/matplotlib_for_visualization/blob/master/ipynbs/src/webtech/canvas_websocket/simpleApp.py" target="_blank">flask+gevent-websocket</a></p>
+</li>
+</ul>
+<h2 id="&#x4F7F;&#x7528;tohtml5video&#x76F4;&#x63A5;&#x8F93;&#x51FA;&#x52A8;&#x753B;"><a name="&#x4F7F;&#x7528;tohtml5video&#x76F4;&#x63A5;&#x8F93;&#x51FA;&#x52A8;&#x753B;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;tohtml5video&#x76F4;&#x63A5;&#x8F93;&#x51FA;&#x52A8;&#x753B;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x4F7F;&#x7528;.to_html5_video()&#x76F4;&#x63A5;&#x8F93;&#x51FA;&#x52A8;&#x753B;</h2>
+<p>&#x5728;&#x652F;&#x6301;html5&#x7684;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x4E0A;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x7528;<code>.to_html5_video()</code>&#x6765;&#x83B7;&#x5F97;&#x53EF;&#x4EE5;&#x8F93;&#x51FA;&#x89C6;&#x9891;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> matplotlib.animation <span class="hljs-keyword">import</span> FuncAnimation
 
 
-```python
-from matplotlib.animation import FuncAnimation
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rain</span><span class="hljs-params">()</span>:</span>
+
+    fig = plt.figure(figsize=(<span class="hljs-number">7</span>, <span class="hljs-number">7</span>))
+    ax = fig.add_axes([<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>], frameon=<span class="hljs-keyword">False</span>)
+    ax.set_xlim(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>), ax.set_xticks([])
+    ax.set_ylim(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>), ax.set_yticks([])
+
+    <span class="hljs-comment"># Create rain data</span>
+    n_drops = <span class="hljs-number">50</span>
+    rain_drops = np.zeros(n_drops, dtype=[(<span class="hljs-string">&apos;position&apos;</span>, float, <span class="hljs-number">2</span>),
+                                          (<span class="hljs-string">&apos;size&apos;</span>,     float, <span class="hljs-number">1</span>),
+                                          (<span class="hljs-string">&apos;growth&apos;</span>,   float, <span class="hljs-number">1</span>),
+                                          (<span class="hljs-string">&apos;color&apos;</span>,    float, <span class="hljs-number">4</span>)])
+
+    <span class="hljs-comment"># Initialize the raindrops in random positions and with</span>
+    <span class="hljs-comment"># random growth rates.</span>
+    rain_drops[<span class="hljs-string">&apos;position&apos;</span>] = np.random.uniform(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, (n_drops, <span class="hljs-number">2</span>))
+    rain_drops[<span class="hljs-string">&apos;growth&apos;</span>] = np.random.uniform(<span class="hljs-number">50</span>, <span class="hljs-number">200</span>, n_drops)
+
+    <span class="hljs-comment"># Construct the scatter which we will update during animation</span>
+    <span class="hljs-comment"># as the raindrops develop.</span>
+    scat = ax.scatter(rain_drops[<span class="hljs-string">&apos;position&apos;</span>][:, <span class="hljs-number">0</span>], rain_drops[<span class="hljs-string">&apos;position&apos;</span>][:, <span class="hljs-number">1</span>],
+                      s=rain_drops[<span class="hljs-string">&apos;size&apos;</span>], lw=<span class="hljs-number">0.5</span>, edgecolors=rain_drops[<span class="hljs-string">&apos;color&apos;</span>],
+                      facecolors=<span class="hljs-string">&apos;none&apos;</span>)
 
 
-def rain():
-
-    fig = plt.figure(figsize=(7, 7))
-    ax = fig.add_axes([0, 0, 1, 1], frameon=False)
-    ax.set_xlim(0, 1), ax.set_xticks([])
-    ax.set_ylim(0, 1), ax.set_yticks([])
-
-    # Create rain data
-    n_drops = 50
-    rain_drops = np.zeros(n_drops, dtype=[('position', float, 2),
-                                          ('size',     float, 1),
-                                          ('growth',   float, 1),
-                                          ('color',    float, 4)])
-
-    # Initialize the raindrops in random positions and with
-    # random growth rates.
-    rain_drops['position'] = np.random.uniform(0, 1, (n_drops, 2))
-    rain_drops['growth'] = np.random.uniform(50, 200, n_drops)
-
-    # Construct the scatter which we will update during animation
-    # as the raindrops develop.
-    scat = ax.scatter(rain_drops['position'][:, 0], rain_drops['position'][:, 1],
-                      s=rain_drops['size'], lw=0.5, edgecolors=rain_drops['color'],
-                      facecolors='none')
-
-
-    def update(frame_number):
-        # Get an index which we can use to re-spawn the oldest raindrop.
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">update</span><span class="hljs-params">(frame_number)</span>:</span>
+        <span class="hljs-comment"># Get an index which we can use to re-spawn the oldest raindrop.</span>
         current_index = frame_number % n_drops
 
-        # Make all colors more transparent as time progresses.
-        rain_drops['color'][:, 3] -= 1.0/len(rain_drops)
-        rain_drops['color'][:, 3] = np.clip(rain_drops['color'][:, 3], 0, 1)
+        <span class="hljs-comment"># Make all colors more transparent as time progresses.</span>
+        rain_drops[<span class="hljs-string">&apos;color&apos;</span>][:, <span class="hljs-number">3</span>] -= <span class="hljs-number">1.0</span>/len(rain_drops)
+        rain_drops[<span class="hljs-string">&apos;color&apos;</span>][:, <span class="hljs-number">3</span>] = np.clip(rain_drops[<span class="hljs-string">&apos;color&apos;</span>][:, <span class="hljs-number">3</span>], <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)
 
-        # Make all circles bigger.
-        rain_drops['size'] += rain_drops['growth']
+        <span class="hljs-comment"># Make all circles bigger.</span>
+        rain_drops[<span class="hljs-string">&apos;size&apos;</span>] += rain_drops[<span class="hljs-string">&apos;growth&apos;</span>]
 
-        # Pick a new position for oldest rain drop, resetting its size,
-        # color and growth factor.
-        rain_drops['position'][current_index] = np.random.uniform(0, 1, 2)
-        rain_drops['size'][current_index] = 5
-        rain_drops['color'][current_index] = (0, 0, 0, 1)
-        rain_drops['growth'][current_index] = np.random.uniform(50, 200)
+        <span class="hljs-comment"># Pick a new position for oldest rain drop, resetting its size,</span>
+        <span class="hljs-comment"># color and growth factor.</span>
+        rain_drops[<span class="hljs-string">&apos;position&apos;</span>][current_index] = np.random.uniform(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+        rain_drops[<span class="hljs-string">&apos;size&apos;</span>][current_index] = <span class="hljs-number">5</span>
+        rain_drops[<span class="hljs-string">&apos;color&apos;</span>][current_index] = (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)
+        rain_drops[<span class="hljs-string">&apos;growth&apos;</span>][current_index] = np.random.uniform(<span class="hljs-number">50</span>, <span class="hljs-number">200</span>)
 
-        # Update the scatter collection, with the new colors, sizes and positions.
-        scat.set_edgecolors(rain_drops['color'])
-        scat.set_sizes(rain_drops['size'])
-        scat.set_offsets(rain_drops['position'])
-
-
-    # Construct the animation, using the update function as the animation
-    # director.
-    animation = FuncAnimation(fig, update, interval=10)
-    return animation.to_html5_video()
-```
+        <span class="hljs-comment"># Update the scatter collection, with the new colors, sizes and positions.</span>
+        scat.set_edgecolors(rain_drops[<span class="hljs-string">&apos;color&apos;</span>])
+        scat.set_sizes(rain_drops[<span class="hljs-string">&apos;size&apos;</span>])
+        scat.set_offsets(rain_drops[<span class="hljs-string">&apos;position&apos;</span>])
 
 
-```python
-HTML(rain())
-```
-
-
-
-
+    <span class="hljs-comment"># Construct the animation, using the update function as the animation</span>
+    <span class="hljs-comment"># director.</span>
+    animation = FuncAnimation(fig, update, interval=<span class="hljs-number">10</span>)
+    <span class="hljs-keyword">return</span> animation.to_html5_video()
+</code></pre>
+<pre><code class="lang-python">HTML(rain())
+</code></pre>
 <video width="700" height="700" controls autoplay loop>
   <source type="video/mp4" src="data:video/mp4;base64,AAAAHGZ0eXBNNFYgAAACAGlzb21pc28yYXZjMQAAAAhmcmVlAAhMYm1kYXQAAAKuBgX//6rcRem9
 5tlIt5Ys2CDZI+7veDI2NCAtIGNvcmUgMTQ4IHIyNzI4IDRkNWM4YjAgLSBILjI2NC9NUEVHLTQg
@@ -10697,119 +13436,207 @@ LjEwMA==
 
 
 
-## 使用gif图片嵌入img输出动画
+<h2 id="&#x4F7F;&#x7528;gif&#x56FE;&#x7247;&#x5D4C;&#x5165;img&#x8F93;&#x51FA;&#x52A8;&#x753B;"><a name="&#x4F7F;&#x7528;gif&#x56FE;&#x7247;&#x5D4C;&#x5165;img&#x8F93;&#x51FA;&#x52A8;&#x753B;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;gif&#x56FE;&#x7247;&#x5D4C;&#x5165;img&#x8F93;&#x51FA;&#x52A8;&#x753B;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. &#x4F7F;&#x7528;gif&#x56FE;&#x7247;&#x5D4C;&#x5165;img&#x8F93;&#x51FA;&#x52A8;&#x753B;</h2>
+<p>&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x7C7B;&#x4F3C;svg&#x5D4C;&#x5165;&#x7F51;&#x9875;&#x7684;&#x65B9;&#x5F0F;&#x5D4C;&#x5165;gif</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> numpy <span class="hljs-keyword">import</span> sin, cos
+<span class="hljs-keyword">import</span> scipy.integrate <span class="hljs-keyword">as</span> integrate
+<span class="hljs-keyword">import</span> matplotlib.animation <span class="hljs-keyword">as</span> animation
 
-我们也可以用类似svg嵌入网页的方式嵌入gif
+plt.style.use(<span class="hljs-string">&quot;animation_support&quot;</span>)
 
-
-```python
-from numpy import sin, cos
-import scipy.integrate as integrate
-import matplotlib.animation as animation
-
-plt.style.use("animation_support")
-
-import os
-import base64
-import time
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> base64
+<span class="hljs-keyword">import</span> time
 
 
-def double_pendulum():
-    G = 9.8  # acceleration due to gravity, in m/s^2
-    L1 = 1.0  # length of pendulum 1 in m
-    L2 = 1.0  # length of pendulum 2 in m
-    M1 = 1.0  # mass of pendulum 1 in kg
-    M2 = 1.0  # mass of pendul
-    def derivs(state, t):
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">double_pendulum</span><span class="hljs-params">()</span>:</span>
+    G = <span class="hljs-number">9.8</span>  <span class="hljs-comment"># acceleration due to gravity, in m/s^2</span>
+    L1 = <span class="hljs-number">1.0</span>  <span class="hljs-comment"># length of pendulum 1 in m</span>
+    L2 = <span class="hljs-number">1.0</span>  <span class="hljs-comment"># length of pendulum 2 in m</span>
+    M1 = <span class="hljs-number">1.0</span>  <span class="hljs-comment"># mass of pendulum 1 in kg</span>
+    M2 = <span class="hljs-number">1.0</span>  <span class="hljs-comment"># mass of pendul</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">derivs</span><span class="hljs-params">(state, t)</span>:</span>
 
         dydx = np.zeros_like(state)
-        dydx[0] = state[1]
+        dydx[<span class="hljs-number">0</span>] = state[<span class="hljs-number">1</span>]
 
-        del_ = state[2] - state[0]
+        del_ = state[<span class="hljs-number">2</span>] - state[<span class="hljs-number">0</span>]
         den1 = (M1 + M2)*L1 - M2*L1*cos(del_)*cos(del_)
-        dydx[1] = (M2*L1*state[1]*state[1]*sin(del_)*cos(del_) +
-                   M2*G*sin(state[2])*cos(del_) +
-                   M2*L2*state[3]*state[3]*sin(del_) -
-                   (M1 + M2)*G*sin(state[0]))/den1
+        dydx[<span class="hljs-number">1</span>] = (M2*L1*state[<span class="hljs-number">1</span>]*state[<span class="hljs-number">1</span>]*sin(del_)*cos(del_) +
+                   M2*G*sin(state[<span class="hljs-number">2</span>])*cos(del_) +
+                   M2*L2*state[<span class="hljs-number">3</span>]*state[<span class="hljs-number">3</span>]*sin(del_) -
+                   (M1 + M2)*G*sin(state[<span class="hljs-number">0</span>]))/den1
 
-        dydx[2] = state[3]
+        dydx[<span class="hljs-number">2</span>] = state[<span class="hljs-number">3</span>]
 
         den2 = (L2/L1)*den1
-        dydx[3] = (-M2*L2*state[3]*state[3]*sin(del_)*cos(del_) +
-                   (M1 + M2)*G*sin(state[0])*cos(del_) -
-                   (M1 + M2)*L1*state[1]*state[1]*sin(del_) -
-                   (M1 + M2)*G*sin(state[2]))/den2
+        dydx[<span class="hljs-number">3</span>] = (-M2*L2*state[<span class="hljs-number">3</span>]*state[<span class="hljs-number">3</span>]*sin(del_)*cos(del_) +
+                   (M1 + M2)*G*sin(state[<span class="hljs-number">0</span>])*cos(del_) -
+                   (M1 + M2)*L1*state[<span class="hljs-number">1</span>]*state[<span class="hljs-number">1</span>]*sin(del_) -
+                   (M1 + M2)*G*sin(state[<span class="hljs-number">2</span>]))/den2
 
-        return dydx
+        <span class="hljs-keyword">return</span> dydx
 
-    # create a time array from 0..100 sampled at 0.05 second steps
-    dt = 0.05
-    t = np.arange(0.0, 20, dt)
+    <span class="hljs-comment"># create a time array from 0..100 sampled at 0.05 second steps</span>
+    dt = <span class="hljs-number">0.05</span>
+    t = np.arange(<span class="hljs-number">0.0</span>, <span class="hljs-number">20</span>, dt)
 
-    # th1 and th2 are the initial angles (degrees)
-    # w10 and w20 are the initial angular velocities (degrees per second)
-    th1 = 120.0
-    w1 = 0.0
-    th2 = -10.0
-    w2 = 0.0
+    <span class="hljs-comment"># th1 and th2 are the initial angles (degrees)</span>
+    <span class="hljs-comment"># w10 and w20 are the initial angular velocities (degrees per second)</span>
+    th1 = <span class="hljs-number">120.0</span>
+    w1 = <span class="hljs-number">0.0</span>
+    th2 = <span class="hljs-number">-10.0</span>
+    w2 = <span class="hljs-number">0.0</span>
 
-    # initial state
+    <span class="hljs-comment"># initial state</span>
     state = np.radians([th1, w1, th2, w2])
 
-    # integrate your ODE using scipy.integrate.
+    <span class="hljs-comment"># integrate your ODE using scipy.integrate.</span>
     y = integrate.odeint(derivs, state, t)
 
-    x1 = L1*sin(y[:, 0])
-    y1 = -L1*cos(y[:, 0])
+    x1 = L1*sin(y[:, <span class="hljs-number">0</span>])
+    y1 = -L1*cos(y[:, <span class="hljs-number">0</span>])
 
-    x2 = L2*sin(y[:, 2]) + x1
-    y2 = -L2*cos(y[:, 2]) + y1
+    x2 = L2*sin(y[:, <span class="hljs-number">2</span>]) + x1
+    y2 = -L2*cos(y[:, <span class="hljs-number">2</span>]) + y1
 
     fig = plt.figure()
-    ax = fig.add_subplot(111, autoscale_on=False, xlim=(-2, 2), ylim=(-2, 2))
+    ax = fig.add_subplot(<span class="hljs-number">111</span>, autoscale_on=<span class="hljs-keyword">False</span>, xlim=(<span class="hljs-number">-2</span>, <span class="hljs-number">2</span>), ylim=(<span class="hljs-number">-2</span>, <span class="hljs-number">2</span>))
     ax.grid()
 
-    line, = ax.plot([], [], 'o-', lw=2)
-    time_template = 'time = %.1fs'
-    time_text = ax.text(0.05, 0.9, '', transform=ax.transAxes)
+    line, = ax.plot([], [], <span class="hljs-string">&apos;o-&apos;</span>, lw=<span class="hljs-number">2</span>)
+    time_template = <span class="hljs-string">&apos;time = %.1fs&apos;</span>
+    time_text = ax.text(<span class="hljs-number">0.05</span>, <span class="hljs-number">0.9</span>, <span class="hljs-string">&apos;&apos;</span>, transform=ax.transAxes)
 
 
-    def init():
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init</span><span class="hljs-params">()</span>:</span>
         line.set_data([], [])
-        time_text.set_text('')
-        return line, time_text
+        time_text.set_text(<span class="hljs-string">&apos;&apos;</span>)
+        <span class="hljs-keyword">return</span> line, time_text
 
 
-    def animate(i):
-        thisx = [0, x1[i], x2[i]]
-        thisy = [0, y1[i], y2[i]]
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">animate</span><span class="hljs-params">(i)</span>:</span>
+        thisx = [<span class="hljs-number">0</span>, x1[i], x2[i]]
+        thisy = [<span class="hljs-number">0</span>, y1[i], y2[i]]
 
         line.set_data(thisx, thisy)
         time_text.set_text(time_template % (i*dt))
-        return line, time_text
+        <span class="hljs-keyword">return</span> line, time_text
 
-    ani = animation.FuncAnimation(fig, animate, np.arange(1, len(y)),
-                                  interval=25, blit=True, init_func=init)
-    
+    ani = animation.FuncAnimation(fig, animate, np.arange(<span class="hljs-number">1</span>, len(y)),
+                                  interval=<span class="hljs-number">25</span>, blit=<span class="hljs-keyword">True</span>, init_func=init)
+
     timestmp = time.time()
-    ani.save("{stmp}_temp.gif".format(stmp=timestmp), writer='imagemagick',codec="gif",fps=15)
-    with open("{stmp}_temp.gif".format(stmp=timestmp),"rb") as f:
+    ani.save(<span class="hljs-string">&quot;{stmp}_temp.gif&quot;</span>.format(stmp=timestmp), writer=<span class="hljs-string">&apos;imagemagick&apos;</span>,codec=<span class="hljs-string">&quot;gif&quot;</span>,fps=<span class="hljs-number">15</span>)
+    <span class="hljs-keyword">with</span> open(<span class="hljs-string">&quot;{stmp}_temp.gif&quot;</span>.format(stmp=timestmp),<span class="hljs-string">&quot;rb&quot;</span>) <span class="hljs-keyword">as</span> f:
         value = base64.b64encode(f.read()).decode()
-    os.remove("{stmp}_temp.gif".format(stmp=timestmp))
-    result = '<img src="data:image/gif;base64,{value}" />'.format(value=value)
-    return result
-```
+    os.remove(<span class="hljs-string">&quot;{stmp}_temp.gif&quot;</span>.format(stmp=timestmp))
+    result = <span class="hljs-string">&apos;&lt;img src=&quot;data:image/gif;base64,{value}&quot; /&gt;&apos;</span>.format(value=value)
+    <span class="hljs-keyword">return</span> result
+</code></pre>
+<pre><code class="lang-python">HTML(double_pendulum())
+</code></pre>
+<pre><code>IOPub data rate exceeded.
+The notebook server will temporarily stop sending output
+to the client in order to avoid crashing it.
+To change this limit, set the config variable
+`--NotebookApp.iopub_data_rate_limit`.
+</code></pre><p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x6700;&#x597D;&#x4E0D;&#x8981;&#x7528;,&#x5F88;&#x6162;</p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; hsz 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-08-29 21:15:27
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
 
+                        </div>
+                    </div>
+                
+            </div>
 
-```python
-HTML(double_pendulum())
-```
+            
+                
+                <a href="动画/动画.html" class="navigation navigation-prev " aria-label="Previous page: 动画">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="结语.html" class="navigation navigation-next " aria-label="Next page: 结语">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
 
-    IOPub data rate exceeded.
-    The notebook server will temporarily stop sending output
-    to the client in order to avoid crashing it.
-    To change this limit, set the config variable
-    `--NotebookApp.iopub_data_rate_limit`.
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"matplitlib结合web技术","level":"5.1.2.1.9","depth":4,"next":{"title":"结语","level":"5.1.2.1.10","depth":4,"path":"科学计算篇/数据可视化/使用matplotlib做数据可视化/结语.md","ref":"科学计算篇/数据可视化/使用matplotlib做数据可视化/结语.md","articles":[]},"previous":{"title":"动画","level":"5.1.2.1.8","depth":4,"path":"科学计算篇/数据可视化/使用matplotlib做数据可视化/动画/动画.md","ref":"科学计算篇/数据可视化/使用matplotlib做数据可视化/动画/动画.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","advanced-emoji","github","github-buttons","mathjax","splitter","expandable-chapters-small","tbfed-pagefooter","-sharing","donate","sitemap-general","anchors","anchor-navigation-ex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy hsz 2017","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"http://blog.hszofficial.site/TutorialForPython"},"splitter":{},"search-pro":{"cutWordLib":"nodejieba","defineWord":["Gitbook Use"]},"donate":{"title":"","button":"赏","wechat":"http://blog.hszofficial.site/img/wechat_donate.jpg","alipay":"http://blog.hszofficial.site/img/zhifubao_donate.jpg","wechatText":"微信打赏","alipayText":"支付宝打赏"},"sitemap-general":{"prefix":"http://blog.hszofficial.site/TutorialForPython/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":true},"mode":"float","multipleH1":true,"pageTop":{"showLevelIcon":false,"mode":"float","pageTop":{"showLevelIcon":false,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"},"level1Icon":"","showLevel":true,"level2Icon":"","level3Icon":"","associatedWithSummary":true,"float":{"showLevelIcon":true,"level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right"}},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"repo":"hsz1273327/TutorialForPython","types":["star","watch","fork"],"size":"small"},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"advanced-emoji":{"embedEmojis":false},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":true,"instapaper":false,"vk":false,"all":["google"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"hsz","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"python攻略","language":"zh-hans","links":{"sidebar":{"Home":"http://blog.hszofficial.site/"}},"gitbook":">=2.0.0","description":"介绍python3.5+的语法与编程惯用法"},"file":{"path":"科学计算篇/数据可视化/使用matplotlib做数据可视化/matplitlib结合web技术.md","mtime":"2019-08-29T13:15:27.579Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-30T04:24:36.077Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
 
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
 
-这种方式最好不要用,很慢
+    </body>
+</html>
+

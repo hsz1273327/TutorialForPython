@@ -146,6 +146,24 @@
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/使用python做计算/符号计算/输出/画图/画图.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/使用python做计算/数值计算/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/使用python做计算/数值计算/使用标准库处理基本数学问题/使用标准库处理基本数学问题.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/numpy的高性能同构定长多维数组/numpy的高性能同构定长多维数组.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/universal_function/universal_function.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/精度与基本数学运算.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/使用python做计算/数值计算/使用numpy和scipy处理复杂的数值计算问题/使用numpy做科学计算/使用numpy做科学计算.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/数据可视化/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/数据可视化/使用matplotlib做数据可视化/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/数据可视化/使用matplotlib做数据可视化/matplotlib的基本设置/matplotlib的基本设置.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/数据可视化/使用matplotlib做数据可视化/绘图工具pyplot/绘图工具pyplot.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/数据可视化/使用matplotlib做数据可视化/非结构网络/非结构网络.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/数据可视化/使用matplotlib做数据可视化/桑基图/桑基图.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/数据可视化/使用matplotlib做数据可视化/图片加载/图片加载.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/数据可视化/使用matplotlib做数据可视化/保存图片/保存图片.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/数据可视化/使用matplotlib做数据可视化/控件.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/数据可视化/使用matplotlib做数据可视化/动画/动画.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/数据可视化/使用matplotlib做数据可视化/matplitlib结合web技术.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/数据可视化/使用matplotlib做数据可视化/结语.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/科学计算篇/不同领域的应用/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/嵌入与扩展篇/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/嵌入与扩展篇/使用Cython优化python程序的性能/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/嵌入与扩展篇/使用Cython优化python程序的性能/Cython的简单介绍.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
@@ -156,5 +174,7 @@
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/嵌入与扩展篇/使用Cython优化python程序的性能/使用Cython扩展numpy.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/嵌入与扩展篇/用numba为python写高性能C扩展.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://blog.hszofficial.site/TutorialForPython/嵌入与扩展篇/使用f2py用fortain给python写扩展.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>http://blog.hszofficial.site/TutorialForPython/术语表.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/术语表/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/术语表/统计/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://blog.hszofficial.site/TutorialForPython/术语表/统计/误差.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 </urlset>
