@@ -1,0 +1,8 @@
+More detailed documentation is available from the project site, at
+["Building Spark"](http://spark.apache.org/docs/latest/building-spark.html).
+
+## Interactive Scala Shell
+
+The easiest way to start using Spark is through the Scala shell:
+
+    ./bin/spark-shell
