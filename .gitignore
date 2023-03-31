@@ -22,3 +22,5 @@ lib
 *.lprof
 *.dat
 *.data
+*.out
+*.pdf
