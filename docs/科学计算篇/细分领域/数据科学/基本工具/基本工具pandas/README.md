@@ -1,0 +1,5 @@
+# pandas
+
+pandas是基于NumPy的工具,该工具是为了解决数据分析任务而创建的.Pandas纳入了大量库和一些标准的数据模型,提供了高效地操作大型数据集所需的工具,是使Python成为强大而高效的数据分析环境的重要因素之一.
+
+它最初由AQRCapital Management于2008年4月开发,并于2009年底开源出来,目前由专注于Python数据包开发的PyData开发team继续开发和维护,属于PyData项目的一部分.Pandas最初被作为金融数据分析工具而开发出来,因此pandas为时间序列分析提供了很好的支持,只是其特色之一.Pandas的名称来自于面板数据(panel data)和python数据分析(data analysis).
