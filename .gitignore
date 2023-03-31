@@ -19,3 +19,8 @@ bin
 lib
 
 *.o
+*.lprof
+*.dat
+*.txt
+*.data
+*.csv
