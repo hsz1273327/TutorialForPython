@@ -1,0 +1,10 @@
+syntax = "proto3";
+package squarerpc_service;
+
+service SquareService {
+    rpc rangeSquare (Message) returns (stream Message){}
+}
+
+message Message {
+    double message = 1;
+}
