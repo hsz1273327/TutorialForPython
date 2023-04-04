@@ -1,1 +1,0 @@
-env/bin/gunicorn -w 4 -k gevent -b localhost:5000 app:app
