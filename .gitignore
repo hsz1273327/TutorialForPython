@@ -24,3 +24,10 @@ lib
 *.data
 *.out
 *.pdf
+env
+dist
+*.egg-info
+*.pyc
+**/.DS_Store
+.mypy_cache
+.ipynb_checkpoints

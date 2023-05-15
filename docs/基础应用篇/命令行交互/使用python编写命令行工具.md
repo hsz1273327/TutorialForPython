@@ -1,4 +1,3 @@
-
 # 命令行工具
 
 计算机最基础的应用就是命令行工具了,众所周知的linux便是因为拥有shell和一众方便好用的命令行工具而备受程序员和geek喜欢.
@@ -54,22 +53,20 @@ python标准库中的argparse模块是官方推荐的命令行工具.它可以�
 
 argparse模块的命令可以归结为就3条
 
-#### `parser = argparse.ArgumentParser(prog=None, usage=None, description=None, epilog=None, parents=[], formatter_class=argparse.HelpFormatter, prefix_chars='-', fromfile_prefix_chars=None, argument_default=None, conflict_handler='error', add_help=True)`  
+#### ArgumentParser
 
-创建命令行解析对象
+创建命令行解析对象,其完整签名为:
+
+```python
+parser = argparse.ArgumentParser(prog=None, usage=None, description=None, epilog=None, parents=[], formatter_class=argparse.HelpFormatter, prefix_chars='-', fromfile_prefix_chars=None, argument_default=None, conflict_handler='error', add_help=True)
+```
 
 其中的参数:
-+ prog - 程序的名字（默认：sys.argv[0]）
-+ usage - 描述程序用法的字符串（默认：从解析器的参数生成）
-+ description - 参数帮助信息之前的文本（默认：空）
-+ epilog - 参数帮助信息之后的文本（默认：空）
-+ parents - ArgumentParser 对象的一个列表，这些对象的参数应该包括进去
-    
-    像有时候需要解析非常复杂的关键字参数,比如像git那样的,
-    
-    
-
-
++ `prog`,程序的名字(默认:`sys.argv[0]`)
++ `usage`,描述程序用法的字符串(默认:从解析器的参数生成)
++ `description`,参数帮助信息之前的文本(默认:`None`)
++ `epilog`, 参数帮助信息之后的文本(默认:`None`)
++ `parents`,`ArgumentParser`对象的一个列表,这些对象的参数应该包括进去像有时候需要解析非常复杂的关键字参数,比如像git那样的复杂命令行工具,例子如下:
 
 
 
@@ -91,7 +88,7 @@ foo_parser.parse_args(['--parent', '2', 'XXX'])
 
 
 
-    Namespace(foo='XXX', parent=2)
+    Namespace(parent=2, foo='XXX')
 
 
 
@@ -106,62 +103,67 @@ bar_parser.parse_args(['--bar', 'YYY'])
 
 
 
-    Namespace(bar='YYY', parent=None)
+    Namespace(parent=None, bar='YYY')
 
 
 
-+ formatter_class - 定制化帮助信息的类
-+ prefix_chars - 可选参数的前缀字符集（默认：‘-‘）
-+ fromfile_prefix_chars - 额外的参数应该读取的文件的前缀字符集（默认：None）
-+ argument_default - 参数的全局默认值（默认：None）
-+ conflict_handler - 解决冲突的可选参数的策略（通常没有必要）
-+ add_help - 给解析器添加-h/–help 选项（默认：True） 
++ `formatter_class`,定制化帮助信息的类
++ `prefix_chars`,`选项`的前缀字符集(默认:`-`)
++ `fromfile_prefix_chars`,额外的参数应该读取的文件的前缀字符集(默认:`None`)
++ `argument_default`,参数的全局默认值(默认:`None`）
++ `conflict_handler`,解决冲突的可选参数的策略(通常没有必要额外设置)
++ `add_help`,给解析器添加`-h/–help`选项(默认:`True`)
 
+#### add_argument
 
-#### `parser.add_argument(name or flags...[, action][, nargs][, const][, default][, type][, choices][, required][, help][, metavar][, dest])` 
+增加命令行参数,其完整签名如下:
 
-增加命令行参数,方法的参数说明如下:
-+ name or flags
-    命令行参数名或者选项，如上面的address或者-p,--port.其中命令行参数如果没给定，且没有设置defualt，则出错。但是如果是选项的话，则设置为None,add_argument() 方法必须知道期望的是可选参数，比如-f 或者--foo，还是位置参数，比如一个文件列表。传递给add_argument() 的第一个参数因此必须是一个标记序列或者一个简单的参数名字。例如，一个可选的参数可以像这样创建：
+`parser.add_argument(name or flags...[, action][, nargs][, const][, default][, type][, choices][, required][, help][, metavar][, dest])` 
 
-+ action
-    action 关键字参数指出应该如何处理命令行参数。支持的动作有:
+方法的参数说明如下:
+
++ `name or flags`
+    命令行参数名或者选项，如上面的`address`或者`-p,--port`.其中`命令行参数`指的是不以`-`或`--`开头的项,`选项`则是以`-`或`--`开头的项.
+    `命令行参数`类似函数中没有默认值的位置参数,在解析时是必填的,且如果为其设置`default`也不会生效.
+    `选项`则类似函数中的关键字参数,我们可以用default设置默认值.一般来说选项是选填的.
+    `add_argument()`方法必须知道要设置的是`命令行参数`还是`选项`
+
++ `action`
+    `action`关键字参数指出应该如何处理命令行参数.支持的动作有:
     
-    + 'store' - 只是保存参数的值。这是默认的动作
+    + `store`,只是保存参数的值,这是默认的动作
+    + `store_const`,保存由参数`const`指出的值.(注意`const`默认是None.)`store_const`动作最常用于指定某种标记的可选参数.
+    + `store_true`和`store_false`,它们是`store_const`的特殊情形,分别用于保存值`True`和`False`.另外它们分别会创建对应的默认值
+    + `append`,保存一个列表并将每个参数值附加在列表的后面.这对于允许指定多次的`选项`很有帮助.示例用法: `-I /usr/include -I /local/include`
+    + `append_const`,保存一个列表并将`const`关键字参数指出的值附加在列表的后面.(注意`const`关键字参数默认是`None`).`append_const` 动作在多个参数需要保存常量到相同的列表时特别有用.
+    + `count`,计算`选项`字面量出现的次数.比如定义选线为`-v`,如果输入为`-vvv`则`v`会被记为`3`
+    + `help`,打印当前解析器中所有选项的完整的帮助信息然后退出.默认情况下`help`动作会自动添加到解析器中.
+    + `version`,它需要配合参数`version`,在调用时打印出版本信息并退出.这个动作只对输出版本信息有用,用法类似:`parser.add_argument('--version', action='version', version='2.0.0')`
+
++ `nargs`, 命令行参数的个数,一般使用通配符表示,其中
+    + `'?'`表示只用一个
+    + `'*'`表示0到多个
+    + `'+'`表示至少一个
++ `default`,默认值,当设置命令行参数时无效
+
++ `type`,参数的类型,命令行中传入的参数默认是字符串`str`类型,我们可以设置`type`为其指定类型转换函数.这也就顺便监测了输入参数是否符合要求.通常有这些设置:
+    + `float`,`int`等
+    + `ascii`
+    + `pathlib.Path`
+    我们当然也可以用类似`open`这样的函数直接处理文件,但这样写不利于关闭文件,因此不推荐
     
-    + 'store_const' - 保存由const关键字参数指出的值。（注意const关键字参数默认是几乎没有帮助的None。）'store_const'动作最常用于指定某种标记的可选参数
-
-    + 'store_true'和'store_false' - 它们是'store_const' 的特殊情形，分别用于保存值True和False。另外，它们分别会创建默认值False 和True。
-    + 'append' - 保存一个列表，并将每个参数值附加在列表的后面。这对于允许指定多次的选项很有帮助。示例用法：
-
-    + 'append_const' - 保存一个列表，并将const关键字参数指出的值附加在列表的后面。（注意const关键字参数默认是None。）'append_const' 动作在多个参数需要保存常量到相同的列表时特别有用。例如：
-
-    + 'count' - 计算关键字参数出现的次数。例如，这可用于增加详细的级别：
-
-    + 'help' - 打印当前解析器中所有选项的完整的帮助信息然后退出。默认情况下，help动作会自动添加到解析器中。参见ArgumentParser以得到如何生成输出信息。
-
-    + 'version' - 它期待version=参数出现在add_argument()调用中，在调用时打印出版本信息并退出：
-
-+ nargs
-    命令行参数的个数，一般使用通配符表示，其中，`'?'`表示只用一个，`'*'`表示0到多个，`'+'`表示至少一个
-+ default
-    默认值
-+ type
-    参数的类型，默认是字符串string类型，还有float、int,file等类型
++ `choices`,可以看做是`default`的扩展,参数的值必须在`choices`的范围内
     
-+ choices
-    可以看做是default的扩展,参数的值必须在choices的范围内
++ `required`,一般情况下,`argparse`模块假定`选项`是可选的,如果要使得选项变成必选的可以指定`required=True`
     
-+ required
-    一般情况下，argparse模块假定-f和--bar标记表示可选参数，它们在命令行中可以省略。如果要使得选项是必需的，可以指定True作为required=关键字参数的值给add_argument()
-    
-+ help
-    和ArgumentParser方法中的参数作用相似，出现的场合也一致
++ `help`,和`ArgumentParser`方法中的参数作用相似，出现的场合也一致
 
 
-#### `parser.parse_args()` 
+#### parse_args
 
-执行解析命令行参数
+执行解析命令行参数,完整签名为:
+
+`parser.parse_args()` 
 
 ### 一个简单的例子
 
@@ -171,7 +173,7 @@ bar_parser.parse_args(['--bar', 'YYY'])
 
 
 ```python
-%%writefile src/python/std/sqrt_std.py
+%%writefile src/cmd/std/sqrt_std.py
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
@@ -189,12 +191,8 @@ def version():
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("number", type=int, help=u"求开根的参数")
-    parser.add_argument("-v","--version", help=u"查看版本号",action="store_true")
-
+    parser.add_argument("-v","--version", help=u"查看版本号",action="version",version=__version__)
     args = parser.parse_args()
-    
-    if args.version:
-        print(version())
     if args.number:
         print(sqrtarg(args.number))
 
@@ -202,12 +200,12 @@ if __name__ == '__main__':
     main()
 ```
 
-    Writing src/python/std/sqrt_std.py
+    Writing src/cmd/std/sqrt_std.py
 
 
 
 ```python
-!python src/python/std/sqrt_std.py
+!python src/cmd/std/sqrt_std.py
 ```
 
     usage: sqrt_std.py [-h] [-v] number
@@ -216,7 +214,7 @@ if __name__ == '__main__':
 
 
 ```python
-!python src/python/std/sqrt_std.py -h
+!python src/cmd/std/sqrt_std.py -h
 ```
 
     usage: sqrt_std.py [-h] [-v] number
@@ -224,14 +222,22 @@ if __name__ == '__main__':
     positional arguments:
       number         求开根的参数
     
-    optional arguments:
+    options:
       -h, --help     show this help message and exit
       -v, --version  查看版本号
 
 
 
 ```python
-!python src/python/std/sqrt_std.py 36
+!python src/cmd/std/sqrt_std.py -v
+```
+
+    0.1.0
+
+
+
+```python
+!python src/cmd/std/sqrt_std.py 36
 ```
 
     6.0
@@ -240,22 +246,17 @@ if __name__ == '__main__':
 ### 运行细节
 
 1. type参数只是类型检验,传入的参数还是字符串
-
 2. 不需要写usage
-
-3. 有nargs参数的话获取的对应是一个list
-
-4. 参数传入实际上是被存入了一个namespace的空间中这个空间有俩参数,其中一个是方法名命名的一个list,要调用使用即可:
-    
-        args.方法名
+3. 有`nargs`参数的话获取的对应是一个list
+4. 参数传入实际上是被存入了一个namespace的空间中.这个空间有俩参数,其中一个是方法名命名的一个list,要调用使用`args.方法名`即可
 5. 如果参数中有只能接受一个的情况,可以加入判断
+    ```python
+    if args.methodname1 == args.methodname1:  
+        print 'usage: ' + __file__ + ' --help'  
+        sys.exit(2)  
+    ```
 
-        if args.methodname1 == args.methodname1:  
-            print 'usage: ' + __file__ + ' --help'  
-            sys.exit(2)  
-  
-
-    来判断两个参数,要么都存在， 要么都不存在， 即可满足要求  
+    来判断两个参数,要么都存在,要么都不存在,即可满足要求  
 
 
 ### 子解析
@@ -263,13 +264,13 @@ if __name__ == '__main__':
 如果要写一个类似git那样复杂的有子命令如add,push pull等的工具,单单用上面的解析工具是不够的,需要使用`add_subparsers([title][, description][, prog][, parser_class][, action][, option_string][, dest][, help][, metavar])`命令
 
 其中:
-+ title - 在输出的帮助中子解析器组的标题；默认情况下，如果提供description参数则为“subcommands”，否则使用位置参数的标题
-+ description - 在输出的帮助中子解析器组的描述，默认为None
-+ prog - 与子命令的帮助一起显示的使用帮助信息，默认为程序的名字和子解析器参数之前的所有位置参数
-+ parser_class - 用于创建子解析器实例的类，默认为当前的解析器（例如ArgumentParser）
-+ dest - 子命令的名字应该存储的属性名称；默认为None且不存储任何值
-+ help - 在输出的帮助中子解析器中的帮助信息，默认为None
-+ metavar - 在帮助中表示可用的子命令的字符串；默认为None并以{cmd1, cmd2, ..}的形式表示子命令
++ `title`,在输出的帮助中子解析器组的标题.默认情况下如果提供`description`参数则为"subcommands",否则使用位置参数的标题
++ `description`,在输出的帮助中子解析器组的描述,默认为`None`
++ `prog`,与子命令的帮助一起显示的使用帮助信息,默认为程序的名字和子解析器参数之前的所有位置参数
++ `parser_class`,用于创建子解析器实例的类,默认为当前的解析器(例如ArgumentParser)
++ `dest`,子命令的名字应该存储的属性名称;默认为`None`且不存储任何值
++ `help`,在输出的帮助中子解析器中的帮助信息,默认为`None`
++ `metavar`,在帮助中表示可用的子命令的字符串;默认为`None`并以`{cmd1, cmd2, ..}`的形式表示子命令
 
 
 ```python
@@ -288,7 +289,7 @@ parser.parse_args(['a', '12'])
 
 
 
-    Namespace(bar=12, foo=False)
+    Namespace(foo=False, bar=12)
 
 
 
@@ -300,11 +301,11 @@ parser.parse_args(['--foo', 'b', '--baz', 'Z'])
 
 
 
-    Namespace(baz='Z', foo=True)
+    Namespace(foo=True, baz='Z')
 
 
 
-处理子命令的一个特别有效的方法是将add_subparsers()方法和set_defaults() 调用绑在一起使用，这样每个子命令就可以知道它应该执行哪个Python 函数。例如：
+处理子命令的一个特别有效的方法是将`add_subparsers()`方法和`set_defaults()`调用绑在一起使用,这样每个子命令就可以知道它应该执行哪个Python函数.例如:
 
 
 ```python
@@ -339,7 +340,7 @@ args
 
 
 
-    Namespace(func=<function foo at 0x11085f620>, x=2, y=1.0)
+    Namespace(x=2, y=1.0, func=<function foo at 0x7f7f10822950>)
 
 
 
@@ -360,7 +361,7 @@ args
 
 
 
-    Namespace(func=<function bar at 0x11085f730>, z='XYZYX')
+    Namespace(z='XYZYX', func=<function bar at 0x7f7f10822ef0>)
 
 
 
@@ -372,7 +373,7 @@ args.func(args)
     ((XYZYX))
 
 
-这样的话，你可以让parse_args()在参数解析完成之后去做调用适当的函数的工作。像这种方式将函数和动作关联起来是最简单的方法来处理你每个子命令的不同动作。然而，如果需要检查调用的子命令的名字，用dest关键字参数调用add_subparsers()就行
+这样的话你可以让`parse_args()`在参数解析完成之后去做调用适当的函数的工作.像这种方式将函数和动作关联起来是最简单的方法来处理你每个子命令的不同动作.然而如果需要检查调用的子命令的名字,用`dest`关键字参数调用`add_subparsers()`就行
 
 
 ```python
@@ -408,7 +409,7 @@ group2.add_argument('--bar', help='bar help')
 
 
 
-    _StoreAction(option_strings=['--bar'], dest='bar', nargs=None, const=None, default=None, type=None, choices=None, help='bar help', metavar=None)
+    _StoreAction(option_strings=['--bar'], dest='bar', nargs=None, const=None, default=None, type=None, choices=None, required=False, help='bar help', metavar=None)
 
 
 
@@ -430,18 +431,20 @@ parser.print_help()
       --bar BAR  bar help
 
 
-要一组参数互斥,可以使用`add_mutually_exclusive_group(required=False)`
-
-required 参数，用于指示互斥分组中至少有一个参数是必需的
+要一组参数互斥,可以使用`add_mutually_exclusive_group(required=False)`.注意`required`参数用于指示互斥分组中至少有一个参数是必需的
 
 
 ```python
+%xmode Plain
 parser = argparse.ArgumentParser(prog='PROG')
 group = parser.add_mutually_exclusive_group(required=True)
 group.add_argument('--foo', action='store_true')
 group.add_argument('--bar', action='store_false')
 parser.parse_args(["--foo","--bar"])
 ```
+
+    Exception reporting mode: Plain
+
 
     usage: PROG [-h] (--foo | --bar)
     PROG: error: argument --bar: not allowed with argument --foo
@@ -451,11 +454,37 @@ parser.parse_args(["--foo","--bar"])
     An exception has occurred, use %tb to see the full traceback.
 
 
+    Traceback (most recent call last):
+
+
+      File ~/anaconda3/lib/python3.10/argparse.py:1859 in parse_known_args
+        namespace, args = self._parse_known_args(args, namespace)
+
+
+      File ~/anaconda3/lib/python3.10/argparse.py:2072 in _parse_known_args
+        start_index = consume_optional(start_index)
+
+
+      File ~/anaconda3/lib/python3.10/argparse.py:2012 in consume_optional
+        take_action(action, args, option_string)
+
+
+      File ~/anaconda3/lib/python3.10/argparse.py:1931 in take_action
+        raise ArgumentError(action, msg % action_name)
+
+
+    ArgumentError: argument --bar: not allowed with argument --foo
+
+
+    
+    During handling of the above exception, another exception occurred:
+
+
     SystemExit: 2
 
 
 
-    /Users/huangsizhe/anaconda3/lib/python3.6/site-packages/IPython/core/interactiveshell.py:2918: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.
+    /Users/mac/anaconda3/lib/python3.10/site-packages/IPython/core/interactiveshell.py:3468: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.
       warn("To exit: use 'exit', 'quit', or Ctrl-D.", stacklevel=1)
 
 
@@ -476,10 +505,6 @@ parser.parse_args([])
 
 
 
-    /Users/huangsizhe/anaconda3/lib/python3.6/site-packages/IPython/core/interactiveshell.py:2918: UserWarning: To exit: use 'exit', 'quit', or Ctrl-D.
-      warn("To exit: use 'exit', 'quit', or Ctrl-D.", stacklevel=1)
-
-
 
 ```python
 parser.parse_args(["--foo"])
@@ -488,7 +513,7 @@ parser.parse_args(["--foo"])
 
 
 
-    Namespace(bar=True, foo=True)
+    Namespace(foo=True, bar=True)
 
 
 
@@ -570,7 +595,7 @@ def main(argv: Sequence[str]=sys.argv[1:]):
 
 
 ```python
-%%writefile src/python/doc/sqrt_doc.py
+%%writefile src/cmd/doc/sqrt_doc.py
 #!/usr/bin/env python
 # coding:utf-8 
 u"""
@@ -617,12 +642,12 @@ if __name__ == '__main__':
     main()
 ```
 
-    Writing src/python/doc/sqrt_doc.py
+    Overwriting src/cmd/doc/sqrt_doc.py
 
 
 
 ```python
-!python src/python/doc/sqrt_doc.py
+!python src/cmd/doc/sqrt_doc.py
 ```
 
     Usage: 
@@ -634,7 +659,7 @@ if __name__ == '__main__':
 
 
 ```python
-!python src/python/doc/sqrt_doc.py -a
+!python src/cmd/doc/sqrt_doc.py -a
 ```
 
     {'--all': True,
@@ -646,7 +671,7 @@ if __name__ == '__main__':
 
 
 ```python
-!python src/python/doc/sqrt_doc.py -v
+!python src/cmd/doc/sqrt_doc.py -v
 ```
 
     0.1.0
@@ -654,7 +679,7 @@ if __name__ == '__main__':
 
 
 ```python
-!python src/python/doc/sqrt_doc.py -h
+!python src/cmd/doc/sqrt_doc.py -h
 ```
 
     Usage: 
@@ -672,7 +697,7 @@ if __name__ == '__main__':
 
 
 ```python
-!python src/python/doc/sqrt_doc.py 36
+!python src/cmd/doc/sqrt_doc.py 36
 ```
 
     6.0
@@ -690,104 +715,13 @@ if __name__ == '__main__':
 docopt写起来并不会省代码,但它所见即所得,更加直观,当你写完注释的时候你的命令行解析也实现了.
 
 
-## 补充1:命令行显示循环美化
-
-[tqdm](https://pypi.python.org/pypi/tqdm)是一个进度条工具,除了可以给命令行工具增加进度条看出进度外,还可以用于`jupyter-notebook`
-
-tqdm模块的tqdm类是这个包的核心,所有功能都是在它上面衍生而来
-
-tqdm类 可以包装可迭代对象,它的实例化参数有:
-
-
-+ desc : str, optional
-    放在bar前面的描述字符串
-
-+ total : int, optional
-    显示多长
-
-+ leave : bool, optional
-    结束时时保留进度条的所有痕迹。
-+ file : io.TextIOWrapper or io.StringIO, optional
-    输出到文件
-+ ncols : int, optional
-    自定义宽度
-
-+ mininterval : float, optional
-    更新最短时间
-
-+ maxinterval : float, optional
-    更新最大时间
-
-+ miniters : int, optional
-    每次更新最小值
-
-+ ascii : bool, optional
-    使用ascii碼显示
-+ disable : bool, optional
-    是否禁用整个progressbar
-    
-+ unit : str, optional
-    显示的更新单位
-+ unit_scale : bool, optional
-    根据单位换算进度
-
-+ dynamic_ncols : bool, optional
-    可以不断梗概ncols的环境
-    
-+ smoothing : float, optional
-    用于速度估计的指数移动平均平滑因子（在GUI模式中忽略）。范围从0（平均速度）到1（当前/瞬时速度）[默认值：0.3]。
-    
-+ bar_format : str, optional
-    指定自定义栏字符串格式。可能会影响性能
-
-+ initial : int, optional
-    初始计数器值。重新启动进度条时有用[默认值：0]。
-
-+ position : int, optional
-    指定打印此条的线偏移（从0开始）如果未指定，则为自动。用于一次管理多个条
-
-### 基础的循环
-
-
-```python
-from tqdm import tqdm
-for i in tqdm(range(int(9e6)),desc="test:"):
-    pass
-```
-
-    test:: 100%|██████████| 9000000/9000000 [00:02<00:00, 4373806.98it/s]
-
-
-
-```python
-for i in tqdm(range(int(9e6)),desc="test",dynamic_ncols=True):
-    pass
-```
-
-    test: 100%|██████████| 9000000/9000000 [00:02<00:00, 4428959.63it/s]
-
-
-### 使用with语句手工更新
-
-
-```python
-with tqdm(total=100) as bar:
-    for i in range(10):
-        bar.update(10)
-    
-          
-```
-
-    100%|██████████| 100/100 [00:00<00:00, 289062.99it/s]
-
-
-## 补充2: 为命令行工具自动创建gui
+## 补充: 为命令行工具自动创建gui
 
 [Gooey](https://github.com/chriskiehl/Gooey)是一个可以将python命令行自动转成gui的工具,它依赖`wxpython`,废话不多说,看例子.我们来将之前的命令行工具转化一下
 
 
 ```python
-%%writefile src/python/std/sqrt_std_gui.py
+%%writefile src/cmd/std/sqrt_std_gui.py
 #!/usr/bin/env python3
 import argparse
 from math import sqrt
@@ -818,67 +752,24 @@ if __name__ == '__main__':
     main()
 ```
 
-    Writing src/python/std/sqrt_std_gui.py
+    Overwriting src/cmd/std/sqrt_std_gui.py
 
 
 
 ```python
-!python src/python/std/sqrt_std_gui.py
+!python src/cmd/std/sqrt_std_gui.py
 ```
 
-    Traceback (most recent call last):
-      File "src/python/std/sqrt_std_gui.py", line 4, in <module>
-        from gooey import Gooey, GooeyParser
-    ModuleNotFoundError: No module named 'gooey'
+    This program needs access to the screen. Please run with a
+    Framework build of python, and only when you are logged in
+    on the main display of your Mac.
 
 
 ## 补充: python3命令行工具的发布
 
-我的用python写的脚本直接运行当然是可以,用Shebang结合权限设定也可以在一般的情况下使用,但如果我们的希望它成为可以随时使用的工具,更好的方式是将它用setuptool安装到python的脚本位置(当然也可以上传到pyp上供大家使用),
+我的用python写的脚本直接运行当然是可以,用Shebang结合权限设定也可以在一般的情况下使用,但如果我们的希望它成为可以随时使用的工具,更好的方式是将它用setuptool安装到python的脚本位置(当然也可以上传到pypi上供大家使用),
 
 这边给出两个的`setup.py`文件作为参考
-
-
-```python
-%%writefile src/python/doc/setup.py
-
-from distutils.core import setup
-import os
-pathroot = os.path.split(os.path.realpath(__file__))[0]
-setup(
-    name='sqrt_doc',
-    version='0.1.0',
-    
-    scripts=[pathroot+'/sqrt_doc.py']
-)
-```
-
-    Writing src/python/doc/setup.py
-
-
-
-```python
-!python src/python/doc/setup.py install
-```
-
-    running install
-    running build
-    running build_scripts
-    copying and adjusting /Users/huangsizhe/WORKSPACE/github/hsz1273327/TutorialForPython/ipynbs/人机交互篇/src/python/doc/sqrt_doc.py -> build/scripts-3.6
-    running install_scripts
-    copying build/scripts-3.6/sqrt_doc.py -> /Users/huangsizhe/anaconda3/bin
-    changing mode of /Users/huangsizhe/anaconda3/bin/sqrt_doc.py to 755
-    running install_egg_info
-    Writing /Users/huangsizhe/anaconda3/lib/python3.6/site-packages/sqrt_doc-0.1.0-py3.6.egg-info
-
-
-
-```python
-!sqrt_doc.py 48
-```
-
-    6.928203230275509
-
 
 将std文件夹中文件结构改成
 
@@ -891,7 +782,7 @@ setup(
 
 
 ```python
-%%writefile src/python/std/setup.py
+%%writefile src/cmd/std/setup.py
 
 from setuptools import setup,find_packages
 import os
@@ -906,7 +797,7 @@ setup(
 )
 ```
 
-    Writing src/python/std/setup.py
+    Writing src/cmd/std/setup.py
 
 
 之后到目录下开始编译
