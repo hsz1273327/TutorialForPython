@@ -1,4 +1,3 @@
-
 # 在Ipython Notebook中的代码调试与优化
 
 jupyter 是科学计算工具,那代码的调优就是它的一个重点了,python本身的运算能力其实很令人着急的,但通过分析计算瓶颈和用numpy,cython等工具优化代码,python也可以拥有非常高的运算效率(其实是C的功劳)
@@ -7,8 +6,8 @@ jupyter 是科学计算工具,那代码的调优就是它的一个重点了,pyth
 
 + [代码调试](/工具链篇/调试工具.html)
 + [性能调优](/工具链篇/性能调优工具/html)
-+ [使用Cython为python加速](/嵌入与扩展篇/使用Cython优化python程序的性能)
-+ [使用numba为python加速](/嵌入与扩展篇/用numba为python写高性能C扩展.html)
++ [使用Cython为python加速]<!-- (/嵌入与扩展篇/使用Cython优化python程序的性能) -->
++ [使用numba为python加速]<!-- (/嵌入与扩展篇/用numba为python写高性能C扩展.html) -->
 
 ## 调试代码
 
@@ -43,15 +42,15 @@ f2(1)
     Traceback (most recent call last):
 
 
-      File "<ipython-input-3-d9076a5554c7>", line 1, in <module>
+      Cell In[3], line 1
         f2(1)
 
 
-      File "<ipython-input-1-d7ac5604b6da>", line 6, in f2
+      Cell In[1], line 6 in f2
         return f1(a,b)
 
 
-      File "<ipython-input-1-d7ac5604b6da>", line 2, in f1
+      Cell In[1], line 2 in f1
         return a/b
 
 
@@ -77,28 +76,23 @@ f2(1)
 
     ZeroDivisionError                         Traceback (most recent call last)
 
-    <ipython-input-5-d9076a5554c7> in <module>()
+    Cell In[5], line 1
     ----> 1 f2(1)
-            global f2 = <function f2 at 0x106a34bf8>
 
 
-    <ipython-input-1-d7ac5604b6da> in f2(x=1)
-          4     a = x
-          5     b = x-1
-    ----> 6     return f1(a,b)
-            global f1 = <function f1 at 0x106a34840>
+    Cell In[1], line 6, in f2(x=1)
+          4 a = x
+          5 b = x-1
+    ----> 6 return f1(a,b)
             a = 1
             b = 0
 
 
-    <ipython-input-1-d7ac5604b6da> in f1(a=1, b=0)
+    Cell In[1], line 2, in f1(a=1, b=0)
           1 def f1(a,b):
     ----> 2     return a/b
             a = 1
             b = 0
-          3 def f2(x):
-          4     a = x
-          5     b = x-1
 
 
     ZeroDivisionError: division by zero
@@ -120,7 +114,7 @@ ipython中常用的就是`%timeit <func>`命令了
 %timeit sum(map(lambda x:x**2,range(10000000)))
 ```
 
-    6.57 s ± 214 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+    2.63 s ± 30.5 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 
 
 或者查看具体时间在哪里损耗的`%time`
@@ -130,8 +124,8 @@ ipython中常用的就是`%timeit <func>`命令了
 %time sum(map(lambda x:x**2,range(10000000)))
 ```
 
-    CPU times: user 6.15 s, sys: 61.9 ms, total: 6.21 s
-    Wall time: 6.41 s
+    CPU times: user 2.57 s, sys: 8.42 ms, total: 2.58 s
+    Wall time: 2.59 s
 
 
 
@@ -157,6 +151,18 @@ fib(20)
 
      
 
+
+             21894 function calls (4 primitive calls) in 0.009 seconds
+    
+       Ordered by: internal time
+    
+       ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+      21891/1    0.009    0.000    0.009    0.009 <string>:1(fib)
+            1    0.000    0.000    0.009    0.009 {built-in method builtins.exec}
+            1    0.000    0.000    0.009    0.009 <string>:1(<module>)
+            1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
 + ### 使用`line_profiler`,对代码做逐行性能分析
 
 在ipython中使用line_profiler可以使用他们的ipython魔法命令`%lprun`,要使用这个魔法命令需要先加载
@@ -172,6 +178,24 @@ fib(20)
 ```python
 %lprun -s -f fib fib(20)
 ```
+
+
+    Timer unit: 1e-09 s
+    
+    Total time: 0.014472 s
+    
+    Could not find file <string>
+    Are you sure you are running this program from the same directory
+    that you ran the profiler from?
+    Continuing without the function's contents.
+    
+    Line #      Hits         Time  Per Hit   % Time  Line Contents
+    ==============================================================
+         1                                           
+         2     10946    3920000.0    358.1     27.1  
+         3     10946    4436000.0    405.3     30.7  
+         4     10945    6116000.0    558.8     42.3
+
 
 + ### 使用memory_profiler,对代码做内存分析
 
@@ -191,7 +215,7 @@ fib(20)
 %memit sum(map(lambda x:x**2,range(10000000)))
 ```
 
-    peak memory: 41.92 MiB, increment: 0.10 MiB
+    peak memory: 72.27 MiB, increment: 0.16 MiB
 
 
 + ### 细粒度内存检查
@@ -212,6 +236,17 @@ import myfib
 ```
 
     
+
+
+
+    Filename: /Users/mac/WORKSPACE/GITHUB/BLOG/TutorialForPython/src/工具链篇/交互环境jupyter/Jupyter的核心层/myfib.py
+    
+    Line #    Mem usage    Increment  Occurrences   Line Contents
+    =============================================================
+         1     72.4 MiB     72.4 MiB       21891   def fib(n):
+         2     72.4 MiB      0.0 MiB       21891       if n<2:
+         3     72.4 MiB      0.0 MiB       10946           return n
+         4     72.4 MiB      0.0 MiB       10945       return fib(n-1)+fib(n-2)
 
 
 ## `*`使用C语言扩展做代码优化
@@ -256,7 +291,7 @@ fib(20)
 %timeit fib(20)
 ```
 
-    5.04 ms ± 94.6 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+    2.16 ms ± 35.7 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 
 
 + 直接用cython加速
@@ -288,7 +323,7 @@ fib_cython(20)
 %timeit fib_cython(20)
 ```
 
-    1.66 ms ± 164 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+    635 µs ± 16.2 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
 
 
 时间上和原版俩差了3倍的速度
@@ -321,7 +356,7 @@ fib_cython_type(20)
 %timeit fib_cython_type(20)
 ```
 
-    56.7 µs ± 1.8 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+    38.7 µs ± 2.93 µs per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
 
 
 速度直线上升,快了100倍不止!
@@ -347,7 +382,7 @@ def fib_cache(n):
 %timeit fib_cache(20)
 ```
 
-    181 ns ± 5.27 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
+    70.3 ns ± 17.8 ns per loop (mean ± std. dev. of 7 runs, 10,000,000 loops each)
 
 
 或者简单的使用变量
@@ -380,7 +415,7 @@ fib_seq(20)
 %timeit fib_seq(20)
 ```
 
-    2.4 µs ± 116 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+    1.1 µs ± 19.1 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
 
 
 原版的Python对迭代的优化还是相当可以的利用两个变量存储过程量,可以大大减少运算量
@@ -403,7 +438,7 @@ def fib_cache_cython(n):
 %timeit fib_cache_cython(20)
 ```
 
-    218 ns ± 13 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+    62.9 ns ± 1.37 ns per loop (mean ± std. dev. of 7 runs, 10,000,000 loops each)
 
 
 
@@ -435,10 +470,8 @@ fib_seq_cython(20)
 %timeit fib_seq_cython(20)
 ```
 
-    1.07 µs ± 25.8 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+    618 ns ± 18.4 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
 
-
-惊了...只有1微秒左右!
 
 + 再静态化
 
@@ -472,10 +505,8 @@ fib_seq_cython_type(20)
 %timeit fib_seq_cython_type(20)
 ```
 
-    113 ns ± 1.31 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
+    61.1 ns ± 1.49 ns per loop (mean ± std. dev. of 7 runs, 10,000,000 loops each)
 
-
-又快了4倍
 
 ### 使用numba加速
 
@@ -496,6 +527,10 @@ def fib_seq_numba(n):
     return a 
 ```
 
+    /var/folders/j_/p0q1k_mj4cs0dqn0sqnshsrr0000gn/T/ipykernel_91329/3928693172.py:2: NumbaDeprecationWarning: [1mThe 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.[0m
+      def fib_seq_numba(n):
+
+
 
 ```python
 fib_seq_numba(20)
@@ -513,7 +548,5 @@ fib_seq_numba(20)
 %timeit fib_seq_numba(20)
 ```
 
-    293 ns ± 5.73 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+    167 ns ± 4.36 ns per loop (mean ± std. dev. of 7 runs, 10,000,000 loops each)
 
-
-略不如Cython的最终版本

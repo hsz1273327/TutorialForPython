@@ -1,15 +1,20 @@
-
 # 基于web的可交互运行环境jupyter
 
-写了这么久还没介绍我写这些的平台,jupyter notebook
+写了这么久还没介绍我写这些的平台,我写这系列文章使用的是[Jupyter](http://jupyter.org/).
 
-Jupyter 是ipython notebook 脱离ipython项目后的一个独立项目.不同于notebook, Jupyter已经不再只是python的交互执行框架,
-而是致力于多语言通用的交互执行.
+Jupyter是ipython notebook脱离ipython项目后的一个独立项目.目前已经发展为了一系列工具,他们是:
+
++ `jupyter notebook`,最基础的web端交互运行环境,也是一切的起点
++ `jupyter lab`,第二代web端交互运行环境,提供了更加接近ide的交互体验.可以认为是`jupyter notebook`+项目管理工具
++ `jupyter hub`,多用户web端交互系统,可以理解为带上用户管理的`jupyter notebook`或者`jupyter lab`
+
+
+Jupyter已经不单只是python的交互执行框架,更是致力于多语言通用的交互执行.
 
 在以前 notebook作为ipython的一个子项目就受到许多人的喜爱和追捧,当时就已经可以通过多种途径利用它执行其他非python语言.
 现在Jupyter 与ipython分家后,这一特性得到了更好的支持.
 
-现在的Jupyter只负责交互执行,而执行的是什么语言其实是由其执行核心--kernel 来实现的,而现在的ipython可以自带其执行python版本的python核心.
+现在的Jupyter只负责交互执行,而执行的是什么语言其实是由其执行核心--`kernel`来实现的,而现在的ipython可以自带其执行python版本的python核心.
 
 本文也会顺带介绍几种支持Jupyter的优秀的语言.
 
@@ -235,7 +240,7 @@ jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
 
 
-```Rust
+```python
 val NUM_SAMPLES = 10000
 val count = sc.parallelize(1 to NUM_SAMPLES).map{i =>
     val x = Math.random()
@@ -276,7 +281,7 @@ println("Pi is roughly " + 4.0 * count / NUM_SAMPLES)
 求斐波那契数列
 
 
-```Rust
+```python
 (begin
  (define (factorial n)
   (define (iter product counter)
@@ -297,7 +302,7 @@ println("Pi is roughly " + 4.0 * count / NUM_SAMPLES)
 
 
 
-```Rust
+```python
 (begin
   (define fib
     (lambda (n)
@@ -339,19 +344,19 @@ pip install git+https://github.com/data-science-tools/postgres_kernel.git@master
 #### 测试
 
 
-```Rust
+```python
 -- connection: postgres://postgres:postgres@localhost:5432/test
 ```
 
 
-```Rust
+```python
 -- autocommit: true
 ```
 
     switched autocommit mode to True
 
 
-```Rust
+```python
 SELECT * FROM Person limit 5
 ```
 
@@ -387,7 +392,7 @@ install_c_kernel
 #### 测试一下
 
 
-```Rust
+```python
 //cflag:-lm
 #include <stdio.h>
 #include <math.h>
@@ -423,7 +428,7 @@ cling[从这里下载](https://ecsft.cern.ch/dist/cling/current/)对应版本的
 切换Kernel到C++:
 
 
-```Rust
+```python
 #include <stdio.h>
 printf("Hello World!\n")
 ```
@@ -433,7 +438,7 @@ printf("Hello World!\n")
 
 
 
-```Rust
+```python
 .rawInput
 void test() {//方法
     printf("just a test");
@@ -446,21 +451,21 @@ void test() {//方法
 
 
 
-```Rust
+```python
 test()
 ```
 
     just a test
 
 
-```Rust
+```python
 auto func = [](int a, int b) -> int { return a+b; };//c++11中的匿名函数
 ```
 
     
 
 
-```Rust
+```python
 func(2, 3)
 ```
 
@@ -468,7 +473,7 @@ func(2, 3)
 
 
 
-```Rust
+```python
 .rawInput
 class Rectangle {//类
     private:
@@ -494,7 +499,7 @@ class Rectangle {//类
     
 
 
-```Rust
+```python
 Rectangle r = Rectangle(5, 4);
 r.area()
 ```
@@ -564,17 +569,17 @@ mkdir -p ~/.ipython/kernels/gophernotes
 
 
 
-```Rust
+```python
 import "fmt"
 ```
 
 
-```Rust
+```python
 word := "world"
 ```
 
 
-```Rust
+```python
 fmt.Sprintf("hello %s",word)
 ```
 
@@ -588,29 +593,29 @@ fmt.Sprintf("hello %s",word)
 > channels
 
 
-```Rust
+```python
 msg := make(chan string)
 ```
 
 
-```Rust
+```python
 go func() {msg <- "ping"}()
 ```
 
 
-```Rust
+```python
 message := <- msg
 ```
 
 > 例子
 
 
-```Rust
+```python
 import "fmt"
 ```
 
 
-```Rust
+```python
 fmt.Print("1")
 ```
 
@@ -639,7 +644,7 @@ evcxr_jupyter --install
 #### 测试
 
 
-```Rust
+```python
 use std::fmt::Debug;
 pub struct Matrix<T> {
     pub values: Vec<T>, 
@@ -666,7 +671,7 @@ impl<T: Debug> Matrix<T> {
 ```
 
 
-```Rust
+```python
 let m = Matrix {values: vec![1,2,3,4,5,6,7,8,9], row_size: 3};
 m
 ```
@@ -697,7 +702,7 @@ jp-babel-notebook
 切换Kernel到JavaScript(Node.js)
 
 
-```Rust
+```python
 var Animal = {
     createNew: function(){
         var animal = {}
@@ -760,7 +765,7 @@ IRkernel::installspec()
 切换Kernel到R:
 
 
-```Rust
+```python
 library(sca)
 height=c(1.75,1.82,1.78,1.93,1.77)
 weight=c(69,80,78,96,65)
@@ -840,7 +845,7 @@ ipython console --kernel scala211
 
 
 
-```Rust
+```python
 def factorial(n:Int):Int = {
     if(n >0) n * factorial(n-1) else 1
 }
@@ -851,7 +856,7 @@ def factorial(n:Int):Int = {
 
 
 
-```Rust
+```python
 factorial(5)
 ```
 
