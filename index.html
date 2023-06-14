@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Tutorial For Python</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css">
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: 'Tutorial For Python',
+      loadSidebar: true,
+      // maxLevel: 6,
+      repo: 'https://github.com/hsz1273327/TutorialForPython',
+      logo: '/images/pythonlogo.svg',
+      subMaxLevel: 1,
+      auto2top: true,
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      },
+      toc: {
+        scope: '.markdown-section',
+        headings: 'h1, h2, h3, h4',
+        title: '快速跳转',
+      },
+      notFoundPage:true,
+      pagination: {
+        previousText: '上一章节',
+        nextText: '下一章节',
+        crossChapter: true,
+        crossChapterText: true,
+      },
+      search: {
+        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+        paths: [], // or 'auto'
+        placeholder: 'Type to search',
+
+        // 支持本地化
+        placeholder: {
+          '/zh-cn/': '搜索',
+          '/': 'Type to search'
+        },
+
+        noData: 'No Results!',
+
+        // 支持本地化
+        noData: {
+          '/zh-cn/': '找不到结果',
+          '/': 'No Results'
+        },
+
+        // 搜索标题的最大程级, 1 - 6
+        depth: 2
+      },
+      copyCode: {
+        // buttonText : 'buttonText:String',
+        // errorText  : 'errorText:String',
+        // successText: 'successText:String'
+
+        buttonText: {
+          '/zh-cn/': '点击复制',
+          '/ru/': 'Скопировать в буфер обмена',
+          '/de-de/': 'Klicken Sie zum Kopieren',
+          '/es/': 'Haga clic para copiar',
+          '/': 'Copy to clipboard'
+        },
+        errorText: {
+          '/zh-cn/': '错误',
+          '/ru/': 'ошибка',
+          '/': 'Error'
+        },
+        successText: {
+          '/zh-cn/': '复制',
+          '/ru/': 'Скопировано',
+          '/de-de/': 'Kopiert',
+          '/es/': 'Copiado',
+          '/': 'Copied'
+        }
+      }
+    }
+  </script>
+  <!-- CDN files for docsify.-->
+  <!-- <script src="js/docsify.js?v=1.1.0"></script> -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@latest/lib/docsify.min.js"></script>
+  <!-- CDN files for docsify plugins.-->
+  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  <script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+  <!-- CDN files for docsify-katex -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+  <!-- or <script src="//cdn.jsdelivr.net/gh/upupming/docsify-katex/dist/docsify-katex.js"></script> -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+  <!-- Put them above docsify.min.js -->
+  <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-c.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-cmake.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-makefile.min.js"></script>
+
+</body>
+
+</html>
