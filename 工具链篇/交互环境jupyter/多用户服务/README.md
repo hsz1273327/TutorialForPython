@@ -8,4 +8,9 @@ jupyter的多用户服务使用`Jupyter hub`.这是一套部署方案,大体上�
 
 `jupyter hub`有多种部署方案,可以支持从100人以内的小团队到100人以上大团队的需求.本文将介绍在不同规模下个人认为最靠谱的部署方案.
 
-本文仅介绍`Jupyter Lab`作为前端的`jupyter hub`部署方案.
+本文仅介绍`Jupyter Lab`作为前端的`jupyter hub`部署方案,需要有如下先验知识:
+
+
+1. ssh相关知识.可以查看[我的这篇介绍文章](https://blog.hszofficial.site/introduce/2020/10/22/%E5%85%B3%E4%BA%8Essh%E7%9A%84%E6%8A%80%E5%B7%A7/)
+2. docker/docker swarm相关知识.可以查看[我的这篇介绍文章](https://blog.hszofficial.site/TutorialForDocker/#/)
+3. k8s相关知识.
