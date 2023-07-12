@@ -1,0 +1,1 @@
+docker network create --driver bridge --attachable jupyterhub_network

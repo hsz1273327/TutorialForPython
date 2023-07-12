@@ -1,0 +1,33 @@
+ARG OWNER=hsz1273327
+ARG BASE_CONTAINER=$OWNER/base-notebook-cuda:latest
+FROM --platform=$TARGETPLATFORM $BASE_CONTAINER
+
+RUN mamba install -c conda-forge cudatoolkit=11.8.0 pygraphviz pydot lxml cython
+RUN pip install nvidia-cudnn-cu11==8.6.0.163 tensorflow==2.12.*
+
+RUN mkdir -p $CONDA_DIR/etc/conda/activate.d
+RUN echo 'CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))' >> $CONDA_DIR/etc/conda/activate.d/env_vars.sh
+RUN echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_DIR/lib/:$CUDNN_PATH/lib' >> $CONDA_DIR/etc/conda/activate.d/env_vars.sh
+RUN source $CONDA_DIR/etc/conda/activate.d/env_vars.sh
+
+RUN pip --no-cache-dir install --upgrade pip
+RUN pip --no-cache-dir install ipywidgets
+RUN pip --no-cache-dir install widgetsnbextension
+RUN pip --no-cache-dir install matplotlib
+RUN pip --no-cache-dir install seaborn
+
+RUN pip --no-cache-dir install pandas
+RUN pip --no-cache-dir install pyarrow
+RUN pip --no-cache-dir install thefuzz
+RUN pip --no-cache-dir install pyod
+RUN pip --no-cache-dir install scipy
+RUN pip --no-cache-dir install scikit-learn
+RUN pip --no-cache-dir install scikit-image
+RUN pip --no-cache-dir install skforecast
+RUN pip --no-cache-dir install sympy
+RUN pip --no-cache-dir install statsmodels
+RUN pip --no-cache-dir install pingouin
+RUN pip --no-cache-dir install mpmath
+RUN pip --no-cache-dir install networkx
+
+COPY tf.ipynb /home/jovyan/work/examples/tf.ipynb

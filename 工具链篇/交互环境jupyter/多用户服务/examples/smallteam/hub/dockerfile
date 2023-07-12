@@ -1,0 +1,5 @@
+FROM --platform=$TARGETPLATFORM jupyterhub/jupyterhub:4.0.1 as base
+RUN pip install jupyterhub-nativeauthenticator
+RUN pip install dockerspawner
+COPY jupyterhub_config.py /srv/jupyterhub/jupyterhub_config.py
+CMD ["jupyterhub", "-f", "/srv/jupyterhub/jupyterhub_config.py"]

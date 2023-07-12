@@ -1,2 +1,0 @@
-FROM --platform=$TARGETPLATFORM dockerhub/dockerhub:latest as base
-RUN pip install jupyterhub-nativeauthenticator
