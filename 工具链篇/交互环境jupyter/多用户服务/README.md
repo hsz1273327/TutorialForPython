@@ -14,3 +14,5 @@ jupyter的多用户服务使用`Jupyter hub`.这是一套部署方案,大体上�
 1. ssh相关知识.可以查看[我的这篇介绍文章](https://blog.hszofficial.site/introduce/2020/10/22/%E5%85%B3%E4%BA%8Essh%E7%9A%84%E6%8A%80%E5%B7%A7/)
 2. docker/docker swarm相关知识.可以查看[我的这篇介绍文章](https://blog.hszofficial.site/TutorialForDocker/#/)
 3. k8s相关知识.
+
+同时在项目[Basic-Components/base-image-for-jupyterhub](https://github.com/Basic-Components/base-image-for-jupyterhub)中我构造了常用的jupyter相关基镜像.

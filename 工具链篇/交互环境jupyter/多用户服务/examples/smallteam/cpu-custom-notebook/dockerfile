@@ -1,0 +1,14 @@
+FROM --platform=$TARGETPLATFORM hsz1273327/small-dataset-notebook:notebook-6.5.4 as base
+# 更换Ubuntu的源
+USER root
+RUN sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+RUN sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+
+USER ${NB_UID}
+# 更换conda的源
+COPY --chown="${NB_UID}:${NB_GID}" initial-condarc "${CONDA_DIR}/.condarc"
+# 更换pip源
+COPY --chown="${NB_UID}:${NB_GID}" pip.conf "${HOME}/.pip/pip.conf"
+
+# 复制例子
+COPY conntodata.ipynb /home/jovyan/work/examples/conntodata.ipynb
