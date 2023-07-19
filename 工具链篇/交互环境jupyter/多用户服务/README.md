@@ -16,3 +16,7 @@ jupyter的多用户服务使用`Jupyter hub`.这是一套部署方案,大体上�
 3. k8s相关知识.
 
 同时在项目[Basic-Components/base-image-for-jupyterhub](https://github.com/Basic-Components/base-image-for-jupyterhub)中我构造了常用的jupyter相关基镜像.
+
+
+
+sudo docker run hsz1273327/gpu-base-notebook:cuda11.8.0-cudnn8-ubuntu22.04-notebook6.5.4 start-notebook.sh

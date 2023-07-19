@@ -1,0 +1,28 @@
+version: "2.4"
+services:
+    jupyterhub:
+        image: hsz1273327/jupyterhub-for-standalone
+        # This is necessary to prevent the singleton hub from using its service number as its hostname
+        hostname: jupyterhub
+        container_name: jupyterhub
+        # Permit communication with the host's docker server
+        networks:
+            - jupyterhub_network
+        ports:
+            - 8001:8000
+        volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"
+            - "jupyterhub-data:/data"
+        # Ensure Hub and Notebook servers are on the same network
+        environment:
+            HUB_PORT: 8000
+            SPAWNER_NETWORK_NAME: jupyterhub_network
+            SPAWNER_NOTEBOOK_IMAGE: hsz1273327/gpu-torch-notebook:pytorch2.0.1-cuda11.8.0-notebook6.5.4
+            SPAWNER_USE_GPUS: 1
+
+volumes:
+    jupyterhub-data:
+
+networks:
+    jupyterhub_network:
+        external: true
