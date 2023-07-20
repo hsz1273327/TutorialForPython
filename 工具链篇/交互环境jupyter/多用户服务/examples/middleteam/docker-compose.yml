@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+    jupyterhub:
+        image: hsz1273327/jupyterhub-for-swarm:4.0.1
+        # This is necessary to prevent the singleton hub from using its service number as its hostname
+        hostname: jupyterhub
+        container_name: jupyterhub
+        # Permit communication with the host's docker server
+        networks:
+            - jupyterhub_network
+        ports:
+            - 8001:8000
+        volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"
+            - "jupyterhub-data:/data"
+        # Ensure Hub and Notebook servers are on the same network
+        environment:
+            HUB_PORT: 8000
+            SPAWNER_NETWORK_NAME: jupyterhub_network
+            SPAWNER_NOTEBOOK_IMAGE: hsz1273327/small-dataset-notebook:notebook-6.5.4
+        deploy:
+            mode: global
+            placement:
+                constraints:
+                    - node.role==manager
+            resources:
+                limits:
+                    cpus: '2.0'
+                    memory: 500M
+                reservations:
+                    cpus: '0.1'
+                    memory: 10M
+            restart_policy:
+                condition: on-failure
+                delay: 5s
+                max_attempts: 3
+                window: 100s
+
+volumes:
+    jupyterhub-data:
+
+networks:
+    jupyterhub_network:
+        external: true
