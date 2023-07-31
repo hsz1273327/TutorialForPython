@@ -1,7 +1,7 @@
 version: "2.4"
 services:
     jupyterhub:
-        image: hsz1273327/jupyterhub-for-standalone
+        image: hsz1273327/jupyterhub-for-standalone:4.0.1
         # This is necessary to prevent the singleton hub from using its service number as its hostname
         hostname: jupyterhub
         container_name: jupyterhub
@@ -17,7 +17,8 @@ services:
         environment:
             HUB_PORT: 8000
             SPAWNER_NETWORK_NAME: jupyterhub_network
-            SPAWNER_NOTEBOOK_IMAGE: hsz1273327/small-dataset-notebook:notebook-6.5.4
+            SPAWNER_NOTEBOOK_IMAGE: hsz1273327/data-analyse-notebook:notebook-6.5.4
+            SPAWNER_CONSTRAINT_IMAGES: "base->jupyter/base-notebook:notebook-6.5.4"
 
 volumes:
     jupyterhub-data:

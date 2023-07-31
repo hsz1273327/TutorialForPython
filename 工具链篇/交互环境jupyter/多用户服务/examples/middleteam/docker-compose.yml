@@ -1,25 +1,57 @@
 version: "3.8"
 services:
+    proxy:
+        image: jupyterhub/configurable-http-proxy:4.5
+        networks:
+            - jupyterhub_network_swarm
+        ports:
+            - "8001:8000"
+        environment:
+            CONFIGPROXY_AUTH_TOKEN: abc123
+        command:
+            - configurable-http-proxy
+            - "--error-target"
+            - "http://jupyterhub/hub/error"
+
+        deploy:
+            endpoint_mode: vip
+            mode: replicated
+            replicas: 1
+            resources:
+                limits:
+                    cpus: '1.0'
+                    memory: 500M
+                reservations:
+                    cpus: '0.1'
+                    memory: 10M
+            restart_policy:
+                condition: on-failure
+                delay: 5s
+                max_attempts: 3
+                window: 100s
+        
     jupyterhub:
         image: hsz1273327/jupyterhub-for-swarm:4.0.1
-        # This is necessary to prevent the singleton hub from using its service number as its hostname
         hostname: jupyterhub
         container_name: jupyterhub
-        # Permit communication with the host's docker server
         networks:
-            - jupyterhub_network
-        ports:
-            - 8001:8000
+            - jupyterhub_network_swarm
         volumes:
             - "/var/run/docker.sock:/var/run/docker.sock"
             - "jupyterhub-data:/data"
-        # Ensure Hub and Notebook servers are on the same network
         environment:
-            HUB_PORT: 8000
-            SPAWNER_NETWORK_NAME: jupyterhub_network
-            SPAWNER_NOTEBOOK_IMAGE: hsz1273327/small-dataset-notebook:notebook-6.5.4
+            PROXY_SHOULD_START: "False"
+            PROXY_API_URL: http://proxy:8001
+            CONFIGPROXY_AUTH_TOKEN: abc123
+            SPAWNER_NETWORK_NAME: jupyterhub_network_swarm
+            SPAWNER_NOTEBOOK_IMAGE: hsz1273327/gpu-torch-notebook:pytorch2.0.1-cuda11.8.0-notebook6.5.4
+            SPAWNER_ENDPOINT_MODE: vip
+            SPAWNER_PERSISTENCE_VOLUME_TYPE: local
+            SPAWNER_USE_GPUS: 1
         deploy:
-            mode: global
+            endpoint_mode: vip
+            mode: replicated
+            replicas: 1
             placement:
                 constraints:
                     - node.role==manager
@@ -38,7 +70,6 @@ services:
 
 volumes:
     jupyterhub-data:
-
 networks:
-    jupyterhub_network:
+    jupyterhub_network_swarm:
         external: true

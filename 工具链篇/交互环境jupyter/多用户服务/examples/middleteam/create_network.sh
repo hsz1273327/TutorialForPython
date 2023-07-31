@@ -1,1 +1,1 @@
-docker network create --driver overlay --attachable jupyterhub_network
+docker network create --driver overlay --attachable jupyterhub_network_swarm

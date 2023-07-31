@@ -1,7 +1,7 @@
 version: "2.4"
 services:
     jupyterhub:
-        image: hsz1273327/jupyterhub-for-standalone
+        image: hsz1273327/jupyterhub-for-standalone:4.0.1
         # This is necessary to prevent the singleton hub from using its service number as its hostname
         hostname: jupyterhub
         container_name: jupyterhub
