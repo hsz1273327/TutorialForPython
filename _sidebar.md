@@ -30,7 +30,6 @@
             * [作为服务供大型团队使用](工具链篇/交互环境jupyter/多用户服务/作为服务供大型团队使用.md)
         * [Notebook工具](工具链篇/交互环境jupyter/Notebook工具/README.md)
             * [notebook格式转换工具](工具链篇/交互环境jupyter/Notebook工具/notebook格式转换工具.md)
-            * [基于notebook的课程管理工具]
         * [结语](工具链篇/交互环境jupyter/结语.md)
     * [结语](工具链篇/结语.md)
 
