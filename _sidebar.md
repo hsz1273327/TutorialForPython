@@ -23,9 +23,11 @@
             * [自定义WrapperKernel](工具链篇/交互环境jupyter/Jupyter的核心层/自定义WrapperKernel.md)
             * [Jupyter的多语言支持](工具链篇/交互环境jupyter/Jupyter的核心层/多进程并行计算.md)
         * [Jupyter的交互层](工具链篇/交互环境jupyter/Jupyter的交互层/Jupyter的交互层.md)
-        * [多用户服务层](工具链篇/交互环境jupyter/多用户服务层/README.md)
-            * [作为服务供单人使用](工具链篇/交互环境jupyter/多用户服务层/作为服务供单人使用.md)
-            * []
+        * [多用户服务层](工具链篇/交互环境jupyter/多用户服务/README.md)
+            * [作为服务供单人使用](工具链篇/交互环境jupyter/多用户服务/作为服务供单人使用.md)
+            * [作为服务供小型团队使用](工具链篇/交互环境jupyter/多用户服务/作为服务供小型团队使用.md)
+            * [作为服务供中型团队使用](工具链篇/交互环境jupyter/多用户服务/作为服务供中型团队使用.md)
+            * [作为服务供大型团队使用](工具链篇/交互环境jupyter/多用户服务/作为服务供大型团队使用.md)
         * [Notebook工具](工具链篇/交互环境jupyter/Notebook工具/README.md)
             * [notebook格式转换工具](工具链篇/交互环境jupyter/Notebook工具/notebook格式转换工具.md)
             * [基于notebook的课程管理工具]
