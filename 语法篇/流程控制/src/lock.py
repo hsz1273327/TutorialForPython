@@ -1,14 +1,22 @@
 import multiprocessing  
 import sys  
   
-def worker_with(lock, f):  
+def worker_with(lock, f, pid):  
     with lock:  
         with open(f,"a+") as fs:
-            fs.write('Lock acquired via with\n')  
+            fs.write(f'Lock acquired via with {pid}\n')
+        print(f"Lock acquired via with {pid}")
 
 if __name__ == '__main__':
-    f = "source/file.txt"  
+    f = "source/file.txt"
+    with open(f,"w") as fs:
+        fs.write("")
     lock = multiprocessing.Lock()  
-    w = multiprocessing.Process(target=worker_with, args=(lock, f))  
-    w.start()  
-    w.join()
+    processes = []
+    for i in range(5):
+        t = multiprocessing.Process(target=worker_with, args=(lock, f,i))
+        processes.append(t)
+    for t in processes:     
+        t.start()
+    for t in processes:
+        t.join()

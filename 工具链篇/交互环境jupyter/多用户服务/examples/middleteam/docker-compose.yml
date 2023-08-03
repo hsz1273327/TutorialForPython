@@ -5,7 +5,10 @@ services:
         networks:
             - jupyterhub_network_swarm
         ports:
-            - "8001:8000"
+            - mode: host
+              protocol: tcp
+              published: 8001
+              target: 8000
         environment:
             CONFIGPROXY_AUTH_TOKEN: abc123
         command:
@@ -14,9 +17,7 @@ services:
             - "http://jupyterhub/hub/error"
 
         deploy:
-            endpoint_mode: vip
-            mode: replicated
-            replicas: 1
+            mode: global
             resources:
                 limits:
                     cpus: '1.0'
@@ -33,7 +34,6 @@ services:
     jupyterhub:
         image: hsz1273327/jupyterhub-for-swarm:4.0.1
         hostname: jupyterhub
-        container_name: jupyterhub
         networks:
             - jupyterhub_network_swarm
         volumes:
@@ -44,17 +44,14 @@ services:
             PROXY_API_URL: http://proxy:8001
             CONFIGPROXY_AUTH_TOKEN: abc123
             SPAWNER_NETWORK_NAME: jupyterhub_network_swarm
-            SPAWNER_NOTEBOOK_IMAGE: hsz1273327/gpu-torch-notebook:pytorch2.0.1-cuda11.8.0-notebook6.5.4
-            SPAWNER_ENDPOINT_MODE: vip
+            # SPAWNER_NOTEBOOK_IMAGE: hsz1273327/gpu-torch-notebook:pytorch2.0.1-cuda11.8.0-notebook6.5.4
+            SPAWNER_NOTEBOOK_IMAGE: hsz1273327/data-analyse-notebook:notebook-6.5.4
+            SPAWNER_ENDPOINT_MODE: dnsrr
             SPAWNER_PERSISTENCE_VOLUME_TYPE: local
-            SPAWNER_USE_GPUS: 1
         deploy:
-            endpoint_mode: vip
+            endpoint_mode: dnsrr
             mode: replicated
             replicas: 1
-            placement:
-                constraints:
-                    - node.role==manager
             resources:
                 limits:
                     cpus: '2.0'

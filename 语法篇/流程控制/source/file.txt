@@ -1,3 +1,5 @@
-Lock acquired via with
-Lock acquired via with
-Lock acquired via with
+Lock acquired via with 4
+Lock acquired via with 0
+Lock acquired via with 2
+Lock acquired via with 1
+Lock acquired via with 3

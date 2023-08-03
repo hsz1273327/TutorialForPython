@@ -4,10 +4,10 @@ def foo(tid,sema):
     import time
     from random import random
     with sema:
-        print('{} acquire sema'.format(tid))
+        print(f'{tid} acquire sema')
         wt = random() * 2
         time.sleep(wt)
-    print('{} release sema'.format(tid))
+    print(f'{tid} release sema')
     
 if __name__ == "__main__":
     sema = Semaphore(3)

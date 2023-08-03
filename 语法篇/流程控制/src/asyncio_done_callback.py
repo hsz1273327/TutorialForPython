@@ -1,6 +1,5 @@
 import asyncio
 import random
-loop = asyncio.get_event_loop()
 
 
 async def never_end():
@@ -14,4 +13,4 @@ async def main():
     while True:
         await asyncio.sleep(1)
 
-loop.run_until_complete(main())
+asyncio.run(main())
