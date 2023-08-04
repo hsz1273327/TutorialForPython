@@ -98,27 +98,14 @@
 
     * [结语](语法篇/结语.md)
 
-* [底层篇](底层篇/README.md)
-    * [虚拟机篇](底层篇/虚拟机篇/README.md)
-        * [编译与反编译](底层篇/虚拟机篇/编译与反编译.md)
-        * [python的虚拟机](底层篇/虚拟机篇/python的虚拟机.md)
-    * [嵌入与扩展](底层篇/嵌入与扩展/README.md)
-        * [Cpython中的C接口](底层篇/嵌入与扩展/Cpython中的C接口.md)
-        * [使用Cython优化python程序的性能](底层篇/嵌入与扩展/使用Cython优化python程序的性能/README.md)
-            * [Cython的简单介绍](底层篇/嵌入与扩展/使用Cython优化python程序的性能/Cython的简单介绍/Cython的简单介绍.md)
-            * [Cython的基本模式](底层篇/嵌入与扩展/使用Cython优化python程序的性能/使用cython编写python模块/Cython的基本模式.md)
-            * [静态化python模块](嵌入与扩展篇/使用Cython优化python程序的性能/使用cython加速python源码/静态化python模块/静态化python模块.md)
-            * [使用cython申明文件申明python源码类型](底层篇/嵌入与扩展/使用Cython优化python程序的性能/使用cython加速python源码/cython的纯净模式/使用cython申明文件申明python源码类型.md)
-            * [Cython的包装模式](底层篇/嵌入与扩展/使用Cython优化python程序的性能/使用cython包装C或C++项目/Cython的包装模式.md)
-            * [使用Cython扩展numpy](底层篇/嵌入与扩展/使用Cython优化python程序的性能/使用Cython扩展numpy/使用Cython扩展numpy.md)
-        * [用numba为python写高性能C扩展](底层篇/嵌入与扩展/用numba为python写高性能C扩展.md)
-        * [使用f2py用fortain给python写扩展](底层篇/嵌入与扩展/使用f2py用fortain给python写扩展/使用f2py用fortain给python写扩展.md)
-        * [结语](底层篇/嵌入与扩展/结语.md)
-    * [将python解释器嵌入应用]
+
 * [技巧篇](技巧篇/README.md)
-    * [数据结构]
-    * [算法]
-    * [设计模式]
+    * [设计模式实现](技巧篇/设计模式实现/README.md)
+        * [单例模式和Monostate模式](技巧篇/设计模式实现/单例模式和Monostate模式.md)
+        * [策略模式](技巧篇/设计模式实现/策略模式.md)
+        * [命令模式](技巧篇/设计模式实现/命令模式.md)
+        * [结语](技巧篇/设计模式实现/结语.md)
+    * [特殊场景的工具选择](技巧篇/特殊场景的工具选择/README.md)
 
 * [基础应用篇](基础应用篇/README.md)
     * [国际化](基础应用篇/国际化/README.md)
@@ -142,10 +129,10 @@
         * [标准输入输出](基础应用篇/命令行交互/标准输入输出.md)
         * [使用python编写命令行工具](基础应用篇/命令行交互/使用python编写命令行工具.md)
         * [自定义交互式界面](基础应用篇/命令行交互/自定义交互式界面.md)
-    * [GUI](基础应用篇/GUI/README.md)
+    <!-- * [GUI](基础应用篇/GUI/README.md)
         * [TK框架GUI编程的基本思路](基础应用篇/GUI/TK框架GUI编程的基本思路.md)
         * [Tkinter的组件介绍](基础应用篇/GUI/Tkinter的组件介绍.md)
-        * [结合pandas和matplotlib制作数据科学GUI工具](基础应用篇/GUI/结合pandas和matplotlib制作数据科学GUI工具/结合pandas和matplotlib制作数据科学GUI工具.md)
+        * [结合pandas和matplotlib制作数据科学GUI工具](基础应用篇/GUI/结合pandas和matplotlib制作数据科学GUI工具/结合pandas和matplotlib制作数据科学GUI工具.md) -->
     * [数据读写](基础应用篇/数据读写/README.md)
         * [文件与IO流](基础应用篇/数据读写/文件与IO流.md)
         * [通过接口读写数据](基础应用篇/数据读写/通过RPC服务读写数据/README.md)
@@ -158,14 +145,13 @@
             * [GRpc接口服务](基础应用篇/数据读写/通过RPC服务读写数据/GRpc接口服务.md)
             * [ZERORPC接口服务](基础应用篇/数据读写/通过RPC服务读写数据/ZERORPC接口服务.md)
         * [数据库读写](基础应用篇/数据读写/数据库读写.md)
-    * [简单数据处理]()
+
+    <!-- * [简单数据处理]()
         * [文本数据解析](基础应用篇/数据读写/通过Http接口获取数据/解析html文件.md)
         * [图像数据解析]
         * [音频数据解析]
         * [结构化数据验证](基础应用篇/结构数据验证.md)
-        * [简单数据计算和统计]
+        * [简单数据计算和统计] -->
     * [定时任务](基础应用篇/定时任务.md)
     * [调用子进程](基础应用篇/调用子进程.md)
     * [结语](输入输出篇/结语.md)
-
-* [术语表](术语表/README.md)
