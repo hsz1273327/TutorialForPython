@@ -1,4 +1,3 @@
-
 # python中的对象
 
 python中万物都是对象,构造这些对象的都是由继承自`object`的类型创建而得.而得益于python数据模型,自定义类型的行为可以像内置类型那样自然。实现如此自然的行为,靠的不是继承,而是鸭子类型(duck typing):我们只需按照预定行为实现对象所需的方法即可.
@@ -654,7 +653,7 @@ len(set([v11, v22]))
 
 
 
-### 使用[具名元组](https://tutorialforpython.github.io/%E8%AF%AD%E6%B3%95%E7%AF%87/%E5%86%85%E7%BD%AE%E5%AE%B9%E5%99%A8/%E5%BA%8F%E5%88%97%E5%AF%B9%E8%B1%A1.html#%E5%85%B7%E5%90%8D%E5%85%83%E7%BB%84)构建节省空间的类[3.6]
+### 使用[具名元组](https://tutorialforpython.github.io/%E8%AF%AD%E6%B3%95%E7%AF%87/%E5%86%85%E7%BD%AE%E5%AE%B9%E5%99%A8/%E5%BA%8F%E5%88%97%E5%AF%B9%E8%B1%A1.html#%E5%85%B7%E5%90%8D%E5%85%83%E7%BB%84)构建节省空间的类
 
 
 在python 3.6后我们可以为类中的字段做类型标注了,利用这一特性,`typing.NamedTuple`新增了一个用法,我们可以继承它用它构造一个节省空间的类,它有`NamedTuple`的所有接口.
@@ -702,7 +701,7 @@ p3._asdict()
 
 
 
-## 数据类[3.7]
+## 数据类
 
 
 新加的数据类在标准库[`dataclasses`](https://docs.python.org/3.7/library/dataclasses.html#dataclasses.dataclass)中.它的作用是为类快速定义一些魔术方法,它使用装饰器语法,有两种形式:
