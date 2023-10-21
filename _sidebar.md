@@ -98,8 +98,6 @@
     * [结语](语法篇/结语.md)
 
 
-* [底层篇](底层篇/README.md)
-    * [Cpython的虚拟机和解释器](底层篇/Cpython的虚拟机和解释器.md)
 
 * [技巧篇](技巧篇/README.md)
     * [设计模式实现](技巧篇/设计模式实现/README.md)
@@ -161,4 +159,9 @@
     * [调用子进程](基础应用篇/调用子进程.md)
     * [结语](输入输出篇/结语.md)
 
+* [*底层篇](底层篇/README.md)
+    * [Cpython的虚拟机和解释器](底层篇/Cpython的虚拟机和解释器.md)
 
+* [*扩展篇](扩展篇/README.md)
+    * [Javascript扩展](扩展篇/Javascript扩展.md)
+    * [Fortain扩展](扩展篇/Fortain扩展.md)

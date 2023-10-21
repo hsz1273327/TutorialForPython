@@ -31,3 +31,6 @@ dist
 **/.DS_Store
 .mypy_cache
 .ipynb_checkpoints
+*.whl
+*.dylib
+*.so
